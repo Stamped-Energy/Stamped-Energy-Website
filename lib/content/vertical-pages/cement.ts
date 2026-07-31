@@ -9,7 +9,7 @@ export const cementPage: VerticalPageContent = {
     eyebrow: "Cement",
     title: "AI-driven energy intelligence for cement",
     description:
-      "AI enables cement plants to prescribe optimal energy actions across continuous processes and utilities in real time, directly influencing cost stability, uptime, and long-term operational competitiveness - with savings verified on your DISCOM bill.",
+      "AI enables cement plants to prescribe optimal energy actions across continuous processes and utilities in real time, directly influencing cost stability, uptime, and long-term operational competitiveness - with outcomes verified with evidence.",
     primaryCta: CTA,
     secondaryCta: HOW,
     seoHeadings: [
@@ -174,7 +174,7 @@ export const cementPage: VerticalPageContent = {
   outcomes: {
     eyebrow: "What you gain",
     title: "Prescriptive cost optimization and sustained efficiency outcomes",
-    disclaimer: "Benchmark band Your pilot replaces these with bill-verified figures.",
+    disclaimer: "Benchmark band Your pilot replaces these with evidence-verified figures.",
     items: [
       {
         id: "kwh-ton",

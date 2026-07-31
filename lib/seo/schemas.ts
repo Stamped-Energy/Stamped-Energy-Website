@@ -74,7 +74,7 @@ export const websiteSchema = {
   "@id": WEBSITE_ID,
   name: "Stamped Energy",
   url: SITE_URL,
-  description: `${icp.seo.categoryLabelAlt} for energy-intensive plants in India - verified rupee savings on the DISCOM bill.`,
+  description: `${icp.seo.categoryLabelAlt} for energy-intensive plants in India - rupee outcomes verified with evidence.`,
   publisher: {
     "@id": ORGANIZATION_ID,
   },

@@ -9,7 +9,7 @@ export const steelPage: VerticalPageContent = {
     eyebrow: "Steel & metals",
     title: "AI-driven energy management for steel",
     description:
-      "AI enables steel manufacturers to manage fuel- and power-intensive operations at scale, where energy balance and operating discipline directly determine cost competitiveness, throughput stability, and operational consistency - with bill-verified savings.",
+      "AI enables steel manufacturers to manage fuel- and power-intensive operations at scale, where energy balance and operating discipline directly determine cost competitiveness, throughput stability, and operational consistency - with evidence-verified savings.",
     primaryCta: CTA,
     secondaryCta: HOW,
     seoHeadings: [
@@ -215,7 +215,7 @@ export const steelPage: VerticalPageContent = {
       id: "pat-sec",
       question: "How does Stamped support PAT SEC targets?",
       answer:
-        "Stamped tracks SEC improvement with bill-verified M&V - a ledger for management and PAT evidence. Stamped is prescriptive intelligence, not PAT consulting or audit services.",
+        "Stamped tracks SEC improvement with evidence-verified M&V - a ledger for management and PAT evidence. Stamped is prescriptive intelligence, not PAT consulting or audit services.",
     },
     {
       id: "integrated-steel",

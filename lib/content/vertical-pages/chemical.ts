@@ -9,7 +9,7 @@ export const chemicalPage: VerticalPageContent = {
     eyebrow: "Chemical & paint",
     title: "AI-powered energy intelligence for chemical and paint manufacturing",
     description:
-      "AI brings continuous energy discipline to chemical and paint manufacturing, improving cost control, operational predictability, and long-term competitiveness - with prescriptions assigned to your batch team and savings verified on your DISCOM bill.",
+      "AI brings continuous energy discipline to chemical and paint manufacturing, improving cost control, operational predictability, and long-term competitiveness - with prescriptions assigned to your batch team and outcomes verified with evidence.",
     primaryCta: CTA,
     secondaryCta: HOW,
     seoHeadings: [
@@ -168,7 +168,7 @@ export const chemicalPage: VerticalPageContent = {
   outcomes: {
     eyebrow: "What you gain",
     title: "Controlled energy intensity and predictable operations",
-    disclaimer: "Benchmark band Your pilot replaces these with bill-verified figures.",
+    disclaimer: "Benchmark band Your pilot replaces these with evidence-verified figures.",
     items: [
       {
         id: "batch-sec",

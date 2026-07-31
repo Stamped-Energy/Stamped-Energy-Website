@@ -62,7 +62,7 @@ export const caseStudiesContent = {
 
   finalCta: {
     eyebrow: "See it on your plant",
-    title: "Start with a pilot, verify on the next bill",
+    title: "Start with a pilot, verify with evidence",
     description:
       "We connect to existing meters and plant data. One verified saving before you commit to annual subscription.",
     primaryCta: { label: "Book a Discovery Call", href: "/contact" },

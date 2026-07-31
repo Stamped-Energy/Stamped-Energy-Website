@@ -264,7 +264,7 @@ export const platformContent = {
         pharmaBeforeAfter.afterHighlight,
         "One timeline: production, kW, tariff cost",
         pharmaBeforeAfter.afterPrescription,
-        "Verified saving on next DISCOM bill",
+        "Outcomes verified with evidence",
       ],
     },
   },

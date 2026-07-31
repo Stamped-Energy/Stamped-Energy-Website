@@ -9,7 +9,7 @@ export const pharmaPage: VerticalPageContent = {
     eyebrow: "Pharmaceutical",
     title: "AI-driven energy management for pharma",
     description:
-      "AI enables pharmaceutical plants to manage energy-intensive operations and utilities at scale, directly impacting operating cost, compliance, uptime, and consistent product quality across regulated manufacturing environments - with bill-verified savings.",
+      "AI enables pharmaceutical plants to manage energy-intensive operations and utilities at scale, directly impacting operating cost, compliance, uptime, and consistent product quality across regulated manufacturing environments - with evidence-verified savings.",
     primaryCta: CTA,
     secondaryCta: HOW,
     seoHeadings: [
@@ -174,7 +174,7 @@ export const pharmaPage: VerticalPageContent = {
   outcomes: {
     eyebrow: "What you gain",
     title: "Targeted waste elimination and stable thermal performance",
-    disclaimer: "BEE benchmark band Your pilot replaces these with bill-verified figures.",
+    disclaimer: "BEE benchmark band Your pilot replaces these with evidence-verified figures.",
     items: [
       {
         id: "hvac-rupees",

@@ -11,7 +11,7 @@ export const PAGE_SEO = {
     absoluteTitle:
       "Stamped Energy | AI-Powered Energy Intelligence for Plants in India",
     description:
-      "AI-powered prescriptive intelligence for plants with ₹20 lakh+ monthly electricity bills. Ranked actions, assigned owners, bill-verified savings on your DISCOM bill. Cement, steel, pharma, chemical, automotive. Verified savings and auditable energy intensity for Indian manufacturers.",
+      "AI-powered prescriptive intelligence for plants with ₹20 lakh+ monthly electricity bills. Ranked actions, assigned owners, outcomes verified with evidence. Cement, steel, pharma, chemical, automotive. Auditable energy intensity for Indian manufacturers.",
     path: "/",
   },
   platform: {
@@ -48,7 +48,7 @@ export const PAGE_SEO = {
   about: {
     absoluteTitle: "About Stamped Energy | IIT Roorkee Engineers, Verified Savings",
     description:
-      "Stamped Energy is AI-powered prescriptive energy intelligence built by IIT Roorkee electrical engineers for plant heads who need verified savings on the DISCOM bill, not another monitoring dashboard.",
+      "Stamped Energy is AI-powered prescriptive energy intelligence built by IIT Roorkee electrical engineers for plant heads who need outcomes verified with evidence, not another monitoring dashboard.",
     path: "/about",
   },
   blog: {
@@ -72,31 +72,31 @@ export const PAGE_SEO = {
   industries: {
     absoluteTitle: "Industries | Stamped Energy - Cement, Steel, Pharma, Chemical, Auto",
     description:
-      "AI-powered energy intelligence for cement, steel, pharmaceutical, chemical, and automotive plants in India. Purpose-built for plants with ₹20 lakh+ monthly electricity bills - verified on your DISCOM bill.",
+      "AI-powered energy intelligence for cement, steel, pharmaceutical, chemical, and automotive plants in India. Purpose-built for plants with ₹20 lakh+ monthly electricity bills - verified with evidence.",
     path: "/industries",
   },
   industriesAutomotive: {
     absoluteTitle: "Automotive Plant Energy Intelligence | Stamped Energy",
     description:
-      "AI-powered energy intelligence for automotive and auto component plants. Die casting, forging, heat treatment, rubber moulding - prescriptions with rupee impact, verified on your DISCOM bill.",
+      "AI-powered energy intelligence for automotive and auto component plants. Die casting, forging, heat treatment, rubber moulding - prescriptions with rupee impact, verified with evidence.",
     path: "/industries/automotive",
   },
   industriesCement: {
     absoluteTitle: "Cement Plant Energy Management India | Stamped Energy",
     description:
-      "AI-driven energy intelligence for cement plants. kWh/ton, MD, WHR and grid dispatch prescriptions - verified on your DISCOM bill. For plants with ₹20 lakh+ monthly electricity bills.",
+      "AI-driven energy intelligence for cement plants. kWh/ton, MD, WHR and grid dispatch prescriptions - verified with evidence. For plants with ₹20 lakh+ monthly electricity bills.",
     path: "/industries/cement",
   },
   industriesSteel: {
     absoluteTitle: "Steel Plant Energy Efficiency India | Stamped Energy",
     description:
-      "AI-driven energy management for steel and metals plants. Induction furnaces, rolling mills, MD control, PAT-aligned SEC - bill-verified prescriptions for plants in India.",
+      "AI-driven energy management for steel and metals plants. Induction furnaces, rolling mills, MD control, PAT-aligned SEC - evidence-led prescriptions for plants in India.",
     path: "/industries/steel",
   },
   industriesPharma: {
     absoluteTitle: "Pharmaceutical Plant HVAC Energy Savings | Stamped Energy",
     description:
-      "AI-driven energy management for pharma plants. Chiller staging, AHU schedules, MD prescriptions - GMP-safe utility levers with savings verified on your DISCOM bill.",
+      "AI-driven energy management for pharma plants. Chiller staging, AHU schedules, MD prescriptions - GMP-safe utility levers with savings verified with evidence.",
     path: "/industries/pharma",
   },
   industriesChemical: {

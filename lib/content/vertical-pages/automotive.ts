@@ -10,7 +10,7 @@ export const automotivePage: VerticalPageContent = {
     eyebrow: "Automotive",
     title: "AI-powered energy intelligence for automotive manufacturing",
     description:
-      "AI enables automotive manufacturers to control energy-intensive operations and utilities at scale, directly influencing cost stability, uptime, and long-term operational competitiveness - with prescriptions assigned to your plant floor and savings verified on your DISCOM bill.",
+      "AI enables automotive manufacturers to control energy-intensive operations and utilities at scale, directly influencing cost stability, uptime, and long-term operational competitiveness - with prescriptions assigned to your plant floor and outcomes verified with evidence.",
     primaryCta: CTA,
     secondaryCta: HOW,
     seoHeadings: [
@@ -172,7 +172,7 @@ export const automotivePage: VerticalPageContent = {
     eyebrow: "What you gain",
     title: "Controlled energy intensity and sustained efficiency outcomes",
     disclaimer:
-      "Target bands from comparable plant Your pilot replaces these with bill-verified figures.",
+      "Target bands from comparable plant Your pilot replaces these with evidence-verified figures.",
     items: [
       {
         id: "real-time",
@@ -196,7 +196,7 @@ export const automotivePage: VerticalPageContent = {
         id: "sustained",
         title: "Sustained efficiency outcomes",
         description:
-          "Continuous feedback loops prescribe, validate, and refine actions over time, locking in 10-15% verified energy cost reduction with bill-verified M&V.",
+          "Continuous feedback loops prescribe, validate, and refine actions over time, locking in 10-15% verified energy cost reduction with evidence-verified M&V.",
       },
     ],
   },

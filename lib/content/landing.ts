@@ -19,12 +19,12 @@ export const landingContent = {
   hero: {
     eyebrow: "AI-Powered Energy Intelligence",
     headlineLine1: "From plant data",
-    headlineLine2: "to verified savings",
+    headlineLine2: "to verified outcomes",
     subheadline: "",
     supportingLine:
-      "AI ranks fixes from your meters, bills, and plant data. Your team executes. We verify on the DISCOM bill.",
+      "AI ranks fixes from your meters, bills, and plant data. Your team executes. Outcomes are verified with evidence.",
     supportingLine2: icp.heroBillLine,
-    commercialBadge: "Pay as you save · Pilot first · Scale after verified bill",
+    commercialBadge: "Pay as you save · Pilot first · Scale after verified evidence",
     primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
     secondaryCta: { label: "See the Platform", href: "/platform" } satisfies CtaLink,
     features: [
@@ -69,7 +69,7 @@ export const landingContent = {
     items: [
       "Connects to incomer meters and existing SCADA. No hardware retrofit.",
       "Actions on WhatsApp to supervisors who can execute tomorrow morning",
-      "Pilot first. One verified saving on the bill before annual commitment.",
+      "Pilot first. Verified with evidence before annual commitment.",
     ],
   },
 
@@ -521,9 +521,9 @@ export const landingContent = {
   },
 
   closingCta: {
-    title: "Verify energy savings before you commit",
+    title: "See verified evidence before you commit",
     description:
-      "Begin with a pilot on your existing meters and plant data. We quantify outcomes in rupees and confirm them on your next electricity bill before annual subscription. Pilot on your existing data. Pay as you save after the bill proves it.",
+      "Begin with a pilot on your existing meters and plant data. We quantify outcomes in rupees and clear them with evidence before annual subscription. DISCOM bill confirmation can follow when the period closes.",
     primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
     secondaryCta: { label: "See the Platform", href: "/platform" } satisfies CtaLink,
   },
