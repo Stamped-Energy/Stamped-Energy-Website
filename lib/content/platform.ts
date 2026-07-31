@@ -12,12 +12,12 @@ import { getBeforeAfterScenario } from "./scenarios";
 
 const pharmaBeforeAfter = getBeforeAfterScenario();
 
-export const howItWorksContent = {
+export const platformContent = {
   hero: {
-    eyebrow: "How Stamped works on your plant",
-    title: "Prescriptive intelligence across your entire energy stack",
+    eyebrow: "Platform",
+    title: "Stamped Intelligence on your plant stack",
     description:
-      "Most plants already have meters and SCADA. The gap is analysis, root cause, and assigned fixes. Stamped monitors parameters across your plant, detects waste and anomalies, explains causes, and guides operations on what to resolve - with bill-verified savings.",
+      "Most plants already have meters and SCADA. The gap is analysis, root cause, and assigned fixes. Stamped monitors plant signals, detects waste and equipment issues, and guides operations on what to resolve — verified with evidence, then improved from followed vs ignored prescriptions.",
     primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
     secondaryCta: { label: "Back to home", href: "/" } satisfies CtaLink,
   },
@@ -103,7 +103,7 @@ export const howItWorksContent = {
 
   capabilities: {
     eyebrow: "Core capabilities",
-    title: "Signals → verified savings",
+    title: "Signals → verified outcomes",
     description:
       "Four platform layers - from universal ingestion through closed-loop governance - sized for SME manufacturers.",
     items: [
@@ -143,8 +143,8 @@ export const howItWorksContent = {
   },
 
   journey: {
-    eyebrow: "The workflow loop",
-    title: "Five steps. Same loop every month.",
+    eyebrow: "The operating loop",
+    title: "Six steps. Same loop every month.",
     steps: [
       {
         id: "connect",
@@ -186,10 +186,19 @@ export const howItWorksContent = {
         id: "verify",
         step: 5,
         title: "Verify",
-        tagline: "Check the next bill",
+        tagline: "Evidence before the next cycle",
         description: "",
-        bullets: ["Potential vs realised ₹", "Savings ledger for audits"],
+        bullets: ["Potential vs realised ₹", "Ops-cleared ledger"],
         diagram: "verify",
+      },
+      {
+        id: "improve",
+        step: 6,
+        title: "Improve",
+        tagline: "Calibrate from followed vs ignored",
+        description: "",
+        bullets: ["Rank and threshold refresh", "Plant preferences, human-gated"],
+        diagram: "improve",
       },
     ] satisfies HiwJourneyStep[],
   },
@@ -300,3 +309,6 @@ export const howItWorksContent = {
     primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
   },
 } as const;
+
+/** @deprecated Prefer platformContent */
+export const howItWorksContent = platformContent;

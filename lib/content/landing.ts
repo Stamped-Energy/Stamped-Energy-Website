@@ -193,14 +193,15 @@ export const landingContent = {
 
   workflow: {
     eyebrow: "The Stamped Energy Loop",
-    title: "From fragmented data to verified savings in five operational steps.",
+    title: "From fragmented data to verified outcomes in six operational steps.",
     description: "",
     media: {
-      title: "Five-step closed loop walkthrough",
+      title: "Six-step closed loop walkthrough",
       description:
-        "Connect plant signals, build baselines, prescribe in rupees, route on WhatsApp, verify on the bill.",
+        "Connect plant signals, build baselines, prescribe in rupees, route on WhatsApp, verify with evidence, improve from followed vs ignored Rx.",
       src: null as string | null,
-      posterAlt: "Stamped Energy five-step workflow: Connect, Observe, Decide, Execute, Verify",
+      posterAlt:
+        "Stamped Energy six-step workflow: Connect, Observe, Decide, Execute, Verify, Improve",
     },
     steps: [
       {
@@ -226,7 +227,12 @@ export const landingContent = {
       {
         id: "verify",
         title: "Verify",
-        description: "Savings verified on your electricity bill.",
+        description: "Outcomes verified with evidence.",
+      },
+      {
+        id: "improve",
+        title: "Improve",
+        description: "Calibrate from followed vs ignored Rx.",
       },
     ] satisfies WorkflowStep[],
   },
@@ -240,7 +246,7 @@ export const landingContent = {
   },
 
   howItWorks: {
-    eyebrow: "How it works",
+    eyebrow: "Platform loop",
     title: "The Stamped Energy Loop",
     cta: { label: "Full platform walkthrough", href: "/platform" } satisfies CtaLink,
     steps: [
@@ -271,8 +277,14 @@ export const landingContent = {
       {
         id: "verify-savings",
         step: 5,
-        title: "Confirm on the next bill",
-        description: "Potential vs realised savings. Defensible for plant head and OEM audits.",
+        title: "Verify with evidence",
+        description: "Potential vs realised in an ops-cleared ledger. Bill confirmation optional.",
+      },
+      {
+        id: "improve-loop",
+        step: 6,
+        title: "Improve from outcomes",
+        description: "Calibrate ranks and preferences from followed vs ignored Rx — human-gated.",
       },
     ] satisfies HowItWorksStep[],
   },

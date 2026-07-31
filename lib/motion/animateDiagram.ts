@@ -258,5 +258,12 @@ export function animateDiagramPanel(panel: HTMLElement): void {
     }
 
     animateFooter(diagram);
+    return;
+  }
+
+  if (type === "improve") {
+    animateItems(diagram, "[data-animate='item']", { y: 12 });
+    animateAccent(diagram, { scale: 0.96 });
+    animateFooter(diagram);
   }
 }

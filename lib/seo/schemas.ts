@@ -115,9 +115,9 @@ export const homepageSpeakableSchema = {
 export const howToSchema = {
   "@context": "https://schema.org",
   "@type": "HowTo",
-  name: "How Stamped Energy Delivers Verified Savings in 5 Steps",
+  name: "How Stamped Energy Runs the Connect to Improve Loop",
   description:
-    "Connect existing plant meters and SCADA, generate rupee-denominated prescriptions, assign actions to your team, and verify savings on the next DISCOM bill.",
+    "Connect existing plant meters and SCADA, generate rupee-denominated prescriptions, assign actions to your team, verify with evidence, and improve from followed vs ignored outcomes.",
   totalTime: "P30D",
   tool: [
     { "@type": "HowToTool", name: "Incomer energy meter" },
@@ -157,8 +157,15 @@ export const howToSchema = {
       "@type": "HowToStep",
       position: 5,
       name: "Verify",
-      text: "Savings are verified against the actual DISCOM electricity bill - potential vs. realised rupees, tracked in a running ledger for plant head and CFO review.",
+      text: "Outcomes are verified with evidence in an ops-cleared ledger - potential vs realised rupees for plant head and CFO review. DISCOM bill confirmation can follow.",
       url: `${SITE_URL}/platform#verify`,
+    },
+    {
+      "@type": "HowToStep",
+      position: 6,
+      name: "Improve",
+      text: "Calibrate ranks, thresholds, and plant preferences from followed vs ignored prescriptions. Human-gated - never framed as AI learning about you.",
+      url: `${SITE_URL}/platform#improve`,
     },
   ],
 };

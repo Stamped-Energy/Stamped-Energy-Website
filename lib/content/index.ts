@@ -5,7 +5,7 @@ export {
   getCaseStudyBySlug,
   getFeaturedCaseStudies,
 } from "./caseStudies";
-export { howItWorksContent } from "./howItWorks";
+export { platformContent, howItWorksContent } from "./platform";
 export {
   industriesContent,
   getAutomotiveSegments,

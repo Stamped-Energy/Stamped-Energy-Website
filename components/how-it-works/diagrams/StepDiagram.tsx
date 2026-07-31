@@ -3,6 +3,7 @@ import type { HiwJourneyStep } from "@/lib/content/types";
 import { ConnectDiagram } from "./ConnectDiagram";
 import { DecideDiagram } from "./DecideDiagram";
 import { ExecuteDiagram } from "./ExecuteDiagram";
+import { ImproveDiagram } from "./ImproveDiagram";
 import { ObserveDiagram } from "./ObserveDiagram";
 import { VerifyDiagram } from "./VerifyDiagram";
 
@@ -22,6 +23,8 @@ export function StepDiagram({ diagram }: StepDiagramProps) {
       return <ExecuteDiagram />;
     case "verify":
       return <VerifyDiagram />;
+    case "improve":
+      return <ImproveDiagram />;
     default:
       return null;
   }

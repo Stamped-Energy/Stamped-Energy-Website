@@ -257,7 +257,7 @@ export type HiwJourneyStep = {
   tagline: string;
   description: string;
   bullets: string[];
-  diagram: "connect" | "observe" | "decide" | "execute" | "verify";
+  diagram: "connect" | "observe" | "decide" | "execute" | "verify" | "improve";
 };
 
 export type HiwStackLayer = {
