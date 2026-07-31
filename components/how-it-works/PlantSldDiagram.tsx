@@ -138,11 +138,6 @@ export function PlantSldDiagram({ nodes, hint, className }: PlantSldDiagramProps
         className,
       )}
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-30 [background-image:linear-gradient(to_right,color-mix(in_srgb,var(--brand-primary)_8%,transparent)_1px,transparent_1px),linear-gradient(to_bottom,color-mix(in_srgb,var(--brand-primary)_8%,transparent)_1px,transparent_1px)] [background-size:40px_40px]"
-      />
-
       <svg
         className="absolute inset-0 h-full w-full"
         viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}

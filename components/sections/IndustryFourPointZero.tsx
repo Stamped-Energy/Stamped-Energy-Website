@@ -42,11 +42,6 @@ export function IndustryFourPointZero() {
       ref={sectionRef}
       className="relative overflow-hidden bg-secondary section-y text-on-secondary"
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-30 [background-image:linear-gradient(to_right,color-mix(in_srgb,var(--brand-inverse-primary)_8%,transparent)_1px,transparent_1px)] [background-size:64px_64px]"
-      />
-
       <Container className="relative z-10">
         <Reveal>
           <SectionHeading

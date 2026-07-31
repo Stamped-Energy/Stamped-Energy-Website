@@ -171,3 +171,22 @@ Architecture and workflow decisions for this project.
 **Rationale:** Nav label Case Studies matches the public path; article SEO stays on `/blog/[slug]`. Case Study Prisma model and `/blog/admin/case-studies` stay unchanged.
 
 **Impact:** Homepage spotlight public fetch is blog-only. Sitemap lists `/case-studies` + `/blog/{slug}`. Exact `/blog` redirect must not catch `/blog/admin` or `/blog/[slug]`.
+
+---
+
+## ADR-010: Flat surfaces, demo-deck beige, near-black green
+
+**Date:** 2026-08-01
+
+**Context:** Marketing site used pervasive decorative gradients and a greener surface (`#f0f4ee`) / secondary (`#031811`) that no longer matched product demo decks in `stamped-external`.
+
+**Alternatives:**
+
+1. Keep gradients; only nudge token hexes
+2. Flat UI: remove all marketing gradients; adopt demo-deck `--surface` `#f7faf5`; push secondary to near-black green `#000a07`; pin platform pack to `v2026.08.01`
+
+**Selected:** Option 2.
+
+**Rationale:** Demo decks are the cross-repo visual reference. Flat overlays preserve photo contrast without wash/glow. Token changes stay centralized in `styles/theme.css`.
+
+**Impact:** ~30 components lose gradient layers (solid `bg-secondary/70` scrims where needed). Submodule `external/` pinned to `v2026.08.01`. `tsconfig.json` excludes `external/` so consumer fixtures are not typechecked by the website.

@@ -100,7 +100,7 @@ export function IndustriesHubFeatured() {
                 className="object-cover object-center"
                 sizes="(max-width: 1024px) 100vw, 55vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 via-secondary/20 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-secondary/10 lg:to-secondary/40" />
+              <div className="absolute inset-0 bg-secondary/70" />
               <div className="absolute bottom-0 left-0 p-5 sm:p-6 lg:hidden">
                 <p className="text-xs font-semibold uppercase tracking-[0.12em] text-inverse-primary">
                   {vertical.name}

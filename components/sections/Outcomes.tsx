@@ -60,11 +60,6 @@ export function Outcomes() {
 
   return (
     <section ref={sectionRef} className="key-numbers relative overflow-hidden section-y">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,color-mix(in_srgb,var(--brand-primary)_10%,transparent),transparent_55%)]"
-      />
-
       <Container className="relative z-10">
         <Reveal>
           <SectionHeading

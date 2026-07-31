@@ -126,7 +126,7 @@ export function FutureMedia() {
                     className="object-cover object-center"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 via-secondary/20 to-transparent" />
+                  <div className="absolute inset-0 bg-secondary/70" />
                   <div className="absolute bottom-0 left-0 p-5">
                     <p className="text-xs font-semibold uppercase tracking-[0.12em] text-inverse-primary">
                       {futureMedia.imageCaption}

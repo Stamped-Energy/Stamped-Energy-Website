@@ -45,8 +45,7 @@ export function IndustriesHubHero() {
           className="object-cover object-center"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(105deg,color-mix(in_srgb,var(--brand-secondary)_90%,transparent)_0%,color-mix(in_srgb,var(--brand-secondary)_75%,transparent)_45%,color-mix(in_srgb,var(--brand-secondary)_50%,transparent)_100%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_25%,color-mix(in_srgb,var(--brand-primary)_20%,transparent),transparent_50%)]" />
+        <div className="absolute inset-0 bg-secondary/70" />
       </div>
 
       <Container className="relative z-10">

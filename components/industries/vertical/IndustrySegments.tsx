@@ -189,7 +189,7 @@ export function IndustrySegments({ slug }: IndustrySegmentsProps) {
                         {segment.metrics.map((metric) => (
                           <div
                             key={metric.id}
-                            className="flex flex-col items-center justify-center rounded-lg border border-primary/20 bg-gradient-to-b from-primary/10 to-primary/5 px-4 py-3.5 text-center"
+                            className="flex flex-col items-center justify-center rounded-lg border border-primary/20 bg-primary/10 px-4 py-3.5 text-center"
                           >
                             <p className="font-display text-lg font-extrabold tracking-tight text-primary">
                               {metric.value}

@@ -47,10 +47,6 @@ export function HiwOpening() {
       ref={sectionRef}
       className="page-hero relative overflow-hidden border-b border-outline-variant/40 bg-surface"
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,color-mix(in_srgb,var(--brand-primary)_12%,transparent),transparent_60%)]"
-      />
       <Container className="relative z-10">
         <div className="mx-auto max-w-3xl text-center">
           <p

@@ -5,19 +5,21 @@
  * To re-theme the entire website, change values HERE only.
  *
  * Design doc: docs/design/brand-tokens.md
+ * Surface ladder aligned to stamped-external demo-decks (--surface #f7faf5).
+ * Secondary is near-black green (#000a07).
  */
 
 :root {
-  /* --- Surfaces (green-tinted warm greys) --- */
-  --brand-surface: #f0f4ee;
-  --brand-surface-dim: #cfd3cd;
-  --brand-surface-bright: #f0f4ee;
+  /* --- Surfaces (demo-deck beige / warm green-greys) --- */
+  --brand-surface: #f7faf5;
+  --brand-surface-dim: #d8dbd6;
+  --brand-surface-bright: #f7faf5;
   --brand-surface-container-lowest: #ffffff;
-  --brand-surface-container-low: #e9ede8;
-  --brand-surface-container: #e3e7e1;
-  --brand-surface-container-high: #dcdfd9;
-  --brand-surface-container-highest: #d5d9d3;
-  --brand-surface-variant: #d5d9d3;
+  --brand-surface-container-low: #f1f4f0;
+  --brand-surface-container: #ecefea;
+  --brand-surface-container-high: #e6e9e4;
+  --brand-surface-container-highest: #e0e3df;
+  --brand-surface-variant: #e0e3df;
 
   /* --- Foreground / text --- */
   --brand-on-surface: #191c1a;
@@ -43,12 +45,12 @@
   --brand-on-primary-fixed: #410000;
   --brand-on-primary-fixed-variant: #920401;
 
-  /* --- Secondary (deep forest) --- */
-  --brand-secondary: #031811;
+  /* --- Secondary (near-black green) --- */
+  --brand-secondary: #000a07;
   --brand-on-secondary: #ffffff;
   --brand-secondary-container: #bdd9c8;
   --brand-on-secondary-container: #2a4034;
-  --brand-secondary-fixed: #031811;
+  --brand-secondary-fixed: #000a07;
   --brand-secondary-fixed-dim: #a3c0ad;
   --brand-on-secondary-fixed: #ffffff;
   --brand-on-secondary-fixed-variant: #2a4034;
@@ -70,6 +72,6 @@
   --brand-on-error-container: #93000a;
 
   /* --- Background --- */
-  --brand-background: #f0f4ee;
+  --brand-background: #f7faf5;
   --brand-on-background: #191c1a;
 }

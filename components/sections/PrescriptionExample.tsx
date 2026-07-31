@@ -66,11 +66,6 @@ export function PrescriptionExample() {
 
   return (
     <section ref={sectionRef} className="relative overflow-hidden section-y">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_50%,color-mix(in_srgb,var(--brand-primary)_8%,transparent),transparent_55%)]"
-      />
-
       <Container className="relative z-10">
         <div className="grid gap-8 md:gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-center">
           <Reveal from="left">

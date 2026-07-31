@@ -55,7 +55,7 @@ export function CaseStudyDetailView({ study }: CaseStudyDetailViewProps) {
             className="object-cover object-center opacity-25"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_srgb,var(--brand-secondary)_85%,transparent)_0%,var(--brand-secondary)_100%)]" />
+          <div className="absolute inset-0 bg-secondary/70" />
         </div>
 
         <Container className="relative z-10">

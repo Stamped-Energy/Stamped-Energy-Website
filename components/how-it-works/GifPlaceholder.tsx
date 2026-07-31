@@ -59,7 +59,7 @@ export function GifPlaceholder({
     return (
       <div
         className={cn(
-          "relative aspect-video w-full overflow-hidden rounded-2xl border border-dashed border-primary/40 bg-[linear-gradient(135deg,color-mix(in_srgb,var(--brand-primary)_8%,var(--brand-surface-container-low)),var(--brand-surface-container-high))]",
+          "relative aspect-video w-full overflow-hidden rounded-2xl border border-dashed border-primary/40 bg-surface-container-low",
           className,
         )}
       >
@@ -70,10 +70,6 @@ export function GifPlaceholder({
           <h3 className="mt-3 max-w-lg text-lg font-bold text-on-surface md:text-xl">{title}</h3>
           <p className="mt-2 max-w-md text-sm leading-6 text-on-surface-variant">{description}</p>
         </div>
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 opacity-30 [background-image:linear-gradient(to_right,color-mix(in_srgb,var(--brand-primary)_12%,transparent)_1px,transparent_1px),linear-gradient(to_bottom,color-mix(in_srgb,var(--brand-primary)_12%,transparent)_1px,transparent_1px)] [background-size:32px_32px]"
-        />
       </div>
     );
   }

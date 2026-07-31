@@ -49,7 +49,7 @@ export function AboutIntro() {
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_55%,color-mix(in_srgb,var(--brand-secondary)_55%,transparent)_100%)]" />
+            <div className="absolute inset-0 bg-secondary/70" />
           </div>
 
           <Reveal className="order-2 lg:order-1">

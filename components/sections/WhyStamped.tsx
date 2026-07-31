@@ -55,15 +55,6 @@ export function WhyStamped() {
 
   return (
     <section ref={sectionRef} className="relative overflow-hidden bg-secondary section-y text-on-secondary">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_90%,color-mix(in_srgb,var(--brand-primary)_16%,transparent),transparent_50%)]"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-30 [background-image:linear-gradient(to_right,color-mix(in_srgb,var(--brand-inverse-primary)_8%,transparent)_1px,transparent_1px)] [background-size:64px_64px]"
-      />
-
       <Container className="relative z-10">
         <Reveal>
           <SectionHeading eyebrow={whyStamped.eyebrow} title={whyStamped.title} dark align="center" className="mx-auto" />

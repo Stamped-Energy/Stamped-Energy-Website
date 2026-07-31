@@ -123,7 +123,7 @@ export function PayAsYouSaveComparison() {
     <section ref={sectionRef} id="pay-as-you-save" className="relative overflow-hidden bg-surface-low py-10 md:section-y">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-primary/30"
       />
 
       <Container>

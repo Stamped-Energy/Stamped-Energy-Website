@@ -110,7 +110,7 @@ export function HiwBeforeAfter() {
 
           <article
             data-after-card
-            className="overflow-hidden rounded-2xl border-2 border-primary/35 bg-[linear-gradient(160deg,color-mix(in_srgb,var(--brand-primary)_10%,var(--brand-surface-container-lowest)),var(--brand-surface-container-lowest))] shadow-[0_20px_50px_-30px_color-mix(in_srgb,var(--brand-primary)_50%,transparent)]"
+            className="overflow-hidden rounded-2xl border-2 border-primary/35 bg-surface-container-low shadow-[0_20px_50px_-30px_color-mix(in_srgb,var(--brand-primary)_50%,transparent)]"
           >
             <div className="border-b border-primary/20 bg-primary/10 px-6 py-4">
               <h3 className="text-lg font-bold text-on-surface">{beforeAfter.after.title}</h3>

@@ -63,7 +63,7 @@ export function AboutTeam() {
                   className="object-cover object-top"
                   sizes="(max-width: 640px) 112px, (max-width: 768px) 100vw, 400px"
                 />
-                <div className="absolute inset-0 hidden bg-[linear-gradient(180deg,transparent_50%,color-mix(in_srgb,var(--brand-secondary)_40%,transparent)_100%)] sm:block" />
+                <div className="absolute inset-0 hidden bg-secondary/70 sm:block" />
               </div>
               <div className="flex min-w-0 flex-1 flex-col p-4 sm:p-6">
                 <div className="flex items-start justify-between gap-2 sm:gap-3">

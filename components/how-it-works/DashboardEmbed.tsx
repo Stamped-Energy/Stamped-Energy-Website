@@ -52,7 +52,7 @@ export function DashboardEmbed({ embed, className }: DashboardEmbedProps) {
     <div
       className={cn(
         frameClassName,
-        "relative border-dashed border-primary/35 bg-[linear-gradient(135deg,color-mix(in_srgb,var(--brand-primary)_6%,var(--brand-surface-container-low)),var(--brand-surface-container-high))]",
+        "relative border-dashed border-primary/35 bg-surface-container-low",
       )}
     >
       <iframe
@@ -76,10 +76,6 @@ export function DashboardEmbed({ embed, className }: DashboardEmbedProps) {
           {embed.placeholderDescription}
         </p>
       </div>
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-25 [background-image:linear-gradient(to_right,color-mix(in_srgb,var(--brand-primary)_10%,transparent)_1px,transparent_1px),linear-gradient(to_bottom,color-mix(in_srgb,var(--brand-primary)_10%,transparent)_1px,transparent_1px)] [background-size:28px_28px]"
-      />
     </div>
   );
 }

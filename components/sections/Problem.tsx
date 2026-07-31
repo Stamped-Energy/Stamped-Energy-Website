@@ -53,11 +53,6 @@ export function Problem() {
       id="why-energy-projects-fail"
       className="relative overflow-hidden bg-secondary py-10 text-on-secondary md:section-y"
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_85%_15%,color-mix(in_srgb,var(--brand-primary)_14%,transparent),transparent_50%)]"
-      />
-
       <Container className="relative z-10">
         <Reveal>
           <SectionHeading
