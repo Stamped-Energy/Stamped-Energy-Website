@@ -1,19 +1,16 @@
 "use client";
 
-import Image from "next/image";
 import { useRef } from "react";
 
 import { useMotion } from "@/components/motion/MotionProvider";
 import { Container } from "@/components/ui/Container";
-import { Reveal } from "@/components/ui/Reveal";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { aboutContent } from "@/lib/content/about";
 import { scrollTriggerDefaults } from "@/lib/motion/config";
 import { gsap, useGSAP } from "@/lib/motion/gsap";
 
 export function AboutIntro() {
   const sectionRef = useRef<HTMLElement>(null);
-  const { intro } = aboutContent;
+  const { intro, visionMission } = aboutContent;
   const { isReady, prefersReducedMotion } = useMotion();
 
   useGSAP(
@@ -35,44 +32,36 @@ export function AboutIntro() {
   );
 
   return (
-    <section ref={sectionRef} className="border-b border-outline-variant/40 bg-surface py-10 md:section-y">
+    <section
+      ref={sectionRef}
+      className="border-b border-outline-variant/40 bg-surface py-10 md:section-y"
+    >
       <Container>
-        <div className="mx-auto grid max-w-6xl items-center gap-8 lg:grid-cols-2 lg:gap-14">
-          <div
+        <div className="mx-auto max-w-2xl">
+          <p
             data-about-intro
-            className="relative order-1 aspect-[16/10] overflow-hidden rounded-2xl border border-outline-variant/50 shadow-md sm:aspect-[5/4] lg:order-2 lg:aspect-[3/4]"
+            className="text-xs font-semibold uppercase tracking-[0.14em] text-primary"
           >
-            <Image
-              src={intro.imageSrc}
-              alt={intro.imageAlt}
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
-            <div className="absolute inset-0 bg-secondary/70" />
-          </div>
-
-          <Reveal className="order-2 lg:order-1">
-            <SectionHeading
-              eyebrow={intro.eyebrow}
-              title={intro.title}
-              description={intro.description}
-            />
-            <div className="mt-6 space-y-3 sm:mt-8 sm:space-y-4">
-              {intro.pillars.map((pillar) => (
-                <article
-                  key={pillar.id}
-                  data-about-intro
-                  className="rounded-xl border border-outline-variant/50 bg-surface-lowest p-4 shadow-sm sm:p-5"
-                >
-                  <h3 className="text-sm font-bold text-on-surface sm:text-base">{pillar.title}</h3>
-                  <p className="mt-1.5 text-sm leading-6 text-on-surface-variant sm:mt-2">
-                    {pillar.description}
-                  </p>
-                </article>
-              ))}
-            </div>
-          </Reveal>
+            {intro.eyebrow}
+          </p>
+          <h2
+            data-about-intro
+            className="mt-2 font-display text-2xl font-bold text-on-surface md:text-3xl"
+          >
+            {intro.title}
+          </h2>
+          <p
+            data-about-intro
+            className="mt-4 text-sm leading-7 text-on-surface-variant md:text-base"
+          >
+            {intro.description}
+          </p>
+          <p
+            data-about-intro
+            className="mt-6 text-sm leading-7 text-on-surface-variant md:text-base"
+          >
+            {visionMission.mission.description}
+          </p>
         </div>
       </Container>
     </section>
