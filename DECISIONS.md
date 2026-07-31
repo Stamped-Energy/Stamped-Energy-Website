@@ -151,3 +151,23 @@ Architecture and workflow decisions for this project.
 **Rationale:** ~25% shorter homepage with clearer narrative (problems → commercial model → prescription proof → trust). Reuses existing card patterns; full workflow detail remains on `/how-it-works` only.
 
 **Impact:** Homepage section order changed. `HeroEnergyLoop`, `HowItWorks`, and `IndustryFourPointZero` components remain in repo but are not mounted on `/`. FAQ count increases to 9 items (schema auto-updates from `landingContent.faq`).
+
+---
+
+## ADR-009: Public Case Studies nav merges onto `/blog` (CRM CaseStudy untouched)
+
+**Date:** 2026-07-31
+
+**Context:** Nav exposed both Blog and Case Studies as separate public surfaces. Product intent is one public section labeled Case Studies, fed by CRM blog posts, while Case Study admin/CRM remains for later.
+
+**Alternatives:**
+
+1. Move listing to `/case-studies` and redirect `/blog` there; migrate article URLs
+2. Keep `/blog` as the canonical path; nav/footer label **Case Studies**; permanent-redirect `/case-studies*` to `/blog`; article URLs stay `/blog/[slug]`
+3. New `/insights` route and dual redirects
+
+**Selected:** Option 2.
+
+**Rationale:** Preserves existing blog SEO URLs and admin “view live” post links. Removes competing public IA. Case Study Prisma model and `/blog/admin/case-studies` stay unchanged.
+
+**Impact:** Homepage spotlight public fetch is blog-only. Sitemap/`llms.txt` drop public case-study URLs. `PAGE_SEO.blog` title becomes Case Studies & Industry Insights.

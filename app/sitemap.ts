@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next";
 
 import { listPublishedPosts } from "@/lib/blog/posts";
-import { listPublishedCaseStudies } from "@/lib/case-studies/studies";
 import { safeDbQuery } from "@/lib/db/safe-query";
 import { absoluteUrl } from "@/lib/seo/metadata";
 
@@ -10,7 +9,6 @@ const STATIC_PATHS = [
   "/how-it-works",
   "/about",
   "/blog",
-  "/case-studies",
   "/contact",
   "/industries",
   "/industries/automotive",
@@ -28,9 +26,8 @@ const STATIC_PRIORITIES: Record<string, number> = {
   "/industries/steel": 0.85,
   "/industries/pharma": 0.85,
   "/industries/chemical": 0.85,
-  "/case-studies": 0.85,
   "/about": 0.8,
-  "/blog": 0.8,
+  "/blog": 0.85,
   "/industries": 0.8,
   "/contact": 0.75,
 };
@@ -40,15 +37,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     posts: [],
     pagination: { page: 1, limit: 500, total: 0, totalPages: 0, hasMore: false },
   };
-  const emptyStudies = {
-    studies: [],
-    pagination: { page: 1, limit: 100, total: 0, totalPages: 0, hasMore: false },
-  };
 
-  const [postsResult, studiesResult] = await Promise.all([
-    safeDbQuery(() => listPublishedPosts({ limit: 500 }), emptyPosts),
-    safeDbQuery(() => listPublishedCaseStudies({ limit: 100 }), emptyStudies),
-  ]);
+  const postsResult = await safeDbQuery(() => listPublishedPosts({ limit: 500 }), emptyPosts);
 
   const staticEntries: MetadataRoute.Sitemap = STATIC_PATHS.map((path) => ({
     url: absoluteUrl(path),
@@ -64,12 +54,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  const caseStudyEntries: MetadataRoute.Sitemap = studiesResult.data.studies.map((study) => ({
-    url: absoluteUrl(`/case-studies/${study.slug}`),
-    lastModified: new Date(study.updatedAt),
-    changeFrequency: "weekly",
-    priority: 0.7,
-  }));
-
-  return [...staticEntries, ...blogEntries, ...caseStudyEntries];
+  return [...staticEntries, ...blogEntries];
 }

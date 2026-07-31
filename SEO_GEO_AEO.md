@@ -60,7 +60,7 @@ All SEO, GEO, and AEO copy derives from **`lib/content/icp.ts`**. Do not hardcod
 | `energy management software for plants India` | `/` |
 | `reduce electricity bill industrial plant India` | `/`, `/blog` |
 | `maximum demand reduction India` | `/how-it-works`, `/blog` |
-| `DISCOM bill savings India` | `/how-it-works`, `/case-studies` |
+| `DISCOM bill savings India` | `/how-it-works`, `/blog` |
 | `SEC reduction industrial plant India` | `/industries`, vertical pages |
 
 ### Tier 3 - Vertical (high intent)
@@ -102,7 +102,7 @@ All SEO logic lives under `lib/seo/` and is applied in App Router `page.tsx` / `
 | `lib/seo/crawlers.ts` | Search + AI crawler allow-list for `robots.ts` |
 | `components/seo/JsonLd.tsx` | Renders `<script type="application/ld+json">` |
 | `app/robots.ts` | Dynamic `/robots.txt` |
-| `app/sitemap.ts` | Dynamic `/sitemap.xml` (all static routes + blog + case studies) |
+| `app/sitemap.ts` | Dynamic `/sitemap.xml` (all static routes + blog posts; `/case-studies` redirects to `/blog`) |
 | `lib/seo/extract-faq.ts` | Auto-extract FAQ JSON-LD from blog/case study `?` headings |
 | `app/llms-full.txt/route.ts` | Dynamic CMS index with entity definition header |
 | `public/llms.txt` | Static site guide for AI crawlers (**not linked in UI**) |
@@ -123,13 +123,13 @@ Every public route has spec-aligned **title**, **meta description**, **canonical
 | `/` | Stamped Energy \| AI-Powered Energy Intelligence for Plants in India |
 | `/how-it-works` | How It Works \| Stamped Energy - 5-Step Energy Loop |
 | `/about` | About Stamped Energy \| IIT Roorkee Engineers, Verified Savings |
-| `/blog` | Energy Intelligence Blog \| Stamped Energy |
-| `/case-studies` | Energy Savings Case Studies \| Stamped Energy |
+| `/blog` | Case Studies & Industry Insights \| Stamped Energy |
+| `/case-studies` | Permanent redirect → `/blog` |
 | `/contact` | Book a Discovery Call \| Stamped Energy |
 | `/industries` | Industries \| Stamped Energy - Cement, Steel, Pharma, Chemical, Auto |
 | `/industries/[slug]` | Vertical-specific titles (automotive, cement, steel, pharma, chemical) |
 | `/blog/[slug]` | `{Post Title} \| Stamped Energy` |
-| `/case-studies/[slug]` | `{Title} - Case Study \| Stamped Energy` |
+| `/case-studies/[slug]` | Permanent redirect → `/blog` |
 
 Blog posts emit `article` Open Graph with `publishedTime`, `modifiedTime`, `authors`, and `tags`.
 
@@ -171,7 +171,7 @@ All `/blog/admin/*` pages export `robots: { index: false, follow: false }`.
 | **FAQPage** | Blog/case study posts (auto) | Extracted from `?`-ending H2/H3 headings |
 | **HowTo** (5 steps) | `/how-it-works` | Connect → Verify workflow with anchor URLs |
 | **ContactPage** | `/contact` | Discovery call page entity |
-| **CollectionPage** | `/blog`, `/case-studies` | Listing pages |
+| **CollectionPage** | `/blog` | Case Studies listing (CRM blog posts) |
 | **Person** × 2 | `/about` | Founders (IIT Roorkee alumni) |
 | **Article** | Each blog post + case study | With `about` pointing to plant energy management in India |
 | **SpeakableSpecification** | Homepage | `.hero-headline`, `.value-proposition`, `.key-numbers` |

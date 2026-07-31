@@ -12,8 +12,7 @@ export const siteConfig = {
 export const navLinks: NavLink[] = [
   { label: "How It Works", href: "/how-it-works" },
   { label: "Industries", href: "/industries", megaMenu: "industries" },
-  { label: "Blog", href: siteConfig.blogUrl },
-  { label: "Case Studies", href: "/case-studies" },
+  { label: "Case Studies", href: siteConfig.blogUrl },
   { label: "About Us", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
@@ -22,10 +21,9 @@ export const footerLinks = {
   product: [
     { label: "How It Works", href: "/how-it-works" },
     { label: "Industries", href: "/industries" },
-    { label: "Blog", href: siteConfig.blogUrl },
+    { label: "Case Studies", href: siteConfig.blogUrl },
   ],
   company: [
-    { label: "Case Studies", href: "/case-studies" },
     { label: "About Us", href: "/about" },
     { label: "Contact", href: "/contact" },
   ],

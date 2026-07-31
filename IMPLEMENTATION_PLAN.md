@@ -48,10 +48,19 @@ See `DECISIONS.md`.
 - Hero commercial badge, prescription workflow link, FAQ + Why Stamped updates
 - Section reorder: outcomes → problem → chart → prescription → sustainability → why stamped
 
+### Phase 9 - Merge Blog + Case Studies public UI (complete)
+
+- Branch: `feat/merge-case-studies-blog-ui`
+- Nav/footer: single **Case Studies** → `/blog`
+- Permanent redirects `/case-studies` and `/case-studies/*` → `/blog`
+- Public listing/detail chrome labeled Case Studies; data from CRM `BlogPost` only
+- Case Studies CRM admin left untouched
+- Article URLs remain `/blog/[slug]`
+
 ## Deliverables
 
 - [x] Landing page at `/`
-- [x] Navbar with How It Works, Industries, Blog (external)
+- [x] Navbar with How It Works, Industries, Case Studies (`/blog`)
 - [x] Contact form with API stub
 - [x] Theme file for one-file color changes
 - [x] Content layer for one-file copy changes
@@ -63,3 +72,4 @@ See `DECISIONS.md`.
 - Pinned workflow section may need mobile tuning after real-device testing
 - Contact API currently logs only; email integration pending
 - Outcome stats are benchmark-derived until customer validation
+- Legacy `/case-studies/*` URLs permanently redirect to `/blog` (content no longer at old paths)

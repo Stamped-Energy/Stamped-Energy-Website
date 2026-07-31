@@ -18,7 +18,7 @@ export const metadata: Metadata = buildPageMetadataFromConfig(PAGE_SEO.blog);
 
 const breadcrumbSchema = generateBreadcrumbSchema([
   breadcrumbHome(),
-  { name: "Blog", url: PAGE_SEO.blog.path },
+  { name: "Case Studies", url: PAGE_SEO.blog.path },
 ]);
 
 const collectionSchema = buildCollectionPageSchema({
@@ -52,7 +52,7 @@ export default async function BlogPage() {
     <>
       <JsonLd data={[collectionSchema, breadcrumbSchema]} />
       <BlogHero
-        eyebrow="Blog"
+        eyebrow="Case Studies"
         title="Notes from the plant floor on electricity cost"
         description="Maximum demand, shift-start overlap, furnace holding, compressor waste, written for plant heads and electrical HODs, not software teams."
       />

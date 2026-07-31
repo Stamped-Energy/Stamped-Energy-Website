@@ -13,16 +13,16 @@ export const resourcesContent = {
     "Published outcomes and field notes from energy-intensive manufacturing, starting with automotive-adjacent process plants.",
   items: [
     {
-      id: "auto-case-placeholder",
-      type: "case-study",
+      id: "auto-insight-placeholder",
+      type: "blog",
       title: "Automotive & pump manufacturing: 18% SEC reduction",
       description:
         "16 verified measures across compressors, furnaces, and shift-start sequencing, IPMVP-style M&V with ₹12-34L monthly energy savings (reference benchmark).",
-      href: "/case-studies/automotive-pump-sec-reduction",
-      tag: "Field pilot",
+      href: "/blog",
+      tag: "Insight",
       imageSrc: RESOURCE_IMAGES.forging,
       imageAlt: "Forging press line energy cost reduction - maximum demand control",
-      readMoreLabel: "Read case study: 18% SEC reduction in auto component plant →",
+      readMoreLabel: "Browse case studies & insights →",
     },
     {
       id: "die-cast-blog",
@@ -31,7 +31,7 @@ export const resourcesContent = {
       description:
         "Furnace pre-heat overlap, holding loads, and the MD spike your incomer meter sees every morning.",
       href: "/blog/why-shift-start-kills-die-casting-margins",
-      tag: "Blog",
+      tag: "Insight",
       imageSrc: RESOURCE_IMAGES.dieCasting,
       imageAlt: "Die casting plant energy management - shift-start MD spike reduction",
       readMoreLabel: "Read: How shift-start kills die casting margins →",
@@ -43,7 +43,7 @@ export const resourcesContent = {
       description:
         "How batch heat treatment plants lose 15-25% of furnace energy with no parts scheduled.",
       href: "/blog/weekend-furnace-holding-silent-cost",
-      tag: "Blog",
+      tag: "Insight",
       imageSrc: RESOURCE_IMAGES.heatTreatment,
       imageAlt: "Heat treatment furnace energy optimization - weekend holding waste reduction",
       readMoreLabel: "Read: Weekend furnace holding - the silent cost →",

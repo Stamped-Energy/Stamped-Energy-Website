@@ -123,7 +123,7 @@ export function BlogArticleView({ post, related }: BlogArticleViewProps) {
                   : "text-on-surface-variant hover:text-primary",
               )}
             >
-              ← All blogs
+              ← All case studies
             </Link>
 
             <div
