@@ -4,7 +4,6 @@ import type {
   IndustryVertical,
   StatItem,
 } from "./types";
-import { icp } from "./icp";
 import { getVerticalPage, VERTICAL_SLUGS, type VerticalSlug } from "./vertical-pages";
 
 const INDUSTRY_IMAGES = {
@@ -210,76 +209,109 @@ const steelSegments: IndustrySegment[] = [
 export const industriesContent = {
   hub: {
     eyebrow: "Industries",
-    title: "Industries we serve",
+    title: "Why each industry needs process-aware prescriptions",
     description:
-      "Purpose-built AI-powered energy intelligence for energy-intensive sectors - prescriptions with rupee impact, verified with evidence.",
+      "The same motor fails differently in a cement kiln than in a die-casting cell. Generic EMS sees kWh. Stamped reads process context and assigns real-time actions with rupee impact, verified with evidence.",
     heroImageSrc: INDUSTRY_IMAGES.cement,
     heroImageAlt: "Cement plant with silos and kiln illuminated at twilight",
-    primaryCta: { label: "Explore industries", href: "#verticals" } satisfies CtaLink,
+    primaryCta: { label: "Compare verticals", href: "#comparison" } satisfies CtaLink,
     secondaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
-    stats: [
-      {
-        id: "hub-sec",
-        value: "12-20%",
-        label: "Typical electricity cost reduction",
-        detail: "Process-intensive mid-market plants",
+    thesis: {
+      eyebrow: "Process context",
+      title: "Generic dashboards miss why energy leaks",
+      body: "A plant-wide average hides shift-start overlap, holding without batches, and tariff misalignment. Each vertical needs baselines and prescriptions tuned to its process, not one generic model for all.",
+    },
+    comparison: {
+      eyebrow: "By industry",
+      title: "What generic EMS sees vs what Stamped also reads and prescribes",
+      columns: {
+        industry: "Industry",
+        generic: "Generic EMS / dashboard sees",
+        stamped: "Stamped also reads and prescribes",
       },
-      {
-        id: "hub-md",
-        value: "15-25%",
-        label: "MD / demand charge reduction",
-        detail: "From incomer meter + bill data",
-      },
-      {
-        id: "hub-verticals",
-        value: "5",
-        label: "Industry verticals live",
-        detail: "Automotive, cement, steel, pharma, chemical",
-      },
-    ] satisfies StatItem[],
-    approach: {
-      eyebrow: "How we fit your plant",
-      title: "Process context, not generic kWh dashboards",
-      items: [
+      rows: [
         {
-          id: "process-baselines",
-          title: "Baselines by shift, batch, and line",
-          description:
-            "SEC and MD tracked against production context - pour times, batch windows, kWh/ton - not plant-wide averages that hide the leak.",
+          id: "automotive",
+          slug: "automotive",
+          name: "Automotive",
+          href: "/industries/automotive",
+          generic: "Shop or feeder kWh trends, occasional MD alarms",
+          stamped:
+            "Die casting, forging, heat treat, press, and air: co-starts, holding, and SEC by cell with assigned owners",
         },
         {
-          id: "segment-prescriptions",
-          title: "Prescriptions your supervisors recognise",
-          description:
-            "Shift-start staggering, holding schedule changes, dispatch governance - assigned roles and monthly ₹ impact.",
+          id: "cement",
+          slug: "cement",
+          name: "Cement",
+          href: "/industries/cement",
+          generic: "Plant kWh/ton averages and kiln trends",
+          stamped:
+            "Kiln, mill, and WHR/grid dispatch context: MD, specific energy, and supervisor-ready sequencing",
         },
         {
-          id: "verified-outcomes",
-          title: "Verified on the DISCOM bill",
-          description:
-            "Closed-loop M&V so plant director and CFO see realised ₹, defensible for PAT and internal cost reviews.",
+          id: "steel",
+          slug: "steel",
+          name: "Steel",
+          href: "/industries/steel",
+          generic: "Furnace or mill kWh without batch context",
+          stamped:
+            "Induction, rolling, and holding windows tied to production and PAT-style SEC discipline",
+        },
+        {
+          id: "pharma",
+          slug: "pharma",
+          name: "Pharmaceutical",
+          href: "/industries/pharma",
+          generic: "HVAC and utility dashboards in silos",
+          stamped:
+            "Chiller and AHU staging against batch and cleanroom constraints, GMP-safe levers only",
+        },
+        {
+          id: "chemical",
+          slug: "chemical",
+          name: "Chemical",
+          href: "/industries/chemical",
+          generic: "Batch totals after the run ends",
+          stamped:
+            "Reactor stagger, idle hold, and batch SEC with owners before the next campaign",
         },
       ],
     },
-    explorer: {
-      eyebrow: "Browse verticals",
-      title: "Select a vertical to explore",
-      description:
-        "Five industry verticals with plant-floor playbooks. Hover to preview process segments where available.",
-    },
-    featured: {
-      eyebrow: "Industry verticals",
-      title: "AI-powered energy intelligence by sector",
-      description: `Each vertical gets process-aware baselines, actionable prescriptions, and evidence-verified outcomes. ${icp.heroBillLine}`,
-      cta: { label: "Open automotive page", href: "/industries/automotive" } satisfies CtaLink,
-      showMoreLabel: "Show process segments",
-      showLessLabel: "Show fewer segments",
+    faq: {
+      eyebrow: "FAQ",
+      title: "Questions plant leaders ask about industries",
+      items: [
+        {
+          id: "which",
+          question: "Which industries does Stamped support?",
+          answer:
+            "Automotive and auto components, cement, steel, pharmaceutical, and chemical plants in India with roughly ₹20 lakh+ monthly electricity bills.",
+        },
+        {
+          id: "why-vertical",
+          question: "Why does each industry need different prescriptions?",
+          answer:
+            "Failure and waste modes are process-specific. The same compressor behaves differently next to a kiln than next to a press line. Stamped baselines and ranks actions with that context.",
+        },
+        {
+          id: "generic",
+          question: "How is this different from a generic EMS?",
+          answer:
+            "EMS shows trends. Stamped assigns what to change, who owns it, and monthly rupee impact, then verifies with evidence. Real-time decision making on top of systems you already run.",
+        },
+        {
+          id: "start",
+          question: "How do we start?",
+          answer:
+            "Book a discovery call. We map meters, main loads, and bill pattern, and say honestly if a pilot makes sense.",
+        },
+      ],
     },
     finalCta: {
       eyebrow: "Start with your plant",
       title: "Not sure which vertical fits?",
       description:
-        "Discovery call: we map your meters, main loads, and bill pattern - and say honestly if a pilot makes sense.",
+        "Discovery call: we map your meters, main loads, and bill pattern, and say honestly if a pilot makes sense.",
       primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
     },
     cta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,

@@ -1,4 +1,4 @@
-# Stamped Energy — Marketing product context
+# Stamped Energy: Marketing product context
 
 register: brand
 
@@ -14,8 +14,8 @@ State of mind: cost pressure, distrust of dashboards, need for clear next action
 
 ## Value propositions
 
-1. **Energy savings** — load management and energy-efficiency prescriptions (MD, TOD, idle, HVAC, tariff).
-2. **Plant / industrial efficiency** — same stack flags equipment issues early (prescriptive equipment intelligence).
+1. **Energy savings:** load management and energy-efficiency prescriptions (MD, TOD, idle, HVAC, tariff).
+2. **Plant / industrial efficiency:** same stack flags equipment issues early (prescriptive equipment intelligence).
 
 One product, two pillars. Shared context (orders/departments) enables management Rx without becoming MES.
 

@@ -3,7 +3,8 @@ import { icp } from "./icp";
 
 export const siteConfig = {
   name: "Stamped Energy",
-  tagline: "AI-powered energy intelligence. Verified savings. Built for plants.",
+  tagline:
+    "Real-time energy intelligence for plants. Assigned prescriptions. Verified with evidence.",
   description: icp.seo.entityDefinition,
   /** Public Case Studies & Blogs listing */
   blogUrl: "/case-studies",
@@ -22,6 +23,8 @@ export const navLinks: NavLink[] = [
 export const footerLinks = {
   product: [
     { label: "Solutions", href: "/solutions" },
+    { label: "Load and energy", href: "/solutions/load-energy" },
+    { label: "Equipment intelligence", href: "/solutions/equipment-intelligence" },
     { label: "Platform", href: "/platform" },
     { label: "Industries", href: "/industries" },
     { label: "Case Studies", href: siteConfig.blogUrl },

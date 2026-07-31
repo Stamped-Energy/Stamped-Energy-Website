@@ -17,16 +17,12 @@ export function HomeSolutionsEntry() {
           </h2>
         </Reveal>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2 md:gap-8">
-          {hub.pillars.map((pillar, index) => (
-            <Reveal key={pillar.slug}>
+        <div className="mt-10 grid gap-6 md:grid-cols-2 md:items-stretch md:gap-8">
+          {hub.pillars.map((pillar) => (
+            <Reveal key={pillar.slug} className="h-full">
               <Link
                 href={pillar.href}
-                className={[
-                  "group flex h-full flex-col border border-outline-variant/50 bg-surface p-6 transition-colors md:p-8",
-                  "hover:border-primary/50",
-                  index === 1 ? "md:mt-8" : "",
-                ].join(" ")}
+                className="group flex h-full flex-col border border-outline-variant/50 bg-surface p-6 transition-colors hover:border-primary/50 md:p-8"
               >
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
                   {pillar.shortTitle}

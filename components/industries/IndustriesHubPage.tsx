@@ -1,27 +1,17 @@
-import type { ReactNode } from "react";
-
-import { IndustriesHubApproach } from "@/components/industries/IndustriesHubApproach";
-import { IndustriesHubExplorer } from "@/components/industries/IndustriesHubExplorer";
-import { IndustriesHubFeatured } from "@/components/industries/IndustriesHubFeatured";
+import { IndustriesHubComparison } from "@/components/industries/IndustriesHubComparison";
+import { IndustriesHubFaq } from "@/components/industries/IndustriesHubFaq";
 import { IndustriesHubHero } from "@/components/industries/IndustriesHubHero";
-import { IndustriesHubStats } from "@/components/industries/IndustriesHubStats";
+import { IndustriesHubThesis } from "@/components/industries/IndustriesHubThesis";
 import { IndustryPageCta } from "@/components/industries/shared/IndustryPageCta";
-import { IndustryResources } from "@/components/industries/shared/IndustryResources";
 import { industriesContent } from "@/lib/content";
 
-type IndustriesHubPageProps = {
-  resourcesSlot?: ReactNode;
-};
-
-export function IndustriesHubPage({ resourcesSlot }: IndustriesHubPageProps) {
+export function IndustriesHubPage() {
   return (
     <>
       <IndustriesHubHero />
-      <IndustriesHubStats />
-      <IndustriesHubApproach />
-      <IndustriesHubFeatured />
-      <IndustriesHubExplorer />
-      {resourcesSlot ?? <IndustryResources />}
+      <IndustriesHubThesis />
+      <IndustriesHubComparison />
+      <IndustriesHubFaq />
       <IndustryPageCta content={industriesContent.hub.finalCta} />
     </>
   );

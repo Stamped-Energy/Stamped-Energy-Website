@@ -22,7 +22,7 @@ export const landingContent = {
     headlineLine2: "to verified outcomes",
     subheadline: "",
     supportingLine:
-      "AI ranks fixes from your meters, bills, and plant data. Your team executes. Outcomes are verified with evidence.",
+      "Real-time intelligence ranks fixes from your meters, bills, and plant data. Your team executes. Outcomes are verified with evidence.",
     supportingLine2: icp.heroBillLine,
     commercialBadge: "Pay as you save · Pilot first · Scale after verified evidence",
     primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
@@ -73,26 +73,9 @@ export const landingContent = {
     ],
   },
 
-  valueProps: {
-    eyebrow: "What changes for the plant",
-    title: "Two outcomes. One Stamped Intelligence stack.",
-    items: [
-      {
-        id: "energy-savings",
-        title: "Energy savings",
-        body: "Load management and energy-efficiency prescriptions — MD, TOD, idle, HVAC, tariff — with owners and monthly rupee impact.",
-      },
-      {
-        id: "plant-efficiency",
-        title: "Plant / industrial efficiency",
-        body: "Prescriptive equipment intelligence from the same energy graph — early warnings before trips and waste compound.",
-      },
-    ],
-  },
-
   outcomes: {
     eyebrow: "Typical recovery ranges",
-    title: "Numbers that must appear on the bill, not in a slide deck",
+    title: "Indicative outcomes plants care about",
     disclaimer:
       "Benchmark ranges from comparable plants. Your pilot replaces these with verified figures.",
     stats: [
@@ -301,7 +284,7 @@ export const landingContent = {
         id: "improve-loop",
         step: 6,
         title: "Improve from outcomes",
-        description: "Calibrate ranks and preferences from followed vs ignored Rx — human-gated.",
+        description: "Calibrate ranks and preferences from followed vs ignored Rx, human-gated.",
       },
     ] satisfies HowItWorksStep[],
   },
@@ -515,7 +498,7 @@ export const landingContent = {
         id: "savings-real",
         question: "How do we know outcomes are real?",
         answer:
-          "We lead with verified with evidence — an ops-cleared ledger of potential vs realised impact. DISCOM bill confirmation is optional when the period closes, not the only proof story.",
+          "We lead with verified with evidence: an ops-cleared ledger of potential vs realised impact. DISCOM bill confirmation is optional when the period closes, not the only proof story.",
       },
     ] satisfies HomeFaqItem[],
   },

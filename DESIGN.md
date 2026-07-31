@@ -1,4 +1,4 @@
-# Stamped Energy — Marketing design context
+# Stamped Energy: Marketing design context
 
 ## Scene
 
@@ -19,7 +19,7 @@ Source of truth: `styles/theme.css`. Align with stamped-external demo-decks surf
 
 ## Typography
 
-- Display: Plus Jakarta Sans (identity — preserve; do not swap for reflex-reject fonts)
+- Display: Plus Jakarta Sans (identity: preserve; do not swap for reflex-reject fonts)
 - Body: Inter
 - Strong scale contrast; body ≤75ch
 
@@ -32,7 +32,7 @@ Source of truth: `styles/theme.css`. Align with stamped-external demo-decks surf
 
 ## Motion
 
-GSAP + ScrollTrigger + Lenis. 2–3 intentional reveals per major page. Ease-out exponentials. No bounce.
+GSAP + ScrollTrigger + Lenis. 2-3 intentional reveals per major page. Ease-out exponentials. No bounce.
 
 ## Absolute bans
 

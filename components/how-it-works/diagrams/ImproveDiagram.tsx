@@ -8,7 +8,7 @@ export function ImproveDiagram() {
       footer={
         <DiagramCallout>
           Next month&apos;s ranks refresh from{" "}
-          <span className="font-bold text-on-surface">cleared outcomes</span> — human-gated
+          <span className="font-bold text-on-surface">cleared outcomes</span>, human-gated
         </DiagramCallout>
       }
     >
@@ -41,7 +41,7 @@ export function ImproveDiagram() {
         >
           <p className="text-sm font-bold text-primary">Improve</p>
           <p className="mt-1 text-xs text-on-surface-variant">
-            Calibrate thresholds and preferences — not &ldquo;AI learning about you&rdquo;
+            Calibrate thresholds and preferences, not &ldquo;AI learning about you&rdquo;
           </p>
         </div>
       </div>

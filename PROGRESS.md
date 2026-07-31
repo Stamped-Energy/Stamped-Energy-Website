@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-Marketing IA + Solutions / Platform overhaul - complete (2026-08-01) on `feat/ia-solutions-platform`
+Homepage / Solutions pillars / Industries IU hub / Footer polish - complete (2026-08-01) on `feat/ia-solutions-platform`
 
 ## Completed Phases
 
@@ -24,6 +24,7 @@ Marketing IA + Solutions / Platform overhaul - complete (2026-08-01) on `feat/ia
 - [x] Merge Blog + Case Studies public UI (ADR-009)
 - [x] Flat theme overhaul (ADR-010)
 - [x] **IA overhaul (ADR-011)** - Solutions hub + pillars; `/platform` + `/how-it-works` 308; six-step Improve loop; homepage 7 sections; slim About/Contact; Verified with evidence copy; orphan cleanup
+- [x] **Polish pass** - homepage outcomes band; detailed Solutions pillar pages; IU-style Industries hub (thesis + comparison + FAQ); thinner vertical pages; real-time intelligence copy; em-dash scrub; footer craft
 
 ## Remaining Phases
 

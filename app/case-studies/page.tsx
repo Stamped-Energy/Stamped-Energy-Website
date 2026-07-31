@@ -35,7 +35,7 @@ const CASE_STUDIES_CTA = {
   primaryCta: { label: "Book a Discovery Call", href: "/contact" },
 };
 
-/** Public Case Studies & Blogs listing — CRM BlogPost data; CaseStudy admin untouched. */
+/** Public Case Studies & Blogs listing. CRM BlogPost data; CaseStudy admin untouched. */
 export default async function CaseStudiesRoute() {
   const emptyPosts = {
     posts: [],

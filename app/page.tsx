@@ -5,7 +5,7 @@ import { HomeImproveLoop } from "@/components/sections/HomeImproveLoop";
 import { HomeProofBand } from "@/components/sections/HomeProofBand";
 import { HomeSolutionsEntry } from "@/components/sections/HomeSolutionsEntry";
 import { HomeTerminalBand } from "@/components/sections/HomeTerminalBand";
-import { HomeValueProps } from "@/components/sections/HomeValueProps";
+import { HomeOutcomesBand } from "@/components/sections/HomeOutcomesBand";
 import { PrescriptionExample } from "@/components/sections/PrescriptionExample";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildPageMetadataFromConfig } from "@/lib/seo/metadata";
@@ -31,7 +31,7 @@ export default function HomePage() {
         ]}
       />
       <Hero />
-      <HomeValueProps />
+      <HomeOutcomesBand />
       <HomeSolutionsEntry />
       <HomeImproveLoop />
       <PrescriptionExample />

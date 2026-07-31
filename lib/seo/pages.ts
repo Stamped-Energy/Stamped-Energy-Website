@@ -20,7 +20,7 @@ export const PAGE_SEO = {
       "See how Stamped Intelligence connects plant data into assigned prescriptions with verified evidence - Connect, Observe, Decide, Execute, Verify, Improve. No hardware retrofit required.",
     path: "/platform",
   },
-  /** @deprecated Use PAGE_SEO.platform — kept for transitional imports */
+  /** @deprecated Use PAGE_SEO.platform. Kept for transitional imports. */
   howItWorks: {
     absoluteTitle: "Platform | Stamped Energy - Connect to Improve Loop",
     description:

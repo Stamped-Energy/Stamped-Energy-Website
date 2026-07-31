@@ -14,7 +14,7 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        // Exact match only — do not redirect /blog/[slug] or /blog/admin
+        // Exact match only: do not redirect /blog/[slug] or /blog/admin
         source: "/blog",
         destination: "/case-studies",
         permanent: true,
