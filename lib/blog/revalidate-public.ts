@@ -21,6 +21,6 @@ export function revalidateContentSitemap() {
 
 export function revalidateHomepageSpotlight() {
   revalidatePath("/");
-  revalidatePath("/how-it-works");
+  revalidatePath("/platform");
   revalidatePath("/industries");
 }

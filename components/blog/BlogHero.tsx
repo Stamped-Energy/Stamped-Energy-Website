@@ -64,7 +64,7 @@ export function BlogHero({ eyebrow, title, description }: BlogHeroProps) {
               Browse articles
             </Button>
             <Button
-              href="/how-it-works"
+              href="/platform"
               variant="outline"
               className="hidden w-full border-on-secondary/30 bg-on-secondary/5 text-on-secondary hover:bg-on-secondary/10 sm:inline-flex sm:w-auto"
             >

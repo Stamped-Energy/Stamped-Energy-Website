@@ -11,7 +11,8 @@ export const siteConfig = {
 } as const;
 
 export const navLinks: NavLink[] = [
-  { label: "How It Works", href: "/how-it-works" },
+  { label: "Solutions", href: "/solutions" },
+  { label: "Platform", href: "/platform" },
   { label: "Industries", href: "/industries", megaMenu: "industries" },
   { label: "Case Studies", href: siteConfig.blogUrl },
   { label: "About Us", href: "/about" },
@@ -20,7 +21,8 @@ export const navLinks: NavLink[] = [
 
 export const footerLinks = {
   product: [
-    { label: "How It Works", href: "/how-it-works" },
+    { label: "Solutions", href: "/solutions" },
+    { label: "Platform", href: "/platform" },
     { label: "Industries", href: "/industries" },
     { label: "Case Studies", href: siteConfig.blogUrl },
   ],

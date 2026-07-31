@@ -19,6 +19,16 @@ const nextConfig: NextConfig = {
         destination: "/case-studies",
         permanent: true,
       },
+      {
+        source: "/how-it-works",
+        destination: "/platform",
+        permanent: true,
+      },
+      {
+        source: "/how-it-works/:path*",
+        destination: "/platform",
+        permanent: true,
+      },
     ];
   },
 };

@@ -14,11 +14,36 @@ export const PAGE_SEO = {
       "AI-powered prescriptive intelligence for plants with ₹20 lakh+ monthly electricity bills. Ranked actions, assigned owners, bill-verified savings on your DISCOM bill. Cement, steel, pharma, chemical, automotive. Verified savings and auditable energy intensity for Indian manufacturers.",
     path: "/",
   },
-  howItWorks: {
-    absoluteTitle: "How It Works | Stamped Energy - 5-Step Energy Loop",
+  platform: {
+    absoluteTitle: "Platform | Stamped Energy - Connect to Improve Loop",
     description:
-      "See how Stamped connects incomer meters, SCADA, and plant data into AI-powered prescriptions with verified rupee savings - Connect, Observe, Decide, Execute, Verify. No hardware retrofit required.",
-    path: "/how-it-works",
+      "See how Stamped Intelligence connects plant data into assigned prescriptions with verified evidence - Connect, Observe, Decide, Execute, Verify, Improve. No hardware retrofit required.",
+    path: "/platform",
+  },
+  /** @deprecated Use PAGE_SEO.platform — kept for transitional imports */
+  howItWorks: {
+    absoluteTitle: "Platform | Stamped Energy - Connect to Improve Loop",
+    description:
+      "See how Stamped Intelligence connects plant data into assigned prescriptions with verified evidence - Connect, Observe, Decide, Execute, Verify, Improve. No hardware retrofit required.",
+    path: "/platform",
+  },
+  solutions: {
+    absoluteTitle: "Solutions | Stamped Energy - Energy Savings and Plant Efficiency",
+    description:
+      "Stamped Intelligence delivers load and energy-efficiency prescriptions plus prescriptive equipment intelligence in one product for energy-intensive plants in India.",
+    path: "/solutions",
+  },
+  solutionsLoadEnergy: {
+    absoluteTitle: "Load and Energy Efficiency | Stamped Energy",
+    description:
+      "Prescriptions for maximum demand, shift-start overlap, idle loads, HVAC, and tariff - assigned owners and rupee impact, verified with evidence.",
+    path: "/solutions/load-energy",
+  },
+  solutionsEquipment: {
+    absoluteTitle: "Prescriptive Equipment Intelligence | Stamped Energy",
+    description:
+      "Early equipment warnings tied to energy and process context - assigned prescriptions before trips and waste compound.",
+    path: "/solutions/equipment-intelligence",
   },
   about: {
     absoluteTitle: "About Stamped Energy | IIT Roorkee Engineers, Verified Savings",

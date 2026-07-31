@@ -40,7 +40,7 @@ export function WorkflowLoop() {
         <Reveal className="mx-auto mt-8 max-w-2xl text-center">
           <p className="text-sm text-on-surface-variant">
             Full walkthrough with plant diagram on{" "}
-            <Link href="/how-it-works" className="font-semibold text-primary underline-offset-2 hover:underline">
+            <Link href="/platform" className="font-semibold text-primary underline-offset-2 hover:underline">
               How it works
             </Link>
             .

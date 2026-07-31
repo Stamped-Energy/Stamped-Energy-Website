@@ -1,7 +1,7 @@
 import type { CtaLink, StatItem, VerticalPageContent } from "../types";
 
 const CTA = { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink;
-const HOW = { label: "How it works", href: "/how-it-works" } satisfies CtaLink;
+const HOW = { label: "Platform", href: "/platform" } satisfies CtaLink;
 
 export const steelPage: VerticalPageContent = {
   slug: "steel",

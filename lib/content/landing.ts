@@ -26,7 +26,7 @@ export const landingContent = {
     supportingLine2: icp.heroBillLine,
     commercialBadge: "Pay as you save · Pilot first · Scale after verified bill",
     primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
-    secondaryCta: { label: "See How It Works", href: "/how-it-works" } satisfies CtaLink,
+    secondaryCta: { label: "See the Platform", href: "/platform" } satisfies CtaLink,
     features: [
       {
         id: "read-only",
@@ -236,13 +236,13 @@ export const landingContent = {
     title: "This is what your plant team gets - not a kWh chart",
     fields: getScenarioPrescription("homepagePrescription"),
     footerText: "This is what closure looks like.",
-    footerCta: { label: "Full workflow walkthrough", href: "/how-it-works" } satisfies CtaLink,
+    footerCta: { label: "Full platform walkthrough", href: "/platform" } satisfies CtaLink,
   },
 
   howItWorks: {
     eyebrow: "How it works",
     title: "The Stamped Energy Loop",
-    cta: { label: "Full workflow walkthrough", href: "/how-it-works" } satisfies CtaLink,
+    cta: { label: "Full platform walkthrough", href: "/platform" } satisfies CtaLink,
     steps: [
       {
         id: "connect-systems",
@@ -418,7 +418,7 @@ export const landingContent = {
         detail: "SEC / kWh per batch or ton where data exists",
       },
     ] satisfies StatItem[],
-    cta: { label: "See how verification works", href: "/how-it-works" } satisfies CtaLink,
+    cta: { label: "See how verification works", href: "/platform" } satisfies CtaLink,
   },
 
   industry40: {
@@ -520,6 +520,6 @@ export const landingContent = {
     description:
       "Begin with a pilot on your existing meters and plant data. We quantify outcomes in rupees and confirm them on your next electricity bill before annual subscription. Pilot on your existing data. Pay as you save after the bill proves it.",
     primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
-    secondaryCta: { label: "See How It Works", href: "/how-it-works" } satisfies CtaLink,
+    secondaryCta: { label: "See the Platform", href: "/platform" } satisfies CtaLink,
   },
 } as const;

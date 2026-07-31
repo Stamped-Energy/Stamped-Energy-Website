@@ -6,7 +6,7 @@ import { absoluteUrl } from "@/lib/seo/metadata";
 
 const STATIC_PATHS = [
   "/",
-  "/how-it-works",
+  "/platform",
   "/about",
   "/case-studies",
   "/contact",
@@ -20,7 +20,7 @@ const STATIC_PATHS = [
 
 const STATIC_PRIORITIES: Record<string, number> = {
   "/": 1.0,
-  "/how-it-works": 0.9,
+  "/platform": 0.9,
   "/industries/automotive": 0.9,
   "/industries/cement": 0.9,
   "/industries/steel": 0.85,

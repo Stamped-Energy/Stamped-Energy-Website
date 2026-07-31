@@ -42,7 +42,7 @@ export const caseStudiesContent = {
     description:
       "Field pilots and reference benchmarks from die casting, forging, and heat treatment suppliers. Every figure tied to M&V methodology or labelled as benchmark until pilot data is publishable.",
     primaryCta: { label: "Book a Discovery Call", href: "/contact" },
-    secondaryCta: { label: "See How It Works", href: "/how-it-works" },
+    secondaryCta: { label: "See the Platform", href: "/platform" },
     heroImageSrc: CASE_IMAGES.forging,
     heroImageAlt: "Automotive component forging plant floor",
   },

@@ -61,7 +61,7 @@ const CRED_LINKS = [
     icon: ChartIcon,
   },
   {
-    href: "/how-it-works",
+    href: "/platform",
     title: "How it works",
     description: "Connect → Observe → Decide → Execute → Verify",
     icon: LoopIcon,

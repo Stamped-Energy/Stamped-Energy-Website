@@ -15,14 +15,14 @@ import { buildPageMetadataFromConfig } from "@/lib/seo/metadata";
 import { PAGE_SEO } from "@/lib/seo/pages";
 import { howToSchema } from "@/lib/seo/schemas";
 
-export const metadata: Metadata = buildPageMetadataFromConfig(PAGE_SEO.howItWorks);
+export const metadata: Metadata = buildPageMetadataFromConfig(PAGE_SEO.platform);
 
 const breadcrumbSchema = generateBreadcrumbSchema([
   breadcrumbHome(),
-  { name: "How It Works", url: PAGE_SEO.howItWorks.path },
+  { name: "Platform", url: PAGE_SEO.platform.path },
 ]);
 
-export default function HowItWorksPage() {
+export default function PlatformPage() {
   return (
     <>
       <JsonLd data={[howToSchema, breadcrumbSchema]} />

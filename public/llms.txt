@@ -17,7 +17,8 @@ ICP: Plants with ₹20 lakh+ monthly electricity bills; buyers include plant dir
 ## Core pages
 
 - [Home](https://stamped.work/): AI-powered energy intelligence overview, five-step loop, homepage FAQ schema
-- [How It Works](https://stamped.work/how-it-works): Connect → Observe → Decide → Execute → Verify; HowTo JSON-LD
+- [Platform](https://stamped.work/platform): Connect → Observe → Decide → Execute → Verify → Improve; HowTo JSON-LD
+- [Solutions](https://stamped.work/solutions): Load/energy efficiency and equipment intelligence pillars
 - [Industries hub](https://stamped.work/industries): Five industry verticals - purpose-built AI-powered energy intelligence
 - [Industries - Automotive](https://stamped.work/industries/automotive): AI-powered energy intelligence for automotive and auto component plants
 - [Industries - Cement](https://stamped.work/industries/cement): AI-driven energy intelligence - kWh/ton, WHR/grid dispatch, MD
