@@ -24,7 +24,7 @@ ICP: Plants with ₹20 lakh+ monthly electricity bills; buyers include plant dir
 - [Industries - Steel](https://stamped.work/industries/steel): AI-driven energy management - furnaces, rolling mills, PAT SEC
 - [Industries - Pharmaceutical](https://stamped.work/industries/pharma): AI-driven energy management - HVAC, chillers, GMP-safe utilities
 - [Industries - Chemical](https://stamped.work/industries/chemical): AI-powered energy intelligence - batch SEC, reactor stagger, idle hold
-- [Case Studies](https://stamped.work/blog): Case studies and industry insights from real plants
+- [Case Studies & Blogs](https://stamped.work/case-studies): Case studies and blogs from real plants
 - [About](https://stamped.work/about): Founders, IIT Roorkee background, mission
 - [Contact](https://stamped.work/contact): Book a discovery call
 
@@ -36,9 +36,9 @@ ICP: Plants with ₹20 lakh+ monthly electricity bills; buyers include plant dir
 - How much can plants save? → Benchmark 12-20% bill reduction, 15-25% MD reduction; verified on DISCOM bill in pilot
 - Does it need hardware retrofit? → No; read-only integration with existing meters, SCADA, PLCs, bills
 
-## Case studies & industry insights
+## Case studies & blogs
 
-- [Case Studies index](https://stamped.work/blog): Maximum demand, shift-start overlap, furnace holding, HVAC waste
+- [Case Studies & Blogs index](https://stamped.work/case-studies): Maximum demand, shift-start overlap, furnace holding, HVAC waste
 - Individual articles at `https://stamped.work/blog/{slug}` - Article JSON-LD on each post
 
 ## Priority keywords

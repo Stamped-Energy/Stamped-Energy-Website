@@ -27,16 +27,16 @@ export const PAGE_SEO = {
     path: "/about",
   },
   blog: {
-    absoluteTitle: "Case Studies & Industry Insights | Stamped Energy",
+    absoluteTitle: "Case Studies & Blogs | Stamped Energy",
     description:
-      "Case studies and field notes on maximum demand, shift-start overlap, furnace holding, and HVAC waste - written for plant directors and electrical HODs at energy-intensive plants in India.",
-    path: "/blog",
+      "Case studies and blogs on maximum demand, shift-start overlap, furnace holding, and HVAC waste - written for plant directors and electrical HODs at energy-intensive plants in India.",
+    path: "/case-studies",
   },
   caseStudies: {
-    absoluteTitle: "Case Studies & Industry Insights | Stamped Energy",
+    absoluteTitle: "Case Studies & Blogs | Stamped Energy",
     description:
-      "Case studies and field notes on maximum demand, shift-start overlap, furnace holding, and HVAC waste - written for plant directors and electrical HODs at energy-intensive plants in India.",
-    path: "/blog",
+      "Case studies and blogs on maximum demand, shift-start overlap, furnace holding, and HVAC waste - written for plant directors and electrical HODs at energy-intensive plants in India.",
+    path: "/case-studies",
   },
   contact: {
     absoluteTitle: "Book a Discovery Call | Stamped Energy",

@@ -4,7 +4,7 @@ type CaseStudyPageProps = {
   params: Promise<{ slug: string }>;
 };
 
-/** Public case study detail merged into /blog (CRM CaseStudy admin unchanged). */
+/** Legacy case-study detail URLs fold into the merged listing (CRM CaseStudy admin unchanged). */
 export default async function CaseStudyDetailPage(_props: CaseStudyPageProps) {
-  permanentRedirect("/blog");
+  permanentRedirect("/case-studies");
 }

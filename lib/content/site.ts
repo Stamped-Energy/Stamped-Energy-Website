@@ -5,7 +5,8 @@ export const siteConfig = {
   name: "Stamped Energy",
   tagline: "AI-powered energy intelligence. Verified savings. Built for plants.",
   description: icp.seo.entityDefinition,
-  blogUrl: "/blog",
+  /** Public Case Studies & Blogs listing */
+  blogUrl: "/case-studies",
   contactEmail: "contact@stamped.work",
 } as const;
 

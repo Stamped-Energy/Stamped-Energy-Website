@@ -51,9 +51,9 @@ See `DECISIONS.md`.
 ### Phase 9 - Merge Blog + Case Studies public UI (complete)
 
 - Branch: `feat/merge-case-studies-blog-ui`
-- Nav/footer: single **Case Studies** → `/blog`
-- Permanent redirects `/case-studies` and `/case-studies/*` → `/blog`
-- Public listing/detail chrome labeled Case Studies; data from CRM `BlogPost` only
+- Nav/footer: single **Case Studies** → `/case-studies`
+- Canonical listing at `/case-studies` (CRM blogs); exact `/blog` → `/case-studies`
+- UI copy: Case studies & blogs; data from CRM `BlogPost` only
 - Case Studies CRM admin left untouched
 - Article URLs remain `/blog/[slug]`
 

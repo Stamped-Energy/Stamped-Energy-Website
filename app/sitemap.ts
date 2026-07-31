@@ -8,7 +8,7 @@ const STATIC_PATHS = [
   "/",
   "/how-it-works",
   "/about",
-  "/blog",
+  "/case-studies",
   "/contact",
   "/industries",
   "/industries/automotive",
@@ -27,7 +27,7 @@ const STATIC_PRIORITIES: Record<string, number> = {
   "/industries/pharma": 0.85,
   "/industries/chemical": 0.85,
   "/about": 0.8,
-  "/blog": 0.85,
+  "/case-studies": 0.85,
   "/industries": 0.8,
   "/contact": 0.75,
 };

@@ -55,8 +55,8 @@ function FactoryIcon() {
 
 const CRED_LINKS = [
   {
-    href: "/blog",
-    title: "Case studies",
+    href: "/case-studies",
+    title: "Case studies & blogs",
     description: "Verified SEC and MD outcomes from pilot plants",
     icon: ChartIcon,
   },

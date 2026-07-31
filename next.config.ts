@@ -14,13 +14,9 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source: "/case-studies",
-        destination: "/blog",
-        permanent: true,
-      },
-      {
-        source: "/case-studies/:path*",
-        destination: "/blog",
+        // Exact match only — do not redirect /blog/[slug] or /blog/admin
+        source: "/blog",
+        destination: "/case-studies",
         permanent: true,
       },
     ];

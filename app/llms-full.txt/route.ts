@@ -16,7 +16,7 @@ export async function GET() {
   const lines: string[] = [
     "# Stamped Energy - Full Content Index",
     "",
-    "> Auto-generated index of published case studies and industry insights for AI crawlers and answer engines.",
+    "> Auto-generated index of published case studies and blogs for AI crawlers and answer engines.",
     "",
     icp.seo.entityDefinition,
     "",
@@ -25,7 +25,7 @@ export async function GET() {
     `Audience: ${icp.seo.audienceLine}`,
     `For overview see ${SITE_URL}/llms.txt`,
     "",
-    "## Case studies & industry insights",
+    "## Case studies & blogs",
     "",
   ];
 
@@ -49,7 +49,7 @@ export async function GET() {
     `- [Industries - Steel](${SITE_URL}/industries/steel)`,
     `- [Industries - Pharmaceutical](${SITE_URL}/industries/pharma)`,
     `- [Industries - Chemical](${SITE_URL}/industries/chemical)`,
-    `- [Case Studies](${SITE_URL}/blog)`,
+    `- [Case Studies & Blogs](${SITE_URL}/case-studies)`,
     `- [About](${SITE_URL}/about)`,
     `- [Contact](${SITE_URL}/contact)`,
     "",

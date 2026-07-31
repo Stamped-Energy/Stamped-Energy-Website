@@ -2,7 +2,7 @@
  * Pages with a dark hero under the fixed navbar use light/white link text.
  * Pages with a light surface hero use grey link text (default).
  */
-const DARK_HERO_EXACT = new Set(["/blog", "/about", "/contact"]);
+const DARK_HERO_EXACT = new Set(["/case-studies", "/about", "/contact"]);
 
 const DARK_HERO_PREFIXES = ["/industries"];
 

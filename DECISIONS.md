@@ -166,8 +166,8 @@ Architecture and workflow decisions for this project.
 2. Keep `/blog` as the canonical path; nav/footer label **Case Studies**; permanent-redirect `/case-studies*` to `/blog`; article URLs stay `/blog/[slug]`
 3. New `/insights` route and dual redirects
 
-**Selected:** Option 2.
+**Selected:** Option 2 initially; refined so the **canonical listing is `/case-studies`**, with exact `/blog` → `/case-studies` redirect. Article URLs remain `/blog/[slug]`. UI copy uses **Case studies & blogs**.
 
-**Rationale:** Preserves existing blog SEO URLs and admin “view live” post links. Removes competing public IA. Case Study Prisma model and `/blog/admin/case-studies` stay unchanged.
+**Rationale:** Nav label Case Studies matches the public path; article SEO stays on `/blog/[slug]`. Case Study Prisma model and `/blog/admin/case-studies` stay unchanged.
 
-**Impact:** Homepage spotlight public fetch is blog-only. Sitemap/`llms.txt` drop public case-study URLs. `PAGE_SEO.blog` title becomes Case Studies & Industry Insights.
+**Impact:** Homepage spotlight public fetch is blog-only. Sitemap lists `/case-studies` + `/blog/{slug}`. Exact `/blog` redirect must not catch `/blog/admin` or `/blog/[slug]`.

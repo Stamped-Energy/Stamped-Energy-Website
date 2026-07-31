@@ -115,7 +115,7 @@ export function BlogArticleView({ post, related }: BlogArticleViewProps) {
           <div className="max-w-3xl">
             <Link
               data-blog-hero
-              href="/blog"
+              href="/case-studies"
               className={cn(
                 "inline-flex min-h-11 items-center py-1 text-xs font-semibold uppercase tracking-[0.12em] transition-colors",
                 hasCover
@@ -123,7 +123,7 @@ export function BlogArticleView({ post, related }: BlogArticleViewProps) {
                   : "text-on-surface-variant hover:text-primary",
               )}
             >
-              ← All case studies
+              ← All case studies & blogs
             </Link>
 
             <div

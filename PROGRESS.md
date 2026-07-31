@@ -38,7 +38,7 @@ Merge Blog + Case Studies public UI - complete (2026-07-31)
 - [x] **Sustainability positioning (homepage)** - additive only; hero subhead, `OperationalSustainability` (NEW B), `IndustryFourPointZero` (NEW C), `HomeFaq` accordion (NEW D), 5th WhyStamped card, per-tile sustainability line; H1 + recovery band unchanged
 - [x] **FAQ as single source** - `landingContent.faq` (8 items) rendered visibly and used to derive `homepageFaqSchema`; `knowsAbout` + home meta description extended
 - [x] **Homepage content IA refresh** - removed triple workflow repetition (hero loop, mid-page HowItWorks, Industry 4.0 band); ENLYZE-style challenge→solution Problem cards; Pay-as-you-save comparison chart; hero commercial badge; prescription workflow link; pay-as-you-save FAQ + Why Stamped card rename; industries copy trim
-- [x] **Merge Blog + Case Studies public UI** - nav/footer single Case Studies → `/blog`; `/case-studies*` 308 to `/blog`; public data from CRM blogs only; Case Study admin untouched; ADR-009
+- [x] **Merge Blog + Case Studies public UI** - nav/footer single Case Studies → `/case-studies`; exact `/blog` 308 to listing; articles stay `/blog/[slug]`; UI says Case studies & blogs; CRM CaseStudy admin untouched; ADR-009
 
 ## Remaining Phases
 

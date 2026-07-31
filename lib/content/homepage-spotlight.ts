@@ -117,7 +117,7 @@ async function listSpotlightEntries(): Promise<SpotlightEntry[]> {
     title: post.title,
     description: post.excerpt,
     href: `/blog/${post.slug}`,
-    tag: "Insight",
+    tag: "Blog",
     imageSrc: post.coverImage ?? FALLBACK_IMAGES.blog,
     imageAlt: post.title,
     order: post.homepageOrder ?? Number.MAX_SAFE_INTEGER,
