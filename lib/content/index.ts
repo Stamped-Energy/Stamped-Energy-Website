@@ -20,6 +20,11 @@ export {
 export { icp, icpBillLine } from "./icp";
 export { landingContent } from "./landing";
 export { resourcesContent } from "./resources";
+export {
+  solutionsContent,
+  getSolutionPillar,
+  type SolutionPillarSlug,
+} from "./solutions";
 export { footerLinks, navLinks, siteConfig } from "./site";
 export type * from "./types";
 export type { CaseStudyCategory, CaseStudyDetail } from "./caseStudies";
