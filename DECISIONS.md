@@ -190,3 +190,29 @@ Architecture and workflow decisions for this project.
 **Rationale:** Demo decks are the cross-repo visual reference. Flat overlays preserve photo contrast without wash/glow. Token changes stay centralized in `styles/theme.css`.
 
 **Impact:** ~30 components lose gradient layers (solid `bg-secondary/70` scrims where needed). Submodule `external/` pinned to `v2026.08.01`. `tsconfig.json` excludes `external/` so consumer fixtures are not typechecked by the website.
+
+---
+
+## ADR-011: Solutions hub + Platform IA (two pillars, Improve loop)
+
+**Date:** 2026-08-01
+
+**Context:** Marketing IA still centered on “How It Works” and a long homepage that retold the loop multiple times. Product SSOT (ADR-026 / stamped-external) defines one **Stamped Intelligence** product with two pillars and a six-step Improve loop. Public proof language must lead with **Verified with evidence**, not DISCOM-as-hero.
+
+**Alternatives:**
+
+1. Keep `/how-it-works` label; add Solutions as a mega-menu
+2. Simple nav: Solutions · Platform · Industries · Case Studies · About · Contact; `/platform` replaces `/how-it-works` (308); Solutions hub + two pillar routes; homepage distilled to seven sections
+
+**Selected:** Option 2.
+
+**Rationale:** Matches Infinite Uptime–style product IA without cloning visuals. Pillars map to customer language (load/energy efficiency vs equipment intelligence). Improve is public with non-creepy calibration copy. Distill gates prevent Platform and home from triple-retelling the loop.
+
+**Impact:**
+
+- Routes: `/solutions`, `/solutions/load-energy`, `/solutions/equipment-intelligence`, `/platform`
+- Redirect: `/how-it-works` → `/platform` (308)
+- Content SSOT: `lib/content/solutions.ts`, `lib/content/platform.ts`
+- Homepage mount ≤7 sections; About ≤3 blocks; Contact = form + email
+- HowTo JSON-LD = 6 steps; sitemap + `llms.txt` updated
+- Proof copy sitewide: Verified with evidence; bill confirmation optional
