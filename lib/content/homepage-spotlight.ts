@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/blog/db";
 import { resourcesContent } from "@/lib/content/resources";
 import type { ResourceCard } from "@/lib/content/types";
+import { normalizeCoverImageSrc } from "@/lib/media/image-src";
 
 export const HOMEPAGE_SPOTLIGHT_LIMIT = 3;
 
@@ -118,7 +119,7 @@ async function listSpotlightEntries(): Promise<SpotlightEntry[]> {
     description: post.excerpt,
     href: `/blog/${post.slug}`,
     tag: "Blog",
-    imageSrc: post.coverImage ?? FALLBACK_IMAGES.blog,
+    imageSrc: normalizeCoverImageSrc(post.coverImage) ?? FALLBACK_IMAGES.blog,
     imageAlt: post.title,
     order: post.homepageOrder ?? Number.MAX_SAFE_INTEGER,
     updatedAt: post.updatedAt,

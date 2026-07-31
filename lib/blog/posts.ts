@@ -19,6 +19,7 @@ import {
   richDocToPlainText,
 } from "@/lib/rich-content/document";
 import { estimateReadTimeMinutes, parseTags, serializeTags, slugify } from "@/lib/blog/utils";
+import { normalizeCoverImageSrc } from "@/lib/media/image-src";
 
 export type BlogPostDTO = {
   id: string;
@@ -93,7 +94,7 @@ function mapPost(post: BlogPost & { author: { name: string } }): BlogPostDTO {
     content: post.content,
     contentFormat: post.contentFormat,
     bodyJson: post.bodyJson,
-    coverImage: post.coverImage,
+    coverImage: normalizeCoverImageSrc(post.coverImage),
     category: post.category,
     categoryLabel: getCategoryLabel(post.category),
     tags: parseTags(post.tags),
@@ -301,7 +302,7 @@ export async function createPost(input: CreatePostInput): Promise<BlogPostDTO> {
       content,
       contentFormat: input.contentFormat ?? "RICH",
       bodyJson,
-      coverImage: input.coverImage?.trim() || null,
+      coverImage: normalizeCoverImageSrc(input.coverImage),
       category: input.category,
       tags: serializeTags(input.tags ?? []),
       status,
@@ -368,7 +369,9 @@ export async function updatePost(id: string, input: UpdatePostInput): Promise<Bl
       content,
       ...(input.contentFormat !== undefined ? { contentFormat: input.contentFormat } : {}),
       ...(input.bodyJson !== undefined ? { bodyJson: input.bodyJson } : {}),
-      ...(input.coverImage !== undefined ? { coverImage: input.coverImage?.trim() || null } : {}),
+      ...(input.coverImage !== undefined
+        ? { coverImage: normalizeCoverImageSrc(input.coverImage) }
+        : {}),
       ...(input.category !== undefined ? { category: input.category } : {}),
       ...(input.tags !== undefined ? { tags: serializeTags(input.tags) } : {}),
       status,
