@@ -1,17 +1,12 @@
 import type { Metadata } from "next";
 
-import { LandingClosingCta } from "@/components/sections/LandingClosingCta";
-import { FutureMedia } from "@/components/sections/FutureMedia";
 import { Hero } from "@/components/sections/Hero";
-import { HomeFaq } from "@/components/sections/HomeFaq";
-import { Industries } from "@/components/sections/Industries";
-import { OperationalSustainability } from "@/components/sections/OperationalSustainability";
-import { Outcomes } from "@/components/sections/Outcomes";
-import { PayAsYouSaveComparison } from "@/components/sections/PayAsYouSaveComparison";
+import { HomeImproveLoop } from "@/components/sections/HomeImproveLoop";
+import { HomeProofBand } from "@/components/sections/HomeProofBand";
+import { HomeSolutionsEntry } from "@/components/sections/HomeSolutionsEntry";
+import { HomeTerminalBand } from "@/components/sections/HomeTerminalBand";
+import { HomeValueProps } from "@/components/sections/HomeValueProps";
 import { PrescriptionExample } from "@/components/sections/PrescriptionExample";
-import { Problem } from "@/components/sections/Problem";
-import { WhyStamped } from "@/components/sections/WhyStamped";
-import { DynamicIndustryResources } from "@/components/industries/shared/DynamicIndustryResources";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildPageMetadataFromConfig } from "@/lib/seo/metadata";
 import { PAGE_SEO } from "@/lib/seo/pages";
@@ -36,17 +31,12 @@ export default function HomePage() {
         ]}
       />
       <Hero />
-      <Outcomes />
-      <Problem />
-      <PayAsYouSaveComparison />
+      <HomeValueProps />
+      <HomeSolutionsEntry />
+      <HomeImproveLoop />
       <PrescriptionExample />
-      <OperationalSustainability />
-      <WhyStamped />
-      <FutureMedia />
-      <Industries />
-      <DynamicIndustryResources />
-      <HomeFaq />
-      <LandingClosingCta />
+      <HomeProofBand />
+      <HomeTerminalBand />
     </>
   );
 }

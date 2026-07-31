@@ -73,6 +73,23 @@ export const landingContent = {
     ],
   },
 
+  valueProps: {
+    eyebrow: "What changes for the plant",
+    title: "Two outcomes. One Stamped Intelligence stack.",
+    items: [
+      {
+        id: "energy-savings",
+        title: "Energy savings",
+        body: "Load management and energy-efficiency prescriptions — MD, TOD, idle, HVAC, tariff — with owners and monthly rupee impact.",
+      },
+      {
+        id: "plant-efficiency",
+        title: "Plant / industrial efficiency",
+        body: "Prescriptive equipment intelligence from the same energy graph — early warnings before trips and waste compound.",
+      },
+    ],
+  },
+
   outcomes: {
     eyebrow: "Typical recovery ranges",
     title: "Numbers that must appear on the bill, not in a slide deck",
@@ -468,13 +485,13 @@ export const landingContent = {
 
   faq: {
     eyebrow: "FAQ",
-    title: "Questions plant and sustainability leaders ask",
+    title: "Questions plant leaders ask",
     items: [
       {
         id: "what-is-stamped",
         question: "What does Stamped actually do?",
         answer:
-          "Stamped connects to your existing meters, SCADA, and plant data, finds where energy and rupees are leaking, and sends specific assigned actions to your team. It then verifies the savings on your DISCOM bill.",
+          "Stamped Intelligence connects to your existing meters, SCADA, and plant data, finds where energy and rupees are leaking, and sends assigned prescriptions to your team. Outcomes are verified with evidence; DISCOM bill confirmation can follow.",
       },
       {
         id: "hardware",
@@ -483,16 +500,10 @@ export const landingContent = {
           "No hardware retrofit program is required. Stamped is software-only and connects read-only to the incomer meter, SCADA, PLCs, and CNCs you already run.",
       },
       {
-        id: "pay-as-you-save",
-        question: "What does pay as you save mean?",
+        id: "two-pillars",
+        question: "Is this only energy savings, or equipment too?",
         answer:
-          "Pay as you save means you start with a fixed-scope 90-day pilot at a low fee. Stamped assigns fixes, your team executes, and we verify savings on your DISCOM bill. Annual subscription starts after at least one billing cycle shows verified savings - not before. You can exit at Day 90 if the numbers do not justify continuing.",
-      },
-      {
-        id: "pilot",
-        question: "How do we start without a large commitment?",
-        answer:
-          "Begin with a low-fee pilot or pay-as-you-save on the first verified month. You see rupees recovered on the bill before scaling spend or signing an annual subscription.",
+          "One product, two pillars: load and energy-efficiency prescriptions, plus early equipment intelligence on the same stack. Not a separate MES or CMMS.",
       },
       {
         id: "team-action",
@@ -502,27 +513,9 @@ export const landingContent = {
       },
       {
         id: "savings-real",
-        question: "How do we know the savings are real?",
+        question: "How do we know outcomes are real?",
         answer:
-          "Verification runs monthly against your actual DISCOM bill, comparing realised against potential savings - not modelled estimates or annual audit-only claims.",
-      },
-      {
-        id: "esg-platform",
-        question: "Does Stamped replace our ESG or carbon accounting platform?",
-        answer:
-          "No. Stamped is an operational sustainability decision layer, not an ESG or carbon accounting platform. It reduces grid electricity use and produces verified energy and intensity evidence that feeds the reporting tools you already use.",
-      },
-      {
-        id: "sustainability-reporting",
-        question: "How does Stamped support sustainability reporting?",
-        answer:
-          "Because savings come from lower grid electricity draw, they map to Scope 2 reduction. When production is tagged, Stamped tracks specific energy consumption trends you can export for customer audits, PAT-style intensity discipline, and corporate reporting.",
-      },
-      {
-        id: "ot-safe",
-        question: "Is Stamped safe for our OT and Industry 4.0 architecture?",
-        answer:
-          "Yes. Stamped connects read-only and does not write back to control systems. It adds a decision and governance layer on top of the Industry 4.0 stack you already operate, without disrupting it.",
+          "We lead with verified with evidence — an ops-cleared ledger of potential vs realised impact. DISCOM bill confirmation is optional when the period closes, not the only proof story.",
       },
     ] satisfies HomeFaqItem[],
   },
