@@ -6,7 +6,7 @@ Main marketing website for Stamped Energy - prescriptive energy intelligence for
 
 ## System Overview
 
-- **Public site** - Next.js App Router marketing pages (landing, How It Works, Industries, About, Contact, Case Studies & Blogs at `/case-studies`)
+- **Public site** - Next.js App Router marketing pages (landing, Solutions, Platform, Industries, About, Contact, Case Studies & Blogs at `/case-studies`)
 - **Blog CMS** - Authenticated admin at `/blog/admin` for posts, case studies (admin-only), and contact inquiry review
 - **Contact pipeline** - Form submissions stored in PostgreSQL; optional email notifications via Resend
 - **Analytics** - Vercel Analytics on all public routes

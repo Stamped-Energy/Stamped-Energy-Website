@@ -31,7 +31,7 @@ const CASE_STUDIES_CTA = {
   eyebrow: "From reading to action",
   title: "See what your incomer meter is already telling you",
   description:
-    "Connect existing meters and plant data. Assigned fixes in rupees, verified on the next bill.",
+    "Connect existing meters and plant data. Assigned fixes in rupees, verified with evidence.",
   primaryCta: { label: "Book a Discovery Call", href: "/contact" },
 };
 

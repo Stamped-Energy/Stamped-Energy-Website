@@ -212,7 +212,7 @@ export const industriesContent = {
     eyebrow: "Industries",
     title: "Industries we serve",
     description:
-      "Purpose-built AI-powered energy intelligence for energy-intensive sectors - prescriptions with rupee impact, verified on your DISCOM bill.",
+      "Purpose-built AI-powered energy intelligence for energy-intensive sectors - prescriptions with rupee impact, verified with evidence.",
     heroImageSrc: INDUSTRY_IMAGES.cement,
     heroImageAlt: "Cement plant with silos and kiln illuminated at twilight",
     primaryCta: { label: "Explore industries", href: "#verticals" } satisfies CtaLink,
@@ -270,7 +270,7 @@ export const industriesContent = {
     featured: {
       eyebrow: "Industry verticals",
       title: "AI-powered energy intelligence by sector",
-      description: `Each vertical gets process-aware baselines, actionable prescriptions, and bill-verified savings. ${icp.heroBillLine}`,
+      description: `Each vertical gets process-aware baselines, actionable prescriptions, and evidence-verified outcomes. ${icp.heroBillLine}`,
       cta: { label: "Open automotive page", href: "/industries/automotive" } satisfies CtaLink,
       showMoreLabel: "Show process segments",
       showLessLabel: "Show fewer segments",
