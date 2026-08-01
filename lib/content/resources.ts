@@ -13,7 +13,7 @@ export const resourcesContent = {
     "Published outcomes and field notes from energy-intensive manufacturing, starting with automotive-adjacent process plants.",
   items: [
     {
-      id: "auto-insight-placeholder",
+      id: "auto-sec-insight",
       type: "blog",
       title: "Automotive & pump manufacturing: 18% SEC reduction",
       description:

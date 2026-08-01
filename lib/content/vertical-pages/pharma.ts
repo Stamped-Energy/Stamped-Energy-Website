@@ -107,12 +107,12 @@ export const pharmaPage: VerticalPageContent = {
     eyebrow: "Example prescriptions",
     title: "GMP-safe operational levers - utilities, not room reclassification",
     description:
-      "Illustrative actions from BEE pharma cluster benchmark Change-control-friendly utility tweaks first.",
+      "Illustrative actions from BEE pharma cluster benchmarks. Change-control-friendly utility tweaks first.",
     footnote:
-      "Impact ranges are benchmark estimate Stamped frames prescriptions as utilities operations - not GMP room classification changes. Validate with your quality team before execution.",
+      "Impact ranges are benchmark estimates. Stamped frames prescriptions as utilities operations, not GMP room classification changes. Validate with your quality team before execution.",
     attribution: {
-      text: "Large pharma RE governance cases report ₹1-2 Cr/yr leakage prevented at enterprise scale [Greenovative external]. Stamped targets MSME and mid-market formulation plants.",
-      source: "Greenovative external benchmark",
+      text: "Large pharma renewable-energy governance cases report significant annual leakage prevented at enterprise scale. Stamped targets MSME and mid-market formulation plants.",
+      source: "Published industry case literature",
     },
     items: [
       {
@@ -135,7 +135,7 @@ export const pharmaPage: VerticalPageContent = {
         id: "ca-pressure",
         title: "Reduce compressed air header pressure band",
         description:
-          "Header at 8.2 bar for 7.5 bar process requirement - 9% energy reduction on CA syste",
+          "Header at 8.2 bar for a 7.5 bar process requirement. About 9% energy reduction on the compressed-air system.",
         impactRange: "₹1-3L/month",
         assignee: "Maintenance / utilities",
       },
@@ -174,7 +174,7 @@ export const pharmaPage: VerticalPageContent = {
   outcomes: {
     eyebrow: "What you gain",
     title: "Targeted waste elimination and stable thermal performance",
-    disclaimer: "BEE benchmark band Your pilot replaces these with evidence-verified figures.",
+    disclaimer: "Indicative BEE benchmark band. Your pilot replaces these with evidence-verified figures.",
     items: [
       {
         id: "hvac-rupees",

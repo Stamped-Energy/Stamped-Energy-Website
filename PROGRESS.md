@@ -30,6 +30,7 @@ Helvetica Neue site-wide typography (ADR-014) - complete (2026-08-01) on `feat/i
 - [x] **Typography (ADR-014)** - Helvetica Neue system stack for display + body site-wide; drop Inter / Plus Jakarta; C3-inspired type rhythm only
 - [x] **Solutions ML narrative** - agentic load-energy + plant-tuned models copy; AgenticEnergyVisual + EarlyDetectionVisual (illustrative, GSAP); problem band dark / method band light with black visual cards; equipment chart shows dual paths + single “40-50% earlier…” line (no badge box)
 - [x] **Industries By industry zig-zag (ADR-015)** - black alternating image/copy cards from existing vertical metrics/equipment; full-card links; no fleet claims or named customers; replaces comparison table
+- [x] **Client-facing QA (2026-08-01)** - vertical copy scrub (truncated %, run-ons, competitor-style attributions); hero isometric bg matched to `#f7faf5`; `tsc` + `next build` green
 
 ## Remaining Phases
 

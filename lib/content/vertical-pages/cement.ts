@@ -55,7 +55,7 @@ export const cementPage: VerticalPageContent = {
         step: "01",
         title: "Raw & finish mills",
         description:
-          "SEC drift 5-12% when bearings or separator degrad Anomaly triggers maintenance work order and schedule adjustment.",
+          "SEC drift 5-12% when bearings or separators degrade. Anomaly triggers a maintenance work order and schedule adjustment.",
         potentialLabel: "Est. monthly savings",
         potentialValue: "₹2-6L",
       },
@@ -107,12 +107,12 @@ export const cementPage: VerticalPageContent = {
     eyebrow: "Example prescriptions",
     title: "Governed dispatch decisions your team executes this week",
     description:
-      "Illustrative actions from cement plant benchmark Your pilot generates prescriptions from your meters, EMS feeds, and bill.",
+      "Illustrative actions from cement plant benchmarks. Your pilot generates prescriptions from your meters, EMS feeds, and bill.",
     footnote:
-      "Impact ranges are benchmark estimates - not customer guarantees. External reference: enterprise cement dispatch governance cases report ₹8-10 Cr/yr potential at large scale [Greenovative external]. Stamped targets mid-market plants.",
+      "Impact ranges are benchmark estimates, not customer guarantees. Published enterprise cement dispatch cases cite large annual potential; Stamped targets mid-market plants with plant-specific verification.",
     attribution: {
-      text: "Enterprise cement plants saved ₹8-10 Cr/yr potential through dispatch governance - Stamped brings governed decisions to mid-market scale.",
-      source: "Greenovative external benchmark",
+      text: "Enterprise cement plants have reported large annual potential through dispatch governance. Stamped brings governed decisions to mid-market scale.",
+      source: "Published industry case literature",
     },
     items: [
       {
@@ -174,7 +174,7 @@ export const cementPage: VerticalPageContent = {
   outcomes: {
     eyebrow: "What you gain",
     title: "Prescriptive cost optimization and sustained efficiency outcomes",
-    disclaimer: "Benchmark band Your pilot replaces these with evidence-verified figures.",
+    disclaimer: "Indicative benchmark band. Your pilot replaces these with evidence-verified figures.",
     items: [
       {
         id: "kwh-ton",
@@ -186,13 +186,13 @@ export const cementPage: VerticalPageContent = {
         id: "dispatch",
         title: "Stage-wise SEC control",
         description:
-          "AI monitors SEC at each manufacturing stage and prescribes corrective actions across raw grinding, kiln, and cement grinding, reducing stage-wise SEC by 8-12",
+          "AI monitors SEC at each manufacturing stage and prescribes corrective actions across raw grinding, kiln, and cement grinding, reducing stage-wise SEC by 8-12%.",
       },
       {
         id: "md",
         title: "Utility-level efficiency and reliability",
         description:
-          "AI tracks large utilities like fans, blowers, and mills, prescribing early interventions to prevent degradation and cut unplanned downtime by 15-20",
+          "AI tracks large utilities like fans, blowers, and mills, prescribing early interventions to prevent degradation and cut unplanned downtime by 15-20%.",
       },
       {
         id: "ledger",
@@ -207,7 +207,7 @@ export const cementPage: VerticalPageContent = {
       id: "kwh-ton-benchmark",
       question: "What is a good kWh/ton benchmark for cement plants?",
       answer:
-        "Electrical SEC for cement typically runs 70-80 kWh/to with best-performing plants under 67 kWh/ton. Stamped tracks your plant's baseline by line and shift - benchmarks are starting points, not targets.",
+        "Electrical SEC for cement typically runs 70-80 kWh/ton, with best-performing plants under 67 kWh/ton. Stamped tracks your plant's baseline by line and shift. Benchmarks are starting points, not targets.",
     },
     {
       id: "ems-vs-stamped",

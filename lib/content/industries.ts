@@ -2,7 +2,6 @@ import type {
   CtaLink,
   IndustrySegment,
   IndustryVertical,
-  StatItem,
 } from "./types";
 import { getVerticalPage, VERTICAL_SLUGS, type VerticalSlug } from "./vertical-pages";
 

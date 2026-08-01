@@ -7,7 +7,7 @@ import { gsap, useGSAP } from "@/lib/motion/gsap";
 import { cn } from "@/lib/utils";
 
 /**
- * Illustrative paths — not plant telemetry.
+ * Illustrative paths - not plant telemetry.
  * Stamped path rises early; generic stays flat until near failure.
  */
 const STAMPED_PATH =

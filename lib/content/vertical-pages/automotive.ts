@@ -184,7 +184,7 @@ export const automotivePage: VerticalPageContent = {
         id: "sec",
         title: "Stable SECs and KPIs",
         description:
-          "Continuous supervision prescribes corrective actions to maintain SECs and efficiency KPIs within defined operating bands, reducing performance drift by 8-12",
+          "Continuous supervision prescribes corrective actions to maintain SECs and efficiency KPIs within defined operating bands, reducing performance drift by 8-12%.",
       },
       {
         id: "reliability",

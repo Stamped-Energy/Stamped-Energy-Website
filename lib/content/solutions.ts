@@ -309,7 +309,7 @@ export const solutionsContent = {
       method: {
         eyebrow: "Plant-tuned models",
         title: "Pre-trained models, fine-tuned on your plant",
-        body: "We start from domain pre-trained models, then train and fine-tune on your plant’s actual equipment data. Every plant and every asset has a different baseline. Models keep learning from your operating history so early signs of equipment drift or breakage show up before a trip, with an assigned next action and evidence trail.",
+        body: "We start from domain pre-trained models, then train and fine-tune on your plant's actual equipment data. Every plant and every asset has a different baseline. Models keep learning from your operating history so early signs of equipment drift or breakage show up before a trip, with an assigned next action and evidence trail.",
         points: [
           "Domain pre-trained models as the starting point, not a blank slate",
           "Fine-tuned on your plant and equipment baselines",

@@ -14,7 +14,7 @@ export function HeroIsometricVisual() {
           src="/images/hero/energy-facility-isometric.png"
           alt={HERO_IMAGE_ALT}
           width={1024}
-          height={576}
+          height={575}
           priority
           sizes="(max-width: 1024px) 100vw, 70vw"
           className="h-auto w-full bg-surface object-contain"
