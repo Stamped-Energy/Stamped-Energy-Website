@@ -133,7 +133,7 @@ export function SolutionPillarPage({ pillar }: SolutionPillarPageProps) {
             {rxExamples.map((rx) => (
               <Reveal key={rx.id}>
                 <article className="border border-outline-variant/50 bg-surface-lowest p-5 sm:p-6 md:p-8">
-                  <div className="mb-6 flex flex-wrap items-center justify-between gap-3 border-b border-outline-variant/40 pb-4">
+                  <div className="mb-6 flex flex-col gap-3 border-b border-outline-variant/40 pb-4 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
                     <div className="min-w-0">
                       <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
                         Illustrative prescription
@@ -186,7 +186,7 @@ export function SolutionPillarPage({ pillar }: SolutionPillarPageProps) {
               <p className="mt-5 max-w-2xl text-sm leading-7 text-on-secondary/80 md:text-base md:leading-8">
                 {pillar.evidence.body}
               </p>
-              <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 border-t border-on-secondary/15 pt-6 text-xs font-semibold uppercase tracking-[0.12em] text-on-secondary/55">
+              <div className="mt-8 flex flex-col gap-2 border-t border-on-secondary/15 pt-6 text-xs font-semibold uppercase tracking-[0.12em] text-on-secondary/55 sm:flex-row sm:flex-wrap sm:gap-x-8 sm:gap-y-3">
                 <span>Ops-cleared ledger</span>
                 <span>Plant-specific baselines</span>
                 <span>Bill confirmation optional</span>

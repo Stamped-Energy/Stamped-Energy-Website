@@ -3,7 +3,7 @@ export const aboutContent = {
     eyebrow: "Who we are",
     title: "Your plant has the data. It lacks the decision layer.",
     description:
-      "Every factory has meters, SCADA, and monthly bills. Stamped turns that into assigned actions with rupee impact, verified with evidence, so plant teams know what to do next.",
+      "Stamped turns meters, SCADA, and bills into assigned actions with rupee impact, verified with evidence.",
     heroImageSrc: "/industries/die-casting.jpeg",
     heroImageAlt: "Energy-intensive manufacturing plant floor",
   },
@@ -11,8 +11,7 @@ export const aboutContent = {
   team: {
     eyebrow: "Leadership",
     title: "Meet our founders",
-    description:
-      "IIT Roorkee engineers building software for plant heads who measure success on the electricity bill.",
+    description: "IIT Roorkee engineers building for plant heads who measure success on the bill.",
     members: [
       {
         id: "vinayak",
@@ -21,7 +20,7 @@ export const aboutContent = {
         imageSrc: "/team/vinayak.png",
         imageAlt: "Vinayak Raizada, Co-Founder of Stamped Energy, IIT Roorkee Electrical Engineering",
         linkedIn: "https://www.linkedin.com/in/vinayak-rz/",
-        bio: "Leads core technical work, electrical engineering depth, strategy, and marketing. Electrical Engineering, IIT Roorkee. Focuses on prescriptive energy intelligence-turning meter, SCADA, and bill data into rupee-denominated actions plant teams can verify with evidence.",
+        bio: "Electrical Engineering, IIT Roorkee. Leads product, strategy, and the technical core behind Stamped Intelligence.",
       },
       {
         id: "utso",
@@ -30,34 +29,33 @@ export const aboutContent = {
         imageSrc: "/team/utso.jpg",
         imageAlt: "Utso Sarkar, Co-Founder of Stamped Energy",
         linkedIn: "https://www.linkedin.com/in/utso/",
-        bio: "Leads sales, outreach, and software engineering. IIT Roorkee. Builds the product platform and works directly with manufacturers through discovery, pilots, and deployment-connecting what we ship to what plant teams execute on the floor.",
+        bio: "IIT Roorkee. Leads sales, outreach, and engineering delivery from discovery through pilot.",
       },
     ],
   },
 
   values: {
     eyebrow: "What we value",
-    title: "The principles behind how we build and serve",
-    description:
-      "Credibility on the plant floor comes from how we work, not from slide decks. These are the standards we hold ourselves to with every customer.",
+    title: "How we build and serve",
+    description: "Standards we hold on every plant engagement.",
     items: [
       {
         id: "integrity",
         title: "Integrity",
         description:
-          "Honest discovery, clear scope, and proof you can check. We do not invent savings or oversell what the data cannot support.",
+          "Honest discovery, clear scope, and proof you can check. No invented savings.",
       },
       {
         id: "innovation",
         title: "Innovation",
         description:
-          "Agentic intelligence, plant-tuned models, and a real-time decision layer on systems you already run. Built to stay ahead of generic monitoring.",
+          "Plant-tuned models and a real-time decision layer on systems you already run.",
       },
       {
         id: "customers",
         title: "Customers first",
         description:
-          "Quality that shows up as assigned actions, verified outcomes, and a team that stays with you through pilot and beyond.",
+          "Assigned actions, verified outcomes, and a team that stays through pilot and beyond.",
       },
     ],
   },

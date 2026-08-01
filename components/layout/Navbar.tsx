@@ -118,7 +118,7 @@ export function Navbar() {
         <button
           type="button"
           className={cn(
-            "inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-md border transition-colors lg:hidden",
+            "inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-md border transition-colors lg:hidden",
             isLightNav
               ? "border-on-secondary/40 text-on-secondary hover:border-on-secondary/60"
               : "border-outline-variant text-on-surface",

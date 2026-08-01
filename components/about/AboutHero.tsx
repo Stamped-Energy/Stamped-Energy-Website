@@ -57,13 +57,13 @@ export function AboutHero() {
           </p>
           <h1
             data-about-hero
-            className="mt-3 font-display text-[1.65rem] font-extrabold leading-[1.15] text-on-secondary sm:text-3xl md:text-4xl lg:text-[2.75rem]"
+            className="mt-3 font-display text-[1.45rem] font-extrabold leading-[1.18] text-on-secondary sm:text-3xl md:text-4xl lg:text-[2.75rem]"
           >
             {hero.title}
           </h1>
           <p
             data-about-hero
-            className="mt-3 max-w-xl text-sm leading-6 text-on-secondary/85 sm:mt-4 sm:leading-7 md:text-base"
+            className="mt-3 max-w-xl text-sm leading-6 text-on-secondary/85 sm:mt-4 sm:text-base sm:leading-7"
           >
             {hero.description}
           </p>

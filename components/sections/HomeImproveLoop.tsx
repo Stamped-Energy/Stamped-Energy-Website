@@ -19,16 +19,31 @@ export function HomeImproveLoop() {
           </h2>
         </Reveal>
 
-        <Reveal className="mt-10">
-          <ol className="flex flex-wrap items-stretch gap-y-4 md:flex-nowrap md:gap-0">
+        {/* Mobile: vertical list */}
+        <Reveal className="mt-8 md:hidden">
+          <ol className="divide-y divide-outline-variant/40 border-y border-outline-variant/40">
+            {workflow.steps.map((step, index) => (
+              <li key={step.id} className="grid grid-cols-[2.5rem_1fr] gap-3 py-4">
+                <p className="font-display text-xs font-extrabold text-primary">
+                  {String(index + 1).padStart(2, "0")}
+                </p>
+                <div className="min-w-0">
+                  <h3 className="text-sm font-bold text-on-surface">{step.title}</h3>
+                  <p className="mt-1 text-sm leading-6 text-on-surface-variant">{step.description}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </Reveal>
+
+        {/* Desktop: horizontal flow */}
+        <Reveal className="mt-10 hidden md:block">
+          <ol className="flex flex-nowrap items-stretch gap-0">
             {workflow.steps.map((step, index) => {
               const isLast = index === workflow.steps.length - 1;
               return (
-                <li
-                  key={step.id}
-                  className="flex min-w-[9.5rem] flex-1 items-stretch md:min-w-0"
-                >
-                  <div className="flex flex-1 flex-col border border-outline-variant/40 px-3 py-4 md:px-4">
+                <li key={step.id} className="flex min-w-0 flex-1 items-stretch">
+                  <div className="flex flex-1 flex-col border border-outline-variant/40 px-4 py-4">
                     <p className="font-display text-xs font-extrabold text-primary">
                       {String(index + 1).padStart(2, "0")}
                     </p>
@@ -38,10 +53,7 @@ export function HomeImproveLoop() {
                     </p>
                   </div>
                   {!isLast ? (
-                    <span
-                      aria-hidden
-                      className="hidden items-center px-1 text-primary md:flex"
-                    >
+                    <span aria-hidden className="flex items-center px-1 text-primary">
                       →
                     </span>
                   ) : null}

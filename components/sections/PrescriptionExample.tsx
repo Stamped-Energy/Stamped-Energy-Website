@@ -89,7 +89,7 @@ export function PrescriptionExample() {
             >
               <div
                 data-rx-header
-                className="mb-6 flex items-center justify-between border-b border-on-secondary/15 pb-4"
+                className="mb-6 flex flex-col gap-3 border-b border-on-secondary/15 pb-4 sm:flex-row sm:items-center sm:justify-between"
               >
                 <div className="min-w-0">
                   <p className="text-xs font-semibold uppercase tracking-[0.14em] text-inverse-primary">
@@ -99,7 +99,7 @@ export function PrescriptionExample() {
                 </div>
                 <span
                   data-rx-badge
-                  className="border border-primary/40 bg-primary/15 px-3 py-1 text-xs font-semibold text-primary"
+                  className="w-fit border border-primary/40 bg-primary/15 px-3 py-1.5 text-xs font-semibold text-primary"
                 >
                   Priority: High
                 </span>

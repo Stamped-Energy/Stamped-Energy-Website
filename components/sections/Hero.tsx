@@ -122,7 +122,7 @@ export function Hero() {
             {hero.commercialBadge ? (
               <p
                 data-hero-animate="supporting"
-                className="mt-4 inline-flex rounded-full border border-primary/25 bg-primary/8 px-3.5 py-1.5 text-xs font-semibold tracking-wide text-primary"
+                className="mt-4 max-w-md text-pretty rounded-md border border-primary/25 bg-primary/8 px-3.5 py-2 text-xs font-semibold leading-5 tracking-wide text-primary sm:inline-flex sm:rounded-full sm:py-1.5 sm:leading-normal"
               >
                 {hero.commercialBadge}
               </p>
