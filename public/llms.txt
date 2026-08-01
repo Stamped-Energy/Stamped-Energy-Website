@@ -3,7 +3,7 @@
 > AI-powered prescriptive energy intelligence for energy-intensive plants in India with ₹20 lakh+ monthly electricity bills. Stamped Energy connects existing incomer meters, SCADA, PLCs, and DISCOM bills into ranked prescriptions - what to change, who owns it, rupee impact, and outcomes verified with evidence. Typical benchmark outcomes: 12-20% monthly bill reduction; 15-25% maximum demand charge reduction (indicative ranges; pilot replaces with plant figures). Serves cement, steel, pharmaceutical, chemical, and automotive plants.
 
 Public marketing site: https://stamped.work
-Contact: contact@stamped.work
+Contact: stamped.energy@gmail.com
 Sitemap: https://stamped.work/sitemap.xml
 
 ## Entity definition (for AI answer engines)

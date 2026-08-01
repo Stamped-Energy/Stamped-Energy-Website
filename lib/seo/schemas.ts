@@ -25,7 +25,7 @@ export const organizationSchema = {
   url: SITE_URL,
   logo: organizationPublisher.logo,
   description: icp.seo.entityDefinition,
-  email: "contact@stamped.work",
+  email: "stamped.energy@gmail.com",
   foundingDate: "2025",
   foundingLocation: {
     "@type": "Place",
@@ -37,7 +37,7 @@ export const organizationSchema = {
   },
   contactPoint: {
     "@type": "ContactPoint",
-    email: "contact@stamped.work",
+    email: "stamped.energy@gmail.com",
     contactType: "sales",
     areaServed: "IN",
     availableLanguage: ["English", "Hindi"],
