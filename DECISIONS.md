@@ -254,3 +254,23 @@ Architecture and workflow decisions for this project.
 **Rationale:** Craft parity for buyer trust. Improve language stays human-gated without implying tracking of follow/ignore behavior.
 
 **Impact:** `SolutionsHero`, enriched hub/pillar sections; copy updates in landing, platform, solutions, HomeImproveLoop, SEO HowTo, PRODUCT.md. `external/` SSOT untouched.
+
+---
+
+## ADR-014: Helvetica Neue site-wide typography
+
+**Date:** 2026-08-01
+
+**Context:** Dual Google fonts (Inter + Plus Jakarta Sans) felt generic vs enterprise industrial positioning. User asked for C3 AI–style typography (Helvetica Neue) and spacing, not C3 brand colors or IA.
+
+**Alternatives:**
+
+1. Keep Inter + Plus Jakarta
+2. Licensed Helvetica Now webfonts (requires purchase)
+3. System Helvetica Neue stack site-wide for display and body
+
+**Selected:** Option 3.
+
+**Rationale:** Matches C3’s Helvetica Neue character legally without a webfont license. One family for display and body. Apple renders Helvetica Neue; Windows falls back to Arial.
+
+**Impact:** Removed `next/font` Inter/Jakarta from `app/layout.tsx`. Tokens in `app/globals.css`. Admin and rich-article styles updated. `DESIGN.md` identity fonts updated.

@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-Solutions page craft + Improve copy scrub - complete (2026-08-01) on `feat/ia-solutions-platform`; typography pass next
+Helvetica Neue site-wide typography (ADR-014) - complete (2026-08-01) on `feat/ia-solutions-platform`
 
 ## Completed Phases
 
@@ -27,6 +27,7 @@ Solutions page craft + Improve copy scrub - complete (2026-08-01) on `feat/ia-so
 - [x] **Polish pass** - homepage outcomes band; detailed Solutions pillar pages; IU-style Industries hub (thesis + comparison + FAQ); thinner vertical pages; real-time intelligence copy; em-dash scrub; footer craft
 - [x] **Nav mega-menus (ADR-012)** - Solutions + Industries IU-style numbered list dropdowns (click hub / hover items); Solutions hub numbered briefs + Explore CTAs; homepage outcomes/Rx commit `e8823c8`
 - [x] **Solutions craft (ADR-013)** - photo heroes, bordered outcomes, Rx cards, numbered levers; Improve copy = decisions taken / verified outcomes (no followed-vs-ignored)
+- [x] **Typography (ADR-014)** - Helvetica Neue system stack for display + body site-wide; drop Inter / Plus Jakarta; C3-inspired type rhythm only
 
 ## Remaining Phases
 
