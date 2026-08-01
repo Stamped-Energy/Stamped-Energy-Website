@@ -53,20 +53,20 @@ export function AboutTeam() {
             <article
               key={member.id}
               data-about-team
-              className="flex overflow-hidden rounded-2xl border border-outline-variant/50 bg-surface-lowest shadow-sm sm:block"
+              className="flex flex-col overflow-hidden rounded-2xl border border-outline-variant/50 bg-surface-lowest shadow-sm"
             >
-              <div className="relative min-h-[7.5rem] w-28 shrink-0 self-stretch overflow-hidden bg-surface-container sm:min-h-0 sm:w-auto sm:aspect-[4/3]">
+              <div className="relative aspect-[16/10] w-full overflow-hidden bg-surface-container sm:aspect-[4/3]">
                 <Image
                   src={member.imageSrc}
                   alt={member.imageAlt}
                   fill
                   className="object-cover object-top"
-                  sizes="(max-width: 640px) 112px, (max-width: 768px) 100vw, 400px"
+                  sizes="(max-width: 768px) 100vw, 400px"
                 />
-                <div className="absolute inset-0 hidden bg-secondary/70 sm:block" />
+                <div className="absolute inset-0 bg-secondary/40 sm:bg-secondary/70" />
               </div>
               <div className="flex min-w-0 flex-1 flex-col p-4 sm:p-6">
-                <div className="flex items-start justify-between gap-2 sm:gap-3">
+                <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0">
                     <h3 className="text-base font-bold text-on-surface sm:text-lg">{member.name}</h3>
                     <p className="mt-0.5 text-xs font-semibold text-primary sm:text-sm">{member.role}</p>
@@ -75,7 +75,7 @@ export function AboutTeam() {
                     href={member.linkedIn}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-outline-variant/60 bg-surface-low text-on-surface-variant transition-colors hover:border-primary hover:text-primary sm:h-9 sm:w-9"
+                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-outline-variant/60 bg-surface-low text-on-surface-variant transition-colors hover:border-primary hover:text-primary sm:h-9 sm:w-9"
                     aria-label={`${member.name} on LinkedIn`}
                   >
                     <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current" aria-hidden>
@@ -83,7 +83,7 @@ export function AboutTeam() {
                     </svg>
                   </Link>
                 </div>
-                <p className="mt-2 text-sm leading-6 text-on-surface-variant sm:mt-3 sm:line-clamp-none">
+                <p className="mt-2 line-clamp-4 text-sm leading-6 text-on-surface-variant sm:mt-3 sm:line-clamp-none">
                   {member.bio}
                 </p>
               </div>

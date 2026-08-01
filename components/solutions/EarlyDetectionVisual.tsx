@@ -116,13 +116,13 @@ export function EarlyDetectionVisual({
         className,
       )}
     >
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-on-secondary/15 px-4 py-3 sm:px-5">
+      <div className="flex flex-col gap-3 border-b border-on-secondary/15 px-4 py-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:px-5">
         <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-on-secondary/85">
           Kiln main drive · early vs late
         </p>
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <div
-            className="inline-flex items-center rounded-full border border-on-secondary/20 p-0.5 text-[10px] font-semibold uppercase tracking-[0.1em]"
+            className="inline-flex items-center rounded-full border border-on-secondary/20 p-0.5 text-[11px] font-semibold uppercase tracking-[0.1em]"
             role="group"
             aria-label="Compare detection mode"
           >
@@ -130,7 +130,7 @@ export function EarlyDetectionVisual({
               type="button"
               onClick={() => setMode("generic")}
               className={cn(
-                "rounded-full px-2.5 py-1 transition-colors",
+                "min-h-10 rounded-full px-3.5 py-2 transition-colors",
                 mode === "generic"
                   ? "bg-error text-on-error"
                   : "text-on-secondary/45 hover:text-on-secondary",
@@ -142,7 +142,7 @@ export function EarlyDetectionVisual({
               type="button"
               onClick={() => setMode("stamped")}
               className={cn(
-                "rounded-full px-2.5 py-1 transition-colors",
+                "min-h-10 rounded-full px-3.5 py-2 transition-colors",
                 mode === "stamped"
                   ? "bg-primary text-on-primary"
                   : "text-on-secondary/45 hover:text-on-secondary",
@@ -154,7 +154,7 @@ export function EarlyDetectionVisual({
           <button
             type="button"
             onClick={() => setReplayKey((value) => value + 1)}
-            className="text-[10px] font-semibold uppercase tracking-[0.12em] text-on-secondary/60 transition-colors hover:text-on-secondary"
+            className="min-h-10 px-3 text-[11px] font-semibold uppercase tracking-[0.12em] text-on-secondary/60 transition-colors hover:text-on-secondary"
           >
             Replay
           </button>

@@ -56,7 +56,7 @@ export function SolutionsHub() {
                 <div className="grid gap-8 md:grid-cols-[5rem_1fr] md:gap-12 lg:gap-16">
                   <span
                     aria-hidden="true"
-                    className="font-display text-5xl font-bold tracking-tight text-outline-variant md:text-6xl"
+                    className="hidden font-display text-5xl font-bold tracking-tight text-outline-variant md:block md:text-6xl"
                   >
                     {number}
                   </span>

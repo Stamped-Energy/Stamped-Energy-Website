@@ -141,20 +141,20 @@ export function AgenticEnergyVisual({
         className,
       )}
     >
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-on-secondary/15 px-4 py-3 sm:px-5">
-        <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-inverse-primary">
+      <div className="flex flex-col gap-2 border-b border-on-secondary/15 px-4 py-3 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-3 sm:px-5">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-inverse-primary">
           Agentic loop · tap a step
         </p>
         {!controlled ? (
           <button
             type="button"
-            className="text-[10px] font-semibold uppercase tracking-[0.12em] text-on-secondary/60 transition-colors hover:text-on-secondary"
+            className="min-h-10 w-fit px-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-on-secondary/60 transition-colors hover:text-on-secondary"
             onClick={() => setAutoPlay((value) => !value)}
           >
             {autoPlay ? "Pause autoplay" : "Resume autoplay"}
           </button>
         ) : (
-          <p className="text-[10px] font-medium uppercase tracking-[0.12em] text-on-secondary/55">
+          <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-on-secondary/55">
             Synced with points
           </p>
         )}
@@ -169,7 +169,7 @@ export function AgenticEnergyVisual({
           />
         </div>
 
-        <ol className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
+        <ol className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-4 md:gap-4">
           {STEPS.map((step, index) => {
             const isActive = index === safeIndex;
             return (
@@ -180,7 +180,7 @@ export function AgenticEnergyVisual({
                   onClick={() => selectStep(index)}
                   aria-pressed={isActive}
                   className={cn(
-                    "flex w-full flex-col items-center rounded-xl border px-2 py-4 text-center transition-colors duration-200",
+                    "flex min-h-14 w-full flex-row items-center gap-3 rounded-xl border px-3 py-3 text-left transition-colors duration-200 sm:min-h-0 sm:flex-col sm:gap-0 sm:px-2 sm:py-4 sm:text-center",
                     isActive
                       ? "border-primary bg-primary/15"
                       : "border-on-secondary/20 bg-secondary hover:border-on-secondary/40 hover:bg-on-secondary/5",
@@ -196,8 +196,10 @@ export function AgenticEnergyVisual({
                   >
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <span className="mt-3 font-display text-sm font-bold">{step.label}</span>
-                  <span className="mt-1 text-xs text-on-secondary/65">{step.detail}</span>
+                  <span className="flex min-w-0 flex-col sm:mt-3 sm:items-center">
+                    <span className="font-display text-sm font-bold">{step.label}</span>
+                    <span className="mt-0.5 text-xs text-on-secondary/65 sm:mt-1">{step.detail}</span>
+                  </span>
                 </button>
               </li>
             );

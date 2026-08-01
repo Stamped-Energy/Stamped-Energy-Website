@@ -55,32 +55,32 @@ export function IndustriesHubComparison() {
                       !imageFirst && "md:order-1",
                     )}
                   >
-                    <div className="flex items-start justify-between gap-4">
+                    <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
                       <h3 className="min-w-0 font-display text-xl font-bold text-on-secondary md:text-2xl">
                         {row.name}
                       </h3>
-                      <div className="shrink-0 text-right">
+                      <div className="sm:shrink-0 sm:text-right">
                         <p className="font-display text-2xl font-extrabold tracking-tight text-primary md:text-3xl">
                           {row.metricPrimary.value}
                         </p>
-                        <p className="mt-0.5 max-w-[10rem] text-[10px] font-medium uppercase tracking-[0.1em] text-on-secondary/55 sm:max-w-[12rem]">
+                        <p className="mt-0.5 max-w-xs text-[10px] font-medium uppercase tracking-[0.1em] text-on-secondary/55 sm:max-w-[12rem]">
                           {row.metricPrimary.label}
                         </p>
                       </div>
                     </div>
 
-                    <p className="mt-4 font-display text-lg font-bold text-on-secondary md:text-xl">
+                    <p className="mt-4 font-display text-base font-bold text-on-secondary sm:text-lg md:text-xl">
                       <span className="text-primary">{row.metricSecondary.value}</span>{" "}
-                      <span className="text-base font-semibold text-on-secondary/85 md:text-lg">
+                      <span className="text-sm font-semibold text-on-secondary/85 sm:text-base md:text-lg">
                         {row.metricSecondary.label}
                       </span>
                     </p>
 
-                    <p className="mt-4 text-sm font-semibold text-on-secondary">
+                    <p className="mt-4 flex flex-wrap gap-x-2 gap-y-1 text-sm font-semibold text-on-secondary">
                       {row.equipment.map((tag, tagIndex) => (
-                        <span key={tag}>
+                        <span key={tag} className="inline-flex items-center">
                           {tagIndex > 0 ? (
-                            <span className="mx-2 text-primary" aria-hidden="true">
+                            <span className="mr-2 text-primary" aria-hidden="true">
                               ·
                             </span>
                           ) : null}
@@ -89,11 +89,11 @@ export function IndustriesHubComparison() {
                       ))}
                     </p>
 
-                    <p className="mt-4 max-w-xl text-sm leading-7 text-on-secondary/75">
+                    <p className="mt-4 max-w-xl text-sm leading-6 text-on-secondary/75 sm:leading-7">
                       {row.body}
                     </p>
 
-                    <div className="mt-6 flex items-center justify-between gap-4 border-t border-on-secondary/15 pt-4 text-xs font-semibold uppercase tracking-[0.12em]">
+                    <div className="mt-6 flex flex-col gap-2 border-t border-on-secondary/15 pt-4 text-xs font-semibold uppercase tracking-[0.12em] sm:flex-row sm:items-center sm:justify-between sm:gap-4">
                       <span className="text-on-secondary/55">{row.footerNote}</span>
                       <span className="text-primary transition-colors group-hover:text-inverse-primary">
                         View industry
