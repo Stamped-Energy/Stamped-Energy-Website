@@ -2,7 +2,11 @@ import { Resend } from "resend";
 
 import type { ContactSubmissionInput } from "@/lib/contact/submissions";
 
-const DEFAULT_NOTIFY_EMAILS = ["contact@stamped.work", "vinayakraizada@gmail.com"];
+const DEFAULT_NOTIFY_EMAILS = [
+  "vinayakraizada@gmail.com",
+  "stamped.energy@gmail.com",
+  "utsosarkar1@gmail.com",
+];
 
 function getNotifyRecipients(): string[] {
   const fromEnv = process.env.CONTACT_NOTIFY_EMAILS?.trim();
@@ -17,7 +21,7 @@ function getNotifyRecipients(): string[] {
 }
 
 function getFromAddress(): string {
-  return process.env.CONTACT_FROM_EMAIL?.trim() || "Stamped Energy <contact@stamped.work>";
+  return process.env.CONTACT_FROM_EMAIL?.trim() || "Stamped Energy <stamped.energy@gmail.com>";
 }
 
 function displayValue(value: string | null | undefined): string {

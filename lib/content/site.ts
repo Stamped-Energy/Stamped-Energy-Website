@@ -8,7 +8,7 @@ export const siteConfig = {
   description: icp.seo.entityDefinition,
   /** Public Case Studies & Blogs listing */
   blogUrl: "/case-studies",
-  contactEmail: "contact@stamped.work",
+  contactEmail: "stamped.energy@gmail.com",
 } as const;
 
 export const navLinks: NavLink[] = [
