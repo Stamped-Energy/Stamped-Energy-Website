@@ -111,34 +111,6 @@ export function SolutionsHub() {
           </Reveal>
         </Container>
       </section>
-
-      <section className="bg-secondary section-y text-on-secondary">
-        <Container>
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-inverse-primary">
-              {hub.finalCta.eyebrow}
-            </p>
-            <h2 className="mt-3 font-display text-2xl font-extrabold md:text-3xl">
-              {hub.finalCta.title}
-            </h2>
-            <p className="mt-3 text-sm leading-6 text-on-secondary/80 md:text-base">
-              {hub.finalCta.description}
-            </p>
-            <div className="mt-6 flex flex-wrap justify-center gap-3">
-              <Button href={hub.finalCta.primaryCta.href} variant="primary">
-                {hub.finalCta.primaryCta.label}
-              </Button>
-              <Button
-                href={hub.finalCta.secondaryCta.href}
-                variant="outline"
-                className="border-on-secondary/40 text-on-secondary hover:bg-on-secondary/10"
-              >
-                {hub.finalCta.secondaryCta.label}
-              </Button>
-            </div>
-          </Reveal>
-        </Container>
-      </section>
     </>
   );
 }

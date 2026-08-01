@@ -44,7 +44,14 @@ export type SolutionPillarPage = {
     title: string;
     body: string;
   };
+  method: {
+    eyebrow: string;
+    title: string;
+    body: string;
+    points: string[];
+  };
   whatWeDo: {
+    eyebrow: string;
     title: string;
     intro: string;
     levers: { id: string; title: string; body: string }[];
@@ -172,8 +179,20 @@ export const solutionsContent = {
         title: "You already have the meters",
         body: "Demand spikes and high SEC show up after the fact. The missing piece is an assigned next action before the billing window closes, not another trend chart.",
       },
+      method: {
+        eyebrow: "Agentic intelligence",
+        title: "From plant signals to the next best action",
+        body: "An agentic system watches what is happening across the plant: meters, SCADA, bills, and process context. ML models surface data anomalies and load-shape drift. Stamped then ranks what to do next against industry practice for MD, tariff windows, idle waste, and utilities staging, and assigns an owner with monthly rupee impact.",
+        points: [
+          "Reads energy and process signals across the plant, not a single meter in isolation",
+          "ML models flag anomalies, co-starts, idle draw, and tariff misalignment",
+          "Decisions ranked against industry standards and your plant constraints",
+          "Output is a prescription: what, who, effort, and ₹ impact",
+        ],
+      },
       whatWeDo: {
-        title: "What Stamped does for load and energy",
+        eyebrow: "What we do",
+        title: "Where we actually help on load and energy",
         intro:
           "Real-time intelligence on your energy graph. Prescriptions your electrical and ops teams can execute without a hardware retrofit.",
         levers: [
@@ -261,25 +280,25 @@ export const solutionsContent = {
         eyebrow: "Indicative outcomes",
         title: "What this pillar is built to move",
         disclaimer:
-          "Qualitative and indicative only. Your pilot replaces these with plant-specific evidence. Not a CMMS or vibration PdM replacement claim.",
+          "Indicative ranges when teams act on early energy-linked drift. Aligned with industrial reliability bands (for example 15-25% emergency / PM spend reduction in published prescriptive programs). Your pilot replaces these with verified figures. Not a CMMS or full vibration PdM claim.",
         items: [
           {
-            id: "early",
-            value: "Earlier",
-            label: "Warnings tied to energy drift",
-            detail: "Odd load shapes and SEC rise often precede a trip",
+            id: "downtime",
+            value: "10-20%",
+            label: "Unplanned downtime prevented",
+            detail: "When early drift prescriptions are closed before a trip",
+          },
+          {
+            id: "emergency",
+            value: "15-25%",
+            label: "Emergency maintenance cost reduction",
+            detail: "Fewer rush repairs when issues surface on the energy graph first",
           },
           {
             id: "shared",
             value: "Shared",
             label: "Context for utilities and maintenance",
-            detail: "One prescription trail, not two dashboards",
-          },
-          {
-            id: "same",
-            value: "Same",
-            label: "Evidence trail as energy Rx",
-            detail: "Ops-cleared outcomes on the energy graph",
+            detail: "One prescription trail with evidence, not two dashboards",
           },
         ] satisfies StatItem[],
       },
@@ -287,8 +306,20 @@ export const solutionsContent = {
         title: "Energy drift often arrives first",
         body: "Odd load shapes, rising specific energy, and idle patterns appear before a trip. Without a shared prescription, maintenance and utilities talk past each other.",
       },
+      method: {
+        eyebrow: "Plant-tuned models",
+        title: "Pre-trained models, fine-tuned on your plant",
+        body: "We start from domain pre-trained models, then train and fine-tune on your plant’s actual equipment data. Every plant and every asset has a different baseline. Models keep learning from your operating history so early signs of equipment drift or breakage show up before a trip, with an assigned next action and evidence trail.",
+        points: [
+          "Domain pre-trained models as the starting point, not a blank slate",
+          "Fine-tuned on your plant and equipment baselines",
+          "Continuous training on your actual operating data",
+          "Earlier drift signals than generic alerts, tied to owners and evidence",
+        ],
+      },
       whatWeDo: {
-        title: "What Stamped does for equipment intelligence",
+        eyebrow: "What we do",
+        title: "Where we actually help on equipment intelligence",
         intro:
           "Real-time intelligence from the same energy graph. Early warnings with owners, not another vibration screen to ignore.",
         levers: [

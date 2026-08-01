@@ -1,3 +1,4 @@
+import { SolutionMethodBand } from "@/components/solutions/SolutionMethodBand";
 import { SolutionsHero } from "@/components/solutions/SolutionsHero";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -9,7 +10,7 @@ type SolutionPillarPageProps = {
 };
 
 export function SolutionPillarPage({ pillar }: SolutionPillarPageProps) {
-  const { valueProps, whatWeDo, rxExamples, platformLink } = pillar;
+  const { valueProps, whatWeDo, rxExamples, platformLink, method } = pillar;
 
   return (
     <>
@@ -58,14 +59,15 @@ export function SolutionPillarPage({ pillar }: SolutionPillarPageProps) {
         </Container>
       </section>
 
-      <section className="border-b border-outline-variant/30 bg-surface section-y">
+      {/* Outcomes (light) → problem (dark) → method + black visual card (light) */}
+      <section className="bg-secondary section-y text-on-secondary">
         <Container>
           <Reveal>
             <div className="max-w-2xl">
-              <h2 className="font-display text-2xl font-bold text-on-surface md:text-3xl">
+              <h2 className="font-display text-2xl font-bold text-on-secondary md:text-3xl">
                 {pillar.problem.title}
               </h2>
-              <p className="mt-4 text-sm leading-7 text-on-surface-variant md:text-base">
+              <p className="mt-4 text-sm leading-7 text-on-secondary/80 md:text-base">
                 {pillar.problem.body}
               </p>
             </div>
@@ -73,18 +75,23 @@ export function SolutionPillarPage({ pillar }: SolutionPillarPageProps) {
         </Container>
       </section>
 
-      <section className="border-b border-outline-variant/30 bg-surface-low section-y">
+      <SolutionMethodBand method={method} slug={pillar.slug} />
+
+      <section className="bg-secondary section-y text-on-secondary">
         <Container>
           <Reveal>
-            <h2 className="max-w-2xl font-display text-2xl font-bold text-on-surface md:text-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-inverse-primary">
+              {whatWeDo.eyebrow}
+            </p>
+            <h2 className="mt-2 max-w-2xl font-display text-2xl font-bold text-on-secondary md:text-3xl">
               {whatWeDo.title}
             </h2>
-            <p className="mt-4 max-w-2xl text-sm leading-7 text-on-surface-variant md:text-base">
+            <p className="mt-4 max-w-2xl text-sm leading-7 text-on-secondary/80 md:text-base">
               {whatWeDo.intro}
             </p>
           </Reveal>
 
-          <ul className="mt-10 divide-y divide-outline-variant/40 border-y border-outline-variant/40">
+          <ul className="mt-10 divide-y divide-on-secondary/15 border-y border-on-secondary/15">
             {whatWeDo.levers.map((lever, index) => {
               const number = String(index + 1).padStart(2, "0");
               return (
@@ -93,15 +100,15 @@ export function SolutionPillarPage({ pillar }: SolutionPillarPageProps) {
                     <div className="grid gap-4 py-7 md:grid-cols-[3.5rem_1fr] md:items-baseline md:gap-8">
                       <span
                         aria-hidden="true"
-                        className="font-mono text-sm font-semibold text-on-surface-variant"
+                        className="font-mono text-sm font-semibold text-on-secondary/45"
                       >
                         {number}
                       </span>
                       <div>
-                        <h3 className="font-display text-lg font-bold text-on-surface">
+                        <h3 className="font-display text-lg font-bold text-on-secondary">
                           {lever.title}
                         </h3>
-                        <p className="mt-2 max-w-2xl text-sm leading-7 text-on-surface-variant">
+                        <p className="mt-2 max-w-2xl text-sm leading-7 text-on-secondary/75">
                           {lever.body}
                         </p>
                       </div>
@@ -114,7 +121,7 @@ export function SolutionPillarPage({ pillar }: SolutionPillarPageProps) {
         </Container>
       </section>
 
-      <section className="border-b border-outline-variant/30 bg-surface section-y">
+      <section className="border-b border-outline-variant/30 bg-surface-low section-y">
         <Container>
           <Reveal>
             <h2 className="font-display text-2xl font-bold text-on-surface md:text-3xl">
@@ -166,37 +173,30 @@ export function SolutionPillarPage({ pillar }: SolutionPillarPageProps) {
         </Container>
       </section>
 
-      <section className="border-b border-outline-variant/30 bg-surface section-y">
+      <section className="bg-secondary section-y text-on-secondary">
         <Container>
-          <div className="grid gap-12 md:grid-cols-2 md:gap-16">
-            <Reveal>
-              <h2 className="font-display text-xl font-bold text-on-surface md:text-2xl">
-                {pillar.whoActs.title}
-              </h2>
-              <ul className="mt-4 space-y-2 text-sm text-on-surface-variant md:text-base">
-                {pillar.whoActs.roles.map((role) => (
-                  <li key={role} className="flex gap-2">
-                    <span className="text-primary" aria-hidden>
-                      ·
-                    </span>
-                    <span>{role}</span>
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-            <Reveal>
-              <h2 className="font-display text-xl font-bold text-on-surface md:text-2xl">
+          <Reveal>
+            <div className="mx-auto max-w-3xl border border-on-secondary/20 bg-on-secondary/5 px-6 py-10 sm:px-10 sm:py-12 md:px-14">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-inverse-primary">
+                Proof
+              </p>
+              <h2 className="mt-3 font-display text-2xl font-extrabold text-on-secondary md:text-4xl">
                 {pillar.evidence.title}
               </h2>
-              <p className="mt-4 text-sm leading-7 text-on-surface-variant md:text-base">
+              <p className="mt-5 max-w-2xl text-sm leading-7 text-on-secondary/80 md:text-base md:leading-8">
                 {pillar.evidence.body}
               </p>
-            </Reveal>
-          </div>
+              <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 border-t border-on-secondary/15 pt-6 text-xs font-semibold uppercase tracking-[0.12em] text-on-secondary/55">
+                <span>Ops-cleared ledger</span>
+                <span>Plant-specific baselines</span>
+                <span>Bill confirmation optional</span>
+              </div>
+            </div>
+          </Reveal>
         </Container>
       </section>
 
-      <section className="border-b border-outline-variant/30 bg-surface-low section-y">
+      <section className="border-b border-outline-variant/30 bg-surface section-y">
         <Container>
           <Reveal>
             <div className="max-w-2xl">
@@ -216,33 +216,6 @@ export function SolutionPillarPage({ pillar }: SolutionPillarPageProps) {
         </Container>
       </section>
 
-      <section className="bg-secondary section-y text-on-secondary">
-        <Container>
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-inverse-primary">
-              Next step
-            </p>
-            <h2 className="mt-3 font-display text-2xl font-extrabold md:text-3xl">
-              See it on your plant
-            </h2>
-            <p className="mt-3 text-sm leading-6 text-on-secondary/80 md:text-base">
-              Book a discovery call, or walk the Connect to Improve loop on the Platform.
-            </p>
-            <div className="mt-6 flex flex-wrap justify-center gap-3">
-              <Button href={pillar.primaryCta.href} variant="primary">
-                {pillar.primaryCta.label}
-              </Button>
-              <Button
-                href={pillar.secondaryCta.href}
-                variant="outline"
-                className="border-on-secondary/40 text-on-secondary hover:bg-on-secondary/10"
-              >
-                {pillar.secondaryCta.label}
-              </Button>
-            </div>
-          </Reveal>
-        </Container>
-      </section>
     </>
   );
 }

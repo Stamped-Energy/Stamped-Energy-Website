@@ -19,8 +19,11 @@ type ListMegaMenuProps = {
   href: string;
   eyebrow: string;
   footerNote?: string;
+  footerCtaLabel?: string;
   items: ListMegaMenuItem[];
   lightNav?: boolean;
+  /** Wider panel for longer industry lists */
+  size?: "md" | "lg";
 };
 
 export function ListMegaMenu({
@@ -28,8 +31,10 @@ export function ListMegaMenu({
   href,
   eyebrow,
   footerNote,
+  footerCtaLabel = "View all",
   items,
   lightNav = false,
+  size = "md",
 }: ListMegaMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -65,10 +70,10 @@ export function ListMegaMenu({
       <Link
         href={href}
         className={cn(
-          "inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-sm font-medium transition-colors",
+          "inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 text-sm font-medium transition-colors duration-200",
           lightNav
             ? "text-on-secondary/80 hover:bg-on-secondary/10 hover:text-on-secondary"
-            : "text-on-surface-variant hover:bg-primary/8 hover:text-on-surface",
+            : "text-on-surface-variant hover:bg-surface-low hover:text-on-surface",
           isOpen &&
             (lightNav
               ? "bg-on-secondary/15 text-on-secondary"
@@ -82,7 +87,7 @@ export function ListMegaMenu({
           aria-hidden="true"
           viewBox="0 0 12 12"
           className={cn(
-            "h-3 w-3 shrink-0 opacity-70 transition-transform duration-200",
+            "h-3 w-3 shrink-0 opacity-70 transition-transform duration-200 ease-out",
             isOpen && "rotate-180",
           )}
           fill="none"
@@ -97,68 +102,105 @@ export function ListMegaMenu({
 
       <div
         className={cn(
-          "absolute left-1/2 top-full z-50 w-[min(36rem,calc(100vw-2rem))] -translate-x-1/2 pt-3 transition-all duration-200",
+          "absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3 transition-[opacity,transform] duration-200 ease-out",
+          size === "lg"
+            ? "w-[min(42rem,calc(100vw-2rem))]"
+            : "w-[min(34rem,calc(100vw-2rem))]",
           isOpen
             ? "pointer-events-auto translate-y-0 opacity-100"
-            : "pointer-events-none -translate-y-1 opacity-0",
+            : "pointer-events-none -translate-y-1.5 opacity-0",
         )}
       >
-        <div className="overflow-hidden rounded-2xl border border-outline-variant/50 bg-surface-lowest shadow-[0_24px_60px_-32px_color-mix(in_srgb,var(--brand-on-surface)_18%,transparent)]">
-          <div className="px-5 pt-5 pb-2 sm:px-6 sm:pt-6">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-on-surface-variant">
-              {eyebrow}
-            </p>
+        <div
+          className={cn(
+            "overflow-hidden rounded-xl border border-outline-variant/45 bg-surface-lowest",
+            "shadow-[0_28px_64px_-28px_color-mix(in_srgb,var(--brand-on-surface)_28%,transparent)]",
+          )}
+        >
+          <div className="flex items-end justify-between gap-4 border-b border-outline-variant/35 px-5 py-4 sm:px-6">
+            <div>
+              <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-primary">
+                {eyebrow}
+              </p>
+              <p className="mt-1 text-sm font-semibold text-on-surface">{label}</p>
+            </div>
+            {footerNote ? (
+              <p className="shrink-0 pb-0.5 text-[10px] font-medium uppercase tracking-[0.12em] text-on-surface-variant">
+                {footerNote}
+              </p>
+            ) : null}
           </div>
 
-          <ul className="px-2 pb-2 sm:px-3">
+          <ul
+            className={cn(
+              "grid gap-0 p-2 sm:p-2.5",
+              items.length > 3 ? "sm:grid-cols-2" : "grid-cols-1",
+            )}
+          >
             {items.map((item, index) => {
               const number = String(index + 1).padStart(2, "0");
               return (
                 <li key={item.id}>
                   <Link
                     href={item.href}
-                    className="group flex gap-3 rounded-xl px-3 py-3.5 transition-colors hover:bg-surface-low sm:gap-4 sm:px-4"
+                    className={cn(
+                      "group flex h-full gap-3.5 rounded-lg px-3.5 py-3.5 transition-colors duration-150",
+                      "hover:bg-primary/8 focus-visible:bg-primary/8 focus-visible:outline-none",
+                    )}
                     onClick={() => setIsOpen(false)}
                   >
                     <span
                       aria-hidden="true"
-                      className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-md border border-outline-variant/50 font-mono text-[11px] font-semibold text-on-surface-variant"
+                      className={cn(
+                        "mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-md font-mono text-[11px] font-semibold transition-colors",
+                        "border border-outline-variant/55 bg-surface-low text-on-surface-variant",
+                        "group-hover:border-primary/35 group-hover:bg-primary/10 group-hover:text-primary",
+                      )}
                     >
                       {number}
                     </span>
-                    <div className="min-w-0 flex-1">
-                      <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-                        <span className="font-display text-sm font-bold text-on-surface group-hover:text-primary sm:text-[0.95rem]">
+                    <span className="min-w-0 flex-1">
+                      <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                        <span className="font-display text-[0.95rem] font-bold leading-snug text-on-surface group-hover:text-primary">
                           {item.title}
                         </span>
                         {item.badge ? (
-                          <span className="rounded bg-primary px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wide text-on-primary">
+                          <span className="rounded-sm bg-primary/12 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-[0.08em] text-primary">
                             {item.badge}
                           </span>
                         ) : null}
-                        {item.meta ? (
-                          <span className="ml-auto text-[11px] text-on-surface-variant">
-                            {item.meta}
-                          </span>
-                        ) : null}
-                      </div>
-                      <p className="mt-1 text-xs leading-5 text-on-surface-variant sm:text-[13px] sm:leading-6">
+                      </span>
+                      <span className="mt-1 block text-xs leading-5 text-on-surface-variant sm:text-[13px] sm:leading-6">
                         {item.description}
-                      </p>
-                    </div>
+                      </span>
+                      {item.meta ? (
+                        <span className="mt-1.5 block text-[11px] font-medium text-on-surface-variant/80">
+                          {item.meta}
+                        </span>
+                      ) : null}
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      className="mt-1 shrink-0 text-sm text-on-surface-variant opacity-0 transition-opacity group-hover:opacity-100"
+                    >
+                      →
+                    </span>
                   </Link>
                 </li>
               );
             })}
           </ul>
 
-          {footerNote ? (
-            <div className="border-t border-outline-variant/40 bg-surface-low/80 px-5 py-3 sm:px-6">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-on-surface-variant">
-                {footerNote}
-              </p>
-            </div>
-          ) : null}
+          <div className="border-t border-outline-variant/35 bg-surface-low/90 px-5 py-3 sm:px-6">
+            <Link
+              href={href}
+              onClick={() => setIsOpen(false)}
+              className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary transition-colors hover:text-primary/80"
+            >
+              {footerCtaLabel}
+              <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
@@ -224,14 +266,14 @@ export function ListMegaMobileNav({
       </div>
 
       {isExpanded ? (
-        <ul className="space-y-1 pb-4 pt-1">
+        <ul className="space-y-2 pb-4 pt-1">
           {items.map((item, index) => {
             const number = String(index + 1).padStart(2, "0");
             return (
               <li key={item.id}>
                 <Link
                   href={item.href}
-                  className="flex gap-3 rounded-xl px-2 py-3 transition-colors hover:bg-surface-container-low"
+                  className="flex gap-3 rounded-lg border border-outline-variant/40 bg-surface-lowest px-3 py-3 transition-colors hover:border-primary/35 hover:bg-primary/6"
                   onClick={onNavigate}
                 >
                   <span

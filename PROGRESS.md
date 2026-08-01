@@ -28,6 +28,8 @@ Helvetica Neue site-wide typography (ADR-014) - complete (2026-08-01) on `feat/i
 - [x] **Nav mega-menus (ADR-012)** - Solutions + Industries IU-style numbered list dropdowns (click hub / hover items); Solutions hub numbered briefs + Explore CTAs; homepage outcomes/Rx commit `e8823c8`
 - [x] **Solutions craft (ADR-013)** - photo heroes, bordered outcomes, Rx cards, numbered levers; Improve copy = decisions taken / verified outcomes (no followed-vs-ignored)
 - [x] **Typography (ADR-014)** - Helvetica Neue system stack for display + body site-wide; drop Inter / Plus Jakarta; C3-inspired type rhythm only
+- [x] **Solutions ML narrative** - agentic load-energy + plant-tuned models copy; AgenticEnergyVisual + EarlyDetectionVisual (illustrative, GSAP); problem band dark / method band light with black visual cards; equipment chart shows dual paths + single “40-50% earlier…” line (no badge box)
+- [x] **Industries By industry zig-zag (ADR-015)** - black alternating image/copy cards from existing vertical metrics/equipment; full-card links; no fleet claims or named customers; replaces comparison table
 
 ## Remaining Phases
 

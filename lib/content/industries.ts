@@ -221,59 +221,106 @@ export const industriesContent = {
       title: "Generic dashboards miss why energy leaks",
       body: "A plant-wide average hides shift-start overlap, holding without batches, and tariff misalignment. Each vertical needs baselines and prescriptions tuned to its process, not one generic model for all.",
     },
-    comparison: {
+    byIndustry: {
       eyebrow: "By industry",
-      title: "What generic EMS sees vs what Stamped also reads and prescribes",
-      columns: {
-        industry: "Industry",
-        generic: "Generic EMS / dashboard sees",
-        stamped: "Stamped also reads and prescribes",
-      },
+      title: "Process context for each vertical",
+      disclaimer:
+        "Indicative process figures from industry ranges we already publish. Your pilot replaces them with verified numbers.",
       rows: [
         {
           id: "automotive",
           slug: "automotive",
           name: "Automotive",
           href: "/industries/automotive",
-          generic: "Shop or feeder kWh trends, occasional MD alarms",
-          stamped:
-            "Die casting, forging, heat treat, press, and air: co-starts, holding, and SEC by cell with assigned owners",
+          imageSrc: INDUSTRY_IMAGES.dieCasting,
+          imageAlt: "Molten metal pour in an automotive die casting plant",
+          metricPrimary: {
+            value: "12-18%",
+            label: "Of operating cost linked to energy",
+          },
+          metricSecondary: {
+            value: "20-30%",
+            label: "Lost to operational variability",
+          },
+          equipment: ["Die casting", "Heat treatment", "Compressed air & more"],
+          body: "Shift-start overlap, holding loads, and SEC by cell with assigned owners. Not another shop-floor kWh trend.",
+          footerNote: "Auto components · press, forge, and utilities",
         },
         {
           id: "cement",
           slug: "cement",
           name: "Cement",
           href: "/industries/cement",
-          generic: "Plant kWh/ton averages and kiln trends",
-          stamped:
-            "Kiln, mill, and WHR/grid dispatch context: MD, specific energy, and supervisor-ready sequencing",
+          imageSrc: INDUSTRY_IMAGES.cement,
+          imageAlt: "Cement manufacturing plant with silos, towers, and conveyors at dusk",
+          metricPrimary: {
+            value: "40-50%",
+            label: "Manufacturing cost linked to energy",
+          },
+          metricSecondary: {
+            value: "₹3-8L",
+            label: "Est. MD savings on crusher & mill startups",
+          },
+          equipment: ["Raw & finish mills", "Kiln auxiliaries", "WHR & grid & more"],
+          body: "Kiln, mill, and WHR/grid dispatch context: MD, specific energy, and supervisor-ready sequencing.",
+          footerNote: "Continuous process · clinker and grinding lines",
         },
         {
           id: "steel",
           slug: "steel",
           name: "Steel",
           href: "/industries/steel",
-          generic: "Furnace or mill kWh without batch context",
-          stamped:
-            "Induction, rolling, and holding windows tied to production and PAT-style SEC discipline",
+          imageSrc: INDUSTRY_IMAGES.steel,
+          imageAlt: "Steel rolling mill with glowing hot metal billets on the production line",
+          metricPrimary: {
+            value: "30-40%",
+            label: "Share of energy in manufacturing cost",
+          },
+          metricSecondary: {
+            value: "₹4-10L",
+            label: "Est. MD savings on rolling mill startup",
+          },
+          equipment: ["EAF / induction", "Reheating furnace", "Rolling mills & more"],
+          body: "Induction, rolling, and holding windows tied to production. PAT-style SEC discipline with owners.",
+          footerNote: "Furnace and mill loads · bill-first path available",
         },
         {
           id: "pharma",
           slug: "pharma",
           name: "Pharmaceutical",
           href: "/industries/pharma",
-          generic: "HVAC and utility dashboards in silos",
-          stamped:
-            "Chiller and AHU staging against batch and cleanroom constraints, GMP-safe levers only",
+          imageSrc: INDUSTRY_IMAGES.pharma,
+          imageAlt: "Automated pharmaceutical vial filling line in a sterile manufacturing plant",
+          metricPrimary: {
+            value: "55-65%",
+            label: "Plant energy consumed by utilities",
+          },
+          metricSecondary: {
+            value: "40-50%",
+            label: "Energy driven by HVAC and clean-room systems",
+          },
+          equipment: ["Chillers & AHUs", "Compressed air", "Clean room HVAC & more"],
+          body: "Chiller and AHU staging against batch and cleanroom constraints. GMP-safe levers only.",
+          footerNote: "Utilities layer · no GMP system replacement",
         },
         {
           id: "chemical",
           slug: "chemical",
           name: "Chemical",
           href: "/industries/chemical",
-          generic: "Batch totals after the run ends",
-          stamped:
-            "Reactor stagger, idle hold, and batch SEC with owners before the next campaign",
+          imageSrc: INDUSTRY_IMAGES.chemical,
+          imageAlt: "Chemical refinery with storage tanks and distillation towers at twilight",
+          metricPrimary: {
+            value: "10-20%",
+            label: "Share of energy in manufacturing cost",
+          },
+          metricSecondary: {
+            value: "₹3-10L",
+            label: "Est. MD savings on simultaneous batch heating",
+          },
+          equipment: ["Batch reactors", "Steam & thermal", "Paint ovens & more"],
+          body: "Reactor stagger, idle hold, and batch SEC with owners before the next campaign.",
+          footerNote: "Batch and continuous · heat, mix, and utilities",
         },
       ],
     },

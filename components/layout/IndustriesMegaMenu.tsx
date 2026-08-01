@@ -23,8 +23,10 @@ export function IndustriesMegaMenu({ lightNav = false }: { lightNav?: boolean })
       href={industriesLink.href}
       eyebrow="Verticals"
       footerNote={`${industriesContent.verticals.length} verticals · India`}
+      footerCtaLabel="All industries"
       items={industryItems}
       lightNav={lightNav}
+      size="lg"
     />
   );
 }

@@ -4,7 +4,7 @@
  */
 const DARK_HERO_EXACT = new Set(["/case-studies", "/about", "/contact"]);
 
-const DARK_HERO_PREFIXES = ["/industries"];
+const DARK_HERO_PREFIXES = ["/industries", "/solutions"];
 
 /** Article pages under /blog default to a light hero unless overridden. */
 const LIGHT_HERO_PREFIXES = ["/blog/"];

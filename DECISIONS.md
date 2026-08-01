@@ -274,3 +274,22 @@ Architecture and workflow decisions for this project.
 **Rationale:** Matches C3’s Helvetica Neue character legally without a webfont license. One family for display and body. Apple renders Helvetica Neue; Windows falls back to Arial.
 
 **Impact:** Removed `next/font` Inter/Jakarta from `app/layout.tsx`. Tokens in `app/globals.css`. Admin and rich-article styles updated. `DESIGN.md` identity fonts updated.
+
+---
+
+## ADR-015: Industries hub By industry zig-zag cards
+
+**Date:** 2026-08-01
+
+**Context:** Hub “By industry” was a Generic EMS vs Stamped comparison table. User wanted a reference-style alternating image/copy band on black, with existing process data only.
+
+**Alternatives:**
+
+1. Keep comparison table; add a separate photo strip
+2. Replace table with zig-zag industry cards (existing metrics/equipment tags; no fleet claims or named customers)
+
+**Selected:** Option 2.
+
+**Rationale:** Matches requested layout and buyer scan path. Full-card links to vertical pages. Indicative ranges only from published vertical content.
+
+**Impact:** `hub.byIndustry` in `lib/content/industries.ts`; `IndustriesHubComparison` rewritten. Anchor `#comparison` preserved for hero CTA.

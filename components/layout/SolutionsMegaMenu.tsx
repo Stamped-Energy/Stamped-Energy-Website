@@ -7,10 +7,9 @@ import { solutionsContent } from "@/lib/content/solutions";
 const solutionItems = solutionsContent.hub.pillars.map((pillar) => ({
   id: pillar.slug,
   href: pillar.href,
-  title: pillar.title,
+  title: pillar.shortTitle,
   description: pillar.description,
-  badge: pillar.slug === "load-energy" ? "Energy" : "Equipment",
-  meta: pillar.shortTitle,
+  meta: pillar.outcome,
 }));
 
 export function SolutionsMegaMenu({ lightNav = false }: { lightNav?: boolean }) {
@@ -26,8 +25,10 @@ export function SolutionsMegaMenu({ lightNav = false }: { lightNav?: boolean }) 
       href={solutionsLink.href}
       eyebrow="The intelligence"
       footerNote="Two pillars · One product"
+      footerCtaLabel="All solutions"
       items={solutionItems}
       lightNav={lightNav}
+      size="md"
     />
   );
 }

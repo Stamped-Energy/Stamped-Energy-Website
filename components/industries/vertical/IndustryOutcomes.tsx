@@ -44,7 +44,7 @@ export function IndustryOutcomes({ slug }: IndustryOutcomesProps) {
   const { outcomes } = page;
 
   return (
-    <section ref={sectionRef} className="bg-surface-low section-y">
+    <section ref={sectionRef} className="bg-secondary section-y text-on-secondary">
       <Container>
         <Reveal className="mx-auto">
           <SectionHeading
@@ -52,6 +52,7 @@ export function IndustryOutcomes({ slug }: IndustryOutcomesProps) {
             title={outcomes.title}
             description={outcomes.disclaimer}
             align="center"
+            dark
             className="mx-auto"
           />
         </Reveal>
@@ -61,10 +62,10 @@ export function IndustryOutcomes({ slug }: IndustryOutcomesProps) {
             <article
               key={item.id}
               data-outcome-card
-              className="rounded-xl border border-outline-variant/50 bg-surface-lowest p-5 md:p-6"
+              className="rounded-xl border border-on-secondary/20 bg-on-secondary/5 p-5 md:p-6"
             >
-              <h3 className="text-lg font-bold text-on-surface">{item.title}</h3>
-              <p className="mt-2 text-sm leading-6 text-on-surface-variant md:leading-7">
+              <h3 className="text-lg font-bold text-on-secondary">{item.title}</h3>
+              <p className="mt-2 text-sm leading-6 text-on-secondary/75 md:leading-7">
                 {item.description}
               </p>
             </article>

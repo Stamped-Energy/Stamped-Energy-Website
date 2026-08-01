@@ -82,9 +82,9 @@ export function HiwOpening() {
 
         <div data-hiw-opening-fade className="relative z-0 mx-auto mt-8 w-full max-w-6xl">
           <LiveDemoFrame
-            src="https://stamped-energy.vercel.app/"
+            src="https://demo.stamped.work/"
             title="Stamped Energy live intelligence dashboard demo"
-            displayUrl="Stamped Energy Intelligence Dashboard"
+            displayUrl="demo.stamped.work"
           />
           <p className="mt-3 text-center text-xs font-medium text-on-surface-variant/80">
             Live interactive demo - click to explore the dashboard above.

@@ -65,12 +65,19 @@ export function PrescriptionExample() {
   );
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden section-y">
+    <section
+      ref={sectionRef}
+      className="relative overflow-hidden bg-secondary section-y text-on-secondary"
+    >
       <Container className="relative z-10">
         <div className="grid gap-8 md:gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-center">
           <Reveal from="left">
-            <SectionHeading eyebrow={prescription.eyebrow} title={prescription.title} />
-            <p className="mt-4 max-w-md text-sm leading-7 text-on-surface-variant">
+            <SectionHeading
+              eyebrow={prescription.eyebrow}
+              title={prescription.title}
+              dark
+            />
+            <p className="mt-4 max-w-md text-sm leading-7 text-on-secondary/75">
               {prescription.description}
             </p>
           </Reveal>
@@ -78,21 +85,21 @@ export function PrescriptionExample() {
           <Reveal from="right">
             <article
               ref={cardRef}
-              className="border border-outline-variant/50 bg-surface-lowest p-5 sm:p-6 md:p-8"
+              className="border border-on-secondary/20 bg-on-secondary/5 p-5 sm:p-6 md:p-8"
             >
               <div
                 data-rx-header
-                className="mb-6 flex items-center justify-between border-b border-outline-variant/40 pb-4"
+                className="mb-6 flex items-center justify-between border-b border-on-secondary/15 pb-4"
               >
                 <div className="min-w-0">
-                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
+                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-inverse-primary">
                     Illustrative prescription
                   </p>
-                  <p className="mt-1 text-sm font-bold text-on-surface">MD co-start stagger</p>
+                  <p className="mt-1 text-sm font-bold text-on-secondary">MD co-start stagger</p>
                 </div>
                 <span
                   data-rx-badge
-                  className="border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary"
+                  className="border border-primary/40 bg-primary/15 px-3 py-1 text-xs font-semibold text-primary"
                 >
                   Priority: High
                 </span>
@@ -105,14 +112,14 @@ export function PrescriptionExample() {
                     data-rx-field
                     className="grid gap-1 sm:grid-cols-[88px_1fr]"
                   >
-                    <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-on-surface-variant">
+                    <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-on-secondary/55">
                       {field.label}
                     </dt>
                     <dd
                       className={
                         field.label === "Impact"
                           ? "font-display text-lg font-bold text-primary"
-                          : "text-sm leading-6 text-on-surface"
+                          : "text-sm leading-6 text-on-secondary"
                       }
                     >
                       {field.value}
@@ -126,7 +133,7 @@ export function PrescriptionExample() {
 
         {prescription.footerText && prescription.footerCta ? (
           <Reveal className="mt-8 text-center">
-            <p className="text-sm text-on-surface-variant">
+            <p className="text-sm text-on-secondary/70">
               {prescription.footerText}{" "}
               <Link
                 href={prescription.footerCta.href}
