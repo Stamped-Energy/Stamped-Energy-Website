@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-Homepage / Solutions pillars / Industries IU hub / Footer polish - complete (2026-08-01) on `feat/ia-solutions-platform`
+Solutions page craft + Improve copy scrub - complete (2026-08-01) on `feat/ia-solutions-platform`; typography pass next
 
 ## Completed Phases
 
@@ -25,6 +25,8 @@ Homepage / Solutions pillars / Industries IU hub / Footer polish - complete (202
 - [x] Flat theme overhaul (ADR-010)
 - [x] **IA overhaul (ADR-011)** - Solutions hub + pillars; `/platform` + `/how-it-works` 308; six-step Improve loop; homepage 7 sections; slim About/Contact; Verified with evidence copy; orphan cleanup
 - [x] **Polish pass** - homepage outcomes band; detailed Solutions pillar pages; IU-style Industries hub (thesis + comparison + FAQ); thinner vertical pages; real-time intelligence copy; em-dash scrub; footer craft
+- [x] **Nav mega-menus (ADR-012)** - Solutions + Industries IU-style numbered list dropdowns (click hub / hover items); Solutions hub numbered briefs + Explore CTAs; homepage outcomes/Rx commit `e8823c8`
+- [x] **Solutions craft (ADR-013)** - photo heroes, bordered outcomes, Rx cards, numbered levers; Improve copy = decisions taken / verified outcomes (no followed-vs-ignored)
 
 ## Remaining Phases
 

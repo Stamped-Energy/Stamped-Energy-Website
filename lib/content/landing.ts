@@ -219,7 +219,7 @@ export const landingContent = {
     media: {
       title: "Six-step closed loop walkthrough",
       description:
-        "Connect plant signals, build baselines, prescribe in rupees, route on WhatsApp, verify with evidence, improve from followed vs ignored Rx.",
+        "Connect plant signals, build baselines, prescribe in rupees, route on WhatsApp, verify with evidence, improve based on decisions taken.",
       src: null as string | null,
       posterAlt:
         "Stamped Energy six-step workflow: Connect, Observe, Decide, Execute, Verify, Improve",
@@ -253,7 +253,7 @@ export const landingContent = {
       {
         id: "improve",
         title: "Improve",
-        description: "Calibrate from followed vs ignored Rx.",
+        description: "Improve based on decisions taken.",
       },
     ] satisfies WorkflowStep[],
   },
@@ -307,7 +307,7 @@ export const landingContent = {
         id: "improve-loop",
         step: 6,
         title: "Improve from outcomes",
-        description: "Calibrate ranks and preferences from followed vs ignored Rx, human-gated.",
+        description: "Improve based on decisions taken and verified outcomes.",
       },
     ] satisfies HowItWorksStep[],
   },

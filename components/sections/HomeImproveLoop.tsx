@@ -53,8 +53,7 @@ export function HomeImproveLoop() {
 
         <Reveal className="mt-8">
           <p className="text-sm text-on-surface-variant">
-            Improve calibrates from followed vs ignored prescriptions, human-gated, not &ldquo;AI
-            learning about you.&rdquo;{" "}
+            Improve based on decisions taken and verified outcomes.{" "}
             <Link
               href="/platform"
               className="font-semibold text-primary underline-offset-2 hover:underline"

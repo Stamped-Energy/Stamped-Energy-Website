@@ -12,7 +12,7 @@ export const siteConfig = {
 } as const;
 
 export const navLinks: NavLink[] = [
-  { label: "Solutions", href: "/solutions" },
+  { label: "Solutions", href: "/solutions", megaMenu: "solutions" },
   { label: "Platform", href: "/platform" },
   { label: "Industries", href: "/industries", megaMenu: "industries" },
   { label: "Case Studies", href: siteConfig.blogUrl },

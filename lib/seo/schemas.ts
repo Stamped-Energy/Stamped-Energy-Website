@@ -117,7 +117,7 @@ export const howToSchema = {
   "@type": "HowTo",
   name: "How Stamped Energy Runs the Connect to Improve Loop",
   description:
-    "Connect existing plant meters and SCADA, generate rupee-denominated prescriptions, assign actions to your team, verify with evidence, and improve from followed vs ignored outcomes.",
+    "Connect existing plant meters and SCADA, generate rupee-denominated prescriptions, assign actions to your team, verify with evidence, and improve based on decisions taken.",
   totalTime: "P30D",
   tool: [
     { "@type": "HowToTool", name: "Incomer energy meter" },
@@ -164,7 +164,7 @@ export const howToSchema = {
       "@type": "HowToStep",
       position: 6,
       name: "Improve",
-      text: "Calibrate ranks, thresholds, and plant preferences from followed vs ignored prescriptions. Human-gated - never framed as AI learning about you.",
+      text: "Improve based on decisions taken and verified outcomes. Human-gated calibration of ranks, thresholds, and plant preferences.",
       url: `${SITE_URL}/platform#improve`,
     },
   ],

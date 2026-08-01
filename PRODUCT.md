@@ -4,7 +4,7 @@ register: brand
 
 ## Product purpose
 
-Stamped Energy markets **Stamped Intelligence**: a software-first, read-only overlay on plant OT/IT for Indian energy-intensive manufacturers. It turns meters, SCADA/PLC/EMS, bills, and optional order context into **assigned prescriptions with ₹ impact**, then **verifies with evidence** and **improves** from followed vs ignored actions.
+Stamped Energy markets **Stamped Intelligence**: a software-first, read-only overlay on plant OT/IT for Indian energy-intensive manufacturers. It turns meters, SCADA/PLC/EMS, bills, and optional order context into **assigned prescriptions with ₹ impact**, then **verifies with evidence** and **improves based on decisions taken**.
 
 ## Users
 
@@ -23,7 +23,7 @@ One product, two pillars. Shared context (orders/departments) enables management
 
 Connect → Observe → Decide → Execute → Verify → **Improve**
 
-Improve = continuous calibration from followed vs ignored Rx. Never “AI is learning about you.”
+Improve = continuous calibration from decisions taken and verified outcomes. Never “AI is learning about you.”
 
 ## Proof language
 

@@ -8,7 +8,11 @@ export type SolutionPillarSummary = {
   title: string;
   shortTitle: string;
   description: string;
+  /** Longer hub-page brief used on /solutions */
+  hubBrief: string;
   outcome: string;
+  ctaLabel: string;
+  highlights: string[];
 };
 
 export type SolutionRxExample = {
@@ -26,6 +30,10 @@ export type SolutionPillarPage = {
   eyebrow: string;
   title: string;
   description: string;
+  heroImageSrc: string;
+  heroImageAlt: string;
+  /** object-position for hero crop differentiation */
+  heroObjectPosition?: string;
   valueProps: {
     eyebrow: string;
     title: string;
@@ -65,8 +73,22 @@ export const solutionsContent = {
     title: "Stamped Intelligence for two plant outcomes",
     description:
       "One product for energy-intensive plants in India. Choose the outcome page that matches how you buy. Same stack, real-time intelligence, verified with evidence.",
+    heroImageSrc: "/industries/cement.png",
+    heroImageAlt: "Cement plant with silos and kiln illuminated at twilight",
     primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
     secondaryCta: { label: "See the Platform", href: "/platform" } satisfies CtaLink,
+    sectionEyebrow: "The intelligence",
+    sectionTitle: "Two pillars. One evidence trail.",
+    sectionIntro:
+      "Start on the hub for the overview, then open the pillar that matches how your plant buys. Each page goes deeper on problem, levers, who acts, and sample prescriptions.",
+    finalCta: {
+      eyebrow: "Start with your plant",
+      title: "See which pillar fits how you buy",
+      description:
+        "Discovery call: we map your meters, main loads, and bill pattern, and say honestly if a pilot makes sense.",
+      primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
+      secondaryCta: { label: "See the Platform", href: "/platform" } satisfies CtaLink,
+    },
     pillars: [
       {
         slug: "load-energy",
@@ -75,7 +97,16 @@ export const solutionsContent = {
         shortTitle: "Energy savings",
         description:
           "Maximum demand, shift-start overlap, idle loads, HVAC, and tariff windows. Ranked prescriptions with owners and monthly rupee impact.",
+        hubBrief:
+          "Turn incomer, sub-meters, SCADA, and bills into ranked actions: what to change, who owns it, and monthly rupee impact. Built for MD peaks, idle loads, HVAC waste, and tariff windows without a hardware retrofit.",
         outcome: "Lower bill line items. No hardware retrofit.",
+        ctaLabel: "Explore load and energy",
+        highlights: [
+          "MD and demand charges",
+          "Shift-start stagger",
+          "Idle and HVAC loads",
+          "Tariff-aware timing",
+        ],
       },
       {
         slug: "equipment-intelligence",
@@ -84,7 +115,16 @@ export const solutionsContent = {
         shortTitle: "Plant efficiency",
         description:
           "Early warnings tied to energy and process context. Maintenance and utilities act before trips and waste compound.",
+        hubBrief:
+          "Catch mechanical and process-linked waste early using energy and operating context. Maintenance and utilities get assigned prescriptions before trips, scrap, and energy waste compound across the shift.",
         outcome: "Fewer surprise failures. Same evidence trail.",
+        ctaLabel: "Explore equipment intelligence",
+        highlights: [
+          "Process-aware early warnings",
+          "Assigned maintenance actions",
+          "Energy-linked waste",
+          "Verified with evidence",
+        ],
       },
     ] satisfies SolutionPillarSummary[],
     sharedNote:
@@ -99,6 +139,9 @@ export const solutionsContent = {
       title: "Load management and energy-efficiency prescriptions",
       description:
         "Incomer, sub-meters, SCADA, and bills become ranked actions: what to change, who owns it, monthly rupee impact. Real-time decision making on the loads that move your bill.",
+      heroImageSrc: "/industries/die-casting.jpeg",
+      heroImageAlt: "Molten metal pour in an energy-intensive manufacturing plant",
+      heroObjectPosition: "center 35%",
       valueProps: {
         eyebrow: "Indicative outcomes",
         title: "What this pillar is built to move",
@@ -171,7 +214,7 @@ export const solutionsContent = {
       },
       platformLink: {
         title: "Same Connect to Improve loop",
-        body: "This pillar runs on the Platform operating loop: Connect, Observe, Decide, Execute, Verify, Improve. No separate product to deploy.",
+        body: "This pillar runs on the Platform operating loop: Connect, Observe, Decide, Execute, Verify, Improve. Improve based on decisions taken. No separate product to deploy.",
         cta: { label: "See the Platform", href: "/platform" } satisfies CtaLink,
       },
       rxExamples: [
@@ -211,6 +254,9 @@ export const solutionsContent = {
       title: "Prescriptive equipment intelligence",
       description:
         "The stack that finds energy waste also flags equipment issues early, with owners and evidence. Real-time decision making before trips and waste compound.",
+      heroImageSrc: "/industries/steel.png",
+      heroImageAlt: "Steel rolling mill with glowing hot metal billets on the production line",
+      heroObjectPosition: "center 45%",
       valueProps: {
         eyebrow: "Indicative outcomes",
         title: "What this pillar is built to move",
@@ -283,7 +329,7 @@ export const solutionsContent = {
       },
       platformLink: {
         title: "Same Connect to Improve loop",
-        body: "Equipment findings ride the same Platform loop as energy prescriptions. Improve calibrates from followed vs ignored Rx.",
+        body: "Equipment findings ride the same Platform loop as energy prescriptions. Improve based on decisions taken and verified outcomes.",
         cta: { label: "See the Platform", href: "/platform" } satisfies CtaLink,
       },
       rxExamples: [

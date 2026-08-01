@@ -17,7 +17,7 @@ export const platformContent = {
     eyebrow: "Platform",
     title: "Stamped Intelligence on your plant stack",
     description:
-      "Most plants already have meters and SCADA. The gap is analysis, root cause, and assigned fixes. Stamped delivers real-time intelligence on plant signals, detects waste and equipment issues, and guides operations on what to resolve, verified with evidence, then improved from followed vs ignored prescriptions.",
+      "Most plants already have meters and SCADA. The gap is analysis, root cause, and assigned fixes. Stamped delivers real-time intelligence on plant signals, detects waste and equipment issues, and guides operations on what to resolve, verified with evidence, then improved based on decisions taken.",
     primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
     secondaryCta: { label: "Back to home", href: "/" } satisfies CtaLink,
   },
@@ -195,7 +195,7 @@ export const platformContent = {
         id: "improve",
         step: 6,
         title: "Improve",
-        tagline: "Calibrate from followed vs ignored",
+        tagline: "Improve based on decisions taken",
         description: "",
         bullets: ["Rank and threshold refresh", "Plant preferences, human-gated"],
         diagram: "improve",

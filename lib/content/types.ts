@@ -2,7 +2,7 @@ export type NavLink = {
   label: string;
   href: string;
   external?: boolean;
-  megaMenu?: "industries";
+  megaMenu?: "industries" | "solutions";
 };
 
 export type HeroFeatureItem = {

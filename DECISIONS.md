@@ -216,3 +216,41 @@ Architecture and workflow decisions for this project.
 - Homepage mount ≤7 sections; About ≤3 blocks; Contact = form + email
 - HowTo JSON-LD = 6 steps; sitemap + `llms.txt` updated
 - Proof copy sitewide: Verified with evidence; bill confirmation optional
+
+---
+
+## ADR-012: List mega-menus for Solutions and Industries
+
+**Date:** 2026-08-01
+
+**Context:** Industries nav used an image-heavy explorer panel. Solutions had no hover menu. Infinite Uptime’s Solutions dropdown (numbered text rows, hub click vs item click) is the structural reference.
+
+**Alternatives:**
+
+1. Keep image tiles for Industries; add Solutions as a flat link only
+2. Shared list mega-menu: click label → hub; hover items → pillar/vertical pages; no images in the dropdown
+
+**Selected:** Option 2 (`ListMegaMenu` + Solutions/Industries wrappers).
+
+**Rationale:** Faster scan for B2B buyers; matches approved IA; keeps brand tokens (no IU purple clone). Hub pages still carry richer content.
+
+**Impact:** `megaMenu: "solutions" | "industries"` on nav links; IndustriesExplorerPanel remains for optional hub explorer only.
+
+---
+
+## ADR-013: Solutions page craft + Improve public copy
+
+**Date:** 2026-08-01
+
+**Context:** Solutions hub and pillar pages were thin text stacks vs Industries photo heroes and homepage Rx craft. Public Improve-step copy used “followed vs ignored,” which reads surveillance-adjacent.
+
+**Alternatives:**
+
+1. Keep flat Solutions pages; keep followed-vs-ignored Improve language
+2. Match Industries/Platform section grammar (photo heroes, bordered outcomes, Rx cards); reframe Improve as decisions taken / verified outcomes
+
+**Selected:** Option 2.
+
+**Rationale:** Craft parity for buyer trust. Improve language stays human-gated without implying tracking of follow/ignore behavior.
+
+**Impact:** `SolutionsHero`, enriched hub/pillar sections; copy updates in landing, platform, solutions, HomeImproveLoop, SEO HowTo, PRODUCT.md. `external/` SSOT untouched.
