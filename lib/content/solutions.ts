@@ -107,7 +107,7 @@ export const solutionsContent = {
         items: [
           {
             id: "bill",
-            value: "12-20%",
+            value: "15-20%",
             label: "Typical electricity cost recovery",
             detail: "Process-intensive mid-market plants",
           },

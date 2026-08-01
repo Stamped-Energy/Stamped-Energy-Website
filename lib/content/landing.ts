@@ -74,14 +74,35 @@ export const landingContent = {
   },
 
   outcomes: {
-    eyebrow: "Typical recovery ranges",
-    title: "Indicative outcomes plants care about",
+    eyebrow: "Expected outcomes",
+    title: "Where plants typically see value",
     disclaimer:
-      "Benchmark ranges from comparable plants. Your pilot replaces these with verified figures.",
+      "Indicative ranges from comparable plants. Your pilot replaces these with figures verified with evidence.",
+    /** Stats shown on the homepage outcomes band (order matters). */
+    homeStats: [
+      {
+        id: "bill-reduction",
+        value: "15-20%",
+        label: "Reduction in monthly energy cost",
+        detail: "Energy-intensive manufacturing plants in India",
+      },
+      {
+        id: "sec-efficiency",
+        value: "8-15%",
+        label: "Gain in operating efficiency",
+        detail: "Energy use aligned to production by shift, batch, or line",
+      },
+      {
+        id: "plant-efficiency",
+        value: "10-20%",
+        label: "Unplanned downtime prevented",
+        detail: "Early equipment warnings from the same energy stack",
+      },
+    ] satisfies StatItem[],
     stats: [
       {
         id: "bill-reduction",
-        value: "12-20%",
+        value: "15-20%",
         label: "Off your monthly electricity bill",
         detail: "Cement, steel, pharma, chemical, automotive",
       },
@@ -238,11 +259,13 @@ export const landingContent = {
   },
 
   prescription: {
-    eyebrow: "Not a dashboard",
-    title: "This is what your plant team gets - not a kWh chart",
+    eyebrow: "Prescription example",
+    title: "What your team receives to act on",
+    description:
+      "Each prescription states the action, the evidence, the owner, the effort, and the monthly rupee impact. Delivered to supervisors on WhatsApp. Figures below are sample data for illustration.",
     fields: getScenarioPrescription("homepagePrescription"),
-    footerText: "This is what closure looks like.",
-    footerCta: { label: "Full platform walkthrough", href: "/platform" } satisfies CtaLink,
+    footerText: "Walk through the full operating loop on the Platform.",
+    footerCta: { label: "See the Platform", href: "/platform" } satisfies CtaLink,
   },
 
   howItWorks: {
