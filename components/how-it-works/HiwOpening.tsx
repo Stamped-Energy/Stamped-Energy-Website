@@ -47,10 +47,6 @@ export function HiwOpening() {
       ref={sectionRef}
       className="page-hero relative overflow-hidden border-b border-outline-variant/40 bg-surface"
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,color-mix(in_srgb,var(--brand-primary)_12%,transparent),transparent_60%)]"
-      />
       <Container className="relative z-10">
         <div className="mx-auto max-w-3xl text-center">
           <p
@@ -86,9 +82,9 @@ export function HiwOpening() {
 
         <div data-hiw-opening-fade className="relative z-0 mx-auto mt-8 w-full max-w-6xl">
           <LiveDemoFrame
-            src="https://stamped-energy.vercel.app/"
+            src="https://demo.stamped.work/"
             title="Stamped Energy live intelligence dashboard demo"
-            displayUrl="Stamped Energy Intelligence Dashboard"
+            displayUrl="demo.stamped.work"
           />
           <p className="mt-3 text-center text-xs font-medium text-on-surface-variant/80">
             Live interactive demo - click to explore the dashboard above.

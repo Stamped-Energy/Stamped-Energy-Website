@@ -5,7 +5,6 @@ import { useRef } from "react";
 import { useMotion } from "@/components/motion/MotionProvider";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { aboutContent } from "@/lib/content/about";
 import { scrollTriggerDefaults } from "@/lib/motion/config";
 import { gsap, useGSAP } from "@/lib/motion/gsap";
@@ -23,7 +22,7 @@ export function AboutValues() {
 
       gsap.from("[data-about-value]", {
         autoAlpha: 0,
-        y: 22,
+        y: 24,
         duration: 0.55,
         stagger: 0.1,
         ease: "power2.out",
@@ -34,30 +33,40 @@ export function AboutValues() {
   );
 
   return (
-    <section ref={sectionRef} className="border-b border-outline-variant/40 bg-surface-low py-10 md:section-y">
+    <section
+      ref={sectionRef}
+      className="border-b border-outline-variant/40 bg-surface-low py-10 md:section-y"
+    >
       <Container>
-        <Reveal className="mx-auto max-w-2xl">
-          <SectionHeading
-            eyebrow={values.eyebrow}
-            title={values.title}
-            description={values.description}
-            align="center"
-            className="mx-auto"
-          />
+        <Reveal>
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
+            {values.eyebrow}
+          </p>
+          <h2 className="mt-2 max-w-2xl font-display text-2xl font-bold text-on-surface md:text-3xl">
+            {values.title}
+          </h2>
+          <p className="mt-3 max-w-2xl text-sm leading-7 text-on-surface-variant md:text-base">
+            {values.description}
+          </p>
         </Reveal>
 
-        <div className="mx-auto mt-6 grid max-w-5xl gap-3 sm:grid-cols-2 sm:gap-4 md:mt-10 md:gap-5">
-          {values.items.map((value) => (
-            <article
-              key={value.id}
+        <ol className="mt-10 grid gap-4 md:grid-cols-3 md:gap-6">
+          {values.items.map((item, index) => (
+            <li
+              key={item.id}
               data-about-value
-              className="rounded-2xl border border-outline-variant/50 bg-surface-lowest p-4 shadow-sm sm:p-6"
+              className="flex h-full flex-col border border-outline-variant/50 bg-surface-lowest p-6 md:p-8"
             >
-              <h3 className="text-base font-bold text-on-surface md:text-lg">{value.title}</h3>
-              <p className="mt-2 text-sm leading-6 text-on-surface-variant">{value.description}</p>
-            </article>
+              <p className="font-mono text-xs font-semibold text-on-surface-variant">
+                {String(index + 1).padStart(2, "0")}
+              </p>
+              <h3 className="mt-4 font-display text-lg font-bold text-on-surface md:text-xl">
+                {item.title}
+              </h3>
+              <p className="mt-3 text-sm leading-7 text-on-surface-variant">{item.description}</p>
+            </li>
           ))}
-        </div>
+        </ol>
       </Container>
     </section>
   );

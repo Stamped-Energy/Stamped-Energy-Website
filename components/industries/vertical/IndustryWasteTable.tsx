@@ -66,11 +66,6 @@ export function IndustryWasteTable({ slug }: IndustryWasteTableProps) {
       ref={sectionRef}
       className="section-y relative overflow-hidden bg-secondary text-on-secondary"
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_0%,color-mix(in_srgb,var(--brand-on-secondary)_7%,transparent),transparent_50%)]"
-      />
-
       <Container className="relative z-10">
         <Reveal className="mx-auto">
           <p className="mb-3 text-center text-xs font-semibold uppercase tracking-[0.14em] text-on-secondary/65">

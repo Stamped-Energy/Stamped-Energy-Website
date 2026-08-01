@@ -1,16 +1,17 @@
 # Implementation Plan
 
-_Status: approved and in progress (landing page MVP complete; homepage IA refresh complete 2026-06-29)._
+_Status: approved; marketing IA + Solutions/Platform overhaul complete 2026-08-01 (ADR-011)._
 
 ## Approved Requirements
 
 - Next.js 15 + TypeScript + Tailwind v4 + GSAP + Lenis
-- Landing page only (full build), with How It Works and Industries scaffolds
-- Center-aligned hero with gradient/grid placeholder for future video
+- Nav: Solutions · Platform · Industries · Case Studies · About · Contact
+- Routes: `/solutions` + pillars; `/platform` (308 from `/how-it-works`); Industries; Case Studies; About; Contact
+- Homepage ≤7 sections; Platform = journey + capabilities + deploy + CTA
+- Proof: Verified with evidence; Improve loop public; no MES / third-pillar claims
 - Scroll-driven GSAP animations with reduced-motion fallback
-- Outcome stats shown as target ranges with disclaimer
 - On-page contact form posting to Next.js API route stub
-- Centralized theming via `styles/theme.css`
+- Centralized theming via `styles/theme.css` (flat Forge tokens)
 - Content separated into typed `lib/content/` layer
 
 ## Architecture Decisions
@@ -48,10 +49,19 @@ See `DECISIONS.md`.
 - Hero commercial badge, prescription workflow link, FAQ + Why Stamped updates
 - Section reorder: outcomes → problem → chart → prescription → sustainability → why stamped
 
+### Phase 9 - Merge Blog + Case Studies public UI (complete)
+
+- Branch: `feat/merge-case-studies-blog-ui`
+- Nav/footer: single **Case Studies** → `/case-studies`
+- Canonical listing at `/case-studies` (CRM blogs); exact `/blog` → `/case-studies`
+- UI copy: Case studies & blogs; data from CRM `BlogPost` only
+- Case Studies CRM admin left untouched
+- Article URLs remain `/blog/[slug]`
+
 ## Deliverables
 
 - [x] Landing page at `/`
-- [x] Navbar with How It Works, Industries, Blog (external)
+- [x] Navbar with How It Works, Industries, Case Studies (`/blog`)
 - [x] Contact form with API stub
 - [x] Theme file for one-file color changes
 - [x] Content layer for one-file copy changes
@@ -63,3 +73,4 @@ See `DECISIONS.md`.
 - Pinned workflow section may need mobile tuning after real-device testing
 - Contact API currently logs only; email integration pending
 - Outcome stats are benchmark-derived until customer validation
+- Legacy `/case-studies/*` URLs permanently redirect to `/blog` (content no longer at old paths)

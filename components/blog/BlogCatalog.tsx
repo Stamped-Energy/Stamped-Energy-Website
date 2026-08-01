@@ -196,10 +196,6 @@ export function BlogCatalog({ initialPosts, initialHasMore, initialPage }: BlogC
                 </button>
               ))}
             </div>
-            <div
-              className="pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-surface-low to-transparent md:hidden"
-              aria-hidden
-            />
           </div>
         </div>
 

@@ -1,12 +1,12 @@
 import { prisma } from "@/lib/blog/db";
 import { resourcesContent } from "@/lib/content/resources";
 import type { ResourceCard } from "@/lib/content/types";
+import { normalizeCoverImageSrc } from "@/lib/media/image-src";
 
 export const HOMEPAGE_SPOTLIGHT_LIMIT = 3;
 
 const FALLBACK_IMAGES = {
   blog: "/industries/die-casting.jpeg",
-  caseStudy: "/industries/forging.jpg",
 } as const;
 
 type SpotlightEntry = {
@@ -90,46 +90,27 @@ export async function getNextHomepageOrder(): Promise<number> {
   return Math.max(...orders) + 1;
 }
 
+/** Public homepage spotlight uses CRM blog posts only (CaseStudy admin unchanged). */
 async function listSpotlightEntries(): Promise<SpotlightEntry[]> {
   const now = new Date();
 
-  const [posts, studies] = await Promise.all([
-    prisma.blogPost.findMany({
-      where: {
-        homepageFeatured: true,
-        status: "PUBLISHED",
-        publishedAt: { lte: now },
-      },
-      select: {
-        id: true,
-        title: true,
-        excerpt: true,
-        slug: true,
-        coverImage: true,
-        category: true,
-        homepageOrder: true,
-        updatedAt: true,
-      },
-    }),
-    prisma.caseStudy.findMany({
-      where: {
-        homepageFeatured: true,
-        status: "PUBLISHED",
-        publishedAt: { lte: now },
-      },
-      select: {
-        id: true,
-        title: true,
-        excerpt: true,
-        slug: true,
-        coverImage: true,
-        coverImageAlt: true,
-        tag: true,
-        homepageOrder: true,
-        updatedAt: true,
-      },
-    }),
-  ]);
+  const posts = await prisma.blogPost.findMany({
+    where: {
+      homepageFeatured: true,
+      status: "PUBLISHED",
+      publishedAt: { lte: now },
+    },
+    select: {
+      id: true,
+      title: true,
+      excerpt: true,
+      slug: true,
+      coverImage: true,
+      category: true,
+      homepageOrder: true,
+      updatedAt: true,
+    },
+  });
 
   const blogEntries: SpotlightEntry[] = posts.map((post) => ({
     id: post.id,
@@ -138,26 +119,13 @@ async function listSpotlightEntries(): Promise<SpotlightEntry[]> {
     description: post.excerpt,
     href: `/blog/${post.slug}`,
     tag: "Blog",
-    imageSrc: post.coverImage ?? FALLBACK_IMAGES.blog,
+    imageSrc: normalizeCoverImageSrc(post.coverImage) ?? FALLBACK_IMAGES.blog,
     imageAlt: post.title,
     order: post.homepageOrder ?? Number.MAX_SAFE_INTEGER,
     updatedAt: post.updatedAt,
   }));
 
-  const studyEntries: SpotlightEntry[] = studies.map((study) => ({
-    id: study.id,
-    type: "case-study",
-    title: study.title,
-    description: study.excerpt,
-    href: `/case-studies/${study.slug}`,
-    tag: study.tag ?? "Case study",
-    imageSrc: study.coverImage ?? FALLBACK_IMAGES.caseStudy,
-    imageAlt: study.coverImageAlt || study.title,
-    order: study.homepageOrder ?? Number.MAX_SAFE_INTEGER,
-    updatedAt: study.updatedAt,
-  }));
-
-  return [...blogEntries, ...studyEntries]
+  return blogEntries
     .sort((a, b) => {
       if (a.order !== b.order) {
         return a.order - b.order;
@@ -177,10 +145,7 @@ function toResourceCard(entry: SpotlightEntry): ResourceCard {
     tag: entry.tag,
     imageSrc: entry.imageSrc,
     imageAlt: entry.imageAlt,
-    readMoreLabel:
-      entry.type === "case-study"
-        ? `Read case study: ${entry.title} →`
-        : `Read: ${entry.title} →`,
+    readMoreLabel: `Read: ${entry.title} →`,
   };
 }
 

@@ -93,7 +93,7 @@ export function IndustryResources({ content, databaseError = false }: IndustryRe
               </div>
               <div className="flex flex-1 flex-col p-5">
                 <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-primary">
-                  {item.type === "case-study" ? "Case study" : "Blog"}
+                  Blog
                 </p>
                 <h3 className="mt-1 text-base font-bold text-on-surface group-hover:text-primary md:text-lg">
                   {item.title}

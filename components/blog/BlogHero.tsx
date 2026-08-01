@@ -39,9 +39,6 @@ export function BlogHero({ eyebrow, title, description }: BlogHeroProps) {
       ref={sectionRef}
       className="page-hero relative overflow-hidden border-b border-outline-variant/40 bg-secondary"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,color-mix(in_srgb,var(--brand-primary)_14%,transparent),transparent_45%)]" />
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_0%,color-mix(in_srgb,var(--brand-secondary)_100%,transparent)_100%)]" />
-
       <Container className="relative z-10">
         <div className="max-w-2xl">
           <p
@@ -67,7 +64,7 @@ export function BlogHero({ eyebrow, title, description }: BlogHeroProps) {
               Browse articles
             </Button>
             <Button
-              href="/how-it-works"
+              href="/platform"
               variant="outline"
               className="hidden w-full border-on-secondary/30 bg-on-secondary/5 text-on-secondary hover:bg-on-secondary/10 sm:inline-flex sm:w-auto"
             >

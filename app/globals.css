@@ -60,9 +60,9 @@
   --color-background: var(--brand-background);
   --color-on-background: var(--brand-on-background);
 
-  /* Typography families (wired in app/layout.tsx via next/font) */
-  --font-family-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-family-display: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  /* Typography: Helvetica Neue stack (C3-inspired; system fonts, no webfont license) */
+  --font-family-sans: "Helvetica Neue", Helvetica, Arial, ui-sans-serif, sans-serif;
+  --font-family-display: "Helvetica Neue", Helvetica, Arial, ui-sans-serif, sans-serif;
 }
 
 @layer base {
@@ -80,6 +80,9 @@
     background-color: var(--color-surface);
     color: var(--color-on-surface);
     font-family: var(--font-family-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    letter-spacing: 0.005em;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     overflow-x: clip;
@@ -90,7 +93,8 @@
   h3,
   h4 {
     font-family: var(--font-family-display);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
   }
 
   ::selection {
@@ -123,20 +127,20 @@
     }
   }
 
-  /* Consistent section vertical rhythm: tighter on phone, full on desktop */
+  /* Consistent section vertical rhythm: generous enterprise air */
   .section-y {
-    padding-block: 3.5rem;
+    padding-block: 4rem;
   }
 
   @media (min-width: 768px) {
     .section-y {
-      padding-block: 5rem;
+      padding-block: 5.5rem;
     }
   }
 
   @media (min-width: 1024px) {
     .section-y {
-      padding-block: 7rem;
+      padding-block: 7.5rem;
     }
   }
 

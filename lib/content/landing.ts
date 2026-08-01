@@ -19,14 +19,14 @@ export const landingContent = {
   hero: {
     eyebrow: "AI-Powered Energy Intelligence",
     headlineLine1: "From plant data",
-    headlineLine2: "to verified savings",
+    headlineLine2: "to verified outcomes",
     subheadline: "",
     supportingLine:
-      "AI ranks fixes from your meters, bills, and plant data. Your team executes. We verify on the DISCOM bill.",
+      "Real-time intelligence ranks fixes from your meters, bills, and plant data. Your team executes. Outcomes are verified with evidence.",
     supportingLine2: icp.heroBillLine,
-    commercialBadge: "Pay as you save · Pilot first · Scale after verified bill",
+    commercialBadge: "Pay as you save · Pilot first · Scale after verified evidence",
     primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
-    secondaryCta: { label: "See How It Works", href: "/how-it-works" } satisfies CtaLink,
+    secondaryCta: { label: "See the Platform", href: "/platform" } satisfies CtaLink,
     features: [
       {
         id: "read-only",
@@ -69,19 +69,40 @@ export const landingContent = {
     items: [
       "Connects to incomer meters and existing SCADA. No hardware retrofit.",
       "Actions on WhatsApp to supervisors who can execute tomorrow morning",
-      "Pilot first. One verified saving on the bill before annual commitment.",
+      "Pilot first. Verified with evidence before annual commitment.",
     ],
   },
 
   outcomes: {
-    eyebrow: "Typical recovery ranges",
-    title: "Numbers that must appear on the bill, not in a slide deck",
+    eyebrow: "Expected outcomes",
+    title: "Where plants typically see value",
     disclaimer:
-      "Benchmark ranges from comparable plants. Your pilot replaces these with verified figures.",
+      "Indicative ranges from comparable plants. Your pilot replaces these with figures verified with evidence.",
+    /** Stats shown on the homepage outcomes band (order matters). */
+    homeStats: [
+      {
+        id: "bill-reduction",
+        value: "15-20%",
+        label: "Reduction in monthly energy cost",
+        detail: "Energy-intensive manufacturing plants in India",
+      },
+      {
+        id: "sec-efficiency",
+        value: "8-15%",
+        label: "Gain in operating efficiency",
+        detail: "Energy use aligned to production by shift, batch, or line",
+      },
+      {
+        id: "plant-efficiency",
+        value: "10-20%",
+        label: "Unplanned downtime prevented",
+        detail: "Early equipment warnings from the same energy stack",
+      },
+    ] satisfies StatItem[],
     stats: [
       {
         id: "bill-reduction",
-        value: "12-20%",
+        value: "15-20%",
         label: "Off your monthly electricity bill",
         detail: "Cement, steel, pharma, chemical, automotive",
       },
@@ -193,14 +214,15 @@ export const landingContent = {
 
   workflow: {
     eyebrow: "The Stamped Energy Loop",
-    title: "From fragmented data to verified savings in five operational steps.",
+    title: "From fragmented data to verified outcomes in six operational steps.",
     description: "",
     media: {
-      title: "Five-step closed loop walkthrough",
+      title: "Six-step closed loop walkthrough",
       description:
-        "Connect plant signals, build baselines, prescribe in rupees, route on WhatsApp, verify on the bill.",
+        "Connect plant signals, build baselines, prescribe in rupees, route on WhatsApp, verify with evidence, improve based on decisions taken.",
       src: null as string | null,
-      posterAlt: "Stamped Energy five-step workflow: Connect, Observe, Decide, Execute, Verify",
+      posterAlt:
+        "Stamped Energy six-step workflow: Connect, Observe, Decide, Execute, Verify, Improve",
     },
     steps: [
       {
@@ -226,23 +248,30 @@ export const landingContent = {
       {
         id: "verify",
         title: "Verify",
-        description: "Savings verified on your electricity bill.",
+        description: "Outcomes verified with evidence.",
+      },
+      {
+        id: "improve",
+        title: "Improve",
+        description: "Improve based on decisions taken.",
       },
     ] satisfies WorkflowStep[],
   },
 
   prescription: {
-    eyebrow: "Not a dashboard",
-    title: "This is what your plant team gets - not a kWh chart",
+    eyebrow: "Prescription example",
+    title: "What your team receives to act on",
+    description:
+      "Each prescription states the action, the evidence, the owner, the effort, and the monthly rupee impact. Delivered to supervisors on WhatsApp. Figures below are sample data for illustration.",
     fields: getScenarioPrescription("homepagePrescription"),
-    footerText: "This is what closure looks like.",
-    footerCta: { label: "Full workflow walkthrough", href: "/how-it-works" } satisfies CtaLink,
+    footerText: "Walk through the full operating loop on the Platform.",
+    footerCta: { label: "See the Platform", href: "/platform" } satisfies CtaLink,
   },
 
   howItWorks: {
-    eyebrow: "How it works",
+    eyebrow: "Platform loop",
     title: "The Stamped Energy Loop",
-    cta: { label: "Full workflow walkthrough", href: "/how-it-works" } satisfies CtaLink,
+    cta: { label: "Full platform walkthrough", href: "/platform" } satisfies CtaLink,
     steps: [
       {
         id: "connect-systems",
@@ -271,8 +300,14 @@ export const landingContent = {
       {
         id: "verify-savings",
         step: 5,
-        title: "Confirm on the next bill",
-        description: "Potential vs realised savings. Defensible for plant head and OEM audits.",
+        title: "Verify with evidence",
+        description: "Potential vs realised in an ops-cleared ledger. Bill confirmation optional.",
+      },
+      {
+        id: "improve-loop",
+        step: 6,
+        title: "Improve from outcomes",
+        description: "Improve based on decisions taken and verified outcomes.",
       },
     ] satisfies HowItWorksStep[],
   },
@@ -418,7 +453,7 @@ export const landingContent = {
         detail: "SEC / kWh per batch or ton where data exists",
       },
     ] satisfies StatItem[],
-    cta: { label: "See how verification works", href: "/how-it-works" } satisfies CtaLink,
+    cta: { label: "See how verification works", href: "/platform" } satisfies CtaLink,
   },
 
   industry40: {
@@ -456,13 +491,13 @@ export const landingContent = {
 
   faq: {
     eyebrow: "FAQ",
-    title: "Questions plant and sustainability leaders ask",
+    title: "Questions plant leaders ask",
     items: [
       {
         id: "what-is-stamped",
         question: "What does Stamped actually do?",
         answer:
-          "Stamped connects to your existing meters, SCADA, and plant data, finds where energy and rupees are leaking, and sends specific assigned actions to your team. It then verifies the savings on your DISCOM bill.",
+          "Stamped Intelligence connects to your existing meters, SCADA, and plant data, finds where energy and rupees are leaking, and sends assigned prescriptions to your team. Outcomes are verified with evidence; DISCOM bill confirmation can follow.",
       },
       {
         id: "hardware",
@@ -471,16 +506,10 @@ export const landingContent = {
           "No hardware retrofit program is required. Stamped is software-only and connects read-only to the incomer meter, SCADA, PLCs, and CNCs you already run.",
       },
       {
-        id: "pay-as-you-save",
-        question: "What does pay as you save mean?",
+        id: "two-pillars",
+        question: "Is this only energy savings, or equipment too?",
         answer:
-          "Pay as you save means you start with a fixed-scope 90-day pilot at a low fee. Stamped assigns fixes, your team executes, and we verify savings on your DISCOM bill. Annual subscription starts after at least one billing cycle shows verified savings - not before. You can exit at Day 90 if the numbers do not justify continuing.",
-      },
-      {
-        id: "pilot",
-        question: "How do we start without a large commitment?",
-        answer:
-          "Begin with a low-fee pilot or pay-as-you-save on the first verified month. You see rupees recovered on the bill before scaling spend or signing an annual subscription.",
+          "One product, two pillars: load and energy-efficiency prescriptions, plus early equipment intelligence on the same stack. Not a separate MES or CMMS.",
       },
       {
         id: "team-action",
@@ -490,36 +519,18 @@ export const landingContent = {
       },
       {
         id: "savings-real",
-        question: "How do we know the savings are real?",
+        question: "How do we know outcomes are real?",
         answer:
-          "Verification runs monthly against your actual DISCOM bill, comparing realised against potential savings - not modelled estimates or annual audit-only claims.",
-      },
-      {
-        id: "esg-platform",
-        question: "Does Stamped replace our ESG or carbon accounting platform?",
-        answer:
-          "No. Stamped is an operational sustainability decision layer, not an ESG or carbon accounting platform. It reduces grid electricity use and produces verified energy and intensity evidence that feeds the reporting tools you already use.",
-      },
-      {
-        id: "sustainability-reporting",
-        question: "How does Stamped support sustainability reporting?",
-        answer:
-          "Because savings come from lower grid electricity draw, they map to Scope 2 reduction. When production is tagged, Stamped tracks specific energy consumption trends you can export for customer audits, PAT-style intensity discipline, and corporate reporting.",
-      },
-      {
-        id: "ot-safe",
-        question: "Is Stamped safe for our OT and Industry 4.0 architecture?",
-        answer:
-          "Yes. Stamped connects read-only and does not write back to control systems. It adds a decision and governance layer on top of the Industry 4.0 stack you already operate, without disrupting it.",
+          "We lead with verified with evidence: an ops-cleared ledger of potential vs realised impact. DISCOM bill confirmation is optional when the period closes, not the only proof story.",
       },
     ] satisfies HomeFaqItem[],
   },
 
   closingCta: {
-    title: "Verify energy savings before you commit",
+    title: "See verified evidence before you commit",
     description:
-      "Begin with a pilot on your existing meters and plant data. We quantify outcomes in rupees and confirm them on your next electricity bill before annual subscription. Pilot on your existing data. Pay as you save after the bill proves it.",
+      "Begin with a pilot on your existing meters and plant data. We quantify outcomes in rupees and clear them with evidence before annual subscription. DISCOM bill confirmation can follow when the period closes.",
     primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
-    secondaryCta: { label: "See How It Works", href: "/how-it-works" } satisfies CtaLink,
+    secondaryCta: { label: "See the Platform", href: "/platform" } satisfies CtaLink,
   },
 } as const;

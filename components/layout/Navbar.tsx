@@ -7,11 +7,44 @@ import { useEffect, useState } from "react";
 
 import { IndustriesMegaMenu, IndustriesMobileNav } from "@/components/layout/IndustriesMegaMenu";
 import { NavLinkItem } from "@/components/layout/NavLinkItem";
+import { SolutionsMegaMenu, SolutionsMobileNav } from "@/components/layout/SolutionsMegaMenu";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { navLinks, siteConfig } from "@/lib/content";
 import { useLightNavText } from "@/lib/layout/use-light-nav";
 import { cn } from "@/lib/utils";
+
+function DesktopNavLink({
+  link,
+  lightNav,
+}: {
+  link: (typeof navLinks)[number];
+  lightNav: boolean;
+}) {
+  if (link.megaMenu === "solutions") {
+    return <SolutionsMegaMenu lightNav={lightNav} />;
+  }
+  if (link.megaMenu === "industries") {
+    return <IndustriesMegaMenu lightNav={lightNav} />;
+  }
+  return <NavLinkItem link={link} lightNav={lightNav} />;
+}
+
+function MobileNavLink({
+  link,
+  onNavigate,
+}: {
+  link: (typeof navLinks)[number];
+  onNavigate: () => void;
+}) {
+  if (link.megaMenu === "solutions") {
+    return <SolutionsMobileNav onNavigate={onNavigate} />;
+  }
+  if (link.megaMenu === "industries") {
+    return <IndustriesMobileNav onNavigate={onNavigate} />;
+  }
+  return <NavLinkItem link={link} mobile onNavigate={onNavigate} />;
+}
 
 export function Navbar() {
   const pathname = usePathname();
@@ -71,13 +104,9 @@ export function Navbar() {
           className="hidden flex-1 items-center justify-center gap-6 lg:flex xl:gap-8"
           aria-label="Primary"
         >
-          {navLinks.map((link) =>
-            link.megaMenu === "industries" ? (
-              <IndustriesMegaMenu key={link.label} lightNav={isLightNav} />
-            ) : (
-              <NavLinkItem key={link.label} link={link} lightNav={isLightNav} />
-            ),
-          )}
+          {navLinks.map((link) => (
+            <DesktopNavLink key={link.label} link={link} lightNav={isLightNav} />
+          ))}
         </nav>
 
         <div className="hidden shrink-0 lg:block">
@@ -105,21 +134,13 @@ export function Navbar() {
       {isMenuOpen ? (
         <div className="max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain border-t border-outline-variant/30 bg-surface-lowest/98 backdrop-blur-md lg:hidden">
           <Container className="flex flex-col py-2 pb-[max(1rem,env(safe-area-inset-bottom))]">
-            {navLinks.map((link) =>
-              link.megaMenu === "industries" ? (
-                <IndustriesMobileNav
-                  key={link.label}
-                  onNavigate={() => setIsMenuOpen(false)}
-                />
-              ) : (
-                <NavLinkItem
-                  key={link.label}
-                  link={link}
-                  mobile
-                  onNavigate={() => setIsMenuOpen(false)}
-                />
-              ),
-            )}
+            {navLinks.map((link) => (
+              <MobileNavLink
+                key={link.label}
+                link={link}
+                onNavigate={() => setIsMenuOpen(false)}
+              />
+            ))}
             <Button href="/contact" variant="primary" className="mt-4 w-full">
               Book a Discovery Call
             </Button>

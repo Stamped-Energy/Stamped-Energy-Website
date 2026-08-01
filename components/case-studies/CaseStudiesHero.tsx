@@ -45,8 +45,7 @@ export function CaseStudiesHero() {
           className="object-cover object-center"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(105deg,color-mix(in_srgb,var(--brand-secondary)_92%,transparent)_0%,color-mix(in_srgb,var(--brand-secondary)_78%,transparent)_50%,color-mix(in_srgb,var(--brand-secondary)_55%,transparent)_100%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,color-mix(in_srgb,var(--brand-primary)_18%,transparent),transparent_55%)]" />
+        <div className="absolute inset-0 bg-secondary/70" />
       </div>
 
       <Container className="relative z-10">

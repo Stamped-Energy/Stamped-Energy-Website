@@ -2,9 +2,7 @@ import type {
   CtaLink,
   IndustrySegment,
   IndustryVertical,
-  StatItem,
 } from "./types";
-import { icp } from "./icp";
 import { getVerticalPage, VERTICAL_SLUGS, type VerticalSlug } from "./vertical-pages";
 
 const INDUSTRY_IMAGES = {
@@ -210,76 +208,156 @@ const steelSegments: IndustrySegment[] = [
 export const industriesContent = {
   hub: {
     eyebrow: "Industries",
-    title: "Industries we serve",
+    title: "Why each industry needs process-aware prescriptions",
     description:
-      "Purpose-built AI-powered energy intelligence for energy-intensive sectors - prescriptions with rupee impact, verified on your DISCOM bill.",
+      "The same motor fails differently in a cement kiln than in a die-casting cell. Generic EMS sees kWh. Stamped reads process context and assigns real-time actions with rupee impact, verified with evidence.",
     heroImageSrc: INDUSTRY_IMAGES.cement,
     heroImageAlt: "Cement plant with silos and kiln illuminated at twilight",
-    primaryCta: { label: "Explore industries", href: "#verticals" } satisfies CtaLink,
+    primaryCta: { label: "Compare verticals", href: "#comparison" } satisfies CtaLink,
     secondaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
-    stats: [
-      {
-        id: "hub-sec",
-        value: "12-20%",
-        label: "Typical electricity cost reduction",
-        detail: "Process-intensive mid-market plants",
-      },
-      {
-        id: "hub-md",
-        value: "15-25%",
-        label: "MD / demand charge reduction",
-        detail: "From incomer meter + bill data",
-      },
-      {
-        id: "hub-verticals",
-        value: "5",
-        label: "Industry verticals live",
-        detail: "Automotive, cement, steel, pharma, chemical",
-      },
-    ] satisfies StatItem[],
-    approach: {
-      eyebrow: "How we fit your plant",
-      title: "Process context, not generic kWh dashboards",
-      items: [
+    thesis: {
+      eyebrow: "Process context",
+      title: "Generic dashboards miss why energy leaks",
+      body: "A plant-wide average hides shift-start overlap, holding without batches, and tariff misalignment. Each vertical needs baselines and prescriptions tuned to its process, not one generic model for all.",
+    },
+    byIndustry: {
+      eyebrow: "By industry",
+      title: "Process context for each vertical",
+      disclaimer:
+        "Indicative process figures from industry ranges we already publish. Your pilot replaces them with verified numbers.",
+      rows: [
         {
-          id: "process-baselines",
-          title: "Baselines by shift, batch, and line",
-          description:
-            "SEC and MD tracked against production context - pour times, batch windows, kWh/ton - not plant-wide averages that hide the leak.",
+          id: "automotive",
+          slug: "automotive",
+          name: "Automotive",
+          href: "/industries/automotive",
+          imageSrc: INDUSTRY_IMAGES.dieCasting,
+          imageAlt: "Molten metal pour in an automotive die casting plant",
+          metricPrimary: {
+            value: "12-18%",
+            label: "Of operating cost linked to energy",
+          },
+          metricSecondary: {
+            value: "20-30%",
+            label: "Lost to operational variability",
+          },
+          equipment: ["Die casting", "Heat treatment", "Compressed air & more"],
+          body: "Shift-start overlap, holding loads, and SEC by cell with assigned owners. Not another shop-floor kWh trend.",
+          footerNote: "Auto components · press, forge, and utilities",
         },
         {
-          id: "segment-prescriptions",
-          title: "Prescriptions your supervisors recognise",
-          description:
-            "Shift-start staggering, holding schedule changes, dispatch governance - assigned roles and monthly ₹ impact.",
+          id: "cement",
+          slug: "cement",
+          name: "Cement",
+          href: "/industries/cement",
+          imageSrc: INDUSTRY_IMAGES.cement,
+          imageAlt: "Cement manufacturing plant with silos, towers, and conveyors at dusk",
+          metricPrimary: {
+            value: "40-50%",
+            label: "Manufacturing cost linked to energy",
+          },
+          metricSecondary: {
+            value: "₹3-8L",
+            label: "Est. MD savings on crusher & mill startups",
+          },
+          equipment: ["Raw & finish mills", "Kiln auxiliaries", "WHR & grid & more"],
+          body: "Kiln, mill, and WHR/grid dispatch context: MD, specific energy, and supervisor-ready sequencing.",
+          footerNote: "Continuous process · clinker and grinding lines",
         },
         {
-          id: "verified-outcomes",
-          title: "Verified on the DISCOM bill",
-          description:
-            "Closed-loop M&V so plant director and CFO see realised ₹, defensible for PAT and internal cost reviews.",
+          id: "steel",
+          slug: "steel",
+          name: "Steel",
+          href: "/industries/steel",
+          imageSrc: INDUSTRY_IMAGES.steel,
+          imageAlt: "Steel rolling mill with glowing hot metal billets on the production line",
+          metricPrimary: {
+            value: "30-40%",
+            label: "Share of energy in manufacturing cost",
+          },
+          metricSecondary: {
+            value: "₹4-10L",
+            label: "Est. MD savings on rolling mill startup",
+          },
+          equipment: ["EAF / induction", "Reheating furnace", "Rolling mills & more"],
+          body: "Induction, rolling, and holding windows tied to production. PAT-style SEC discipline with owners.",
+          footerNote: "Furnace and mill loads · bill-first path available",
+        },
+        {
+          id: "pharma",
+          slug: "pharma",
+          name: "Pharmaceutical",
+          href: "/industries/pharma",
+          imageSrc: INDUSTRY_IMAGES.pharma,
+          imageAlt: "Automated pharmaceutical vial filling line in a sterile manufacturing plant",
+          metricPrimary: {
+            value: "55-65%",
+            label: "Plant energy consumed by utilities",
+          },
+          metricSecondary: {
+            value: "40-50%",
+            label: "Energy driven by HVAC and clean-room systems",
+          },
+          equipment: ["Chillers & AHUs", "Compressed air", "Clean room HVAC & more"],
+          body: "Chiller and AHU staging against batch and cleanroom constraints. GMP-safe levers only.",
+          footerNote: "Utilities layer · no GMP system replacement",
+        },
+        {
+          id: "chemical",
+          slug: "chemical",
+          name: "Chemical",
+          href: "/industries/chemical",
+          imageSrc: INDUSTRY_IMAGES.chemical,
+          imageAlt: "Chemical refinery with storage tanks and distillation towers at twilight",
+          metricPrimary: {
+            value: "10-20%",
+            label: "Share of energy in manufacturing cost",
+          },
+          metricSecondary: {
+            value: "₹3-10L",
+            label: "Est. MD savings on simultaneous batch heating",
+          },
+          equipment: ["Batch reactors", "Steam & thermal", "Paint ovens & more"],
+          body: "Reactor stagger, idle hold, and batch SEC with owners before the next campaign.",
+          footerNote: "Batch and continuous · heat, mix, and utilities",
         },
       ],
     },
-    explorer: {
-      eyebrow: "Browse verticals",
-      title: "Select a vertical to explore",
-      description:
-        "Five industry verticals with plant-floor playbooks. Hover to preview process segments where available.",
-    },
-    featured: {
-      eyebrow: "Industry verticals",
-      title: "AI-powered energy intelligence by sector",
-      description: `Each vertical gets process-aware baselines, actionable prescriptions, and bill-verified savings. ${icp.heroBillLine}`,
-      cta: { label: "Open automotive page", href: "/industries/automotive" } satisfies CtaLink,
-      showMoreLabel: "Show process segments",
-      showLessLabel: "Show fewer segments",
+    faq: {
+      eyebrow: "FAQ",
+      title: "Questions plant leaders ask about industries",
+      items: [
+        {
+          id: "which",
+          question: "Which industries does Stamped support?",
+          answer:
+            "Automotive and auto components, cement, steel, pharmaceutical, and chemical plants in India with roughly ₹20 lakh+ monthly electricity bills.",
+        },
+        {
+          id: "why-vertical",
+          question: "Why does each industry need different prescriptions?",
+          answer:
+            "Failure and waste modes are process-specific. The same compressor behaves differently next to a kiln than next to a press line. Stamped baselines and ranks actions with that context.",
+        },
+        {
+          id: "generic",
+          question: "How is this different from a generic EMS?",
+          answer:
+            "EMS shows trends. Stamped assigns what to change, who owns it, and monthly rupee impact, then verifies with evidence. Real-time decision making on top of systems you already run.",
+        },
+        {
+          id: "start",
+          question: "How do we start?",
+          answer:
+            "Book a discovery call. We map meters, main loads, and bill pattern, and say honestly if a pilot makes sense.",
+        },
+      ],
     },
     finalCta: {
       eyebrow: "Start with your plant",
       title: "Not sure which vertical fits?",
       description:
-        "Discovery call: we map your meters, main loads, and bill pattern - and say honestly if a pilot makes sense.",
+        "Discovery call: we map your meters, main loads, and bill pattern, and say honestly if a pilot makes sense.",
       primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
     },
     cta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,

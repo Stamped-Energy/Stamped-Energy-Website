@@ -65,39 +65,43 @@ export function PrescriptionExample() {
   );
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden section-y">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_50%,color-mix(in_srgb,var(--brand-primary)_8%,transparent),transparent_55%)]"
-      />
-
+    <section
+      ref={sectionRef}
+      className="relative overflow-hidden bg-secondary section-y text-on-secondary"
+    >
       <Container className="relative z-10">
         <div className="grid gap-8 md:gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-center">
           <Reveal from="left">
-            <SectionHeading eyebrow={prescription.eyebrow} title={prescription.title} />
-            <p className="mt-4 max-w-md text-sm leading-7 text-on-surface-variant">
-              Same format your maintenance supervisor receives on WhatsApp, asset, reason, owner, monthly
-              rupee impact.
+            <SectionHeading
+              eyebrow={prescription.eyebrow}
+              title={prescription.title}
+              dark
+            />
+            <p className="mt-4 max-w-md text-sm leading-7 text-on-secondary/75">
+              {prescription.description}
             </p>
           </Reveal>
 
           <Reveal from="right">
             <article
               ref={cardRef}
-              className="rounded-xl border-2 border-primary/20 bg-surface-lowest p-5 shadow-[0_20px_50px_-30px_color-mix(in_srgb,var(--brand-primary)_50%,transparent)] sm:p-6 md:p-8"
+              className="border border-on-secondary/20 bg-on-secondary/5 p-5 sm:p-6 md:p-8"
             >
               <div
                 data-rx-header
-                className="mb-6 flex items-center justify-between border-b border-outline-variant/40 pb-4"
+                className="mb-6 flex items-center justify-between border-b border-on-secondary/15 pb-4"
               >
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
-                  Sample prescription
-                </p>
+                <div className="min-w-0">
+                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-inverse-primary">
+                    Illustrative prescription
+                  </p>
+                  <p className="mt-1 text-sm font-bold text-on-secondary">MD co-start stagger</p>
+                </div>
                 <span
                   data-rx-badge
-                  className="rounded-md bg-primary px-3 py-1 text-xs font-semibold text-on-primary"
+                  className="border border-primary/40 bg-primary/15 px-3 py-1 text-xs font-semibold text-primary"
                 >
-                  Open
+                  Priority: High
                 </span>
               </div>
 
@@ -108,14 +112,14 @@ export function PrescriptionExample() {
                     data-rx-field
                     className="grid gap-1 sm:grid-cols-[88px_1fr]"
                   >
-                    <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-on-surface-variant">
+                    <dt className="text-xs font-semibold uppercase tracking-[0.12em] text-on-secondary/55">
                       {field.label}
                     </dt>
                     <dd
                       className={
                         field.label === "Impact"
                           ? "font-display text-lg font-bold text-primary"
-                          : "text-sm leading-6 text-on-surface"
+                          : "text-sm leading-6 text-on-secondary"
                       }
                     >
                       {field.value}
@@ -129,7 +133,7 @@ export function PrescriptionExample() {
 
         {prescription.footerText && prescription.footerCta ? (
           <Reveal className="mt-8 text-center">
-            <p className="text-sm text-on-surface-variant">
+            <p className="text-sm text-on-secondary/70">
               {prescription.footerText}{" "}
               <Link
                 href={prescription.footerCta.href}

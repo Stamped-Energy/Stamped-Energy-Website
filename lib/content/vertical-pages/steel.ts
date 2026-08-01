@@ -1,7 +1,7 @@
 import type { CtaLink, StatItem, VerticalPageContent } from "../types";
 
 const CTA = { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink;
-const HOW = { label: "How it works", href: "/how-it-works" } satisfies CtaLink;
+const HOW = { label: "Platform", href: "/platform" } satisfies CtaLink;
 
 export const steelPage: VerticalPageContent = {
   slug: "steel",
@@ -9,7 +9,7 @@ export const steelPage: VerticalPageContent = {
     eyebrow: "Steel & metals",
     title: "AI-driven energy management for steel",
     description:
-      "AI enables steel manufacturers to manage fuel- and power-intensive operations at scale, where energy balance and operating discipline directly determine cost competitiveness, throughput stability, and operational consistency - with bill-verified savings.",
+      "AI enables steel manufacturers to manage fuel- and power-intensive operations at scale, where energy balance and operating discipline directly determine cost competitiveness, throughput stability, and operational consistency - with evidence-verified savings.",
     primaryCta: CTA,
     secondaryCta: HOW,
     seoHeadings: [
@@ -107,9 +107,9 @@ export const steelPage: VerticalPageContent = {
     eyebrow: "Example prescriptions",
     title: "Furnace and MD actions assigned this week",
     description:
-      "Illustrative actions from secondary steel and rolling benchmark Your pilot generates prescriptions from your meters and bill.",
+      "Illustrative actions from secondary steel and rolling benchmarks. Your pilot generates prescriptions from your meters and bill.",
     footnote:
-      "Impact ranges are benchmark estimate External reference: Zerowatt integrated plant case at enterprise scale [external] - Stamped targets mid-market induction and rolling plants.",
+      "Impact ranges are benchmark estimates, not customer guarantees. Enterprise-scale integrated plant cases are cited only as context. Stamped targets mid-market induction and rolling plants with plant-specific verification.",
     items: [
       {
         id: "induction-hold",
@@ -170,19 +170,19 @@ export const steelPage: VerticalPageContent = {
   outcomes: {
     eyebrow: "What you gain",
     title: "Tighter process efficiency and per-unit cost stability",
-    disclaimer: "Benchmark band External SEC wins cited with attribution only.",
+    disclaimer: "Indicative benchmark band. External SEC references are cited for context only.",
     items: [
       {
         id: "furnace-md",
         title: "Tighter process efficiency",
         description:
-          "Prescriptive AI keeps furnaces and rolling processes within efficient operating windows, reducing avoidable energy loss during real production by 5-10",
+          "Prescriptive AI keeps furnaces and rolling processes within efficient operating windows, reducing avoidable energy loss during real production by 5-10%.",
       },
       {
         id: "rolling-sec",
         title: "Per-unit energy cost stability",
         description:
-          "AI detects captive power generation inefficiencies early and prescribes corrections before small deviations escalate into sustained cost losses, reducing per-unit energy cost by almost 5",
+          "AI detects captive power generation inefficiencies early and prescribes corrections before small deviations escalate into sustained cost losses, reducing per-unit energy cost by almost 5%.",
       },
       {
         id: "pat-sec",
@@ -194,7 +194,7 @@ export const steelPage: VerticalPageContent = {
         id: "ledger",
         title: "Utility efficiency discipline",
         description:
-          "Continuous monitoring keeps SEC of large utilities such as pumps, compressors, and cooling systems within efficient limits, cutting unplanned utility downtime by 10-15",
+          "Continuous monitoring keeps SEC of large utilities such as pumps, compressors, and cooling systems within efficient limits, cutting unplanned utility downtime by 10-15%.",
       },
     ],
   },
@@ -209,13 +209,13 @@ export const steelPage: VerticalPageContent = {
       id: "induction-consumption",
       question: "How much does induction furnace holding power cost?",
       answer:
-        "Holding power between heats can run 30-50% of furnace electricity with no production outpu Stamped quantifies this per furnace and assigns setback schedules with monthly rupee impact.",
+        "Holding power between heats can run 30-50% of furnace electricity with no production output. Stamped quantifies this per furnace and assigns setback schedules with monthly rupee impact.",
     },
     {
       id: "pat-sec",
       question: "How does Stamped support PAT SEC targets?",
       answer:
-        "Stamped tracks SEC improvement with bill-verified M&V - a ledger for management and PAT evidence. Stamped is prescriptive intelligence, not PAT consulting or audit services.",
+        "Stamped tracks SEC improvement with evidence-verified M&V - a ledger for management and PAT evidence. Stamped is prescriptive intelligence, not PAT consulting or audit services.",
     },
     {
       id: "integrated-steel",

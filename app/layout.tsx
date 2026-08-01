@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 
 import { SiteChrome } from "@/components/layout/SiteChrome";
@@ -10,18 +9,6 @@ import { siteMetadataBase } from "@/lib/seo/metadata";
 import { organizationSchema } from "@/lib/seo/schemas";
 
 import "./globals.css";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const plusJakartaSans = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  variable: "--font-jakarta",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   ...siteMetadataBase,
@@ -38,11 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en-IN"
-      className={`${inter.variable} ${plusJakartaSans.variable}`}
-      suppressHydrationWarning
-    >
+    <html lang="en-IN" suppressHydrationWarning>
       <body
         className="min-h-screen bg-surface text-on-surface antialiased"
         suppressHydrationWarning

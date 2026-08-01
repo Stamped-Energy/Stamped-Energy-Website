@@ -20,6 +20,7 @@ import {
   type AuthorProfile,
   type AuthorProfileId,
 } from "@/lib/content/author-profiles";
+import { normalizeCoverImageSrc } from "@/lib/media/image-src";
 import {
   estimateReadTimeFromDoc,
   markdownToRichDoc,
@@ -107,7 +108,7 @@ function mapStudy(study: CaseStudy & { author: { name: string } }): CaseStudyDTO
     content: study.content,
     contentFormat: study.contentFormat,
     bodyJson: study.bodyJson,
-    coverImage: study.coverImage,
+    coverImage: normalizeCoverImageSrc(study.coverImage),
     coverImageAlt: study.coverImageAlt,
     category: study.category,
     categoryLabel: getCaseStudyCategoryLabel(study.category),
@@ -309,7 +310,7 @@ export async function createCaseStudy(input: CreateCaseStudyInput): Promise<Case
       content,
       contentFormat: input.contentFormat ?? "RICH",
       bodyJson,
-      coverImage: input.coverImage?.trim() || null,
+      coverImage: normalizeCoverImageSrc(input.coverImage),
       coverImageAlt: input.coverImageAlt?.trim() || "",
       category: input.category,
       industry: input.industry.trim(),
@@ -381,7 +382,9 @@ export async function updateCaseStudy(id: string, input: UpdateCaseStudyInput): 
       content,
       ...(input.contentFormat !== undefined ? { contentFormat: input.contentFormat } : {}),
       ...(input.bodyJson !== undefined ? { bodyJson: input.bodyJson } : {}),
-      ...(input.coverImage !== undefined ? { coverImage: input.coverImage?.trim() || null } : {}),
+      ...(input.coverImage !== undefined
+        ? { coverImage: normalizeCoverImageSrc(input.coverImage) }
+        : {}),
       ...(input.coverImageAlt !== undefined ? { coverImageAlt: input.coverImageAlt.trim() } : {}),
       ...(input.category !== undefined ? { category: input.category } : {}),
       ...(input.industry !== undefined ? { industry: input.industry.trim() } : {}),

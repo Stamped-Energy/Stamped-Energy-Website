@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { isRemoteImageSrc } from "@/lib/media/image-src";
+import { isRemoteImageSrc, normalizeImageSrc } from "@/lib/media/image-src";
 import { cn } from "@/lib/utils";
 
 type ContentImageProps = {
@@ -28,6 +28,8 @@ export function ContentImage({
   width,
   height,
 }: ContentImageProps) {
+  src = normalizeImageSrc(src);
+
   if (isRemoteImageSrc(src)) {
     if (fill) {
       return (

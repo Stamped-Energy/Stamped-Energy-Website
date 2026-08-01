@@ -44,8 +44,7 @@ export function AboutHero() {
           className="object-cover object-center"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(100deg,color-mix(in_srgb,var(--brand-secondary)_90%,transparent)_0%,color-mix(in_srgb,var(--brand-secondary)_72%,transparent)_55%,color-mix(in_srgb,var(--brand-secondary)_48%,transparent)_100%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,color-mix(in_srgb,var(--brand-primary)_16%,transparent),transparent_50%)]" />
+        <div className="absolute inset-0 bg-secondary/70" />
       </div>
 
       <Container className="relative z-10">

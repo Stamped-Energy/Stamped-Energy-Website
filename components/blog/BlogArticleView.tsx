@@ -106,8 +106,7 @@ export function BlogArticleView({ post, related }: BlogArticleViewProps) {
               className="object-cover object-[center_35%] md:object-[center_40%]"
               sizes="100vw"
             />
-            <div className="absolute inset-0 bg-[linear-gradient(105deg,color-mix(in_srgb,var(--brand-secondary)_58%,#000)_0%,color-mix(in_srgb,#000_62%,transparent)_38%,color-mix(in_srgb,#000_28%,transparent)_62%,transparent_88%)] md:bg-[linear-gradient(105deg,color-mix(in_srgb,var(--brand-secondary)_42%,#000)_0%,color-mix(in_srgb,#000_48%,transparent)_34%,color-mix(in_srgb,#000_16%,transparent)_58%,transparent_82%)]" />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_srgb,#000_42%,transparent)_0%,color-mix(in_srgb,#000_12%,transparent)_35%,transparent_55%)] md:bg-[linear-gradient(180deg,color-mix(in_srgb,#000_28%,transparent)_0%,transparent_22%)]" />
+            <div className="absolute inset-0 bg-secondary/70" />
           </div>
         ) : null}
 
@@ -115,7 +114,7 @@ export function BlogArticleView({ post, related }: BlogArticleViewProps) {
           <div className="max-w-3xl">
             <Link
               data-blog-hero
-              href="/blog"
+              href="/case-studies"
               className={cn(
                 "inline-flex min-h-11 items-center py-1 text-xs font-semibold uppercase tracking-[0.12em] transition-colors",
                 hasCover
@@ -123,7 +122,7 @@ export function BlogArticleView({ post, related }: BlogArticleViewProps) {
                   : "text-on-surface-variant hover:text-primary",
               )}
             >
-              ← All blogs
+              ← All case studies & blogs
             </Link>
 
             <div

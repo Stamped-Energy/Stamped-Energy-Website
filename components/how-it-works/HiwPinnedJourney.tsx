@@ -157,7 +157,7 @@ export function HiwPinnedJourney() {
       <Container className="sr-only">
         <h2>How does Stamped Energy connect to my existing plant systems?</h2>
         <h2>How are prescriptions delivered to the plant floor team?</h2>
-        <h2>How are energy savings verified on the DISCOM bill?</h2>
+        <h2>How are energy savings verified with evidence?</h2>
       </Container>
 
       <div ref={pinRef} className="hidden lg:block">

@@ -1,7 +1,7 @@
 import type { CtaLink, StatItem, VerticalPageContent } from "../types";
 
 const CTA = { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink;
-const HOW = { label: "How it works", href: "/how-it-works" } satisfies CtaLink;
+const HOW = { label: "Platform", href: "/platform" } satisfies CtaLink;
 
 export const chemicalPage: VerticalPageContent = {
   slug: "chemical",
@@ -9,7 +9,7 @@ export const chemicalPage: VerticalPageContent = {
     eyebrow: "Chemical & paint",
     title: "AI-powered energy intelligence for chemical and paint manufacturing",
     description:
-      "AI brings continuous energy discipline to chemical and paint manufacturing, improving cost control, operational predictability, and long-term competitiveness - with prescriptions assigned to your batch team and savings verified on your DISCOM bill.",
+      "AI brings continuous energy discipline to chemical and paint manufacturing, improving cost control, operational predictability, and long-term competitiveness - with prescriptions assigned to your batch team and outcomes verified with evidence.",
     primaryCta: CTA,
     secondaryCta: HOW,
     seoHeadings: [
@@ -105,7 +105,7 @@ export const chemicalPage: VerticalPageContent = {
     eyebrow: "Example prescriptions",
     title: "What to change before month-end - assigned to your batch team",
     description:
-      "Illustrative actions from batch chemical benchmark Path A: batch log CSV + bill. Path B: DCS integration.",
+      "Illustrative actions from batch chemical benchmarks. Path A: batch log CSV + bill. Path B: DCS integration.",
     footnote:
       "Impact ranges are benchmark estimates - not customer guarantees. Verified figures come from your pilot M&V.",
     items: [
@@ -168,13 +168,13 @@ export const chemicalPage: VerticalPageContent = {
   outcomes: {
     eyebrow: "What you gain",
     title: "Controlled energy intensity and predictable operations",
-    disclaimer: "Benchmark band Your pilot replaces these with bill-verified figures.",
+    disclaimer: "Indicative benchmark band. Your pilot replaces these with evidence-verified figures.",
     items: [
       {
         id: "batch-sec",
         title: "Controlled energy intensity",
         description:
-          "Energy stays within defined operating bands across batch and continuous operations, with AI prescribing adjustments to prevent drift, reducing SEC by 8-12",
+          "Energy stays within defined operating bands across batch and continuous operations, with AI prescribing adjustments to prevent drift, reducing SEC by 8-12%.",
       },
       {
         id: "idle-hold",

@@ -56,11 +56,11 @@ All SEO, GEO, and AEO copy derives from **`lib/content/icp.ts`**. Do not hardcod
 | Keyword | Primary page |
 |---------|--------------|
 | `AI-powered energy intelligence India` | `/` |
-| `prescriptive energy intelligence India` | `/`, `/how-it-works` |
+| `prescriptive energy intelligence India` | `/`, `/platform` |
 | `energy management software for plants India` | `/` |
 | `reduce electricity bill industrial plant India` | `/`, `/blog` |
-| `maximum demand reduction India` | `/how-it-works`, `/blog` |
-| `DISCOM bill savings India` | `/how-it-works`, `/case-studies` |
+| `maximum demand reduction India` | `/platform`, `/blog` |
+| `DISCOM bill savings India` | `/platform`, `/case-studies` |
 | `SEC reduction industrial plant India` | `/industries`, vertical pages |
 
 ### Tier 3 - Vertical (high intent)
@@ -102,7 +102,7 @@ All SEO logic lives under `lib/seo/` and is applied in App Router `page.tsx` / `
 | `lib/seo/crawlers.ts` | Search + AI crawler allow-list for `robots.ts` |
 | `components/seo/JsonLd.tsx` | Renders `<script type="application/ld+json">` |
 | `app/robots.ts` | Dynamic `/robots.txt` |
-| `app/sitemap.ts` | Dynamic `/sitemap.xml` (all static routes + blog + case studies) |
+| `app/sitemap.ts` | Dynamic `/sitemap.xml` (all static routes + blog posts; listing at `/case-studies`, `/blog` redirects to listing) |
 | `lib/seo/extract-faq.ts` | Auto-extract FAQ JSON-LD from blog/case study `?` headings |
 | `app/llms-full.txt/route.ts` | Dynamic CMS index with entity definition header |
 | `public/llms.txt` | Static site guide for AI crawlers (**not linked in UI**) |
@@ -121,15 +121,16 @@ Every public route has spec-aligned **title**, **meta description**, **canonical
 | Route | Title pattern |
 |-------|---------------|
 | `/` | Stamped Energy \| AI-Powered Energy Intelligence for Plants in India |
-| `/how-it-works` | How It Works \| Stamped Energy - 5-Step Energy Loop |
+| `/platform` | Platform \| Stamped Energy - Connect to Improve Loop (308 from `/platform`) |
+| `/solutions` | Solutions hub + `/solutions/load-energy` + `/solutions/equipment-intelligence` |
 | `/about` | About Stamped Energy \| IIT Roorkee Engineers, Verified Savings |
-| `/blog` | Energy Intelligence Blog \| Stamped Energy |
-| `/case-studies` | Energy Savings Case Studies \| Stamped Energy |
+| `/case-studies` | Case Studies & Blogs \| Stamped Energy |
+| `/blog` | Permanent redirect → `/case-studies` |
 | `/contact` | Book a Discovery Call \| Stamped Energy |
 | `/industries` | Industries \| Stamped Energy - Cement, Steel, Pharma, Chemical, Auto |
 | `/industries/[slug]` | Vertical-specific titles (automotive, cement, steel, pharma, chemical) |
 | `/blog/[slug]` | `{Post Title} \| Stamped Energy` |
-| `/case-studies/[slug]` | `{Title} - Case Study \| Stamped Energy` |
+| `/case-studies/[slug]` | Permanent redirect → `/case-studies` |
 
 Blog posts emit `article` Open Graph with `publishedTime`, `modifiedTime`, `authors`, and `tags`.
 
@@ -169,9 +170,9 @@ All `/blog/admin/*` pages export `robots: { index: false, follow: false }`.
 | **FAQPage** | Homepage | 5 product FAQs (plants in India wording) |
 | **FAQPage** | Each `/industries/[slug]` | Vertical-specific FAQs from content model |
 | **FAQPage** | Blog/case study posts (auto) | Extracted from `?`-ending H2/H3 headings |
-| **HowTo** (5 steps) | `/how-it-works` | Connect → Verify workflow with anchor URLs |
+| **HowTo** (6 steps) | `/platform` | Connect → Verify workflow with anchor URLs |
 | **ContactPage** | `/contact` | Discovery call page entity |
-| **CollectionPage** | `/blog`, `/case-studies` | Listing pages |
+| **CollectionPage** | `/case-studies` | Case Studies & Blogs listing (CRM blog posts) |
 | **Person** × 2 | `/about` | Founders (IIT Roorkee alumni) |
 | **Article** | Each blog post + case study | With `about` pointing to plant energy management in India |
 | **SpeakableSpecification** | Homepage | `.hero-headline`, `.value-proposition`, `.key-numbers` |
@@ -303,7 +304,7 @@ Inconsistency degrades AI entity confidence.
 - sr-only span: vertical keywords for crawlers
 - Speakable targets wired
 
-### How It Works
+### Platform
 
 - H1: Prescriptive intelligence across your entire energy stack
 - Sub: meters/SCADA gap → bill-verified savings narrative
@@ -320,7 +321,7 @@ Inconsistency degrades AI entity confidence.
 ### Internal linking
 
 - Homepage industries section → each vertical
-- Blog posts → related articles + industry anchors + `/how-it-works`
+- Blog posts → related articles + industry anchors + `/platform`
 - Industry segments → `relatedArticle` blog links where configured
 - Mega menu → vertical pages with hover preview
 
@@ -402,7 +403,7 @@ Inconsistency degrades AI entity confidence.
 
 - [ ] `npm run build` passes
 - [ ] Positioning consistent: grep for "Indian manufacturers" - should only appear in legacy blog/seed content, not live SEO surfaces
-- [ ] [Rich Results Test](https://search.google.com/test/rich-results) on `/`, one blog post, `/how-it-works`, one vertical
+- [ ] [Rich Results Test](https://search.google.com/test/rich-results) on `/`, one blog post, `/platform`, one vertical
 - [ ] [Schema validator](https://validator.schema.org) on Organization + SoftwareApplication + one Article
 - [ ] `https://stamped.work/robots.txt` - AI bots listed with `Allow: /`
 - [ ] `https://stamped.work/sitemap.xml` - all five verticals present

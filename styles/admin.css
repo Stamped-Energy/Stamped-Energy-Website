@@ -37,7 +37,7 @@
   --admin-danger-text: #9b2c2c;
   --admin-danger-border: #f0c4c0;
 
-  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-family-sans, "Helvetica Neue", Helvetica, Arial, sans-serif);
   color: var(--admin-text);
   background: var(--admin-canvas);
 }

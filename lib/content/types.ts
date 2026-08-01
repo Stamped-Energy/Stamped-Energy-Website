@@ -2,7 +2,7 @@ export type NavLink = {
   label: string;
   href: string;
   external?: boolean;
-  megaMenu?: "industries";
+  megaMenu?: "industries" | "solutions";
 };
 
 export type HeroFeatureItem = {
@@ -257,7 +257,7 @@ export type HiwJourneyStep = {
   tagline: string;
   description: string;
   bullets: string[];
-  diagram: "connect" | "observe" | "decide" | "execute" | "verify";
+  diagram: "connect" | "observe" | "decide" | "execute" | "verify" | "improve";
 };
 
 export type HiwStackLayer = {

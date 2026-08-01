@@ -35,7 +35,7 @@ function IndustryCard({ industry }: { industry: IndustryItem }) {
             className="object-cover transition-transform duration-500 group-hover:scale-105"
             sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-secondary/70 via-secondary/10 to-transparent" />
+          <div className="absolute inset-0 bg-secondary/70" />
         </div>
       ) : null}
 
@@ -111,11 +111,6 @@ export function Industries() {
 
   return (
     <section ref={sectionRef} className="relative overflow-hidden section-y">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_0%_50%,color-mix(in_srgb,var(--brand-primary)_7%,transparent),transparent_50%)]"
-      />
-
       <Container className="relative z-10">
         <Reveal>
           <SectionHeading

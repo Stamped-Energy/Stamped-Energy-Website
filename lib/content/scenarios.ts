@@ -19,20 +19,22 @@ type BeforeAfterScenario = {
   afterPrescription: string;
 };
 
+/** Homepage Rx: MD co-start stagger (agnostic). Sample numbers from prescriptions-examples. */
 const cementPrescription: PrescriptionField[] = [
   {
     label: "What",
-    value: "Increase WHR and solar draw 18:00-22:00; reduce grid import during peak tariff window",
+    value:
+      "Hold Feeder B start until Feeder A settles under 95% of its ramp, then release. Stagger 8-12 min inside the open 15-min MD window.",
   },
   {
     label: "Why",
     value:
-      "Incomer demand hit 1,180 kVA at 19:30 Tuesday. Grid import peaked while WHR output was available at 2.1 MW.",
+      "HT incomer MD hit 1,180 kVA at 07:14. Feeder A restart and Feeder B start stacked in the same billing slot while the window was still open.",
   },
-  { label: "Who", value: "Plant electrical / dispatch coordinator" },
-  { label: "Effort", value: "Dispatch schedule change only. No capital spend." },
-  { label: "Impact", value: "₹4.2-8L/month at current tariff and source mix " },
-  { label: "When", value: "Before next billing cycle. MD resets monthly." },
+  { label: "Who", value: "Electrical / area supervisor, active shift" },
+  { label: "Effort", value: "Sequence change only. No capital spend." },
+  { label: "Impact", value: "₹2.5-4.5L per month on MD charges" },
+  { label: "When", value: "This week, ahead of the next peak period" },
 ];
 
 const pharmaPrescription: PrescriptionField[] = [

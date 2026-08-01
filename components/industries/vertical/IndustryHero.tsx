@@ -54,8 +54,7 @@ export function IndustryHero({ slug }: IndustryHeroProps) {
           className="object-cover object-[center_40%]"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(105deg,color-mix(in_srgb,var(--brand-secondary)_88%,transparent)_0%,color-mix(in_srgb,var(--brand-secondary)_72%,transparent)_42%,color-mix(in_srgb,var(--brand-secondary)_45%,transparent)_100%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,color-mix(in_srgb,var(--brand-primary)_22%,transparent),transparent_45%)]" />
+        <div className="absolute inset-0 bg-secondary/70" />
       </div>
 
       <Container className="relative z-10">

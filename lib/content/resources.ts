@@ -8,21 +8,21 @@ const RESOURCE_IMAGES = {
 
 export const resourcesContent = {
   eyebrow: "Proof & insights",
-  title: "Case studies & industry insights",
+  title: "Case studies & blogs",
   description:
     "Published outcomes and field notes from energy-intensive manufacturing, starting with automotive-adjacent process plants.",
   items: [
     {
-      id: "auto-case-placeholder",
-      type: "case-study",
+      id: "auto-sec-insight",
+      type: "blog",
       title: "Automotive & pump manufacturing: 18% SEC reduction",
       description:
         "16 verified measures across compressors, furnaces, and shift-start sequencing, IPMVP-style M&V with ₹12-34L monthly energy savings (reference benchmark).",
-      href: "/case-studies/automotive-pump-sec-reduction",
-      tag: "Field pilot",
+      href: "/case-studies",
+      tag: "Blog",
       imageSrc: RESOURCE_IMAGES.forging,
       imageAlt: "Forging press line energy cost reduction - maximum demand control",
-      readMoreLabel: "Read case study: 18% SEC reduction in auto component plant →",
+      readMoreLabel: "Browse case studies & blogs →",
     },
     {
       id: "die-cast-blog",

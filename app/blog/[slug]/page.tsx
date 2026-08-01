@@ -84,7 +84,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
 
   const breadcrumbSchema = generateBreadcrumbSchema([
     breadcrumbHome(),
-    { name: "Blog", url: absoluteUrl("/blog") },
+    { name: "Case Studies & Blogs", url: absoluteUrl("/case-studies") },
     { name: post.title, url: absoluteUrl(`/blog/${post.slug}`) },
   ]);
 

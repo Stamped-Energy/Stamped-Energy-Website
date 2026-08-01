@@ -1,5 +1,4 @@
 import { listPublishedPosts } from "@/lib/blog/posts";
-import { listPublishedCaseStudies } from "@/lib/case-studies/studies";
 import { icp } from "@/lib/content/icp";
 import { safeDbQuery } from "@/lib/db/safe-query";
 import { SITE_URL } from "@/lib/seo/constants";
@@ -11,20 +10,13 @@ export async function GET() {
     posts: [],
     pagination: { page: 1, limit: 500, total: 0, totalPages: 0, hasMore: false },
   };
-  const emptyStudies = {
-    studies: [],
-    pagination: { page: 1, limit: 100, total: 0, totalPages: 0, hasMore: false },
-  };
 
-  const [postsResult, studiesResult] = await Promise.all([
-    safeDbQuery(() => listPublishedPosts({ limit: 500 }), emptyPosts),
-    safeDbQuery(() => listPublishedCaseStudies({ limit: 100 }), emptyStudies),
-  ]);
+  const postsResult = await safeDbQuery(() => listPublishedPosts({ limit: 500 }), emptyPosts);
 
   const lines: string[] = [
     "# Stamped Energy - Full Content Index",
     "",
-    "> Auto-generated index of all published blog posts and case studies for AI crawlers and answer engines.",
+    "> Auto-generated index of published case studies and blogs for AI crawlers and answer engines.",
     "",
     icp.seo.entityDefinition,
     "",
@@ -33,7 +25,7 @@ export async function GET() {
     `Audience: ${icp.seo.audienceLine}`,
     `For overview see ${SITE_URL}/llms.txt`,
     "",
-    "## Blog posts",
+    "## Case studies & blogs",
     "",
   ];
 
@@ -45,32 +37,22 @@ export async function GET() {
     }
   }
 
-  lines.push("", "## Case studies", "");
-
-  if (studiesResult.data.studies.length === 0) {
-    lines.push("- (No published case studies yet)");
-  } else {
-    for (const study of studiesResult.data.studies) {
-      lines.push(
-        `- [${study.title}](${SITE_URL}/case-studies/${study.slug}): ${study.excerpt}`,
-      );
-    }
-  }
-
   lines.push(
     "",
     "## Static pages",
     "",
     `- [Home](${SITE_URL}/)`,
-    `- [How It Works](${SITE_URL}/how-it-works)`,
+    `- [Platform](${SITE_URL}/platform)`,
+    `- [Solutions](${SITE_URL}/solutions)`,
+    `- [Solutions - Load and energy](${SITE_URL}/solutions/load-energy)`,
+    `- [Solutions - Equipment intelligence](${SITE_URL}/solutions/equipment-intelligence)`,
     `- [Industries hub](${SITE_URL}/industries)`,
     `- [Industries - Automotive](${SITE_URL}/industries/automotive)`,
     `- [Industries - Cement](${SITE_URL}/industries/cement)`,
     `- [Industries - Steel](${SITE_URL}/industries/steel)`,
     `- [Industries - Pharmaceutical](${SITE_URL}/industries/pharma)`,
     `- [Industries - Chemical](${SITE_URL}/industries/chemical)`,
-    `- [Case Studies](${SITE_URL}/case-studies)`,
-    `- [Blog](${SITE_URL}/blog)`,
+    `- [Case Studies & Blogs](${SITE_URL}/case-studies)`,
     `- [About](${SITE_URL}/about)`,
     `- [Contact](${SITE_URL}/contact)`,
     "",

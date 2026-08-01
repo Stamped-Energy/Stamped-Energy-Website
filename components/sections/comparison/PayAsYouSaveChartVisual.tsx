@@ -65,7 +65,6 @@ export function PayAsYouSaveChartVisual({ variant, className }: PayAsYouSaveChar
   const isStamped = variant === "stamped";
   const bars = isStamped ? STAMPED_BARS : TRADITIONAL_BARS;
   const roiPath = isStamped ? STAMPED_ROI : TRADITIONAL_ROI;
-  const chartId = variant;
 
   useGSAP(
     () => {
@@ -171,13 +170,6 @@ export function PayAsYouSaveChartVisual({ variant, className }: PayAsYouSaveChar
             : "Chart: high upfront investment with delayed return"
         }
       >
-        <defs>
-          <linearGradient id={`pay-roi-fill-${chartId}`} x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="var(--brand-primary)" stopOpacity={0.22} />
-            <stop offset="100%" stopColor="var(--brand-primary)" stopOpacity={0.02} />
-          </linearGradient>
-        </defs>
-
         <g data-pay-grid opacity="0">
           {[260, 220, 180, 140, 100].map((y) => (
             <line
@@ -233,7 +225,8 @@ export function PayAsYouSaveChartVisual({ variant, className }: PayAsYouSaveChar
         <path
           data-pay-roi-fill
           d={`${roiPath} L752,${BASELINE} L48,${BASELINE} Z`}
-          fill={`url(#pay-roi-fill-${chartId})`}
+          fill="var(--brand-primary)"
+          fillOpacity="0.12"
           opacity={0}
         />
 
