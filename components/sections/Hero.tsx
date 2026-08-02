@@ -110,14 +110,6 @@ export function Hero() {
             >
               {hero.supportingLine}
             </p>
-            {hero.supportingLine2 ? (
-              <p
-                data-hero-animate="supporting"
-                className="mt-3 max-w-lg text-sm leading-7 text-on-surface-variant sm:text-base"
-              >
-                {hero.supportingLine2}
-              </p>
-            ) : null}
 
             {hero.commercialBadge ? (
               <p
