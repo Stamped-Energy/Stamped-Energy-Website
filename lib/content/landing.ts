@@ -23,7 +23,6 @@ export const landingContent = {
     subheadline: "",
     supportingLine:
       "Real-time intelligence ranks fixes from your meters, bills, and plant data. Your team executes. Outcomes are verified with evidence.",
-    supportingLine2: icp.heroBillLine,
     commercialBadge: "Pay as you save · Pilot first · Scale after verified evidence",
     primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
     secondaryCta: { label: "See the Platform", href: "/platform" } satisfies CtaLink,

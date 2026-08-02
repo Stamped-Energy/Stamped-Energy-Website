@@ -32,6 +32,7 @@ Helvetica Neue site-wide typography (ADR-014) - complete (2026-08-01) on `feat/i
 - [x] **Industries By industry zig-zag (ADR-015)** - black alternating image/copy cards from existing vertical metrics/equipment; full-card links; no fleet claims or named customers; replaces comparison table
 - [x] **Client-facing QA (2026-08-01)** - vertical copy scrub (truncated %, run-ons, competitor-style attributions); hero isometric bg matched to `#f7faf5`; `tsc` + `next build` green
 - [x] **Mobile UX polish** - About stacked founders + shorter copy; Improve loop vertical on mobile; industries zig-zag stacks; larger ML visual taps; navbar `h-11` menu button
+- [x] **Founder bios + hero trim (2026-08-02)** - restore medium-long founder bios (mobile clamp kept); remove homepage hero ICP bill floor line
 
 ## Remaining Phases
 

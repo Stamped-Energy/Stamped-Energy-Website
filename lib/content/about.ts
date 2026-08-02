@@ -20,7 +20,7 @@ export const aboutContent = {
         imageSrc: "/team/vinayak.png",
         imageAlt: "Vinayak Raizada, Co-Founder of Stamped Energy, IIT Roorkee Electrical Engineering",
         linkedIn: "https://www.linkedin.com/in/vinayak-rz/",
-        bio: "Electrical Engineering, IIT Roorkee. Leads product, strategy, and the technical core behind Stamped Intelligence.",
+        bio: "Leads core technical work, electrical engineering depth, strategy, and marketing. Electrical Engineering, IIT Roorkee. Focuses on prescriptive energy intelligence, turning meter, SCADA, and bill data into rupee-denominated actions plant teams can verify with evidence.",
       },
       {
         id: "utso",
@@ -29,7 +29,7 @@ export const aboutContent = {
         imageSrc: "/team/utso.jpg",
         imageAlt: "Utso Sarkar, Co-Founder of Stamped Energy",
         linkedIn: "https://www.linkedin.com/in/utso/",
-        bio: "IIT Roorkee. Leads sales, outreach, and engineering delivery from discovery through pilot.",
+        bio: "Leads sales, outreach, and software engineering. IIT Roorkee. Builds the product platform and works directly with manufacturers through discovery, pilots, and deployment, connecting what we ship to what plant teams execute on the floor.",
       },
     ],
   },
