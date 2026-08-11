@@ -43,7 +43,7 @@ Remaining pages DESIGN.md pass (ADR-020) — complete. Homepage / MotionSlot ani
 - [x] **CVector-style nav dropdowns (ADR-018)** - Solutions/Industries button triggers (not hub links); compact hover panel; item links only
 - [x] **Stitch DESIGN.md** - overwrite root DESIGN.md with YAML tokens + six Stitch sections extracted from homepage/chrome; North Star “Plant-office decision layer”
 - [x] **OpenMontage brand pack (ADR-019)** - self-contained product context + C-Vector motion audit + Impeccable `DESIGN_VIDEO` + `stamped-industrial` playbook + prompts; four docs commits
-- [x] **Remaining pages DESIGN.md pass (ADR-020)** - shared SectionBadge + MarketingClosingCta; Solutions hub/pillars; Platform outcomes band (pin kept); Industries hub + segments; About story; Contact; Case Studies shell polish; tsc/build
+- [x] **Remaining pages DESIGN.md pass (ADR-020)** - shared SectionBadge + MarketingClosingCta; Solutions hub/pillars; Platform outcomes band (pin kept); Industries hub + segments; About story; Contact; Case Studies shell polish; `tsc` + `next build` green (2026-08-11)
 
 ## Remaining Phases
 
