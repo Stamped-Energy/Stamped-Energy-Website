@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-Helvetica Neue site-wide typography (ADR-014) - complete (2026-08-01) on `feat/ia-solutions-platform`
+CVector-inspired homepage + chrome revamp (ADR-016) - Phase 4 technical polish in progress; Phase 5 visual QA next.
 
 ## Completed Phases
 
@@ -33,16 +33,19 @@ Helvetica Neue site-wide typography (ADR-014) - complete (2026-08-01) on `feat/i
 - [x] **Client-facing QA (2026-08-01)** - vertical copy scrub (truncated %, run-ons, competitor-style attributions); hero isometric bg matched to `#f7faf5`; `tsc` + `next build` green
 - [x] **Mobile UX polish** - About stacked founders + shorter copy; Improve loop vertical on mobile; industries zig-zag stacks; larger ML visual taps; navbar `h-11` menu button
 - [x] **Founder bios + hero trim (2026-08-02)** - restore medium-long founder bios (mobile clamp kept); remove homepage hero ICP bill floor line
+- [x] **CVector-inspired home content (ADR-016 Phase 1)** - ₹-scored CVector-shaped copy; solution display rename; footer columns
+- [x] **CVector chrome (ADR-016 Phase 2)** - navbar/footer restyle
+- [x] **CVector homepage structure (ADR-016 Phase 3)** - new section stack + MotionSlot placeholders; FAQ off home
 
 ## Remaining Phases
 
-See **`SEO_GEO_AEO.md` → Remaining & ongoing maintenance** for the full list. Highlights:
-
+- [ ] **ADR-016 Phase 5** - extensive visual QA (fonts, spacing, responsive)
+- [ ] Homepage / HIW / solutions animation pass (replace MotionSlot)
+- See **`SEO_GEO_AEO.md` → Remaining & ongoing maintenance** for SEO list. Highlights:
 - [ ] **Google Business Profile** (Section 12 #3)
 - [ ] **LinkedIn Company Page** (Section 12 #4) - then update Organization schema `sameAs`
 - [ ] **Wikidata entry** for Stamped Energy (Section 12 #5)
 - [ ] Replace placeholder industry hero images (cement, steel, pharma, chemical photo shoot)
-- [ ] Dashboard walkthrough video for homepage prescription section
 - [ ] Industries vertical rewrite (deferred from IA overhaul)
 - [ ] Case Studies redesign (deferred)
 - [ ] Per-vertical blog posts (content roadmap P2)
@@ -56,4 +59,4 @@ None.
 
 ## Push / PR readiness
 
-Branch `feat/ia-solutions-platform` (from `feat/flat-theme-tokens`): `npx tsc --noEmit` and `npm run build` passed 2026-08-01. Not pushed until requested.
+Branch `feat/ia-solutions-platform`: CVector home phases 1–3 committed; Phase 4 docs/SEO next. Not pushed until requested.

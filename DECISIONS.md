@@ -293,3 +293,22 @@ Architecture and workflow decisions for this project.
 **Rationale:** Matches requested layout and buyer scan path. Full-card links to vertical pages. Indicative ranges only from published vertical content.
 
 **Impact:** `hub.byIndustry` in `lib/content/industries.ts`; `IndustriesHubComparison` rewritten. Anchor `#comparison` preserved for hero CTA.
+
+---
+
+## ADR-016: CVector-inspired homepage and chrome
+
+**Date:** 2026-08-11
+
+**Context:** Founder wanted the marketing home, navbar, and footer to follow CVector’s narrative structure and closely adapted copy (₹-scored), while staying on Stamped tokens and product truth. Animations deferred to placeholders.
+
+**Alternatives:**
+
+1. Keep prior ≤7-section home and only tweak copy
+2. Rebuild home to CVector section flow (minus testimonials/security), rename two live pillars publicly, MotionSlot placeholders for later animation
+
+**Selected:** Option 2.
+
+**Rationale:** Stronger industrial narrative and clearer product story. Overrides DESIGN.md homepage section cap and allows an impact metrics band with indicative disclaimer. Public solution names: Industry Energy Management (`/solutions/load-energy`) and Asset Health Intelligence (`/solutions/equipment-intelligence`). Plant Margin Optimization deferred. FAQ removed from home (no orphan FAQPage schema on `/`).
+
+**Impact:** New home sections under `components/sections/`; chrome restyle in Navbar/Footer; content in `lib/content/landing.ts` / `solutions.ts` / `site.ts`; docs and SEO titles updated.

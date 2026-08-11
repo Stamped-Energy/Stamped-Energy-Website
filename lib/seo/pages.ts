@@ -9,9 +9,9 @@ export type PageSeoConfig = {
 export const PAGE_SEO = {
   home: {
     absoluteTitle:
-      "Stamped Energy | AI-Powered Energy Intelligence for Plants in India",
+      "Stamped Energy | AI-Native Energy Intelligence for Industrial Plants",
     description:
-      "AI-powered prescriptive intelligence for plants with ₹20 lakh+ monthly electricity bills. Ranked actions, assigned owners, outcomes verified with evidence. Cement, steel, pharma, chemical, automotive. Auditable energy intensity for Indian manufacturers.",
+      "Stamped analyzes plant and market data to create ₹-scored prescriptions so operators can act before opportunities are missed. Industry Energy Management and Asset Health Intelligence for Indian manufacturers.",
     path: "/",
   },
   platform: {
@@ -28,21 +28,21 @@ export const PAGE_SEO = {
     path: "/platform",
   },
   solutions: {
-    absoluteTitle: "Solutions | Stamped Energy - Energy Savings and Plant Efficiency",
+    absoluteTitle: "Solutions | Stamped Energy - Industry Energy Management and Asset Health",
     description:
-      "Stamped Intelligence delivers load and energy-efficiency prescriptions plus prescriptive equipment intelligence in one product for energy-intensive plants in India.",
+      "Stamped Intelligence delivers Industry Energy Management and Asset Health Intelligence in one product for energy-intensive plants in India.",
     path: "/solutions",
   },
   solutionsLoadEnergy: {
-    absoluteTitle: "Load and Energy Efficiency | Stamped Energy",
+    absoluteTitle: "Industry Energy Management | Stamped Energy",
     description:
-      "Prescriptions for maximum demand, shift-start overlap, idle loads, HVAC, and tariff - assigned owners and rupee impact, verified with evidence.",
+      "₹-scored prescriptions for maximum demand, shift-start overlap, idle loads, HVAC, and tariff - assigned owners and verified with evidence.",
     path: "/solutions/load-energy",
   },
   solutionsEquipment: {
-    absoluteTitle: "Prescriptive Equipment Intelligence | Stamped Energy",
+    absoluteTitle: "Asset Health Intelligence | Stamped Energy",
     description:
-      "Early equipment warnings tied to energy and process context - assigned prescriptions before trips and waste compound.",
+      "₹-ranked anomalies and early equipment warnings tied to energy and process context - assigned prescriptions before trips and waste compound.",
     path: "/solutions/equipment-intelligence",
   },
   about: {
