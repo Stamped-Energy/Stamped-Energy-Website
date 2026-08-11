@@ -332,3 +332,22 @@ Architecture and workflow decisions for this project.
 **Rationale:** Ships immediately without font procurement; preserves grotesk headline + clean body + mono label rhythm similar to CVector. Self-hosted via `next/font/google`.
 
 **Impact:** `app/layout.tsx` loads three Google fonts; `app/globals.css` tokens; SectionBadge/MotionSlot use `font-mono`; `DESIGN.md` updated; supersedes ADR-014 Helvetica Neue as system of record.
+
+---
+
+## ADR-018: Homepage HIW pin + simple nav dropdowns
+
+**Date:** 2026-08-11
+
+**Context:** Homepage How it Works was click/tab-only and scrolled past. Solutions/Industries mega-menus linked hub pages from the trigger and were too heavy vs CVector’s simple hover menus.
+
+**Alternatives:**
+
+1. Keep click HIW + mega-menus
+2. Pin/scrub HIW (desktop) + CVector-style hover dropdowns with non-link triggers
+
+**Selected:** Option 2.
+
+**Rationale:** Scroll-driven HIW matches `/platform` `HiwPinnedJourney` and keeps GSAP client-only (`isReady`). Dropdown triggers are buttons (not `/solutions` or `/industries`); only item links navigate. Hub routes remain for footer/SEO.
+
+**Impact:** `HomeHowItWorks.tsx` pin/scrub; `SimpleNavDropdown.tsx`; Solutions/Industries menus rewritten; `ListMegaMenu` unused by chrome this pass.

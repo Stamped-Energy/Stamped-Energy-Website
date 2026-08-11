@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-Typography ADR-017 (Space Grotesk + Inter + IBM Plex Mono) - complete.
+Homepage HIW scroll pin + CVector-style nav dropdowns — complete.
 
 ## Completed Phases
 
@@ -39,6 +39,8 @@ Typography ADR-017 (Space Grotesk + Inter + IBM Plex Mono) - complete.
 - [x] **CVector docs/SEO (ADR-016 Phase 4)** - ADR-016, meta titles, build green
 - [x] **CVector visual QA (ADR-016 Phase 5)** - founder-reviewed; no further layout fixes this pass
 - [x] **Typography (ADR-017)** - Space Grotesk + Inter + IBM Plex Mono replacing Helvetica Neue
+- [x] **Homepage HIW pin (ADR-018)** - client GSAP ScrollTrigger pin/scrub through Data → Analysis → Prescriptions → Decisions; stacked mobile / reduced-motion
+- [x] **CVector-style nav dropdowns (ADR-018)** - Solutions/Industries button triggers (not hub links); compact hover panel; item links only
 
 ## Remaining Phases
 

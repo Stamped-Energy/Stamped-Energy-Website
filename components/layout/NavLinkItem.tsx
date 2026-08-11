@@ -25,19 +25,17 @@ export function NavLinkItem({
     (link.href === "/" ? pathname === "/" : pathname.startsWith(link.href));
 
   const className = cn(
-    "relative font-medium transition-colors duration-200 ease-out",
+    "relative font-mono text-[0.72rem] font-medium uppercase tracking-[0.08em] transition-colors duration-200 ease-out",
     mobile
       ? cn(
-          "block min-h-12 border-b border-outline-variant/20 py-3.5 text-base text-on-surface",
+          "block min-h-12 border-b border-outline-variant/20 py-3.5 text-xs text-on-surface",
           isActive ? "text-primary" : "hover:text-primary",
         )
       : cn(
-          "text-sm",
           lightNav
-            ? "nav-link text-on-secondary/80 hover:text-on-secondary"
-            : "nav-link text-on-surface-variant hover:text-on-surface",
-          isActive &&
-            (lightNav ? "nav-link-active text-on-secondary" : "nav-link-active text-on-surface"),
+            ? "text-on-secondary/80 hover:text-primary"
+            : "text-on-surface/75 hover:text-primary",
+          isActive && (lightNav ? "text-on-secondary" : "text-primary"),
         ),
   );
 
@@ -56,16 +54,7 @@ export function NavLinkItem({
 
   return (
     <Link href={link.href} className={className} onClick={onNavigate}>
-      <span className={cn(mobile && isActive && "pl-3.5")}>{link.label}</span>
-      {isActive ? (
-        <span
-          aria-hidden="true"
-          className={cn(
-            "absolute rounded-full bg-primary",
-            mobile ? "left-0 top-1/2 h-1.5 w-1.5 -translate-y-1/2" : "-bottom-1 left-0 h-0.5 w-full",
-          )}
-        />
-      ) : null}
+      {link.label}
     </Link>
   );
 }
