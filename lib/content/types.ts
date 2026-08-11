@@ -204,6 +204,23 @@ export type HowItWorksStep = {
   description: string;
 };
 
+/** Homepage how-it-works step (CVector-style 4-step narrative). */
+export type HomeHiwStep = {
+  id: string;
+  step: number;
+  /** Short sidebar label, e.g. Data / Analysis */
+  label: string;
+  title: string;
+  description: string;
+  bullets: string[];
+};
+
+export type HomeProblemPoint = {
+  id: string;
+  title: string;
+  description: string;
+};
+
 export type IndustryItem = {
   id: string;
   name: string;

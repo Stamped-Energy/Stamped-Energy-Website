@@ -2,6 +2,8 @@ import type {
   CtaLink,
   HeroFeatureItem,
   HomeFaqItem,
+  HomeHiwStep,
+  HomeProblemPoint,
   HowItWorksStep,
   IconBulletItem,
   IndustryItem,
@@ -17,15 +19,20 @@ import { getHeroCallouts, getHeroVisual, getScenarioPrescription } from "./scena
 
 export const landingContent = {
   hero: {
-    eyebrow: "AI-Powered Energy Intelligence",
-    headlineLine1: "From plant data",
-    headlineLine2: "to verified outcomes",
-    subheadline: "",
+    badge: "For industrial plants",
+    headline: "Act on energy opportunities in real time.",
     supportingLine:
-      "Real-time intelligence ranks fixes from your meters, bills, and plant data. Your team executes. Outcomes are verified with evidence.",
-    commercialBadge: "Pay as you save · Pilot first · Scale after verified evidence",
+      "Stamped analyzes plant, application, and live market data to create ₹-scored prescriptions so operators can act before opportunities are missed.",
     primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
-    secondaryCta: { label: "See the Platform", href: "/platform" } satisfies CtaLink,
+    secondaryCta: { label: "See how it works", href: "#hiw" } satisfies CtaLink,
+    microcopy: "See how quickly Stamped can deliver the first prescriptions in your plant.",
+    motionSlotLabel: "Hero visual",
+    /** Legacy fields kept for unused hero subcomponents until cleanup */
+    eyebrow: "For industrial plants",
+    headlineLine1: "Act on energy opportunities",
+    headlineLine2: "in real time.",
+    subheadline: "",
+    commercialBadge: "Pay as you save · Pilot first · Scale after verified evidence",
     features: [
       {
         id: "read-only",
@@ -72,12 +79,151 @@ export const landingContent = {
     ],
   },
 
-  outcomes: {
-    eyebrow: "Expected outcomes",
-    title: "Where plants typically see value",
+  homeProblem: {
+    badge: "Problem",
+    title: "In dynamic markets, cost moves with every decision.",
+    items: [
+      {
+        id: "priorities",
+        title: "So much data, so many insights, but what to do first?",
+        description:
+          "Equipment, bills, and plant data hold the signals, but turning them into priorities takes time you don't have.",
+      },
+      {
+        id: "speed",
+        title: "Opportunities move faster than you can take action.",
+        description:
+          "Tariffs shift by the hour, demand charges by the day, and load patterns change with production. By the time teams can respond, the rupee opportunity is often gone.",
+      },
+      {
+        id: "invisible",
+        title: "Every operating decision moves cost, but the link is invisible.",
+        description:
+          "Each choice moves energy cost and downtime risk, but the link between what happens on the floor and what shows up on the bill is impossible to see.",
+      },
+    ] satisfies HomeProblemPoint[],
+  },
+
+  whatIs: {
+    badge: "What is Stamped",
+    title: "AI-native energy intelligence for industrial plants",
+    description:
+      "Stamped runs continuous analysis of real-time asset, plant, and market data to create ₹-scored prescriptions with a full audit trail for front-line operators.",
+    motionSlotLabel: "Product visual",
+  },
+
+  homeHowItWorks: {
+    badge: "How it works",
+    title: "From plant data to operator decisions.",
+    steps: [
+      {
+        id: "data",
+        step: 1,
+        label: "Data",
+        title: "Plant and market signals are stored and modeled in real time.",
+        description:
+          "Stamped continuously ingests plant data and external signals for real-time analysis, including energy tariffs, demand, and production context.",
+        bullets: [
+          "Internal plant data from equipment, assets, and control systems",
+          "Internal application data such as bills, inventory, and work orders",
+          "External signals including energy prices, weather, and market conditions",
+        ],
+      },
+      {
+        id: "analysis",
+        step: 2,
+        label: "Analysis",
+        title: "Operational scenarios and economic impact are analyzed 24/7.",
+        description:
+          "Stamped continuously runs scenario, impact, and risk analysis against your plant's operating constraints to calculate how different actions affect performance, risk, and rupee outcomes.",
+        bullets: [
+          "Continuous evaluation of operational scenarios across the plant",
+          "Analysis of economic impact, performance, and operational risk",
+          "Proactive analysis as plant and market conditions change",
+        ],
+      },
+      {
+        id: "recommendations",
+        step: 3,
+        label: "Prescriptions",
+        title: "₹-scored prescriptions are generated in real time.",
+        description:
+          "Stamped's models generate prescriptions ranked by expected economic impact, so operators can see which actions are projected to have the greatest effect on cost and performance.",
+        bullets: [
+          "₹-scored prescriptions focus attention on top priorities",
+          "Continuous updates as plant and market conditions change",
+          "A full audit trail with data sources, scoring model, and recommendation logic",
+        ],
+      },
+      {
+        id: "decisions",
+        step: 4,
+        label: "Decisions",
+        title: "Operators review prescriptions and remain in control.",
+        description:
+          "Plant teams review prescriptions through an easy-to-use interface, decide which actions to take, and remain in control of operating decisions.",
+        bullets: [
+          "Every accepted, rejected, or adjusted prescription captures operator expertise and improves the next decision",
+          "Faster onboarding and expertise building for new employees",
+          "Expertise is captured before it retires or walks out the door",
+        ],
+      },
+    ] satisfies HomeHiwStep[],
+  },
+
+  impact: {
+    badge: "Impact",
+    title: "Measurable impact on plant performance and energy cost.",
+    description:
+      "Stamped identifies and ₹-scores high-impact prescriptions as plant and market conditions change.",
     disclaimer:
       "Indicative ranges from comparable plants. Your pilot replaces these with figures verified with evidence.",
-    /** Stats shown on the homepage outcomes band (order matters). */
+    items: [
+      {
+        id: "bill-reduction",
+        value: "15-20%",
+        label: "Reduction in monthly energy cost",
+        detail: "Across energy-intensive manufacturing plants in India",
+      },
+      {
+        id: "sec-efficiency",
+        value: "8-15%",
+        label: "Gain in operating efficiency",
+        detail: "Energy use aligned to production by shift, batch, or line",
+      },
+      {
+        id: "md-reduction",
+        value: "15-25%",
+        label: "Reduction in maximum demand charges",
+        detail: "Often from incomer meter and bill data alone, no capex",
+      },
+      {
+        id: "idle-waste",
+        value: "10-20%",
+        label: "Non-production energy flagged",
+        detail: "Idle loads, holding, HVAC staging, and batch gaps",
+      },
+      {
+        id: "downtime",
+        value: "10-20%",
+        label: "Unplanned downtime prevented",
+        detail: "Early equipment warnings from the same energy stack",
+      },
+      {
+        id: "energy-waste",
+        value: "8-12%",
+        label: "Energy waste identified",
+        detail: "Across assets within the first weeks via per-equipment baselines",
+      },
+    ] satisfies StatItem[],
+  },
+
+  /** Alias used by legacy HomeOutcomesBand until homepage rebuild */
+  outcomes: {
+    eyebrow: "Impact",
+    title: "Measurable impact on plant performance and energy cost.",
+    disclaimer:
+      "Indicative ranges from comparable plants. Your pilot replaces these with figures verified with evidence.",
     homeStats: [
       {
         id: "bill-reduction",
@@ -126,17 +272,29 @@ export const landingContent = {
     ] satisfies StatItem[],
   },
 
+  solutionsSection: {
+    badge: "Solutions",
+    title: "Prescriptions that align decisions with bottom-line business results.",
+  },
+
+  resourcesSection: {
+    badge: "Resources",
+    title: "Research, publications, and case studies",
+    viewAllLabel: "View all",
+    viewAllHref: "/case-studies",
+  },
+
   problem: {
-    eyebrow: "Why the bill keeps winning",
-    title: "You have the data. The project model is what breaks.",
+    eyebrow: "Problem",
+    title: "In dynamic markets, cost moves with every decision.",
     description:
-      "Most plants already meter everything. Savings stall because audits, EMS, and dashboards never close the loop to the bill.",
+      "Most plants already meter everything. Cost stalls because data never becomes a ranked next action.",
     items: [
       {
-        id: "technical",
-        title: "Data never meets the invoice",
+        id: "priorities",
+        title: "So much data, so many insights, but what to do first?",
         description:
-          "Meters, SCADA, and DISCOM line items live in silos. MD spikes never tie back to a rupee on the bill.",
+          "Equipment, bills, and plant data hold the signals, but turning them into priorities takes time you don't have.",
         solutionHeading: "How Stamped closes it",
         solutionPoints: [
           "Read-only connect in 14 days: meters, bills, SCADA",
@@ -145,22 +303,22 @@ export const landingContent = {
         ],
       },
       {
-        id: "financial",
-        title: "You pay before savings show",
+        id: "speed",
+        title: "Opportunities move faster than you can take action.",
         description:
-          "Audits deliver PDFs. EMS needs a capital budget. Momentum dies before the first verified billing cycle.",
+          "Tariffs shift by the hour, demand charges by the day, and load patterns change with production. By the time teams can respond, the rupee opportunity is often gone.",
         solutionHeading: "How Stamped closes it",
         solutionPoints: [
-          "90-day pilot, subscribe after verified bill",
-          "See ₹ on the invoice before scaling spend",
+          "90-day pilot, subscribe after verified evidence",
+          "See ₹ impact before scaling spend",
           "Exit at Day 90 - no hostage contract",
         ],
       },
       {
-        id: "personnel",
-        title: "Another dashboard is not the answer",
+        id: "invisible",
+        title: "Every operating decision moves cost, but the link is invisible.",
         description:
-          "Supervisors need assigned work with a rupee figure, not a screen the plant head opens once a month.",
+          "Each choice moves energy cost and downtime risk, but the link between what happens on the floor and what shows up on the bill is impossible to see.",
         solutionHeading: "How Stamped closes it",
         solutionPoints: [
           "WhatsApp to people who flip switches",
@@ -312,10 +470,11 @@ export const landingContent = {
   },
 
   industries: {
+    badge: "Industries",
     eyebrow: "Industries",
-    title: "Industries we serve",
+    title: "Stamped for cement, steel, pharma, chemical, and automotive.",
     description:
-      "Purpose-built AI-powered energy intelligence for energy-intensive manufacturing - cement, steel, pharma, chemical, and automotive.",
+      "Turn energy volatility, process constraints, and equipment risk into ₹-scored prescriptions, so every operating hour protects cost.",
     cta: { label: "View all industries", href: "/industries" } satisfies CtaLink,
     items: [
       {
@@ -334,7 +493,7 @@ export const landingContent = {
         name: "Cement",
         focus: "AI-driven energy intelligence",
         description:
-          "Kiln, raw mill, and WHR dispatch patterns drive cost across continuous processes - where a few minutes of mis-timed load shows up on the incomer.",
+          "Kiln, raw mill, and WHR dispatch patterns drive cost across continuous processes, where a few minutes of mis-timed load shows up on the incomer.",
         sustainability:
           "kWh/ton drift and PAT-aligned SEC evidence on verified actions.",
         imageSrc: "/industries/cement.png",
@@ -345,7 +504,7 @@ export const landingContent = {
         name: "Steel & metals",
         focus: "AI-driven energy management",
         description:
-          "Furnace, rolling mill, and auxiliary loads compete for power - energy balance directly determines cost competitiveness and throughput stability.",
+          "Furnace, rolling mill, and auxiliary loads compete for power. Energy balance directly determines cost competitiveness and throughput stability.",
         sustainability:
           "PAT / intensity discipline for furnace and rolling utilities.",
         imageSrc: "/industries/steel.png",
@@ -356,7 +515,7 @@ export const landingContent = {
         name: "Pharmaceutical",
         focus: "AI-driven energy management",
         description:
-          "HVAC, cleanroom, and batch utilities run around the clock - small staging errors show up as MD spikes and intensity drift on every audit.",
+          "HVAC, cleanroom, and batch utilities run around the clock. Small staging errors show up as MD spikes and intensity drift on every audit.",
         sustainability:
           "Lower grid intensity for HVAC-heavy MSME and mid-market sites.",
         imageSrc: "/industries/pharma.png",
@@ -367,9 +526,9 @@ export const landingContent = {
         name: "Chemical & paint",
         focus: "AI-powered energy intelligence",
         description:
-          "Batch reactors, solvent recovery, and utility islands run on tight schedules - tariff windows and holding loads decide whether margin survives the month.",
+          "Batch reactors, solvent recovery, and utility islands run on tight schedules. Tariff windows and holding loads decide whether margin survives the month.",
         sustainability:
-          "Batch SEC and utility intensity - decision layer for advanced batch plants.",
+          "Batch SEC and utility intensity: decision layer for advanced batch plants.",
         imageSrc: "/industries/chemical.png",
         imageAlt: "Chemical refinery with storage tanks and distillation towers at twilight",
       },
@@ -508,7 +667,7 @@ export const landingContent = {
         id: "two-pillars",
         question: "Is this only energy savings, or equipment too?",
         answer:
-          "One product, two pillars: load and energy-efficiency prescriptions, plus early equipment intelligence on the same stack. Not a separate MES or CMMS.",
+          "One product, two pillars: Industry Energy Management and Asset Health Intelligence on the same stack. Not a separate MES or CMMS.",
       },
       {
         id: "team-action",
@@ -526,9 +685,8 @@ export const landingContent = {
   },
 
   closingCta: {
-    title: "See verified evidence before you commit",
-    description:
-      "Begin with a pilot on your existing meters and plant data. We quantify outcomes in rupees and clear them with evidence before annual subscription. DISCOM bill confirmation can follow when the period closes.",
+    title: "See how quickly Stamped can deliver prescriptions for your plant",
+    description: "No rip-and-replace. Full audit trail from day one.",
     primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
     secondaryCta: { label: "See the Platform", href: "/platform" } satisfies CtaLink,
   },

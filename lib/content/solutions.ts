@@ -100,14 +100,14 @@ export const solutionsContent = {
       {
         slug: "load-energy",
         href: "/solutions/load-energy",
-        title: "Load management and energy efficiency",
-        shortTitle: "Energy savings",
+        title: "Industry Energy Management",
+        shortTitle: "Energy management",
         description:
-          "Maximum demand, shift-start overlap, idle loads, HVAC, and tariff windows. Ranked prescriptions with owners and monthly rupee impact.",
+          "Stamped analyzes energy use at the equipment level in the context of demand, price, and tariff windows. Predict and optimize consumption and rupee impact from demand charges, idle loads, and ramp profiles.",
         hubBrief:
           "Turn incomer, sub-meters, SCADA, and bills into ranked actions: what to change, who owns it, and monthly rupee impact. Built for MD peaks, idle loads, HVAC waste, and tariff windows without a hardware retrofit.",
         outcome: "Lower bill line items. No hardware retrofit.",
-        ctaLabel: "Explore load and energy",
+        ctaLabel: "Learn more",
         highlights: [
           "MD and demand charges",
           "Shift-start stagger",
@@ -118,14 +118,14 @@ export const solutionsContent = {
       {
         slug: "equipment-intelligence",
         href: "/solutions/equipment-intelligence",
-        title: "Prescriptive equipment intelligence",
-        shortTitle: "Plant efficiency",
+        title: "Asset Health Intelligence",
+        shortTitle: "Asset health",
         description:
-          "Early warnings tied to energy and process context. Maintenance and utilities act before trips and waste compound.",
+          "Stamped ₹-ranks anomalies and predictions tied to each asset and tracks operator decisions so plant expertise is captured and compounds with each shift.",
         hubBrief:
           "Catch mechanical and process-linked waste early using energy and operating context. Maintenance and utilities get assigned prescriptions before trips, scrap, and energy waste compound across the shift.",
         outcome: "Fewer surprise failures. Same evidence trail.",
-        ctaLabel: "Explore equipment intelligence",
+        ctaLabel: "Learn more",
         highlights: [
           "Process-aware early warnings",
           "Assigned maintenance actions",
@@ -142,8 +142,8 @@ export const solutionsContent = {
     "load-energy": {
       slug: "load-energy",
       path: "/solutions/load-energy",
-      eyebrow: "Energy savings",
-      title: "Load management and energy-efficiency prescriptions",
+      eyebrow: "Industry Energy Management",
+      title: "Industry Energy Management",
       description:
         "Incomer, sub-meters, SCADA, and bills become ranked actions: what to change, who owns it, monthly rupee impact. Real-time decision making on the loads that move your bill.",
       heroImageSrc: "/industries/die-casting.jpeg",
@@ -269,8 +269,8 @@ export const solutionsContent = {
     "equipment-intelligence": {
       slug: "equipment-intelligence",
       path: "/solutions/equipment-intelligence",
-      eyebrow: "Plant efficiency",
-      title: "Prescriptive equipment intelligence",
+      eyebrow: "Asset Health Intelligence",
+      title: "Asset Health Intelligence",
       description:
         "The stack that finds energy waste also flags equipment issues early, with owners and evidence. Real-time decision making before trips and waste compound.",
       heroImageSrc: "/industries/steel.png",

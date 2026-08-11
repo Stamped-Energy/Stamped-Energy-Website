@@ -4,7 +4,7 @@ import { icp } from "./icp";
 export const siteConfig = {
   name: "Stamped Energy",
   tagline:
-    "Real-time energy intelligence for plants. Assigned prescriptions. Verified with evidence.",
+    "AI-native energy intelligence for industrial plants. ₹-scored prescriptions. Verified with evidence.",
   description: icp.seo.entityDefinition,
   /** Public Case Studies & Blogs listing */
   blogUrl: "/case-studies",
@@ -21,16 +21,24 @@ export const navLinks: NavLink[] = [
 ];
 
 export const footerLinks = {
-  product: [
-    { label: "Solutions", href: "/solutions" },
-    { label: "Load and energy", href: "/solutions/load-energy" },
-    { label: "Equipment intelligence", href: "/solutions/equipment-intelligence" },
+  solutions: [
+    { label: "Industry Energy Management", href: "/solutions/load-energy" },
+    { label: "Asset Health Intelligence", href: "/solutions/equipment-intelligence" },
     { label: "Platform", href: "/platform" },
-    { label: "Industries", href: "/industries" },
-    { label: "Case Studies", href: siteConfig.blogUrl },
   ],
+  industries: [{ label: "All industries", href: "/industries" }],
+  resources: [{ label: "Case Studies", href: siteConfig.blogUrl }],
   company: [
     { label: "About Us", href: "/about" },
     { label: "Contact", href: "/contact" },
+  ],
+  /** @deprecated Prefer columned footerLinks; kept for any legacy consumers */
+  product: [
+    { label: "Solutions", href: "/solutions" },
+    { label: "Industry Energy Management", href: "/solutions/load-energy" },
+    { label: "Asset Health Intelligence", href: "/solutions/equipment-intelligence" },
+    { label: "Platform", href: "/platform" },
+    { label: "Industries", href: "/industries" },
+    { label: "Case Studies", href: siteConfig.blogUrl },
   ],
 } as const;
