@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-CVector-inspired homepage + chrome revamp (ADR-016) - Phase 4 technical polish in progress; Phase 5 visual QA next.
+CVector-inspired homepage + chrome revamp (ADR-016) - complete (founder visual QA 2026-08-11).
 
 ## Completed Phases
 
@@ -36,10 +36,11 @@ CVector-inspired homepage + chrome revamp (ADR-016) - Phase 4 technical polish i
 - [x] **CVector-inspired home content (ADR-016 Phase 1)** - ₹-scored CVector-shaped copy; solution display rename; footer columns
 - [x] **CVector chrome (ADR-016 Phase 2)** - navbar/footer restyle
 - [x] **CVector homepage structure (ADR-016 Phase 3)** - new section stack + MotionSlot placeholders; FAQ off home
+- [x] **CVector docs/SEO (ADR-016 Phase 4)** - ADR-016, meta titles, build green
+- [x] **CVector visual QA (ADR-016 Phase 5)** - founder-reviewed; no further layout fixes this pass
 
 ## Remaining Phases
 
-- [ ] **ADR-016 Phase 5** - extensive visual QA (fonts, spacing, responsive)
 - [ ] Homepage / HIW / solutions animation pass (replace MotionSlot)
 - See **`SEO_GEO_AEO.md` → Remaining & ongoing maintenance** for SEO list. Highlights:
 - [ ] **Google Business Profile** (Section 12 #3)
@@ -59,4 +60,4 @@ None.
 
 ## Push / PR readiness
 
-Branch `feat/ia-solutions-platform`: CVector home phases 1–3 committed; Phase 4 docs/SEO next. Not pushed until requested.
+Branch `feat/ia-solutions-platform`: ADR-016 phases 0–5 complete. Not pushed until requested.

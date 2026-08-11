@@ -1,6 +1,6 @@
 # Implementation Plan
 
-_Status: active; CVector-inspired homepage + chrome revamp (ADR-016) in progress 2026-08-11._
+_Status: ADR-016 CVector-inspired homepage + chrome complete 2026-08-11; animation pass deferred._
 
 ## Approved Requirements
 
@@ -33,13 +33,13 @@ See `DECISIONS.md`.
 
 - ADR-011 through ADR-015 and polish passes; see `PROGRESS.md`
 
-### ADR-016 - CVector home + chrome (in progress)
+### ADR-016 - CVector home + chrome (complete)
 
 1. Content + IA map (complete)
 2. Navbar + Footer chrome (complete)
 3. Homepage sections + MotionSlot (complete)
-4. SEO, docs, build validation (this phase)
-5. Extensive visual QA (next)
+4. SEO, docs, build validation (complete)
+5. Visual QA (complete; founder-reviewed, no further fixes this pass)
 
 ## Deliverables
 
