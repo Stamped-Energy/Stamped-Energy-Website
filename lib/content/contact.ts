@@ -5,7 +5,7 @@ export const contactContent = {
     eyebrow: "Get in touch",
     title: "Talk to the team behind Stamped Energy",
     description:
-      "30 minutes, no slideware. Bring your incomer bill, shift schedule, and one operational headache - we'll show you what a pilot would look like for your plant.",
+      "30 minutes, no slideware. Bring your incomer bill, shift schedule, and one operational headache—we'll show you what a pilot would look like for your plant.",
     heroImageSrc: "/industries/die-casting.jpeg",
     heroImageAlt: "Energy-intensive manufacturing plant floor",
   },

@@ -3,7 +3,7 @@ export const aboutContent = {
     eyebrow: "Who we are",
     title: "Your plant has the data. It lacks the decision layer.",
     description:
-      "Stamped turns meters, SCADA, and bills into assigned actions with rupee impact, verified with evidence.",
+      "Stamped turns meters, SCADA, and bills into assigned actions with ₹ impact—verified with evidence.",
     heroImageSrc: "/industries/die-casting.jpeg",
     heroImageAlt: "Energy-intensive manufacturing plant floor",
   },
