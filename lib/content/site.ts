@@ -15,7 +15,7 @@ export const navLinks: NavLink[] = [
   { label: "Solutions", href: "/solutions", megaMenu: "solutions" },
   { label: "Platform", href: "/platform" },
   { label: "Industries", href: "/industries", megaMenu: "industries" },
-  { label: "Case Studies", href: siteConfig.blogUrl },
+  { label: "Resources", href: siteConfig.blogUrl },
   { label: "About Us", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
@@ -26,7 +26,13 @@ export const footerLinks = {
     { label: "Asset Health Intelligence", href: "/solutions/equipment-intelligence" },
     { label: "Platform", href: "/platform" },
   ],
-  industries: [{ label: "All industries", href: "/industries" }],
+  industries: [
+    { label: "Automotive", href: "/industries/automotive" },
+    { label: "Cement", href: "/industries/cement" },
+    { label: "Steel & metals", href: "/industries/steel" },
+    { label: "Pharmaceutical", href: "/industries/pharma" },
+    { label: "Chemical & paint", href: "/industries/chemical" },
+  ],
   resources: [{ label: "Case Studies", href: siteConfig.blogUrl }],
   company: [
     { label: "About Us", href: "/about" },
