@@ -5,6 +5,7 @@ import { useRef, useState } from "react";
 import { useMotion } from "@/components/motion/MotionProvider";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
+import { SectionBadge } from "@/components/ui/SectionBadge";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { getVerticalPage, type VerticalSlug } from "@/lib/content";
 import { scrollTriggerDefaults } from "@/lib/motion/config";
@@ -68,9 +69,9 @@ export function IndustryWasteTable({ slug }: IndustryWasteTableProps) {
     >
       <Container className="relative z-10">
         <Reveal className="mx-auto">
-          <p className="mb-3 text-center text-xs font-semibold uppercase tracking-[0.14em] text-on-secondary/65">
-            {wasteTable.eyebrow}
-          </p>
+          <div className="mb-5 flex justify-center">
+            <SectionBadge label={wasteTable.eyebrow} alternate />
+          </div>
           <SectionHeading
             title={wasteTable.title}
             description={wasteTable.description}

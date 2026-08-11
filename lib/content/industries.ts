@@ -208,21 +208,21 @@ const steelSegments: IndustrySegment[] = [
 export const industriesContent = {
   hub: {
     eyebrow: "Industries",
-    title: "Why each industry needs process-aware prescriptions",
+    title: "Process-aware prescriptions for every vertical",
     description:
-      "The same motor fails differently in a cement kiln than in a die-casting cell. Generic EMS sees kWh. Stamped reads process context and assigns real-time actions with rupee impact, verified with evidence.",
+      "The same motor fails differently in a cement kiln than in a die-casting cell. Generic EMS sees kWh. Stamped reads process context and assigns real-time actions with ₹ impact—verified with evidence.",
     heroImageSrc: INDUSTRY_IMAGES.cement,
     heroImageAlt: "Cement plant with silos and kiln illuminated at twilight",
     primaryCta: { label: "Compare verticals", href: "#comparison" } satisfies CtaLink,
     secondaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
     thesis: {
       eyebrow: "Process context",
-      title: "Generic dashboards miss why energy leaks",
-      body: "A plant-wide average hides shift-start overlap, holding without batches, and tariff misalignment. Each vertical needs baselines and prescriptions tuned to its process, not one generic model for all.",
+      title: "Why energy leaks look different by industry",
+      body: "A plant-wide average hides shift-start overlap, holding without batches, and tariff misalignment. Each vertical needs baselines and prescriptions tuned to its process—not one generic model for all.",
     },
     byIndustry: {
       eyebrow: "By industry",
-      title: "Process context for each vertical",
+      title: "Five verticals. Same evidence trail.",
       disclaimer:
         "Indicative process figures from industry ranges we already publish. Your pilot replaces them with verified numbers.",
       rows: [
