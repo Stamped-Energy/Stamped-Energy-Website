@@ -7,7 +7,7 @@ import { solutionsContent } from "@/lib/content/solutions";
 const solutionItems = solutionsContent.hub.pillars.map((pillar) => ({
   id: pillar.slug,
   href: pillar.href,
-  title: pillar.shortTitle,
+  title: pillar.title,
   description: pillar.description,
   meta: pillar.outcome,
 }));

@@ -80,18 +80,21 @@ export function Navbar() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
         showSolidHeader
-          ? "border-b border-outline-variant/30 bg-surface-lowest/95 backdrop-blur-md"
+          ? "border-b border-outline-variant/25 bg-surface/95 backdrop-blur-md"
           : "bg-transparent",
       )}
     >
-      <Container className="flex h-16 items-center justify-between gap-3 sm:gap-4 md:h-20">
+      <Container className="flex h-16 items-center justify-between gap-3 sm:gap-4 md:h-[4.5rem]">
         <Link
           href="/"
-          className="flex shrink-0 items-center gap-2.5 font-display text-lg font-bold tracking-tight text-primary transition-colors hover:text-primary/90"
+          className={cn(
+            "flex shrink-0 items-center gap-2.5 font-display text-[1.05rem] font-bold tracking-tight transition-colors",
+            isLightNav ? "text-on-secondary hover:text-on-secondary/90" : "text-on-surface hover:text-on-surface/90",
+          )}
         >
           <Image
             src="/LogoOrange.png"
-            alt={siteConfig.name}
+            alt=""
             width={32}
             height={32}
             className="h-8 w-8 shrink-0"
@@ -101,7 +104,7 @@ export function Navbar() {
         </Link>
 
         <nav
-          className="hidden flex-1 items-center justify-center gap-6 lg:flex xl:gap-8"
+          className="hidden flex-1 items-center justify-center gap-7 lg:flex xl:gap-9"
           aria-label="Primary"
         >
           {navLinks.map((link) => (
@@ -109,8 +112,17 @@ export function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden shrink-0 lg:block">
-          <Button href="/contact" variant="primary">
+        <div className="hidden shrink-0 items-center gap-3 lg:flex">
+          <Button
+            href="/contact"
+            variant={isScrolled ? "primary" : "outline"}
+            className={cn(
+              "uppercase tracking-[0.06em]",
+              !isScrolled &&
+                isLightNav &&
+                "border-on-secondary/50 text-on-secondary hover:border-on-secondary hover:bg-on-secondary/10",
+            )}
+          >
             Book a Discovery Call
           </Button>
         </div>
@@ -127,12 +139,14 @@ export function Navbar() {
           aria-label="Toggle navigation menu"
           onClick={() => setIsMenuOpen((open) => !open)}
         >
-          <span className="text-lg leading-none">{isMenuOpen ? "×" : "≡"}</span>
+          <span className="text-lg leading-none" aria-hidden>
+            {isMenuOpen ? "×" : "≡"}
+          </span>
         </button>
       </Container>
 
       {isMenuOpen ? (
-        <div className="max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain border-t border-outline-variant/30 bg-surface-lowest/98 backdrop-blur-md lg:hidden">
+        <div className="max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain border-t border-outline-variant/30 bg-surface/98 backdrop-blur-md lg:hidden">
           <Container className="flex flex-col py-2 pb-[max(1rem,env(safe-area-inset-bottom))]">
             {navLinks.map((link) => (
               <MobileNavLink
@@ -141,7 +155,7 @@ export function Navbar() {
                 onNavigate={() => setIsMenuOpen(false)}
               />
             ))}
-            <Button href="/contact" variant="primary" className="mt-4 w-full">
+            <Button href="/contact" variant="primary" className="mt-4 w-full uppercase tracking-[0.06em]">
               Book a Discovery Call
             </Button>
           </Container>
