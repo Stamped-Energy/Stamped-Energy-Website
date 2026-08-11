@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-OpenMontage brand pack (`docs/openmontage-brand/`) — complete (ADR-019). Ready to copy into OpenMontage for video productions. Site MotionSlot animation pass still remaining.
+Remaining pages DESIGN.md pass (ADR-020) — complete. Homepage / MotionSlot animation pass still deferred.
 
 ## Completed Phases
 
@@ -43,6 +43,7 @@ OpenMontage brand pack (`docs/openmontage-brand/`) — complete (ADR-019). Ready
 - [x] **CVector-style nav dropdowns (ADR-018)** - Solutions/Industries button triggers (not hub links); compact hover panel; item links only
 - [x] **Stitch DESIGN.md** - overwrite root DESIGN.md with YAML tokens + six Stitch sections extracted from homepage/chrome; North Star “Plant-office decision layer”
 - [x] **OpenMontage brand pack (ADR-019)** - self-contained product context + C-Vector motion audit + Impeccable `DESIGN_VIDEO` + `stamped-industrial` playbook + prompts; four docs commits
+- [x] **Remaining pages DESIGN.md pass (ADR-020)** - shared SectionBadge + MarketingClosingCta; Solutions hub/pillars; Platform outcomes band (pin kept); Industries hub + segments; About story; Contact; Case Studies shell polish; tsc/build
 
 ## Remaining Phases
 
@@ -54,7 +55,7 @@ OpenMontage brand pack (`docs/openmontage-brand/`) — complete (ADR-019). Ready
 - [ ] **Wikidata entry** for Stamped Energy (Section 12 #5)
 - [ ] Replace placeholder industry hero images (cement, steel, pharma, chemical photo shoot)
 - [ ] Industries vertical rewrite (deferred from IA overhaul)
-- [ ] Case Studies redesign (deferred)
+- [ ] Case Studies deeper editorial redesign (listing/shell polished in ADR-020; full rewrite still open)
 - [ ] Per-vertical blog posts (content roadmap P2)
 - [ ] Real case studies for cement/steel/pharma/chemical
 - [ ] Contact form email/CRM forwarding
@@ -66,4 +67,4 @@ None.
 
 ## Push / PR readiness
 
-Branch `feat/ia-solutions-platform`: ADR-016 phases 0–5 complete. Not pushed until requested.
+Branch `feat/ia-solutions-platform`: ADR-016–018 home/chrome, Stitch DESIGN.md, ADR-019 OpenMontage pack, ADR-020 remaining pages pass. Push when requested or at auto-push threshold.

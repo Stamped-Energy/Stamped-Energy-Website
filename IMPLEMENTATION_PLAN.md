@@ -1,6 +1,6 @@
 # Implementation Plan
 
-_Status: Remaining pages CVector-inspired DESIGN.md pass (ADR-019) — in progress._
+_Status: Remaining pages CVector-inspired DESIGN.md pass (ADR-020) — complete._
 
 ## Mode
 

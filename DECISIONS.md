@@ -371,3 +371,23 @@ Architecture and workflow decisions for this project.
 **Rationale:** Agents need Stamped Master/ICP/claims without browsing Research+DOcs at runtime. Separates website anti-clone (site UI) from video motion inspiration. Playbook matches OpenMontage schema; four milestone commits. Fonts inherit Space Grotesk / Inter / Plex Mono (identity continuity vs Impeccable greenfield reflex-reject).
 
 **Impact:** New `docs/openmontage-brand/**`; root `DESIGN.md` §7 pointer; no live site animation implementation in this ADR.
+
+---
+
+## ADR-020: Remaining pages DESIGN.md pass (hybrid 2.5)
+
+**Date:** 2026-08-11
+
+**Context:** After ADR-016 home + Stitch `DESIGN.md`, inner marketing pages still used mixed eyebrow patterns and uneven closing CTAs. Founder approved a CVector-inspired hybrid pass: visual system + light Stamped-truth copy + selective restructure—not a full CVector product clone.
+
+**Alternatives:**
+
+1. Visual-only token alignment (no section changes)
+2. Full CVector section clones (Agent Skills, Plant Margin, Knowledge Center, careers, testimonials)
+3. Hybrid 2.5: shared `SectionBadge` + `MarketingClosingCta`, selective bands (solutions who-acts/industries strip, platform outcomes, about story, industries segments), light ₹ / evidence copy
+
+**Selected:** Option 3.
+
+**Rationale:** Matches home chrome without inventing products or claims Stamped cannot make. Keeps `/platform` pinned Connect-to-Improve journey. Eight-commit marketing matrix; OpenMontage pack remains ADR-019.
+
+**Impact:** `MarketingClosingCta`; SectionBadge on inner heroes/sections; Solutions pillars + hub; Platform outcomes band; Industries hub/verticals; About story + CTA; Case Studies article shell; `IMPLEMENTATION_PLAN.md` for this pass.
