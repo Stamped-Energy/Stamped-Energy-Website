@@ -480,7 +480,7 @@ export const landingContent = {
       {
         id: "automotive",
         name: "Automotive",
-        focus: "AI-led energy control",
+        focus: "Shift-start peaks, holding loads, utilities",
         description:
           "Shift-start overlap, furnace holding, and utility peaks drive cost stability and uptime across forging, paint, and assembly lines.",
         sustainability:
@@ -491,7 +491,7 @@ export const landingContent = {
       {
         id: "cement",
         name: "Cement",
-        focus: "AI-driven energy intelligence",
+        focus: "Kiln, raw mill, and WHR timing",
         description:
           "Kiln, raw mill, and WHR dispatch patterns drive cost across continuous processes, where a few minutes of mis-timed load shows up on the incomer.",
         sustainability:
@@ -502,7 +502,7 @@ export const landingContent = {
       {
         id: "steel",
         name: "Steel & metals",
-        focus: "AI-driven energy management",
+        focus: "Furnace and rolling power balance",
         description:
           "Furnace, rolling mill, and auxiliary loads compete for power. Energy balance directly determines cost competitiveness and throughput stability.",
         sustainability:
@@ -513,7 +513,7 @@ export const landingContent = {
       {
         id: "pharma",
         name: "Pharmaceutical",
-        focus: "AI-driven energy management",
+        focus: "HVAC, cleanroom, and batch utilities",
         description:
           "HVAC, cleanroom, and batch utilities run around the clock. Small staging errors show up as MD spikes and intensity drift on every audit.",
         sustainability:
@@ -524,7 +524,7 @@ export const landingContent = {
       {
         id: "chemical",
         name: "Chemical & paint",
-        focus: "AI-powered energy intelligence",
+        focus: "Batch schedules and utility islands",
         description:
           "Batch reactors, solvent recovery, and utility islands run on tight schedules. Tariff windows and holding loads decide whether margin survives the month.",
         sustainability:

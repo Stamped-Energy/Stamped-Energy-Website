@@ -44,6 +44,9 @@ export function HomeIndustries() {
                   <p className="mt-2.5 font-display text-sm font-semibold tracking-tight text-on-surface transition-colors group-hover:text-primary md:text-[0.95rem]">
                     {item.name}
                   </p>
+                  <p className="mt-1 line-clamp-2 text-xs leading-5 text-on-surface/65">
+                    {item.focus}
+                  </p>
                 </Link>
               </Reveal>
             </li>
