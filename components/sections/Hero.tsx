@@ -3,12 +3,10 @@
 import Link from "next/link";
 import { useRef } from "react";
 
-import { HeroFeatureBar } from "@/components/sections/hero/HeroFeatureBar";
-import { HeroPromoVideo } from "@/components/sections/hero/HeroPromoVideo";
-import { ArrowRightIcon, PlayCircleIcon } from "@/components/sections/hero/HeroIcons";
-import { HeroIsometricVisual } from "@/components/sections/hero/HeroIsometricVisual";
 import { useMotion } from "@/components/motion/MotionProvider";
 import { Container } from "@/components/ui/Container";
+import { MotionSlot } from "@/components/ui/MotionSlot";
+import { SectionBadge } from "@/components/ui/SectionBadge";
 import { landingContent } from "@/lib/content";
 import { easeOut, heroDelay, heroDuration, heroStagger } from "@/lib/motion/config";
 import { gsap, useGSAP } from "@/lib/motion/gsap";
@@ -34,8 +32,7 @@ export function Hero() {
       }
 
       const targets = section.querySelectorAll<HTMLElement>("[data-hero-animate]");
-      gsap.set(targets, { autoAlpha: 0, y: 20 });
-      gsap.set("[data-hero-animate='visual']", { scale: 0.96 });
+      gsap.set(targets, { autoAlpha: 0, y: 18 });
 
       const timeline = gsap.timeline({
         defaults: { ease: easeOut, duration: heroDuration },
@@ -43,16 +40,10 @@ export function Hero() {
       });
 
       timeline
-        .to("[data-hero-animate='eyebrow']", { autoAlpha: 1, y: 0 })
-        .to(
-          "[data-hero-animate='line1'], [data-hero-animate='line2']",
-          { autoAlpha: 1, y: 0, stagger: heroStagger },
-          "-=0.55",
-        )
-        .to("[data-hero-animate='subheadline']", { autoAlpha: 1, y: 0 }, "-=0.5")
-        .to("[data-hero-animate='supporting']", { autoAlpha: 1, y: 0 }, "-=0.45")
-        .to("[data-hero-animate='ctas']", { autoAlpha: 1, y: 0 }, "-=0.45")
-        .to("[data-hero-animate='visual']", { autoAlpha: 1, y: 0, scale: 1 }, "-=0.65");
+        .to("[data-hero-animate='badge']", { autoAlpha: 1, y: 0 })
+        .to("[data-hero-animate='headline']", { autoAlpha: 1, y: 0 }, "-=0.5")
+        .to("[data-hero-animate='copy']", { autoAlpha: 1, y: 0, stagger: heroStagger }, "-=0.45")
+        .to("[data-hero-animate='visual']", { autoAlpha: 1, y: 0 }, "-=0.55");
     },
     {
       scope: sectionRef,
@@ -60,89 +51,52 @@ export function Hero() {
     },
   );
 
-  const ctaPrimaryClass = cn(
-    "inline-flex h-11 items-center justify-center gap-2 rounded-md border border-primary bg-primary px-5 text-sm font-semibold text-on-primary",
-    "shadow-[0_2px_10px_-4px_color-mix(in_srgb,var(--brand-primary)_45%,transparent)] transition-[transform,box-shadow,filter] duration-200",
-    "hover:-translate-y-0.5 hover:brightness-[1.04] sm:h-12 sm:px-6",
+  const primaryCta = cn(
+    "inline-flex h-12 w-full items-center justify-center gap-2 rounded-md border border-primary bg-primary px-6 text-sm font-semibold uppercase tracking-[0.06em] text-on-primary sm:w-auto",
+    "transition-[transform,filter] duration-200 hover:-translate-y-0.5 hover:brightness-[1.04]",
   );
 
-  const ctaSecondaryClass = cn(
-    "inline-flex h-11 items-center justify-center gap-2 rounded-md border-2 border-primary bg-transparent px-5 text-sm font-semibold text-primary",
-    "transition-colors duration-200 hover:bg-primary/8 sm:h-12 sm:px-6",
+  const secondaryCta = cn(
+    "inline-flex h-12 w-full items-center justify-center rounded-md border border-on-surface/25 bg-transparent px-6 text-sm font-semibold text-on-surface sm:w-auto",
+    "transition-colors duration-200 hover:border-on-surface/45 hover:bg-on-surface/5",
   );
 
   return (
-    <section ref={sectionRef} className="landing-hero relative overflow-x-clip bg-surface pb-0">
-      <Container className="relative z-10">
-        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:gap-6 xl:grid-cols-[minmax(0,0.76fr)_minmax(0,1.24fr)] xl:gap-8">
-          <div className="max-w-xl lg:max-w-md xl:max-w-lg">
-            <p
-              data-hero-animate="eyebrow"
-              className="text-xs font-semibold uppercase tracking-[0.18em] text-primary"
-            >
-              {hero.eyebrow}
-            </p>
+    <section ref={sectionRef} className="relative overflow-x-clip bg-surface pb-10 pt-28 md:pb-14 md:pt-32">
+      <Container>
+        <div data-hero-animate="badge" className="mb-8 md:mb-10">
+          <SectionBadge label={hero.badge} />
+        </div>
 
-            <h1 className="hero-headline mt-4 font-display text-[2.15rem] font-extrabold leading-[1.08] tracking-tight text-on-surface sm:text-5xl lg:text-[3.25rem]">
-              <span data-hero-animate="line1" className="block">
-                {hero.headlineLine1}
-              </span>
-              <span data-hero-animate="line2" className="mt-1 block text-on-surface">
-                {hero.headlineLine2}
-              </span>
-              {hero.subheadline ? (
-                <span
-                  data-hero-animate="subheadline"
-                  className="mt-1 block text-lg font-medium text-on-surface sm:text-xl lg:text-[3.25rem] lg:font-extrabold lg:leading-[1.08] lg:tracking-tight"
-                >
-                  {hero.subheadline}
-                </span>
-              ) : null}
-            </h1>
-            <span className="sr-only">
-              AI-powered prescriptive energy intelligence for cement, steel, pharma, chemical, and
-              automotive plants in India.
-            </span>
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:items-end lg:gap-14">
+          <h1
+            data-hero-animate="headline"
+            className="max-w-[14ch] font-display text-[2.6rem] font-bold leading-[1.05] tracking-[-0.03em] text-on-surface sm:text-5xl md:text-6xl lg:text-[4.25rem]"
+          >
+            {hero.headline}
+          </h1>
 
-            <p
-              data-hero-animate="supporting"
-              className="value-proposition mt-4 max-w-lg text-sm leading-7 text-on-surface-variant sm:text-base"
-            >
+          <div data-hero-animate="copy" className="max-w-md lg:justify-self-end">
+            <p className="text-base leading-7 text-on-surface/80 md:text-lg md:leading-8">
               {hero.supportingLine}
             </p>
-
-            {hero.commercialBadge ? (
-              <p
-                data-hero-animate="supporting"
-                className="mt-4 max-w-md text-pretty rounded-md border border-primary/25 bg-primary/8 px-3.5 py-2 text-xs font-semibold leading-5 tracking-wide text-primary sm:inline-flex sm:rounded-full sm:py-1.5 sm:leading-normal"
-              >
-                {hero.commercialBadge}
-              </p>
-            ) : null}
-
-            <div
-              data-hero-animate="ctas"
-              className="mt-8 flex w-full flex-col gap-3 sm:flex-row sm:items-center"
-            >
-              <Link href={hero.primaryCta.href} className={ctaPrimaryClass}>
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <Link href={hero.primaryCta.href} className={primaryCta}>
                 {hero.primaryCta.label}
-                <ArrowRightIcon />
+                <span aria-hidden>»</span>
               </Link>
-              <Link href={hero.secondaryCta.href} className={ctaSecondaryClass}>
-                <PlayCircleIcon />
+              <Link href={hero.secondaryCta.href} className={secondaryCta}>
                 {hero.secondaryCta.label}
               </Link>
             </div>
+            <p className="mt-4 text-sm text-on-surface-variant">{hero.microcopy}</p>
           </div>
+        </div>
 
-          <HeroIsometricVisual />
+        <div data-hero-animate="visual" className="mt-12 border-t border-outline-variant/40 pt-8 md:mt-16 md:pt-10">
+          <MotionSlot label={hero.motionSlotLabel} aspectClassName="aspect-[21/9] min-h-[220px] md:min-h-[320px]" />
         </div>
       </Container>
-
-      <div className="relative z-10 mt-10 md:mt-12">
-        <HeroFeatureBar />
-        <HeroPromoVideo />
-      </div>
     </section>
   );
 }
