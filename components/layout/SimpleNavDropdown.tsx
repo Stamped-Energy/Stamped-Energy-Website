@@ -60,7 +60,7 @@ export function SimpleNavDropdown({
         aria-haspopup="menu"
         aria-controls={menuId}
         className={cn(
-          "inline-flex items-center rounded-md px-2.5 py-1.5 font-mono text-[0.72rem] font-medium uppercase tracking-[0.08em] transition-colors duration-200",
+          "inline-flex items-center rounded-md px-2.5 py-1.5 font-display text-[0.8125rem] font-semibold tracking-[-0.01em] transition-colors duration-200",
           isOpen
             ? "bg-primary text-on-primary"
             : lightNav
@@ -90,7 +90,7 @@ export function SimpleNavDropdown({
                 key={item.href}
                 href={item.href}
                 role="menuitem"
-                className="block px-4 py-2.5 font-mono text-[0.7rem] font-medium uppercase tracking-[0.06em] text-on-surface/80 transition-colors hover:bg-primary/8 hover:text-primary"
+                className="block px-4 py-2.5 font-display text-[0.8125rem] font-medium tracking-[-0.01em] text-on-surface/80 transition-colors hover:bg-primary/8 hover:text-primary"
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}
@@ -122,7 +122,7 @@ export function SimpleNavMobileAccordion({
       <button
         type="button"
         aria-expanded={isOpen}
-        className="flex min-h-12 w-full items-center justify-between py-3.5 text-left font-mono text-xs font-medium uppercase tracking-[0.08em] text-on-surface"
+        className="flex min-h-12 w-full items-center justify-between py-3.5 text-left font-display text-[0.9375rem] font-semibold tracking-[-0.01em] text-on-surface"
         onClick={() => setIsOpen((open) => !open)}
       >
         <span>{label}</span>
@@ -136,7 +136,7 @@ export function SimpleNavMobileAccordion({
             <li key={item.href}>
               <Link
                 href={item.href}
-                className="block py-2.5 font-mono text-[0.7rem] font-medium uppercase tracking-[0.06em] text-on-surface/75 transition-colors hover:text-primary"
+                className="block py-2.5 font-display text-[0.875rem] font-medium tracking-[-0.01em] text-on-surface/75 transition-colors hover:text-primary"
                 onClick={onNavigate}
               >
                 {item.label}

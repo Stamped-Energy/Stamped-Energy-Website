@@ -25,10 +25,10 @@ export function NavLinkItem({
     (link.href === "/" ? pathname === "/" : pathname.startsWith(link.href));
 
   const className = cn(
-    "relative font-mono text-[0.72rem] font-medium uppercase tracking-[0.08em] transition-colors duration-200 ease-out",
+    "relative font-display text-[0.8125rem] font-semibold tracking-[-0.01em] transition-colors duration-200 ease-out",
     mobile
       ? cn(
-          "block min-h-12 border-b border-outline-variant/20 py-3.5 text-xs text-on-surface",
+          "block min-h-12 border-b border-outline-variant/20 py-3.5 text-[0.9375rem] text-on-surface",
           isActive ? "text-primary" : "hover:text-primary",
         )
       : cn(
