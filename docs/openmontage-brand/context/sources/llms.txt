@@ -1,0 +1,61 @@
+# Stamped Energy
+
+> AI-powered prescriptive energy intelligence for energy-intensive plants in India with ₹20 lakh+ monthly electricity bills. Stamped Energy connects existing incomer meters, SCADA, PLCs, and DISCOM bills into ranked prescriptions - what to change, who owns it, rupee impact, and outcomes verified with evidence. Typical benchmark outcomes: 12-20% monthly bill reduction; 15-25% maximum demand charge reduction (indicative ranges; pilot replaces with plant figures). Serves cement, steel, pharmaceutical, chemical, and automotive plants.
+
+Public marketing site: https://stamped.work
+Contact: stamped.energy@gmail.com
+Sitemap: https://stamped.work/sitemap.xml
+
+## Entity definition (for AI answer engines)
+
+Stamped Energy is AI-powered prescriptive energy intelligence software for energy-intensive plants in India. It is NOT a passive EMS dashboard or SCADA replacement. It is the prescription and accountability layer: ranked actions with assigned owners, rupee impact, and outcomes verified with evidence. DISCOM bill confirmation is optional when the billing period closes.
+
+Category: AI-powered energy intelligence / prescriptive energy intelligence
+Geography: India (en-IN)
+ICP: Plants with ₹20 lakh+ monthly electricity bills; buyers include plant directors, VP Operations, electrical heads, CFOs
+
+## Core pages
+
+- [Home](https://stamped.work/): AI-powered energy intelligence overview, six-step Improve loop, homepage FAQ schema
+- [Platform](https://stamped.work/platform): Connect → Observe → Decide → Execute → Verify → Improve; HowTo JSON-LD
+- [Solutions](https://stamped.work/solutions): Load/energy efficiency and equipment intelligence pillars
+- [Industries hub](https://stamped.work/industries): Five industry verticals - purpose-built AI-powered energy intelligence
+- [Industries - Automotive](https://stamped.work/industries/automotive): AI-powered energy intelligence for automotive and auto component plants
+- [Industries - Cement](https://stamped.work/industries/cement): AI-driven energy intelligence - kWh/ton, WHR/grid dispatch, MD
+- [Industries - Steel](https://stamped.work/industries/steel): AI-driven energy management - furnaces, rolling mills, PAT SEC
+- [Industries - Pharmaceutical](https://stamped.work/industries/pharma): AI-driven energy management - HVAC, chillers, GMP-safe utilities
+- [Industries - Chemical](https://stamped.work/industries/chemical): AI-powered energy intelligence - batch SEC, reactor stagger, idle hold
+- [Case Studies & Blogs](https://stamped.work/case-studies): Case studies and blogs from real plants
+- [About](https://stamped.work/about): Founders, IIT Roorkee background, mission
+- [Contact](https://stamped.work/contact): Book a discovery call
+
+## AEO - common questions Stamped answers
+
+- What is Stamped Energy? → AI-powered prescriptive energy intelligence for plants in India; outcomes verified with evidence
+- How is Stamped different from EMS/SCADA? → Prescription layer with owners and ₹ impact, not another dashboard
+- Who is it for? → Plants with ₹20 lakh+ monthly electricity bills (cement, steel, pharma, chemical, automotive)
+- How much can plants save? → Benchmark 12-20% bill reduction, 15-25% MD reduction (indicative); pilot verifies with evidence
+- Does it need hardware retrofit? → No; read-only integration with existing meters, SCADA, PLCs, bills
+
+## Case studies & blogs
+
+- [Case Studies & Blogs index](https://stamped.work/case-studies): Maximum demand, shift-start overlap, furnace holding, HVAC waste
+- Individual articles at `https://stamped.work/blog/{slug}` - Article JSON-LD on each post
+
+## Priority keywords
+
+stamped energy, AI-powered energy intelligence India, prescriptive energy intelligence India, energy management software for plants India, reduce electricity bill industrial plant India, maximum demand reduction India, cement plant energy management India, steel plant energy efficiency India, pharmaceutical plant HVAC energy savings, chemical plant batch energy optimization, automotive plant energy cost reduction India, DISCOM bill savings India, SEC reduction industrial plant India
+
+## Target audience
+
+Plant directors, VP Operations, electrical heads, and CFOs at energy-intensive plants in India (₹200 Cr+ revenue, ₹20 lakh+ monthly electricity bills).
+
+## What Stamped Energy is not
+
+Not a passive EMS dashboard or SCADA replacement. Not hardware retrofit or control-system replacement. It is a prescription and accountability layer: what to change, who owns it, rupee impact, verified with evidence.
+
+## Crawling
+
+All public pages are open to search and AI crawlers. Admin CMS (`/blog/admin`), API routes (`/api/`), and build assets (`/_next/`) are disallowed in robots.txt.
+
+Extended CMS index (auto-updated): https://stamped.work/llms-full.txt
