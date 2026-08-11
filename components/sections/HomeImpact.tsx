@@ -26,7 +26,7 @@ export function HomeImpact() {
           {impact.items.map((item, index) => (
             <Reveal key={item.id} delay={index * 0.04}>
               <article className="border-t border-on-secondary/15 pt-6">
-                <p className="font-display text-4xl font-bold tracking-tight text-inverse-primary md:text-5xl">
+                <p className="font-display text-4xl font-bold tracking-tight text-primary md:text-5xl">
                   {item.value}
                 </p>
                 <p className="mt-4 text-base font-semibold tracking-tight">{item.label}</p>
