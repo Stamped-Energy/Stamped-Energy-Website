@@ -1,0 +1,130 @@
+identity:
+  name: "Stamped Industrial"
+  category: motion-graphics
+  mood: industrial, rupee-clear, plant-office, sparse, trustworthy
+  pace: moderate
+  best_for: "Stamped Energy product explainers, launch teasers, How-it-works stages, industrial prescription UI demos"
+
+visual_language:
+  color_palette:
+    primary: ["#F75440", "#ffb4a8"]
+    accent: ["#000a07", "#e8f07a"]
+    background: "#f7faf5"
+    text: "#191c1a"
+    muted: "#5a403c"
+  composition: "left-weighted plant-office frames; one dominant UI chrome plane; generous whitespace; rule-of-thirds for prescription cards"
+  texture: "flat tonal surfaces, hairline borders, no grain, no glass blur, no purple neon glow"
+
+typography:
+  headings:
+    font: "Space Grotesk"
+    weight: 700
+    tracking: "-0.025em"
+  body:
+    font: "Inter"
+    weight: 400
+    line_height: 1.6
+  code:
+    font: "IBM Plex Mono"
+    weight: 500
+  stat_card:
+    font: "Space Grotesk"
+    weight: 700
+    size_multiplier: 2.8
+  scale_system: "major_third"
+  weight_matrix:
+    title: 700
+    heading: 700
+    body: 400
+    caption: 500
+
+motion:
+  transitions: [fade, dissolve, slide-left, wipe-left]
+  animation_style: "ease-out expo/quart only; clean; no bounce; no elastic; no overshoot"
+  pacing_rules:
+    min_scene_hold_seconds: 2.5
+    max_scene_hold_seconds: 12
+    text_card_hold_seconds: 3.5
+    stat_card_hold_seconds: 3.0
+    transition_duration_seconds: 0.4
+  entrance: "fade-up with slight scale (0.96 -> 1.0) or UI assemble (label -> title -> rupee -> evidence)"
+  exit: "fade-out or short slide; never slam"
+
+audio:
+  voice_style: "professional, clear, moderate pace, warm but authoritative; plant-floor credibility"
+  music_mood: "ambient industrial-clean, low energy, not EDM hype"
+  music_volume: 0.08
+  sfx_style: "soft ticks on prescription assemble; soft whoosh on color-band change"
+  ducking_threshold_db: -3
+
+asset_generation:
+  image_prompt_prefix: "clean industrial plant-office UI motion graphics, Stamped Energy, forge coral #F75440 accents on warm green-grey #f7faf5 background, Space Grotesk headlines, prescription cards with rupee impact, "
+  image_negative_prompt: "purple neon, glassmorphism, cyberpunk, CVector logo, competitor brands, MES plant OS screens, bouncey cartoons, gradient text, thick side stripes, dark purple SaaS, invented fleet dashboards as proof"
+  diagram_style: "energy graph plant to system to equipment to meter; thin borders; coral accent nodes; flat"
+  consistency_anchors:
+    - "Forge Coral (#F75440) as the only primary brand accent"
+    - "Demo-deck background #f7faf5 for default scenes; Obsidian Green #000a07 for problem bands"
+    - "₹-scored prescription cards as the hero visual unit"
+    - "Space Grotesk + Inter + IBM Plex Mono only"
+    - "Verified with evidence language; no invented fleet metrics"
+    - "Two pillars named Industry Energy Management and Asset Health Intelligence"
+
+overlays:
+  stat_card:
+    bg: "#f1f4f0"
+    border: "#F75440"
+    radius: 6
+    shadow: "none"
+  key_term:
+    bg: "#ffdad4"
+    text: "#410000"
+    radius: 4
+  code_block:
+    bg: "#000a07"
+    text: "#e9ece7"
+    highlight: "#F75440"
+
+quality_rules:
+  - "Minimum contrast ratio 4.5:1 for all text"
+  - "No more than 3 brand colors on screen at once excluding background"
+  - "Text readable at 720p"
+  - "Ease-out only; reject bounce/elastic"
+  - "Every ₹ figure must be labeled example or indicative unless plant-specific fiction is declared"
+  - "Never show CVector marks, metrics, or dollar-scored default copy"
+  - "Never claim EMS/MES/CMMS/PLC replacement"
+  - "Hold establishing shots 2.5s minimum"
+  - "Prescription UI or energy graph preferred over generic AI brain imagery"
+  - "Read context/STAMPED_CONTEXT.md and VOICE_AND_CLAIMS.md before scripting"
+
+taste_profile:
+  design_read: "Bright mid-morning plant office; director scanning ₹-scored next actions; industrial sparse confidence"
+  visual_variance: 4
+  motion_intensity: 5
+  information_density: 5
+  palette_discipline: "Committed coral; dark and impact-lime only as scene modes"
+  layout_variation: "One composition per scene; avoid identical icon-card grids"
+  reference_strategy: "C-Vector motion grammar inspiration only; Stamped tokens and claims"
+  anti_patterns:
+    - "purple SaaS gradients"
+    - "hero-metric template strips"
+    - "glassmorphism default"
+    - "thick colored side-stripes"
+    - "CVector clone"
+    - "em dashes in copy"
+  quality_gates:
+    - "Claims firewall passed"
+    - "Font stack matches website"
+    - "No bounce easing"
+
+chart_palette:
+  - "#F75440"
+  - "#000a07"
+  - "#00666b"
+  - "#5a403c"
+  - "#bdd9c8"
+  - "#e8f07a"
+
+color_rules:
+  harmony_type: "analogous"
+  contrast_validation: true
+  colorblind_safe: true
