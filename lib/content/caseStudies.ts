@@ -58,7 +58,7 @@ export const caseStudiesContent = {
   featuredTitle: "Featured outcomes",
   catalogTitle: "All case studies",
   catalogDescription:
-    "Filter by outcome type. Figures marked as reference benchmarks use industry M&V ranges until pilot data is publishable.",
+    "Browse published pilots and reference write-ups. Figures stay tied to methodology—or labelled as benchmark until pilot data is publishable.",
 
   finalCta: {
     eyebrow: "See it on your plant",

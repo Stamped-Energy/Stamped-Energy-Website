@@ -10,6 +10,7 @@ import { useMotion } from "@/components/motion/MotionProvider";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { IndustryPageCta } from "@/components/industries/shared/IndustryPageCta";
+import { SectionBadge } from "@/components/ui/SectionBadge";
 import { caseStudiesContent } from "@/lib/content/caseStudies";
 import type { CaseStudyDTO } from "@/lib/case-studies/studies";
 import { formatBlogDate } from "@/lib/blog/utils";
@@ -61,21 +62,17 @@ export function CaseStudyDetailView({ study }: CaseStudyDetailViewProps) {
         <Container className="relative z-10">
           <Link
             href="/case-studies"
-            className="text-xs font-semibold uppercase tracking-[0.12em] text-inverse-primary hover:text-inverse-primary/80"
+            className="inline-flex items-center text-xs font-semibold uppercase tracking-[0.12em] text-inverse-primary hover:text-inverse-primary/80"
           >
             ← All case studies
           </Link>
-          <div className="mt-4 flex flex-wrap items-center gap-2">
-            <span className="rounded-full bg-on-secondary/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-inverse-primary">
-              {study.categoryLabel}
-            </span>
-            {study.tag ? (
-              <span className="rounded-full border border-on-secondary/20 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-on-secondary/90">
-                {study.tag}
-              </span>
-            ) : null}
+          <div className="mt-5">
+            <SectionBadge
+              label={study.tag ? `${study.categoryLabel} · ${study.tag}` : study.categoryLabel}
+              alternate
+            />
           </div>
-          <h1 className="mt-4 max-w-3xl font-display text-3xl font-extrabold leading-tight text-on-secondary md:text-4xl lg:text-[2.5rem]">
+          <h1 className="mt-5 max-w-3xl font-display text-3xl font-extrabold leading-tight tracking-tight text-on-secondary md:text-4xl lg:text-[2.5rem]">
             {study.title}
           </h1>
           <p className="mt-4 max-w-2xl text-sm leading-7 text-on-secondary/85 md:text-base">
@@ -105,10 +102,8 @@ export function CaseStudyDetailView({ study }: CaseStudyDetailViewProps) {
             <div className="min-w-0 space-y-8">
               {study.clientContext ? (
                 <article data-cs-detail className="rounded-2xl border border-outline-variant/40 bg-surface-low p-5 md:p-6">
-                  <h2 className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
-                    Client & context
-                  </h2>
-                  <p className="mt-3 text-base leading-7 text-on-surface md:text-lg">
+                  <SectionBadge label="Client & context" />
+                  <p className="mt-4 text-base leading-7 text-on-surface md:text-lg">
                     {study.clientContext}
                   </p>
                 </article>
@@ -124,9 +119,7 @@ export function CaseStudyDetailView({ study }: CaseStudyDetailViewProps) {
 
               {study.outcomes.length > 0 && study.contentFormat !== "RICH" ? (
                 <article data-cs-detail>
-                  <h2 className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
-                    Key outcomes
-                  </h2>
+                  <SectionBadge label="Key outcomes" />
                   <ul className="mt-4 space-y-3">
                     {study.outcomes.map((outcome) => (
                       <li
