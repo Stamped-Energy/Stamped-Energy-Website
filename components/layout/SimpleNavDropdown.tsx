@@ -16,6 +16,8 @@ type SimpleNavDropdownProps = {
   lightNav?: boolean;
 };
 
+const CLOSE_DELAY_MS = 1000;
+
 /** Compact CVector-style hover dropdown. Trigger is not a link. */
 export function SimpleNavDropdown({
   label,
@@ -24,18 +26,44 @@ export function SimpleNavDropdown({
 }: SimpleNavDropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const menuId = useId();
+
+  const clearCloseTimer = () => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+  };
+
+  const openMenu = () => {
+    clearCloseTimer();
+    setIsOpen(true);
+  };
+
+  const scheduleClose = () => {
+    clearCloseTimer();
+    closeTimerRef.current = setTimeout(() => {
+      setIsOpen(false);
+      closeTimerRef.current = null;
+    }, CLOSE_DELAY_MS);
+  };
+
+  const closeMenuNow = () => {
+    clearCloseTimer();
+    setIsOpen(false);
+  };
 
   useEffect(() => {
     const handlePointerDown = (event: MouseEvent) => {
       if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
+        closeMenuNow();
       }
     };
 
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        setIsOpen(false);
+        closeMenuNow();
       }
     };
 
@@ -44,6 +72,7 @@ export function SimpleNavDropdown({
     return () => {
       document.removeEventListener("mousedown", handlePointerDown);
       document.removeEventListener("keydown", handleEscape);
+      clearCloseTimer();
     };
   }, []);
 
@@ -51,8 +80,8 @@ export function SimpleNavDropdown({
     <div
       ref={containerRef}
       className="relative hidden lg:block"
-      onMouseEnter={() => setIsOpen(true)}
-      onMouseLeave={() => setIsOpen(false)}
+      onMouseEnter={openMenu}
+      onMouseLeave={scheduleClose}
     >
       <button
         type="button"
@@ -67,10 +96,14 @@ export function SimpleNavDropdown({
               ? "text-on-secondary/80 hover:bg-primary hover:text-on-primary"
               : "text-on-surface/75 hover:bg-primary hover:text-on-primary",
         )}
-        onClick={() => setIsOpen((open) => !open)}
+        onClick={() => {
+          clearCloseTimer();
+          setIsOpen((open) => !open);
+        }}
         onKeyDown={(event) => {
           if (event.key === "Enter" || event.key === " ") {
             event.preventDefault();
+            clearCloseTimer();
             setIsOpen((open) => !open);
           }
         }}
@@ -91,7 +124,7 @@ export function SimpleNavDropdown({
                 href={item.href}
                 role="menuitem"
                 className="block px-4 py-2.5 font-display text-[0.78rem] font-semibold uppercase tracking-[0.04em] text-on-surface/80 transition-colors hover:bg-primary/8 hover:text-primary"
-                onClick={() => setIsOpen(false)}
+                onClick={closeMenuNow}
               >
                 {item.label}
               </Link>
