@@ -69,16 +69,6 @@ export type SolutionPillarPage = {
     intro: string;
     items: SolutionRxExample[];
   };
-  industriesStrip: {
-    eyebrow: string;
-    title: string;
-    body: string;
-  };
-  platformLink: {
-    title: string;
-    body: string;
-    cta: CtaLink;
-  };
   primaryCta: CtaLink;
   secondaryCta: CtaLink;
   finalCta: {
@@ -247,61 +237,51 @@ export const solutionsContent = {
         eyebrow: "Examples",
         title: "Practical prescriptions your floor can run",
         intro:
-          "Sample numbers only. Live prescriptions use your plant tags, tariff, and a locked M&V baseline. Labelled illustrative until verified.",
+          "Sample situations only. Numbers are illustrative until they are checked on your plant.",
         items: [
           {
             id: "md-feeder",
-            badge: "MD · Load stagger",
-            title: "Hold the second feeder start 10 minutes",
+            badge: "Demand peak",
+            title: "Hold the second feeder start about 10 minutes",
             talkTrack:
-              "Two big loads hit your incomer in the same 15-minute MD window. The bill will not tell you which machines until it is too late. We see the overlap live and ask the second owner to wait about ten minutes.",
-            what: "Hold the second large feeder start until the first load settles (for example under 95% of its ramp). Usual stagger: 8–12 minutes inside the open MD window.",
-            why: "Two heavy feeders started in the same billing slot and stacked on the HT incomer. The monthly bill shows the peak later, not which machines overlapped while the window was still open.",
-            who: "Electrical lead + area supervisor · active shift",
-            impact: "Roughly ₹80k–₹1.2L/month on MD [illustrative]",
-            effort: "Sequence change · no new equipment",
-            evidence: "HT incomer MD window vs feeder restart tags; baseline peak week.",
+              "Two heavy machines start in the same short window and stack on the main supply. The bill shows the peak later. On the floor you can ask the second owner to wait a few minutes.",
+            what: "Hold the second large feeder start until the first load settles. Typical stagger is about 8 to 12 minutes inside the open demand window.",
+            why: "Two heavy feeders started together and pushed the plant past the demand peak. The monthly bill shows the spike, not which machines overlapped while the window was still open.",
+            who: "Electrical lead and area supervisor on the active shift",
+            impact: "Roughly ₹80k to ₹1.2L per month on demand charges [illustrative]",
+            effort: "Sequence change. No new equipment.",
+            evidence: "Compare the demand peak window with both feeder start times against a quiet baseline week.",
           },
           {
             id: "idle-aux",
-            badge: "Idle · Aux load",
-            title: "Switch off packaging aux when nothing runs 20 min",
+            badge: "Idle load",
+            title: "Switch off packaging auxiliaries when nothing runs for 20 minutes",
             talkTrack:
-              "Conveyors and fans stay on when the line is empty. After 20 minutes with zero output, switch aux off per SOP; bring back when production returns.",
-            what: "When packaging line output is zero for 20 minutes, switch off tagged auxiliaries (conveyors, idle fans, non-critical pumps). Restart when production pulse returns or supervisor overrides.",
-            why: "Auxiliaries stay on during idle because production count and machine power are not watched together in time.",
-            who: "Area supervisor · packaging + utilities lead",
-            impact: "Roughly ₹50k–₹90k/month on energy [illustrative]",
-            effort: "Idle SOP · safety loads on protect list",
-            evidence: "Line output vs aux kW over idle windows; last five idle events.",
+              "Conveyors and fans stay on when the line is empty. After twenty minutes with no output, switch the auxiliaries off per SOP and bring them back when production returns.",
+            what: "When packaging line output stays at zero for 20 minutes, switch off tagged auxiliaries such as conveyors, idle fans, and non-critical pumps. Restart when production returns or a supervisor overrides.",
+            why: "Auxiliaries keep running during idle because nobody is watching output and machine power together in real time.",
+            who: "Area supervisor on packaging and utilities lead",
+            impact: "Roughly ₹50k to ₹90k per month on energy [illustrative]",
+            effort: "Idle SOP. Keep safety loads on the protect list.",
+            evidence: "Match line output against auxiliary power over the last few idle windows.",
           },
           {
             id: "tod-warmup",
-            badge: "ToD · Thermal",
-            title: "Gravure dryer warm-up 25 min earlier",
+            badge: "Tariff timing",
+            title: "Move dryer warm-up into the cheaper window",
             talkTrack:
-              "Warm-up is eating peak ToD even when output is the same. Shift warm-up, not production start. Jobs still release on time.",
-            what: "Start gravure dryer warm-up 25 minutes earlier into the lower ToD window before day-shift release, without changing job start time.",
-            why: "Warm-up load overlaps the peak ToD band on three of five weekday runs, even when production volume is stable.",
-            who: "Utilities lead + gravure shift supervisor",
-            impact: "Roughly ₹35k–₹55k/month on ToD energy [illustrative]",
-            effort: "Schedule change only · production sign-off",
-            evidence: "Tariff block vs dryer kW vs release timestamp; last four gravure weeks.",
+              "Warm-up is burning peak-rate power even when output is the same. Shift warm-up earlier into the cheaper window. Jobs still release on time.",
+            what: "Start dryer warm-up about 25 minutes earlier into the lower tariff window before day-shift release, without changing job start time.",
+            why: "Warm-up load overlaps the peak tariff band on most weekday runs, even when production volume is stable.",
+            who: "Utilities lead and shift supervisor",
+            impact: "Roughly ₹35k to ₹55k per month on timed energy [illustrative]",
+            effort: "Schedule change only. Production sign-off.",
+            evidence: "Compare warm-up power against the tariff window and the unchanged job release time.",
           },
         ],
       },
-      industriesStrip: {
-        eyebrow: "Industries",
-        title: "Energy exposure, priced against operating flexibility",
-        body: "Best fit for sites with high electricity spend, MD exposure, or flexible loads where operations can act before the bill locks.",
-      },
-      platformLink: {
-        title: "Same Connect to Improve loop",
-        body: "This pillar runs on the Platform operating loop: Connect, Observe, Decide, Execute, Verify, Improve. Improve based on decisions taken. No separate product to deploy.",
-        cta: { label: "See the Platform", href: "/platform" } satisfies CtaLink,
-      },
       primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
-      secondaryCta: { label: "See the Platform loop", href: "/platform" } satisfies CtaLink,
+      secondaryCta: { label: "See the Platform", href: "/platform" } satisfies CtaLink,
       finalCta: {
         eyebrow: "Start with one site",
         title: "See what Industry Energy Management would find in your plant",
@@ -403,61 +383,51 @@ export const solutionsContent = {
         eyebrow: "Examples",
         title: "Practical prescriptions your floor can run",
         intro:
-          "Sample numbers only. Live prescriptions use your plant tags and a locked baseline. Labelled illustrative until verified. Not vibration PdM.",
+          "Sample situations only. Numbers are illustrative until they are checked on your plant.",
         items: [
           {
             id: "compressor-drift",
-            badge: "Equipment · Drift",
-            title: "Inspect Compressor 2 filter / unload valve",
+            badge: "Equipment drift",
+            title: "Inspect Compressor 2 filter and unload valve",
             talkTrack:
-              "Compressor 2 is using more power than usual for the same air pressure, nine days straight. Inspect before it becomes extra bill and a breakdown.",
-            what: "Inspect Compressor 2 inlet filter and unload valve during the next approved low-load window. Use Compressor 1 as standby only if capacity is confirmed.",
-            why: "Specific power is 14% above its eight-week baseline for matched header pressure, run hours, and shift load. The drift has persisted for nine days.",
-            who: "Utilities lead + mechanical maintenance",
-            impact: "₹45k–₹70k/month [illustrative]",
-            effort: "~2 hours · subject to isolation and permit",
-            evidence: "COMP2 specific power vs eight-week matched baseline; header pressure band.",
+              "Compressor 2 is using more power than usual for the same air pressure, day after day. Inspect before it becomes extra bill and a breakdown.",
+            what: "Inspect Compressor 2 inlet filter and unload valve in the next approved low-load window. Use Compressor 1 as standby only if capacity is confirmed.",
+            why: "The compressor is drawing more power for the same pressure and run pattern than it did over the last several weeks. The drift has held for about nine days.",
+            who: "Utilities lead and mechanical maintenance",
+            impact: "Roughly ₹45k to ₹70k per month [illustrative]",
+            effort: "About two hours. Subject to isolation and permit.",
+            evidence: "Compare compressor power against pressure and run hours for a quiet baseline period.",
           },
           {
             id: "furnace-hold",
-            badge: "Thermal · Idle holding",
-            title: "Reduce furnace holding when the roll is delayed",
+            badge: "Idle holding",
+            title: "Reduce furnace holding when the downstream line is delayed",
             talkTrack:
-              "The furnace is holding heat for a roll that is already late. Cut holding when delay exceeds the agreed window; restart when production clears.",
-            what: "Reduce furnace holding when the downstream roll is delayed 45+ minutes; confirm setback or shutdown with production before the next peak tariff block.",
-            why: "Holding kWh continues with zero throughput while the delay sits outside the agreed production window.",
-            who: "Heat treatment · production",
-            impact: "Indicative cut to idle holding risk and energy waste. Plant-specific.",
-            effort: "Setback SOP · production sign-off",
-            evidence: "Holding kWh vs schedule delay tags; closed when decision logged.",
+              "The furnace is holding heat for a line that is already late. Cut holding when the delay passes the agreed window. Restart when production clears.",
+            what: "Reduce furnace holding when the downstream line is delayed 45 minutes or more. Confirm setback or shutdown with production before the next peak tariff block.",
+            why: "Holding power continues with zero throughput while the delay sits outside the agreed production window.",
+            who: "Heat treatment and production",
+            impact: "Cuts idle holding cost and energy waste. Plant-specific [illustrative]",
+            effort: "Setback SOP. Production sign-off.",
+            evidence: "Match holding power against the production delay window before and after the action.",
           },
           {
             id: "pump-recirc",
-            badge: "Equipment · Pumps",
-            title: "Check CW pump P-12 for stuck recirculation",
+            badge: "Pumps",
+            title: "Check cooling-water pump for stuck recirculation",
             talkTrack:
-              "Cooling water pump power is high for the flow you are getting. Check the valve path before you burn another week of recirculation losses.",
-            what: "Inspect CW pump P-12 and associated valves for stuck recirculation during the next approved isolation window.",
-            why: "Pump electrical draw is elevated vs delivered flow against the plant baseline, consistent with recirculation rather than useful cooling.",
-            who: "Utilities · mechanical maintenance",
-            impact: "Indicative kWh recovery and reduced hidden wear. Plant-specific.",
-            effort: "Inspect / tune · isolation permit",
-            evidence: "Pump kW vs flow tags; baseline operating envelope.",
+              "Pump power is high for the flow you are getting. Check the valve path before you burn another week of recirculation losses.",
+            what: "Inspect the cooling-water pump and related valves for stuck recirculation during the next approved isolation window.",
+            why: "Pump electrical draw is high against delivered flow, which usually means recirculation rather than useful cooling.",
+            who: "Utilities and mechanical maintenance",
+            impact: "Recovers wasted power and hidden wear. Plant-specific [illustrative]",
+            effort: "Inspect and tune. Isolation permit.",
+            evidence: "Compare pump power against delivered flow for a normal operating period.",
           },
         ],
       },
-      industriesStrip: {
-        eyebrow: "Industries",
-        title: "Asset issues, ₹-ranked by cost and downtime at risk",
-        body: "Best fit for plants with alert fatigue, repeated equipment drift, or energy-linked waste that maintenance and utilities need to own together.",
-      },
-      platformLink: {
-        title: "Same Connect to Improve loop",
-        body: "Equipment findings ride the same Platform loop as energy prescriptions. Improve based on decisions taken and verified outcomes.",
-        cta: { label: "See the Platform", href: "/platform" } satisfies CtaLink,
-      },
       primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
-      secondaryCta: { label: "See the Platform loop", href: "/platform" } satisfies CtaLink,
+      secondaryCta: { label: "See the Platform", href: "/platform" } satisfies CtaLink,
       finalCta: {
         eyebrow: "Start with one site",
         title: "See what Asset Health Intelligence would find in your plant",

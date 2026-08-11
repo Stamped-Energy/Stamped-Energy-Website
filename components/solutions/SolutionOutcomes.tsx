@@ -31,7 +31,7 @@ export function SolutionOutcomes({ outcomes }: SolutionOutcomesProps) {
               className="bg-secondary p-6 sm:p-7 md:p-8"
             >
               <Reveal>
-                <p className="font-display text-3xl font-extrabold tracking-tight text-inverse-primary md:text-4xl">
+                <p className="font-display text-3xl font-extrabold tracking-tight text-on-secondary md:text-4xl">
                   {item.value}
                 </p>
                 <h3 className="mt-3 font-display text-base font-bold text-on-secondary md:text-lg">

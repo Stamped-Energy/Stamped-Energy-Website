@@ -23,24 +23,27 @@ export function SolutionHowItWorks({ howItWorks }: SolutionHowItWorksProps) {
           </p>
         </Reveal>
 
-        <ul className="mt-14 space-y-16 md:mt-20 md:space-y-24">
+        <ul className="mt-10 divide-y divide-outline-variant/40 border-y border-outline-variant/40">
           {howItWorks.steps.map((step, index) => {
             const mediaFirst = index % 2 === 0;
             return (
-              <li key={step.id}>
+              <li key={step.id} className="py-8 md:py-10">
                 <Reveal>
-                  <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
+                  <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-10">
                     <div className={cn(!mediaFirst && "lg:order-2")}>
-                      <SolutionMediaSlot label={step.mediaLabel} />
+                      <SolutionMediaSlot
+                        label={step.mediaLabel}
+                        className="min-h-[11rem] md:min-h-[13rem]"
+                      />
                     </div>
                     <div className={cn(!mediaFirst && "lg:order-1")}>
                       <p className="font-mono text-[11px] font-semibold text-primary">
                         {String(index + 1).padStart(2, "0")}
                       </p>
-                      <h3 className="mt-3 font-display text-xl font-bold tracking-tight text-on-surface md:text-2xl">
+                      <h3 className="mt-2 font-display text-xl font-bold tracking-tight text-on-surface md:text-2xl">
                         {step.title}
                       </h3>
-                      <p className="mt-4 max-w-xl text-sm leading-7 text-on-surface-variant md:text-base">
+                      <p className="mt-3 max-w-xl text-sm leading-7 text-on-surface-variant md:text-base">
                         {step.body}
                       </p>
                     </div>

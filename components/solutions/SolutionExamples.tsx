@@ -21,70 +21,59 @@ export function SolutionExamples({ examples }: SolutionExamplesProps) {
           </p>
         </Reveal>
 
-        <div className="mt-12 space-y-6 md:mt-14 md:space-y-8">
+        <ol className="mt-10 divide-y divide-outline-variant/40 border border-outline-variant/50 bg-surface-lowest">
           {examples.items.map((rx, index) => (
-            <Reveal key={rx.id}>
-              <article className="overflow-hidden border border-outline-variant/50 bg-surface-lowest">
-                <div className="grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
+            <li key={rx.id}>
+              <Reveal>
+                <article className="grid gap-0 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
                   <div className="border-b border-outline-variant/40 p-6 sm:p-8 lg:border-b-0 lg:border-r">
-                    <div className="flex flex-wrap items-center gap-3">
-                      <span className="font-mono text-[11px] font-semibold text-on-surface-variant">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-                      <SectionBadge label={rx.badge} />
-                    </div>
-                    <h3 className="mt-5 font-display text-xl font-bold tracking-tight text-on-surface md:text-2xl">
+                    <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-on-surface-variant">
+                      Example {String(index + 1).padStart(2, "0")} · {rx.badge}
+                    </p>
+                    <h3 className="mt-4 font-display text-xl font-bold tracking-tight text-on-surface md:text-2xl">
                       {rx.title}
                     </h3>
-                    <p className="mt-4 text-sm leading-7 text-on-surface-variant md:text-[15px]">
-                      {rx.talkTrack}
-                    </p>
-                    <p className="mt-6 font-display text-lg font-extrabold tracking-tight text-primary md:text-xl">
+                    <p className="mt-3 text-sm leading-7 text-on-surface-variant">{rx.talkTrack}</p>
+                    <p className="mt-5 font-display text-xl font-extrabold tracking-tight text-on-surface">
                       {rx.impact}
                     </p>
                   </div>
 
-                  <div className="p-6 sm:p-8">
-                    <dl className="space-y-5">
-                      <div>
-                        <dt className="font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-on-surface-variant">
-                          What
-                        </dt>
-                        <dd className="mt-1.5 text-sm leading-6 text-on-surface">{rx.what}</dd>
-                      </div>
-                      <div>
-                        <dt className="font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-on-surface-variant">
-                          Why
-                        </dt>
-                        <dd className="mt-1.5 text-sm leading-6 text-on-surface-variant">{rx.why}</dd>
-                      </div>
-                      <div className="grid gap-5 sm:grid-cols-2">
-                        <div>
-                          <dt className="font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-on-surface-variant">
-                            Who
-                          </dt>
-                          <dd className="mt-1.5 text-sm leading-6 text-on-surface">{rx.who}</dd>
-                        </div>
-                        <div>
-                          <dt className="font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-on-surface-variant">
-                            Effort
-                          </dt>
-                          <dd className="mt-1.5 text-sm leading-6 text-on-surface">{rx.effort}</dd>
-                        </div>
-                      </div>
-                      <div className="border-t border-outline-variant/40 pt-4">
-                        <dt className="font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-on-surface-variant">
-                          Evidence
-                        </dt>
-                        <dd className="mt-1.5 text-sm leading-6 text-on-surface-variant">{rx.evidence}</dd>
-                      </div>
-                    </dl>
+                  <div className="grid gap-0 sm:grid-cols-2">
+                    <div className="border-b border-outline-variant/40 p-5 sm:border-r sm:p-6">
+                      <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-on-surface-variant">
+                        What
+                      </p>
+                      <p className="mt-2 text-sm leading-6 text-on-surface">{rx.what}</p>
+                    </div>
+                    <div className="border-b border-outline-variant/40 p-5 sm:p-6">
+                      <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-on-surface-variant">
+                        Why
+                      </p>
+                      <p className="mt-2 text-sm leading-6 text-on-surface-variant">{rx.why}</p>
+                    </div>
+                    <div className="border-b border-outline-variant/40 p-5 sm:border-b-0 sm:border-r sm:p-6">
+                      <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-on-surface-variant">
+                        Who
+                      </p>
+                      <p className="mt-2 text-sm leading-6 text-on-surface">{rx.who}</p>
+                      <p className="mt-4 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-on-surface-variant">
+                        Effort
+                      </p>
+                      <p className="mt-2 text-sm leading-6 text-on-surface">{rx.effort}</p>
+                    </div>
+                    <div className="p-5 sm:p-6">
+                      <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-on-surface-variant">
+                        How you check
+                      </p>
+                      <p className="mt-2 text-sm leading-6 text-on-surface-variant">{rx.evidence}</p>
+                    </div>
                   </div>
-                </div>
-              </article>
-            </Reveal>
+                </article>
+              </Reveal>
+            </li>
           ))}
-        </div>
+        </ol>
       </Container>
     </section>
   );
