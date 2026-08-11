@@ -351,3 +351,23 @@ Architecture and workflow decisions for this project.
 **Rationale:** Scroll-driven HIW matches `/platform` `HiwPinnedJourney` and keeps GSAP client-only (`isReady`). Dropdown triggers are buttons (not `/solutions` or `/industries`); only item links navigate. Hub routes remain for footer/SEO.
 
 **Impact:** `HomeHowItWorks.tsx` pin/scrub; `SimpleNavDropdown.tsx`; Solutions/Industries menus rewritten; `ListMegaMenu` unused by chrome this pass.
+
+---
+
+## ADR-019: OpenMontage brand / motion / product context pack
+
+**Date:** 2026-08-11
+
+**Context:** Founder wants agentic video production via OpenMontage for Stamped explainers, launches, and future site motion, using C-Vector animation grammar as inspiration while keeping Stamped product truth and website tokens. Site `DESIGN.md` alone is insufficient for self-contained video agents.
+
+**Alternatives:**
+
+1. Point OpenMontage at root `DESIGN.md` only
+2. Build portable `docs/openmontage-brand/` with product context copies, video DESIGN (Impeccable brand register), C-Vector audit, playbook, prompts
+3. Fork OpenMontage inside this monorepo and embed brand there only
+
+**Selected:** Option 2.
+
+**Rationale:** Agents need Stamped Master/ICP/claims without browsing Research+DOcs at runtime. Separates website anti-clone (site UI) from video motion inspiration. Playbook matches OpenMontage schema; four milestone commits. Fonts inherit Space Grotesk / Inter / Plex Mono (identity continuity vs Impeccable greenfield reflex-reject).
+
+**Impact:** New `docs/openmontage-brand/**`; root `DESIGN.md` §7 pointer; no live site animation implementation in this ADR.

@@ -264,3 +264,17 @@ Loaded via `next/font/google` in `app/layout.tsx`; wired as `--font-display`, `-
 - Do not invent fleet metrics or bill-verified claims without evidence language.
 - Do not nest cards or default every section to identical icon + title + text grids.
 - Do not add bounce/elastic motion; ease-out exponentials only.
+
+## 7. Video and OpenMontage
+
+Marketing **site** UI stays this document + `styles/theme.css`. Do not clone CVector site chrome.
+
+For **product videos, launch teasers, explainers, and MotionSlot briefs**, use the portable pack:
+
+**[`docs/openmontage-brand/`](docs/openmontage-brand/README.md)**
+
+- Product/claims context (Master, ICP, voice firewall)
+- `DESIGN_VIDEO.md` + `MOTION_LANGUAGE.md` (Impeccable brand register; C-Vector motion inspiration only)
+- OpenMontage playbook `playbooks/stamped-industrial.yaml`
+
+Copy the pack into an OpenMontage checkout; see pack README for read-order and install steps.

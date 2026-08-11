@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-Stitch-format DESIGN.md (system of record for marketing UI) — complete. Runtime colors remain `styles/theme.css`.
+OpenMontage brand pack (`docs/openmontage-brand/`) — complete (ADR-019). Ready to copy into OpenMontage for video productions. Site MotionSlot animation pass still remaining.
 
 ## Completed Phases
 
@@ -42,10 +42,12 @@ Stitch-format DESIGN.md (system of record for marketing UI) — complete. Runtim
 - [x] **Homepage HIW pin (ADR-018)** - client GSAP ScrollTrigger pin/scrub through Data → Analysis → Prescriptions → Decisions; stacked mobile / reduced-motion
 - [x] **CVector-style nav dropdowns (ADR-018)** - Solutions/Industries button triggers (not hub links); compact hover panel; item links only
 - [x] **Stitch DESIGN.md** - overwrite root DESIGN.md with YAML tokens + six Stitch sections extracted from homepage/chrome; North Star “Plant-office decision layer”
+- [x] **OpenMontage brand pack (ADR-019)** - self-contained product context + C-Vector motion audit + Impeccable `DESIGN_VIDEO` + `stamped-industrial` playbook + prompts; four docs commits
 
 ## Remaining Phases
 
-- [ ] Homepage / HIW / solutions animation pass (replace MotionSlot)
+- [ ] Homepage / HIW / solutions animation pass (replace MotionSlot; use `docs/openmontage-brand/prompts/website-motion-brief.md`)
+- [ ] First OpenMontage production using `stamped-industrial` playbook (outside this repo)
 - See **`SEO_GEO_AEO.md` → Remaining & ongoing maintenance** for SEO list. Highlights:
 - [ ] **Google Business Profile** (Section 12 #3)
 - [ ] **LinkedIn Company Page** (Section 12 #4) - then update Organization schema `sameAs`
