@@ -1,4 +1,4 @@
-import type { CtaLink, StatItem } from "./types";
+import type { CtaLink } from "./types";
 
 export type SolutionPillarSlug = "load-energy" | "equipment-intelligence";
 
@@ -8,19 +8,36 @@ export type SolutionPillarSummary = {
   title: string;
   shortTitle: string;
   description: string;
-  /** Longer hub-page brief used on /solutions */
   hubBrief: string;
   outcome: string;
   ctaLabel: string;
   highlights: string[];
 };
 
-export type SolutionRxExample = {
+export type SolutionOutcomeItem = {
+  id: string;
+  value: string;
+  label: string;
+  detail: string;
+};
+
+export type SolutionHowItWorksStep = {
   id: string;
   title: string;
+  body: string;
+  mediaLabel: string;
+};
+
+export type SolutionRxExample = {
+  id: string;
+  badge: string;
+  title: string;
+  talkTrack: string;
   what: string;
+  why: string;
   who: string;
   impact: string;
+  effort: string;
   evidence: string;
 };
 
@@ -32,35 +49,28 @@ export type SolutionPillarPage = {
   description: string;
   heroImageSrc: string;
   heroImageAlt: string;
-  /** object-position for hero crop differentiation */
   heroObjectPosition?: string;
-  valueProps: {
-    eyebrow: string;
-    title: string;
-    disclaimer: string;
-    items: StatItem[];
-  };
-  problem: {
-    title: string;
-    body: string;
-  };
-  method: {
-    eyebrow: string;
-    title: string;
-    body: string;
-    points: string[];
-  };
-  whatWeDo: {
+  outcomes: {
     eyebrow: string;
     title: string;
     intro: string;
-    levers: { id: string; title: string; body: string }[];
+    disclaimer: string;
+    items: SolutionOutcomeItem[];
   };
-  whoActs: {
+  howItWorks: {
+    eyebrow: string;
     title: string;
-    roles: string[];
+    intro: string;
+    steps: SolutionHowItWorksStep[];
   };
-  evidence: {
+  examples: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    items: SolutionRxExample[];
+  };
+  industriesStrip: {
+    eyebrow: string;
     title: string;
     body: string;
   };
@@ -69,9 +79,15 @@ export type SolutionPillarPage = {
     body: string;
     cta: CtaLink;
   };
-  rxExamples: SolutionRxExample[];
   primaryCta: CtaLink;
   secondaryCta: CtaLink;
+  finalCta: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    primaryCta: CtaLink;
+    secondaryCta: CtaLink;
+  };
 };
 
 export const solutionsContent = {
@@ -79,7 +95,7 @@ export const solutionsContent = {
     eyebrow: "Solutions",
     title: "Two outcomes. One evidence trail.",
     description:
-      "One product for energy-intensive plants in India. Pick the pillar that matches how you buy—same stack, real-time intelligence, verified with evidence.",
+      "One product for energy-intensive plants in India. Pick the pillar that matches how you buy: same stack, real-time intelligence, verified with evidence.",
     heroImageSrc: "/industries/cement.png",
     heroImageAlt: "Cement plant with silos and kiln illuminated at twilight",
     primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
@@ -87,7 +103,7 @@ export const solutionsContent = {
     sectionEyebrow: "The intelligence",
     sectionTitle: "Two pillars. One operating loop.",
     sectionIntro:
-      "Start here for the overview, then open the pillar that matches how your plant buys. Each page goes deeper on problem, levers, who acts, and sample prescriptions.",
+      "Start here for the overview, then open the pillar that matches how your plant buys. Each page covers outcomes, how it works, and practical prescriptions.",
     finalCta: {
       eyebrow: "Start with your plant",
       title: "See which pillar fits how you buy",
@@ -145,126 +161,155 @@ export const solutionsContent = {
       eyebrow: "Industry Energy Management",
       title: "Industry Energy Management",
       description:
-        "Incomer, sub-meters, SCADA, and bills become ranked actions: what to change, who owns it, monthly rupee impact. Real-time decision making on the loads that move your bill.",
+        "Incomer, sub-meters, SCADA, and bills become ranked actions: what to change, who owns it, monthly rupee impact. Real-time decisions on the loads that move your bill.",
       heroImageSrc: "/industries/die-casting.jpeg",
       heroImageAlt: "Molten metal pour in an energy-intensive manufacturing plant",
       heroObjectPosition: "center 35%",
-      valueProps: {
-        eyebrow: "Indicative outcomes",
-        title: "What this pillar is built to move",
+      outcomes: {
+        eyebrow: "Outcomes",
+        title: "Measurable impact across the bill, demand, and wasted kWh",
+        intro:
+          "Each prescription is ₹-ranked so plant teams can see what each stagger, ToD shift, or idle cut is worth before they act.",
         disclaimer:
-          "Benchmark ranges from comparable plants. Your pilot replaces these with verified figures.",
+          "Indicative ranges from comparable plants. Your pilot replaces these with verified figures. Not a guaranteed outcome.",
         items: [
           {
             id: "bill",
             value: "15-20%",
-            label: "Typical electricity cost recovery",
-            detail: "Process-intensive mid-market plants",
+            label: "Electricity cost recovery",
+            detail: "Typical band on process-intensive mid-market plants when assigned actions close",
           },
           {
             id: "md",
             value: "15-25%",
             label: "MD / demand charge reduction",
-            detail: "Often from incomer meter and bill data alone",
+            detail: "Often addressable from incomer meter and bill data alone",
           },
           {
             id: "idle",
             value: "10-20%",
             label: "Non-production energy flagged",
-            detail: "Idle loads, holding, HVAC staging, batch gaps",
+            detail: "Idle loads, holding, HVAC staging, and batch gaps",
           },
-        ] satisfies StatItem[],
-      },
-      problem: {
-        title: "You already have the meters",
-        body: "Demand spikes and high SEC show up after the fact. The missing piece is an assigned next action—with ₹ impact—before the billing window closes, not another trend chart.",
-      },
-      method: {
-        eyebrow: "Agentic intelligence",
-        title: "From plant signals to the next best action",
-        body: "An agentic system watches what is happening across the plant: meters, SCADA, bills, and process context. ML models surface data anomalies and load-shape drift. Stamped then ranks what to do next against industry practice for MD, tariff windows, idle waste, and utilities staging, and assigns an owner with monthly rupee impact.",
-        points: [
-          "Reads energy and process signals across the plant, not a single meter in isolation",
-          "ML models flag anomalies, co-starts, idle draw, and tariff misalignment",
-          "Decisions ranked against industry standards and your plant constraints",
-          "Output is a prescription: what, who, effort, and ₹ impact",
+          {
+            id: "evidence",
+            value: "Verified",
+            label: "With evidence",
+            detail: "Ops-cleared ledger; DISCOM bill confirmation optional when the period closes",
+          },
+          {
+            id: "speed",
+            value: "2 weeks",
+            label: "First prescriptions",
+            detail: "No rip-and-replace. Start on meters and bills you already have",
+          },
+          {
+            id: "control",
+            value: "Human-gated",
+            label: "Every recommendation",
+            detail: "Accept, reject, or adjust. Plant expertise compounds in the loop",
+          },
         ],
       },
-      whatWeDo: {
-        eyebrow: "What we do",
-        title: "Where we actually help on load and energy",
+      howItWorks: {
+        eyebrow: "How it works",
+        title: "Continuous analysis for equipment-level energy recommendations",
         intro:
-          "Real-time intelligence on your energy graph. Prescriptions your electrical and ops teams can execute without a hardware retrofit.",
-        levers: [
+          "Stamped maps equipment-level energy use and contextualizes it with production state, DISCOM tariff windows, and your bill pattern.",
+        steps: [
           {
-            id: "md",
-            title: "Maximum demand and co-starts",
-            body: "Catch overlapping startups and soft-land before the MD window locks in.",
+            id: "equipment-model",
+            title: "Equipment-level energy modeling",
+            body: "Energy use is mapped to compressors, furnaces, chillers, presses, and other major loads, with modeled target usage as the baseline against actual draw.",
+            mediaLabel: "Equipment load model",
           },
           {
-            id: "tod",
-            title: "Tariff and TOD windows",
-            body: "Shift flexible loads and holding into cheaper slabs when production allows.",
+            id: "discom-analysis",
+            title: "Continuous DISCOM, ToD, and MD analysis",
+            body: "Live demand, tariff slabs, and bill pattern are evaluated continuously against shift and production context, so actions land before the billing window closes.",
+            mediaLabel: "Tariff and MD context",
           },
           {
-            id: "idle",
-            title: "Idle and holding waste",
-            body: "Flag compressors, furnaces, and auxiliaries running without production.",
+            id: "plant-control",
+            title: "Plant teams remain in control",
+            body: "Every stagger, ToD move, idle cut, or ramp recommendation is accepted, rejected, or adjusted by your team, so Stamped captures plant priorities and operator expertise over time.",
+            mediaLabel: "Accept, adjust, reject",
           },
           {
-            id: "hvac",
-            title: "HVAC and utilities staging",
-            body: "Stage chillers, AHUs, and shared utilities against process demand.",
+            id: "rupee-ranked",
+            title: "₹-ranked stagger, ToD, idle-holding, and ramp recommendations",
+            body: "Plant teams see movable loads, timing, and rupee value, with a full evidence trail behind each recommendation. No battery-storage claim; thermal holding and ramp profiles where they apply.",
+            mediaLabel: "₹-ranked moves",
           },
         ],
       },
-      whoActs: {
-        title: "Who acts",
-        roles: [
-          "Electrical head / utilities",
-          "Shift supervisors",
-          "Plant director / VP Ops",
-          "Finance review of the savings ledger",
+      examples: {
+        eyebrow: "Examples",
+        title: "Practical prescriptions your floor can run",
+        intro:
+          "Sample numbers only. Live prescriptions use your plant tags, tariff, and a locked M&V baseline. Labelled illustrative until verified.",
+        items: [
+          {
+            id: "md-feeder",
+            badge: "MD · Load stagger",
+            title: "Hold the second feeder start 10 minutes",
+            talkTrack:
+              "Two big loads hit your incomer in the same 15-minute MD window. The bill will not tell you which machines until it is too late. We see the overlap live and ask the second owner to wait about ten minutes.",
+            what: "Hold the second large feeder start until the first load settles (for example under 95% of its ramp). Usual stagger: 8–12 minutes inside the open MD window.",
+            why: "Two heavy feeders started in the same billing slot and stacked on the HT incomer. The monthly bill shows the peak later, not which machines overlapped while the window was still open.",
+            who: "Electrical lead + area supervisor · active shift",
+            impact: "Roughly ₹80k–₹1.2L/month on MD [illustrative]",
+            effort: "Sequence change · no new equipment",
+            evidence: "HT incomer MD window vs feeder restart tags; baseline peak week.",
+          },
+          {
+            id: "idle-aux",
+            badge: "Idle · Aux load",
+            title: "Switch off packaging aux when nothing runs 20 min",
+            talkTrack:
+              "Conveyors and fans stay on when the line is empty. After 20 minutes with zero output, switch aux off per SOP; bring back when production returns.",
+            what: "When packaging line output is zero for 20 minutes, switch off tagged auxiliaries (conveyors, idle fans, non-critical pumps). Restart when production pulse returns or supervisor overrides.",
+            why: "Auxiliaries stay on during idle because production count and machine power are not watched together in time.",
+            who: "Area supervisor · packaging + utilities lead",
+            impact: "Roughly ₹50k–₹90k/month on energy [illustrative]",
+            effort: "Idle SOP · safety loads on protect list",
+            evidence: "Line output vs aux kW over idle windows; last five idle events.",
+          },
+          {
+            id: "tod-warmup",
+            badge: "ToD · Thermal",
+            title: "Gravure dryer warm-up 25 min earlier",
+            talkTrack:
+              "Warm-up is eating peak ToD even when output is the same. Shift warm-up, not production start. Jobs still release on time.",
+            what: "Start gravure dryer warm-up 25 minutes earlier into the lower ToD window before day-shift release, without changing job start time.",
+            why: "Warm-up load overlaps the peak ToD band on three of five weekday runs, even when production volume is stable.",
+            who: "Utilities lead + gravure shift supervisor",
+            impact: "Roughly ₹35k–₹55k/month on ToD energy [illustrative]",
+            effort: "Schedule change only · production sign-off",
+            evidence: "Tariff block vs dryer kW vs release timestamp; last four gravure weeks.",
+          },
         ],
       },
-      evidence: {
-        title: "Verified with evidence",
-        body: "Potential vs realised impact in an ops-cleared ledger. DISCOM bill confirmation can follow when the period closes. It is optional proof, not the only story.",
+      industriesStrip: {
+        eyebrow: "Industries",
+        title: "Energy exposure, priced against operating flexibility",
+        body: "Best fit for sites with high electricity spend, MD exposure, or flexible loads where operations can act before the bill locks.",
       },
       platformLink: {
         title: "Same Connect to Improve loop",
         body: "This pillar runs on the Platform operating loop: Connect, Observe, Decide, Execute, Verify, Improve. Improve based on decisions taken. No separate product to deploy.",
         cta: { label: "See the Platform", href: "/platform" } satisfies CtaLink,
       },
-      rxExamples: [
-        {
-          id: "md-stagger",
-          title: "MD co-start stagger",
-          what: "Stagger compressor and furnace restarts after lunch by at least 12 minutes.",
-          who: "Shift supervisor · utilities",
-          impact:
-            "Indicative: lower MD charge exposure in the peak window. Plant-specific; not a guaranteed outcome.",
-          evidence: "Baseline demand curve vs post-action window; ledger entry when cleared.",
-        },
-        {
-          id: "idle-compressor",
-          title: "Idle compressor unload",
-          what: "Cut unload hours on Bank A between press strokes; hold pressure setpoint until production resumes.",
-          who: "Utilities / maintenance",
-          impact: "Indicative: reduce non-production kWh on compressed air. Plant-specific.",
-          evidence: "Unload hours vs production tags; closed when action logged.",
-        },
-        {
-          id: "tod-holding",
-          title: "TOD holding shift",
-          what: "Move furnace holding into the off-peak slab when Saturday batches are empty.",
-          who: "Heat treatment supervisor",
-          impact: "Indicative: lower tariff-weighted holding cost. Plant-specific.",
-          evidence: "Tariff window vs holding kWh; ledger when cleared.",
-        },
-      ],
       primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
       secondaryCta: { label: "See the Platform loop", href: "/platform" } satisfies CtaLink,
+      finalCta: {
+        eyebrow: "Start with one site",
+        title: "See what Industry Energy Management would find in your plant",
+        description:
+          "First prescriptions in about two weeks. No rip-and-replace. Evidence trail from day one.",
+        primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
+        secondaryCta: { label: "See the Platform", href: "/platform" } satisfies CtaLink,
+      },
     },
     "equipment-intelligence": {
       slug: "equipment-intelligence",
@@ -272,21 +317,23 @@ export const solutionsContent = {
       eyebrow: "Asset Health Intelligence",
       title: "Asset Health Intelligence",
       description:
-        "The stack that finds energy waste also flags equipment issues early, with owners and evidence. Real-time decision making before trips and waste compound.",
+        "The stack that finds energy waste also flags equipment issues early, with owners and evidence. Real-time decisions before trips and waste compound.",
       heroImageSrc: "/industries/steel.png",
       heroImageAlt: "Steel rolling mill with glowing hot metal billets on the production line",
       heroObjectPosition: "center 45%",
-      valueProps: {
-        eyebrow: "Indicative outcomes",
-        title: "What this pillar is built to move",
+      outcomes: {
+        eyebrow: "Outcomes",
+        title: "Measurable impact across downtime, emergency spend, and operator decisions",
+        intro:
+          "Recommendations are ₹-ranked, so operators see which energy-linked drift to act on first. Not a CMMS or full vibration PdM claim.",
         disclaimer:
-          "Indicative ranges when teams act on early energy-linked drift. Aligned with industrial reliability bands (for example 15-25% emergency / PM spend reduction in published prescriptive programs). Your pilot replaces these with verified figures. Not a CMMS or full vibration PdM claim.",
+          "Indicative ranges when teams act on early energy-linked drift. Your pilot replaces these with verified figures.",
         items: [
           {
             id: "downtime",
             value: "10-20%",
             label: "Unplanned downtime prevented",
-            detail: "When early drift prescriptions are closed before a trip",
+            detail: "When early drift prescriptions close before a trip",
           },
           {
             id: "emergency",
@@ -295,103 +342,130 @@ export const solutionsContent = {
             detail: "Fewer rush repairs when issues surface on the energy graph first",
           },
           {
+            id: "same-shift",
+            value: "Same shift",
+            label: "Energy-linked waste flagged",
+            detail: "Load-shape and SEC drift routed with an owner, not another ignored alert",
+          },
+          {
+            id: "ranked",
+            value: "₹-ranked",
+            label: "Anomaly prioritization",
+            detail: "So utilities and maintenance see highest impact first",
+          },
+          {
             id: "shared",
-            value: "Shared",
-            label: "Context for utilities and maintenance",
-            detail: "One prescription trail with evidence, not two dashboards",
+            value: "One trail",
+            label: "Shared utilities and maintenance context",
+            detail: "Evidence-backed prescriptions, not two disconnected dashboards",
           },
-        ] satisfies StatItem[],
-      },
-      problem: {
-        title: "Energy drift often arrives first",
-        body: "Odd load shapes, rising specific energy, and idle patterns appear before a trip. Without a shared prescription, maintenance and utilities talk past each other.",
-      },
-      method: {
-        eyebrow: "Plant-tuned models",
-        title: "Pre-trained models, fine-tuned on your plant",
-        body: "We start from domain pre-trained models, then train and fine-tune on your plant's actual equipment data. Every plant and every asset has a different baseline. Models keep learning from your operating history so early signs of equipment drift or breakage show up before a trip, with an assigned next action and evidence trail.",
-        points: [
-          "Domain pre-trained models as the starting point, not a blank slate",
-          "Fine-tuned on your plant and equipment baselines",
-          "Continuous training on your actual operating data",
-          "Earlier drift signals than generic alerts, tied to owners and evidence",
+          {
+            id: "control",
+            value: "Human-gated",
+            label: "Every recommendation",
+            detail: "Accept, reject, or adjust. Expertise compounds across shifts",
+          },
         ],
       },
-      whatWeDo: {
-        eyebrow: "What we do",
-        title: "Where we actually help on equipment intelligence",
+      howItWorks: {
+        eyebrow: "How it works",
+        title: "Continuous analysis for asset operating decisions",
         intro:
-          "Real-time intelligence from the same energy graph. Early warnings with owners, not another vibration screen to ignore.",
-        levers: [
+          "Stamped connects to existing meters and plant signals, contextualizing asset behavior with operating constraints and rupee exposure.",
+        steps: [
           {
-            id: "sec-drift",
-            title: "SEC and load-shape drift",
-            body: "Detect rising specific energy and abnormal profiles before a hard failure.",
+            id: "constraints",
+            title: "Plant-specific constraint context",
+            body: "Recommendations respect operating constraints, production windows, and economic exposure specific to your plant, not a generic alert threshold.",
+            mediaLabel: "Constraint checks",
           },
           {
-            id: "utility-health",
-            title: "Utility asset early flags",
-            body: "Chillers, compressors, furnaces: approach, unload, and holding signals with context.",
+            id: "root-cause",
+            title: "Root-cause identification with ₹ impact",
+            body: "Root causes are identified from energy and process context, with related cost estimated before a ranked prescription is routed to the owner.",
+            mediaLabel: "Root cause to ₹",
           },
           {
-            id: "cross-dept",
-            title: "Cross-department Rx",
-            body: "Route actions when schedule tradeoffs involve production, utilities, and maintenance.",
+            id: "expected-behavior",
+            title: "Expected-behavior and energy-linked drift",
+            body: "Models compare observed load shape and specific energy against expected behavior so early drift shows up before a hard failure or MD surprise.",
+            mediaLabel: "Modeled vs observed",
           },
           {
-            id: "evidence",
-            title: "Evidence, not alert noise",
-            body: "Every finding stays tied to tags, baselines, and cleared outcomes.",
+            id: "operators-control",
+            title: "Operators remain in control",
+            body: "Every recommendation is accepted, rejected, or adjusted so Stamped captures plant priorities and operator expertise over time.",
+            mediaLabel: "Decision feedback",
           },
         ],
       },
-      whoActs: {
-        title: "Who acts",
-        roles: [
-          "Maintenance / reliability",
-          "Utilities and electrical",
-          "Production when schedule tradeoffs apply",
-          "Plant leadership for cross-department Rx",
+      examples: {
+        eyebrow: "Examples",
+        title: "Practical prescriptions your floor can run",
+        intro:
+          "Sample numbers only. Live prescriptions use your plant tags and a locked baseline. Labelled illustrative until verified. Not vibration PdM.",
+        items: [
+          {
+            id: "compressor-drift",
+            badge: "Equipment · Drift",
+            title: "Inspect Compressor 2 filter / unload valve",
+            talkTrack:
+              "Compressor 2 is using more power than usual for the same air pressure, nine days straight. Inspect before it becomes extra bill and a breakdown.",
+            what: "Inspect Compressor 2 inlet filter and unload valve during the next approved low-load window. Use Compressor 1 as standby only if capacity is confirmed.",
+            why: "Specific power is 14% above its eight-week baseline for matched header pressure, run hours, and shift load. The drift has persisted for nine days.",
+            who: "Utilities lead + mechanical maintenance",
+            impact: "₹45k–₹70k/month [illustrative]",
+            effort: "~2 hours · subject to isolation and permit",
+            evidence: "COMP2 specific power vs eight-week matched baseline; header pressure band.",
+          },
+          {
+            id: "furnace-hold",
+            badge: "Thermal · Idle holding",
+            title: "Reduce furnace holding when the roll is delayed",
+            talkTrack:
+              "The furnace is holding heat for a roll that is already late. Cut holding when delay exceeds the agreed window; restart when production clears.",
+            what: "Reduce furnace holding when the downstream roll is delayed 45+ minutes; confirm setback or shutdown with production before the next peak tariff block.",
+            why: "Holding kWh continues with zero throughput while the delay sits outside the agreed production window.",
+            who: "Heat treatment · production",
+            impact: "Indicative cut to idle holding risk and energy waste. Plant-specific.",
+            effort: "Setback SOP · production sign-off",
+            evidence: "Holding kWh vs schedule delay tags; closed when decision logged.",
+          },
+          {
+            id: "pump-recirc",
+            badge: "Equipment · Pumps",
+            title: "Check CW pump P-12 for stuck recirculation",
+            talkTrack:
+              "Cooling water pump power is high for the flow you are getting. Check the valve path before you burn another week of recirculation losses.",
+            what: "Inspect CW pump P-12 and associated valves for stuck recirculation during the next approved isolation window.",
+            why: "Pump electrical draw is elevated vs delivered flow against the plant baseline, consistent with recirculation rather than useful cooling.",
+            who: "Utilities · mechanical maintenance",
+            impact: "Indicative kWh recovery and reduced hidden wear. Plant-specific.",
+            effort: "Inspect / tune · isolation permit",
+            evidence: "Pump kW vs flow tags; baseline operating envelope.",
+          },
         ],
       },
-      evidence: {
-        title: "Verified with evidence",
-        body: "Findings stay tied to the energy graph and cleared outcomes. Not a claim to replace full CMMS or vibration PdM programs.",
+      industriesStrip: {
+        eyebrow: "Industries",
+        title: "Asset issues, ₹-ranked by cost and downtime at risk",
+        body: "Best fit for plants with alert fatigue, repeated equipment drift, or energy-linked waste that maintenance and utilities need to own together.",
       },
       platformLink: {
         title: "Same Connect to Improve loop",
         body: "Equipment findings ride the same Platform loop as energy prescriptions. Improve based on decisions taken and verified outcomes.",
         cta: { label: "See the Platform", href: "/platform" } satisfies CtaLink,
       },
-      rxExamples: [
-        {
-          id: "chiller-drift",
-          title: "Chiller approach drift",
-          what: "Inspect chiller approach temperature drift on Bank B before the next peak shift; hold setpoint changes until cleared.",
-          who: "Utilities · maintenance",
-          impact:
-            "Indicative: avoid compounding HVAC kWh and process risk. Plant-specific; not a guaranteed outcome.",
-          evidence: "Tag trend vs baseline; closed when inspection is logged.",
-        },
-        {
-          id: "compressor-anomaly",
-          title: "Compressor anomaly with energy context",
-          what: "Investigate Bank A specific power rise during unload; check filters and intake before weekend holding.",
-          who: "Maintenance · utilities",
-          impact: "Indicative: catch inefficiency before a trip or MD surprise. Plant-specific.",
-          evidence: "kW per CFM trend vs baseline; closed when work order logged.",
-        },
-        {
-          id: "furnace-hold",
-          title: "Furnace hold without batches",
-          what: "Review soak hold on furnaces 3 and 4 with zero Saturday batches; confirm setback or shutdown with production.",
-          who: "Heat treatment · production",
-          impact: "Indicative: cut idle holding risk and energy waste. Plant-specific.",
-          evidence: "Holding kWh vs schedule; closed when decision logged.",
-        },
-      ],
       primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
       secondaryCta: { label: "See the Platform loop", href: "/platform" } satisfies CtaLink,
+      finalCta: {
+        eyebrow: "Start with one site",
+        title: "See what Asset Health Intelligence would find in your plant",
+        description:
+          "First prescriptions in about two weeks. No rip-and-replace. Evidence trail from day one.",
+        primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
+        secondaryCta: { label: "See the Platform", href: "/platform" } satisfies CtaLink,
+      },
     },
   } satisfies Record<SolutionPillarSlug, SolutionPillarPage>,
 };

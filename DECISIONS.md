@@ -391,3 +391,23 @@ Architecture and workflow decisions for this project.
 **Rationale:** Matches home chrome without inventing products or claims Stamped cannot make. Keeps `/platform` pinned Connect-to-Improve journey. Eight-commit marketing matrix; OpenMontage pack remains ADR-019.
 
 **Impact:** `MarketingClosingCta`; SectionBadge on inner heroes/sections; Solutions pillars + hub; Platform outcomes band; Industries hub/verticals; About story + CTA; Case Studies article shell; `IMPLEMENTATION_PLAN.md` for this pass.
+
+---
+
+## ADR-021: CVector-structured solution pillar pages
+
+**Date:** 2026-08-11
+
+**Context:** Founder wanted heavier structural inspiration from CVector solution pages (especially Industrial Energy Management) to better showcase Stamped, beyond the hybrid DESIGN.md pass (ADR-020).
+
+**Alternatives:**
+
+1. Keep ADR-020 pillar layout with minor copy tweaks
+2. Full CVector clone including Benefits UI demos and testimonials
+3. CVector shell without Benefits: Outcomes → How it works (4 zig-zag + reserved media) → 3 practical Rx examples → Industries → CTA; Stamped ₹ / DISCOM truth
+
+**Selected:** Option 3.
+
+**Rationale:** Matches requested emphasis while skipping Benefits band and testimonials. Storage language mapped to stagger / ToD / idle-holding / ramp (no battery claim). Examples sourced from `Research+DOcs/external/demo-decks/prescriptions-examples.md`. GSAP method visuals retired from pillars in favor of reserved visual slots.
+
+**Impact:** Rewrote `lib/content/solutions.ts` pillar model; `SolutionOutcomes`, `SolutionHowItWorks`, `SolutionExamples`, `SolutionMediaSlot`; both `/solutions/load-energy` and `/solutions/equipment-intelligence`.
