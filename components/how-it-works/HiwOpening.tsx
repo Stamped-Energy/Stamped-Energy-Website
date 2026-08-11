@@ -6,6 +6,7 @@ import { LiveDemoFrame } from "@/components/how-it-works/LiveDemoFrame";
 import { useMotion } from "@/components/motion/MotionProvider";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
+import { SectionBadge } from "@/components/ui/SectionBadge";
 import { howItWorksContent } from "@/lib/content";
 import { gsap, useGSAP } from "@/lib/motion/gsap";
 
@@ -49,15 +50,12 @@ export function HiwOpening() {
     >
       <Container className="relative z-10">
         <div className="mx-auto max-w-3xl text-center">
-          <p
-            data-hiw-opening
-            className="text-xs font-semibold uppercase tracking-[0.16em] text-primary"
-          >
-            {hero.eyebrow}
-          </p>
+          <div data-hiw-opening className="flex justify-center">
+            <SectionBadge label={hero.eyebrow} />
+          </div>
           <h1
             data-hiw-opening
-            className="mt-3 font-display text-3xl font-extrabold leading-tight text-on-surface md:text-4xl lg:text-[2.5rem]"
+            className="mt-5 font-display text-3xl font-extrabold leading-tight tracking-tight text-on-surface md:text-4xl lg:text-[2.5rem]"
           >
             {hero.title}
           </h1>

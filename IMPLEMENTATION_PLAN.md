@@ -1,54 +1,65 @@
 # Implementation Plan
 
-_Status: ADR-016 CVector-inspired homepage + chrome complete 2026-08-11; animation pass deferred._
+_Status: Remaining pages CVector-inspired DESIGN.md pass (ADR-019) — in progress._
 
-## Approved Requirements
+## Mode
 
-- Next.js 15 + TypeScript + Tailwind v4 + GSAP + Lenis
-- Nav: Solutions · Platform · Industries · Case Studies · About · Contact
-- Routes: `/solutions` + pillars; `/platform` (308 from `/how-it-works`); Industries; Case Studies; About; Contact
-- Homepage follows CVector narrative arc (ADR-016): Hero → Problem → What is → How it works → Impact → Solutions (2) → Industries → Resources → Closing CTA. No testimonials/security. Motion placeholders only this pass.
-- Public solution names: Industry Energy Management; Asset Health Intelligence (slugs unchanged)
-- Proof: Verified with evidence; indicative impact ranges + disclaimer; no MES / Plant Margin live claims
-- Scroll-driven GSAP animations with reduced-motion fallback (full Rive/complex motion later)
-- On-page contact form posting to Next.js API route stub
-- Centralized theming via `styles/theme.css` (flat Forge tokens)
-- Content separated into typed `lib/content/` layer
+**feature** — hybrid depth 2.5: visual system + light Stamped-truth copy + selective section restructure (not a CVector clone).
 
-## Architecture Decisions
+## Goal
 
-See `DECISIONS.md`.
+Every public marketing page feels like one Stamped brand system (home-caliber chrome, SectionBadge, rhythm, closing CTAs) while staying product-true for Indian energy-intensive plants.
 
-## Phase Breakdown
+## Scope
 
-### Phase 1 - Scaffold (complete)
+- Shared primitives: `SectionBadge`, `MarketingClosingCta`
+- Solutions hub + 2 pillars; Platform; Industries hub + 5 verticals; About; Contact; Case Studies listing (+ light article shell)
+- Light content polish in `lib/content/*` (no invented fleet metrics)
+- ADR-019 + PROGRESS; `tsc` + `next build`
 
-- Next.js project setup, theme tokens, content layer, layout shells, route stubs
+## Non-goals
 
-### Phase 2 - Motion + Hero (complete)
+- Homepage redesign (ADR-016/018 baseline)
+- Blog admin / CMS UI
+- Plant Margin, Custom Model Integration, Dispatchable Power
+- Careers board, sitewide testimonials, ISO/TSA claims Stamped cannot make
+- Real Rive replacing MotionSlots
+- Route / IA hub changes
 
-- Lenis smooth scroll, GSAP registration, Reveal helper, animated hero
+## Authority
 
-### Prior marketing IA (complete)
+- `DESIGN.md` (Stitch SoT), `PRODUCT.md`, `styles/theme.css`, ADR-016/017/018
+- CVector.com = structure inspiration only
 
-- ADR-011 through ADR-015 and polish passes; see `PROGRESS.md`
+## Phase breakdown
 
-### ADR-016 - CVector home + chrome (complete)
+| Phase | Objective | Exit gate |
+|-------|-----------|-----------|
+| **0** | Shared SectionBadge + MarketingClosingCta | Visual smoke on pilot |
+| **A** | Solutions hub + both pillars selective restructure | Desktop + mobile smoke |
+| **B** | Platform badges/bands/CTA; keep HIW pin | Smoke + reduced-motion |
+| **C** | Industries hub + vertical template | All 5 verticals render |
+| **D** | About, Contact, Case Studies | Forms/links work |
+| **E** | ADR-019, PROGRESS, tsc/build, home regression | Gates green |
 
-1. Content + IA map (complete)
-2. Navbar + Footer chrome (complete)
-3. Homepage sections + MotionSlot (complete)
-4. SEO, docs, build validation (complete)
-5. Visual QA (complete; founder-reviewed, no further fixes this pass)
+## Commit matrix (8)
 
-## Deliverables
-
-- Marketing site with CVector-inspired home narrative on Stamped brand
-- Shared chrome matching the new visual lane
-- Animation backlog via labeled MotionSlot regions
+1. `refactor(ui): shared SectionBadge and closing CTA for inner pages`
+2. `feat(solutions): hub and pillars DESIGN.md pass`
+3. `feat(platform): align platform to DESIGN.md`
+4. `feat(industries): hub and vertical template polish`
+5. `feat(company): about and contact DESIGN.md pass`
+6. `feat(resources): case-studies listing polish`
+7. `docs: ADR-019 and PROGRESS for remaining-pages pass`
+8. `chore: typecheck and build after remaining-pages pass`
 
 ## Risks
 
-- Long homepage vs prior section cap (accepted)
-- Close copy adaptation must stay Stamped-specific (no CVector claims)
-- Impact % band requires disclaimer discipline
+- Over-cloning CVector → hybrid rule + copy differentiation
+- Platform pin break → smoke after Phase B
+- Content voice drift → light polish only
+
+## Prior complete work
+
+- ADR-016 CVector homepage + chrome
+- Stitch-format `DESIGN.md` as system of record

@@ -5,6 +5,7 @@ import { useRef } from "react";
 import { useMotion } from "@/components/motion/MotionProvider";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
+import { SectionBadge } from "@/components/ui/SectionBadge";
 import { gsap, useGSAP } from "@/lib/motion/gsap";
 
 type BlogHeroProps = {
@@ -41,15 +42,12 @@ export function BlogHero({ eyebrow, title, description }: BlogHeroProps) {
     >
       <Container className="relative z-10">
         <div className="max-w-2xl">
-          <p
-            data-blog-hero
-            className="text-xs font-semibold uppercase tracking-[0.16em] text-inverse-primary"
-          >
-            {eyebrow}
-          </p>
+          <div data-blog-hero>
+            <SectionBadge label={eyebrow} alternate />
+          </div>
           <h1
             data-blog-hero
-            className="mt-3 font-display text-[1.65rem] font-extrabold leading-[1.15] text-on-secondary sm:text-3xl md:text-4xl lg:text-[2.75rem]"
+            className="mt-5 font-display text-[1.65rem] font-extrabold leading-[1.15] tracking-tight text-on-secondary sm:text-3xl md:text-4xl lg:text-[2.75rem]"
           >
             {title}
           </h1>

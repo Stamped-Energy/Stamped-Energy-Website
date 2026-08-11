@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Container } from "@/components/ui/Container";
+import { SectionBadge } from "@/components/ui/SectionBadge";
 import { industriesContent } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
@@ -11,10 +12,8 @@ export function IndustriesHubComparison() {
   return (
     <section id="comparison" className="scroll-mt-28 bg-secondary section-y text-on-secondary">
       <Container>
-        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-inverse-primary">
-          {byIndustry.eyebrow}
-        </p>
-        <h2 className="mt-2 max-w-3xl font-display text-2xl font-bold text-on-secondary md:text-3xl">
+        <SectionBadge label={byIndustry.eyebrow} alternate />
+        <h2 className="mt-5 max-w-3xl font-display text-2xl font-bold tracking-tight text-on-secondary md:text-3xl">
           {byIndustry.title}
         </h2>
         <p className="mt-3 max-w-2xl text-sm leading-6 text-on-secondary/70">

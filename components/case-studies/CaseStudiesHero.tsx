@@ -6,6 +6,7 @@ import { useRef } from "react";
 import { useMotion } from "@/components/motion/MotionProvider";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
+import { SectionBadge } from "@/components/ui/SectionBadge";
 import { caseStudiesContent } from "@/lib/content/caseStudies";
 import { gsap, useGSAP } from "@/lib/motion/gsap";
 
@@ -50,15 +51,12 @@ export function CaseStudiesHero() {
 
       <Container className="relative z-10">
         <div className="max-w-2xl">
-          <p
-            data-cs-hero
-            className="text-xs font-semibold uppercase tracking-[0.16em] text-inverse-primary"
-          >
-            {hero.eyebrow}
-          </p>
+          <div data-cs-hero>
+            <SectionBadge label={hero.eyebrow} alternate />
+          </div>
           <h1
             data-cs-hero
-            className="mt-3 font-display text-3xl font-extrabold leading-tight text-on-secondary md:text-4xl lg:text-[2.75rem]"
+            className="mt-5 font-display text-3xl font-extrabold leading-tight tracking-tight text-on-secondary md:text-4xl lg:text-[2.75rem]"
           >
             {hero.title}
           </h1>

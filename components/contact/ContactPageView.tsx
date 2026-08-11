@@ -7,6 +7,7 @@ import { useMotion } from "@/components/motion/MotionProvider";
 import { Container } from "@/components/ui/Container";
 import { ContactForm } from "@/components/ui/ContactForm";
 import { Reveal } from "@/components/ui/Reveal";
+import { SectionBadge } from "@/components/ui/SectionBadge";
 import { contactContent } from "@/lib/content/contact";
 import { gsap, useGSAP } from "@/lib/motion/gsap";
 
@@ -48,15 +49,12 @@ export function ContactPageView() {
         </div>
 
         <Container className="relative z-10">
-          <p
-            data-contact-reveal
-            className="text-xs font-semibold uppercase tracking-[0.14em] text-inverse-primary"
-          >
-            {hero.eyebrow}
-          </p>
+          <div data-contact-reveal>
+            <SectionBadge label={hero.eyebrow} alternate />
+          </div>
           <h1
             data-contact-reveal
-            className="mt-3 max-w-3xl font-display text-2xl font-extrabold leading-tight text-on-secondary sm:text-3xl md:text-4xl lg:text-[2.75rem]"
+            className="mt-5 max-w-3xl font-display text-2xl font-extrabold leading-tight tracking-tight text-on-secondary sm:text-3xl md:text-4xl lg:text-[2.75rem]"
           >
             {hero.title}
           </h1>
@@ -84,10 +82,8 @@ export function ContactPageView() {
         <Container>
           <div className="mx-auto max-w-2xl">
             <Reveal>
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
-                {formSection.eyebrow}
-              </p>
-              <h2 className="mt-2 font-display text-xl font-extrabold text-on-surface sm:text-2xl md:text-3xl">
+              <SectionBadge label={formSection.eyebrow} />
+              <h2 className="mt-5 font-display text-xl font-extrabold tracking-tight text-on-surface sm:text-2xl md:text-3xl">
                 {formSection.title}
               </h2>
               <p className="mt-3 max-w-xl text-sm leading-7 text-on-surface-variant md:text-base">

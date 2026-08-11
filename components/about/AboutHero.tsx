@@ -5,6 +5,7 @@ import { useRef } from "react";
 
 import { useMotion } from "@/components/motion/MotionProvider";
 import { Container } from "@/components/ui/Container";
+import { SectionBadge } from "@/components/ui/SectionBadge";
 import { aboutContent } from "@/lib/content/about";
 import { gsap, useGSAP } from "@/lib/motion/gsap";
 
@@ -49,15 +50,12 @@ export function AboutHero() {
 
       <Container className="relative z-10">
         <div className="max-w-2xl">
-          <p
-            data-about-hero
-            className="text-xs font-semibold uppercase tracking-[0.16em] text-inverse-primary"
-          >
-            {hero.eyebrow}
-          </p>
+          <div data-about-hero>
+            <SectionBadge label={hero.eyebrow} alternate />
+          </div>
           <h1
             data-about-hero
-            className="mt-3 font-display text-[1.45rem] font-extrabold leading-[1.18] text-on-secondary sm:text-3xl md:text-4xl lg:text-[2.75rem]"
+            className="mt-5 font-display text-[1.45rem] font-extrabold leading-[1.18] tracking-tight text-on-secondary sm:text-3xl md:text-4xl lg:text-[2.75rem]"
           >
             {hero.title}
           </h1>

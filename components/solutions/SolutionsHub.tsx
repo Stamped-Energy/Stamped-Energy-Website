@@ -3,7 +3,9 @@ import Link from "next/link";
 import { SolutionsHero } from "@/components/solutions/SolutionsHero";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
+import { MarketingClosingCta } from "@/components/ui/MarketingClosingCta";
 import { Reveal } from "@/components/ui/Reveal";
+import { SectionBadge } from "@/components/ui/SectionBadge";
 import { solutionsContent } from "@/lib/content/solutions";
 
 export function SolutionsHub() {
@@ -25,10 +27,8 @@ export function SolutionsHub() {
       <section className="border-b border-outline-variant/30 bg-surface section-y">
         <Container>
           <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
-              {hub.sectionEyebrow}
-            </p>
-            <h2 className="mt-2 max-w-xl font-display text-2xl font-bold text-on-surface md:text-3xl">
+            <SectionBadge label={hub.sectionEyebrow} />
+            <h2 className="mt-5 max-w-xl font-display text-2xl font-bold tracking-tight text-on-surface md:text-3xl">
               {hub.sectionTitle}
             </h2>
             <p className="mt-3 max-w-2xl text-sm leading-7 text-on-surface-variant md:text-base">
@@ -61,10 +61,8 @@ export function SolutionsHub() {
                     {number}
                   </span>
                   <div className="min-w-0">
-                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
-                      {pillar.shortTitle}
-                    </p>
-                    <h3 className="mt-2 font-display text-2xl font-bold text-on-surface md:text-3xl">
+                    <SectionBadge label={pillar.shortTitle} />
+                    <h3 className="mt-5 font-display text-2xl font-bold tracking-tight text-on-surface md:text-3xl">
                       {pillar.title}
                     </h3>
                     <p className="mt-4 max-w-2xl text-sm leading-7 text-on-surface-variant md:text-base">
@@ -111,6 +109,8 @@ export function SolutionsHub() {
           </Reveal>
         </Container>
       </section>
+
+      <MarketingClosingCta content={hub.finalCta} />
     </>
   );
 }

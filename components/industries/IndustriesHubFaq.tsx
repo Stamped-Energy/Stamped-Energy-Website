@@ -1,4 +1,5 @@
 import { Container } from "@/components/ui/Container";
+import { SectionBadge } from "@/components/ui/SectionBadge";
 import { industriesContent } from "@/lib/content";
 
 export function IndustriesHubFaq() {
@@ -8,10 +9,10 @@ export function IndustriesHubFaq() {
     <section className="border-t border-outline-variant/30 bg-surface section-y">
       <Container>
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
-            {faq.eyebrow}
-          </p>
-          <h2 className="mt-2 font-display text-2xl font-bold text-on-surface md:text-3xl">
+          <div className="flex justify-center">
+            <SectionBadge label={faq.eyebrow} />
+          </div>
+          <h2 className="mt-5 font-display text-2xl font-bold tracking-tight text-on-surface md:text-3xl">
             {faq.title}
           </h2>
         </div>

@@ -1,3 +1,4 @@
+import { SectionBadge } from "@/components/ui/SectionBadge";
 import { cn } from "@/lib/utils";
 
 type SectionHeadingProps = {
@@ -26,18 +27,14 @@ export function SectionHeading({
       )}
     >
       {eyebrow ? (
-        <p
-          className={cn(
-            "mb-3 text-xs font-semibold uppercase tracking-[0.14em]",
-            "text-primary",
-          )}
-        >
-          {eyebrow}
-        </p>
+        <div className={cn(align === "center" && "flex justify-center")}>
+          <SectionBadge label={eyebrow} alternate={dark} />
+        </div>
       ) : null}
       <h2
         className={cn(
-          "text-[1.65rem] font-bold leading-[1.15] sm:text-3xl md:text-4xl",
+          "font-display text-[1.65rem] font-bold leading-[1.15] tracking-tight sm:text-3xl md:text-4xl",
+          eyebrow ? "mt-5" : null,
           dark ? "text-on-secondary" : "text-on-surface",
         )}
       >

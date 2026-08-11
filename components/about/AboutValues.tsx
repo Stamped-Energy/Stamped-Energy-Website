@@ -5,6 +5,7 @@ import { useRef } from "react";
 import { useMotion } from "@/components/motion/MotionProvider";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
+import { SectionBadge } from "@/components/ui/SectionBadge";
 import { aboutContent } from "@/lib/content/about";
 import { scrollTriggerDefaults } from "@/lib/motion/config";
 import { gsap, useGSAP } from "@/lib/motion/gsap";
@@ -39,10 +40,8 @@ export function AboutValues() {
     >
       <Container>
         <Reveal>
-          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
-            {values.eyebrow}
-          </p>
-          <h2 className="mt-2 max-w-2xl font-display text-xl font-bold text-on-surface sm:text-2xl md:text-3xl">
+          <SectionBadge label={values.eyebrow} />
+          <h2 className="mt-5 max-w-2xl font-display text-xl font-bold tracking-tight text-on-surface sm:text-2xl md:text-3xl">
             {values.title}
           </h2>
           <p className="mt-3 max-w-2xl text-sm leading-6 text-on-surface-variant sm:leading-7 md:text-base">
