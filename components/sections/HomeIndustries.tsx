@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { Container } from "@/components/ui/Container";
@@ -13,32 +14,41 @@ export function HomeIndustries() {
       <Container>
         <Reveal>
           <SectionBadge label={industries.badge} />
-          <h2 className="mt-6 max-w-3xl font-display text-3xl font-bold tracking-tight text-balance md:text-5xl">
+          <h2 className="mt-5 max-w-3xl font-display text-3xl font-bold tracking-tight text-balance md:text-4xl">
             {industries.title}
           </h2>
-          <p className="mt-5 max-w-2xl text-base leading-8 text-on-surface/75 md:text-lg">
+          <p className="mt-4 max-w-2xl text-base leading-7 text-on-surface/75">
             {industries.description}
           </p>
         </Reveal>
 
-        <div className="mt-12 divide-y divide-outline-variant/40 border-y border-outline-variant/40 md:mt-16">
+        <ul className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 md:mt-12 md:grid-cols-5 md:gap-3">
           {industries.items.map((item, index) => (
-            <Reveal key={item.id} delay={index * 0.03}>
-              <Link
-                href={`/industries/${item.id}`}
-                className="group grid gap-3 py-7 transition-colors hover:bg-surface/60 md:grid-cols-[minmax(0,0.35fr)_minmax(0,1fr)_auto] md:items-center md:gap-8 md:py-8"
-              >
-                <h3 className="font-display text-xl font-semibold tracking-tight md:text-2xl">
-                  {item.name}
-                </h3>
-                <p className="text-sm leading-7 text-on-surface/75 md:text-base">{item.description}</p>
-                <span className="text-sm font-semibold text-primary opacity-0 transition-opacity group-hover:opacity-100 md:justify-self-end">
-                  Learn more »
-                </span>
-              </Link>
-            </Reveal>
+            <li key={item.id}>
+              <Reveal delay={index * 0.04}>
+                <Link
+                  href={`/industries/${item.id}`}
+                  className="group block outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface-low"
+                >
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-md bg-on-surface/8">
+                    {item.imageSrc ? (
+                      <Image
+                        src={item.imageSrc}
+                        alt={item.imageAlt ?? item.name}
+                        fill
+                        sizes="(max-width: 768px) 45vw, 18vw"
+                        className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+                      />
+                    ) : null}
+                  </div>
+                  <p className="mt-2.5 font-display text-sm font-semibold tracking-tight text-on-surface transition-colors group-hover:text-primary md:text-[0.95rem]">
+                    {item.name}
+                  </p>
+                </Link>
+              </Reveal>
+            </li>
           ))}
-        </div>
+        </ul>
 
         <div className="mt-8">
           <Link
