@@ -16,7 +16,7 @@ type SimpleNavDropdownProps = {
   lightNav?: boolean;
 };
 
-const CLOSE_DELAY_MS = 1000;
+const CLOSE_DELAY_MS = 300;
 
 /** Compact CVector-style hover dropdown. Trigger is not a link. */
 export function SimpleNavDropdown({
