@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-Homepage HIW scroll pin + CVector-style nav dropdowns — complete.
+Stitch-format DESIGN.md (system of record for marketing UI) — complete. Runtime colors remain `styles/theme.css`.
 
 ## Completed Phases
 
@@ -41,6 +41,7 @@ Homepage HIW scroll pin + CVector-style nav dropdowns — complete.
 - [x] **Typography (ADR-017)** - Space Grotesk + Inter + IBM Plex Mono replacing Helvetica Neue
 - [x] **Homepage HIW pin (ADR-018)** - client GSAP ScrollTrigger pin/scrub through Data → Analysis → Prescriptions → Decisions; stacked mobile / reduced-motion
 - [x] **CVector-style nav dropdowns (ADR-018)** - Solutions/Industries button triggers (not hub links); compact hover panel; item links only
+- [x] **Stitch DESIGN.md** - overwrite root DESIGN.md with YAML tokens + six Stitch sections extracted from homepage/chrome; North Star “Plant-office decision layer”
 
 ## Remaining Phases
 
