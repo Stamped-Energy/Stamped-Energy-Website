@@ -9,9 +9,9 @@ export type PageSeoConfig = {
 export const PAGE_SEO = {
   home: {
     absoluteTitle:
-      "Stamped Energy | AI-Native Energy Intelligence for Industrial Plants",
+      "Stamped Energy | AI-Powered Energy Intelligence for Industrial Plants",
     description:
-      "Stamped analyzes plant and market data to create ₹-scored prescriptions so operators can act before opportunities are missed. Industry Energy Management and Asset Health Intelligence for Indian manufacturers.",
+      "Stamped analyzes plant and market data to create ₹-scored prescriptions so operators can act before opportunities are missed. Industry Energy Management and Asset Health Intelligence for industrial manufacturers.",
     path: "/",
   },
   platform: {

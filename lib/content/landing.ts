@@ -81,34 +81,34 @@ export const landingContent = {
 
   homeProblem: {
     badge: "Problem",
-    title: "In dynamic markets, cost moves with every decision.",
+    title: "Energy cost follows every operating decision. Action rarely keeps pace.",
     items: [
       {
         id: "priorities",
-        title: "So much data, so many insights, but what to do first?",
+        title: "Data is abundant. Clear priorities are not.",
         description:
-          "Equipment, bills, and plant data hold the signals, but turning them into priorities takes time you don't have.",
+          "Meters, systems, and bills already hold the signals. Turning them into a ranked next action still takes more time than teams have.",
       },
       {
         id: "speed",
-        title: "Opportunities move faster than you can take action.",
+        title: "Windows to act close before teams can respond.",
         description:
-          "Tariffs shift by the hour, demand charges by the day, and load patterns change with production. By the time teams can respond, the rupee opportunity is often gone.",
+          "Tariffs, demand peaks, and load patterns shift with production. By the time insights are reviewed, the highest-value opportunity has often passed.",
       },
       {
         id: "invisible",
-        title: "Every operating decision moves cost, but the link is invisible.",
+        title: "Floor decisions and energy outcomes stay disconnected.",
         description:
-          "Each choice moves energy cost and downtime risk, but the link between what happens on the floor and what shows up on the bill is impossible to see.",
+          "Each choice affects energy cost and downtime risk, but the link between what happens on the floor and what appears on the bill remains hard to see in time to act.",
       },
     ] satisfies HomeProblemPoint[],
   },
 
   whatIs: {
     badge: "What is Stamped",
-    title: "AI-native energy intelligence for industrial plants",
+    title: "AI-powered energy intelligence for industrial plants",
     description:
-      "Stamped runs continuous analysis of real-time asset, plant, and market data to create ₹-scored prescriptions with a full audit trail for front-line operators.",
+      "Stamped continuously analyzes real-time asset, plant, and market data to deliver ₹-scored prescriptions with a full audit trail for front-line operators.",
     motionSlotLabel: "Product visual",
   },
 
@@ -274,7 +274,7 @@ export const landingContent = {
 
   solutionsSection: {
     badge: "Solutions",
-    title: "Prescriptions that align decisions with bottom-line business results.",
+    title: "Solutions that connect plant decisions to measurable cost and reliability outcomes.",
   },
 
   resourcesSection: {
@@ -286,15 +286,15 @@ export const landingContent = {
 
   problem: {
     eyebrow: "Problem",
-    title: "In dynamic markets, cost moves with every decision.",
+    title: "Energy cost follows every operating decision. Action rarely keeps pace.",
     description:
       "Most plants already meter everything. Cost stalls because data never becomes a ranked next action.",
     items: [
       {
         id: "priorities",
-        title: "So much data, so many insights, but what to do first?",
+        title: "Data is abundant. Clear priorities are not.",
         description:
-          "Equipment, bills, and plant data hold the signals, but turning them into priorities takes time you don't have.",
+          "Meters, systems, and bills already hold the signals. Turning them into a ranked next action still takes more time than teams have.",
         solutionHeading: "How Stamped closes it",
         solutionPoints: [
           "Read-only connect in 14 days: meters, bills, SCADA",
@@ -304,9 +304,9 @@ export const landingContent = {
       },
       {
         id: "speed",
-        title: "Opportunities move faster than you can take action.",
+        title: "Windows to act close before teams can respond.",
         description:
-          "Tariffs shift by the hour, demand charges by the day, and load patterns change with production. By the time teams can respond, the rupee opportunity is often gone.",
+          "Tariffs, demand peaks, and load patterns shift with production. By the time insights are reviewed, the highest-value opportunity has often passed.",
         solutionHeading: "How Stamped closes it",
         solutionPoints: [
           "90-day pilot, subscribe after verified evidence",
@@ -316,9 +316,9 @@ export const landingContent = {
       },
       {
         id: "invisible",
-        title: "Every operating decision moves cost, but the link is invisible.",
+        title: "Floor decisions and energy outcomes stay disconnected.",
         description:
-          "Each choice moves energy cost and downtime risk, but the link between what happens on the floor and what shows up on the bill is impossible to see.",
+          "Each choice affects energy cost and downtime risk, but the link between what happens on the floor and what appears on the bill remains hard to see in time to act.",
         solutionHeading: "How Stamped closes it",
         solutionPoints: [
           "WhatsApp to people who flip switches",
