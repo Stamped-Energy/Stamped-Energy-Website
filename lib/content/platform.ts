@@ -15,11 +15,11 @@ const pharmaBeforeAfter = getBeforeAfterScenario();
 export const platformContent = {
   hero: {
     eyebrow: "Platform",
-    title: "Stamped Intelligence on your plant stack",
+    title: "Connect to Improve on your plant stack",
     description:
-      "Most plants already have meters and SCADA. The gap is analysis, root cause, and assigned fixes. Stamped delivers real-time intelligence on plant signals, detects waste and equipment issues, and guides operations on what to resolve, verified with evidence, then improved based on decisions taken.",
+      "Most plants already have meters and SCADA. The gap is analysis, root cause, and assigned fixes—with ₹ impact. Stamped delivers real-time intelligence on plant signals, detects waste and equipment issues, and guides operations on what to resolve, verified with evidence, then improved based on decisions taken.",
     primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
-    secondaryCta: { label: "Back to home", href: "/" } satisfies CtaLink,
+    secondaryCta: { label: "View solutions", href: "/solutions" } satisfies CtaLink,
   },
 
   plantSld: {
@@ -305,8 +305,10 @@ export const platformContent = {
   finalCta: {
     eyebrow: "Next step",
     title: "Walk through your meter setup and last three bills",
-    description: "We estimate addressable waste and outline a pilot, only if the numbers justify it.",
+    description:
+      "We estimate addressable waste in ₹ and outline a pilot—only if the numbers justify it.",
     primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
+    secondaryCta: { label: "View solutions", href: "/solutions" } satisfies CtaLink,
   },
 } as const;
 

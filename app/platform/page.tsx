@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { HiwCapabilities } from "@/components/how-it-works/HiwCapabilities";
 import { HiwDeployment } from "@/components/how-it-works/HiwDeployment";
 import { HiwOpening } from "@/components/how-it-works/HiwOpening";
+import { HiwOutcomesBand } from "@/components/how-it-works/HiwOutcomesBand";
 import { HiwPageCta } from "@/components/how-it-works/HiwPageCta";
 import { HiwPinnedJourney } from "@/components/how-it-works/HiwPinnedJourney";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -24,6 +25,7 @@ export default function PlatformPage() {
       <JsonLd data={[howToSchema, breadcrumbSchema]} />
       <HiwOpening />
       <HiwPinnedJourney />
+      <HiwOutcomesBand />
       <HiwCapabilities />
       <HiwDeployment />
       <HiwPageCta />
