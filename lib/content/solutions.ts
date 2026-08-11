@@ -77,17 +77,17 @@ export type SolutionPillarPage = {
 export const solutionsContent = {
   hub: {
     eyebrow: "Solutions",
-    title: "Stamped Intelligence for two plant outcomes",
+    title: "Two outcomes. One evidence trail.",
     description:
-      "One product for energy-intensive plants in India. Choose the outcome page that matches how you buy. Same stack, real-time intelligence, verified with evidence.",
+      "One product for energy-intensive plants in India. Pick the pillar that matches how you buy—same stack, real-time intelligence, verified with evidence.",
     heroImageSrc: "/industries/cement.png",
     heroImageAlt: "Cement plant with silos and kiln illuminated at twilight",
     primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
     secondaryCta: { label: "See the Platform", href: "/platform" } satisfies CtaLink,
     sectionEyebrow: "The intelligence",
-    sectionTitle: "Two pillars. One evidence trail.",
+    sectionTitle: "Two pillars. One operating loop.",
     sectionIntro:
-      "Start on the hub for the overview, then open the pillar that matches how your plant buys. Each page goes deeper on problem, levers, who acts, and sample prescriptions.",
+      "Start here for the overview, then open the pillar that matches how your plant buys. Each page goes deeper on problem, levers, who acts, and sample prescriptions.",
     finalCta: {
       eyebrow: "Start with your plant",
       title: "See which pillar fits how you buy",
@@ -177,7 +177,7 @@ export const solutionsContent = {
       },
       problem: {
         title: "You already have the meters",
-        body: "Demand spikes and high SEC show up after the fact. The missing piece is an assigned next action before the billing window closes, not another trend chart.",
+        body: "Demand spikes and high SEC show up after the fact. The missing piece is an assigned next action—with ₹ impact—before the billing window closes, not another trend chart.",
       },
       method: {
         eyebrow: "Agentic intelligence",

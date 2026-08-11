@@ -6,6 +6,7 @@ import { AgenticEnergyVisual } from "@/components/solutions/AgenticEnergyVisual"
 import { EarlyDetectionVisual } from "@/components/solutions/EarlyDetectionVisual";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
+import { SectionBadge } from "@/components/ui/SectionBadge";
 import type { SolutionPillarPage as PillarContent } from "@/lib/content/solutions";
 import { cn } from "@/lib/utils";
 
@@ -22,10 +23,8 @@ export function SolutionMethodBand({ method, slug }: SolutionMethodBandProps) {
       <Container>
         <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-14">
           <Reveal>
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
-              {method.eyebrow}
-            </p>
-            <h2 className="mt-2 font-display text-2xl font-bold text-on-surface md:text-3xl">
+            <SectionBadge label={method.eyebrow} />
+            <h2 className="mt-5 font-display text-2xl font-bold tracking-tight text-on-surface md:text-3xl">
               {method.title}
             </h2>
             <p className="mt-4 text-sm leading-7 text-on-surface-variant md:text-base">
