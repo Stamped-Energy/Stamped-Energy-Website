@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-CVector-inspired homepage + chrome revamp (ADR-016) - complete (founder visual QA 2026-08-11).
+Typography ADR-017 (Space Grotesk + Inter + IBM Plex Mono) - complete.
 
 ## Completed Phases
 
@@ -38,6 +38,7 @@ CVector-inspired homepage + chrome revamp (ADR-016) - complete (founder visual Q
 - [x] **CVector homepage structure (ADR-016 Phase 3)** - new section stack + MotionSlot placeholders; FAQ off home
 - [x] **CVector docs/SEO (ADR-016 Phase 4)** - ADR-016, meta titles, build green
 - [x] **CVector visual QA (ADR-016 Phase 5)** - founder-reviewed; no further layout fixes this pass
+- [x] **Typography (ADR-017)** - Space Grotesk + Inter + IBM Plex Mono replacing Helvetica Neue
 
 ## Remaining Phases
 

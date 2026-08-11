@@ -60,9 +60,13 @@
   --color-background: var(--brand-background);
   --color-on-background: var(--brand-on-background);
 
-  /* Typography: Helvetica Neue stack (C3-inspired; system fonts, no webfont license) */
-  --font-family-sans: "Helvetica Neue", Helvetica, Arial, ui-sans-serif, sans-serif;
-  --font-family-display: "Helvetica Neue", Helvetica, Arial, ui-sans-serif, sans-serif;
+  /* Typography: Space Grotesk (display) + Inter (body) + IBM Plex Mono (labels) */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+  --font-family-sans: var(--font-sans);
+  --font-family-display: var(--font-display);
+  --font-family-mono: var(--font-mono);
 }
 
 @layer base {
@@ -81,8 +85,8 @@
     color: var(--color-on-surface);
     font-family: var(--font-family-sans);
     font-size: 1rem;
-    line-height: 1.6;
-    letter-spacing: 0.005em;
+    line-height: 1.65;
+    letter-spacing: 0;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     overflow-x: clip;
@@ -93,8 +97,9 @@
   h3,
   h4 {
     font-family: var(--font-family-display);
-    letter-spacing: -0.03em;
-    line-height: 1.15;
+    letter-spacing: -0.025em;
+    line-height: 1.12;
+    font-weight: 600;
   }
 
   ::selection {

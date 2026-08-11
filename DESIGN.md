@@ -19,22 +19,29 @@ Source of truth: `styles/theme.css`. Align with stamped-external demo-decks surf
 
 ## Typography
 
-- **Family (display + body):** Helvetica Neue stack: `"Helvetica Neue", Helvetica, Arial, ui-sans-serif, sans-serif`
-- Wired in `app/globals.css` as `--font-family-sans` and `--font-family-display` (same stack). No Google webfonts.
-- Inspiration: [C3 AI](https://c3.ai/) type rhythm only (clean enterprise Helvetica Neue). Not C3 colors or layout modules.
-- Strong size/weight contrast; slightly tight headline tracking (`-0.03em`); body ≤75ch; generous `.section-y` air.
-- If licensed Helvetica Now / Neue files are added later, load via `next/font/local` without changing the public stack name.
+CVector-adjacent legal stack (ADR-017). Not ABC Monument Grotesk (requires Dinamo license).
+
+| Role | Family | Token / utility |
+|------|--------|-----------------|
+| Display / headlines | **Space Grotesk** | `--font-family-display` / `font-display` |
+| Body / UI | **Inter** | `--font-family-sans` / `font-sans` |
+| Labels / badges / mono | **IBM Plex Mono** | `--font-family-mono` / `font-mono` |
+
+- Loaded via `next/font/google` in `app/layout.tsx` (self-hosted, `display: swap`).
+- Wired in `app/globals.css` `@theme` as `--font-sans`, `--font-display`, `--font-mono`.
+- Headlines: weight 600+, tracking about `-0.025em`; body line-height ~1.65; body ≤75ch; generous `.section-y` air.
+- Section badges and MotionSlot labels use `font-mono`.
 
 ## Layout craft
 
 - One composition per first viewport; brand-forward
 - Full-bleed imagery where used; solid overlays (`bg-secondary/70`) not gradients
 - No cards unless interaction needs them; no nested cards
-- One job per section; homepage ≤7 sections
+- One job per section; homepage follows ADR-016 CVector narrative (longer than prior ≤7-section cap)
 
 ## Motion
 
-GSAP + ScrollTrigger + Lenis. 2-3 intentional reveals per major page. Ease-out exponentials. No bounce.
+GSAP + ScrollTrigger + Lenis. 2-3 intentional reveals per major page. Ease-out exponentials. No bounce. Homepage MotionSlot placeholders pending real animation pass.
 
 ## Absolute bans
 

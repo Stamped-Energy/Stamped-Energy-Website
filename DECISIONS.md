@@ -312,3 +312,23 @@ Architecture and workflow decisions for this project.
 **Rationale:** Stronger industrial narrative and clearer product story. Overrides DESIGN.md homepage section cap and allows an impact metrics band with indicative disclaimer. Public solution names: Industry Energy Management (`/solutions/load-energy`) and Asset Health Intelligence (`/solutions/equipment-intelligence`). Plant Margin Optimization deferred. FAQ removed from home (no orphan FAQPage schema on `/`).
 
 **Impact:** New home sections under `components/sections/`; chrome restyle in Navbar/Footer; content in `lib/content/landing.ts` / `solutions.ts` / `site.ts`; docs and SEO titles updated.
+
+---
+
+## ADR-017: Space Grotesk + Inter + IBM Plex Mono typography
+
+**Date:** 2026-08-11
+
+**Context:** Founder disliked Helvetica Neue (ADR-014) and wanted CVector’s type feel. CVector uses ABC Monument Grotesk + Inter; Monument Grotesk requires a paid Dinamo web license. Founder chose legal free Option B.
+
+**Alternatives:**
+
+1. License ABC Monument Grotesk + Inter (exact CVector)
+2. Space Grotesk (display) + Inter (body) + IBM Plex Mono (labels)
+3. Inter-only with weight contrast
+
+**Selected:** Option 2.
+
+**Rationale:** Ships immediately without font procurement; preserves grotesk headline + clean body + mono label rhythm similar to CVector. Self-hosted via `next/font/google`.
+
+**Impact:** `app/layout.tsx` loads three Google fonts; `app/globals.css` tokens; SectionBadge/MotionSlot use `font-mono`; `DESIGN.md` updated; supersedes ADR-014 Helvetica Neue as system of record.
