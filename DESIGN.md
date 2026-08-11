@@ -31,7 +31,7 @@ CVector-adjacent legal stack (ADR-017). Not ABC Monument Grotesk (requires Dinam
 - Wired in `app/globals.css` `@theme` as `--font-sans`, `--font-display`, `--font-mono`.
 - Headlines: weight 600+, tracking about `-0.025em`; body line-height ~1.65; body ≤75ch; generous `.section-y` air.
 - Section badges and MotionSlot labels use `font-mono`.
-- Navbar links and dropdowns use `font-display` (Space Grotesk) in title case; CTA stays body/UI.
+- Navbar links and dropdown labels use uppercase `font-display` (Space Grotesk), not mono; CTA button stays Inter/sans.
 
 ## Layout craft
 
