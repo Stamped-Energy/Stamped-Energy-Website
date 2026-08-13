@@ -1,65 +1,43 @@
-# Implementation Plan
+# Implementation Plan — Homepage hero plant-flow (ADR-022)
 
-_Status: Remaining pages CVector-inspired DESIGN.md pass (ADR-020) — complete._
-
-## Mode
-
-**feature** — hybrid depth 2.5: visual system + light Stamped-truth copy + selective section restructure (not a CVector clone).
+_Status: Implementation complete. Visual QA against `handoff/hero-plant-flow/hero-plant-flow.html` remaining._
 
 ## Goal
 
-Every public marketing page feels like one Stamped brand system (home-caliber chrome, SectionBadge, rhythm, closing CTAs) while staying product-true for Indian energy-intensive plants.
+Replace the homepage hero MotionSlot with the handed-off Stamped plant-flow motion graphic, ported faithfully into Next.js.
 
 ## Scope
 
-- Shared primitives: `SectionBadge`, `MarketingClosingCta`
-- Solutions hub + 2 pillars; Platform; Industries hub + 5 verticals; About; Contact; Case Studies listing (+ light article shell)
-- Light content polish in `lib/content/*` (no invented fleet metrics)
-- ADR-019 + PROGRESS; `tsc` + `next build`
+- `components/sections/hero/HeroPlantFlow.tsx` (client)
+- `components/sections/hero/HeroPlantFlow.css`
+- `components/sections/hero/heroPlantFlowEngine.ts`
+- `components/sections/Hero.tsx` visual slot
+- IBM Plex Mono 600/700 for chip/live tags
+- Docs: ADR-022, PROGRESS
 
 ## Non-goals
 
-- Homepage redesign (ADR-016/018 baseline)
-- Blog admin / CMS UI
-- Plant Margin, Custom Model Integration, Dispatchable Power
-- Careers board, sitewide testimonials, ISO/TSA claims Stamped cannot make
-- Real Rive replacing MotionSlots
-- Route / IA hub changes
+- Deleting `handoff/hero-plant-flow/`
+- Replacing other MotionSlots (HIW, WhatIs, Solutions, Problem)
+- New visual language or invented fleet metrics
+- EMS / MES / PLC-replacement claims
+- Dev preview route
 
-## Authority
+## Dependencies
 
-- `DESIGN.md` (Stitch SoT), `PRODUCT.md`, `styles/theme.css`, ADR-016/017/018
-- CVector.com = structure inspiration only
-
-## Phase breakdown
-
-| Phase | Objective | Exit gate |
-|-------|-----------|-----------|
-| **0** | Shared SectionBadge + MarketingClosingCta | Visual smoke on pilot |
-| **A** | Solutions hub + both pillars selective restructure | Desktop + mobile smoke |
-| **B** | Platform badges/bands/CTA; keep HIW pin | Smoke + reduced-motion |
-| **C** | Industries hub + vertical template | All 5 verticals render |
-| **D** | About, Contact, Case Studies | Forms/links work |
-| **E** | ADR-019, PROGRESS, tsc/build, home regression | Gates green |
-
-## Commit matrix (8)
-
-1. `refactor(ui): shared SectionBadge and closing CTA for inner pages`
-2. `feat(solutions): hub and pillars DESIGN.md pass`
-3. `feat(platform): align platform to DESIGN.md`
-4. `feat(industries): hub and vertical template polish`
-5. `feat(company): about and contact DESIGN.md pass`
-6. `feat(resources): case-studies listing polish`
-7. `docs: ADR-019 and PROGRESS for remaining-pages pass`
-8. `chore: typecheck and build after remaining-pages pass`
+- Public assets `/hero-plant-flow/plant.png` and `/hero-plant-flow/logo.png`
+- Existing hero GSAP intro on `[data-hero-animate="visual"]`
+- Site fonts: Space Grotesk, Inter, IBM Plex Mono
 
 ## Risks
 
-- Over-cloning CVector → hybrid rule + copy differentiation
-- Platform pin break → smoke after Phase B
-- Content voice drift → light polish only
+- Chip (0,0) flash if visibility is forced before SVG layout
+- Prescriptions panel clipped if stage is shorter than Frame 10 aspect
+- GSAP `autoAlpha` racing the plant-flow open sequence
+- Mobile viewport vs stage width (graphic uses min-width 860px + horizontal scroll)
 
-## Prior complete work
+## Deliverables
 
-- ADR-016 CVector homepage + chrome
-- Stitch-format `DESIGN.md` as system of record
+- Animated plant → Stamped → prescriptions flow on `/`
+- Reduced-motion static placement
+- Handoff folder left in place

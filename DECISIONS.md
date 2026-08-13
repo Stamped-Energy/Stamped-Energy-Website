@@ -411,3 +411,23 @@ Architecture and workflow decisions for this project.
 **Rationale:** Matches requested emphasis while skipping Benefits band and testimonials. Storage language mapped to stagger / ToD / idle-holding / ramp (no battery claim). Examples sourced from `Research+DOcs/external/demo-decks/prescriptions-examples.md`. GSAP method visuals retired from pillars in favor of reserved visual slots.
 
 **Impact:** Rewrote `lib/content/solutions.ts` pillar model; `SolutionOutcomes`, `SolutionHowItWorks`, `SolutionExamples`, `SolutionMediaSlot`; both `/solutions/load-energy` and `/solutions/equipment-intelligence`.
+
+---
+
+## ADR-022: Homepage hero plant-flow graphic
+
+**Date:** 2026-08-14
+
+**Context:** Homepage hero still used a MotionSlot placeholder. OpenMontage handed off a complete plant → Stamped → prescriptions motion graphic (`handoff/hero-plant-flow/`).
+
+**Alternatives:**
+
+1. Keep MotionSlot until a later animation pass
+2. Invent a new React/GSAP visual
+3. Port `hero-plant-flow.html` faithfully into a client component and swap it into the existing `data-hero-animate="visual"` slot
+
+**Selected:** Option 3.
+
+**Rationale:** The HTML is the visual SoT (wires, chip timing, prescription copy, reduced-motion). Porting avoids a new visual language. GSAP intro stays on the wrapper; chip motion stays in the handoff engine (rAF + SVG `getPointAtLength`). Prescription copy is indicative plant actions from the handoff — not EMS/MES/PLC-replacement claims.
+
+**Impact:** `components/sections/hero/HeroPlantFlow.tsx` + CSS + engine; `Hero.tsx` visual slot; assets at `/hero-plant-flow/*`. Handoff folder kept as reference. IBM Plex Mono 600/700 loaded for chip/live tags.

@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-CVector-structured solution pillars (ADR-021) — complete. Homepage / MotionSlot animation pass still deferred.
+Homepage hero plant-flow graphic (ADR-022) — implementation complete; visual QA against handoff remaining.
 
 ## Completed Phases
 
@@ -45,10 +45,11 @@ CVector-structured solution pillars (ADR-021) — complete. Homepage / MotionSlo
 - [x] **OpenMontage brand pack (ADR-019)** - self-contained product context + C-Vector motion audit + Impeccable `DESIGN_VIDEO` + `stamped-industrial` playbook + prompts; four docs commits
 - [x] **Remaining pages DESIGN.md pass (ADR-020)** - shared SectionBadge + MarketingClosingCta; Solutions hub/pillars; Platform outcomes band (pin kept); Industries hub + segments; About story; Contact; Case Studies shell polish; `tsc` + `next build` green (2026-08-11)
 - [x] **CVector solution pillars (ADR-021)** - Outcomes → 4 How-it-works zig-zag (reserved media) → 3 practical Rx examples → Industries → CTA on both pillars; no Benefits band
+- [x] **Homepage hero plant-flow (ADR-022)** - OpenMontage handoff ported into `HeroPlantFlow`; replaces MotionSlot in homepage hero visual slot
 
 ## Remaining Phases
 
-- [ ] Homepage / HIW / solutions animation pass (replace MotionSlot; use `docs/openmontage-brand/prompts/website-motion-brief.md`)
+- [ ] Homepage / HIW / solutions animation pass for remaining MotionSlots (use `docs/openmontage-brand/prompts/website-motion-brief.md`)
 - [ ] First OpenMontage production using `stamped-industrial` playbook (outside this repo)
 - See **`SEO_GEO_AEO.md` → Remaining & ongoing maintenance** for SEO list. Highlights:
 - [ ] **Google Business Profile** (Section 12 #3)

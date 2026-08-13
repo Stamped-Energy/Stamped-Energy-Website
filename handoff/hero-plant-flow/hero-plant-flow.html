@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stamped · Hero plant flow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      /* Stamped industrial — DESIGN_VIDEO.md */
+      --bg: #f7faf5;
+      --surface-low: #f1f4f0;
+      --ink: #191c1a;
+      --mute: #5a403c;
+      --line: #191c1a;
+      --outline: #e3beb8;
+      --coral: #F75440;
+      --coral-soft: #ffdad4;
+      --tag-pos: #191c1a;
+      --tag-pos-ink: #fbfcf9;
+      --tag-neg: #ffdad4;
+      --tag-neg-ink: #5a403c;
+      --rx-h: 124px;
+      --rx-visible: 2;
+      --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+      --font-body: Inter, ui-sans-serif, system-ui, sans-serif;
+      --font-label: "IBM Plex Mono", ui-monospace, monospace;
+      --radius: 8px;
+      --cream: #fbfcf9;
+      --halo: color-mix(in srgb, var(--coral) 22%, transparent);
+      /* Frame 10 canvas */
+      --f10-w: 2529;
+      --f10-h: 1274;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-body);
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .stage {
+      width: min(1280px, 98vw);
+      /* Match Frame 10 aspect so SVG meet has no letterbox offset */
+      aspect-ratio: 2529 / 1274;
+      height: auto;
+      max-height: 96vh;
+      margin: 2vh auto;
+      position: relative;
+    }
+
+    .scene {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      background: var(--bg);
+    }
+
+    /* SVG uses Frame 10 viewBox so wire d values stay in Figma coords */
+    .scene-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .wire {
+      fill: none;
+      stroke: var(--line);
+      stroke-width: 2.5;
+      stroke-linecap: square;
+      stroke-linejoin: miter;
+      opacity: 0;
+    }
+
+    .wire.wire-out {
+      stroke-width: 2;
+    }
+
+    /* Plant — Frame 10 slot ~0.8% / 18% / 36% / 66% */
+    .plant {
+      position: absolute;
+      left: 0.75%;
+      top: 18.1%;
+      width: 36.3%;
+      height: 65.9%;
+      z-index: 1;
+      opacity: 0;
+      overflow: visible;
+      background: transparent;
+      border: none;
+    }
+
+    .plant img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: left center;
+      display: block;
+      filter: none;
+      mix-blend-mode: normal;
+    }
+
+    .plant-fallback {
+      position: absolute;
+      inset: 0;
+      display: none;
+      place-items: center;
+      text-align: center;
+      padding: 16px;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mute);
+      background: var(--surface-low);
+      border: 1px solid var(--outline);
+      border-radius: var(--radius);
+    }
+
+    .src-label {
+      position: absolute;
+      z-index: 4;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      text-transform: none;
+      padding: 8px 14px;
+      border: 1px solid color-mix(in srgb, var(--outline) 55%, var(--coral));
+      border-radius: 999px;
+      box-shadow:
+        0 6px 18px color-mix(in srgb, var(--ink) 7%, transparent),
+        0 0 0 3px var(--halo);
+      white-space: nowrap;
+      opacity: 0;
+      transform: translate(-50%, calc(-100% - 12px));
+      pointer-events: none;
+    }
+
+    .dock-dot {
+      position: absolute;
+      z-index: 4;
+      width: 11px;
+      height: 11px;
+      margin: -5.5px 0 0 -5.5px;
+      border-radius: 50%;
+      background: var(--coral);
+      box-shadow:
+        0 0 0 2px var(--cream),
+        0 0 0 5px var(--halo);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .signals {
+      position: absolute;
+      inset: 0;
+      z-index: 5;
+      pointer-events: none;
+    }
+
+    .chip {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 0;
+      height: 0;
+      opacity: 1;
+      visibility: hidden;
+      white-space: nowrap;
+      /* No transform/opacity here — keeps nodes+labels in one shared stacking context */
+    }
+
+    .chip-node {
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 1;
+      width: 10px;
+      height: 10px;
+      margin: -5px 0 0 -5px;
+      border-radius: 50%;
+      background: var(--coral);
+      opacity: 0;
+      box-shadow:
+        0 0 0 2px var(--cream),
+        0 0 0 5px var(--halo);
+      animation: nodePulse 2.4s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    }
+
+    @keyframes nodePulse {
+      0%, 100% {
+        box-shadow:
+          0 0 0 2px var(--cream),
+          0 0 0 5px var(--halo);
+      }
+      50% {
+        box-shadow:
+          0 0 0 2px var(--cream),
+          0 0 0 8px color-mix(in srgb, var(--coral) 14%, transparent);
+      }
+    }
+
+    .chip-label {
+      position: absolute;
+      left: 0;
+      bottom: 12px;
+      z-index: 2;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px 6px 12px;
+      opacity: 0;
+      background: var(--cream);
+      border: 1px solid color-mix(in srgb, var(--outline) 40%, var(--coral));
+      border-radius: 999px;
+      box-shadow:
+        0 8px 22px color-mix(in srgb, var(--ink) 8%, transparent),
+        0 0 0 3px var(--halo);
+    }
+
+    .chip-stem {
+      display: none;
+    }
+
+    .chip-name {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      text-transform: none;
+      color: var(--ink);
+      line-height: 1;
+      text-shadow: none;
+    }
+
+    .chip-tag {
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--font-label);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      line-height: 1;
+      padding: 5px 8px;
+      border-radius: 999px;
+      border: none;
+      background: var(--coral);
+      color: var(--cream);
+      box-shadow: 0 1px 0 color-mix(in srgb, var(--ink) 12%, transparent);
+    }
+
+    .chip-tag.is-down {
+      background: color-mix(in srgb, var(--coral) 68%, var(--ink));
+      color: var(--cream);
+    }
+
+    .chip.is-bare .chip-node {
+      width: 10px;
+      height: 10px;
+      margin: -5px 0 0 -5px;
+      background: var(--coral);
+      animation: nodePulse 2.4s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+      box-shadow:
+        0 0 0 2px var(--cream),
+        0 0 0 5px var(--halo);
+    }
+
+    .chip.is-bare .chip-label {
+      display: none;
+    }
+
+    /* Logo above traveling chips so labels don't cover the mark */
+    .logo-wrap {
+      position: absolute;
+      z-index: 8;
+      left: 62.5%;
+      /* Vertical hub ≈ mid of inbound wire ends */
+      top: 52.5%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      opacity: 0;
+      transform: translateX(-50%) translateY(8px);
+    }
+
+    .logo-wrap img {
+      width: min(128px, 10vw);
+      height: min(128px, 10vw);
+      display: block;
+      /* Center the mark on hub; collapse layout space so caption sits just under */
+      transform: translateY(-50%);
+      margin-bottom: calc(min(128px, 10vw) * -0.42);
+    }
+
+    .logo-caption {
+      background: none;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(18px, 1.75vw, 22px);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      text-transform: none;
+      text-align: center;
+      line-height: 1.08;
+      padding: 0;
+      border: none;
+      border-radius: 0;
+    }
+
+    /* Prescriptions — taller card, right-anchored */
+    .rx-panel {
+      position: absolute;
+      top: 50%;
+      left: auto;
+      right: 1.5%;
+      width: min(400px, 28%);
+      z-index: 6;
+      opacity: 0;
+      transform: translateY(calc(-50% + 10px));
+      background: var(--cream);
+      border: 1.5px solid color-mix(in srgb, var(--coral) 55%, var(--outline));
+      border-radius: 12px;
+      padding: 16px 18px 14px;
+      box-shadow:
+        0 18px 40px color-mix(in srgb, var(--ink) 10%, transparent),
+        0 0 0 4px var(--halo),
+        0 1px 0 color-mix(in srgb, var(--cream) 80%, transparent);
+    }
+
+    .rx-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin: -4px -6px 14px;
+      padding: 12px 12px 14px;
+      border-bottom: 1px solid color-mix(in srgb, var(--outline) 65%, var(--coral));
+      background: color-mix(in srgb, var(--coral-soft) 42%, var(--cream));
+      border-radius: 8px 8px 0 0;
+    }
+
+    .rx-head-text {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .rx-title {
+      font-family: var(--font-display);
+      font-size: clamp(18px, 1.75vw, 22px);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      text-transform: none;
+      color: var(--ink);
+    }
+
+    .rx-sub {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      line-height: 1.35;
+      color: var(--mute);
+      white-space: nowrap;
+    }
+
+    .rx-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: var(--font-label);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border: none;
+      background: var(--coral);
+      color: var(--cream);
+      border-radius: 999px;
+      padding: 6px 11px;
+      opacity: 0;
+      box-shadow: 0 2px 0 color-mix(in srgb, var(--ink) 14%, transparent);
+    }
+
+    .rx-live::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: currentColor;
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--cream) 35%, transparent);
+      animation: liveBlink 1.6s ease-out infinite;
+    }
+
+    @keyframes liveBlink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.45; }
+    }
+
+    .rx-viewport {
+      height: calc(var(--rx-h) * var(--rx-visible));
+      overflow: hidden;
+      position: relative;
+    }
+
+    .rx-track {
+      display: flex;
+      flex-direction: column;
+      will-change: transform;
+      transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .rx-item {
+      height: var(--rx-h);
+      padding: 16px 2px 18px;
+      border-bottom: 1px solid color-mix(in srgb, var(--outline) 80%, transparent);
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 11px;
+    }
+
+    .rx-item:last-child {
+      border-bottom: none;
+    }
+
+    .rx-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .rx-tag {
+      font-family: var(--font-label);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 6px 11px;
+      border: 1px solid var(--outline);
+      border-radius: 999px;
+      background: var(--surface-low);
+      color: var(--mute);
+    }
+
+    .rx-tag.is-money {
+      background: var(--tag-pos);
+      border-color: transparent;
+      color: var(--tag-pos-ink);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.02em;
+      box-shadow: 0 1px 0 color-mix(in srgb, var(--tag-pos-ink) 12%, transparent);
+    }
+
+    .rx-copy {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      line-height: 1.3;
+      color: var(--ink);
+      max-width: 36ch;
+    }
+
+    @media (max-width: 1100px) {
+      .plant { width: 38%; }
+      .logo-wrap { left: 58%; }
+      .logo-wrap img {
+        width: min(112px, 10vw);
+        height: min(112px, 10vw);
+        margin-bottom: calc(min(112px, 10vw) * -0.42);
+      }
+      .rx-panel { right: 1.25%; width: min(340px, 29%); }
+      .logo-caption { font-size: clamp(16px, 1.8vw, 20px); }
+      .rx-sub { font-size: 11px; }
+      :root { --rx-h: 114px; }
+    }
+
+    @media (max-width: 900px) {
+      .plant { width: 40%; top: 16%; height: 62%; }
+      .logo-wrap { left: 54%; }
+      .logo-wrap img {
+        width: min(96px, 12vw);
+        height: min(96px, 12vw);
+        margin-bottom: calc(min(96px, 12vw) * -0.42);
+      }
+      .rx-panel { right: 1%; width: min(270px, 31%); }
+      .rx-title { font-size: clamp(15px, 2vw, 18px); }
+      .rx-sub { font-size: 10px; }
+      .rx-tag { font-size: 11px; }
+      .rx-tag.is-money { font-size: 12px; }
+      .rx-copy { font-size: 16px; }
+      .chip-name { font-size: 12px; }
+      .src-label { font-size: 11px; padding: 7px 12px; }
+      .logo-caption { font-size: clamp(15px, 2vw, 18px); }
+      :root { --rx-h: 108px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .plant, .src-label, .dock-dot, .rx-panel, .rx-live, .logo-wrap, .wire {
+        opacity: 1 !important;
+      }
+      .logo-wrap { transform: translateX(-50%) !important; }
+      .rx-panel { transform: translateY(-50%) !important; }
+      .src-label { transform: translate(-50%, calc(-100% - 12px)) !important; }
+      .rx-track { transition: none !important; }
+      .chip-node, .chip-label { opacity: 0.85 !important; }
+      .chip { opacity: 1 !important; visibility: visible !important; }
+      .chip-node, .rx-live::before { animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="stage" id="stage">
+    <div class="scene" id="scene">
+      <!-- Plant: Frame 10 asset (transparent) -->
+      <div class="plant" id="plant">
+        <div class="plant-fallback" id="plantFallback">Plant photo<br />placeholder</div>
+        <img
+          id="plantImg"
+          src="/hero-plant-flow/plant.png"
+          alt=""
+          onload="document.getElementById('plantFallback').style.display='none';"
+          onerror="this.remove(); document.getElementById('plantFallback').style.display='grid';"
+        />
+      </div>
+
+      <!-- viewBox = Frame 10 (2529×1274); paths from Group 4 (Vectors 11–13) + live out connector -->
+      <svg class="scene-svg" id="svg" viewBox="0 0 2529 1274" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <path class="wire" id="wExt" />
+        <path class="wire" id="wTel" />
+        <path class="wire" id="wApp" />
+        <path class="wire wire-out" id="wOut" />
+      </svg>
+
+      <span class="dock-dot" id="dockExt" aria-hidden="true"></span>
+      <span class="dock-dot" id="dockTel" aria-hidden="true"></span>
+      <span class="dock-dot" id="dockApp" aria-hidden="true"></span>
+
+      <div class="src-label" id="srcExt">Market data</div>
+      <div class="src-label" id="srcTel">Plant telemetry</div>
+      <div class="src-label" id="srcApp">Application systems</div>
+
+      <div class="signals" id="signals" aria-hidden="true"></div>
+
+      <div class="logo-wrap" id="logoWrap">
+        <img src="/hero-plant-flow/logo.png" width="128" height="128" alt="" />
+        <div class="logo-caption">Stamped<br />Energy</div>
+      </div>
+
+      <aside class="rx-panel" id="rxPanel" aria-label="Prescriptions">
+        <div class="rx-head">
+          <div class="rx-head-text">
+            <div class="rx-title">Prescriptions</div>
+            <p class="rx-sub">Ranked plant actions with rupee impact</p>
+          </div>
+          <div class="rx-live" id="rxLive">Live</div>
+        </div>
+        <div class="rx-viewport" id="rxViewport">
+          <div class="rx-track" id="rxTrack"></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const easeOutExpo = (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t));
+
+      /*
+        Frame 10 wire paths — absolute coords in 2529×1274 space.
+        Traced from Group 4 (Vectors 11–13) → brand/stamped/assets/figma-frame10/wire-*.svg
+        Offset origin (459.5, 263) = union of V11–V13 in Frame 10.
+        Out connector: live horizontal from logo mark right → recs left.
+      */
+      const FRAME10_PATHS = {
+        /* Ext dock on right twin chimney tip (plant image ~66.5% / 10.5%) */
+        wExt: "M 630 335 V 272 L 1450 620",
+        wTel: "M 892.5 690 L 935.5 669 H 1450",
+        wApp: "M 466.5 1000 L 782.5 1198 L 1450 718",
+        wOut: "M 1709 669 L 1820 669",
+      };
+
+      /* Shared speed keeps same-path spacing stable; phases are staggered per wire */
+      /* Phase speed for long inbound wires; out relay is length-normalized in startChipLoop */
+      const CHIP_SPEED = 0.000038;
+      const CHIP_DEFS = [
+        { path: "wExt", name: "Energy price", tag: "↑ 8%", dir: "up", phase: 0.14, speed: CHIP_SPEED },
+        { path: "wTel", name: "Power draw", tag: "↑ 8%", dir: "up", phase: 0.42, speed: CHIP_SPEED },
+        { path: "wApp", name: "Demand forecast", tag: "↑ 5%", dir: "up", phase: 0.18, speed: CHIP_SPEED },
+        { path: "wExt", name: "ToD tariff", tag: "↑ 6%", dir: "up", phase: 0.64, speed: CHIP_SPEED },
+        { path: "wApp", name: "Shift plan", tag: "↑ 2%", dir: "up", phase: 0.68, speed: CHIP_SPEED },
+        /* One coral relay Stamped → prescriptions; speed matched to inbound px/ms */
+        { path: "wOut", bare: true, sequential: true, phase: 0, speed: CHIP_SPEED },
+      ];
+
+      const RX_ITEMS = [
+        { money: "+ ₹2.4L", label: "Annual", copy: "Reschedule Shift 2 heavy loads before the evening demand peak" },
+        { money: "+ ₹48,000", label: "Avoid scrap", copy: "Lower furnace hold temperature after this batch ran hot" },
+        { money: "+ ₹95,000", label: "Demand", copy: "Stagger high-load startups to cut maximum demand charges" },
+        { money: "+ ₹42,000", label: "Idle waste", copy: "Turn down idle HVAC during the line changeover window" },
+        { money: "+ ₹38,000", label: "Off-peak", copy: "Pull this batch forward into the cheaper off-peak tariff window" },
+        { money: "+ ₹12,000", label: "Power factor", copy: "Switch on power-factor correction on feeder 3" },
+        { money: "+ ₹1.8L", label: "Baseline", copy: "Retune dryer energy settings after the latest recipe change" },
+        { money: "+ ₹11,000", label: "Leak", copy: "Inspect the compressed-air branch on Line B for leaks" },
+        { money: "+ ₹75,000", label: "Schedule", copy: "Avoid a demand spike when both shifts start together" },
+      ];
+
+      const LAYOUT = {
+        docks: [
+          /* Ext: dock on chimney tip; label sits just above the stack */
+          { id: "wExt", label: "srcExt", dock: "dockExt", labelAt: 48, labelLift: 34 },
+          { id: "wTel", label: "srcTel", dock: "dockTel", labelLift: 28 },
+          { id: "wApp", label: "srcApp", dock: "dockApp", labelLift: 28 },
+        ],
+      };
+
+      let chipRaf = 0;
+      let chipsStarted = false;
+      let carouselTimer = 0;
+      let rxIndex = 0;
+
+      function sleep(ms) {
+        return new Promise((r) => setTimeout(r, ms));
+      }
+
+      function tween(el, props, duration, delay = 0) {
+        return new Promise((resolve) => {
+          const start = performance.now() + delay;
+          const fromOp = parseFloat(getComputedStyle(el).opacity) || 0;
+          const startY = props.startY != null ? props.startY : 8;
+          const mode = props.mode || "y";
+          (function frame(now) {
+            if (now < start) return requestAnimationFrame(frame);
+            const t = Math.min(1, (now - start) / duration);
+            const e = easeOutExpo(t);
+            if ("opacity" in props) {
+              el.style.opacity = String(fromOp + (props.opacity - fromOp) * e);
+            }
+            if (mode === "logo") {
+              const y = startY * (1 - e);
+              el.style.transform = `translateX(-50%) translateY(${y}px)`;
+            } else if (mode === "plant") {
+              el.style.opacity = String(fromOp + (props.opacity - fromOp) * e);
+            } else if (mode === "rx") {
+              const y = startY * (1 - e);
+              el.style.transform = `translateY(calc(-50% + ${y}px))`;
+            } else if (mode === "label") {
+              el.style.transform = `translate(-50%, calc(-100% - ${12 - 6 * e}px))`;
+            } else if (props.y != null || props.startY != null) {
+              const y = startY + ((props.y != null ? props.y : 0) - startY) * e;
+              el.style.transform = `translateY(${y}px)`;
+            }
+            if (t < 1) requestAnimationFrame(frame);
+            else resolve();
+          })(performance.now());
+        });
+      }
+
+      function layoutPaths() {
+        const logo = document.getElementById("logoWrap");
+        const panel = document.getElementById("rxPanel");
+        const svg = document.getElementById("svg");
+        const ctm = svg.getScreenCTM();
+        if (!ctm) return;
+        const inv = ctm.inverse();
+
+        function toSvg(screenX, screenY) {
+          const pt = svg.createSVGPoint();
+          pt.x = screenX;
+          pt.y = screenY;
+          return pt.matrixTransform(inv);
+        }
+
+        /* Inbound wires: fixed Frame 10 geometry */
+        Object.keys(FRAME10_PATHS).forEach((id) => {
+          if (id === "wOut") return;
+          const path = document.getElementById(id);
+          if (path) path.setAttribute("d", FRAME10_PATHS[id]);
+        });
+
+        /* Out connector: live from mark right edge → recs left (not caption box) */
+        const logoImg = logo.querySelector("img") || logo;
+        const lr = logoImg.getBoundingClientRect();
+        const pr = panel.getBoundingClientRect();
+        const midY = lr.top + lr.height * 0.5;
+        const outStart = toSvg(lr.right - 1, midY);
+        const outEnd = toSvg(pr.left + 2, midY);
+        const wOut = document.getElementById("wOut");
+        wOut.setAttribute("d", `M ${outStart.x} ${outStart.y} L ${outEnd.x} ${outEnd.y}`);
+
+        /* Labels + docks at inbound path starts (plant side) */
+        LAYOUT.docks.forEach((dock) => {
+          const path = document.getElementById(dock.id);
+          if (!path || !path.getAttribute("d")) return;
+          const len = path.getTotalLength();
+          if (!len) return;
+          const dockPt = path.getPointAtLength(0);
+          const dockScreen = svgToScreen(dockPt.x, dockPt.y);
+          const labelLen = Math.min(len, dock.labelAt != null ? dock.labelAt : 0);
+          const labelPt = path.getPointAtLength(labelLen);
+          const labelScreen = svgToScreen(labelPt.x, labelPt.y);
+          const lift = dock.labelLift || 0;
+          const label = document.getElementById(dock.label);
+          const dot = document.getElementById(dock.dock);
+          label.style.left = `${labelScreen.x}px`;
+          label.style.top = `${labelScreen.y - lift}px`;
+          dot.style.left = `${dockScreen.x}px`;
+          dot.style.top = `${dockScreen.y}px`;
+        });
+      }
+
+      function svgToScreen(x, y) {
+        const svg = document.getElementById("svg");
+        const scene = document.getElementById("scene");
+        const pt = svg.createSVGPoint();
+        pt.x = x;
+        pt.y = y;
+        const ctm = svg.getScreenCTM();
+        if (!ctm) return { x: 0, y: 0 };
+        const sp = pt.matrixTransform(ctm);
+        const rect = scene.getBoundingClientRect();
+        return { x: sp.x - rect.left, y: sp.y - rect.top };
+      }
+
+      function drawWire(path, duration, delay = 0) {
+        return new Promise((resolve) => {
+          const len = path.getTotalLength();
+          path.style.strokeDasharray = String(len);
+          path.style.strokeDashoffset = String(len);
+          path.style.opacity = "1";
+          const start = performance.now() + delay;
+          (function frame(now) {
+            if (now < start) return requestAnimationFrame(frame);
+            const t = Math.min(1, (now - start) / duration);
+            path.style.strokeDashoffset = String(len * (1 - easeOutExpo(t)));
+            if (t < 1) requestAnimationFrame(frame);
+            else resolve();
+          })(performance.now());
+        });
+      }
+
+      function assignSpacedPhases(defs) {
+        const byPath = {};
+        defs.forEach((d, i) => {
+          if (d.bare) return;
+          (byPath[d.path] || (byPath[d.path] = [])).push(i);
+        });
+        Object.keys(byPath).forEach((path) => {
+          const idxs = byPath[path];
+          if (idxs.length === 1) {
+            const d = defs[idxs[0]];
+            d.phase = (d.phase + (Math.random() * 0.08 - 0.04) + 1) % 1;
+            return;
+          }
+          /* Same wire: keep ~half-path spacing so labels never sit on top of each other */
+          const base = 0.08 + Math.random() * 0.14;
+          const gap = 0.46 + Math.random() * 0.08;
+          idxs.forEach((idx, n) => {
+            defs[idx].phase = (base + n * gap) % 1;
+          });
+        });
+      }
+
+      function buildChips() {
+        const root = document.getElementById("signals");
+        root.innerHTML = "";
+        assignSpacedPhases(CHIP_DEFS);
+        CHIP_DEFS.forEach((def) => {
+          const el = document.createElement("div");
+          el.className = "chip" + (def.bare ? " is-bare" : "");
+          el.dataset.path = def.path;
+          el.dataset.phase = String(def.phase);
+          el.dataset.speed = String(def.speed);
+          if (def.sequential) el.dataset.sequential = "1";
+          if (def.bare) {
+            el.innerHTML = `<span class="chip-node" aria-hidden="true"></span>`;
+          } else {
+            el.innerHTML =
+              `<span class="chip-node" aria-hidden="true"></span>` +
+              `<span class="chip-label">` +
+              `<span class="chip-stem" aria-hidden="true"></span>` +
+              `<span class="chip-name">${def.name}</span>` +
+              `<span class="chip-tag ${def.dir === "down" ? "is-down" : ""}">${def.tag}</span>` +
+              `</span>`;
+          }
+          root.appendChild(el);
+        });
+      }
+
+      function buildRx() {
+        const track = document.getElementById("rxTrack");
+        const visible = 2;
+        const list = [...RX_ITEMS, ...RX_ITEMS.slice(0, visible)];
+        track.innerHTML = list
+          .map(
+            (item) =>
+              `<article class="rx-item">` +
+              `<div class="rx-tags">` +
+              `<span class="rx-tag is-money">${item.money}</span>` +
+              `<span class="rx-tag">${item.label}</span>` +
+              `</div>` +
+              `<p class="rx-copy">${item.copy}</p>` +
+              `</article>`
+          )
+          .join("");
+        track.style.transform = "translateY(0)";
+        rxIndex = 0;
+      }
+
+      function startChipLoop() {
+        if (chipsStarted || reduce) return;
+        chipsStarted = true;
+        const chips = [...document.querySelectorAll(".chip")];
+        const pathCache = {};
+        chips.forEach((c) => {
+          const id = c.dataset.path;
+          if (!pathCache[id]) pathCache[id] = document.getElementById(id);
+          c.style.opacity = "1";
+          const node = c.querySelector(".chip-node");
+          if (node) node.style.opacity = "0";
+          const label = c.querySelector(".chip-label");
+          if (label) label.style.opacity = "0";
+        });
+
+        function matchOutRelaySpeed() {
+          const inboundLens = ["wExt", "wTel", "wApp"]
+            .map((id) => pathCache[id] || document.getElementById(id))
+            .map((p) => (p && p.getAttribute("d") ? p.getTotalLength() : 0))
+            .filter((n) => n > 0);
+          if (!inboundLens.length) return;
+          const avgLen = inboundLens.reduce((a, b) => a + b, 0) / inboundLens.length;
+          const pxPerMs = CHIP_SPEED * avgLen;
+          chips.forEach((c) => {
+            if (c.dataset.sequential !== "1") return;
+            const path = pathCache[c.dataset.path];
+            if (!path || !path.getAttribute("d")) return;
+            const len = path.getTotalLength() || 1;
+            c.dataset.speed = String(pxPerMs / len);
+          });
+        }
+
+        matchOutRelaySpeed();
+
+        let last = performance.now();
+        let syncEvery = 0;
+        (function tick(now) {
+          const dt = Math.min(40, now - last);
+          last = now;
+          if ((syncEvery++ & 31) === 0) matchOutRelaySpeed();
+          chips.forEach((chip) => {
+            const path = pathCache[chip.dataset.path];
+            if (!path || !path.getAttribute("d")) return;
+            const speed = parseFloat(chip.dataset.speed) || 0.0001;
+            let phase = parseFloat(chip.dataset.phase) || 0;
+            phase = phase + dt * speed;
+            /* Sequential out relay: finish at prescriptions, then restart from Stamped */
+            if (chip.dataset.sequential === "1") {
+              if (phase >= 1) phase = 0;
+            } else {
+              phase = phase % 1;
+            }
+            chip.dataset.phase = String(phase);
+            const len = path.getTotalLength();
+            const pt = path.getPointAtLength(phase * len);
+            const screen = svgToScreen(pt.x, pt.y);
+            const node = chip.querySelector(".chip-node");
+            const label = chip.querySelector(".chip-label");
+            /* Dot keeps late fade near hub; label fades ~0.6s starting ~2.6s before hub */
+            const nodeEdge =
+              phase < 0.04 ? phase / 0.04 : phase > 0.94 ? (1 - phase) / 0.06 : 1;
+            const baseOp = 0.15 + 0.85 * nodeEdge;
+            chip.style.left = `${screen.x}px`;
+            chip.style.top = `${screen.y}px`;
+            chip.style.transform = "none";
+            chip.style.visibility = "visible";
+            if (node) node.style.opacity = String(baseOp);
+            if (label) {
+              const labelEdge =
+                phase < 0.04
+                  ? phase / 0.04
+                  : phase > 0.9
+                    ? Math.max(0, (0.923 - phase) / 0.023)
+                    : 1;
+              label.style.opacity = String(baseOp * labelEdge);
+            }
+          });
+          chipRaf = requestAnimationFrame(tick);
+        })(performance.now());
+      }
+
+      function stepCarousel() {
+        const track = document.getElementById("rxTrack");
+        const itemH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--rx-h")) || 78;
+        rxIndex += 1;
+        track.style.transform = `translateY(${-rxIndex * itemH}px)`;
+
+        if (rxIndex >= RX_ITEMS.length) {
+          setTimeout(() => {
+            track.style.transition = "none";
+            rxIndex = 0;
+            track.style.transform = "translateY(0)";
+            void track.offsetHeight;
+            track.style.transition = "";
+          }, 560);
+        }
+      }
+
+      function startCarousel() {
+        if (reduce) return;
+        clearInterval(carouselTimer);
+        carouselTimer = setInterval(stepCarousel, 2200);
+      }
+
+      async function openSequence() {
+        layoutPaths();
+        buildChips();
+        buildRx();
+
+        const plant = document.getElementById("plant");
+        const srcs = [
+          document.getElementById("srcExt"),
+          document.getElementById("srcTel"),
+          document.getElementById("srcApp"),
+        ];
+        const docks = [
+          document.getElementById("dockExt"),
+          document.getElementById("dockTel"),
+          document.getElementById("dockApp"),
+        ];
+        const logo = document.getElementById("logoWrap");
+        const panel = document.getElementById("rxPanel");
+        const live = document.getElementById("rxLive");
+        const wExt = document.getElementById("wExt");
+        const wTel = document.getElementById("wTel");
+        const wApp = document.getElementById("wApp");
+        const wOut = document.getElementById("wOut");
+
+        if (reduce) {
+          [plant, logo, panel, live, ...srcs, ...docks].forEach((el) => {
+            el.style.opacity = "1";
+          });
+          logo.style.transform = "translateX(-50%)";
+          panel.style.transform = "translateY(-50%)";
+          srcs.forEach((el) => {
+            el.style.transform = "translate(-50%, calc(-100% - 12px))";
+          });
+          [wExt, wTel, wApp, wOut].forEach((w) => {
+            w.style.opacity = "1";
+            w.style.strokeDasharray = "none";
+            w.style.strokeDashoffset = "0";
+          });
+          document.querySelectorAll(".chip").forEach((c, i) => {
+            const path = document.getElementById(CHIP_DEFS[i].path);
+            const pt = path.getPointAtLength(path.getTotalLength() * CHIP_DEFS[i].phase);
+            const screen = svgToScreen(pt.x, pt.y);
+            c.style.left = `${screen.x}px`;
+            c.style.top = `${screen.y}px`;
+            c.style.transform = "none";
+            c.style.opacity = "1";
+            c.style.visibility = "visible";
+            const node = c.querySelector(".chip-node");
+            if (node) node.style.opacity = "1";
+            const label = c.querySelector(".chip-label");
+            if (label) label.style.opacity = "1";
+          });
+          return;
+        }
+
+        await tween(plant, { opacity: 1, mode: "plant" }, 650, 0);
+        await tween(logo, { opacity: 1, mode: "logo", startY: 10 }, 620, 40);
+        layoutPaths();
+
+        await Promise.all([
+          ...srcs.map((el, i) => tween(el, { opacity: 1, mode: "label" }, 420, i * 70)),
+          ...docks.map((el, i) => tween(el, { opacity: 1 }, 320, 40 + i * 70)),
+        ]);
+
+        await Promise.all([
+          drawWire(wExt, 880, 0),
+          drawWire(wTel, 880, 100),
+          drawWire(wApp, 880, 200),
+        ]);
+
+        startChipLoop();
+
+        await tween(panel, { opacity: 1, mode: "rx", startY: 10 }, 520, 80);
+        layoutPaths();
+        await drawWire(wOut, 420, 0);
+        await tween(live, { opacity: 1 }, 280, 40);
+
+        startCarousel();
+      }
+
+      let resizeTimer;
+      window.addEventListener("resize", () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          layoutPaths();
+        }, 100);
+      });
+
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(() => {
+          layoutPaths();
+          openSequence();
+        });
+      } else {
+        layoutPaths();
+        openSequence();
+      }
+    })();
+  </script>
+</body>
+</html>
