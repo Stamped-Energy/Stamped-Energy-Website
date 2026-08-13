@@ -78,6 +78,8 @@ export function startHeroPlantFlow(root: HTMLElement, options: EngineOptions): (
   let chipsStarted = false;
   let carouselTimer = 0;
   let rxIndex = 0;
+  let rxWrapping = false;
+  let rxWrapListener: ((event: TransitionEvent) => void) | null = null;
   let resizeTimer = 0;
   const pendingRafs = new Set<number>();
   const pendingTimeouts = new Set<number>();
@@ -355,25 +357,59 @@ export function startHeroPlantFlow(root: HTMLElement, options: EngineOptions): (
     chipRaf = requestAnimationFrame(tick);
   }
 
+  function rxItemHeight(track: HTMLElement) {
+    const item = track.querySelector<HTMLElement>(".hpf-rx-item");
+    const measured = item?.getBoundingClientRect().height ?? 0;
+    if (measured > 0) return measured;
+    return parseFloat(getComputedStyle(root).getPropertyValue("--hpf-rx-h")) || 124;
+  }
+
+  function unwrapRxTrack(track: HTMLElement) {
+    if (rxWrapListener) {
+      track.removeEventListener("transitionend", rxWrapListener);
+      rxWrapListener = null;
+    }
+  }
+
+  function snapRxToStart(track: HTMLElement) {
+    rxWrapping = true;
+    unwrapRxTrack(track);
+    track.style.transition = "none";
+    rxIndex = 0;
+    track.style.transform = "translateY(0)";
+    void track.offsetHeight;
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        if (cancelled) return;
+        track.style.transition = "";
+        rxWrapping = false;
+      });
+    });
+  }
+
   function stepCarousel() {
+    if (rxWrapping || cancelled) return;
     const track = qs<HTMLElement>(root, "hpf-rxTrack");
     if (!track) return;
-    const itemH = parseFloat(getComputedStyle(root).getPropertyValue("--hpf-rx-h")) || 78;
+    const itemH = rxItemHeight(track);
     rxIndex += 1;
     track.style.transform = `translateY(${-rxIndex * itemH}px)`;
 
-    if (rxIndex >= RX_ITEMS.length) {
-      const id = window.setTimeout(() => {
-        pendingTimeouts.delete(id);
-        if (cancelled) return;
-        track.style.transition = "none";
-        rxIndex = 0;
-        track.style.transform = "translateY(0)";
-        void track.offsetHeight;
-        track.style.transition = "";
-      }, 560);
-      pendingTimeouts.add(id);
-    }
+    if (rxIndex < RX_ITEMS.length) return;
+
+    unwrapRxTrack(track);
+    rxWrapListener = (event: TransitionEvent) => {
+      if (event.target !== track || event.propertyName !== "transform") return;
+      snapRxToStart(track);
+    };
+    track.addEventListener("transitionend", rxWrapListener);
+
+    const fallbackId = window.setTimeout(() => {
+      pendingTimeouts.delete(fallbackId);
+      if (cancelled || rxIndex === 0) return;
+      snapRxToStart(track);
+    }, 700);
+    pendingTimeouts.add(fallbackId);
   }
 
   function startCarousel() {
@@ -519,6 +555,8 @@ export function startHeroPlantFlow(root: HTMLElement, options: EngineOptions): (
     resizeObserver.disconnect();
     window.clearTimeout(resizeTimer);
     window.clearInterval(carouselTimer);
+    const rxTrack = qs<HTMLElement>(root, "hpf-rxTrack");
+    if (rxTrack) unwrapRxTrack(rxTrack);
     if (chipRaf) cancelAnimationFrame(chipRaf);
     pendingRafs.forEach((id) => cancelAnimationFrame(id));
     pendingRafs.clear();

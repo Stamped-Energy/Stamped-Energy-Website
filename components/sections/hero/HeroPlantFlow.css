@@ -121,11 +121,11 @@
   background: var(--hpf-cream);
   color: var(--hpf-ink);
   font-family: var(--hpf-font-display);
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: -0.02em;
   text-transform: none;
-  padding: 8px 14px;
+  padding: 11px 20px;
   border: 1px solid color-mix(in srgb, var(--hpf-outline) 55%, var(--hpf-coral));
   border-radius: 999px;
   box-shadow:
@@ -533,8 +533,8 @@
     font-size: 12px;
   }
   .hpf-src-label {
-    font-size: 11px;
-    padding: 7px 12px;
+    font-size: 15px;
+    padding: 10px 18px;
   }
   .hpf-logo-caption {
     font-size: clamp(15px, 2cqw, 18px);

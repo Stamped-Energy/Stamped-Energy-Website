@@ -5,11 +5,11 @@ import { useEffect, useRef, useState } from "react";
 
 import { useMotion } from "@/components/motion/MotionProvider";
 
-import { FRAME10_PATHS, RX_ITEMS, RX_VISIBLE, startHeroPlantFlow } from "./heroPlantFlowEngine";
+import { FRAME10_PATHS, RX_ITEMS, startHeroPlantFlow } from "./heroPlantFlowEngine";
 
 import "./HeroPlantFlow.css";
 
-const RX_TRACK_ITEMS = [...RX_ITEMS, ...RX_ITEMS.slice(0, RX_VISIBLE)];
+const RX_TRACK_ITEMS = [...RX_ITEMS, ...RX_ITEMS];
 
 export function HeroPlantFlow() {
   const rootRef = useRef<HTMLDivElement>(null);
