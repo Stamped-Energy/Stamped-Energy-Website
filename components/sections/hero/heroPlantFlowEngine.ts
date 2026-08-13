@@ -11,6 +11,16 @@ export const FRAME10_PATHS = {
 } as const;
 
 const CHIP_SPEED = 0.000038;
+const OUT_GAP_PX = 6;
+const LOGO_MARK_INSET_PX = 16;
+const OUT_GAP_FROM_LOGO_PX = 10;
+const OUT_RELAY_SPEED = 0.48;
+
+type ChipFace = {
+  name: string;
+  tag: string;
+  dir: "up" | "down";
+};
 
 type ChipDef = {
   path: keyof typeof FRAME10_PATHS;
@@ -21,14 +31,38 @@ type ChipDef = {
   speed: number;
   bare?: boolean;
   sequential?: boolean;
+  poolIndex?: number;
+};
+
+const CHIP_POOLS: Record<"wExt" | "wTel" | "wApp", ChipFace[]> = {
+  wExt: [
+    { name: "Energy price", tag: "↑ 8%", dir: "up" },
+    { name: "ToD tariff", tag: "↑ 6%", dir: "up" },
+    { name: "Day-ahead", tag: "↑ 4%", dir: "up" },
+    { name: "Grid freq", tag: "↓ 1%", dir: "down" },
+    { name: "Weather", tag: "↑ 3%", dir: "up" },
+  ],
+  wTel: [
+    { name: "Power draw", tag: "↑ 8%", dir: "up" },
+    { name: "Furnace kW", tag: "↑ 5%", dir: "up" },
+    { name: "Line load", tag: "↑ 3%", dir: "up" },
+    { name: "Air kW", tag: "↓ 2%", dir: "down" },
+  ],
+  wApp: [
+    { name: "Demand forecast", tag: "↑ 5%", dir: "up" },
+    { name: "Shift plan", tag: "↑ 2%", dir: "up" },
+    { name: "Batch queue", tag: "↑ 4%", dir: "up" },
+    { name: "Work order", tag: "↑ 1%", dir: "up" },
+    { name: "Recipe", tag: "↑ 3%", dir: "up" },
+  ],
 };
 
 const CHIP_DEFS: ChipDef[] = [
-  { path: "wExt", name: "Energy price", tag: "↑ 8%", dir: "up", phase: 0.14, speed: CHIP_SPEED },
-  { path: "wTel", name: "Power draw", tag: "↑ 8%", dir: "up", phase: 0.42, speed: CHIP_SPEED },
-  { path: "wApp", name: "Demand forecast", tag: "↑ 5%", dir: "up", phase: 0.18, speed: CHIP_SPEED },
-  { path: "wExt", name: "ToD tariff", tag: "↑ 6%", dir: "up", phase: 0.64, speed: CHIP_SPEED },
-  { path: "wApp", name: "Shift plan", tag: "↑ 2%", dir: "up", phase: 0.68, speed: CHIP_SPEED },
+  { path: "wExt", phase: 0.14, speed: CHIP_SPEED, poolIndex: 0 },
+  { path: "wTel", phase: 0.42, speed: CHIP_SPEED, poolIndex: 0 },
+  { path: "wApp", phase: 0.18, speed: CHIP_SPEED, poolIndex: 0 },
+  { path: "wExt", phase: 0.64, speed: CHIP_SPEED, poolIndex: 1 },
+  { path: "wApp", phase: 0.68, speed: CHIP_SPEED, poolIndex: 1 },
   { path: "wOut", bare: true, sequential: true, phase: 0, speed: CHIP_SPEED },
 ];
 
@@ -48,8 +82,8 @@ export const RX_VISIBLE = 2;
 
 const LAYOUT = {
   docks: [
-    { id: "hpf-wExt", label: "hpf-srcExt", dock: "hpf-dockExt", labelAt: 48, labelLift: 34 },
-    { id: "hpf-wTel", label: "hpf-srcTel", dock: "hpf-dockTel", labelLift: 28 },
+    { id: "hpf-wExt", label: "hpf-srcExt", dock: "hpf-dockExt", labelAt: 48, labelLift: 56 },
+    { id: "hpf-wTel", label: "hpf-srcTel", dock: "hpf-dockTel", labelLift: 52 },
     { id: "hpf-wApp", label: "hpf-srcApp", dock: "hpf-dockApp", labelLift: 28 },
   ],
 } as const;
@@ -148,7 +182,10 @@ export function startHeroPlantFlow(root: HTMLElement, options: EngineOptions): (
     if (!ctm) return { x: 0, y: 0 };
     const sp = pt.matrixTransform(ctm);
     const rect = scene.getBoundingClientRect();
-    return { x: sp.x - rect.left, y: sp.y - rect.top };
+    const scaleX = scene.offsetWidth ? rect.width / scene.offsetWidth : 1;
+    const scaleY = scene.offsetHeight ? rect.height / scene.offsetHeight : 1;
+    if (!scaleX || !scaleY) return { x: 0, y: 0 };
+    return { x: (sp.x - rect.left) / scaleX, y: (sp.y - rect.top) / scaleY };
   }
 
   function layoutPaths() {
@@ -178,8 +215,8 @@ export function startHeroPlantFlow(root: HTMLElement, options: EngineOptions): (
     const lr = logoImg.getBoundingClientRect();
     const pr = panel.getBoundingClientRect();
     const midY = lr.top + lr.height * 0.5;
-    const outStart = toSvg(lr.right - 1, midY);
-    const outEnd = toSvg(pr.left + 2, midY);
+    const outStart = toSvg(lr.right - LOGO_MARK_INSET_PX + OUT_GAP_PX + OUT_GAP_FROM_LOGO_PX, midY);
+    const outEnd = toSvg(pr.left - OUT_GAP_PX, midY);
     const wOut = qs<SVGPathElement>(root, "hpf-wOut");
     if (wOut) wOut.setAttribute("d", `M ${outStart.x} ${outStart.y} L ${outEnd.x} ${outEnd.y}`);
 
@@ -250,6 +287,21 @@ export function startHeroPlantFlow(root: HTMLElement, options: EngineOptions): (
     });
   }
 
+  function chipPool(path: ChipDef["path"]) {
+    if (path === "wOut") return [];
+    return CHIP_POOLS[path];
+  }
+
+  function applyChipFace(el: HTMLElement, face: ChipFace) {
+    const name = el.querySelector(".hpf-chip-name");
+    const tag = el.querySelector(".hpf-chip-tag");
+    if (name) name.textContent = face.name;
+    if (tag) {
+      tag.textContent = face.tag;
+      tag.classList.toggle("is-down", face.dir === "down");
+    }
+  }
+
   function buildChips() {
     const signals = qs<HTMLElement>(root, "hpf-signals");
     if (!signals) return;
@@ -262,15 +314,19 @@ export function startHeroPlantFlow(root: HTMLElement, options: EngineOptions): (
       el.dataset.phase = String(def.phase);
       el.dataset.speed = String(def.speed);
       if (def.sequential) el.dataset.sequential = "1";
+      const pool = chipPool(def.path);
+      const poolIndex = def.poolIndex ?? 0;
+      el.dataset.poolIndex = String(poolIndex);
       if (def.bare) {
         el.innerHTML = `<span class="hpf-chip-node" aria-hidden="true"></span>`;
       } else {
+        const face = pool[poolIndex % pool.length];
         el.innerHTML =
           `<span class="hpf-chip-node" aria-hidden="true"></span>` +
           `<span class="hpf-chip-label">` +
           `<span class="hpf-chip-stem" aria-hidden="true"></span>` +
-          `<span class="hpf-chip-name">${def.name ?? ""}</span>` +
-          `<span class="hpf-chip-tag ${def.dir === "down" ? "is-down" : ""}">${def.tag ?? ""}</span>` +
+          `<span class="hpf-chip-name">${face?.name ?? def.name ?? ""}</span>` +
+          `<span class="hpf-chip-tag ${face?.dir === "down" ? "is-down" : ""}">${face?.tag ?? def.tag ?? ""}</span>` +
           `</span>`;
       }
       signals.appendChild(el);
@@ -296,24 +352,24 @@ export function startHeroPlantFlow(root: HTMLElement, options: EngineOptions): (
       if (label) label.style.opacity = "0";
     });
 
-    const matchOutRelaySpeed = () => {
-      const inboundLens = ["hpf-wExt", "hpf-wTel", "hpf-wApp"]
+    const matchChipPixelSpeed = () => {
+      const inboundLens = ["hpf-wExt", "hpf-wApp"]
         .map((id) => pathCache[id] || qs<SVGPathElement>(root, id))
         .map((p) => (p && p.getAttribute("d") ? p.getTotalLength() : 0))
         .filter((n) => n > 0);
       if (!inboundLens.length) return;
-      const avgLen = inboundLens.reduce((a, b) => a + b, 0) / inboundLens.length;
-      const pxPerMs = CHIP_SPEED * avgLen;
+      const refLen = Math.max(...inboundLens);
+      const pxPerMs = CHIP_SPEED * refLen;
       chips.forEach((c) => {
-        if (c.dataset.sequential !== "1") return;
         const path = pathCache[pathId(c.dataset.path as ChipDef["path"])];
         if (!path || !path.getAttribute("d")) return;
         const len = path.getTotalLength() || 1;
-        c.dataset.speed = String(pxPerMs / len);
+        const scale = c.dataset.sequential === "1" ? OUT_RELAY_SPEED : 1;
+        c.dataset.speed = String((pxPerMs * scale) / len);
       });
     };
 
-    matchOutRelaySpeed();
+    matchChipPixelSpeed();
 
     let last = performance.now();
     let syncEvery = 0;
@@ -321,7 +377,7 @@ export function startHeroPlantFlow(root: HTMLElement, options: EngineOptions): (
       if (cancelled) return;
       const dt = Math.min(40, now - last);
       last = now;
-      if ((syncEvery++ & 31) === 0) matchOutRelaySpeed();
+      if ((syncEvery++ & 31) === 0) matchChipPixelSpeed();
       chips.forEach((chip) => {
         const path = pathCache[pathId(chip.dataset.path as ChipDef["path"])];
         if (!path || !path.getAttribute("d")) return;
@@ -330,7 +386,13 @@ export function startHeroPlantFlow(root: HTMLElement, options: EngineOptions): (
         phase = phase + dt * speed;
         if (chip.dataset.sequential === "1") {
           if (phase >= 1) phase = 0;
-        } else {
+        } else if (phase >= 1) {
+          const pool = chipPool(chip.dataset.path as ChipDef["path"]);
+          if (pool.length) {
+            const next = (parseInt(chip.dataset.poolIndex || "0", 10) + 1) % pool.length;
+            chip.dataset.poolIndex = String(next);
+            applyChipFace(chip, pool[next]);
+          }
           phase = phase % 1;
         }
         chip.dataset.phase = String(phase);
@@ -339,8 +401,16 @@ export function startHeroPlantFlow(root: HTMLElement, options: EngineOptions): (
         const screen = svgToScreen(pt.x, pt.y);
         const node = chip.querySelector<HTMLElement>(".hpf-chip-node");
         const label = chip.querySelector<HTMLElement>(".hpf-chip-label");
-        const nodeEdge = phase < 0.04 ? phase / 0.04 : phase > 0.94 ? (1 - phase) / 0.06 : 1;
-        const baseOp = 0.15 + 0.85 * nodeEdge;
+        const isTel = chip.dataset.path === "wTel";
+        const isApp = chip.dataset.path === "wApp";
+        const oneSecond = 1000 * speed;
+        const nodeFade = isTel ? 0.78 : isApp ? 0.94 - oneSecond : 0.94;
+        const labelFade = isTel ? 0.72 : isApp ? 0.9 - oneSecond : 0.9;
+        const nodeTail = isTel ? 0.1 : 0.06;
+        const labelTail = isTel ? 0.08 : 0.023;
+        const nodeEdge =
+          phase < 0.04 ? phase / 0.04 : phase > nodeFade ? Math.max(0, (1 - phase) / nodeTail) : 1;
+        const baseOp = 0.15 + 0.85 * Math.min(1, nodeEdge);
         chip.style.left = `${screen.x}px`;
         chip.style.top = `${screen.y}px`;
         chip.style.transform = "none";
@@ -348,7 +418,11 @@ export function startHeroPlantFlow(root: HTMLElement, options: EngineOptions): (
         if (node) node.style.opacity = String(baseOp);
         if (label) {
           const labelEdge =
-            phase < 0.04 ? phase / 0.04 : phase > 0.9 ? Math.max(0, (0.923 - phase) / 0.023) : 1;
+            phase < 0.04
+              ? phase / 0.04
+              : phase > labelFade
+                ? Math.max(0, (labelFade + labelTail - phase) / labelTail)
+                : 1;
           label.style.opacity = String(baseOp * labelEdge);
         }
       });
@@ -534,6 +608,8 @@ export function startHeroPlantFlow(root: HTMLElement, options: EngineOptions): (
   window.addEventListener("resize", onResize);
   const resizeObserver = new ResizeObserver(onResize);
   resizeObserver.observe(root);
+  const stageEl = root.querySelector(".hpf-stage");
+  if (stageEl) resizeObserver.observe(stageEl);
 
   const boot = () => {
     if (cancelled) return;

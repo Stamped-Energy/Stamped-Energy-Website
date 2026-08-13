@@ -22,7 +22,9 @@ export const landingContent = {
     badge: "For industrial plants",
     headline: "Act on energy opportunities in real time.",
     supportingLine:
-      "Stamped analyzes plant, application, and live market data to create ₹-scored prescriptions so operators can act before opportunities are missed.",
+      "Stamped analyzes plant, application, and live market data to create rupee-scored prescriptions so operators can act before opportunities are missed. We tell you exactly what to do, who owns it, the rupee benefit, and the evidence behind each prescription.",
+    supportingLineMobile:
+      "Stamped turns plant, application, and live market data into rupee-scored prescriptions.",
     primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
     secondaryCta: { label: "See how it works", href: "#hiw" } satisfies CtaLink,
     microcopy: "See how quickly Stamped can deliver the first prescriptions in your plant.",
@@ -475,7 +477,7 @@ export const landingContent = {
     title: "Stamped for cement, steel, pharma, chemical, and automotive.",
     description:
       "Turn energy volatility, process constraints, and equipment risk into ₹-scored prescriptions, so every operating hour protects cost.",
-    cta: { label: "View all industries", href: "/industries" } satisfies CtaLink,
+    cta: { label: "Explore automotive", href: "/industries/automotive" } satisfies CtaLink,
     items: [
       {
         id: "automotive",

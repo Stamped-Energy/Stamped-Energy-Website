@@ -21,6 +21,7 @@
   --hpf-radius: 8px;
   --hpf-cream: #fbfcf9;
   --hpf-halo: color-mix(in srgb, var(--hpf-coral) 22%, transparent);
+  --hpf-design-w: 1200;
   width: 100%;
 }
 
@@ -32,19 +33,25 @@
 
 .hpf-viewport {
   width: 100%;
-  overflow-x: auto;
-  overflow-y: visible;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
+  overflow: hidden;
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .hpf-viewport {
+    overflow: visible;
+  }
 }
 
 .hpf-stage {
   width: 100%;
-  min-width: 860px;
+  min-width: 0;
   aspect-ratio: 2529 / 1274;
   height: auto;
   position: relative;
   container-type: inline-size;
+  container-name: hpf-stage;
+  transform-origin: top left;
 }
 
 .hpf-scene {
@@ -52,6 +59,23 @@
   inset: 0;
   overflow: visible;
   background: var(--hpf-bg);
+}
+
+.hpf-scene::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(5.5rem, 8%);
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--hpf-bg) 0%, transparent) 0%,
+    color-mix(in srgb, var(--hpf-bg) 28%, transparent) 70%,
+    var(--hpf-bg) 100%
+  );
 }
 
 .hpf-scene-svg {
@@ -311,8 +335,8 @@
   position: absolute;
   top: 50%;
   left: auto;
-  right: 1.5%;
-  width: min(400px, 28%);
+  right: 3.25%;
+  width: min(400px, 26.5%);
   z-index: 6;
   opacity: 0;
   transform: translateY(calc(-50% + 10px));
@@ -469,7 +493,7 @@
   max-width: 36ch;
 }
 
-@media (max-width: 1100px) {
+@container hpf-stage (max-width: 1100px) {
   .hpf-plant {
     width: 38%;
   }
@@ -482,8 +506,8 @@
     margin-bottom: calc(min(112px, 10cqw) * -0.42);
   }
   .hpf-rx-panel {
-    right: 1.25%;
-    width: min(340px, 29%);
+    right: 3.5%;
+    width: min(340px, 27%);
   }
   .hpf-logo-caption {
     font-size: clamp(16px, 1.8cqw, 20px);
@@ -491,12 +515,13 @@
   .hpf-rx-sub {
     font-size: 11px;
   }
-  .hpf-root {
+  .hpf-rx-viewport,
+  .hpf-rx-item {
     --hpf-rx-h: 114px;
   }
 }
 
-@media (max-width: 900px) {
+@container hpf-stage (max-width: 900px) {
   .hpf-plant {
     width: 40%;
     top: 16%;
@@ -511,8 +536,8 @@
     margin-bottom: calc(min(96px, 12cqw) * -0.42);
   }
   .hpf-rx-panel {
-    right: 1%;
-    width: min(270px, 31%);
+    right: 3.75%;
+    width: min(270px, 29%);
   }
   .hpf-rx-title {
     font-size: clamp(15px, 2cqw, 18px);
@@ -539,7 +564,8 @@
   .hpf-logo-caption {
     font-size: clamp(15px, 2cqw, 18px);
   }
-  .hpf-root {
+  .hpf-rx-viewport,
+  .hpf-rx-item {
     --hpf-rx-h: 108px;
   }
 }

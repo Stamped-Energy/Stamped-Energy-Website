@@ -10,11 +10,52 @@ import { FRAME10_PATHS, RX_ITEMS, startHeroPlantFlow } from "./heroPlantFlowEngi
 import "./HeroPlantFlow.css";
 
 const RX_TRACK_ITEMS = [...RX_ITEMS, ...RX_ITEMS];
+const MOBILE_STAGE_WIDTH = 1200;
+const STAGE_ASPECT = 1274 / 2529;
+const MOBILE_MQ = "(max-width: 1023px)";
 
 export function HeroPlantFlow() {
   const rootRef = useRef<HTMLDivElement>(null);
   const { isReady, prefersReducedMotion } = useMotion();
   const [plantFailed, setPlantFailed] = useState(false);
+
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
+    const viewport = root.querySelector<HTMLElement>(".hpf-viewport");
+    const stage = root.querySelector<HTMLElement>(".hpf-stage");
+    if (!viewport || !stage) return;
+
+    const fitStage = () => {
+      const isMobile = window.matchMedia(MOBILE_MQ).matches;
+      if (!isMobile) {
+        stage.style.width = "";
+        stage.style.minWidth = "";
+        stage.style.transform = "";
+        viewport.style.height = "";
+        viewport.style.overflow = "";
+        return;
+      }
+
+      const scale = root.clientWidth / MOBILE_STAGE_WIDTH;
+      stage.style.width = `${MOBILE_STAGE_WIDTH}px`;
+      stage.style.minWidth = `${MOBILE_STAGE_WIDTH}px`;
+      stage.style.transformOrigin = "top left";
+      stage.style.transform = `scale(${scale})`;
+      viewport.style.height = `${MOBILE_STAGE_WIDTH * STAGE_ASPECT * scale}px`;
+      viewport.style.overflow = "hidden";
+    };
+
+    fitStage();
+    const resizeObserver = new ResizeObserver(fitStage);
+    resizeObserver.observe(root);
+    window.addEventListener("resize", fitStage);
+
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener("resize", fitStage);
+    };
+  }, []);
 
   useEffect(() => {
     if (!isReady || !rootRef.current) {

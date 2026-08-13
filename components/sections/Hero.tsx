@@ -62,25 +62,28 @@ export function Hero() {
   );
 
   return (
-    <section ref={sectionRef} className="relative overflow-x-clip bg-surface pb-10 pt-28 md:pb-14 md:pt-32">
+    <section ref={sectionRef} className="relative overflow-x-clip bg-surface pb-8 pt-24 md:pb-14 md:pt-32">
       <Container>
-        <div data-hero-animate="badge" className="mb-8 md:mb-10">
+        <div data-hero-animate="badge" className="mb-5 md:mb-10">
           <SectionBadge label={hero.badge} />
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-2 lg:items-end lg:gap-16 xl:gap-20">
+        <div className="grid gap-5 md:gap-8 lg:grid-cols-2 lg:items-end lg:gap-16 xl:gap-20">
           <h1
             data-hero-animate="headline"
-            className="max-w-[14ch] font-display text-[2.6rem] font-bold leading-[1.05] tracking-[-0.03em] text-on-surface sm:text-5xl md:text-6xl lg:text-[4.25rem]"
+            className="max-w-[14ch] font-display text-[2.15rem] font-bold leading-[1.08] tracking-[-0.03em] text-on-surface sm:text-5xl md:text-6xl lg:text-[4.25rem]"
           >
             {hero.headline}
           </h1>
 
           <div data-hero-animate="copy" className="w-full min-w-0">
-            <p className="text-base leading-7 text-on-surface/80 md:text-lg md:leading-8">
+            <p className="line-clamp-2 text-sm leading-5 text-on-surface/80 md:hidden">
+              {hero.supportingLineMobile}
+            </p>
+            <p className="hidden text-base leading-7 text-on-surface/80 md:block md:text-lg md:leading-8">
               {hero.supportingLine}
             </p>
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+            <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center md:mt-7">
               <Link href={hero.primaryCta.href} className={primaryCta}>
                 {hero.primaryCta.label}
                 <span aria-hidden>»</span>
@@ -89,11 +92,11 @@ export function Hero() {
                 {hero.secondaryCta.label}
               </Link>
             </div>
-            <p className="mt-4 text-sm leading-6 text-on-surface-variant">{hero.microcopy}</p>
+            <p className="mt-4 hidden text-sm leading-6 text-on-surface-variant md:block">{hero.microcopy}</p>
           </div>
         </div>
 
-        <div data-hero-animate="visual" className="mt-12 border-t border-outline-variant/40 pt-8 md:mt-16 md:pt-10">
+        <div data-hero-animate="visual" className="mt-6 border-t border-outline-variant/40 pt-5 md:mt-16 md:pt-10">
           <HeroPlantFlow />
         </div>
       </Container>
