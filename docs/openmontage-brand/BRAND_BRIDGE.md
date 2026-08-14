@@ -12,6 +12,7 @@ Maps root marketing design to this OpenMontage pack so agents do not fork two br
 | Video / OpenMontage look | `DESIGN_VIDEO.md` + `playbooks/stamped-industrial.yaml` |
 | Product claims | `context/STAMPED_CONTEXT.md` + `context/VOICE_AND_CLAIMS.md` |
 | Motion grammar inspiration | `references/cvector-audit.md` (borrow only) |
+| Homepage MotionSlots still to build | `references/homepage-animation-backlog.md` (A01–A10) |
 
 ---
 
@@ -27,7 +28,7 @@ Maps root marketing design to this OpenMontage pack so agents do not fork two br
 | IBM Plex Mono | Labels only |
 | SectionBadge ticks | Chapter labels in video |
 | HIW Data→…→Decisions | Stage-swap pattern |
-| MotionSlot | Future site motion; brief via prompts |
+| MotionSlot | Site motion inventory: `references/homepage-animation-backlog.md`; brief via `prompts/website-motion-brief.md` |
 
 ---
 
@@ -61,6 +62,7 @@ CVector uses Mindaro `#eef981` for impact. Stamped video may use `#e8f07a` / on-
 
 ## OpenMontage install hint
 
-Copy `playbooks/stamped-industrial.yaml` → OpenMontage `styles/stamped-industrial.yaml`.  
-Copy or mount this whole `docs/openmontage-brand/` folder into the OpenMontage project for agent context.  
-Add `stamped-industrial` to pipeline `compatible_playbooks`.
+This pack is installed at `brand/stamped/`. Playbook lives at `styles/stamped-industrial.yaml`.  
+`config.yaml` sets `brand.active: stamped` and `brand.default_playbook: stamped-industrial`.  
+Pipelines list `stamped-industrial` first under `compatible_playbooks.recommended`.  
+See repo-root `AGENT_GUIDE.md` → **Active Brand**.

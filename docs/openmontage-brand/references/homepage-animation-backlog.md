@@ -1,0 +1,285 @@
+# Homepage animation backlog (Stamped)
+
+**Status:** Inventory only — no implementation in this doc.  
+**Date:** Aug 2026  
+**Canonical (OpenMontage):** keep in sync with Montage-Stamped `brand/stamped/references/homepage-animation-backlog.md`.  
+**Agent discovery:** Linked from this pack’s [`README.md`](../README.md), repo-root [`AGENTS.md`](../../../AGENTS.md), and `PROGRESS.md`. If an agent is asked what homepage motion still needs building, **open this file first**.  
+**Authority for site slots:** Main_Website CVector-parity homepage (`app/page.tsx`), not the older live [stamped.work](https://stamped.work/) hero.  
+**Inspiration:** [https://www.cvector.com/](https://www.cvector.com/) — motion grammar only. See [`cvector-audit.md`](cvector-audit.md).  
+**Brief template:** [`../prompts/website-motion-brief.md`](../prompts/website-motion-brief.md)
+
+---
+
+## Hard rules
+
+- Stamped tokens: Forge Coral `#F75440`, demo-deck / surface `#f7faf5` / `#f1f4f0`, Space Grotesk / Inter / IBM Plex Mono.
+- Ease-out only (quart / quint / expo). No bounce, elastic, or overshoot.
+- `prefers-reduced-motion` → static still (or hard cut + hold).
+- Do **not** clone CVector `.riv` assets, logos, copy, $ metrics, or Flame Pea / Claret / Mindaro as brand primaries.
+- ₹-scored **prescriptions**, not dollar-scored recommendations. Claims must pass `../context/VOICE_AND_CLAIMS.md`.
+- Prefer handoff path like hero: self-contained HTML sample under `brand/stamped/samples/` → port into Main_Website (not a silent Rive clone of CVector).
+
+---
+
+## Status snapshot
+
+| ID | Slot | Status |
+|----|------|--------|
+| A00 | Homepage hero visual | **DONE** — `HeroPlantFlow` |
+| A01–A03 | Problem strips (×3) | **MISSING** — `MotionSlot` |
+| A04 | What is Stamped | **MISSING** — `MotionSlot` |
+| — | HIW pin / scrub / step nav | **DONE** — GSAP ScrollTrigger (visuals still empty) |
+| A05–A08 | HIW stage visuals (×4) | **MISSING** — `MotionSlot` |
+| A09–A10 | Solutions pillar chromes (×2) | **MISSING** — `MotionSlot` |
+| B01–B04 | Impact / CTA / photos / CVector-only | **P1** — no MotionSlot today |
+
+**Count:** 10 remaining MotionSlot compositions → **4 production packages**.  
+If grouping loosely: Problem (3) + What-is (1) + HIW visuals (1 package / 4 stages) + Solutions (2) ≈ **7 work items**.
+
+```text
+A00 Hero DONE
+  → A01–A03 Problem MISSING
+  → A04 What is MISSING
+  → HIW pin DONE → A05–A08 HIW visuals MISSING
+  → A09–A10 Solutions MISSING
+  → B01–B04 P1 optional
+```
+
+### Not missing (do not treat as backlog)
+
+- Navbar, `SectionBadge`, `Reveal` fades, hero copy GSAP intro, CTA hover, industry photo zoom
+- HIW pin, snap, step-button scroll jump
+- Inner-page `SolutionMediaSlot` placeholders on solutions pillar pages — **out of homepage scope** (follow-up only)
+
+---
+
+## A00 — Done (do not remake)
+
+| Field | Value |
+|-------|-------|
+| **ID** | A00 |
+| **Section** | Hero |
+| **Component** | `Main_Website/components/sections/hero/HeroPlantFlow.tsx` (wired from `Hero.tsx`) |
+| **CVector analog** | `heroDRive` / `heroMRive` — external signals + plant telemetry schematic, product-UI chrome |
+| **Stamped beat** | Plant → Stamped hub → ₹ prescription chips |
+| **Status** | Shipped (ADR-022). Chip/wire rAF engine + GSAP wrapper intro. |
+| **Sample SoT** | `brand/stamped/samples/hero-plant-flow.html` + `Main_Website/handoff/hero-plant-flow/` |
+
+---
+
+## P0 — Replace these MotionSlots
+
+### Package 1 — Problem (3 short strips)
+
+**Section component:** `Main_Website/components/sections/HomeProblem.tsx`  
+**Layout:** Dark / secondary band; three columns; `MotionSlot` `aspect-[4/3] max-h-40`, `dark`  
+**CVector:** `problemM1`–`problemM3` (~98px tall Rive strips on Flame Pea). Looping line-art UI metaphors.
+
+#### A01 — Priorities
+
+| Field | Value |
+|-------|-------|
+| **ID** | A01 |
+| **Slot label** | Problem visual 1 |
+| **Copy beat** | Data is abundant. Clear priorities are not. |
+| **CVector analog** | Toggles / sliders / pie / hourglass — many controls, no ranked next step |
+| **Motion intent** | Unordered meters / signals → one clear ₹-ranked next action (priority metaphor) |
+| **Suggested runtime** | Compact looping SVG/GSAP strip (or HTML sample handoff); keep short height |
+| **Reduced motion** | Static icon strip still |
+| **Anti-clone** | Do not reuse CVector toggle/slider artwork or Flame Pea as default band (Stamped secondary band already set) |
+
+#### A02 — Speed / windows
+
+| Field | Value |
+|-------|-------|
+| **ID** | A02 |
+| **Slot label** | Problem visual 2 |
+| **Copy beat** | Windows to act close before teams can respond. |
+| **CVector analog** | Same strip language; time/urgency (hourglass / closing window) |
+| **Motion intent** | Tariff / MD peak window closing before a review cycle finishes |
+| **Suggested runtime** | Same family as A01 (shared strip system, different metaphor) |
+| **Reduced motion** | Static still of “window closed” or mid-close state |
+| **Anti-clone** | No copied CVector hourglass Rive; Stamped = ToD / demand window language |
+
+#### A03 — Invisible link
+
+| Field | Value |
+|-------|-------|
+| **ID** | A03 |
+| **Slot label** | Problem visual 3 |
+| **Copy beat** | Floor decisions and energy outcomes stay disconnected. |
+| **CVector analog** | Invisible link floor → margin / P&L |
+| **Motion intent** | Floor action vs DISCOM bill stay disconnected until Stamped closes the loop |
+| **Suggested runtime** | Same family as A01–A02 |
+| **Reduced motion** | Static split diagram (floor \| bill) with gap |
+| **Anti-clone** | No $ margin language; use energy cost / bill outcomes |
+
+---
+
+### Package 2 — What is Stamped (1 large visual)
+
+**Section component:** `Main_Website/components/sections/HomeWhatIs.tsx`  
+**Layout:** Surface band; square visual `aspect-square max-h-[420px]`; label “Product visual”  
+**CVector:** `wicvectorRive` — beige band; efficiency / feedstock / production icons docking into an isometric processor
+
+#### A04 — Product visual
+
+| Field | Value |
+|-------|-------|
+| **ID** | A04 |
+| **Slot label** | Product visual |
+| **Copy beat** | AI-powered energy intelligence — continuous analysis → ₹-scored prescriptions + audit trail |
+| **CVector analog** | Icons docking into central processor / isometric block |
+| **Motion intent** | Meters / SCADA / bills → Stamped hub → ₹ prescription (system diagram, not AI-brain particles) |
+| **Suggested runtime** | HTML sample handoff (preferred). Reuse candidate: `brand/stamped/samples/plant-data-flow.html` — **retheme** from dark Obsidian to surface-low; do not ship as-is |
+| **Reduced motion** | Static docked diagram |
+| **Anti-clone** | No CVector feedstock/production icon set; Stamped energy graph + prescription chrome |
+
+---
+
+### Package 3 — How it works (4 stage visuals)
+
+**Section component:** `Main_Website/components/sections/HomeHowItWorks.tsx`  
+**Already live:** Desktop pin + scrub + snap through Data → Analysis → Prescriptions → Decisions; mobile stacked; step nav click-to-progress.  
+**Still empty:** Each panel’s `MotionSlot` (`aspect-[4/3]`), desktop + mobile labels `${step.label} visual`  
+**CVector:** `hiwR1`–`hiwR4` (desktop) / `hiwMR1`–`hiwMR4` (mobile)
+
+#### A05 — Data
+
+| Field | Value |
+|-------|-------|
+| **ID** | A05 |
+| **Stage** | Data |
+| **Copy beat** | Plant and market signals are stored and modeled in real time. |
+| **Motion intent** | Signals docking into an energy graph (incomer, SCADA, bills, tariff / weather) |
+| **Suggested runtime** | Stage art in shared HIW visual language; swap with pin progress (or play once on step enter) |
+| **Reduced motion** | Static “signals → graph” frame for this step |
+| **Anti-clone** | Stamped signal labels; no CVector commodity board verbatim |
+
+#### A06 — Analysis
+
+| Field | Value |
+|-------|-------|
+| **ID** | A06 |
+| **Stage** | Analysis |
+| **Copy beat** | Operational scenarios and economic impact analyzed 24/7. |
+| **Motion intent** | Baseline vs waste categories lighting; ₹ impact of scenarios — not a generic “AI brain” |
+| **Suggested runtime** | Same HIW kit as A05 |
+| **Reduced motion** | Static baseline / waste highlight |
+| **Anti-clone** | No invented fleet %; indicative UI only |
+
+#### A07 — Prescriptions
+
+| Field | Value |
+|-------|-------|
+| **ID** | A07 |
+| **Stage** | Prescriptions |
+| **Copy beat** | ₹-scored prescriptions generated in real time. |
+| **Motion intent** | Ranked prescription cards assemble: LIVE / mono label → title → owner → ₹ → evidence |
+| **Suggested runtime** | Align with `MOTION_LANGUAGE.md` prescription UI storytelling; may echo hero chip language lightly |
+| **Reduced motion** | One completed card still |
+| **Anti-clone** | ₹ not $; Stamped prescription fields |
+
+#### A08 — Decisions
+
+| Field | Value |
+|-------|-------|
+| **ID** | A08 |
+| **Stage** | Decisions |
+| **Copy beat** | Operators review prescriptions and remain in control. |
+| **Motion intent** | Accept / adjust / reject; Verify tick; Improve hint (expertise compounds) |
+| **Suggested runtime** | Same HIW kit; land on human-in-control, not auto-write to PLC |
+| **Reduced motion** | Static accept + Verify ledger tick |
+| **Anti-clone** | No “control system replacement” implication |
+
+---
+
+### Package 4 — Solutions (2 pillar chromes)
+
+**Section component:** `Main_Website/components/sections/HomeSolutionsRows.tsx`  
+**Layout:** Alternating rows; `MotionSlot` `aspect-[16/10]`  
+**CVector:** Four solution cards are **HTML product-UI chrome** (not Rive). Stamped homepage only ships **two** public pillars — do **not** add Plant Margin Optimization or Custom Model Integration.
+
+**Reuse candidates (evaluate; do not drop in unchanged):**
+
+- `Main_Website/components/solutions/AgenticEnergyVisual.tsx` → possible A09 seed  
+- `Main_Website/components/solutions/EarlyDetectionVisual.tsx` → possible A10 seed  
+
+#### A09 — Industry Energy Management
+
+| Field | Value |
+|-------|-------|
+| **ID** | A09 |
+| **Pillar** | Industry Energy Management (`/solutions/load-energy`) |
+| **CVector analog** | Energy card chrome (“15 MW / PRICE SPIKE / RAMP DOWN”) |
+| **Motion intent** | MD / tariff / idle-load prescription chrome: ₹, owner, ToD window, LIVE telemetry chips |
+| **Suggested runtime** | In-page GSAP product chrome or HTML sample; product-UI storytelling |
+| **Reduced motion** | Static prescription / energy card |
+| **Anti-clone** | No CVector MW spike copy; Stamped MD / DISCOM / ToD language |
+
+#### A10 — Asset Health Intelligence
+
+| Field | Value |
+|-------|-------|
+| **ID** | A10 |
+| **Pillar** | Asset Health Intelligence (`/solutions/equipment-intelligence`) |
+| **CVector analog** | Vibration / fouling dollar-ranked alert cards |
+| **Motion intent** | Energy-linked anomaly → assigned maintenance prescription (₹ risk). Not EMS / MES / CMMS replacement |
+| **Suggested runtime** | Same chrome family as A09; early-warning timeline optional |
+| **Reduced motion** | Static ranked alert + prescription card |
+| **Anti-clone** | No CVector $184K / fouling literals; Stamped claims firewall |
+
+---
+
+## P1 — No MotionSlot today (optional)
+
+| ID | Section | CVector | Stamped now | Recommendation |
+|----|---------|---------|-------------|----------------|
+| B01 | Impact | Full Mindaro band; 6 % tiles | Dark secondary band + 6 indicative % + disclaimer | Optional number fade-in only. **No** slot-machine counters. No new Rive. |
+| B02 | Closing CTA | Coral drench + Unicorn Studio WebGL | Coral / secondary band + CTAs | Skip Unicorn-style ambient. Optional CTA chevron nudge (2–4px, ease-out). |
+| B03 | Industries / Resources | Photos / blog cards | Same | Keep photos / cards. Not animation slots. |
+| B04 | Testimonials / Security | Present on CVector | **Not on Stamped home** | Out of scope. |
+
+---
+
+## Suggested build order
+
+1. **A04** What is — establishes system diagram language; plant-data-flow sample can accelerate.  
+2. **A05–A08** HIW visuals — same language as A04; plug into existing pin/scrub.  
+3. **A01–A03** Problem strips — compact shared strip system.  
+4. **A09–A10** Solutions chromes — denser product UI; evaluate existing solution visuals.  
+5. **B01–B02** only if polish pass after P0.
+
+---
+
+## Runtime & handoff convention
+
+| Approach | When |
+|----------|------|
+| HTML sample in `brand/stamped/samples/` + Main_Website port | Preferred for complex loops (matches A00 hero-plant-flow) |
+| In-page GSAP after `MotionProvider.isReady` | Fine for strips, chrome assemble, pin-synced stage art |
+| Remotion / HyperFrames export → embed | Only if a video/export is the deliverable; not default for site slots |
+| Clone CVector `.riv` | **Forbidden** |
+
+Each slot brief when implementing should still produce: storyboard + asset list + runtime choice + reduced-motion still — then wait for approval before coding the site (`../prompts/website-motion-brief.md`).
+
+---
+
+## Follow-ups (outside this backlog)
+
+- Solutions pillar pages: `SolutionMediaSlot` / reserved media rows  
+- Platform / How-it-works long page enrichments  
+- OpenMontage video productions using the same motion grammar (`stamped-industrial` playbook)
+
+---
+
+## Related docs
+
+| Doc | Role |
+|-----|------|
+| [`cvector-audit.md`](cvector-audit.md) | CVector stack + section modes (inspiration) |
+| [`../MOTION_LANGUAGE.md`](../MOTION_LANGUAGE.md) | Physics + signature patterns |
+| [`../DESIGN_VIDEO.md`](../DESIGN_VIDEO.md) | Video / motion tokens |
+| [`../prompts/website-motion-brief.md`](../prompts/website-motion-brief.md) | Per-slot implementation brief |
+| Main_Website `DESIGN.md` § MotionSlot | Site placeholder + section rhythm |
+| Main_Website `PROGRESS.md` | Remaining “animation pass” checkbox |
