@@ -49,7 +49,7 @@ Homepage hero plant-flow graphic (ADR-022) — implementation complete; visual Q
 
 ## Remaining Phases
 
-- [ ] Homepage / HIW / solutions animation pass for remaining MotionSlots (use `docs/openmontage-brand/prompts/website-motion-brief.md`)
+- [ ] Homepage / HIW / solutions animation pass for remaining MotionSlots — inventory: OpenMontage `brand/stamped/references/homepage-animation-backlog.md` (A01–A10); brief: `docs/openmontage-brand/prompts/website-motion-brief.md`
 - [ ] First OpenMontage production using `stamped-industrial` playbook (outside this repo)
 - See **`SEO_GEO_AEO.md` → Remaining & ongoing maintenance** for SEO list. Highlights:
 - [ ] **Google Business Profile** (Section 12 #3)
