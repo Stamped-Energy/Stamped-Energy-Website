@@ -1,0 +1,197 @@
+.le-slot {
+  width: 100%;
+  height: 100%;
+  color: inherit;
+}
+
+.le-slot svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.le-cream {
+  color: #4a634d;
+  background: #eeeae3;
+}
+
+.le-forest {
+  color: #fbfcf9;
+  background: #4a634d;
+}
+
+.le-acid {
+  color: #2f3218;
+  background: #eef981;
+}
+
+.le-wine {
+  color: #fbfcf9;
+  background: #761438;
+}
+
+.le-slot .chip,
+.le-slot .rx {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+}
+
+.le-slot .lbl {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.7px;
+  fill: currentColor;
+  text-transform: uppercase;
+  opacity: 0.72;
+}
+
+.le-slot .lbl-hi {
+  opacity: 1;
+}
+
+.le-slot .val {
+  fill: currentColor;
+}
+
+.le-slot .mute-txt {
+  fill: currentColor;
+  opacity: 0.72;
+}
+
+.le-slot .cell {
+  opacity: 0.38;
+}
+
+.le-slot .cell.is-on {
+  opacity: 1;
+}
+
+.le-slot .bar-fill {
+  fill: currentColor;
+  opacity: 0.22;
+}
+
+.le-slot .bar-mark {
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-dasharray: 3 3;
+  opacity: 0.85;
+}
+
+.le-slot .spark,
+.le-slot .md-line {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.le-slot .spark {
+  stroke-width: 1.6;
+}
+
+.le-slot .md-line {
+  stroke-width: 1.2;
+  stroke-dasharray: 3 4;
+  opacity: 0.55;
+}
+
+.le-slot .axis,
+.le-slot .now-rule {
+  stroke: currentColor;
+  stroke-width: 1;
+  opacity: 0.28;
+}
+
+.le-slot .live-dot {
+  fill: currentColor;
+}
+
+.le-slot .slab {
+  opacity: 0.32;
+}
+
+.le-slot .slab.is-on {
+  opacity: 1;
+}
+
+.le-slot .pill-fill {
+  fill: currentColor;
+}
+
+.le-cream .pill-ink {
+  fill: #eeeae3;
+}
+
+.le-forest .pill-ink {
+  fill: #4a634d;
+}
+
+.le-acid .pill-ink {
+  fill: #eef981;
+}
+
+.le-wine .pill-ink {
+  fill: #761438;
+}
+
+.le-slot .btn {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+}
+
+.le-slot .is-hot .btn {
+  fill: #fbfcf9;
+}
+
+.le-wine .is-hot .val {
+  fill: #761438;
+}
+
+.le-slot .cursor-arrow {
+  fill: #fbfcf9;
+  stroke: #761438;
+  stroke-width: 1.2;
+  stroke-linejoin: round;
+  transform-box: fill-box;
+  transform-origin: 0 0;
+}
+
+.le-slot .rank-row {
+  opacity: 0.4;
+}
+
+.le-slot .rank-row.is-on {
+  opacity: 1;
+}
+
+.le-slot .tick-draw {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.55;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.le-slot .verify-kicker {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 8px;
+  letter-spacing: 0.9px;
+  fill: currentColor;
+  text-transform: uppercase;
+  opacity: 0.72;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .le-slot .cursor-arrow {
+    display: none;
+  }
+
+  .le-slot .cell,
+  .le-slot .slab,
+  .le-slot .rank-row {
+    opacity: 1;
+  }
+}

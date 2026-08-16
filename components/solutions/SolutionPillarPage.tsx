@@ -24,7 +24,7 @@ export function SolutionPillarPage({ pillar }: SolutionPillarPageProps) {
       />
 
       <SolutionOutcomes outcomes={pillar.outcomes} />
-      <SolutionHowItWorks howItWorks={pillar.howItWorks} />
+      <SolutionHowItWorks howItWorks={pillar.howItWorks} pillarSlug={pillar.slug} />
       <SolutionExamples examples={pillar.examples} />
       <MarketingClosingCta content={pillar.finalCta} />
     </>
