@@ -25,7 +25,7 @@ Also skim [`BRAND_BRIDGE.md`](BRAND_BRIDGE.md) and [`references/cvector-audit.md
 
 **Canonical twin (keep in sync):** OpenMontage / Montage-Stamped `brand/stamped/references/homepage-animation-backlog.md`
 
-Agents exploring this website repo for remaining homepage motion should open that inventory first (A00 done; A01–A10 still to build). Implementation briefs: [`prompts/website-motion-brief.md`](prompts/website-motion-brief.md). Live site checkboxes: repo-root `PROGRESS.md`.
+Agents exploring this website repo for remaining homepage motion should open that inventory first (A00–A10 shipped; B01–B04 P1). Implementation briefs: [`prompts/website-motion-brief.md`](prompts/website-motion-brief.md). Live site checkboxes: repo-root `PROGRESS.md`.
 
 ---
 

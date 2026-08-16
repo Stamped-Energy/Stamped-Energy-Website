@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-Homepage hero plant-flow graphic (ADR-022) — implementation complete; visual QA against handoff remaining.
+Homepage MotionSlots A00–A10 are wired. Industry Energy Management How it works chromes are on `/solutions/load-energy`. Remaining motion is P1 (B01–B04) plus Asset Health reserved rows.
 
 ## Completed Phases
 
@@ -49,7 +49,10 @@ Homepage hero plant-flow graphic (ADR-022) — implementation complete; visual Q
 
 ## Remaining Phases
 
-- [ ] Homepage / HIW / solutions animation pass for remaining MotionSlots — inventory: OpenMontage `brand/stamped/references/homepage-animation-backlog.md` (A01–A10); brief: `docs/openmontage-brand/prompts/website-motion-brief.md`
+- [x] Homepage MotionSlots A01–A04, A09–A10 — problem strips, product visual, solutions chromes (`components/motion-slots/`)
+- [x] Homepage HIW stage visuals (A05–A08) — `HiwStageVisuals` in `HomeHowItWorks`
+- [x] `/solutions/load-energy` How it works chromes — `LoadEnergyHiwVisuals`
+- [x] `/solutions/equipment-intelligence` How it works chromes — `AssetHealthHiwVisuals`
 - [ ] First OpenMontage production using `stamped-industrial` playbook (outside this repo)
 - See **`SEO_GEO_AEO.md` → Remaining & ongoing maintenance** for SEO list. Highlights:
 - [ ] **Google Business Profile** (Section 12 #3)

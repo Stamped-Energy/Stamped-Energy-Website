@@ -26,22 +26,21 @@
 | ID | Slot | Status |
 |----|------|--------|
 | A00 | Homepage hero visual | **DONE** — `HeroPlantFlow` |
-| A01–A03 | Problem strips (×3) | **MISSING** — `MotionSlot` |
-| A04 | What is Stamped | **MISSING** — `MotionSlot` |
-| — | HIW pin / scrub / step nav | **DONE** — GSAP ScrollTrigger (visuals still empty) |
-| A05–A08 | HIW stage visuals (×4) | **MISSING** — `MotionSlot` |
-| A09–A10 | Solutions pillar chromes (×2) | **MISSING** — `MotionSlot` |
+| A01–A03 | Problem strips (×3) | **DONE** — `ProblemStripVisuals` |
+| A04 | What is Stamped | **DONE** — `WhatIsProductVisual` |
+| — | HIW pin / scrub / step nav | **DONE** — GSAP ScrollTrigger |
+| A05–A08 | HIW stage visuals (×4) | **DONE** — `HiwStageVisuals` |
+| A09–A10 | Solutions pillar chromes (×2) | **DONE** — `SolutionsVisuals` |
 | B01–B04 | Impact / CTA / photos / CVector-only | **P1** — no MotionSlot today |
 
-**Count:** 10 remaining MotionSlot compositions → **4 production packages**.  
-If grouping loosely: Problem (3) + What-is (1) + HIW visuals (1 package / 4 stages) + Solutions (2) ≈ **7 work items**.
+**Count:** 0 remaining P0 MotionSlot compositions. B01–B04 optional.  
 
 ```text
 A00 Hero DONE
-  → A01–A03 Problem MISSING
-  → A04 What is MISSING
-  → HIW pin DONE → A05–A08 HIW visuals MISSING
-  → A09–A10 Solutions MISSING
+  → A01–A03 Problem DONE
+  → A04 What is DONE
+  → HIW pin DONE → A05–A08 HIW visuals DONE
+  → A09–A10 Solutions DONE
   → B01–B04 P1 optional
 ```
 
@@ -87,6 +86,8 @@ A00 Hero DONE
 | **Suggested runtime** | Compact looping SVG/GSAP strip (or HTML sample handoff); keep short height |
 | **Reduced motion** | Static icon strip still |
 | **Anti-clone** | Do not reuse CVector toggle/slider artwork or Flame Pea as default band (Stamped secondary band already set) |
+| **Status** | **DONE** — `Stamped-Energy-Website/components/motion-slots/ProblemStripVisuals.tsx` (`ProblemPrioritiesVisual`) |
+| **Sample SoT** | `brand/stamped/samples/problem-strips.html` |
 
 #### A02 — Speed / windows
 
@@ -100,6 +101,8 @@ A00 Hero DONE
 | **Suggested runtime** | Same family as A01 (shared strip system, different metaphor) |
 | **Reduced motion** | Static still of “window closed” or mid-close state |
 | **Anti-clone** | No copied CVector hourglass Rive; Stamped = ToD / demand window language |
+| **Status** | **DONE** — `ProblemWindowsVisual` |
+| **Sample SoT** | `brand/stamped/samples/problem-strips.html` |
 
 #### A03 — Invisible link
 
@@ -113,6 +116,8 @@ A00 Hero DONE
 | **Suggested runtime** | Same family as A01–A02 |
 | **Reduced motion** | Static split diagram (floor \| bill) with gap |
 | **Anti-clone** | No $ margin language; use energy cost / bill outcomes |
+| **Status** | **DONE** — `ProblemDecisionsVisual` |
+| **Sample SoT** | `brand/stamped/samples/problem-strips.html` |
 
 ---
 
@@ -134,6 +139,9 @@ A00 Hero DONE
 | **Suggested runtime** | HTML sample handoff (preferred). Reuse candidate: `brand/stamped/samples/plant-data-flow.html` — **retheme** from dark Obsidian to surface-low; do not ship as-is |
 | **Reduced motion** | Static docked diagram |
 | **Anti-clone** | No CVector feedstock/production icon set; Stamped energy graph + prescription chrome |
+| **Status** | **DONE** — `Stamped-Energy-Website/components/motion-slots/WhatIsProductVisual.tsx` |
+| **Sample SoT** | `brand/stamped/samples/what-is-product.html` |
+| **Logo** | `public/images/product/logo-mark-3d.png` (still mark, no rotation, no black disc) |
 
 ---
 
@@ -141,7 +149,8 @@ A00 Hero DONE
 
 **Section component:** `Main_Website/components/sections/HomeHowItWorks.tsx`  
 **Already live:** Desktop pin + scrub + snap through Data → Analysis → Prescriptions → Decisions; mobile stacked; step nav click-to-progress.  
-**Still empty:** Each panel’s `MotionSlot` (`aspect-[4/3]`), desktop + mobile labels `${step.label} visual`  
+**Stage art:** `components/motion-slots/HiwStageVisuals.tsx` — `MotionSlot` `aspect-[16/10]`, desktop + mobile.  
+**Sample SoT:** OpenMontage `brand/stamped/samples/hiw-chromes.html`  
 **CVector:** `hiwR1`–`hiwR4` (desktop) / `hiwMR1`–`hiwMR4` (mobile)
 
 #### A05 — Data
@@ -153,8 +162,10 @@ A00 Hero DONE
 | **Copy beat** | Plant and market signals are stored and modeled in real time. |
 | **Motion intent** | Signals docking into an energy graph (incomer, SCADA, bills, tariff / weather) |
 | **Suggested runtime** | Stage art in shared HIW visual language; swap with pin progress (or play once on step enter) |
-| **Reduced motion** | Static “signals → graph” frame for this step |
+| **Reduced motion** | Static “signals stored” frame for this step |
 | **Anti-clone** | Stamped signal labels; no CVector commodity board verbatim |
+| **Status** | **DONE** — `DataStageVisual` |
+| **Sample SoT** | OpenMontage `brand/stamped/samples/hiw-chromes.html` |
 
 #### A06 — Analysis
 
@@ -167,6 +178,8 @@ A00 Hero DONE
 | **Suggested runtime** | Same HIW kit as A05 |
 | **Reduced motion** | Static baseline / waste highlight |
 | **Anti-clone** | No invented fleet %; indicative UI only |
+| **Status** | **DONE** — `AnalysisStageVisual` |
+| **Sample SoT** | OpenMontage `brand/stamped/samples/hiw-chromes.html` |
 
 #### A07 — Prescriptions
 
@@ -179,6 +192,8 @@ A00 Hero DONE
 | **Suggested runtime** | Align with `MOTION_LANGUAGE.md` prescription UI storytelling; may echo hero chip language lightly |
 | **Reduced motion** | One completed card still |
 | **Anti-clone** | ₹ not $; Stamped prescription fields |
+| **Status** | **DONE** — `PrescriptionsStageVisual` |
+| **Sample SoT** | OpenMontage `brand/stamped/samples/hiw-chromes.html` |
 
 #### A08 — Decisions
 
@@ -191,6 +206,8 @@ A00 Hero DONE
 | **Suggested runtime** | Same HIW kit; land on human-in-control, not auto-write to PLC |
 | **Reduced motion** | Static accept + Verify ledger tick |
 | **Anti-clone** | No “control system replacement” implication |
+| **Status** | **DONE** — `DecisionsStageVisual` |
+| **Sample SoT** | OpenMontage `brand/stamped/samples/hiw-chromes.html` |
 
 ---
 
@@ -216,6 +233,8 @@ A00 Hero DONE
 | **Suggested runtime** | In-page GSAP product chrome or HTML sample; product-UI storytelling |
 | **Reduced motion** | Static prescription / energy card |
 | **Anti-clone** | No CVector MW spike copy; Stamped MD / DISCOM / ToD language |
+| **Status** | **DONE** — `Stamped-Energy-Website/components/motion-slots/SolutionsVisuals.tsx` (`EnergyManagementVisual`) |
+| **Sample SoT** | `brand/stamped/samples/solutions-chromes.html` |
 
 #### A10 — Asset Health Intelligence
 
@@ -228,6 +247,8 @@ A00 Hero DONE
 | **Suggested runtime** | Same chrome family as A09; early-warning timeline optional |
 | **Reduced motion** | Static ranked alert + prescription card |
 | **Anti-clone** | No CVector $184K / fouling literals; Stamped claims firewall |
+| **Status** | **DONE** — `AssetHealthVisual` |
+| **Sample SoT** | `brand/stamped/samples/solutions-chromes.html` |
 
 ---
 
@@ -244,11 +265,7 @@ A00 Hero DONE
 
 ## Suggested build order
 
-1. **A04** What is — establishes system diagram language; plant-data-flow sample can accelerate.  
-2. **A05–A08** HIW visuals — same language as A04; plug into existing pin/scrub.  
-3. **A01–A03** Problem strips — compact shared strip system.  
-4. **A09–A10** Solutions chromes — denser product UI; evaluate existing solution visuals.  
-5. **B01–B02** only if polish pass after P0.
+1. **B01–B02** only if polish pass after P0.
 
 ---
 
@@ -267,8 +284,9 @@ Each slot brief when implementing should still produce: storyboard + asset list 
 
 ## Follow-ups (outside this backlog)
 
-- Solutions pillar pages: `SolutionMediaSlot` / reserved media rows  
-- Platform / How-it-works long page enrichments  
+- Solutions pillar **Industry Energy Management** (`/solutions/load-energy`) How it works chromes are shipped (sample SoT `brand/stamped/samples/load-energy-hiw.html` → `LoadEnergyHiwVisuals.tsx`)
+- Solutions pillar **Asset Health Intelligence** (`/solutions/equipment-intelligence`) How it works chromes are shipped (`brand/stamped/samples/asset-health-hiw.html` → `AssetHealthHiwVisuals.tsx`)
+- Platform / How-it-works long page enrichments
 - OpenMontage video productions using the same motion grammar (`stamped-industrial` playbook)
 
 ---

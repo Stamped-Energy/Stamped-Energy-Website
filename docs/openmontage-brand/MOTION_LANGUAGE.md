@@ -92,14 +92,14 @@ New visual idea every 2–4s in launch; every 3–5s in explainer.
 
 ## Website MotionSlot briefs
 
-**Work list (what still needs building):** [`references/homepage-animation-backlog.md`](references/homepage-animation-backlog.md) — A00 done; A01–A10 remaining.
+**Work list (what still needs building):** [`references/homepage-animation-backlog.md`](references/homepage-animation-backlog.md) — A00–A10 shipped; B01–B04 P1 optional.
 
 When replacing site placeholders, prefer:
 
 - Hero: isometric or UI-led decision layer (not GIF spam) — **shipped** (A00)  
-- Problem: three pain beats on dark band (A01–A03)  
-- What is: system / energy-graph visual (A04)  
-- HIW: pin/scrub four stages (pin live; stage art A05–A08)  
-- Solutions: prescription chrome per pillar (A09–A10)  
+- Problem: three pain beats on dark band (A01–A03) — **shipped**  
+- What is: system / energy-graph visual (A04) — **shipped**  
+- HIW: pin/scrub four stages (pin live; stage art A05–A08) — **shipped**  
+- Solutions: prescription chrome per pillar (A09–A10) — **shipped** 
 
 Per-slot implementation briefs: `prompts/website-motion-brief.md`.

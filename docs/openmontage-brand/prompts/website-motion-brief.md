@@ -8,7 +8,7 @@ Brief for replacing Main_Website `MotionSlot` placeholders (or net-new GSAP/Rive
 
 **Read first:** [`../references/homepage-animation-backlog.md`](../references/homepage-animation-backlog.md)
 
-That inventory is the work list (A00 done; A01–A10 P0; B01–B04 P1). Pick a slot ID from there; do not invent parallel priorities.
+That inventory is the work list (A00–A10 done; B01–B04 P1). Pick a slot ID from there; do not invent parallel priorities.
 
 ## Tokens
 

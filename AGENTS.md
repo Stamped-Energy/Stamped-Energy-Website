@@ -29,11 +29,11 @@ Before completion:
 | `DECISIONS.md` | Architecture decision log |
 | `PROGRESS.md` | Current status and blockers |
 | `SEO_GEO_AEO.md` | SEO, GEO, and AEO implementation log and remaining checklist |
-| `docs/openmontage-brand/references/homepage-animation-backlog.md` | **Homepage MotionSlots still to build** (A01–A10). Open this when asked what site animations remain. Twin: OpenMontage `brand/stamped/references/…` |
+| `docs/openmontage-brand/references/homepage-animation-backlog.md` | **Homepage MotionSlots** — A00–A10 shipped. Twin: OpenMontage `brand/stamped/references/…` |
 
 ## Open work — homepage animations
 
-Hero plant-flow (A00) is shipped. Remaining homepage `MotionSlot` compositions are inventoried in [`docs/openmontage-brand/references/homepage-animation-backlog.md`](docs/openmontage-brand/references/homepage-animation-backlog.md). Read that before inventing new motion priorities. Status checkbox: `PROGRESS.md`.
+Hero (A00), problem (A01–A03), product (A04), How it works (A05–A08), and solutions (A09–A10) are shipped. Optional P1 polish is inventoried in [`docs/openmontage-brand/references/homepage-animation-backlog.md`](docs/openmontage-brand/references/homepage-animation-backlog.md). Status checkbox: `PROGRESS.md`.
 
 ## Rule Activation
 
