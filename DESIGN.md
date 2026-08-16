@@ -234,7 +234,7 @@ Loaded via `next/font/google` in `app/layout.tsx`; wired as `--font-display`, `-
 - Sidebar step buttons jump to step progress on desktop.
 
 ### MotionSlot
-- Placeholder for deferred animation: bordered rounded box, mono “Animation soon” + label. Dark variant for secondary bands.
+- Frame for homepage motion. Empty → mono “Animation soon” + label. Pass children to fill (A00–A10). Dark variant for secondary bands.
 
 ### Section rhythm
 - `.section-y`: padding-block 4rem / 5.5rem (md) / 7.5rem (lg).
