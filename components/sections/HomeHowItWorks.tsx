@@ -4,12 +4,12 @@ import { useRef } from "react";
 
 import { useMotion } from "@/components/motion/MotionProvider";
 import { Container } from "@/components/ui/Container";
+import { hiwStageVisuals } from "@/components/motion-slots/HiwStageVisuals";
 import { MotionSlot } from "@/components/ui/MotionSlot";
 import { SectionBadge } from "@/components/ui/SectionBadge";
 import { landingContent } from "@/lib/content";
 import { hiwScrollStarts } from "@/lib/motion/hiwScrollTrigger";
 import { gsap, ScrollTrigger, useGSAP } from "@/lib/motion/gsap";
-import { getPinScrollStart } from "@/lib/motion/pinLayout";
 import { cn } from "@/lib/utils";
 
 function StepCopy({
@@ -23,7 +23,7 @@ function StepCopy({
 }) {
   return (
     <div>
-      <h3 className="font-display text-2xl font-bold tracking-tight md:text-3xl">{title}</h3>
+      <h3 className="font-display text-xl font-bold tracking-tight md:text-2xl lg:text-[1.65rem] lg:leading-tight">{title}</h3>
       <p className="mt-4 text-base leading-8 text-on-surface/80">{description}</p>
       <ul className="mt-6 space-y-3">
         {bullets.map((bullet) => (
@@ -98,7 +98,7 @@ export function HomeHowItWorks() {
 
         const scrollTrigger = ScrollTrigger.create({
           trigger: pinRef.current,
-          start: getPinScrollStart(),
+          start: "center center",
           end: () => `+=${(panels.length - 1) * 100}%`,
           pin: pinRef.current,
           pinSpacing: true,
@@ -196,11 +196,11 @@ export function HomeHowItWorks() {
         ref={pinRef}
         className={cn("hidden", !prefersReducedMotion && "lg:block")}
       >
-        <Container className="w-full pb-16">
-          <div className="grid grid-cols-12 items-start gap-10 xl:gap-14">
+        <Container className="w-full py-8 lg:py-10">
+          <div className="grid w-full grid-cols-12 items-center gap-8 xl:gap-10">
             <nav
               aria-label="How it works steps"
-              className="col-span-3 flex flex-col gap-0"
+              className="col-span-2 flex flex-col gap-0"
             >
               {steps.map((step, index) => (
                 <button
@@ -231,12 +231,14 @@ export function HomeHowItWorks() {
               ))}
             </nav>
 
-            <div className="relative col-span-9 min-h-[min(58vh,520px)]">
-              {steps.map((step, index) => (
+            <div className="relative col-span-10 min-h-[min(68vh,620px)]">
+              {steps.map((step, index) => {
+                const Visual = hiwStageVisuals[index];
+                return (
                 <article
                   key={step.id}
                   data-hiw-panel
-                  className="absolute inset-0 grid grid-cols-1 items-start gap-8 xl:grid-cols-2 xl:gap-10"
+                  className="absolute inset-0 grid grid-cols-1 items-center gap-6 lg:grid-cols-[minmax(220px,0.72fr)_minmax(0,1.55fr)] lg:gap-8"
                   style={{
                     visibility: index === 0 ? "visible" : "hidden",
                     opacity: index === 0 ? 1 : 0,
@@ -249,10 +251,13 @@ export function HomeHowItWorks() {
                   />
                   <MotionSlot
                     label={`${step.label} visual`}
-                    aspectClassName="aspect-[4/3]"
-                  />
+                    aspectClassName="aspect-[16/10] w-full"
+                  >
+                    {Visual ? <Visual /> : null}
+                  </MotionSlot>
                 </article>
-              ))}
+                );
+              })}
             </div>
           </div>
         </Container>
@@ -265,7 +270,9 @@ export function HomeHowItWorks() {
           prefersReducedMotion ? "block" : "lg:hidden",
         )}
       >
-        {steps.map((step) => (
+        {steps.map((step, index) => {
+          const Visual = hiwStageVisuals[index];
+          return (
           <article
             key={step.id}
             data-hiw-panel-mobile
@@ -277,7 +284,7 @@ export function HomeHowItWorks() {
               </span>
               <span className="text-sm font-semibold tracking-tight">{step.label}</span>
             </div>
-            <div className="grid gap-6 md:grid-cols-2 md:items-start md:gap-10">
+            <div className="grid gap-6">
               <StepCopy
                 title={step.title}
                 description={step.description}
@@ -285,11 +292,14 @@ export function HomeHowItWorks() {
               />
               <MotionSlot
                 label={`${step.label} visual`}
-                aspectClassName="aspect-[4/3]"
-              />
+                aspectClassName="aspect-[16/10] w-full"
+              >
+                {Visual ? <Visual /> : null}
+              </MotionSlot>
             </div>
           </article>
-        ))}
+          );
+        })}
       </Container>
     </section>
   );

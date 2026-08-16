@@ -1,0 +1,89 @@
+.hp-strip {
+  width: 100%;
+  height: 100%;
+  background: #f75440;
+}
+
+.hp-strip svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hp-a01-stream {
+  stroke: #fbfcf9;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  fill: none;
+  stroke-dasharray: 2 5;
+}
+
+.hp-a02-path {
+  fill: none;
+  stroke: #fbfcf9;
+  stroke-width: 1.75;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+}
+
+.hp-a02-dot {
+  fill: #fbfcf9;
+}
+
+.hp-a03-rail,
+.hp-a03-bracket {
+  fill: none;
+  stroke: #fbfcf9;
+  stroke-width: 1.5;
+  pointer-events: none;
+}
+
+.hp-a03-frame {
+  fill: none;
+  stroke: #fbfcf9;
+  stroke-width: 1.75;
+}
+
+.hp-a03-line {
+  stroke: #fbfcf9;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+}
+
+.hp-a03-btn {
+  fill: none;
+  stroke: #fbfcf9;
+  stroke-width: 1.75;
+  transition: fill 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hp-a03-icon {
+  fill: none;
+  stroke: #fbfcf9;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hp-a03 .is-hot .hp-a03-btn {
+  fill: #fbfcf9;
+}
+
+.hp-a03 .is-hot .hp-a03-icon {
+  stroke: #f75440;
+}
+
+.hp-a03-cursor {
+  fill: #fbfcf9;
+  stroke: #f75440;
+  stroke-width: 1.25;
+  stroke-linejoin: round;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hp-a03-btn,
+  .hp-a03-icon {
+    transition: none;
+  }
+}

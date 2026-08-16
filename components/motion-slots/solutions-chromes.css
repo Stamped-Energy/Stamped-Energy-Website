@@ -1,0 +1,113 @@
+.sol-slot {
+  width: 100%;
+  height: 100%;
+  color: inherit;
+}
+
+.sol-slot svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.sol-lime {
+  color: #2f3218;
+  background: #e8f07a;
+}
+
+.sol-coral {
+  color: #fbfcf9;
+  background: #f75440;
+}
+
+.sol-slot .chip,
+.sol-slot .rx {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+}
+
+.sol-slot .lbl {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.7px;
+  fill: currentColor;
+  text-transform: uppercase;
+  opacity: 0.72;
+}
+
+.sol-slot .lbl-hi {
+  opacity: 1;
+}
+
+.sol-slot .val {
+  fill: currentColor;
+}
+
+.sol-slot .mute-txt {
+  fill: currentColor;
+  opacity: 0.72;
+}
+
+.sol-slot .spark {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.sol-slot .spark-md {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.2;
+  stroke-dasharray: 3 4;
+  opacity: 0.55;
+}
+
+.sol-slot .axis {
+  stroke: currentColor;
+  stroke-width: 1;
+  opacity: 0.28;
+}
+
+.sol-slot .live-dot {
+  fill: currentColor;
+}
+
+.sol-slot .wave {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.15;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.sol-slot .wave-kw {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-dasharray: 4 3;
+  opacity: 0.55;
+}
+
+.sol-slot .now-rule {
+  stroke: currentColor;
+  stroke-width: 1;
+  opacity: 0.28;
+}
+
+.sol-slot .pulse-ring {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+
+.sol-slot .pill-fill {
+  fill: currentColor;
+}
+
+.sol-coral .pill-ink {
+  fill: #f75440;
+}
+

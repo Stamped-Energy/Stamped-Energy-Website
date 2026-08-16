@@ -1,3 +1,4 @@
+import { WhatIsProductVisual } from "@/components/motion-slots/WhatIsProductVisual";
 import { Container } from "@/components/ui/Container";
 import { MotionSlot } from "@/components/ui/MotionSlot";
 import { Reveal } from "@/components/ui/Reveal";
@@ -12,7 +13,9 @@ export function HomeWhatIs() {
       <Container>
         <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-16">
           <Reveal>
-            <MotionSlot label={whatIs.motionSlotLabel} aspectClassName="aspect-square max-h-[420px]" />
+            <MotionSlot label={whatIs.motionSlotLabel} aspectClassName="aspect-square max-h-[420px]">
+              <WhatIsProductVisual />
+            </MotionSlot>
           </Reveal>
           <Reveal delay={0.08}>
             <SectionBadge label={whatIs.badge} />
