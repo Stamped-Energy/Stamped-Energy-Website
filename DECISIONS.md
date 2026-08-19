@@ -431,3 +431,24 @@ Architecture and workflow decisions for this project.
 **Rationale:** The HTML is the visual SoT (wires, chip timing, prescription copy, reduced-motion). Porting avoids a new visual language. GSAP intro stays on the wrapper; chip motion stays in the handoff engine (rAF + SVG `getPointAtLength`). Prescription copy is indicative plant actions from the handoff — not EMS/MES/PLC-replacement claims.
 
 **Impact:** `components/sections/hero/HeroPlantFlow.tsx` + CSS + engine; `Hero.tsx` visual slot; assets at `/hero-plant-flow/*`. Handoff folder kept as reference. IBM Plex Mono 600/700 loaded for chip/live tags.
+
+---
+
+## ADR-023: About page CVector-style structure; inner-page CTAs home-only
+
+**Date:** 2026-08-19
+
+**Context:** `/about` already had Hero → Story → Team → Values → CTA, but Story was a timeline and the hero was a short inner-page banner. Founder asked for CVector About structure (image + white type, narrative Our Story, founders, values last) without cloning CVector copy or chrome. Inner-page `MarketingClosingCta` bands were then removed from every route except home.
+
+**Alternatives:**
+
+1. Keep the 2025–2026 journey timeline and only restyle the hero
+2. Full CVector About clone (investors, careers, jobs)
+3. CVector section order with Stamped copy: cinematic photo hero, narrative story, two founders, values last; homepage keeps `LandingClosingCta`; delete shared inner-page CTA wrappers
+
+**Selected:** Option 3.
+
+**Rationale:** Matches requested IA without careers/investors Stamped does not have. ADR-011 “About ≤3 blocks” and ADR-020 shared `MarketingClosingCta` on inner pages are superseded for this surface. Nav and footer still route to `/contact`.
+
+**Impact:** `lib/content/about.ts` story narrative; `AboutHero` / `AboutStory` / `AboutTeam` / `AboutValues`; deleted `MarketingClosingCta`, `HiwPageCta`, `IndustryPageCta` and `finalCta` content keys. Home `LandingClosingCta` unchanged.
+

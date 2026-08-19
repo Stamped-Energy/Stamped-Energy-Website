@@ -1,3 +1,44 @@
+# Implementation Plan — About CVector-style structure (ADR-023)
+
+_Status: Implementation complete. Four conventional commits: content → layout → inner CTA strip → docs._
+
+## Goal
+
+Restructure `/about` to CVector section order (photo hero with white type, narrative Our Story, founders, values last) and remove shared inner-page closing CTAs everywhere except the homepage.
+
+## Scope
+
+- `lib/content/about.ts` and inner-page `finalCta` keys / `VerticalPage` type
+- `components/about/*`
+- Unmount and delete `MarketingClosingCta`, `HiwPageCta`, `IndustryPageCta`
+- Docs: `DECISIONS.md` ADR-023, `PROGRESS.md`, `docs/website-copy.md`
+
+## Non-goals
+
+- Careers, investors, job listings
+- New hero or founder photography
+- Homepage `LandingClosingCta`, navbar, or footer
+- Cloning CVector type, colors, or sentences
+
+## Dependencies
+
+- Existing `/industries/die-casting.jpeg` and `/team/*` photos
+- GSAP + `SectionBadge` already on About
+- `/about` already in dark-hero nav allowlist
+
+## Risks
+
+- White headline contrast on the photo (bottom-weighted scrim)
+- Conversion: inner pages lose the dedicated discovery band; Contact remains in nav/footer
+
+## Deliverables
+
+- `/about`: cinematic hero → narrative story → founders → values
+- Homepage-only page-level closing CTA
+- ADR-023 recorded
+
+---
+
 # Implementation Plan — Homepage hero plant-flow (ADR-022)
 
 _Status: Implementation complete. Visual QA against `handoff/hero-plant-flow/hero-plant-flow.html` remaining._

@@ -1,8 +1,8 @@
 # Stamped Energy — Current Website Copy
 
-Live marketing copy as of 13 August 2026. Sourced from what public pages actually render (primarily `lib/content/` plus a few hardcoded strings in page components).
+Live marketing copy as of 19 August 2026. Sourced from what public pages actually render (primarily `lib/content/` plus a few hardcoded strings in page components).
 
-**Included:** global chrome, homepage, solutions hub, both solution pages, platform, five industry pages, about, contact, and case studies & blogs listing chrome. `/industries` currently redirects to automotive, so hub copy is not in this walkthrough.
+**Included:** global chrome, homepage (including the only page-level closing CTA), solutions hub, both solution pages, platform, five industry pages, about, contact, and case studies & blogs listing chrome. Inner marketing pages have no closing CTA band; Contact and nav/footer still point to discovery. `/industries` currently redirects to automotive, so hub copy is not in this walkthrough.
 
 **Not included:** blog/CMS article bodies, admin UI, unused strings that exist in content files but are not rendered (called out at the end).
 
@@ -313,18 +313,6 @@ Orders and department context inform schedule-type actions. Stamped is not your 
 
 Prefer the platform view first? **See how Connect to Improve works**.
 
-### Closing CTA
-
-**Eyebrow:** Start with your plant
-
-**Headline:** See which pillar fits how you buy
-
-**Body:** Discovery call: we map your meters, main loads, and bill pattern, and say honestly if a pilot makes sense.
-
-**Primary CTA:** Book a Discovery Call
-
-**Secondary CTA:** See the Platform
-
 ---
 
 ## 4. Industry Energy Management `/solutions/load-energy`
@@ -428,18 +416,6 @@ Warm-up is burning peak-rate power even when output is the same. Shift warm-up e
 - **Effort:** Schedule change only. Production sign-off.
 - **How you check:** Compare warm-up power against the tariff window and the unchanged job release time.
 
-### Closing CTA
-
-**Eyebrow:** Start with one site
-
-**Headline:** See what Industry Energy Management would find in your plant
-
-**Body:** First prescriptions in about two weeks. No rip-and-replace. Evidence trail from day one.
-
-**Primary CTA:** Book a Discovery Call
-
-**Secondary CTA:** See the Platform
-
 ---
 
 ## 5. Asset Health Intelligence `/solutions/equipment-intelligence`
@@ -542,18 +518,6 @@ Pump power is high for the flow you are getting. Check the valve path before you
 - **Who:** Utilities and mechanical maintenance
 - **Effort:** Inspect and tune. Isolation permit.
 - **How you check:** Compare pump power against delivered flow for a normal operating period.
-
-### Closing CTA
-
-**Eyebrow:** Start with one site
-
-**Headline:** See what Asset Health Intelligence would find in your plant
-
-**Body:** First prescriptions in about two weeks. No rip-and-replace. Evidence trail from day one.
-
-**Primary CTA:** Book a Discovery Call
-
-**Secondary CTA:** See the Platform
 
 ---
 
@@ -666,18 +630,6 @@ Pump power is high for the flow you are getting. Check the valve path before you
 
 4. **Month 3+ — Verified ₹ ledger**
    M&V complete. Numbers for plant head and CFO.
-
-### Closing CTA
-
-**Eyebrow:** Next step
-
-**Headline:** Walk through your meter setup and last three bills
-
-**Body:** We estimate addressable waste in ₹ and outline a pilot—only if the numbers justify it.
-
-**Primary CTA:** Book a Discovery Call
-
-**Secondary CTA:** View solutions
 
 ---
 
@@ -872,16 +824,6 @@ Each card also shows **Note:** Sample situation only. Numbers are illustrative u
 
 **Footnote:** Impact ranges are benchmark estimates from comparable plants, not guarantees. Your pilot replaces them with verified figures.
 
-### Closing CTA
-
-**Eyebrow:** Next step
-
-**Headline:** Map your automotive plant data
-
-**Body:** Walk through meters, processes, and estimated waste - outline a pilot in weeks.
-
-**CTA:** Book a Discovery Call
-
 ---
 
 ## 9. Cement `/industries/cement`
@@ -954,16 +896,6 @@ Each card also shows **Note:** Sample situation only. Numbers are illustrative u
    **Who:** Maintenance planner
 
 **Footnote:** Impact ranges are benchmark estimates, not customer guarantees. Published enterprise cement dispatch cases cite large annual potential; Stamped targets mid-market plants with plant-specific verification.
-
-### Closing CTA
-
-**Eyebrow:** Next step
-
-**Headline:** Upload your last three DISCOM bills
-
-**Body:** Free MD and dispatch opportunity scan - we say honestly if a pilot makes sense for your plant scale.
-
-**CTA:** Book a Discovery Call
 
 ---
 
@@ -1109,16 +1041,6 @@ Forging and foundry operations overlapping automotive heat treatment and forging
 
 **Footnote:** Impact ranges are benchmark estimates, not customer guarantees. Enterprise-scale integrated plant cases are cited only as context. Stamped targets mid-market induction and rolling plants with plant-specific verification.
 
-### Closing CTA
-
-**Eyebrow:** Next step
-
-**Headline:** Map your furnace and rolling mill data
-
-**Body:** Discovery call: meters, main loads, PAT context - we outline a pilot if the numbers justify it.
-
-**CTA:** Book a Discovery Call
-
 ---
 
 ## 11. Pharmaceutical `/industries/pharma`
@@ -1191,16 +1113,6 @@ Forging and foundry operations overlapping automotive heat treatment and forging
    **Who:** Maintenance / utilities
 
 **Footnote:** Impact ranges are benchmark estimates. Stamped frames prescriptions as utilities operations, not GMP room classification changes. Validate with your quality team before execution.
-
-### Closing CTA
-
-**Eyebrow:** Next step
-
-**Headline:** Map your chiller and AHU data
-
-**Body:** Discovery call: utility meters, BMS availability, production calendar - outline a pilot if HVAC savings justify it.
-
-**CTA:** Book a Discovery Call
 
 ---
 
@@ -1275,16 +1187,6 @@ Forging and foundry operations overlapping automotive heat treatment and forging
 
 **Footnote:** Impact ranges are benchmark estimates - not customer guarantees. Verified figures come from your pilot M&V.
 
-### Closing CTA
-
-**Eyebrow:** Next step
-
-**Headline:** Connect your batch calendar to your bill
-
-**Body:** Discovery call: batch logs, main loads, tariff windows - outline a pilot if batch SEC waste justifies it.
-
-**CTA:** Book a Discovery Call
-
 ---
 
 ## 13. About `/about`
@@ -1295,11 +1197,21 @@ Forging and foundry operations overlapping automotive heat treatment and forging
 
 ### Hero
 
-**Eyebrow:** Who we are
+**Headline:** We're building the decision layer for energy-intensive plants.
 
-**Headline:** Your plant has the data. It lacks the decision layer.
+### Our Story
 
-**Body:** Stamped turns meters, SCADA, and bills into assigned actions with ₹ impact—verified with evidence.
+**Eyebrow:** Our Story
+
+**Headline:** Close the gap between the floor and the bill.
+
+Plant teams already decide what to run, hold, and stagger. Those calls land on the DISCOM bill as maximum demand, TOD, and idle kWh. The floor and the bill stay disconnected.
+
+Hold a furnace or keep it hot. Stagger a feeder start. Delay a compressor. Each one is an operations choice with a rupee consequence. In most plants that consequence is guesswork until month-end.
+
+Vinayak came at this as an electrical engineer: meters and SCADA already record the load, but nothing turns that signal into an assigned action with a rupee number. Utso came at it from the floor and the product: supervisors do not need another dashboard. They need prescriptions they can execute and check against evidence.
+
+Stamped is a read-only decision layer on the systems plants already run. Assigned actions with ₹ impact, verified with evidence.
 
 ### Leadership
 
@@ -1327,15 +1239,7 @@ Leads sales, outreach, and software engineering. IIT Roorkee. Builds the product
 - **Innovation** — Plant-tuned models and a real-time decision layer on systems you already run.
 - **Customers first** — Assigned actions, verified outcomes, and a team that stays through pilot and beyond.
 
-### Closing CTA
-
-**Eyebrow:** Work with us
-
-**Headline:** Tell us about your plant
-
-**Body:** Share your incomer setup and production profile. We'll follow up to schedule a discovery conversation, no hardware retrofit required.
-
-**CTA:** Book a Discovery Call
+The page ends on Values. There is no closing CTA band on `/about`.
 
 ---
 
@@ -1429,16 +1333,6 @@ Leads sales, outreach, and software engineering. IIT Roorkee. Builds the product
 - Performance Governance
 - Plant Intelligence
 
-### Closing CTA
-
-**Eyebrow:** From reading to action
-
-**Headline:** See what your incomer meter is already telling you
-
-**Body:** Connect existing meters and plant data. Assigned fixes in rupees, verified with evidence.
-
-**CTA:** Book a Discovery Call
-
 ---
 
 ## 16. Notes
@@ -1455,7 +1349,6 @@ A page-by-page transcript of **currently rendered** public copy. Wording is tran
   - Unused copy that still sits in `lib/content/` but is not on the page, including:
   - The industries hub (`/industries` permanently redirects to `/industries/automotive`)
   - Homepage leftovers in `landing.ts` (FAQ, pay-as-you-save, six-step loop, why Stamped, credibility, Industry 4.0, and related unused sections)
-  - About journey / milestones
   - Extra contact blocks (pilot stats, office, on-site visit)
   - Industry waste tables, integration blocks, and FAQs that are not mounted on vertical pages
   - Fourth outcome card on each industry page (`outcomes.items` is sliced to the first three)

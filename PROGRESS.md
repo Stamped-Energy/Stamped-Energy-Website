@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-Homepage MotionSlots A00–A10 are wired. Industry Energy Management How it works chromes are on `/solutions/load-energy`. Remaining motion is P1 (B01–B04) plus Asset Health reserved rows.
+About page CVector-style structure (ADR-023) is shipped: cinematic hero, narrative Our Story, founders, values last. Inner marketing pages have no closing CTA band; homepage still uses `LandingClosingCta`. Remaining motion is P1 (B01–B04) plus Asset Health reserved rows.
 
 ## Completed Phases
 
@@ -46,6 +46,7 @@ Homepage MotionSlots A00–A10 are wired. Industry Energy Management How it work
 - [x] **Remaining pages DESIGN.md pass (ADR-020)** - shared SectionBadge + MarketingClosingCta; Solutions hub/pillars; Platform outcomes band (pin kept); Industries hub + segments; About story; Contact; Case Studies shell polish; `tsc` + `next build` green (2026-08-11)
 - [x] **CVector solution pillars (ADR-021)** - Outcomes → 4 How-it-works zig-zag (reserved media) → 3 practical Rx examples → Industries → CTA on both pillars; no Benefits band
 - [x] **Homepage hero plant-flow (ADR-022)** - OpenMontage handoff ported into `HeroPlantFlow`; replaces MotionSlot in homepage hero visual slot
+- [x] **About CVector-style structure (ADR-023)** - cinematic photo hero, narrative Our Story, founders, values last; inner-page closing CTAs removed except home `LandingClosingCta`
 
 ## Remaining Phases
 
@@ -72,4 +73,4 @@ None.
 
 ## Push / PR readiness
 
-Branch `feat/ia-solutions-platform`: ADR-016–018 home/chrome, Stitch DESIGN.md, ADR-019 OpenMontage pack, ADR-020 remaining pages pass. Push when requested or at auto-push threshold.
+`main` is ahead of origin with ADR-023 About + inner-page CTA commits. Push when requested or at auto-push threshold.
