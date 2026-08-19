@@ -58,7 +58,7 @@ export const caseStudiesContent = {
   featuredTitle: "Featured outcomes",
   catalogTitle: "All case studies",
   catalogDescription:
-    "Browse published pilots and reference write-ups. Figures stay tied to methodology—or labelled as benchmark until pilot data is publishable.",
+    "Browse published pilots and reference write-ups. Figures stay tied to methodology, or labelled as benchmark until pilot data is publishable.",
 
   studies: [
     {

@@ -261,7 +261,7 @@ Fallback cards when no CMS spotlight posts are featured:
 
 **Title tag:** Solutions | Stamped Energy - Industry Energy Management and Asset Health
 
-**Meta description:** Stamped Intelligence delivers Industry Energy Management and Asset Health Intelligence in one product for energy-intensive plants in India.
+**Meta description:** Stamped Energy delivers Industry Energy Management and Asset Health Intelligence in one product for energy-intensive plants in India.
 
 ### Hero
 
@@ -269,7 +269,7 @@ Fallback cards when no CMS spotlight posts are featured:
 
 **Headline:** Two outcomes. One evidence trail.
 
-**Body:** One product for energy-intensive plants in India. Pick the pillar that matches how you buy: same stack, real-time intelligence, verified with evidence.
+**Body:** One product for energy-intensive plants in India. Pick the pillar that matches how you buy: same stack, real-time energy, verified with evidence.
 
 **Primary CTA:** Book a Discovery Call
 

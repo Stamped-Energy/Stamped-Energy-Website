@@ -658,7 +658,7 @@ export const landingContent = {
         id: "what-is-stamped",
         question: "What does Stamped actually do?",
         answer:
-          "Stamped Intelligence connects to your existing meters, SCADA, and plant data, finds where energy and rupees are leaking, and sends assigned prescriptions to your team. Outcomes are verified with evidence; DISCOM bill confirmation can follow.",
+          "Stamped Energy connects to your existing meters, SCADA, and plant data, finds where energy and rupees are leaking, and sends assigned prescriptions to your team. Outcomes are verified with evidence; DISCOM bill confirmation can follow.",
       },
       {
         id: "hardware",

@@ -210,7 +210,7 @@ export const industriesContent = {
     eyebrow: "Industries",
     title: "Process-aware prescriptions for every vertical",
     description:
-      "The same motor fails differently in a cement kiln than in a die-casting cell. Generic EMS sees kWh. Stamped reads process context and assigns real-time actions with ₹ impact—verified with evidence.",
+      "The same motor fails differently in a cement kiln than in a die-casting cell. Generic EMS sees kWh. Stamped reads process context and assigns real-time actions with ₹ impact, verified with evidence.",
     heroImageSrc: INDUSTRY_IMAGES.cement,
     heroImageAlt: "Cement plant with silos and kiln illuminated at twilight",
     primaryCta: { label: "Compare verticals", href: "#comparison" } satisfies CtaLink,
@@ -218,7 +218,7 @@ export const industriesContent = {
     thesis: {
       eyebrow: "Process context",
       title: "Why energy leaks look different by industry",
-      body: "A plant-wide average hides shift-start overlap, holding without batches, and tariff misalignment. Each vertical needs baselines and prescriptions tuned to its process—not one generic model for all.",
+      body: "A plant-wide average hides shift-start overlap, holding without batches, and tariff misalignment. Each vertical needs baselines and prescriptions tuned to its process, not one generic model for all.",
     },
     byIndustry: {
       eyebrow: "By industry",

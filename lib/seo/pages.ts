@@ -30,7 +30,7 @@ export const PAGE_SEO = {
   solutions: {
     absoluteTitle: "Solutions | Stamped Energy - Industry Energy Management and Asset Health",
     description:
-      "Stamped Intelligence delivers Industry Energy Management and Asset Health Intelligence in one product for energy-intensive plants in India.",
+      "Stamped Energy delivers Industry Energy Management and Asset Health Intelligence in one product for energy-intensive plants in India.",
     path: "/solutions",
   },
   solutionsLoadEnergy: {
