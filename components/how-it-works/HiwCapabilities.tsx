@@ -67,7 +67,7 @@ export function HiwCapabilities() {
   return (
     <section
       ref={sectionRef}
-      className="overflow-hidden border-t border-on-secondary/20 bg-secondary py-[3.6rem] text-on-secondary md:py-[5.4rem]"
+      className="overflow-hidden bg-surface py-[3.6rem] text-on-surface md:py-[5.4rem]"
     >
       <Container>
         <SectionHeading
@@ -75,7 +75,6 @@ export function HiwCapabilities() {
           title={capabilities.title}
           description={capabilities.description}
           align="center"
-          dark
           className="mx-auto"
         />
 
@@ -84,14 +83,14 @@ export function HiwCapabilities() {
               <article
                 key={item.id}
                 data-capability-card
-                className="group flex flex-col overflow-hidden rounded-2xl border border-on-secondary/15 bg-inverse-surface/50 shadow-sm backdrop-blur-sm transition-shadow duration-300 hover:shadow-[0_20px_48px_-28px_color-mix(in_srgb,var(--brand-primary)_45%,transparent)]"
+                className="group flex flex-col overflow-hidden rounded-2xl border border-outline-variant/50 bg-surface-lowest shadow-sm transition-shadow duration-300 hover:shadow-[0_20px_48px_-28px_color-mix(in_srgb,var(--brand-primary)_45%,transparent)]"
               >
                 <div className="relative min-h-[15rem] overflow-hidden border-b border-outline-variant/40 bg-surface-lowest sm:min-h-[12.5rem] sm:aspect-[16/10] md:min-h-0">
                   <CapabilityVisual capability={item} />
                 </div>
                 <div className="flex flex-1 flex-col p-5 md:p-6">
                   <h3 className="text-lg font-bold md:text-xl">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-on-secondary/85 md:text-[15px] md:leading-7">
+                  <p className="mt-2 text-sm leading-6 text-on-surface-variant md:text-[15px] md:leading-7">
                     {item.description}
                   </p>
                 </div>
