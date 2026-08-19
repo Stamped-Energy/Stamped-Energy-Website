@@ -105,6 +105,14 @@ export type VerticalPageHero = {
   seoHeadings?: string[];
 };
 
+export type IndustryPlantRow = {
+  id: string;
+  title: string;
+  description: string;
+  imageSrc: string;
+  imageAlt: string;
+};
+
 export type VerticalPageContent = {
   slug: string;
   hero: VerticalPageHero;
@@ -119,6 +127,12 @@ export type VerticalPageContent = {
     title: string;
     description: string;
     areas: IndustryValueArea[];
+  };
+  plantBand: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    items: IndustryPlantRow[];
   };
   prescriptionExamples: {
     eyebrow: string;

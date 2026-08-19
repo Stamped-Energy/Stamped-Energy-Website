@@ -42,6 +42,7 @@ export function IndustryOutcomes({ slug }: IndustryOutcomesProps) {
   }
 
   const { outcomes } = page;
+  const gainItems = outcomes.items.slice(0, 3);
 
   return (
     <section ref={sectionRef} className="bg-secondary section-y text-on-secondary">
@@ -57,8 +58,8 @@ export function IndustryOutcomes({ slug }: IndustryOutcomesProps) {
           />
         </Reveal>
 
-        <div className="mx-auto mt-8 grid max-w-5xl gap-4 md:mt-12 md:grid-cols-2 md:gap-5">
-          {outcomes.items.map((item) => (
+        <div className="mx-auto mt-8 grid max-w-5xl gap-4 md:mt-12 md:grid-cols-3 md:gap-5">
+          {gainItems.map((item) => (
             <article
               key={item.id}
               data-outcome-card
