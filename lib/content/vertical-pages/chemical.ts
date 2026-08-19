@@ -216,11 +216,4 @@ export const chemicalPage: VerticalPageContent = {
         "Phase 1-2 focus is specialty chemicals, resins, agrochemical formulation, and paint - ₹8L-₹80L+/month electricit Mega chlor-alkali DCs require enterprise motion - we qualify on discovery calls.",
     },
   ],
-  finalCta: {
-    eyebrow: "Next step",
-    title: "Connect your batch calendar to your bill",
-    description:
-      "Discovery call: batch logs, main loads, tariff windows - outline a pilot if batch SEC waste justifies it.",
-    primaryCta: CTA,
-  },
 };

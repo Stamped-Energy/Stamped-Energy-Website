@@ -222,11 +222,4 @@ export const pharmaPage: VerticalPageContent = {
         "Yes - MSME and mid-market formulation, API, and nutraceutical plants in Baddi, Hyderabad, Ahmedabad, and Goa clusters. Bill band ₹5L-₹50L+/month with meaningful HVAC savings potential.",
     },
   ],
-  finalCta: {
-    eyebrow: "Next step",
-    title: "Map your chiller and AHU data",
-    description:
-      "Discovery call: utility meters, BMS availability, production calendar - outline a pilot if HVAC savings justify it.",
-    primaryCta: CTA,
-  },
 };

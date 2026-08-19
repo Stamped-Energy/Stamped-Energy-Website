@@ -4,7 +4,6 @@ import { HiwCapabilities } from "@/components/how-it-works/HiwCapabilities";
 import { HiwDeployment } from "@/components/how-it-works/HiwDeployment";
 import { HiwOpening } from "@/components/how-it-works/HiwOpening";
 import { HiwOutcomesBand } from "@/components/how-it-works/HiwOutcomesBand";
-import { HiwPageCta } from "@/components/how-it-works/HiwPageCta";
 import { HiwPinnedJourney } from "@/components/how-it-works/HiwPinnedJourney";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbHome, generateBreadcrumbSchema } from "@/lib/seo/breadcrumbs";
@@ -28,7 +27,6 @@ export default function PlatformPage() {
       <HiwOutcomesBand />
       <HiwCapabilities />
       <HiwDeployment />
-      <HiwPageCta />
     </>
   );
 }

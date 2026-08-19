@@ -224,11 +224,4 @@ export const steelPage: VerticalPageContent = {
         "Phase 1-2 focus is secondary steel, rolling, and forging (₹10L-₹1Cr+/mo electricity ). Integrated BF route plants with enterprise-scale bills require a different sales motion - we qualify honestly on discovery calls.",
     },
   ],
-  finalCta: {
-    eyebrow: "Next step",
-    title: "Map your furnace and rolling mill data",
-    description:
-      "Discovery call: meters, main loads, PAT context - we outline a pilot if the numbers justify it.",
-    primaryCta: CTA,
-  },
 };

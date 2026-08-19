@@ -222,11 +222,4 @@ export const cementPage: VerticalPageContent = {
         "Yes - daily source-mix prescriptions based on tariff windows, WHR output, and solar availability. Mid-market plants get shift-level governance, not 15-minute enterprise agent stacks on day one.",
     },
   ],
-  finalCta: {
-    eyebrow: "Next step",
-    title: "Upload your last three DISCOM bills",
-    description:
-      "Free MD and dispatch opportunity scan - we say honestly if a pilot makes sense for your plant scale.",
-    primaryCta: CTA,
-  },
 };

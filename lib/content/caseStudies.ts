@@ -60,14 +60,6 @@ export const caseStudiesContent = {
   catalogDescription:
     "Browse published pilots and reference write-ups. Figures stay tied to methodology—or labelled as benchmark until pilot data is publishable.",
 
-  finalCta: {
-    eyebrow: "See it on your plant",
-    title: "Start with a pilot, verify with evidence",
-    description:
-      "We connect to existing meters and plant data. One verified saving before you commit to annual subscription.",
-    primaryCta: { label: "Book a Discovery Call", href: "/contact" },
-  },
-
   studies: [
     {
       id: "auto-pump-sec",

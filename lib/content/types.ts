@@ -154,12 +154,6 @@ export type VerticalPageContent = {
     mediaSrc: string | null;
     mediaAlt: string;
   };
-  finalCta: {
-    eyebrow: string;
-    title: string;
-    description: string;
-    primaryCta: CtaLink;
-  };
 };
 
 export type IndustryValueArea = {

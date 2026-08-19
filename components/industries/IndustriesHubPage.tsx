@@ -2,8 +2,6 @@ import { IndustriesHubComparison } from "@/components/industries/IndustriesHubCo
 import { IndustriesHubFaq } from "@/components/industries/IndustriesHubFaq";
 import { IndustriesHubHero } from "@/components/industries/IndustriesHubHero";
 import { IndustriesHubThesis } from "@/components/industries/IndustriesHubThesis";
-import { IndustryPageCta } from "@/components/industries/shared/IndustryPageCta";
-import { industriesContent } from "@/lib/content";
 
 export function IndustriesHubPage() {
   return (
@@ -12,7 +10,6 @@ export function IndustriesHubPage() {
       <IndustriesHubThesis />
       <IndustriesHubComparison />
       <IndustriesHubFaq />
-      <IndustryPageCta content={industriesContent.hub.finalCta} />
     </>
   );
 }

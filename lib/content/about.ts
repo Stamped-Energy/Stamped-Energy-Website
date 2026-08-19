@@ -67,12 +67,4 @@ export const aboutContent = {
       },
     ],
   },
-
-  finalCta: {
-    eyebrow: "Work with us",
-    title: "Tell us about your plant",
-    description:
-      "Share your incomer setup and production profile. We'll follow up to schedule a discovery conversation, no hardware retrofit required.",
-    primaryCta: { label: "Book a Discovery Call", href: "/contact" },
-  },
 } as const;

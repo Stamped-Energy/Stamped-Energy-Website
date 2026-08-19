@@ -9,9 +9,7 @@ import { RichArticleBody } from "@/components/rich-content/RichArticleBody";
 import { useMotion } from "@/components/motion/MotionProvider";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
-import { IndustryPageCta } from "@/components/industries/shared/IndustryPageCta";
 import { SectionBadge } from "@/components/ui/SectionBadge";
-import { caseStudiesContent } from "@/lib/content/caseStudies";
 import type { CaseStudyDTO } from "@/lib/case-studies/studies";
 import { formatBlogDate } from "@/lib/blog/utils";
 import { scrollTriggerDefaults } from "@/lib/motion/config";
@@ -170,8 +168,6 @@ export function CaseStudyDetailView({ study }: CaseStudyDetailViewProps) {
           </div>
         </Container>
       </section>
-
-      <IndustryPageCta content={caseStudiesContent.finalCta} />
     </>
   );
 }

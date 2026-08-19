@@ -3,7 +3,6 @@ import { IndustryHero } from "@/components/industries/vertical/IndustryHero";
 import { IndustryOutcomes } from "@/components/industries/vertical/IndustryOutcomes";
 import { IndustryPrescriptionExamples } from "@/components/industries/vertical/IndustryPrescriptionExamples";
 import { IndustrySegments } from "@/components/industries/vertical/IndustrySegments";
-import { IndustryPageCta } from "@/components/industries/shared/IndustryPageCta";
 import { getVerticalPage, type VerticalSlug } from "@/lib/content";
 
 type IndustryVerticalPageProps = {
@@ -31,7 +30,6 @@ export function IndustryVerticalPage({ slug }: IndustryVerticalPageProps) {
       <IndustryPrescriptionExamples slug={slug} />
       <IndustryOutcomes slug={slug} />
       <IndustryFaq slug={slug} />
-      <IndustryPageCta content={page.finalCta} />
     </>
   );
 }

@@ -71,13 +71,6 @@ export type SolutionPillarPage = {
   };
   primaryCta: CtaLink;
   secondaryCta: CtaLink;
-  finalCta: {
-    eyebrow: string;
-    title: string;
-    description: string;
-    primaryCta: CtaLink;
-    secondaryCta: CtaLink;
-  };
 };
 
 export const solutionsContent = {
@@ -94,14 +87,6 @@ export const solutionsContent = {
     sectionTitle: "Two pillars. One operating loop.",
     sectionIntro:
       "Start here for the overview, then open the pillar that matches how your plant buys. Each page covers outcomes, how it works, and practical prescriptions.",
-    finalCta: {
-      eyebrow: "Start with your plant",
-      title: "See which pillar fits how you buy",
-      description:
-        "Discovery call: we map your meters, main loads, and bill pattern, and say honestly if a pilot makes sense.",
-      primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
-      secondaryCta: { label: "See the Platform", href: "/platform" } satisfies CtaLink,
-    },
     pillars: [
       {
         slug: "load-energy",
@@ -282,14 +267,6 @@ export const solutionsContent = {
       },
       primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
       secondaryCta: { label: "See the Platform", href: "/platform" } satisfies CtaLink,
-      finalCta: {
-        eyebrow: "Start with one site",
-        title: "See what Industry Energy Management would find in your plant",
-        description:
-          "First prescriptions in about two weeks. No rip-and-replace. Evidence trail from day one.",
-        primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
-        secondaryCta: { label: "See the Platform", href: "/platform" } satisfies CtaLink,
-      },
     },
     "equipment-intelligence": {
       slug: "equipment-intelligence",
@@ -428,14 +405,6 @@ export const solutionsContent = {
       },
       primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
       secondaryCta: { label: "See the Platform", href: "/platform" } satisfies CtaLink,
-      finalCta: {
-        eyebrow: "Start with one site",
-        title: "See what Asset Health Intelligence would find in your plant",
-        description:
-          "First prescriptions in about two weeks. No rip-and-replace. Evidence trail from day one.",
-        primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
-        secondaryCta: { label: "See the Platform", href: "/platform" } satisfies CtaLink,
-      },
     },
   } satisfies Record<SolutionPillarSlug, SolutionPillarPage>,
 };

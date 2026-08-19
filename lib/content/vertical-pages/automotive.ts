@@ -226,12 +226,6 @@ export const automotivePage: VerticalPageContent = {
         "Stamped connects to your incomer meter and SCADA, builds production-normalized SEC baselines per cell and shift, then sends ranked prescriptions - stagger furnace pre-heat, stage compressors, reduce holding loads - with rupee impact assigned to shift supervisors via WhatsApp.",
     },
   ],
-  finalCta: {
-    eyebrow: "Next step",
-    title: "Map your automotive plant data",
-    description: "Walk through meters, processes, and estimated waste - outline a pilot in weeks.",
-    primaryCta: CTA,
-  },
 };
 
 export const automotiveResources = resourcesContent;

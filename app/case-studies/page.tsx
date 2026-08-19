@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { BlogCatalog } from "@/components/blog/BlogCatalog";
 import { BlogFeatured } from "@/components/blog/BlogFeatured";
 import { BlogHero } from "@/components/blog/BlogHero";
-import { IndustryPageCta } from "@/components/industries/shared/IndustryPageCta";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { listPublishedPosts } from "@/lib/blog/posts";
 import { safeDbQuery } from "@/lib/db/safe-query";
@@ -26,14 +25,6 @@ const collectionSchema = buildCollectionPageSchema({
   description: PAGE_SEO.caseStudies.description,
   path: PAGE_SEO.caseStudies.path,
 });
-
-const CASE_STUDIES_CTA = {
-  eyebrow: "From reading to action",
-  title: "See what your incomer meter is already telling you",
-  description:
-    "Connect existing meters and plant data. Assigned fixes in rupees, verified with evidence.",
-  primaryCta: { label: "Book a Discovery Call", href: "/contact" },
-};
 
 /** Public Case Studies & Blogs listing. CRM BlogPost data; CaseStudy admin untouched. */
 export default async function CaseStudiesRoute() {
@@ -63,7 +54,6 @@ export default async function CaseStudiesRoute() {
         initialHasMore={catalogResult.data.pagination.hasMore}
         initialPage={catalogResult.data.pagination.page}
       />
-      <IndustryPageCta content={CASE_STUDIES_CTA} />
     </>
   );
 }

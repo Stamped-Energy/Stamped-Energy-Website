@@ -9,7 +9,6 @@ import { RichArticleBody } from "@/components/rich-content/RichArticleBody";
 import { useMotion } from "@/components/motion/MotionProvider";
 import { Container } from "@/components/ui/Container";
 import { ContentImage } from "@/components/ui/ContentImage";
-import { IndustryPageCta } from "@/components/industries/shared/IndustryPageCta";
 import type { BlogPostDTO, BlogPostListItem } from "@/lib/blog/posts";
 import { formatBlogDate } from "@/lib/blog/utils";
 import { scrollTriggerDefaults } from "@/lib/motion/config";
@@ -20,14 +19,6 @@ import { cn } from "@/lib/utils";
 type BlogArticleViewProps = {
   post: BlogPostDTO;
   related: BlogPostListItem[];
-};
-
-const BLOG_CTA = {
-  eyebrow: "See it on your plant",
-  title: "Turn insights into verified savings",
-  description:
-    "Book a discovery call. We connect to existing plant data and verify savings on your next electricity bill.",
-  primaryCta: { label: "Book a Discovery Call", href: "/contact" },
 };
 
 /** Main column + sidebar - matches site container width without extra centering gutters. */
@@ -243,8 +234,6 @@ export function BlogArticleView({ post, related }: BlogArticleViewProps) {
       </section>
 
       <BlogRelatedArticles posts={related} />
-
-      <IndustryPageCta content={BLOG_CTA} />
     </>
   );
 }

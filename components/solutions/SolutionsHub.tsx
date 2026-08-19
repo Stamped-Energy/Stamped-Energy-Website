@@ -3,7 +3,6 @@ import Link from "next/link";
 import { SolutionsHero } from "@/components/solutions/SolutionsHero";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
-import { MarketingClosingCta } from "@/components/ui/MarketingClosingCta";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionBadge } from "@/components/ui/SectionBadge";
 import { solutionsContent } from "@/lib/content/solutions";
@@ -109,8 +108,6 @@ export function SolutionsHub() {
           </Reveal>
         </Container>
       </section>
-
-      <MarketingClosingCta content={hub.finalCta} />
     </>
   );
 }

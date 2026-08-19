@@ -353,13 +353,6 @@ export const industriesContent = {
         },
       ],
     },
-    finalCta: {
-      eyebrow: "Start with your plant",
-      title: "Not sure which vertical fits?",
-      description:
-        "Discovery call: we map your meters, main loads, and bill pattern, and say honestly if a pilot makes sense.",
-      primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
-    },
     cta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
   },
 

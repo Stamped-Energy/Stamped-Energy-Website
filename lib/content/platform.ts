@@ -301,15 +301,6 @@ export const platformContent = {
   },
 
   gifSlots: [] as HiwMediaSlot[],
-
-  finalCta: {
-    eyebrow: "Next step",
-    title: "Walk through your meter setup and last three bills",
-    description:
-      "We estimate addressable waste in ₹ and outline a pilot—only if the numbers justify it.",
-    primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
-    secondaryCta: { label: "View solutions", href: "/solutions" } satisfies CtaLink,
-  },
 } as const;
 
 /** @deprecated Prefer platformContent */
