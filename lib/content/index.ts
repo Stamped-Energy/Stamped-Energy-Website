@@ -1,4 +1,4 @@
-export { aboutContent } from "./about";
+export { aboutContent, plantDecisionMoves } from "./about";
 export { contactContent } from "./contact";
 export {
   caseStudiesContent,

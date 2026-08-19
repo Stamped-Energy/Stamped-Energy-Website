@@ -83,7 +83,8 @@ export const landingContent = {
 
   homeProblem: {
     badge: "Problem",
-    title: "Energy cost follows every operating decision. Action rarely keeps pace.",
+    title:
+      "Energy cost follows every operating decision. Run harder, hold back, or switch priorities, and live data rarely keeps pace.",
     items: [
       {
         id: "priorities",
@@ -101,7 +102,7 @@ export const landingContent = {
         id: "invisible",
         title: "Floor decisions and energy outcomes stay disconnected.",
         description:
-          "Each choice affects energy cost and downtime risk, but the link between what happens on the floor and what appears on the bill remains hard to see in time to act.",
+          "Run harder or hold back, delay maintenance, or switch production priorities, and each choice hits cost. SCADA, ERPs, and the people on the ground stay in separate places, so the link to the bill is hard to see in time to act.",
       },
     ] satisfies HomeProblemPoint[],
   },
@@ -110,7 +111,7 @@ export const landingContent = {
     badge: "What is Stamped",
     title: "AI-powered energy intelligence for industrial plants",
     description:
-      "Stamped continuously analyzes real-time asset, plant, and market data to deliver ₹-scored prescriptions with a full audit trail for front-line operators.",
+      "Stamped brings those perspectives together with live data in real time, then delivers ₹-scored prescriptions with a full audit trail for front-line operators.",
     motionSlotLabel: "Product visual",
   },
 
