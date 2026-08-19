@@ -3,304 +3,235 @@ import type {
   HiwCapability,
   HiwDeploymentPhase,
   HiwJourneyStep,
-  HiwMediaSlot,
-  HiwSldNode,
-  HiwStackLayer,
-  PrescriptionEmbedConfig,
+  PlatformProseSection,
 } from "./types";
-import { getBeforeAfterScenario } from "./scenarios";
-
-const pharmaBeforeAfter = getBeforeAfterScenario();
 
 export const platformContent = {
   hero: {
     eyebrow: "Platform",
-    title: "Connect to Improve on your plant stack",
+    title: "The intelligence layer on the stack you already run",
     description:
-      "Most plants already have meters and SCADA. The gap is analysis, root cause, and assigned fixes—with ₹ impact. Stamped delivers real-time intelligence on plant signals, detects waste and equipment issues, and guides operations on what to resolve, verified with evidence, then improved based on decisions taken.",
+      "Industrial sites should make real-time decisions connected to their economic impact. Stamped is the intelligence layer for the industrial world. It brings SCADA, ERPs, bills, and people on the ground together with live data in real time. Plant teams get rupee-scored prescriptions, clear owners, and evidence tied to the electricity bill.",
     primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
     secondaryCta: { label: "View solutions", href: "/solutions" } satisfies CtaLink,
   },
 
-  plantSld: {
-    title: "Your plant energy graph",
-    hint: "Hover or tap a node",
-    nodes: [
+  surfaces: {
+    eyebrow: "Your working view",
+    title: "One plant picture. Ranked next actions. Operators in control.",
+    description:
+      "See what is happening, decide what matters, and move the right action to the floor.",
+    items: [
       {
-        id: "incomer",
-        label: "Incomer meter",
-        tooltip: "MD kVA, demand windows, tariff periods.",
-        x: 50,
-        y: 10,
-        kind: "source",
+        id: "plant-graph",
+        title: "Plant graph",
+        description:
+          "See consumption, assets, production context, tariffs, alarms, and operator inputs in one live view. Follow a demand peak back to the loads, shifts, and events that caused it. Move from the plant picture to the bill without joining five reports.",
       },
       {
-        id: "scada",
-        label: "SCADA / DCS",
-        tooltip: "Historian tags and process states.",
-        x: 14,
-        y: 26,
-        kind: "source",
+        id: "alarms-prescriptions",
+        title: "Alarms and prescriptions",
+        description:
+          "Open alarms show what changed and what needs attention. Each alarm can be cleared, acknowledged, or turned into a prescription. Prescriptions state what to change, why it matters, who owns it, the effort required, and the expected rupee impact. The highest-value feasible action comes first. Assigned actions reach the right person on WhatsApp. The dashboard holds the queue and evidence.",
       },
       {
-        id: "plc",
-        label: "PLCs & CNCs",
-        tooltip: "Run states and cycle times.",
-        x: 14,
-        y: 46,
-        kind: "source",
+        id: "agents",
+        title: "Agents",
+        description:
+          "Work through operating conflicts where load, tariff, maintenance, and production priorities meet. Agents assemble the evidence, test feasible moves, and prepare a prescription for the operator to accept, reject, or adjust. Chat is available on the same plant context and answers only from supporting evidence. When the evidence is insufficient, Stamped abstains. No PLC writes.",
+      },
+    ],
+  } satisfies PlatformProseSection,
+
+  models: {
+    eyebrow: "Plant and economic models",
+    title: "Models built around the way your plant runs",
+    description:
+      "These models use your plant baselines and DISCOM structure to rupee-score each move. Weather, humidity, and product specifications are operating constraints inside the move, not separate products.",
+    items: [
+      {
+        id: "energy-markets",
+        title: "Energy markets",
+        description:
+          "Analyzes live HT tariffs, ToD windows, billing-demand floors, coincidence peaks, and kWh or kVAh billing where they apply. It identifies load flexibility before the tariff window closes or a higher MD is set.",
       },
       {
-        id: "meters",
-        label: "Sub-meters",
-        tooltip: "Section kWh and demand.",
-        x: 14,
-        y: 66,
-        kind: "source",
+        id: "efficiency",
+        title: "Efficiency",
+        description:
+          "Continuously identifies idle load, specific energy drift, utility waste, and equipment running outside the plant’s normal operating envelope. It separates avoidable energy from the load required to meet production.",
       },
       {
-        id: "bill",
-        label: "Utility bill",
-        tooltip: "Tariff, MD charges, TOU windows.",
-        x: 14,
-        y: 84,
-        kind: "source",
+        id: "equipment",
+        title: "Equipment",
+        description:
+          "Detects changes in power draw, duty cycle, starts, trips, and operating patterns. It relates each deviation to energy cost, equipment condition, and process risk before ranking the next check or intervention.",
       },
       {
-        id: "stamped",
-        label: "Stamped graph",
-        tooltip: "Time-aligned consumption, production, and cost.",
-        x: 50,
-        y: 50,
-        kind: "hub",
+        id: "production-context",
+        title: "Production context",
+        description:
+          "Analyzes shift, batch, holding, utility timing, and dispatch commitments before recommending an energy move. Product specifications, storage limits, and production deadlines can block one option and force a feasible alternative.",
       },
-      {
-        id: "compressor",
-        label: "Compressors",
-        tooltip: "Shift-start spikes and idle hours.",
-        x: 86,
-        y: 26,
-        kind: "load",
-      },
-      {
-        id: "press",
-        label: "Press lines",
-        tooltip: "Startup patterns vs. production.",
-        x: 86,
-        y: 46,
-        kind: "load",
-      },
-      {
-        id: "furnace",
-        label: "Furnaces / ovens",
-        tooltip: "Setback gaps and holding losses.",
-        x: 86,
-        y: 66,
-        kind: "load",
-      },
-    ] satisfies HiwSldNode[],
-  },
+    ],
+  } satisfies PlatformProseSection,
 
   capabilities: {
     eyebrow: "Core capabilities",
-    title: "Signals → verified outcomes",
+    title: "A technical stack built for live plant decisions",
     description:
-      "Four platform layers - from universal ingestion through closed-loop governance - sized for SME manufacturers.",
+      "Stamped connects read-only to the systems and data you already have. It runs without a hardware retrofit and leaves plant control with your team.",
     items: [
       {
         id: "ingestion",
-        title: "Universal ingestion",
+        title: "Connect and normalise",
         description:
-          "Captures signals from meters, SCADA, PLCs, and utility bills into a continuous, real-time pipeline - without hardware retrofits or changes to your control systems.",
+          "Ingest meter streams, SCADA tags, bills, tariff schedules, ERP context, and operator inputs. Standardise timestamps, units, tag names, intervals, and data quality before analysis begins.",
         mediaSrc: null,
         mediaAlt: "Data streams from plant systems flowing into Stamped",
       },
       {
         id: "repository",
-        title: "Unified energy graph",
+        title: "Context and time alignment",
         description:
-          "Organises disparate streams into a time-aligned graph that connects consumption, production, and cost for accurate analytics across your plant.",
+          "Link assets, feeders, utilities, shifts, batches, tariffs, and operating states on a common timeline. Preserve the relationships between what changed, where it changed, and what else was running at that moment.",
         mediaSrc: null,
-        mediaAlt: "Unified energy graph connecting sources and loads",
+        mediaAlt: "Time-aligned plant context connecting sources and loads",
       },
       {
         id: "intelligence",
-        title: "Contextual intelligence",
+        title: "Decision intelligence",
         description:
-          "Domain-specific models detect anomalies, quantify impact in rupees, and generate prescriptions your plant team can act on - not another passive dashboard.",
+          "Build plant-specific baselines, detect deviations, test operating scenarios, and apply tariff and process constraints. Estimate economic impact, reject infeasible moves, and rupee-score the options that remain.",
         mediaSrc: null,
-        mediaAlt: "Anomaly detection and prescription generation",
+        mediaAlt: "Plant-tuned models scoring feasible operating moves",
       },
       {
         id: "governance",
-        title: "Closed-loop governance",
+        title: "Assign, verify, improve",
         description:
-          "Assigns actions, tracks execution via WhatsApp and dashboard, and verifies potential vs. realized savings so every opportunity converts into measurable value.",
+          "Route an accepted action to its owner and track its status through closure. Compare expected and observed outcomes, attach supporting evidence, and retain every acceptance, rejection, adjustment, and result in the audit trail.",
         mediaSrc: null,
-        mediaAlt: "Closed-loop action tracking and savings verification",
+        mediaAlt: "Closed-loop action tracking and outcome verification",
       },
     ] satisfies HiwCapability[],
   },
 
   journey: {
     eyebrow: "The operating loop",
-    title: "Six steps. Same loop every month.",
+    title: "Connect to Improve",
+    description: "The same operating loop runs each time plant conditions change.",
     steps: [
       {
         id: "connect",
         step: 1,
         title: "Connect",
-        tagline: "Start with meter + bill",
-        description: "",
-        bullets: ["Incomer first", "Modbus · OPC-UA · MQTT"],
+        tagline: "",
+        description:
+          "Bring live plant signals, bills, tariffs, and operating context into one read-only layer.",
+        bullets: [],
         diagram: "connect",
       },
       {
         id: "observe",
         step: 2,
         title: "Observe",
-        tagline: "Baselines that know your shifts",
-        description: "",
-        bullets: ["SEC by batch & shift", "Tariff-aware MD detection"],
+        tagline: "",
+        description:
+          "Track demand, energy use, equipment behaviour, and production state against the plant baseline.",
+        bullets: [],
         diagram: "observe",
       },
       {
         id: "decide",
         step: 3,
         title: "Decide",
-        tagline: "Prescriptions in rupees",
-        description: "",
-        bullets: ["What · why · who · ₹", "Ranked by monthly impact"],
+        tagline: "",
+        description:
+          "Rupee-rank feasible moves by economic impact, effort, and operating risk.",
+        bullets: [],
         diagram: "decide",
       },
       {
         id: "execute",
         step: 4,
         title: "Execute",
-        tagline: "WhatsApp to the floor",
-        description: "",
-        bullets: ["Supervisor notification", "Open → done tracking"],
+        tagline: "",
+        description: "Assign the accepted action to the person who can carry it out.",
+        bullets: [],
         diagram: "execute",
       },
       {
         id: "verify",
         step: 5,
         title: "Verify",
-        tagline: "Evidence before the next cycle",
-        description: "",
-        bullets: ["Potential vs realised ₹", "Ops-cleared ledger"],
+        description:
+          "Compare expected vs observed outcomes in an ops-cleared ledger.",
+        tagline: "",
+        bullets: [],
         diagram: "verify",
       },
       {
         id: "improve",
         step: 6,
         title: "Improve",
-        tagline: "Improve based on decisions taken",
-        description: "",
-        bullets: ["Rank and threshold refresh", "Plant preferences, human-gated"],
+        tagline: "",
+        description:
+          "Calibrate baselines and ranking from decisions taken and outcomes verified. Human-gated.",
+        bullets: [],
         diagram: "improve",
       },
     ] satisfies HiwJourneyStep[],
   },
 
-  intelligenceStack: {
-    eyebrow: "End to end",
-    title: "From plant data to verified savings",
-    layers: [
-      {
-        id: "connect",
-        title: "Connect your plant",
-        subtitle: "1 · Monitor",
-        items: ["Existing meters, SCADA & bills", "Compressors, furnaces, presses"],
-      },
-      {
-        id: "analyze",
-        title: "Watch for deviations",
-        subtitle: "2 · Analyze",
-        items: ["Shift and batch-aware baselines", "MD spikes tied to assets"],
-      },
-      {
-        id: "prescribe",
-        title: "Prescribe in rupees",
-        subtitle: "3 · Prescribe",
-        items: ["Root cause, owner & monthly ₹", "Ranked for your team"],
-      },
-      {
-        id: "verify",
-        title: "Execute and verify",
-        subtitle: "4 · Track",
-        items: ["WhatsApp + floor workflow", "Verified savings ledger"],
-      },
-    ] satisfies HiwStackLayer[],
-  },
-
-  prescriptionDemo: {
-    eyebrow: "Example output",
-    title: "What a prescription looks like on your plant",
-    embed: {
-      iframeSrc: null,
-      videoSrc: null,
-      iframeTitle: "Stamped Energy prescription example",
-      placeholderTitle: "",
-      placeholderDescription: "",
-    } satisfies PrescriptionEmbedConfig,
-  },
-
   beforeAfter: {
     eyebrow: "The shift",
-    title: "Before Stamped vs after the first billing cycle",
+    title: "Keep what runs the plant. Add what closes the action.",
+    description:
+      "Stamped works with the data, systems, and operating knowledge already present at the site.",
     before: {
-      title: "Before",
+      title: "What you already have",
       items: [
-        "Bill shock, no asset-level explanation",
-        "SCADA here, bill there, PLC somewhere else",
-        "“Shift-start is bad”, no ₹ figure",
-        "Fixes discussed, never verified",
+        "Incomer meters and sub-meter data",
+        "SCADA tags and historian records",
+        "ERP plans, shifts, batches, and dispatch context",
+        "DISCOM bills, tariffs, and demand rules",
+        "SOPs and people who understand the plant",
       ],
     },
     after: {
-      title: "After Stamped",
+      title: "What Stamped adds",
       items: [
-        pharmaBeforeAfter.afterHighlight,
-        "One timeline: production, kW, tariff cost",
-        pharmaBeforeAfter.afterPrescription,
-        "Outcomes verified with evidence",
+        "One time-aligned view of plant and economic context",
+        "Plant-specific baselines for load, efficiency, and equipment",
+        "Feasible actions ranked by expected rupee impact",
+        "Clear owners, effort, timing, and supporting evidence",
+        "A tracked record from prescription to verified outcome",
       ],
     },
   },
 
   deployment: {
-    eyebrow: "Deployment path",
-    title: "First prescriptions in two weeks, not two quarters",
+    eyebrow: "Time to first action",
+    title: "First prescriptions in weeks",
+    description: "Start with one site, using the meters and bills already available.",
     phases: [
       {
         id: "week-1-2",
         week: "Week 1-2",
-        title: "Meter + bill live",
-        description: "Baselines and first MD / tariff prescriptions.",
+        title: "Meter and bill live",
+        description:
+          "Connect the incomer, available sub-meters, and current DISCOM bills. Reconcile timestamps, units, tariffs, and billing demand. Establish the first live plant baseline.",
       },
       {
         id: "week-3-4",
         week: "Week 3-4",
         title: "First assigned actions",
-        description: "Supervisor tasks on WhatsApp. Execution tracked.",
-      },
-      {
-        id: "month-2",
-        week: "Month 2",
-        title: "Deepen integration",
-        description: "SCADA / PLC where available. SEC by process.",
-      },
-      {
-        id: "month-3",
-        week: "Month 3+",
-        title: "Verified ₹ ledger",
-        description: "M&V complete. Numbers for plant head and CFO.",
+        description:
+          "Run the models against live operating conditions. Issue the first rupee-scored prescriptions with an owner, effort, timing, expected ₹ impact, and evidence. Plant teams accept, reject, or adjust each action before execution.",
       },
     ] satisfies HiwDeploymentPhase[],
   },
-
-  gifSlots: [] as HiwMediaSlot[],
 } as const;
 
 /** @deprecated Prefer platformContent */

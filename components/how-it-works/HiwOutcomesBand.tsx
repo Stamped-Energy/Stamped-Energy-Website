@@ -18,6 +18,11 @@ export function HiwOutcomesBand() {
             <h2 className="mt-5 font-display text-2xl font-bold tracking-tight text-on-surface md:text-3xl">
               {beforeAfter.title}
             </h2>
+            {beforeAfter.description ? (
+              <p className="mt-3 text-sm leading-7 text-on-surface-variant md:text-base">
+                {beforeAfter.description}
+              </p>
+            ) : null}
           </div>
         </Reveal>
 

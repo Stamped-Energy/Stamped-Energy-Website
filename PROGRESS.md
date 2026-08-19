@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-Public copy canon (ADR-025): live homepage / solutions / About is the voice for copy-writing agents. Portable twin in `external/brand/`. Rupee compounds spelled out (`rupee-scored`, not `₹-scored`); amounts keep `₹`. Remaining motion is P1 (B01–B04) plus Asset Health reserved rows.
+`/platform` static revamp (ADR-026): three surfaces, four models, technical core capabilities, bordered Connect-to-Improve loop, already-have vs adds, weeks-only close. No live dashboard. Homepage HIW pin unchanged.
 
 ## Completed Phases
 
@@ -49,6 +49,7 @@ Public copy canon (ADR-025): live homepage / solutions / About is the voice for 
 - [x] **About CVector-style structure (ADR-023)** - cinematic photo hero, narrative Our Story, founders, values last; inner-page closing CTAs removed except home `LandingClosingCta`
 - [x] **Origin story copy (ADR-024)** - company-voice Our Story + intelligence layer hero; light homepage problem/what-is; canon in STAMPED_CONTEXT / VOICE_AND_CLAIMS; `external/` still pending
 - [x] **Public copy canon in external (ADR-025)** - `external/brand/` COPY_CANON + WEBSITE_COPY; rupee-scored / rupee-ranked on site; old About hero superseded
+- [x] **Platform page static revamp (ADR-026)** - surfaces, models, capabilities, static loop, weeks-only close; dashboard and pin unmounted
 
 ## Remaining Phases
 

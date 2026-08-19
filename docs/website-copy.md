@@ -523,113 +523,133 @@ Pump power is high for the flow you are getting. Check the valve path before you
 
 ## 6. Platform `/platform`
 
-**Title tag:** Platform | Stamped Energy - Connect to Improve Loop
+**Title tag:** Platform | Stamped Energy - Intelligence Layer and Connect to Improve
 
-**Meta description:** See how Stamped Intelligence connects plant data into assigned prescriptions with verified evidence - Connect, Observe, Decide, Execute, Verify, Improve. No hardware retrofit required.
+**Meta description:** Stamped is the intelligence layer on the stack you already run. Plant graph, rupee-scored prescriptions, and the Connect to Improve loop. First prescriptions in weeks. No hardware retrofit.
 
 ### Hero
 
 **Eyebrow:** Platform
 
-**Headline:** Connect to Improve on your plant stack
+**Headline:** The intelligence layer on the stack you already run
 
-**Body:** Most plants already have meters and SCADA. The gap is analysis, root cause, and assigned fixes—with ₹ impact. Stamped delivers real-time intelligence on plant signals, detects waste and equipment issues, and guides operations on what to resolve, verified with evidence, then improved based on decisions taken.
+**Body:** Industrial sites should make real-time decisions connected to their economic impact. Stamped is the intelligence layer for the industrial world. It brings SCADA, ERPs, bills, and people on the ground together with live data in real time. Plant teams get rupee-scored prescriptions, clear owners, and evidence tied to the electricity bill.
 
 **Primary CTA:** Book a Discovery Call
 
 **Secondary CTA:** View solutions
 
-**Demo caption:** Live interactive demo - click to explore the dashboard above.
+No live dashboard. No scroll hint.
 
-**Scroll hint:** ↓ Scroll the workflow
+### Your working view
 
-### The operating loop
+**Eyebrow:** Your working view
 
-**Eyebrow:** The operating loop
+**Headline:** One plant picture. Ranked next actions. Operators in control.
 
-**Headline:** Six steps. Same loop every month.
+**Body:** See what is happening, decide what matters, and move the right action to the floor.
 
-1. **Connect** — Start with meter + bill
-   - Incomer first
-   - Modbus · OPC-UA · MQTT
+**Plant graph**
+See consumption, assets, production context, tariffs, alarms, and operator inputs in one live view. Follow a demand peak back to the loads, shifts, and events that caused it. Move from the plant picture to the bill without joining five reports.
 
-2. **Observe** — Baselines that know your shifts
-   - SEC by batch & shift
-   - Tariff-aware MD detection
+**Alarms and prescriptions**
+Open alarms show what changed and what needs attention. Each alarm can be cleared, acknowledged, or turned into a prescription. Prescriptions state what to change, why it matters, who owns it, the effort required, and the expected rupee impact. The highest-value feasible action comes first. Assigned actions reach the right person on WhatsApp. The dashboard holds the queue and evidence.
 
-3. **Decide** — Prescriptions in rupees
-   - What · why · who · ₹
-   - Ranked by monthly impact
+**Agents**
+Work through operating conflicts where load, tariff, maintenance, and production priorities meet. Agents assemble the evidence, test feasible moves, and prepare a prescription for the operator to accept, reject, or adjust. Chat is available on the same plant context and answers only from supporting evidence. When the evidence is insufficient, Stamped abstains. No PLC writes.
 
-4. **Execute** — WhatsApp to the floor
-   - Supervisor notification
-   - Open → done tracking
+### Plant and economic models
 
-5. **Verify** — Evidence before the next cycle
-   - Potential vs realised ₹
-   - Ops-cleared ledger
+**Eyebrow:** Plant and economic models
 
-6. **Improve** — Improve based on decisions taken
-   - Rank and threshold refresh
-   - Plant preferences, human-gated
+**Headline:** Models built around the way your plant runs
 
-### Before / after
+**Body:** These models use your plant baselines and DISCOM structure to rupee-score each move. Weather, humidity, and product specifications are operating constraints inside the move, not separate products.
 
-**Eyebrow:** The shift
+**Energy markets**
+Analyzes live HT tariffs, ToD windows, billing-demand floors, coincidence peaks, and kWh or kVAh billing where they apply. It identifies load flexibility before the tariff window closes or a higher MD is set.
 
-**Headline:** Before Stamped vs after the first billing cycle
+**Efficiency**
+Continuously identifies idle load, specific energy drift, utility waste, and equipment running outside the plant’s normal operating envelope. It separates avoidable energy from the load required to meet production.
 
-**Before**
+**Equipment**
+Detects changes in power draw, duty cycle, starts, trips, and operating patterns. It relates each deviation to energy cost, equipment condition, and process risk before ranking the next check or intervention.
 
-- Bill shock, no asset-level explanation
-- SCADA here, bill there, PLC somewhere else
-- “Shift-start is bad”, no ₹ figure
-- Fixes discussed, never verified
-
-**After Stamped**
-
-- 06:00 MD spike tied to Chiller 1 + 2 + 3 simultaneous start
-- One timeline: production, kW, tariff cost
-- ₹3-10L/month chiller stagger prescription assigned
-- Outcomes verified with evidence
+**Production context**
+Analyzes shift, batch, holding, utility timing, and dispatch commitments before recommending an energy move. Product specifications, storage limits, and production deadlines can block one option and force a feasible alternative.
 
 ### Core capabilities
 
 **Eyebrow:** Core capabilities
 
-**Headline:** Signals → verified outcomes
+**Headline:** A technical stack built for live plant decisions
 
-**Body:** Four platform layers - from universal ingestion through closed-loop governance - sized for SME manufacturers.
+**Body:** Stamped connects read-only to the systems and data you already have. It runs without a hardware retrofit and leaves plant control with your team.
 
-1. **Universal ingestion**
-   Captures signals from meters, SCADA, PLCs, and utility bills into a continuous, real-time pipeline - without hardware retrofits or changes to your control systems.
+1. **Connect and normalise**
+   Ingest meter streams, SCADA tags, bills, tariff schedules, ERP context, and operator inputs. Standardise timestamps, units, tag names, intervals, and data quality before analysis begins.
 
-2. **Unified energy graph**
-   Organises disparate streams into a time-aligned graph that connects consumption, production, and cost for accurate analytics across your plant.
+2. **Context and time alignment**
+   Link assets, feeders, utilities, shifts, batches, tariffs, and operating states on a common timeline. Preserve the relationships between what changed, where it changed, and what else was running at that moment.
 
-3. **Contextual intelligence**
-   Domain-specific models detect anomalies, quantify impact in rupees, and generate prescriptions your plant team can act on - not another passive dashboard.
+3. **Decision intelligence**
+   Build plant-specific baselines, detect deviations, test operating scenarios, and apply tariff and process constraints. Estimate economic impact, reject infeasible moves, and rupee-score the options that remain.
 
-4. **Closed-loop governance**
-   Assigns actions, tracks execution via WhatsApp and dashboard, and verifies potential vs. realized savings so every opportunity converts into measurable value.
+4. **Assign, verify, improve**
+   Route an accepted action to its owner and track its status through closure. Compare expected and observed outcomes, attach supporting evidence, and retain every acceptance, rejection, adjustment, and result in the audit trail.
 
-### Deployment path
+### The operating loop
 
-**Eyebrow:** Deployment path
+**Eyebrow:** The operating loop
 
-**Headline:** First prescriptions in two weeks, not two quarters
+**Headline:** Connect to Improve
 
-1. **Week 1-2 — Meter + bill live**
-   Baselines and first MD / tariff prescriptions.
+**Body:** The same operating loop runs each time plant conditions change.
+
+1. **Connect** — Bring live plant signals, bills, tariffs, and operating context into one read-only layer.
+2. **Observe** — Track demand, energy use, equipment behaviour, and production state against the plant baseline.
+3. **Decide** — Rupee-rank feasible moves by economic impact, effort, and operating risk.
+4. **Execute** — Assign the accepted action to the person who can carry it out.
+5. **Verify** — Compare expected vs observed outcomes in an ops-cleared ledger.
+6. **Improve** — Calibrate baselines and ranking from decisions taken and outcomes verified. Human-gated.
+
+### The shift
+
+**Eyebrow:** The shift
+
+**Headline:** Keep what runs the plant. Add what closes the action.
+
+**Body:** Stamped works with the data, systems, and operating knowledge already present at the site.
+
+**What you already have**
+
+- Incomer meters and sub-meter data
+- SCADA tags and historian records
+- ERP plans, shifts, batches, and dispatch context
+- DISCOM bills, tariffs, and demand rules
+- SOPs and people who understand the plant
+
+**What Stamped adds**
+
+- One time-aligned view of plant and economic context
+- Plant-specific baselines for load, efficiency, and equipment
+- Feasible actions ranked by expected rupee impact
+- Clear owners, effort, timing, and supporting evidence
+- A tracked record from prescription to verified outcome
+
+### Time to first action
+
+**Eyebrow:** Time to first action
+
+**Headline:** First prescriptions in weeks
+
+**Body:** Start with one site, using the meters and bills already available.
+
+1. **Week 1-2 — Meter and bill live**
+   Connect the incomer, available sub-meters, and current DISCOM bills. Reconcile timestamps, units, tariffs, and billing demand. Establish the first live plant baseline.
 
 2. **Week 3-4 — First assigned actions**
-   Supervisor tasks on WhatsApp. Execution tracked.
-
-3. **Month 2 — Deepen integration**
-   SCADA / PLC where available. SEC by process.
-
-4. **Month 3+ — Verified ₹ ledger**
-   M&V complete. Numbers for plant head and CFO.
+   Run the models against live operating conditions. Issue the first rupee-scored prescriptions with an owner, effort, timing, expected ₹ impact, and evidence. Plant teams accept, reject, or adjust each action before execution.
 
 ---
 

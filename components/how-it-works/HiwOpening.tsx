@@ -2,7 +2,6 @@
 
 import { useRef } from "react";
 
-import { LiveDemoFrame } from "@/components/how-it-works/LiveDemoFrame";
 import { useMotion } from "@/components/motion/MotionProvider";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -26,14 +25,6 @@ export function HiwOpening() {
         y: 28,
         duration: 0.85,
         stagger: 0.12,
-        ease: "power2.out",
-      });
-
-      gsap.from("[data-hiw-opening-fade]", {
-        autoAlpha: 0,
-        duration: 0.85,
-        stagger: 0.12,
-        delay: 0.2,
         ease: "power2.out",
       });
     },
@@ -77,25 +68,6 @@ export function HiwOpening() {
             </Button>
           </div>
         </div>
-
-        <div data-hiw-opening-fade className="relative z-0 mx-auto mt-8 w-full max-w-6xl">
-          <LiveDemoFrame
-            src="https://demo.stamped.work/"
-            title="Stamped Energy live intelligence dashboard demo"
-            displayUrl="demo.stamped.work"
-          />
-          <p className="mt-3 text-center text-xs font-medium text-on-surface-variant/80">
-            Live interactive demo - click to explore the dashboard above.
-          </p>
-        </div>
-
-        <p
-          data-hiw-opening-fade
-          className="mx-auto mt-6 text-center text-xs font-medium uppercase tracking-[0.14em] text-on-surface-variant/80"
-          aria-hidden="true"
-        >
-          ↓ Scroll the workflow
-        </p>
       </Container>
     </section>
   );

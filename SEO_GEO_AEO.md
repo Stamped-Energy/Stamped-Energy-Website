@@ -121,7 +121,7 @@ Every public route has spec-aligned **title**, **meta description**, **canonical
 | Route | Title pattern |
 |-------|---------------|
 | `/` | Stamped Energy \| AI-Powered Energy Intelligence for Plants in India |
-| `/platform` | Platform \| Stamped Energy - Connect to Improve Loop (308 from `/platform`) |
+| `/platform` | Platform \| Stamped Energy - Intelligence Layer and Connect to Improve (308 from `/how-it-works`) |
 | `/solutions` | Solutions hub + `/solutions/load-energy` + `/solutions/equipment-intelligence` |
 | `/about` | About Stamped Energy \| IIT Roorkee Engineers, Verified Savings |
 | `/case-studies` | Case Studies & Blogs \| Stamped Energy |

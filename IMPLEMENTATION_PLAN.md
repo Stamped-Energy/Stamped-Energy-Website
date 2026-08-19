@@ -1,3 +1,35 @@
+# Implementation Plan — `/platform` static product page (ADR-026)
+
+_Status: Implementation complete._
+
+## Goal
+
+Rebuild `/platform` as a static product page: short hero, three surfaces, four models, technical core capabilities, bordered Connect-to-Improve loop, already-have vs Stamped-adds, weeks-only close.
+
+## Scope
+
+- `lib/content/platform.ts`
+- `app/platform/page.tsx`
+- `HiwOpening`, `HiwProseStack`, `HiwStaticLoop`, `HiwOutcomesBand`, `HiwDeployment`
+- Unmount `HiwPinnedJourney` and live dashboard
+- Docs: `docs/website-copy.md`, `PAGE_SEO.platform`, HowTo JSON-LD, ADR-026
+
+## Non-goals
+
+- Homepage HIW pin
+- Inner-page closing CTA
+- Cloning CVector chrome or eight-model catalog
+- Editing the Cursor plan file
+
+## Phase breakdown
+
+1. Content SSOT
+2. Layout (hero, surfaces, models, capabilities, static loop)
+3. Compare + two-week deployment
+4. Docs / SEO
+
+---
+
 # Implementation Plan — About CVector-style structure (ADR-023)
 
 _Status: Implementation complete. Four conventional commits: content → layout → inner CTA strip → docs._

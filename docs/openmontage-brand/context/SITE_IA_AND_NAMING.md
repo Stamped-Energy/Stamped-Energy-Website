@@ -50,7 +50,10 @@ Paths: `/industries/automotive`, `/cement`, `/steel`, `/pharma`, `/chemical`
 **Connect → Observe → Decide → Execute → Verify → Improve**
 
 Platform hero eyebrow: Platform  
-Platform hero title: Stamped Intelligence on your plant stack
+Platform hero title: The intelligence layer on the stack you already run  
+Surfaces: Plant graph · Alarms and prescriptions · Agents  
+Models: Energy markets · Efficiency · Equipment · Production context  
+Capabilities: Connect and normalise · Context and time alignment · Decision intelligence · Assign, verify, improve
 
 How-it-works storytelling may also use the four-beat C-Vector-inspired stage names when matching scroll HIW: **Data → Analysis → Prescriptions → Decisions** (map to Connect/Observe/Decide/Execute as needed; always land on Verify + Improve).
 

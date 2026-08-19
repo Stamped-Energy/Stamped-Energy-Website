@@ -4,8 +4,10 @@ import { HiwCapabilities } from "@/components/how-it-works/HiwCapabilities";
 import { HiwDeployment } from "@/components/how-it-works/HiwDeployment";
 import { HiwOpening } from "@/components/how-it-works/HiwOpening";
 import { HiwOutcomesBand } from "@/components/how-it-works/HiwOutcomesBand";
-import { HiwPinnedJourney } from "@/components/how-it-works/HiwPinnedJourney";
+import { HiwProseStack } from "@/components/how-it-works/HiwProseStack";
+import { HiwStaticLoop } from "@/components/how-it-works/HiwStaticLoop";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { platformContent } from "@/lib/content";
 import { breadcrumbHome, generateBreadcrumbSchema } from "@/lib/seo/breadcrumbs";
 import { buildPageMetadataFromConfig } from "@/lib/seo/metadata";
 import { PAGE_SEO } from "@/lib/seo/pages";
@@ -23,9 +25,15 @@ export default function PlatformPage() {
     <>
       <JsonLd data={[howToSchema, breadcrumbSchema]} />
       <HiwOpening />
-      <HiwPinnedJourney />
-      <HiwOutcomesBand />
+      <HiwProseStack content={platformContent.surfaces} sectionId="surfaces" />
+      <HiwProseStack
+        content={platformContent.models}
+        sectionId="models"
+        className="bg-surface-low"
+      />
       <HiwCapabilities />
+      <HiwStaticLoop />
+      <HiwOutcomesBand />
       <HiwDeployment />
     </>
   );

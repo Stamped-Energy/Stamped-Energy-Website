@@ -15,16 +15,16 @@ export const PAGE_SEO = {
     path: "/",
   },
   platform: {
-    absoluteTitle: "Platform | Stamped Energy - Connect to Improve Loop",
+    absoluteTitle: "Platform | Stamped Energy - Intelligence Layer and Connect to Improve",
     description:
-      "See how Stamped Intelligence connects plant data into assigned prescriptions with verified evidence - Connect, Observe, Decide, Execute, Verify, Improve. No hardware retrofit required.",
+      "Stamped is the intelligence layer on the stack you already run. Plant graph, rupee-scored prescriptions, and the Connect to Improve loop. First prescriptions in weeks. No hardware retrofit.",
     path: "/platform",
   },
   /** @deprecated Use PAGE_SEO.platform. Kept for transitional imports. */
   howItWorks: {
-    absoluteTitle: "Platform | Stamped Energy - Connect to Improve Loop",
+    absoluteTitle: "Platform | Stamped Energy - Intelligence Layer and Connect to Improve",
     description:
-      "See how Stamped Intelligence connects plant data into assigned prescriptions with verified evidence - Connect, Observe, Decide, Execute, Verify, Improve. No hardware retrofit required.",
+      "Stamped is the intelligence layer on the stack you already run. Plant graph, rupee-scored prescriptions, and the Connect to Improve loop. First prescriptions in weeks. No hardware retrofit.",
     path: "/platform",
   },
   solutions: {

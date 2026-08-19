@@ -97,6 +97,7 @@ export function HiwDeployment() {
         <SectionHeading
           eyebrow={deployment.eyebrow}
           title={deployment.title}
+          description={deployment.description}
           align="center"
           className="mx-auto"
         />
@@ -143,7 +144,7 @@ export function HiwDeployment() {
               <div data-deploy-progress className="h-full w-full bg-primary" />
             </div>
 
-            <div className="grid grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 gap-6">
               {deployment.phases.map((phase, index) => (
                 <article
                   key={phase.id}

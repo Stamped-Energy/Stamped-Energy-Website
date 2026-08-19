@@ -492,4 +492,26 @@ Architecture and workflow decisions for this project.
 
 **Impact:** `lib/content/site.ts`, `landing.ts`, `solutions.ts`, `lib/seo/pages.ts`; `docs/website-copy.md`; OpenMontage STAMPED_CONTEXT / VOICE / SITE_IA; `external/brand/`; `external/.cursor/rules/stamped-copy.mdc`; `external/AGENTS.md`. Submodule pointer still needs a stamped-external commit and pin bump when releasing.
 
+---
+
+## ADR-026: `/platform` static product page (surfaces, models, capabilities)
+
+**Date:** 2026-08-19
+
+**Context:** `/platform` still led with a live dashboard iframe, a GSAP-pinned six-step journey, a pharma-flavoured before/after, and a four-phase deployment that stretched into Month 3+. Founder wanted a CVector-like stacked product page without cloning CVector IA (five surfaces, eight models, agent chat as a peer product).
+
+**Alternatives:**
+
+1. Keep dashboard + pin animation; only rewrite copy
+2. Full CVector /product clone (knowledge graph, weather, quality, fleets, Knowledge Center)
+3. Static page: three buyer surfaces, four models, separate technical capabilities, bordered Connect-to-Improve loop, already-have vs Stamped-adds, weeks-only close
+
+**Selected:** Option 3.
+
+**Rationale:** Buyer is plant director / electrical HOD. Public product is two pillars plus an intelligence layer, not a model zoo. Alarms and prescriptions stay one surface. Chat stays one sentence inside Agents. Core capabilities remain the stack (ingestion → time alignment → intelligence → closure), not a second pitch of the surfaces. Homepage HIW pin is unchanged.
+
+**Impact:** `lib/content/platform.ts`; `app/platform/page.tsx`; `HiwOpening` (no demo); `HiwProseStack`; `HiwStaticLoop`; `HiwOutcomesBand` / `HiwDeployment`; HowTo JSON-LD and `PAGE_SEO.platform`; `docs/website-copy.md`. `HiwPinnedJourney` unmounted, not deleted.
+
+---
+
 

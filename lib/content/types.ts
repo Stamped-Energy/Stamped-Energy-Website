@@ -316,3 +316,16 @@ export type HiwCapability = {
   mediaSrc?: string | null;
   mediaAlt?: string;
 };
+
+export type PlatformProseItem = {
+  id: string;
+  title: string;
+  description: string;
+};
+
+export type PlatformProseSection = {
+  eyebrow: string;
+  title: string;
+  description: string;
+  items: PlatformProseItem[];
+};
