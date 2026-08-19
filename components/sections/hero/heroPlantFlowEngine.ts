@@ -432,9 +432,17 @@ export function startHeroPlantFlow(root: HTMLElement, options: EngineOptions): (
   }
 
   function rxItemHeight(track: HTMLElement) {
-    const item = track.querySelector<HTMLElement>(".hpf-rx-item");
-    const measured = item?.getBoundingClientRect().height ?? 0;
-    if (measured > 0) return measured;
+    const items = track.querySelectorAll<HTMLElement>(".hpf-rx-item");
+    const first = items[0];
+    const second = items[1];
+    // offsetTop / offsetHeight are layout px. getBoundingClientRect includes the
+    // mobile stage scale, so a visual height would undershoot translateY.
+    if (first && second) {
+      const stride = second.offsetTop - first.offsetTop;
+      if (stride > 0) return stride;
+    }
+    const layoutH = first?.offsetHeight ?? 0;
+    if (layoutH > 0) return layoutH;
     return parseFloat(getComputedStyle(root).getPropertyValue("--hpf-rx-h")) || 124;
   }
 
