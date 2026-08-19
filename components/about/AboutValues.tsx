@@ -36,7 +36,7 @@ export function AboutValues() {
   return (
     <section
       ref={sectionRef}
-      className="border-b border-outline-variant/40 bg-surface-low py-10 md:section-y"
+      className="border-b border-outline-variant/40 bg-surface-low section-y"
     >
       <Container>
         <Reveal>

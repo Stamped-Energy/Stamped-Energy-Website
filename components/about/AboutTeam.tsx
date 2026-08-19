@@ -63,7 +63,6 @@ export function AboutTeam() {
                   className="object-cover object-top"
                   sizes="(max-width: 768px) 100vw, 400px"
                 />
-                <div className="absolute inset-0 bg-secondary/40 sm:bg-secondary/70" />
               </div>
               <div className="flex min-w-0 flex-1 flex-col p-4 sm:p-6">
                 <div className="flex items-start justify-between gap-3">
@@ -83,7 +82,7 @@ export function AboutTeam() {
                     </svg>
                   </Link>
                 </div>
-                <p className="mt-2 line-clamp-4 text-sm leading-6 text-on-surface-variant sm:mt-3 sm:line-clamp-none">
+                <p className="mt-2 text-sm leading-6 text-on-surface-variant sm:mt-3">
                   {member.bio}
                 </p>
               </div>

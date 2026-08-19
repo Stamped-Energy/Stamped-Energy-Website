@@ -1,9 +1,6 @@
 export const aboutContent = {
   hero: {
-    eyebrow: "Who we are",
     title: "We're building the decision layer for energy-intensive plants.",
-    description:
-      "Stamped turns meters, SCADA, and bills into assigned actions with ₹ impact—verified with evidence.",
     heroImageSrc: "/industries/die-casting.jpeg",
     heroImageAlt: "Energy-intensive manufacturing plant floor",
   },
@@ -67,34 +64,6 @@ export const aboutContent = {
         title: "Customers first",
         description:
           "Assigned actions, verified outcomes, and a team that stays through pilot and beyond.",
-      },
-    ],
-  },
-
-  journey: {
-    eyebrow: "Our journey",
-    title: "From problem to platform",
-    milestones: [
-      {
-        id: "2025",
-        period: "2025",
-        title: "Research at IIT Roorkee",
-        description:
-          "Started in the Electrical Engineering department at IIT Roorkee-studying where plant data, utility bills, and shift operations break down, and whether prescriptive intelligence could close the loop in rupees.",
-      },
-      {
-        id: "2026-product",
-        period: "2026",
-        title: "Building the product",
-        description:
-          "Moved from research to the actual software product: connecting incomer meters, SCADA, and bills into prescriptions supervisors can act on, with verification on the next electricity bill.",
-      },
-      {
-        id: "2026-pilots",
-        period: "2026 - today",
-        title: "Pilots and first clients",
-        description:
-          "Reaching out to manufacturers across process-intensive segments, running discovery conversations, and onboarding early pilots-with the first clients now live on the platform.",
       },
     ],
   },

@@ -5,7 +5,6 @@ import { useRef } from "react";
 
 import { useMotion } from "@/components/motion/MotionProvider";
 import { Container } from "@/components/ui/Container";
-import { SectionBadge } from "@/components/ui/SectionBadge";
 import { aboutContent } from "@/lib/content/about";
 import { gsap, useGSAP } from "@/lib/motion/gsap";
 
@@ -24,7 +23,6 @@ export function AboutHero() {
         autoAlpha: 0,
         y: 28,
         duration: 0.85,
-        stagger: 0.1,
         ease: "power2.out",
       });
     },
@@ -34,7 +32,7 @@ export function AboutHero() {
   return (
     <section
       ref={sectionRef}
-      className="page-hero relative overflow-hidden border-b border-outline-variant/40 bg-surface"
+      className="relative flex min-h-[70vh] items-end overflow-hidden bg-secondary md:min-h-[80vh]"
     >
       <div className="absolute inset-0">
         <Image
@@ -45,27 +43,16 @@ export function AboutHero() {
           className="object-cover object-center"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-secondary/70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/55 to-secondary/20" />
       </div>
 
-      <Container className="relative z-10">
-        <div className="max-w-2xl">
-          <div data-about-hero>
-            <SectionBadge label={hero.eyebrow} alternate />
-          </div>
-          <h1
-            data-about-hero
-            className="mt-5 font-display text-[1.45rem] font-extrabold leading-[1.18] tracking-tight text-on-secondary sm:text-3xl md:text-4xl lg:text-[2.75rem]"
-          >
-            {hero.title}
-          </h1>
-          <p
-            data-about-hero
-            className="mt-3 max-w-xl text-sm leading-6 text-on-secondary/85 sm:mt-4 sm:text-base sm:leading-7"
-          >
-            {hero.description}
-          </p>
-        </div>
+      <Container className="relative z-10 pb-12 pt-24 md:pb-16 md:pt-28 lg:pb-20">
+        <h1
+          data-about-hero
+          className="max-w-3xl font-display text-3xl font-extrabold leading-[1.12] tracking-tight text-on-secondary sm:text-4xl md:text-5xl lg:text-[3.25rem]"
+        >
+          {hero.title}
+        </h1>
       </Container>
     </section>
   );
