@@ -514,4 +514,24 @@ Architecture and workflow decisions for this project.
 
 ---
 
+## ADR-027: Industry pages plant zig-zag (accordion out)
+
+**Date:** 2026-08-19
+
+**Context:** All five industry vertical pages led with a process accordion (`IndustrySegments`: one-open, +/−, nested challenge/help lists, % chips). Founder rejected that UX. CVector industry pages keep benefits always visible. Platform already uses zig-zag for working view; industry pages needed a different treatment that still uses process photography.
+
+**Alternatives:**
+
+1. Keep the accordion (including a mobile-only variant)
+2. Clone CVector Benefits + Impact + four-solution catalog as extra bands
+3. Same five-section IA on all verticals: short hero, always-visible in-this-plant zig-zag (photo + short copy), three example prescriptions, three gain cards, FAQ `<details>`
+
+**Selected:** Option 3. Automotive is the copy template. Economics, waste table, and integration stay unmounted. `IndustrySegments.tsx` stays in the repo, unmounted.
+
+**Rationale:** Photography and process names are useful. Expand/collapse is not. Zig-zag matches platform working-view rhythm without reusing the models dark grid. What you gain already plays the Benefits job later on the page.
+
+**Impact:** `IndustryPlantZigZag`; `IndustryVerticalPage`; `IndustryFaq`; `IndustryOutcomes` (three cards); `lib/content/vertical-pages/*.ts` `plantBand`; `PAGE_SEO` vertical metas; `docs/website-copy.md` §§8–12.
+
+---
+
 

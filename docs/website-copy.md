@@ -665,13 +665,7 @@ Hub copy still exists in `lib/content/industries.ts` and `components/industries/
 
 ## Shared strip on every industry page
 
-**Badge:** Solutions
-
-**Headline:** Two ways to buy the same intelligence
-
-**Body:** Same stack and evidence trail. Pick the pillar that matches how your plant buys.
-
-Uses the same Industry Energy Management and Asset Health Intelligence briefs as the solutions hub, plus **Learn more** and **All solutions**.
+Not mounted. Vertical pages ship hero, in-this-plant zig-zag, example prescriptions, what you gain, and FAQ dropdowns only. No inner-page closing CTA (ADR-023). Energy-challenges stats, waste tables, integration, and the process accordion remain in content files unmounted.
 
 ---
 
@@ -679,7 +673,7 @@ Uses the same Industry Energy Management and Asset Health Intelligence briefs as
 
 **Title tag:** Automotive Plant Energy Intelligence | Stamped Energy
 
-**Meta description:** AI-powered energy intelligence for automotive and auto component plants. Die casting, forging, heat treatment, rubber moulding - prescriptions with rupee impact, verified with evidence.
+**Meta description:** Rupee-scored prescriptions for automotive and auto component plants. Die casting, forging, heat treatment, rubber moulding. Intelligence layer on your meters. Verified with evidence.
 
 ### Screen-reader headings
 
@@ -691,158 +685,82 @@ Uses the same Industry Energy Management and Asset Health Intelligence briefs as
 
 **Eyebrow:** Automotive
 
-**Headline:** AI-powered energy intelligence for automotive manufacturing
+**Headline:** Rupee-scored prescriptions for auto component plants
 
-**Body:** AI enables automotive manufacturers to control energy-intensive operations and utilities at scale, directly influencing cost stability, uptime, and long-term operational competitiveness - with prescriptions assigned to your plant floor and outcomes verified with evidence.
+**Body:** Die casting, forging, heat treatment, and rubber moulding already have meters and SCADA. Stamped is the intelligence layer on that stack: live data, assigned next actions, evidence on the bill. Read-only. No hardware retrofit.
 
 **Primary CTA:** Book a Discovery Call
 
 **Secondary CTA:** Platform
 
-### Outcomes
+### In this plant
+
+**Eyebrow:** In this plant
+
+**Headline:** Where the auto-component bill actually moves
+
+**Body:** Die casting, forging, heat treatment, and rubber moulding. Same processes you run.
+
+Always-visible zig-zag (photo + copy). No accordion.
+
+1. **Die casting** — Melting, holding, and core-cooling compressors hit the incomer together at shift start. Stamped ranks stagger and holding cuts against shot rate, not a flat kW alarm.
+2. **Forging** — Hammer and press peaks set MD. Sequencing and idle-auxiliary cuts are assigned before the billing window closes.
+3. **Heat treatment** — Weekend soak with no batches is a holding bill. Setback and tariff-window timing are prescribed per furnace.
+4. **Rubber moulding** — Curing heat and idle presses between batches. Cycle and changeover windows get a rupee-scored owner.
+
+### Example prescriptions
+
+**Eyebrow:** Example prescriptions
+
+**Headline:** What supervisors receive
+
+**Body:** Illustrative actions from comparable auto component plants. Your pilot writes these from your meters and bill.
+
+1. **Stagger furnace pre-heat and compressor startup at shift change**
+   Incomer MD hit 1,240 kVA at 07:15 - three furnaces and two compressors ramped together before first pour.
+   **Impact:** ₹2-5L/month
+   **Assigned:** Electrical maintenance / shift supervisor
+
+2. **Setback heat treatment furnaces over empty weekends**
+   Furnaces 3 and 4 held at soak with zero batches scheduled Saturday-Sunday. Holding load visible per furnace.
+   **Impact:** ₹1.5-4L/month
+   **Assigned:** Heat treatment supervisor
+
+3. **Reduce compressor unload hours between press strokes**
+   Screw compressors sized for peak stroke demand running 60%+ of shift in unload with no production benefit.
+   **Impact:** ₹1.2-2.5L/month
+   **Assigned:** Utilities / maintenance
+
+**Footnote:** Impact ranges are benchmark estimates from comparable plants, not customer guarantees. Verified figures come from your plant with evidence.
+
+### What you gain
 
 **Eyebrow:** What you gain
 
-**Headline:** Controlled energy intensity and sustained efficiency outcomes
+**Headline:** The floor knows what to do. Leadership sees the evidence.
 
-**Intro (from energy challenges):** Automotive plants run energy-intensive utilities across paint shops, compressed air, HVAC, and material handling systems, where fragmented visibility and manual control lead to persistent inefficiencies, cost leakage, and inconsistent performance across shifts, assets, and plants.
+**Disclaimer:** Indicative language from comparable plants. Your pilot replaces it with plant figures.
 
-**Disclaimer:** Target bands from comparable plant Your pilot replaces these with evidence-verified figures.
+- **Assigned energy moves** — Ranked prescriptions on startup overlap, holding, and idle auxiliaries, without changing the process recipe.
+- **Stable SEC in the operating band** — Drift vs this plant's baseline, not a generic dashboard threshold.
+- **Earlier equipment intervention** — Power-draw and duty-cycle drift tied to rupee and process risk. Not a vibration PdM claim.
 
-**Stats**
+### FAQ
 
-- **12-18%** Of operating cost linked to energy — Typical for process-intensive auto component suppliers
-- **50-60%** Energy outside direct production control — Auxiliaries, holding loads, and startup overlap
-- **20-30%** Lost to operational variability — Shift starts, idle windows, and uncoordinated startups
+**Eyebrow:** FAQ
 
-**Outcome cards (first three)**
+**Headline:** Common questions
 
-- **Real-time energy command** — AI converts live operational data into prescribed energy actions across production and auxiliary systems, eliminating 5-10% utility energy waste without impacting throughput or process stability.
-- **Stable SECs and KPIs** — Continuous supervision prescribes corrective actions to maintain SECs and efficiency KPIs within defined operating bands, reducing performance drift by 8-12%.
-- **Higher asset reliability** — Performance intelligence prescribes early interventions on degradation patterns, cutting unplanned utility downtime by 15-20% and improving asset availability.
+Dropdowns (`<details>`).
 
-### Automotive processes
+1. **How much can auto component manufacturers reduce their electricity bill?**
+   Comparable auto component plants using assigned, rupee-scored actions typically see an indicative 12-20% monthly bill movement, with die casting and forging often recovering a large share on MD from shift-start sequencing. Your pilot replaces those bands with plant figures.
 
-**Eyebrow:** Automotive processes
+2. **What is maximum demand and how does it affect my electricity bill?**
+   Maximum demand (MD) is the highest average kVA your plant draws in a billing window. Indian DISCOMs charge a fixed rate per kVA of recorded MD each month. Overlapping furnace pre-heat, compressor startup, and press cycles at shift start are the most common MD drivers in auto component plants.
 
-**Headline:** Four processes where the bill hurts most
-
-**Body:** Die casting, forging, heat treatment, rubber moulding - expand each for typical leaks and how Stamped addresses them.
-
-#### Die Casting
-
-**Focus:** Furnace-compressor coordination & shift-start spikes
-
-High-pressure die casting cells where melting, holding, and auxiliary loads create simultaneous demand at shift start and leak rupees through idle holding.
-
-**Related:** How shift-start overlap drives maximum demand charges in die casting plants
-
-**Typical challenges**
-
-- Melting and holding furnaces ramp together at shift start
-- Compressors run for core cooling while cells idle between shots
-- SEC varies with shot rate but baselines ignore production mix
-
-**How Stamped helps**
-
-- Production-normalized SEC baselines per cell and shift
-- Prescriptions to stagger furnace pre-heat and compressor staging
-- WhatsApp alerts when holding load exceeds adjusted baseline
-
-- **8-15%** Typical SEC improvement range
-- **₹2-5L** Monthly MD / demand charge savings
-
-#### Forging
-
-**Focus:** Heavy loads, MD exposure & hammer cycle variability
-
-Forging hammers and press lines with extreme demand spikes, power-factor penalties, and production-linked SEC that passive monitoring never explains.
-
-**Typical challenges**
-
-- Hammer and press startups overlap with utility baseload
-- Maximum demand charges from short, high-kVA cycles
-- Shift handovers leave auxiliaries running without output
-
-**How Stamped helps**
-
-- Cycle-aware anomaly detection on hammer and furnace loads
-- Prescriptions for startup sequencing and idle auxiliary shutdown
-- Verified savings ledger tied to adjusted production baselines
-
-- **12-22%** MD / demand charge reduction potential
-- **₹3-8L** Monthly energy cost reduction
-
-#### Heat Treatment
-
-**Focus:** Furnace setbacks, weekend holding & carburizing loads
-
-Carburizing, induction, and batch furnaces where setback gaps, weekend holding, and tariff windows determine whether heat energy converts to shipped parts.
-
-**Related:** Weekend furnace holding - the silent cost in heat treatment plants
-
-**Typical challenges**
-
-- Furnaces held at temperature through breaks and low-load windows
-- Weekend holding losses with no production scheduled
-- Batch timing misaligned with off-peak tariff periods
-
-**How Stamped helps**
-
-- Furnace-level baselines with batch and shift context
-- Setback and hold-time prescriptions with ₹ impact per furnace
-- Track open → done on furnace tuning actions via WhatsApp
-
-- **15-25%** Holding loss recoverable
-- **₹1.5-4L** Monthly tariff-window savings
-
-#### Rubber Moulding
-
-**Focus:** Curing cycles, compressor leaks & idle presses
-
-Injection and compression moulding lines where curing cycles, steam or hot-oil systems, and compressed air leaks inflate SEC between batches.
-
-**Typical challenges**
-
-- Curing timers and press heat run through planned downtime
-- Compressed air leaks masked by overall plant load
-- Batch changeovers leave mould heaters fully on
-
-**How Stamped helps**
-
-- Per-line curing SEC normalized by parts produced
-- Leak and idle-load prescriptions with supervisor routing
-- Closed-loop verification on realised ₹ per line
-
-- **5-12%** Compressed air system savings
-- **₹1.2-3L** Monthly curing & idle-load savings
-
-### Examples
-
-**Eyebrow:** Examples
-
-**Headline:** Practical prescriptions your floor can run
-
-**Intro:** Sample situations from comparable auto plants. Numbers are illustrative until checked on your plant.
-
-Each card also shows **Note:** Sample situation only. Numbers are illustrative until checked on your plant.
-
-1. **Stagger furnace pre-heat and compressor startup at shift change**
-   Three furnaces and two compressors ramped together before the first pour and pushed the plant past the demand peak. Hold the second set of starts a few minutes.
-   **Impact:** ₹2-5L/month [illustrative]
-   **Who:** Electrical maintenance and shift supervisor
-
-2. **Setback heat treatment furnaces over empty weekends**
-   Furnaces held at soak with zero batches scheduled Saturday and Sunday. Cut holding when the weekend calendar is empty.
-   **Impact:** ₹1.5-4L/month [illustrative]
-   **Who:** Heat treatment supervisor
-
-3. **Reduce compressor unload hours between press strokes**
-   Compressors sized for peak stroke demand running most of the shift unloaded with no production benefit. Stage or unload to match the press cycle.
-   **Impact:** ₹1.2-2.5L/month [illustrative]
-   **Who:** Utilities and maintenance
-
-**Footnote:** Impact ranges are benchmark estimates from comparable plants, not guarantees. Your pilot replaces them with verified figures.
+3. **How does Stamped Energy work for die casting plants?**
+   Stamped connects read-only to your incomer meter and SCADA, builds production-aware baselines per cell and shift, then sends rupee-scored prescriptions: stagger furnace pre-heat, stage compressors, cut holding load. Owners get the action on WhatsApp.
 
 ---
 
@@ -850,7 +768,7 @@ Each card also shows **Note:** Sample situation only. Numbers are illustrative u
 
 **Title tag:** Cement Plant Energy Management India | Stamped Energy
 
-**Meta description:** AI-driven energy intelligence for cement plants. kWh/ton, MD, WHR and grid dispatch prescriptions - verified with evidence. For plants with ₹20 lakh+ monthly electricity bills.
+**Meta description:** Rupee-scored prescriptions for cement plants. Mills, kiln auxiliaries, crushers, WHR and grid windows. Intelligence layer on your EMS. Verified with evidence.
 
 ### Screen-reader headings
 
@@ -862,60 +780,80 @@ Each card also shows **Note:** Sample situation only. Numbers are illustrative u
 
 **Eyebrow:** Cement
 
-**Headline:** AI-driven energy intelligence for cement
+**Headline:** Rupee-scored prescriptions for cement plants
 
-**Body:** AI enables cement plants to prescribe optimal energy actions across continuous processes and utilities in real time, directly influencing cost stability, uptime, and long-term operational competitiveness - with outcomes verified with evidence.
+**Body:** Mills, kiln auxiliaries, crushers, and WHR already have meters and EMS. Stamped is the intelligence layer on that stack: live data, assigned next actions, evidence on the bill. Read-only. No hardware retrofit.
 
 **Primary CTA:** Book a Discovery Call
 
 **Secondary CTA:** Platform
 
-### Outcomes
+### In this plant
 
-**Eyebrow:** What you gain
+**Eyebrow:** In this plant
 
-**Headline:** Prescriptive cost optimization and sustained efficiency outcomes
+**Headline:** Where the cement bill actually moves
 
-**Intro:** Cement plants operate continuous, energy-intensive processes with limited real-time coordination across stages and utilities, leading to cost leakage, SEC variability, and inconsistent plant performance.
+**Body:** Raw and finish mills, kiln auxiliaries, crushers, and WHR. Same processes you run.
 
-**Disclaimer:** Indicative benchmark band. Your pilot replaces these with evidence-verified figures.
+1. **Raw and finish mills** — kWh per ton drifts when separators and bearings degrade. Stamped ranks mill SEC against throughput, then assigns the inspection before the month is lost to a silent creep.
+2. **Kiln auxiliaries** — Fans, coolers, and idle kiln-side loads sit on the incomer whether clinker is moving or not. Idle cuts are ranked against line rate, not a flat kW alarm.
+3. **Crushers and mill startups** — Simultaneous restart after an outage is how contracted MD gets breached. Sequencing is assigned before the billing window closes.
+4. **WHR and grid windows** — Cheap WHR or solar sitting idle in a peak grid window is a dispatch miss. Source mix is prescribed for the tariff window, not a dashboard heuristic.
 
-**Stats**
-
-- **40-50%** Total manufacturing cost linked to energy and utilities — Structural margin driver for cement
-- **50-60%** Electrical energy consumed by core process equipment — Mills, kiln auxiliaries, and process fans
-- **85%** Thermal energy share complicates energy control — Multi-source dispatch requires governed decisions
-
-**Outcome cards (first three)**
-
-- **Prescriptive energy cost optimization** — Prescriptive AI optimizes the mix of captive power, WHRS, renewables, and grid in real time, locking in 5-10% energy cost reduction without operational disruption.
-- **Stage-wise SEC control** — AI monitors SEC at each manufacturing stage and prescribes corrective actions across raw grinding, kiln, and cement grinding, reducing stage-wise SEC by 8-12%.
-- **Utility-level efficiency and reliability** — AI tracks large utilities like fans, blowers, and mills, prescribing early interventions to prevent degradation and cut unplanned downtime by 15-20%.
-
-### Examples
+### Example prescriptions
 
 **Eyebrow:** Example prescriptions
 
-**Headline:** Governed dispatch decisions your team executes this week
+**Headline:** What supervisors receive
 
-**Intro:** Illustrative actions from cement plant benchmarks. Your pilot generates prescriptions from your meters, EMS feeds, and bill.
+**Body:** Illustrative actions from comparable cement plants. Your pilot writes these from your meters, EMS feeds, and bill.
 
 1. **Increase WHR and solar draw 18:00-22:00 peak grid window**
    Grid tariff peaks while WHR output available. Shift load to cheaper sources before MD window closes.
    **Impact:** ₹4-12L/month
-   **Who:** Plant electrical / dispatch coordinator
+   **Assigned:** Plant electrical / dispatch coordinator
 
 2. **Stagger finish mill restart after power outage**
    Three mills restarted simultaneously - incomer breached contracted MD by 180 kVA. Sequence restart over 20 minutes.
    **Impact:** ₹3-8L/month
-   **Who:** Head electrical
+   **Assigned:** Head electrical
 
 3. **Finish mill SEC drift vs baseline - maintenance trigger**
    kWh/ton up 8% over 14 days with stable output. Separator and bearing inspection before SEC degrades further.
    **Impact:** ₹2-5L/month
-   **Who:** Maintenance planner
+   **Assigned:** Maintenance planner
 
-**Footnote:** Impact ranges are benchmark estimates, not customer guarantees. Published enterprise cement dispatch cases cite large annual potential; Stamped targets mid-market plants with plant-specific verification.
+**Attribution:** Enterprise cement plants have reported large annual potential through dispatch governance. Stamped brings governed decisions to mid-market scale. *[Published industry case literature]*
+
+**Footnote:** Impact ranges are benchmark estimates from comparable plants, not customer guarantees. Verified figures come from your plant with evidence.
+
+### What you gain
+
+**Eyebrow:** What you gain
+
+**Headline:** The floor knows what to do. Leadership sees the evidence.
+
+**Disclaimer:** Indicative language from comparable plants. Your pilot replaces it with plant figures.
+
+- **Assigned energy moves** — Ranked prescriptions on mill restart stagger, idle kiln-side fans, and WHR-vs-grid windows, without rewriting the process recipe.
+- **Stable SEC in the operating band** — kWh per ton vs this plant's line and shift baseline, not a generic dashboard threshold.
+- **Earlier equipment intervention** — Power-draw and mill SEC drift tied to rupee and throughput risk. Not a vibration PdM claim.
+
+### FAQ
+
+**Eyebrow:** FAQ
+
+**Headline:** Common questions
+
+1. **How can cement plants reduce kWh per ton?**
+   Comparable cement plants using assigned, rupee-scored actions typically move electrical SEC by catching mill drift and restart overlap before the month closes. Published 70-80 kWh/ton bands are context, not your target. Your pilot replaces those bands with plant figures.
+
+2. **What is WHR and grid dispatch optimization for cement plants?**
+   WHR and solar are cheaper in some windows than grid. Stamped ranks source-mix moves against tariff and available WHR output so dispatch is assigned, not guessed at the desk.
+
+3. **How does Stamped work with existing cement plant EMS?**
+   EMS shows trends. Stamped is the intelligence layer on that stack: read-only feeds, rupee-scored next actions, owner, and verification on the bill. No rip-and-replace.
 
 ---
 
@@ -923,7 +861,7 @@ Each card also shows **Note:** Sample situation only. Numbers are illustrative u
 
 **Title tag:** Steel Plant Energy Efficiency India | Stamped Energy
 
-**Meta description:** AI-driven energy management for steel and metals plants. Induction furnaces, rolling mills, MD control, PAT-aligned SEC - evidence-led prescriptions for plants in India.
+**Meta description:** Rupee-scored prescriptions for steel and metals plants. Induction furnaces, rolling mills, forging and foundry. Intelligence layer on your meters. Verified with evidence.
 
 ### Screen-reader headings
 
@@ -935,131 +873,77 @@ Each card also shows **Note:** Sample situation only. Numbers are illustrative u
 
 **Eyebrow:** Steel & metals
 
-**Headline:** AI-driven energy management for steel
+**Headline:** Rupee-scored prescriptions for steel and metals plants
 
-**Body:** AI enables steel manufacturers to manage fuel- and power-intensive operations at scale, where energy balance and operating discipline directly determine cost competitiveness, throughput stability, and operational consistency - with evidence-verified savings.
+**Body:** EAF and induction, rolling, and foundry already have meters and SCADA. Stamped is the intelligence layer on that stack: live data, assigned next actions, evidence on the bill. Read-only. No hardware retrofit.
 
 **Primary CTA:** Book a Discovery Call
 
 **Secondary CTA:** Platform
 
-### Outcomes
+### In this plant
 
-**Eyebrow:** What you gain
+**Eyebrow:** In this plant
 
-**Headline:** Tighter process efficiency and per-unit cost stability
+**Headline:** Where the steel bill actually moves
 
-**Intro:** Steel production is inherently energy-intensive, with energy cost tightly coupled to profits. Even small deviations during operation quickly translate into higher energy losses and margin pressure.
+**Body:** EAF and induction, rolling, and forging-foundry. Same processes you run.
 
-**Disclaimer:** Indicative benchmark band. External SEC references are cited for context only.
+1. **EAF and induction** — Holding between heats is a power bill with no pour. Setback and power-factor sequencing are assigned before the next heat, not after the MD window closes.
+2. **Rolling** — Stand startups stacked after a break set MD. Sequencing is ranked against mill output, not a flat kW alarm.
+3. **Forging and foundry** — Hammer, press, and melt peaks overlap with auxiliaries. Idle-auxiliary cuts get a rupee-scored owner on the same playbook as auto-adjacent forging.
 
-**Stats**
-
-- **30-40%** Share of energy in manufacturing cost — TERI steel sector review
-- **3-5%** Minor instability causes measurable energy loss — Small deviations compound into sustained losses
-- **60-70%** Captive power energy drives production margins — Fuel-power balance determines competitiveness
-
-**Outcome cards (first three)**
-
-- **Tighter process efficiency** — Prescriptive AI keeps furnaces and rolling processes within efficient operating windows, reducing avoidable energy loss during real production by 5-10%.
-- **Per-unit energy cost stability** — AI detects captive power generation inefficiencies early and prescribes corrections before small deviations escalate into sustained cost losses, reducing per-unit energy cost by almost 5%.
-- **Operator-ready guidance** — Actionable insights guide operators on what to adjust and when, reducing reliance on manual judgment and delayed interventions.
-
-### Process routes
-
-**Eyebrow:** Process routes
-
-**Headline:** EAF, rolling, forging - where the bill hurts most
-
-**Body:** Secondary steel, rolling mills, and forging-adjacent plants - expand each route for typical leaks and prescriptions.
-
-#### EAF / Induction
-
-**Focus:** Holding power between heats & power factor
-
-Induction and EAF routes where holding load between heats and PF penalties inflate the bill without production output.
-
-**Typical challenges**
-
-- Furnace held at full power between heats with no pour scheduled
-- Power factor penalties from reactive load during holding
-- Heat schedule misaligned with tariff windows
-
-**How Stamped helps**
-
-- Furnace holding baselines tied to production calendar
-- Setback schedule prescriptions with ₹ impact per furnace
-- PF sequencing recommendations assigned to electrical
-
-- **₹3-8L** Monthly holding waste recoverable
-- **5-12%** PF penalty reduction potential
-
-#### Rolling mill
-
-**Focus:** Stand startup MD & SEC by product mix
-
-Rolling mills where simultaneous stand startup creates MD spikes and SEC varies by product mix without baseline tracking.
-
-**Typical challenges**
-
-- Multiple stands restart simultaneously after breaks
-- SEC drift by product mix invisible until billing
-- Cooling water pumps at constant flow regardless of output
-
-**How Stamped helps**
-
-- Startup sequence prescriptions to avoid MD breach
-- SEC baselines by product mix and shift
-- Pump duty-cycle recommendations ranked by ROI
-
-- **₹4-10L** Monthly MD savings potential
-- **8-17%** SEC improvement benchmark
-
-#### Foundry
-
-**Focus:** Auto-adjacent playbook - furnaces & compressors
-
-Forging and foundry operations overlapping automotive heat treatment and forging playbooks - same prescription patterns, steel cluster context.
-
-**Typical challenges**
-
-- Reheating furnace weekend hold with no production
-- Hammer startup overlap with utility baseload
-- Compressed air leaks across multiple bay lines
-
-**How Stamped helps**
-
-- Weekend holding setback prescriptions per furnace
-- Hammer and press startup sequencing for MD control
-- Leak detection prescriptions with supervisor routing
-
-- **₹2-6L** Monthly holding savings
-- **12-22%** MD reduction potential
-
-### Examples
+### Example prescriptions
 
 **Eyebrow:** Example prescriptions
 
-**Headline:** Furnace and MD actions assigned this week
+**Headline:** What supervisors receive
 
-**Intro:** Illustrative actions from secondary steel and rolling benchmarks. Your pilot generates prescriptions from your meters and bill.
+**Body:** Illustrative actions from comparable secondary steel and rolling plants. Your pilot writes these from your meters and bill.
 
 1. **Reduce induction furnace holding power between heats**
    Furnace held at full power 45 minutes between heats with no pour scheduled. Setback schedule aligned to production calendar.
    **Impact:** ₹3-8L/month
-   **Who:** Furnace operator / electrical
+   **Assigned:** Furnace operator / electrical
 
 2. **Sequence rolling mill stand startup after morning break**
    Four stands restarted simultaneously at 06:30 - incomer MD breached by 220 kVA. Stagger over 15 minutes.
    **Impact:** ₹4-10L/month
-   **Who:** Rolling mill supervisor
+   **Assigned:** Rolling mill supervisor
 
 3. **Duty-cycle cooling water pumps during low-production window**
    CW pumps at 100% flow with 40% rolling output. VFD setpoint adjustment - capital action ranked by payback.
    **Impact:** ₹1.5-4L/month
-   **Who:** Utilities / maintenance
+   **Assigned:** Utilities / maintenance
 
-**Footnote:** Impact ranges are benchmark estimates, not customer guarantees. Enterprise-scale integrated plant cases are cited only as context. Stamped targets mid-market induction and rolling plants with plant-specific verification.
+**Footnote:** Impact ranges are benchmark estimates from comparable plants, not customer guarantees. Verified figures come from your plant with evidence.
+
+### What you gain
+
+**Eyebrow:** What you gain
+
+**Headline:** The floor knows what to do. Leadership sees the evidence.
+
+**Disclaimer:** Indicative language from comparable plants. Your pilot replaces it with plant figures.
+
+- **Assigned energy moves** — Ranked prescriptions on furnace holding, rolling-stand stagger, and idle auxiliaries, without changing the heat recipe.
+- **Stable SEC in the operating band** — kWh per heat or per ton vs this plant's route and shift baseline, not a generic dashboard threshold.
+- **Earlier equipment intervention** — Power-draw and duty-cycle drift tied to rupee and throughput risk. Not a vibration PdM claim.
+
+### FAQ
+
+**Eyebrow:** FAQ
+
+**Headline:** Common questions
+
+1. **How can steel plants reduce induction furnace electricity consumption?**
+   Holding between heats is power with no pour. Comparable plants using assigned setback and sequencing typically recover a large share of furnace electricity on that idle window. Your pilot replaces indicative bands with plant figures.
+
+2. **What is PAT scheme SEC for steel plants?**
+   PAT tracks specific energy consumption against a notified baseline. Stamped keeps a rupee-scored SEC ledger from meters and the bill. That is evidence support, not PAT consulting or an audit.
+
+3. **How does Stamped help rolling mills with maximum demand?**
+   Stacked stand startups after a break are a common MD spike. Stamped assigns stagger before the billing window closes and ties the rupee impact to the mill supervisor.
 
 ---
 
@@ -1067,7 +951,7 @@ Forging and foundry operations overlapping automotive heat treatment and forging
 
 **Title tag:** Pharmaceutical Plant HVAC Energy Savings | Stamped Energy
 
-**Meta description:** AI-driven energy management for pharma plants. Chiller staging, AHU schedules, MD prescriptions - GMP-safe utility levers with savings verified with evidence.
+**Meta description:** Rupee-scored prescriptions for pharmaceutical plants. Chiller staging, AHU schedules, compressed air. GMP-safe utility levers. Verified with evidence.
 
 ### Screen-reader headings
 
@@ -1079,60 +963,79 @@ Forging and foundry operations overlapping automotive heat treatment and forging
 
 **Eyebrow:** Pharmaceutical
 
-**Headline:** AI-driven energy management for pharma
+**Headline:** Rupee-scored prescriptions for pharmaceutical plants
 
-**Body:** AI enables pharmaceutical plants to manage energy-intensive operations and utilities at scale, directly impacting operating cost, compliance, uptime, and consistent product quality across regulated manufacturing environments - with evidence-verified savings.
+**Body:** HVAC, chillers, and compressed air already have meters and BMS. Stamped is the intelligence layer on that stack: live data, assigned next actions, evidence on the bill. Read-only. No hardware retrofit.
 
 **Primary CTA:** Book a Discovery Call
 
 **Secondary CTA:** Platform
 
-### Outcomes
+### In this plant
 
-**Eyebrow:** What you gain
+**Eyebrow:** In this plant
 
-**Headline:** Targeted waste elimination and stable thermal performance
+**Headline:** Where the pharma bill actually moves
 
-**Intro:** Pharma facilities rely heavily on utility-driven support systems to maintain strict indoor air quality conditions, where continuous control requirements drive sustained energy consumption and operational rigidity.
+**Body:** HVAC and cleanroom, plant utilities, and compressed air. Same systems you run.
 
-**Disclaimer:** Indicative BEE benchmark band. Your pilot replaces these with evidence-verified figures.
+1. **HVAC and cleanroom** — Classified air does not pause between batches. Stamped ranks AHU run-hours against the production calendar. Schedule moves stay in the utilities layer, not room reclassification.
+2. **Chillers and plant utilities** — Chiller banks that start together at shift change set MD. Staging is assigned against actual cooling load, not a safety-margin habit.
+3. **Compressed air** — Header pressure held above process need is a quiet kWh leak. Pressure-band and leak-tag moves get a rupee-scored owner.
 
-**Stats**
-
-- **55-65%** Plant energy consumed by utilities — HVAC, steam, chilled water, and CA dominate
-- **40-50%** Energy driven by HVAC and clean-room systems — BEE MSME pharma cluster mapping
-- **20-30%** Seasonal energy demand shifts for IAQ — Climate and production mix drive variability
-
-**Outcome cards (first three)**
-
-- **Targeted energy waste elimination** — Prescriptive AI identifies hidden wastage across utilities and support systems, converting deviations into operator actions without compromising quality or compliance.
-- **Optimized HVAC and AHU efficiency** — Prescriptive intelligence continuously maintains HVAC KPIs such as kW/TR and kW/CFM, tuning AHU performance in real time to balance temperature, humidity, air quality, and energy consumption.
-- **Stable thermal system performance** — AI monitors boilers, steam, and hot-water systems and prescribes actions to prevent efficiency drift, sustaining reliable thermal output.
-
-### Examples
+### Example prescriptions
 
 **Eyebrow:** Example prescriptions
 
-**Headline:** GMP-safe operational levers - utilities, not room reclassification
+**Headline:** What supervisors receive
 
-**Intro:** Illustrative actions from BEE pharma cluster benchmarks. Change-control-friendly utility tweaks first.
+**Body:** Illustrative actions from comparable formulation plants. Change-control-friendly utility tweaks first. Your pilot writes these from your meters and bill.
 
 1. **Stagger chiller bank startup at morning production ramp**
    Three chillers started simultaneously at 06:00 - incomer MD hit 980 kVA with only 60% AHU load required.
    **Impact:** ₹3-10L/month
-   **Who:** Utilities / engineering head
+   **Assigned:** Utilities / engineering head
 
 2. **Align AHU run-hours with batch production calendar**
    AHUs at full flow 4 hours before first batch start. Schedule adjustment - no setpoint change in classified zones.
    **Impact:** ₹2-6L/month
-   **Who:** Production planner / utilities
+   **Assigned:** Production planner / utilities
 
 3. **Reduce compressed air header pressure band**
    Header at 8.2 bar for a 7.5 bar process requirement. About 9% energy reduction on the compressed-air system.
    **Impact:** ₹1-3L/month
-   **Who:** Maintenance / utilities
+   **Assigned:** Maintenance / utilities
 
-**Footnote:** Impact ranges are benchmark estimates. Stamped frames prescriptions as utilities operations, not GMP room classification changes. Validate with your quality team before execution.
+**Attribution:** Large pharma renewable-energy governance cases report significant annual leakage prevented at enterprise scale. Stamped targets MSME and mid-market formulation plants. *[Published industry case literature]*
+
+**Footnote:** Impact ranges are benchmark estimates from comparable plants, not customer guarantees. Verified figures come from your plant with evidence. Quality validates schedule changes before execution.
+
+### What you gain
+
+**Eyebrow:** What you gain
+
+**Headline:** The floor knows what to do. Leadership sees the evidence.
+
+**Disclaimer:** Indicative language from comparable plants. Your pilot replaces it with plant figures.
+
+- **Assigned energy moves** — Ranked prescriptions on chiller staging, AHU run-hours, and CA pressure bands, without touching classified setpoints.
+- **Stable SEC in the operating band** — Utility kWh vs this plant's batch calendar and shift baseline, not a generic dashboard threshold.
+- **Earlier equipment intervention** — Chiller and AHU power-draw drift tied to rupee and uptime risk. Not a vibration PdM claim.
+
+### FAQ
+
+**Eyebrow:** FAQ
+
+**Headline:** Common questions
+
+1. **How much electricity do pharmaceutical plants use for HVAC?**
+   In formulation plants, HVAC and related utilities typically dominate the electrical bill because classified air runs continuously. BEE cluster studies are context. Your pilot replaces indicative shares with plant figures.
+
+2. **How can pharma plants reduce chiller energy consumption?**
+   Staging at production ramp and matching capacity to actual cooling load are the usual rupee-scored moves. Stamped assigns those on the utilities layer. Quality validates any schedule change before execution.
+
+3. **Is Stamped safe for GMP-regulated pharmaceutical facilities?**
+   Stamped is read-only on meters and BMS. Prescriptions target chiller staging, AHU schedules, and compressed-air bands, not cleanroom reclassification. Your quality team remains the gate.
 
 ---
 
@@ -1140,7 +1043,7 @@ Forging and foundry operations overlapping automotive heat treatment and forging
 
 **Title tag:** Chemical Plant Batch Energy Optimization | Stamped Energy
 
-**Meta description:** AI-powered energy intelligence for chemical and paint plants. Batch SEC, reactor stagger, idle hold prescriptions - verified monthly on your DISCOM bill.
+**Meta description:** Rupee-scored prescriptions for chemical and paint plants. Batch SEC, reactor stagger, idle hold. Intelligence layer on meters and batch logs. Verified with evidence.
 
 ### Screen-reader headings
 
@@ -1152,60 +1055,77 @@ Forging and foundry operations overlapping automotive heat treatment and forging
 
 **Eyebrow:** Chemical & paint
 
-**Headline:** AI-powered energy intelligence for chemical and paint manufacturing
+**Headline:** Rupee-scored prescriptions for chemical and paint plants
 
-**Body:** AI brings continuous energy discipline to chemical and paint manufacturing, improving cost control, operational predictability, and long-term competitiveness - with prescriptions assigned to your batch team and outcomes verified with evidence.
+**Body:** Batch reactors, steam, and plant air already have meters and logs. Stamped is the intelligence layer on that stack: live data, assigned next actions, evidence on the bill. Read-only. No hardware retrofit.
 
 **Primary CTA:** Book a Discovery Call
 
 **Secondary CTA:** Platform
 
-### Outcomes
+### In this plant
 
-**Eyebrow:** What you gain
+**Eyebrow:** In this plant
 
-**Headline:** Controlled energy intensity and predictable operations
+**Headline:** Where the chemical bill actually moves
 
-**Intro:** Chemical and paint plants operate energy-critical batch and continuous processes where heat, mixing, and separation dominate consumption, requiring tight control to avoid excess energy use while maintaining safety and product stability.
+**Body:** Batch reactors, plant utilities, and compressed air. Same processes you run.
 
-**Disclaimer:** Indicative benchmark band. Your pilot replaces these with evidence-verified figures.
+1. **Batch reactors** — Soak held with no batch on the calendar is a holding bill. Setback is assigned against the next start, not a flat temperature alarm.
+2. **Steam and plant utilities** — Steam, chill, and ETP loads sit on the incomer between batches. Duty-cycle cuts are ranked against the production calendar.
+3. **Compressed air and stagger** — Reactors that ramp together at shift start set MD. Sequencing and idle-air cuts get a rupee-scored owner before the billing window closes.
 
-**Stats**
-
-- **10-20%** Share of energy in manufacturing cost — Batch and continuous process mix
-- **20-40%** Plant energy consumed by utilities — Steam, chillers, compressed air, and ETP
-- **50-60%** Thermal energy share complicates energy control — Reactors, distillation, and drying loads
-
-**Outcome cards (first three)**
-
-- **Controlled energy intensity** — Energy stays within defined operating bands across batch and continuous operations, with AI prescribing adjustments to prevent drift, reducing SEC by 8-12%.
-- **Reduced over-design margins** — AI identifies energy inefficiencies caused by conservative process over-design in heating, cooling, and purging, locking in 5-10% energy savings without impacting safety or throughput.
-- **Early loss visibility** — Small deviations are surfaced early, with AI recommending corrective actions before they compound into sustained losses.
-
-### Examples
+### Example prescriptions
 
 **Eyebrow:** Example prescriptions
 
-**Headline:** What to change before month-end - assigned to your batch team
+**Headline:** What supervisors receive
 
-**Intro:** Illustrative actions from batch chemical benchmarks. Path A: batch log CSV + bill. Path B: DCS integration.
+**Body:** Illustrative actions from comparable batch chemical plants. Your pilot writes these from your meters, batch log, and bill.
 
 1. **Stagger reactor heating start across three batch lines**
    Reactors R1, R2, R3 heated simultaneously at 07:00 - incomer MD breached by 195 kVA. Sequence over 25 minutes.
    **Impact:** ₹3-10L/month
-   **Who:** Batch supervisor / electrical
+   **Assigned:** Batch supervisor / electrical
 
 2. **Setback reactor soak during 4-hour batch gap**
    Reactor held at 180°C with no batch until 14:00. Setback to 140°C during gap - production calendar confirmed.
    **Impact:** ₹2-6L/month
-   **Who:** Process operator
+   **Assigned:** Process operator
 
 3. **Shift solvent recovery run to off-peak tariff window**
    Recovery unit running peak hours when batch schedule allows night-window operation.
    **Impact:** ₹1.5-4L/month
-   **Who:** Utilities / production planner
+   **Assigned:** Utilities / production planner
 
-**Footnote:** Impact ranges are benchmark estimates - not customer guarantees. Verified figures come from your pilot M&V.
+**Footnote:** Impact ranges are benchmark estimates from comparable plants, not customer guarantees. Verified figures come from your plant with evidence.
+
+### What you gain
+
+**Eyebrow:** What you gain
+
+**Headline:** The floor knows what to do. Leadership sees the evidence.
+
+**Disclaimer:** Indicative language from comparable plants. Your pilot replaces it with plant figures.
+
+- **Assigned energy moves** — Ranked prescriptions on reactor stagger, soak setback, and off-peak utility windows, without changing the batch recipe.
+- **Stable SEC in the operating band** — kWh per batch vs this plant's reactor line and product baseline, not a generic dashboard threshold.
+- **Earlier equipment intervention** — Power-draw and duty-cycle drift tied to rupee and batch risk. Not a vibration PdM claim.
+
+### FAQ
+
+**Eyebrow:** FAQ
+
+**Headline:** Common questions
+
+1. **How can chemical plants reduce batch process energy consumption?**
+   Idle soak and overlapping reactor ramps are the usual leaks. Comparable plants using assigned, rupee-scored actions recover those windows before month-end. Your pilot replaces indicative bands with plant figures.
+
+2. **What causes maximum demand spikes in batch chemical plants?**
+   Three reactors heating together at shift start is a common incomer spike. Stamped assigns stagger against the batch calendar so MD is managed before the billing window closes.
+
+3. **Does Stamped work without DCS integration?**
+   Yes. Path A uses batch log start and end times plus DISCOM bills. First prescriptions on idle hold and stagger typically land within two weeks. DCS is Path B, not a gate.
 
 ---
 
@@ -1359,7 +1279,7 @@ The page ends on Values. There is no closing CTA band on `/about`.
 
 ### What this file is
 
-A page-by-page transcript of **currently rendered** public copy. Wording is transcribed as it ships, including existing typos (for example the automotive outcomes disclaimer: “comparable plant Your pilot…”).
+A page-by-page transcript of **currently rendered** public copy. Wording is transcribed as it ships. Industry pages (Aug 2026): in-this-plant zig-zag, three prescription cards, three gain cards, FAQ dropdowns. Process accordion unmounted.
 
 ### What this file is not
 
@@ -1370,8 +1290,8 @@ A page-by-page transcript of **currently rendered** public copy. Wording is tran
   - The industries hub (`/industries` permanently redirects to `/industries/automotive`)
   - Homepage leftovers in `landing.ts` (FAQ, pay-as-you-save, six-step loop, why Stamped, credibility, Industry 4.0, and related unused sections)
   - Extra contact blocks (pilot stats, office, on-site visit)
-  - Industry waste tables, integration blocks, and FAQs that are not mounted on vertical pages
-  - Fourth outcome card on each industry page (`outcomes.items` is sliced to the first three)
+  - Industry waste tables, integration blocks, energy-challenge stats, and `IndustrySegments` accordion copy that are not mounted on vertical pages
+  - Process-route `segments` chrome strings on automotive/steel (accordion unmounted)
   - Static `caseStudies.ts` write-ups (legacy `/case-studies/[slug]` URLs redirect to the listing)
 
 ### Primary sources

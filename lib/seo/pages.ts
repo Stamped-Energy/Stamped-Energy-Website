@@ -78,31 +78,31 @@ export const PAGE_SEO = {
   industriesAutomotive: {
     absoluteTitle: "Automotive Plant Energy Intelligence | Stamped Energy",
     description:
-      "AI-powered energy intelligence for automotive and auto component plants. Die casting, forging, heat treatment, rubber moulding - prescriptions with rupee impact, verified with evidence.",
+      "Rupee-scored prescriptions for automotive and auto component plants. Die casting, forging, heat treatment, rubber moulding. Intelligence layer on your meters. Verified with evidence.",
     path: "/industries/automotive",
   },
   industriesCement: {
     absoluteTitle: "Cement Plant Energy Management India | Stamped Energy",
     description:
-      "AI-driven energy intelligence for cement plants. kWh/ton, MD, WHR and grid dispatch prescriptions - verified with evidence. For plants with ₹20 lakh+ monthly electricity bills.",
+      "Rupee-scored prescriptions for cement plants. Mills, kiln auxiliaries, crushers, WHR and grid windows. Intelligence layer on your EMS. Verified with evidence.",
     path: "/industries/cement",
   },
   industriesSteel: {
     absoluteTitle: "Steel Plant Energy Efficiency India | Stamped Energy",
     description:
-      "AI-driven energy management for steel and metals plants. Induction furnaces, rolling mills, MD control, PAT-aligned SEC - evidence-led prescriptions for plants in India.",
+      "Rupee-scored prescriptions for steel and metals plants. Induction furnaces, rolling mills, forging and foundry. Intelligence layer on your meters. Verified with evidence.",
     path: "/industries/steel",
   },
   industriesPharma: {
     absoluteTitle: "Pharmaceutical Plant HVAC Energy Savings | Stamped Energy",
     description:
-      "AI-driven energy management for pharma plants. Chiller staging, AHU schedules, MD prescriptions - GMP-safe utility levers with savings verified with evidence.",
+      "Rupee-scored prescriptions for pharmaceutical plants. Chiller staging, AHU schedules, compressed air. GMP-safe utility levers. Verified with evidence.",
     path: "/industries/pharma",
   },
   industriesChemical: {
     absoluteTitle: "Chemical Plant Batch Energy Optimization | Stamped Energy",
     description:
-      "AI-powered energy intelligence for chemical and paint plants. Batch SEC, reactor stagger, idle hold prescriptions - verified monthly on your DISCOM bill.",
+      "Rupee-scored prescriptions for chemical and paint plants. Batch SEC, reactor stagger, idle hold. Intelligence layer on meters and batch logs. Verified with evidence.",
     path: "/industries/chemical",
   },
 } as const satisfies Record<string, PageSeoConfig>;

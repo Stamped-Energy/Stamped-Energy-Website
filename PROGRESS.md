@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-`/platform` static revamp (ADR-026): three surfaces, four models, technical core capabilities, bordered Connect-to-Improve loop, already-have vs adds, weeks-only close. No live dashboard. Homepage HIW pin unchanged.
+Industry vertical pages (ADR-027): accordion out, in-this-plant zig-zag in. Automotive is the copy template. Five-section IA on all verticals.
 
 ## Completed Phases
 
@@ -50,6 +50,7 @@
 - [x] **Origin story copy (ADR-024)** - company-voice Our Story + intelligence layer hero; light homepage problem/what-is; canon in STAMPED_CONTEXT / VOICE_AND_CLAIMS; `external/` still pending
 - [x] **Public copy canon in external (ADR-025)** - `external/brand/` COPY_CANON + WEBSITE_COPY; rupee-scored / rupee-ranked on site; old About hero superseded
 - [x] **Platform page static revamp (ADR-026)** - surfaces, models, capabilities, static loop, weeks-only close; dashboard and pin unmounted
+- [x] **Industry pages plant zig-zag (ADR-027)** - accordion unmounted; in-this-plant photo zig-zag; three Rx; three gains; FAQ dropdowns; automotive template applied to all five verticals
 
 ## Remaining Phases
 
@@ -63,7 +64,7 @@
 - [ ] **LinkedIn Company Page** (Section 12 #4) - then update Organization schema `sameAs`
 - [ ] **Wikidata entry** for Stamped Energy (Section 12 #5)
 - [ ] Replace placeholder industry hero images (cement, steel, pharma, chemical photo shoot)
-- [ ] Industries vertical rewrite (deferred from IA overhaul)
+- [ ] Industries hub live page (still redirects to automotive)
 - [ ] Case Studies deeper editorial redesign (listing/shell polished in ADR-020; full rewrite still open)
 - [ ] Per-vertical blog posts (content roadmap P2)
 - [ ] Real case studies for cement/steel/pharma/chemical
