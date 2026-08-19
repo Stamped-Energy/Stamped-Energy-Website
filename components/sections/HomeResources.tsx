@@ -60,7 +60,7 @@ export async function HomeResources() {
                 <h3 className="mt-2 font-display text-lg font-semibold tracking-tight md:text-xl">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-sm leading-6 text-on-surface/70">{item.description}</p>
+                <p className="mt-3 hidden text-sm leading-6 text-on-surface/70 md:block">{item.description}</p>
               </Link>
             </Reveal>
           ))}

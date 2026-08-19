@@ -53,7 +53,7 @@ export function IndustryPlantZigZag({ slug }: IndustryPlantZigZagProps) {
                     <h3 className="font-display text-xl font-bold tracking-tight text-on-surface md:text-2xl">
                       {item.title}
                     </h3>
-                    <p className="mt-3 max-w-xl text-sm leading-7 text-on-surface-variant md:text-base md:leading-8">
+                    <p className="mt-3 max-w-xl text-sm leading-7 text-on-surface-variant line-clamp-3 md:line-clamp-none md:text-base md:leading-8">
                       {item.description}
                     </p>
                   </div>

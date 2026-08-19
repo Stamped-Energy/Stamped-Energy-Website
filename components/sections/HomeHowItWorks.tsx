@@ -25,7 +25,7 @@ function StepCopy({
     <div>
       <h3 className="font-display text-xl font-bold tracking-tight md:text-2xl lg:text-[1.65rem] lg:leading-tight">{title}</h3>
       <p className="mt-4 text-base leading-8 text-on-surface/80">{description}</p>
-      <ul className="mt-6 space-y-3">
+      <ul className="mt-6 hidden space-y-3 lg:block">
         {bullets.map((bullet) => (
           <li key={bullet} className="flex gap-3 text-sm leading-6 text-on-surface/75 md:text-base">
             <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden />

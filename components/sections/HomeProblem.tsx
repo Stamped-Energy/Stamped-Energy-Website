@@ -41,7 +41,7 @@ export function HomeProblem() {
                       label={`Problem visual ${index + 1}`}
                       dark
                       aspectClassName="aspect-[4/3] max-h-40"
-                      className="mb-6"
+                      className="mb-6 hidden md:block"
                     >
                       {Visual ? <Visual /> : null}
                     </MotionSlot>

@@ -3,6 +3,8 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SectionBadge } from "@/components/ui/SectionBadge";
 import { landingContent } from "@/lib/content";
 
+const IMPACT_MOBILE_IDS = new Set(["bill-reduction", "sec-efficiency", "downtime"]);
+
 export function HomeImpact() {
   const { impact } = landingContent;
 
@@ -24,7 +26,11 @@ export function HomeImpact() {
 
         <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3 lg:gap-10">
           {impact.items.map((item, index) => (
-            <Reveal key={item.id} delay={index * 0.04}>
+            <Reveal
+              key={item.id}
+              delay={index * 0.04}
+              className={IMPACT_MOBILE_IDS.has(item.id) ? undefined : "hidden md:block"}
+            >
               <article className="border-t border-on-secondary/15 pt-6">
                 <p className="font-display text-4xl font-bold tracking-tight text-primary md:text-5xl">
                   {item.value}
