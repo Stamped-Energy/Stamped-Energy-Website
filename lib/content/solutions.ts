@@ -78,7 +78,7 @@ export const solutionsContent = {
     eyebrow: "Solutions",
     title: "Two outcomes. One evidence trail.",
     description:
-      "One product for energy-intensive plants in India. Pick the pillar that matches how you buy: same stack, real-time energy, verified with evidence.",
+      "One product for energy-intensive plants in India. Pick the pillar that matches how you buy: same stack, real-time intelligence, verified with evidence.",
     heroImageSrc: "/industries/cement.png",
     heroImageAlt: "Cement plant with silos and kiln illuminated at twilight",
     primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,

@@ -269,7 +269,7 @@ Fallback cards when no CMS spotlight posts are featured:
 
 **Headline:** Two outcomes. One evidence trail.
 
-**Body:** One product for energy-intensive plants in India. Pick the pillar that matches how you buy: same stack, real-time energy, verified with evidence.
+**Body:** One product for energy-intensive plants in India. Pick the pillar that matches how you buy: same stack, real-time intelligence, verified with evidence.
 
 **Primary CTA:** Book a Discovery Call
 
@@ -1206,6 +1206,8 @@ The page ends on Values. There is no closing CTA band on `/about`.
 ### Form layout
 
 Two columns on large screens: form left, response/pilot/location stats plus on-site note on the right.
+
+**Rail eyebrow:** Reach us directly
 
 ### Form
 

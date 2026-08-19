@@ -49,7 +49,7 @@ export const contactContent = {
   },
 
   quickContact: {
-    eyebrow: "For the people in a hurry",
+    eyebrow: "Reach us directly",
     email: siteConfig.contactEmail,
     responseTitle: "Response commitment",
     responseItems: [
