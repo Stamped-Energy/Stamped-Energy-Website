@@ -11,7 +11,8 @@ export const platformContent = {
     eyebrow: "Platform",
     title: "The intelligence layer on the stack you already run",
     description:
-      "Industrial sites should make real-time decisions connected to their economic impact. Stamped is the intelligence layer for the industrial world. It brings SCADA, ERPs, bills, and people on the ground together with live data in real time. Plant teams get rupee-scored prescriptions, clear owners, and evidence tied to the electricity bill.",
+      "Turns live plant, bill, and operator context into rupee-scored prescriptions for the floor, with evidence on the action. Read-only. No hardware retrofit.",
+    supportLine: "First prescriptions in weeks, from meters and bills already on site.",
     primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
     secondaryCta: { label: "View solutions", href: "/solutions" } satisfies CtaLink,
   },

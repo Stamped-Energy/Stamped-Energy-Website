@@ -1,6 +1,6 @@
 # Implementation Plan — `/platform` static product page (ADR-026)
 
-_Status: Implementation complete._
+_Status: Implementation complete. Hero layout updated 2026-08-20 (ADR-028)._
 
 ## Goal
 

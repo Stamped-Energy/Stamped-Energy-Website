@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-Industry vertical pages (ADR-027): accordion out, in-this-plant zig-zag in. Automotive is the copy template. Five-section IA on all verticals.
+Platform product hero (ADR-028): CVector `/product` rhythm on `/platform`; contact form two-column polish. Industry zig-zag (ADR-027) remains shipped.
 
 ## Completed Phases
 
@@ -51,6 +51,7 @@ Industry vertical pages (ADR-027): accordion out, in-this-plant zig-zag in. Auto
 - [x] **Public copy canon in external (ADR-025)** - `external/brand/` COPY_CANON + WEBSITE_COPY; rupee-scored / rupee-ranked on site; old About hero superseded
 - [x] **Platform page static revamp (ADR-026)** - surfaces, models, capabilities, static loop, weeks-only close; dashboard and pin unmounted
 - [x] **Industry pages plant zig-zag (ADR-027)** - accordion unmounted; in-this-plant photo zig-zag; three Rx; three gains; FAQ dropdowns; automotive template applied to all five verticals
+- [x] **Platform product hero (ADR-028)** - left column + plant-graph chrome; shorter hero body; weeks support line; contact two-column form + hero CTA
 
 ## Remaining Phases
 

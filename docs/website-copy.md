@@ -533,13 +533,15 @@ Pump power is high for the flow you are getting. Check the valve path before you
 
 **Headline:** The intelligence layer on the stack you already run
 
-**Body:** Industrial sites should make real-time decisions connected to their economic impact. Stamped is the intelligence layer for the industrial world. It brings SCADA, ERPs, bills, and people on the ground together with live data in real time. Plant teams get rupee-scored prescriptions, clear owners, and evidence tied to the electricity bill.
+**Body:** Turns live plant, bill, and operator context into rupee-scored prescriptions for the floor, with evidence on the action. Read-only. No hardware retrofit.
 
 **Primary CTA:** Book a Discovery Call
 
 **Secondary CTA:** View solutions
 
-No live dashboard. No scroll hint.
+**Support line:** First prescriptions in weeks, from meters and bills already on site.
+
+**Visual:** Left-aligned product column (CVector `/product` rhythm). Right: plant-graph chrome (`PlatformZigZagVisual`). No live dashboard. No scroll hint. Full origin stays on About, not in this hero.
 
 ### Your working view
 
@@ -1195,9 +1197,15 @@ The page ends on Values. There is no closing CTA band on `/about`.
 
 **Headline:** Talk to the team behind Stamped Energy
 
-**Body:** 30 minutes, no slideware. Bring your incomer bill, shift schedule, and one operational headache—we'll show you what a pilot would look like for your plant.
+**Body:** 30 minutes, no slideware. Bring your incomer bill, shift schedule, and one operational headache. We will show you what a pilot would look like for your plant.
+
+**Hero CTA:** Book a discovery call (jumps to `#contact-form`)
 
 **Email:** stamped.energy@gmail.com
+
+### Form layout
+
+Two columns on large screens: form left, response/pilot/location stats plus on-site note on the right.
 
 ### Form
 
