@@ -413,7 +413,7 @@ export const automotiveFaqSchema = {
       name: "How much can auto component manufacturers reduce their electricity bill?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Auto component suppliers using prescriptive energy intelligence typically see 12-20% monthly bill reduction. Die casting and forging plants often recover 15-25% on maximum demand charges alone from shift-start sequencing and furnace coordination.",
+        text: "Comparable auto component plants using assigned, rupee-scored actions typically see an indicative 12-20% monthly bill movement, with die casting and forging often recovering a large share on MD from shift-start sequencing. Your pilot replaces those bands with plant figures.",
       },
     },
     {
@@ -429,7 +429,7 @@ export const automotiveFaqSchema = {
       name: "How does Stamped Energy work for die casting plants?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Stamped connects to your incomer meter and SCADA, builds production-normalized SEC baselines per cell and shift, then sends ranked prescriptions - stagger furnace pre-heat, stage compressors, reduce holding loads - with rupee impact assigned to shift supervisors via WhatsApp.",
+        text: "Stamped connects read-only to your incomer meter and SCADA, builds production-aware baselines per cell and shift, then sends rupee-scored prescriptions: stagger furnace pre-heat, stage compressors, cut holding load. Owners get the action on WhatsApp.",
       },
     },
   ],

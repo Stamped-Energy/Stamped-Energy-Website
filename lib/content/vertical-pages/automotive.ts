@@ -8,9 +8,9 @@ export const automotivePage: VerticalPageContent = {
   slug: "automotive",
   hero: {
     eyebrow: "Automotive",
-    title: "AI-powered energy intelligence for automotive manufacturing",
+    title: "Rupee-scored prescriptions for auto component plants",
     description:
-      "AI enables automotive manufacturers to control energy-intensive operations and utilities at scale, directly influencing cost stability, uptime, and long-term operational competitiveness - with prescriptions assigned to your plant floor and outcomes verified with evidence.",
+      "Die casting, forging, heat treatment, and rubber moulding already have meters and SCADA. Stamped is the intelligence layer on that stack: live data, assigned next actions, evidence on the bill. Read-only. No hardware retrofit.",
     primaryCta: CTA,
     secondaryCta: HOW,
     seoHeadings: [
@@ -107,13 +107,53 @@ export const automotivePage: VerticalPageContent = {
       },
     ],
   },
+  plantBand: {
+    eyebrow: "In this plant",
+    title: "Where the auto-component bill actually moves",
+    description:
+      "Die casting, forging, heat treatment, and rubber moulding. Same processes you run.",
+    items: [
+      {
+        id: "die-casting",
+        title: "Die casting",
+        description:
+          "Melting, holding, and core-cooling compressors hit the incomer together at shift start. Stamped ranks stagger and holding cuts against shot rate, not a flat kW alarm.",
+        imageSrc: "/industries/die-casting.jpeg",
+        imageAlt: "Die casting plant energy management - shift-start MD spike reduction",
+      },
+      {
+        id: "forging",
+        title: "Forging",
+        description:
+          "Hammer and press peaks set MD. Sequencing and idle-auxiliary cuts are assigned before the billing window closes.",
+        imageSrc: "/industries/forging.jpg",
+        imageAlt: "Forging press line energy cost reduction - maximum demand control",
+      },
+      {
+        id: "heat-treatment",
+        title: "Heat treatment",
+        description:
+          "Weekend soak with no batches is a holding bill. Setback and tariff-window timing are prescribed per furnace.",
+        imageSrc: "/industries/heat-treatment.webp",
+        imageAlt: "Heat treatment furnaces for automotive energy setback prescriptions",
+      },
+      {
+        id: "rubber-moulding",
+        title: "Rubber moulding",
+        description:
+          "Curing heat and idle presses between batches. Cycle and changeover windows get a rupee-scored owner.",
+        imageSrc: "/industries/rubber-moulding.jpg",
+        imageAlt: "Rubber moulding and curing line energy prescriptions",
+      },
+    ],
+  },
   prescriptionExamples: {
     eyebrow: "Example prescriptions",
-    title: "What your supervisors receive - not another dashboard",
+    title: "What supervisors receive",
     description:
-      "Illustrative actions from comparable auto component plants. Your pilot generates prescriptions from your meters and bill.",
+      "Illustrative actions from comparable auto component plants. Your pilot writes these from your meters and bill.",
     footnote:
-      "Impact ranges are benchmark estimates from comparable plants - not customer guarantees. Verified figures come from your pilot M&V.",
+      "Impact ranges are benchmark estimates from comparable plants, not customer guarantees. Verified figures come from your plant with evidence.",
     items: [
       {
         id: "shift-start",
@@ -170,33 +210,26 @@ export const automotivePage: VerticalPageContent = {
   },
   outcomes: {
     eyebrow: "What you gain",
-    title: "Controlled energy intensity and sustained efficiency outcomes",
-    disclaimer:
-      "Target bands from comparable plant Your pilot replaces these with evidence-verified figures.",
+    title: "The floor knows what to do. Leadership sees the evidence.",
+    disclaimer: "Indicative language from comparable plants. Your pilot replaces it with plant figures.",
     items: [
       {
         id: "real-time",
-        title: "Real-time energy command",
+        title: "Assigned energy moves",
         description:
-          "AI converts live operational data into prescribed energy actions across production and auxiliary systems, eliminating 5-10% utility energy waste without impacting throughput or process stability.",
+          "Ranked prescriptions on startup overlap, holding, and idle auxiliaries, without changing the process recipe.",
       },
       {
         id: "sec",
-        title: "Stable SECs and KPIs",
+        title: "Stable SEC in the operating band",
         description:
-          "Continuous supervision prescribes corrective actions to maintain SECs and efficiency KPIs within defined operating bands, reducing performance drift by 8-12%.",
+          "Drift vs this plant's baseline, not a generic dashboard threshold.",
       },
       {
         id: "reliability",
-        title: "Higher asset reliability",
+        title: "Earlier equipment intervention",
         description:
-          "Performance intelligence prescribes early interventions on degradation patterns, cutting unplanned utility downtime by 15-20% and improving asset availability.",
-      },
-      {
-        id: "sustained",
-        title: "Sustained efficiency outcomes",
-        description:
-          "Continuous feedback loops prescribe, validate, and refine actions over time, locking in 10-15% verified energy cost reduction with evidence-verified M&V.",
+          "Power-draw and duty-cycle drift tied to rupee and process risk. Not a vibration PdM claim.",
       },
     ],
   },
@@ -211,7 +244,7 @@ export const automotivePage: VerticalPageContent = {
       id: "bill-reduction",
       question: "How much can auto component manufacturers reduce their electricity bill?",
       answer:
-        "Auto component suppliers using prescriptive energy intelligence typically see 12-20% monthly bill reductio Die casting and forging plants often recover 15-25% on maximum demand charges alone from shift-start sequencing and furnace coordination.",
+        "Comparable auto component plants using assigned, rupee-scored actions typically see an indicative 12-20% monthly bill movement, with die casting and forging often recovering a large share on MD from shift-start sequencing. Your pilot replaces those bands with plant figures.",
     },
     {
       id: "maximum-demand",
@@ -223,7 +256,7 @@ export const automotivePage: VerticalPageContent = {
       id: "die-casting",
       question: "How does Stamped Energy work for die casting plants?",
       answer:
-        "Stamped connects to your incomer meter and SCADA, builds production-normalized SEC baselines per cell and shift, then sends ranked prescriptions - stagger furnace pre-heat, stage compressors, reduce holding loads - with rupee impact assigned to shift supervisors via WhatsApp.",
+        "Stamped connects read-only to your incomer meter and SCADA, builds production-aware baselines per cell and shift, then sends rupee-scored prescriptions: stagger furnace pre-heat, stage compressors, cut holding load. Owners get the action on WhatsApp.",
     },
   ],
 };
