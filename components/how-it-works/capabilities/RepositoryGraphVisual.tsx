@@ -11,23 +11,23 @@ import { cn } from "@/lib/utils";
 const VIEW_W = 800;
 const VIEW_H = 560;
 
-const HUB = { id: "hub", label: "Energy graph", x: 400, y: 96 };
+const HUB = { id: "hub", label: "Common timeline", x: 400, y: 96 };
 
 const GRAPH_NODES_DESKTOP = [
-  { id: "kwh", label: "kWh streams", x: 152, y: 252 },
-  { id: "prod", label: "Production", x: 278, y: 288 },
-  { id: "cost", label: "Cost / ₹", x: 522, y: 288 },
-  { id: "shift", label: "Shifts", x: 648, y: 252 },
-  { id: "align", label: "Time-aligned", x: 400, y: 398 },
+  { id: "assets", label: "Assets", x: 152, y: 252 },
+  { id: "feeders", label: "Feeders", x: 278, y: 288 },
+  { id: "shifts", label: "Shifts", x: 522, y: 288 },
+  { id: "batches", label: "Batches", x: 648, y: 252 },
+  { id: "tariffs", label: "Tariffs", x: 400, y: 398 },
 ] as const;
 
 /** Wider star layout - same topology, nodes spread on compact viewports. */
 const GRAPH_NODES_COMPACT = [
-  { id: "kwh", label: "kWh streams", x: 168, y: 244 },
-  { id: "prod", label: "Production", x: 288, y: 276 },
-  { id: "cost", label: "Cost / ₹", x: 512, y: 276 },
-  { id: "shift", label: "Shifts", x: 632, y: 244 },
-  { id: "align", label: "Time-aligned", x: 400, y: 388 },
+  { id: "assets", label: "Assets", x: 168, y: 244 },
+  { id: "feeders", label: "Feeders", x: 288, y: 276 },
+  { id: "shifts", label: "Shifts", x: 512, y: 276 },
+  { id: "batches", label: "Batches", x: 632, y: 244 },
+  { id: "tariffs", label: "Tariffs", x: 400, y: 388 },
 ] as const;
 
 const TIMING = {
@@ -161,7 +161,31 @@ export function RepositoryGraphVisual() {
         TIMING.linesAt,
       );
 
+      const playhead = stageRef.current.querySelector<SVGLineElement>("[data-graph-playhead]");
+      const ticks = gsap.utils.toArray<SVGElement>("[data-graph-tick]", stageRef.current);
+      gsap.set("[data-graph-rail]", { autoAlpha: 0 });
+      gsap.set(playhead, { autoAlpha: 0, attr: { x1: 120, x2: 120 } });
+      gsap.set(ticks, { autoAlpha: 0 });
+
+      timeline.to("[data-graph-rail]", { autoAlpha: 1, duration: 0.4, ease: "power2.out" }, "-=0.2");
+      timeline.to(ticks, { autoAlpha: 1, stagger: 0.05, duration: 0.25 }, "<0.1");
+      timeline.to(playhead, { autoAlpha: 1, duration: 0.2 }, "<");
+
+      let playLoop: gsap.core.Timeline | undefined;
+      timeline.eventCallback("onComplete", () => {
+        if (!playhead) {
+          return;
+        }
+        playLoop = gsap.timeline({ repeat: -1, defaults: { ease: "none" } });
+        playLoop.fromTo(
+          playhead,
+          { attr: { x1: 120, x2: 120 } },
+          { attr: { x1: 680, x2: 680 }, duration: 3.2 },
+        );
+      });
+
       return () => {
+        playLoop?.kill();
         timeline.scrollTrigger?.kill();
         timeline.kill();
       };
@@ -206,13 +230,54 @@ export function RepositoryGraphVisual() {
               />
             );
           })}
+          <g data-graph-rail opacity="0">
+            <line
+              x1="120"
+              y1="508"
+              x2="680"
+              y2="508"
+              stroke="var(--brand-outline-variant)"
+              strokeWidth="2"
+              strokeOpacity="0.7"
+            />
+            {[180, 280, 380, 480, 580].map((x) => (
+              <line
+                key={x}
+                data-graph-tick
+                x1={x}
+                y1="500"
+                x2={x}
+                y2="516"
+                stroke="var(--brand-primary)"
+                strokeWidth="1.5"
+                strokeOpacity="0.55"
+              />
+            ))}
+            <text
+              x="120"
+              y="536"
+              className="fill-[var(--brand-on-surface-variant)] text-[11px] font-semibold"
+            >
+              Same moment
+            </text>
+            <line
+              data-graph-playhead
+              x1="120"
+              y1="488"
+              x2="120"
+              y2="528"
+              stroke="var(--brand-primary)"
+              strokeWidth="2.25"
+              strokeLinecap="round"
+            />
+          </g>
         </svg>
 
         <div
           ref={hubRef}
           className={cn(
             "absolute z-20 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-lg border-2 border-primary bg-surface-lowest px-2 py-2 text-center shadow-[0_0_28px_-8px_color-mix(in_srgb,var(--brand-primary)_50%,transparent)]",
-            compact ? "h-12 w-[5rem]" : "h-14 w-[5.75rem] md:h-[3.75rem] md:w-[6.5rem]",
+            compact ? "h-12 w-[6.4rem]" : "h-14 w-[7.25rem] md:h-[3.85rem] md:w-[8rem]",
           )}
           style={{ left: hubPos.left, top: hubPos.top }}
         >

@@ -64,6 +64,8 @@ export function IntelligenceChartVisual() {
       gsap.set("[data-intel-spike-dot]", { autoAlpha: 0, scale: 0 });
       gsap.set(rxRef.current, { autoAlpha: 0, x: 24, y: 10 });
       gsap.set("[data-intel-impact]", { autoAlpha: 0, scale: 0.85 });
+      gsap.set("[data-intel-reject]", { autoAlpha: 0, y: 8 });
+      gsap.set("[data-intel-score]", { autoAlpha: 0, y: 8 });
 
       const timeline = gsap.timeline({
         scrollTrigger: {
@@ -123,6 +125,18 @@ export function IntelligenceChartVisual() {
         TIMING.impactAt,
       );
 
+      timeline.to(
+        "[data-intel-reject]",
+        { autoAlpha: 1, y: 0, duration: 0.4, ease: "power2.out" },
+        TIMING.impactAt + 0.15,
+      );
+
+      timeline.to(
+        "[data-intel-score]",
+        { autoAlpha: 1, y: 0, duration: 0.45, ease: "power2.out" },
+        TIMING.impactAt + 0.45,
+      );
+
       return () => {
         timeline.scrollTrigger?.kill();
         timeline.kill();
@@ -173,7 +187,7 @@ export function IntelligenceChartVisual() {
             y={CHART.baselineY - 12}
             className="fill-[var(--brand-primary)] text-[11px] font-semibold"
           >
-            Baseline
+            Plant baseline
           </text>
         </g>
 
@@ -227,7 +241,7 @@ export function IntelligenceChartVisual() {
           textAnchor="middle"
           className="fill-[var(--brand-primary)] text-[11px] font-bold"
         >
-          Anomaly
+          Deviation
         </text>
       </svg>
 
@@ -236,19 +250,31 @@ export function IntelligenceChartVisual() {
         className="absolute left-[3%] top-[6%] z-10 w-[min(42%,10.5rem)] rounded-lg border border-primary/40 bg-surface-lowest p-2 shadow-[0_12px_32px_-16px_color-mix(in_srgb,var(--brand-primary)_45%,transparent)] md:w-[11.25rem] md:p-3"
       >
         <p className="text-[9px] font-bold uppercase tracking-[0.12em] text-primary md:text-[10px]">
-          Prescription
+          Scored move
         </p>
         <p className="mt-1 text-[10px] font-semibold leading-snug text-on-surface md:text-[11px]">
-          Stagger Compressor 1 & Press Line 3 startup
+          Stagger compressor 1 startup
         </p>
         <p className="mt-1 text-[9px] text-on-surface-variant md:text-[10px]">
-          Root cause · High effort · Shift B
+          Feasible · Shift B
         </p>
         <p
           data-intel-impact
           className="mt-1.5 inline-flex rounded-full bg-primary/10 px-2.5 py-1 text-[10px] font-bold text-primary md:text-[11px]"
         >
-          Est. ₹3.5L / month
+          ₹ 0.6L / month
+        </p>
+        <p
+          data-intel-reject
+          className="mt-2 text-[9px] leading-snug text-on-surface-variant md:text-[10px]"
+        >
+          Shed HVAC blocked · production window
+        </p>
+        <p
+          data-intel-score
+          className="mt-1 text-[9px] font-semibold text-primary md:text-[10px]"
+        >
+          Rupee-scored against ToD and MD
         </p>
       </div>
     </div>

@@ -12,12 +12,12 @@ const SOURCE_COUNT = 6;
 const LINE_GAP = 2;
 
 const INGESTION_SOURCES = [
-  { id: "scada", label: "SCADA / DCS" },
-  { id: "plc", label: "PLCs & CNCs" },
-  { id: "meters", label: "Energy meters" },
-  { id: "bms", label: "BMS / utilities" },
-  { id: "erp", label: "ERP / MES" },
-  { id: "bills", label: "Utility bills" },
+  { id: "meters", label: "Meters" },
+  { id: "scada", label: "SCADA" },
+  { id: "bills", label: "DISCOM bills" },
+  { id: "tariff", label: "Tariff" },
+  { id: "erp", label: "ERP" },
+  { id: "ops", label: "Operators" },
 ];
 
 const GRID_OFFSETS = [
@@ -137,6 +137,11 @@ export function IngestionOrbitVisual() {
         stageRef.current,
       );
 
+      const packets = gsap.utils.toArray<SVGCircleElement>(
+        "[data-ingest-packet]",
+        stageRef.current,
+      );
+
       const syncLines = () => {
         lines.forEach((line, index) => {
           const card = cards[index];
@@ -166,10 +171,12 @@ export function IngestionOrbitVisual() {
       if (prefersReducedMotion) {
         syncLines();
         gsap.set(lines, { strokeDashoffset: 0, autoAlpha: 1 });
+        gsap.set(packets, { autoAlpha: 0 });
         return;
       }
 
       gsap.set(lines, { autoAlpha: 0 });
+      gsap.set(packets, { autoAlpha: 0 });
 
       const timeline = gsap.timeline({
         scrollTrigger: {
@@ -209,7 +216,36 @@ export function IngestionOrbitVisual() {
         TIMING.linesAt,
       );
 
+      let packetLoop: gsap.core.Timeline | undefined;
+
+      timeline.eventCallback("onComplete", () => {
+        packetLoop = gsap.timeline({ repeat: -1, defaults: { ease: "none" } });
+        packets.forEach((packet, index) => {
+          const line = lines[index];
+          if (!line) {
+            return;
+          }
+          const x1 = Number(line.getAttribute("x1"));
+          const y1 = Number(line.getAttribute("y1"));
+          const x2 = Number(line.getAttribute("x2"));
+          const y2 = Number(line.getAttribute("y2"));
+          gsap.set(packet, { attr: { cx: x2, cy: y2 }, autoAlpha: 0.9 });
+          packetLoop?.fromTo(
+            packet,
+            { attr: { cx: x2, cy: y2 }, autoAlpha: 0.95 },
+            {
+              attr: { cx: x1, cy: y1 },
+              autoAlpha: 0,
+              duration: 1.55,
+              delay: index * 0.22,
+            },
+            0,
+          );
+        });
+      });
+
       return () => {
+        packetLoop?.kill();
         timeline.scrollTrigger?.kill();
         timeline.kill();
       };
@@ -236,18 +272,25 @@ export function IngestionOrbitVisual() {
           aria-hidden="true"
         >
           {INGESTION_SOURCES.map((source) => (
-            <line
-              key={source.id}
-              data-ingest-orbit-line
-              x1={400}
-              y1={280}
-              x2={400}
-              y2={280}
-              stroke="var(--brand-primary)"
-              strokeWidth="1.75"
-              strokeOpacity="0.5"
-              strokeLinecap="round"
-            />
+            <g key={source.id}>
+              <line
+                data-ingest-orbit-line
+                x1={400}
+                y1={280}
+                x2={400}
+                y2={280}
+                stroke="var(--brand-primary)"
+                strokeWidth="1.75"
+                strokeOpacity="0.5"
+                strokeLinecap="round"
+              />
+              <circle
+                data-ingest-packet
+                r="3.5"
+                fill="var(--brand-primary)"
+                opacity="0"
+              />
+            </g>
           ))}
         </svg>
 
@@ -255,7 +298,7 @@ export function IngestionOrbitVisual() {
           ref={hubRef}
           className={cn(
             "absolute left-1/2 top-1/2 z-20 flex flex-col items-center justify-center rounded-full border-2 border-primary bg-surface-lowest text-center shadow-[0_0_32px_-10px_color-mix(in_srgb,var(--brand-primary)_55%,transparent)]",
-            compact ? "h-11 w-11" : "h-14 w-14 md:h-16 md:w-16",
+            compact ? "h-12 w-[3.6rem]" : "h-16 w-[4.4rem] md:h-[4.25rem] md:w-[4.75rem]",
           )}
         >
           <span
@@ -267,7 +310,7 @@ export function IngestionOrbitVisual() {
             Stamped
           </span>
           <span className={cn("text-on-surface-variant", compact ? "text-[6px]" : "text-[7px] md:text-[8px]")}>
-            Energy
+            Read-only
           </span>
         </div>
 

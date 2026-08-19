@@ -99,9 +99,9 @@ export function GovernanceLoopVisual() {
   const steps = useMemo(
     () => [
       { id: "assign", label: "Assign", sub: "Owner set", x: square.left, y: square.cy },
-      { id: "notify", label: "WhatsApp", sub: "To supervisor", x: square.cx, y: square.top },
-      { id: "track", label: "Track", sub: "Open → Done", x: square.right, y: square.cy },
-      { id: "verify", label: "Verify", sub: "M&V check", x: square.cx, y: square.bottom },
+      { id: "notify", label: "WhatsApp", sub: "To the floor", x: square.cx, y: square.top },
+      { id: "verify", label: "Verify", sub: "Evidence", x: square.right, y: square.cy },
+      { id: "improve", label: "Improve", sub: "Human-gated", x: square.cx, y: square.bottom },
     ],
     [square],
   );
@@ -322,10 +322,10 @@ export function GovernanceLoopVisual() {
           <div className="flex items-center justify-between gap-2">
             <div className="text-left">
               <p className={cn("font-bold uppercase tracking-[0.12em] text-primary", compact ? "text-[9px]" : "text-[10px] md:text-[11px]")}>
-                Verified savings
+                Verified with evidence
               </p>
               <p className={cn("mt-0.5 text-on-surface-variant", compact ? "text-[8px]" : "text-[9px] md:text-[10px]")}>
-                Potential → realized
+                Expected vs observed
               </p>
             </div>
             <span className="shrink-0 rounded-lg bg-primary/10 px-2 py-0.5 text-sm font-extrabold text-primary">
