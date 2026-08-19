@@ -452,3 +452,24 @@ Architecture and workflow decisions for this project.
 
 **Impact:** `lib/content/about.ts` story narrative; `AboutHero` / `AboutStory` / `AboutTeam` / `AboutValues`; deleted `MarketingClosingCta`, `HiwPageCta`, `IndustryPageCta` and `finalCta` content keys. Home `LandingClosingCta` unchanged.
 
+---
+
+## ADR-024: Origin story copy (company voice)
+
+**Date:** 2026-08-19
+
+**Context:** Founder set a new “why we were built” pitch for customers and VCs, shaped like CVector’s About story but with Stamped facts (SCADA, ERPs, people on the ground, AI). Founder names stay off the story.
+
+**Alternatives:**
+
+1. Keep the previous floor-vs-bill / founder-named About story
+2. Full CVector paste including “economic intelligence layer” and named founders
+3. Approved origin-story sentences in company voice; product claims (read-only, ₹, verified with evidence) unchanged; `external/` later
+
+**Selected:** Option 3.
+
+**Rationale:** One origin narrative for About, home (light), and this-repo canon. Anti-clone still blocks CVector metrics and brand; origin-story sentences are an explicit exception in `VOICE_AND_CLAIMS.md`.
+
+**Impact:** `lib/content/about.ts`, `plantDecisionMoves`, light `landing.ts` homeProblem/whatIs; `STAMPED_CONTEXT.md`; `docs/website-copy.md`. `external/` not updated.
+
+

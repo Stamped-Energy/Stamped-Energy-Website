@@ -19,9 +19,25 @@
 
 **One-line position:** A **read-only operational decision layer** for energy-intensive Indian manufacturers — managing **load and equipment in real time** via ML baselines and an **agentic prescription layer**, turning plant data into **assigned actions with ₹ impact**, **verified with evidence** (DISCOM bill confirmation optional). Does not replace EMS, MES, CMMS, or PLC control.
 
+**Public origin frame:** *an intelligence layer for the industrial world.* Use this for About, customer, and VC “why we were built.” Keep ₹ / verified-with-evidence / read-only in product copy.
+
 **Customer-facing tagline:** *From plant data to verified savings.*
 
 **GTM category:** Verified-with-evidence operational decision layer. Enemy: **insight without closure** (dashboards and audits that never become assigned actions with evidence-backed ₹).
+
+---
+
+## Origin story (why we were built)
+
+Customer and VC pitch. Company voice. **Do not name founders** in this narrative. Founder bios live only on `/about` Meet our founders. Copy SSOT: `lib/content/about.ts` (`story.paragraphs`, `plantDecisionMoves`). `external/` is not updated yet.
+
+**Plant-decision moves (reuse):** Run harder or hold back. Adjust a process. Delay maintenance. Switch production priorities.
+
+1. Stamped Energy started with a simple conviction: industrial sites should make real-time decisions connected to their economic impact.
+2. Plant teams, operations, engineers, managers, and maintainers, make just-in-time decisions every shift, every day. Run harder or hold back. Adjust a process. Delay maintenance. Switch production priorities. Each of these has an impact on costs, revenue, and margins. Making those calls from data, and keeping track of what actually followed, is hard. With so much happening in the plant at once, real-time decision-making is rarely efficient. A lot gets missed.
+3. This gap showed up from both sides. Meters and SCADA already record what the plant is doing, but that signal rarely becomes a decision with economic impact. SCADA, ERPs, and the people on the ground stay in separate places. Real-time decisions from all of those sources were, in practice, not possible. What was missing was a system that could bring these perspectives together, with live data in real time, for the people making decisions.
+4. For years, such a system was impossible to build. The data was messy, the models stayed with experts, and the context lived in people's heads. Now with AI, decision intelligence informed by economics can be part of daily operations, connecting what happens in the plant with business outcomes.
+5. That is what Stamped Energy is building: an intelligence layer for the industrial world.
 
 ---
 

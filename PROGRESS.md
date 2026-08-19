@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-About page CVector-style structure (ADR-023) is shipped: cinematic hero, narrative Our Story, founders, values last. Inner marketing pages have no closing CTA band; homepage still uses `LandingClosingCta`. Remaining motion is P1 (B01–B04) plus Asset Health reserved rows.
+About page origin story (ADR-024) is the customer/VC “why we were built” pitch: company voice, no founder names in Our Story. Homepage problem/what-is lightly aligned. Inner marketing pages have no closing CTA band; homepage still uses `LandingClosingCta`. Remaining motion is P1 (B01–B04) plus Asset Health reserved rows.
 
 ## Completed Phases
 
@@ -47,6 +47,7 @@ About page CVector-style structure (ADR-023) is shipped: cinematic hero, narrati
 - [x] **CVector solution pillars (ADR-021)** - Outcomes → 4 How-it-works zig-zag (reserved media) → 3 practical Rx examples → Industries → CTA on both pillars; no Benefits band
 - [x] **Homepage hero plant-flow (ADR-022)** - OpenMontage handoff ported into `HeroPlantFlow`; replaces MotionSlot in homepage hero visual slot
 - [x] **About CVector-style structure (ADR-023)** - cinematic photo hero, narrative Our Story, founders, values last; inner-page closing CTAs removed except home `LandingClosingCta`
+- [x] **Origin story copy (ADR-024)** - company-voice Our Story + intelligence layer hero; light homepage problem/what-is; canon in STAMPED_CONTEXT / VOICE_AND_CLAIMS; `external/` still pending
 
 ## Remaining Phases
 
@@ -73,4 +74,4 @@ None.
 
 ## Push / PR readiness
 
-`main` is ahead of origin with ADR-023 About + inner-page CTA commits. Push when requested or at auto-push threshold.
+`main` is ahead of origin with ADR-023/024 About + origin-story commits. Push when requested or at auto-push threshold.

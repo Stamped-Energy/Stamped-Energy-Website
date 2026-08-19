@@ -8,7 +8,7 @@ Agents **must** follow this before writing narration, on-screen text, or image p
 
 - Direct, industrial, rupee-first.
 - Short sentences. Prefer periods and commas. **No em dashes** and no `--`.
-- Prefer: prescription, assigned action, ₹ impact, verified with evidence, read-only, Improve loop.
+- Prefer: prescription, assigned action, ₹ impact, verified with evidence, read-only, Improve loop. Origin/pitch may also use: intelligence layer for the industrial world; live data in real time; plant-decision moves (run harder or hold back, adjust a process, delay maintenance, switch production priorities).
 - Avoid: “AI magic,” “platform of platforms,” “transform your plant,” MES/CMMS replacement language, glassmorphism SaaS tropes in copy.
 
 ---
@@ -42,7 +42,7 @@ Agents **must** follow this before writing narration, on-screen text, or image p
 - EMS / SCADA / PLC **replacement**.
 - MES / CMMS / plant OS / OEE product.
 - Hardware retrofit as the product.
-- CVector (or any competitor) metrics, dollar figures, or copy pasted as Stamped.
+- CVector (or any competitor) metrics, dollar figures, or brand as Stamped. **Exception:** the origin-story sentences in `STAMPED_CONTEXT.md` / `lib/content/about.ts` (conviction, plant-decision moves, “what was missing…”, “for years such a system was impossible”, intelligence layer for the industrial world) are approved Stamped copy. Do not paste other CVector pages, metrics, or “economic intelligence layer” as a category name.
 - “AI is learning about you” for the Improve step.
 - National conglomerate “already deployed at Tata/Mahindra group” style overclaim.
 - Guaranteed % without `[~]` / indicative framing.

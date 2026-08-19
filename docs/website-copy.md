@@ -116,7 +116,7 @@ Live marketing copy as of 19 August 2026. Sourced from what public pages actuall
 
 **Badge:** Problem
 
-**Headline:** Energy cost follows every operating decision. Action rarely keeps pace.
+**Headline:** Energy cost follows every operating decision. Run harder, hold back, or switch priorities, and live data rarely keeps pace.
 
 1. **Data is abundant. Clear priorities are not.**
    Meters, systems, and bills already hold the signals. Turning them into a ranked next action still takes more time than teams have.
@@ -125,7 +125,7 @@ Live marketing copy as of 19 August 2026. Sourced from what public pages actuall
    Tariffs, demand peaks, and load patterns shift with production. By the time insights are reviewed, the highest-value opportunity has often passed.
 
 3. **Floor decisions and energy outcomes stay disconnected.**
-   Each choice affects energy cost and downtime risk, but the link between what happens on the floor and what appears on the bill remains hard to see in time to act.
+   Run harder or hold back, delay maintenance, or switch production priorities, and each choice hits cost. SCADA, ERPs, and the people on the ground stay in separate places, so the link to the bill is hard to see in time to act.
 
 ### What is Stamped
 
@@ -133,7 +133,7 @@ Live marketing copy as of 19 August 2026. Sourced from what public pages actuall
 
 **Headline:** AI-powered energy intelligence for industrial plants
 
-**Body:** Stamped continuously analyzes real-time asset, plant, and market data to deliver ₹-scored prescriptions with a full audit trail for front-line operators.
+**Body:** Stamped brings those perspectives together with live data in real time, then delivers ₹-scored prescriptions with a full audit trail for front-line operators.
 
 ### How it works
 
@@ -1197,7 +1197,7 @@ Forging and foundry operations overlapping automotive heat treatment and forging
 
 ### Hero
 
-**Headline:** We're building the decision layer for energy-intensive plants.
+**Headline:** We're building the intelligence layer for the industrial world.
 
 ### Our Story
 
@@ -1205,13 +1205,15 @@ Forging and foundry operations overlapping automotive heat treatment and forging
 
 **Headline:** Close the gap between the floor and the bill.
 
-Plant teams already decide what to run, hold, and stagger. Those calls land on the DISCOM bill as maximum demand, TOD, and idle kWh. The floor and the bill stay disconnected.
+Stamped Energy started with a simple conviction: industrial sites should make real-time decisions connected to their economic impact.
 
-Hold a furnace or keep it hot. Stagger a feeder start. Delay a compressor. Each one is an operations choice with a rupee consequence. In most plants that consequence is guesswork until month-end.
+Plant teams, operations, engineers, managers, and maintainers, make just-in-time decisions every shift, every day. Run harder or hold back. Adjust a process. Delay maintenance. Switch production priorities. Each of these has an impact on costs, revenue, and margins. Making those calls from data, and keeping track of what actually followed, is hard. With so much happening in the plant at once, real-time decision-making is rarely efficient. A lot gets missed.
 
-Vinayak came at this as an electrical engineer: meters and SCADA already record the load, but nothing turns that signal into an assigned action with a rupee number. Utso came at it from the floor and the product: supervisors do not need another dashboard. They need prescriptions they can execute and check against evidence.
+This gap showed up from both sides. Meters and SCADA already record what the plant is doing, but that signal rarely becomes a decision with economic impact. SCADA, ERPs, and the people on the ground stay in separate places. Real-time decisions from all of those sources were, in practice, not possible. What was missing was a system that could bring these perspectives together, with live data in real time, for the people making decisions.
 
-Stamped is a read-only decision layer on the systems plants already run. Assigned actions with ₹ impact, verified with evidence.
+For years, such a system was impossible to build. The data was messy, the models stayed with experts, and the context lived in people's heads. Now with AI, decision intelligence informed by economics can be part of daily operations, connecting what happens in the plant with business outcomes.
+
+That is what Stamped Energy is building: an intelligence layer for the industrial world.
 
 ### Leadership
 
