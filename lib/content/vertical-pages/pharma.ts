@@ -114,32 +114,32 @@ export const pharmaPage: VerticalPageContent = {
         title: "HVAC and cleanroom",
         description:
           "Classified air does not pause between batches. Stamped ranks AHU run-hours against the production calendar. Schedule moves stay in the utilities layer, not room reclassification.",
-        imageSrc: "/industries/plant/pharma/hvac.png",
-        imageAlt: "Pharmaceutical HVAC and cleanroom utilities energy management",
+        imageSrc: "/industries/plant/pharma/cleanroom.jpg",
+        imageAlt: "Operators in a pharmaceutical cleanroom on the utilities-adjacent production floor",
       },
       {
         id: "chillers-ahu",
         title: "Chillers and plant utilities",
         description:
           "Chiller banks that start together at shift change set MD. Staging is assigned against actual cooling load, not a safety-margin habit.",
-        imageSrc: "/industries/plant/pharma/chillers.jpg",
-        imageAlt: "Chiller plant and cooling-tower utilities on a manufacturing site",
+        imageSrc: "/industries/plant/pharma/hvac-roof.jpg",
+        imageAlt: "Outdoor chiller and condenser bank serving plant HVAC",
       },
       {
         id: "compressed-air",
         title: "Compressed air",
         description:
           "Header pressure held above process need is a quiet kWh leak. Pressure-band and leak-tag moves get a rupee-scored owner.",
-        imageSrc: "/industries/plant/pharma/utilities.jpg",
-        imageAlt: "Plant utilities, silos, and compressed-air side of a process site",
+        imageSrc: "/industries/plant/pharma/factory-machinery.jpg",
+        imageAlt: "Plant utility hall with motors, piping, and compressed-air side equipment",
       },
       {
         id: "pumps-cw",
         title: "Pumps and chilled-water loops",
         description:
           "Constant flow when batch load drops is a quiet kWh leak. Duty-cycle and VFD moves get a rupee-scored owner on the utilities layer.",
-        imageSrc: "/industries/plant/pharma/qc.jpg",
-        imageAlt: "Quality-lab sampling as the evidence trail for utility changes",
+        imageSrc: "/industries/plant/pharma/ahu-units.jpg",
+        imageAlt: "Rooftop air-handling and exhaust units on a plant utilities deck",
       },
     ],
   },

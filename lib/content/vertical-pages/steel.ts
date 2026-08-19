@@ -122,24 +122,24 @@ export const steelPage: VerticalPageContent = {
         title: "Rolling",
         description:
           "Stand startups stacked after a break set MD. Sequencing is ranked against mill output, not a flat kW alarm.",
-        imageSrc: "/industries/plant/steel/interior.jpg",
-        imageAlt: "Steel mill hall and rolling-line interior",
+        imageSrc: "/industries/steel.png",
+        imageAlt: "Hot steel billets on a rolling mill line",
       },
       {
         id: "forging-foundry",
         title: "Forging and foundry",
         description:
           "Hammer, press, and melt peaks overlap with auxiliaries. Idle-auxiliary cuts get a rupee-scored owner on the same playbook as auto-adjacent forging.",
-        imageSrc: "/industries/plant/steel/welding.jpg",
-        imageAlt: "Welding and foundry work in a metals plant",
+        imageSrc: "/industries/forging.jpg",
+        imageAlt: "Foundry pour and press work in a metals plant",
       },
       {
         id: "cooling-water",
         title: "Cooling water and fume extraction",
         description:
           "Pumps and fans that sit at full flow when rolling output is down. Duty-cycle cuts are ranked against mill rate, not a flat kW alarm.",
-        imageSrc: "/industries/plant/steel/plant-smoke.jpg",
-        imageAlt: "Steel plant auxiliaries, towers, and outdoor process loads",
+        imageSrc: "/industries/plant/steel/cooling.jpg",
+        imageAlt: "Steel mill cooling tower and outdoor process auxiliaries",
       },
     ],
   },

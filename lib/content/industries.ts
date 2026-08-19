@@ -12,7 +12,7 @@ const INDUSTRY_IMAGES = {
   rubberMoulding: "/industries/rubber-moulding.jpg",
   cement: "/industries/cement.png",
   steel: "/industries/steel.png",
-  pharma: "/industries/pharma.png",
+  pharma: "/industries/plant/pharma/cleanroom.jpg",
   chemical: "/industries/chemical.png",
 } as const;
 
@@ -289,7 +289,7 @@ export const industriesContent = {
           name: "Pharmaceutical",
           href: "/industries/pharma",
           imageSrc: INDUSTRY_IMAGES.pharma,
-          imageAlt: "Automated pharmaceutical vial filling line in a sterile manufacturing plant",
+          imageAlt: "Operators in a pharmaceutical cleanroom",
           metricPrimary: {
             value: "55-65%",
             label: "Plant energy consumed by utilities",
@@ -408,7 +408,7 @@ export const industriesContent = {
         "AI enables pharmaceutical plants to manage energy-intensive operations and utilities at scale, directly impacting operating cost, compliance, uptime, and consistent product quality.",
       href: "/industries/pharma",
       heroImageSrc: INDUSTRY_IMAGES.pharma,
-      heroImageAlt: "Automated pharmaceutical vial filling line in a sterile manufacturing plant",
+      heroImageAlt: "Operators in a pharmaceutical cleanroom",
       segments: [],
       priority: 4,
       status: "live",

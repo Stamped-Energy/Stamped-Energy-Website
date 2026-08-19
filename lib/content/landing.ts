@@ -521,8 +521,8 @@ export const landingContent = {
           "HVAC, cleanroom, and batch utilities run around the clock. Small staging errors show up as MD spikes and intensity drift on every audit.",
         sustainability:
           "Lower grid intensity for HVAC-heavy MSME and mid-market sites.",
-        imageSrc: "/industries/pharma.png",
-        imageAlt: "Pharmaceutical vial filling line in a sterile manufacturing plant",
+        imageSrc: "/industries/plant/pharma/cleanroom.jpg",
+        imageAlt: "Operators in a pharmaceutical cleanroom",
       },
       {
         id: "chemical",
