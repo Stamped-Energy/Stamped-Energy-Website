@@ -107,14 +107,14 @@ export const pharmaPage: VerticalPageContent = {
     eyebrow: "In this plant",
     title: "Where the pharma bill actually moves",
     description:
-      "HVAC and cleanroom, plant utilities, and compressed air. Same systems you run.",
+      "HVAC and cleanroom, plant utilities, compressed air, and chilled-water loops. Same systems you run.",
     items: [
       {
         id: "hvac-cleanroom",
         title: "HVAC and cleanroom",
         description:
           "Classified air does not pause between batches. Stamped ranks AHU run-hours against the production calendar. Schedule moves stay in the utilities layer, not room reclassification.",
-        imageSrc: "/industries/pharma.png",
+        imageSrc: "/industries/plant/pharma/hvac.png",
         imageAlt: "Pharmaceutical HVAC and cleanroom utilities energy management",
       },
       {
@@ -122,16 +122,24 @@ export const pharmaPage: VerticalPageContent = {
         title: "Chillers and plant utilities",
         description:
           "Chiller banks that start together at shift change set MD. Staging is assigned against actual cooling load, not a safety-margin habit.",
-        imageSrc: "/industries/pharma.png",
-        imageAlt: "Pharma chiller plant and AHU staging on the incomer",
+        imageSrc: "/industries/plant/pharma/chillers.jpg",
+        imageAlt: "Chiller plant and cooling-tower utilities on a manufacturing site",
       },
       {
         id: "compressed-air",
         title: "Compressed air",
         description:
           "Header pressure held above process need is a quiet kWh leak. Pressure-band and leak-tag moves get a rupee-scored owner.",
-        imageSrc: "/industries/pharma.png",
-        imageAlt: "Pharmaceutical compressed air system energy prescriptions",
+        imageSrc: "/industries/plant/pharma/utilities.jpg",
+        imageAlt: "Plant utilities, silos, and compressed-air side of a process site",
+      },
+      {
+        id: "pumps-cw",
+        title: "Pumps and chilled-water loops",
+        description:
+          "Constant flow when batch load drops is a quiet kWh leak. Duty-cycle and VFD moves get a rupee-scored owner on the utilities layer.",
+        imageSrc: "/industries/plant/pharma/qc.jpg",
+        imageAlt: "Quality-lab sampling as the evidence trail for utility changes",
       },
     ],
   },

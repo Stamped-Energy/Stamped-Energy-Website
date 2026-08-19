@@ -105,31 +105,39 @@ export const chemicalPage: VerticalPageContent = {
     eyebrow: "In this plant",
     title: "Where the chemical bill actually moves",
     description:
-      "Batch reactors, plant utilities, and compressed air. Same processes you run.",
+      "Batch reactors, plant utilities, compressed air, and effluent. Same processes you run.",
     items: [
       {
         id: "reactor-idle",
         title: "Batch reactors",
         description:
           "Soak held with no batch on the calendar is a holding bill. Setback is assigned against the next start, not a flat temperature alarm.",
-        imageSrc: "/industries/chemical.png",
-        imageAlt: "Chemical batch reactors and idle hold energy prescriptions",
+        imageSrc: "/industries/plant/chemical/waterfront.jpg",
+        imageAlt: "Chemical and petrochemical plant tanks and towers on a waterfront",
       },
       {
         id: "steam-thermal",
         title: "Steam and plant utilities",
         description:
           "Steam, chill, and ETP loads sit on the incomer between batches. Duty-cycle cuts are ranked against the production calendar.",
-        imageSrc: "/industries/chemical.png",
-        imageAlt: "Chemical plant steam and utility energy loads",
+        imageSrc: "/industries/plant/chemical/refinery.jpg",
+        imageAlt: "Chemical plant towers, piping, and steam on the incomer",
       },
       {
         id: "batch-md",
         title: "Compressed air and stagger",
         description:
           "Reactors that ramp together at shift start set MD. Sequencing and idle-air cuts get a rupee-scored owner before the billing window closes.",
-        imageSrc: "/industries/chemical.png",
+        imageSrc: "/industries/plant/chemical/existing.png",
         imageAlt: "Batch chemical plant maximum demand stagger and compressed air",
+      },
+      {
+        id: "etp",
+        title: "Effluent and ETP",
+        description:
+          "Blowers and pumps that run between batches as if the next charge were already in. Duty-cycle cuts are assigned against the production calendar.",
+        imageSrc: "/industries/plant/chemical/complex.jpg",
+        imageAlt: "Process plant on the waterline with silos, conveyors, and utility loads",
       },
     ],
   },

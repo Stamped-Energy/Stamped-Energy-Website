@@ -114,32 +114,32 @@ export const cementPage: VerticalPageContent = {
         title: "Raw and finish mills",
         description:
           "kWh per ton drifts when separators and bearings degrade. Stamped ranks mill SEC against throughput, then assigns the inspection before the month is lost to a silent creep.",
-        imageSrc: "/industries/cement.png",
-        imageAlt: "Cement mill line energy management for kWh per ton prescriptions",
+        imageSrc: "/industries/plant/cement/batch-plant.jpg",
+        imageAlt: "Cement mill silos and conveyor towers on a plant site",
       },
       {
         id: "kiln-aux",
         title: "Kiln auxiliaries",
         description:
           "Fans, coolers, and idle kiln-side loads sit on the incomer whether clinker is moving or not. Idle cuts are ranked against line rate, not a flat kW alarm.",
-        imageSrc: "/industries/cement.png",
-        imageAlt: "Cement kiln auxiliaries and process fans on the plant incomer",
+        imageSrc: "/industries/plant/cement/plant-exterior.jpg",
+        imageAlt: "Cement kiln-side towers, silos, and process auxiliaries",
       },
       {
         id: "crushers-md",
         title: "Crushers and mill startups",
         description:
           "Simultaneous restart after an outage is how contracted MD gets breached. Sequencing is assigned before the billing window closes.",
-        imageSrc: "/industries/cement.png",
-        imageAlt: "Cement crushers and mill startup demand on the incomer",
+        imageSrc: "/industries/plant/cement/crushers.jpg",
+        imageAlt: "Cement quarry and crusher plant on a hillside",
       },
       {
         id: "whr-re",
         title: "WHR and grid windows",
         description:
           "Cheap WHR or solar sitting idle in a peak grid window is a dispatch miss. Source mix is prescribed for the tariff window, not a dashboard heuristic.",
-        imageSrc: "/industries/cement.png",
-        imageAlt: "Cement waste heat recovery and grid dispatch energy mix",
+        imageSrc: "/industries/plant/cement/whr-pipes.jpg",
+        imageAlt: "Cement plant silos and material-handling towers for WHR and dispatch",
       },
     ],
   },

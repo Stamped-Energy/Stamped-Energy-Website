@@ -107,31 +107,39 @@ export const steelPage: VerticalPageContent = {
     eyebrow: "In this plant",
     title: "Where the steel bill actually moves",
     description:
-      "EAF and induction, rolling, and forging-foundry. Same processes you run.",
+      "EAF and induction, rolling, forging-foundry, and cooling auxiliaries. Same processes you run.",
     items: [
       {
         id: "eaf-induction",
         title: "EAF and induction",
         description:
           "Holding between heats is a power bill with no pour. Setback and power-factor sequencing are assigned before the next heat, not after the MD window closes.",
-        imageSrc: "/industries/steel.png",
-        imageAlt: "Electric and induction furnaces in a steel plant energy context",
+        imageSrc: "/industries/plant/steel/melt.jpg",
+        imageAlt: "Molten metal and furnace stations in a steel plant",
       },
       {
         id: "rolling",
         title: "Rolling",
         description:
           "Stand startups stacked after a break set MD. Sequencing is ranked against mill output, not a flat kW alarm.",
-        imageSrc: "/industries/steel.png",
-        imageAlt: "Steel rolling mill stands and incomer demand",
+        imageSrc: "/industries/plant/steel/interior.jpg",
+        imageAlt: "Steel mill hall and rolling-line interior",
       },
       {
         id: "forging-foundry",
         title: "Forging and foundry",
         description:
           "Hammer, press, and melt peaks overlap with auxiliaries. Idle-auxiliary cuts get a rupee-scored owner on the same playbook as auto-adjacent forging.",
-        imageSrc: "/industries/forging.jpg",
-        imageAlt: "Forging and foundry loads on a metals plant incomer",
+        imageSrc: "/industries/plant/steel/welding.jpg",
+        imageAlt: "Welding and foundry work in a metals plant",
+      },
+      {
+        id: "cooling-water",
+        title: "Cooling water and fume extraction",
+        description:
+          "Pumps and fans that sit at full flow when rolling output is down. Duty-cycle cuts are ranked against mill rate, not a flat kW alarm.",
+        imageSrc: "/industries/plant/steel/plant-smoke.jpg",
+        imageAlt: "Steel plant auxiliaries, towers, and outdoor process loads",
       },
     ],
   },
