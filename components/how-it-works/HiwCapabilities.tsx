@@ -67,7 +67,7 @@ export function HiwCapabilities() {
   return (
     <section
       ref={sectionRef}
-      className="overflow-hidden bg-secondary py-[3.6rem] text-on-secondary md:py-[5.4rem]"
+      className="overflow-hidden border-t border-on-secondary/20 bg-secondary py-[3.6rem] text-on-secondary md:py-[5.4rem]"
     >
       <Container>
         <SectionHeading

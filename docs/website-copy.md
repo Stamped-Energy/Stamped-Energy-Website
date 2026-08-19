@@ -550,13 +550,13 @@ No live dashboard. No scroll hint.
 **Body:** See what is happening, decide what matters, and move the right action to the floor.
 
 **Plant graph**
-See consumption, assets, production context, tariffs, alarms, and operator inputs in one live view. Follow a demand peak back to the loads, shifts, and events that caused it. Move from the plant picture to the bill without joining five reports.
+Consumption, assets, production context, tariffs, and operator inputs on one live view. Follow a demand peak back to the loads and shifts that caused it.
 
 **Alarms and prescriptions**
-Open alarms show what changed and what needs attention. Each alarm can be cleared, acknowledged, or turned into a prescription. Prescriptions state what to change, why it matters, who owns it, the effort required, and the expected rupee impact. The highest-value feasible action comes first. Assigned actions reach the right person on WhatsApp. The dashboard holds the queue and evidence.
+Alarms show what changed. Prescriptions add what to do, who owns it, and rupee impact. Ranked, assigned on WhatsApp, with evidence on the dashboard.
 
 **Agents**
-Work through operating conflicts where load, tariff, maintenance, and production priorities meet. Agents assemble the evidence, test feasible moves, and prepare a prescription for the operator to accept, reject, or adjust. Chat is available on the same plant context and answers only from supporting evidence. When the evidence is insufficient, Stamped abstains. No PLC writes.
+When load, tariff, maintenance, and production conflict, agents assemble a feasible prescription. Operators accept, reject, or adjust. Chat is evidence-bound. No PLC writes.
 
 ### Plant and economic models
 
