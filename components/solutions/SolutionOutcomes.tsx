@@ -2,6 +2,7 @@ import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionBadge } from "@/components/ui/SectionBadge";
 import type { SolutionPillarPage } from "@/lib/content/solutions";
+import { cn } from "@/lib/utils";
 
 type SolutionOutcomesProps = {
   outcomes: SolutionPillarPage["outcomes"];
@@ -25,10 +26,13 @@ export function SolutionOutcomes({ outcomes }: SolutionOutcomesProps) {
         </Reveal>
 
         <ul className="mt-12 grid gap-px overflow-hidden rounded-md border border-on-secondary/15 bg-on-secondary/10 sm:grid-cols-2 lg:grid-cols-3">
-          {outcomes.items.map((item) => (
+          {outcomes.items.map((item, index) => (
             <li
               key={item.id}
-              className="bg-secondary p-6 sm:p-7 md:p-8"
+              className={cn(
+                "bg-secondary p-6 sm:p-7 md:p-8",
+                index >= 3 && "hidden md:block",
+              )}
             >
               <Reveal>
                 <p className="font-display text-3xl font-extrabold tracking-tight text-primary md:text-4xl">

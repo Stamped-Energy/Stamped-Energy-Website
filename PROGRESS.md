@@ -53,7 +53,7 @@ Platform product hero (ADR-028): CVector `/product` rhythm on `/platform`; conta
 - [x] **Industry pages plant zig-zag (ADR-027)** - accordion unmounted; in-this-plant photo zig-zag; three Rx; three gains; FAQ dropdowns; automotive template applied to all five verticals
 - [x] **Platform product hero (ADR-028)** - homepage-style split: H1 left, body/CTAs right; no side chrome; contact two-column form + hero CTA
 - [x] **Mobile content distill** - Impact three stats on small screens; HIW bullets and resource blurbs hidden on phone; zig-zag bodies clamped. Problem chromes stay on mobile. Desktop unchanged.
-- [x] **Solution Rx cards** - both pillars use separated industry-style cards; copy distilled to title, one line, ₹, assignee.
+- [x] **Solution Rx cards** - mobile keeps compact cards; desktop shows What / Why / Effort / How you check. Outcomes: three on small screens, six from `md` up.
 - [x] **Industry photo rematch (2026-08-20)** - steel zig-zag uses mill/forging/cooling shots; pharma hero + band use cleanroom/chillers/utility hall
 
 ## Remaining Phases

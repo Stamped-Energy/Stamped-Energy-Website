@@ -35,6 +35,10 @@ export type SolutionRxExample = {
   description: string;
   impactRange: string;
   assignee: string;
+  what: string;
+  why: string;
+  effort: string;
+  evidence: string;
 };
 
 export type SolutionPillarPage = {
@@ -231,6 +235,10 @@ export const solutionsContent = {
               "Two heavy feeders ramped in the same window. Stagger the second start 8-12 minutes until the first load settles.",
             impactRange: "₹80k-1.2L/month",
             assignee: "Electrical lead / area supervisor",
+            what: "Hold the second large feeder start until the first load settles. Typical stagger is 8-12 minutes inside the open demand window.",
+            why: "Two heavy feeders started together and pushed the plant past the demand peak. The bill shows the spike, not which machines overlapped.",
+            effort: "Sequence change. No new equipment.",
+            evidence: "Compare the demand peak window with both feeder start times against a quiet baseline week.",
           },
           {
             id: "idle-aux",
@@ -240,6 +248,10 @@ export const solutionsContent = {
               "Conveyors and fans stay on with no output. Switch tagged auxiliaries off per SOP; restart when production returns.",
             impactRange: "₹50k-90k/month",
             assignee: "Packaging supervisor / utilities lead",
+            what: "When packaging output stays at zero for 20 minutes, switch off tagged auxiliaries such as conveyors, idle fans, and non-critical pumps. Restart when production returns.",
+            why: "Auxiliaries keep running during idle because nobody is watching output and machine power together in real time.",
+            effort: "Idle SOP. Keep safety loads on the protect list.",
+            evidence: "Match line output against auxiliary power over the last few idle windows.",
           },
           {
             id: "tod-warmup",
@@ -249,6 +261,10 @@ export const solutionsContent = {
               "Warm-up sits in the peak tariff band. Start about 25 minutes earlier; job release stays the same.",
             impactRange: "₹35k-55k/month",
             assignee: "Utilities lead / shift supervisor",
+            what: "Start dryer warm-up about 25 minutes earlier into the lower tariff window before day-shift release, without changing job start time.",
+            why: "Warm-up load overlaps the peak tariff band on most weekday runs, even when production volume is stable.",
+            effort: "Schedule change only. Production sign-off.",
+            evidence: "Compare warm-up power against the tariff window and the unchanged job release time.",
           },
         ],
       },
@@ -359,6 +375,10 @@ export const solutionsContent = {
               "Power is up for the same pressure, nine days running. Inspect in the next approved low-load window.",
             impactRange: "₹45k-70k/month",
             assignee: "Utilities lead / mechanical maintenance",
+            what: "Inspect Compressor 2 inlet filter and unload valve in the next approved low-load window. Use Compressor 1 as standby only if capacity is confirmed.",
+            why: "The compressor is drawing more power for the same pressure and run pattern than it did over the last several weeks. The drift has held for about nine days.",
+            effort: "About two hours. Subject to isolation and permit.",
+            evidence: "Compare compressor power against pressure and run hours for a quiet baseline period.",
           },
           {
             id: "furnace-hold",
@@ -368,6 +388,10 @@ export const solutionsContent = {
               "Holding heat for a line already 45+ minutes late. Setback with production before the next peak tariff block.",
             impactRange: "Idle holding cut",
             assignee: "Heat treatment / production",
+            what: "Reduce furnace holding when the downstream line is delayed 45 minutes or more. Confirm setback with production before the next peak tariff block.",
+            why: "Holding power continues with zero throughput while the delay sits outside the agreed production window.",
+            effort: "Setback SOP. Production sign-off.",
+            evidence: "Match holding power against the production delay window before and after the action.",
           },
           {
             id: "pump-recirc",
@@ -377,6 +401,10 @@ export const solutionsContent = {
               "Pump draw is high against delivered flow. Inspect the valve path in the next isolation window.",
             impactRange: "Wasted power recovered",
             assignee: "Utilities / mechanical maintenance",
+            what: "Inspect the cooling-water pump and related valves for stuck recirculation during the next approved isolation window.",
+            why: "Pump electrical draw is high against delivered flow, which usually means recirculation rather than useful cooling.",
+            effort: "Inspect and tune. Isolation permit.",
+            evidence: "Compare pump power against delivered flow for a normal operating period.",
           },
         ],
       },
