@@ -7,9 +7,9 @@ export const steelPage: VerticalPageContent = {
   slug: "steel",
   hero: {
     eyebrow: "Steel & metals",
-    title: "AI-driven energy management for steel",
+    title: "Rupee-scored prescriptions for steel and metals plants",
     description:
-      "AI enables steel manufacturers to manage fuel- and power-intensive operations at scale, where energy balance and operating discipline directly determine cost competitiveness, throughput stability, and operational consistency - with evidence-verified savings.",
+      "EAF and induction, rolling, and foundry already have meters and SCADA. Stamped is the intelligence layer on that stack: live data, assigned next actions, evidence on the bill. Read-only. No hardware retrofit.",
     primaryCta: CTA,
     secondaryCta: HOW,
     seoHeadings: [
@@ -103,13 +103,45 @@ export const steelPage: VerticalPageContent = {
       },
     ],
   },
+  plantBand: {
+    eyebrow: "In this plant",
+    title: "Where the steel bill actually moves",
+    description:
+      "EAF and induction, rolling, and forging-foundry. Same processes you run.",
+    items: [
+      {
+        id: "eaf-induction",
+        title: "EAF and induction",
+        description:
+          "Holding between heats is a power bill with no pour. Setback and power-factor sequencing are assigned before the next heat, not after the MD window closes.",
+        imageSrc: "/industries/steel.png",
+        imageAlt: "Electric and induction furnaces in a steel plant energy context",
+      },
+      {
+        id: "rolling",
+        title: "Rolling",
+        description:
+          "Stand startups stacked after a break set MD. Sequencing is ranked against mill output, not a flat kW alarm.",
+        imageSrc: "/industries/steel.png",
+        imageAlt: "Steel rolling mill stands and incomer demand",
+      },
+      {
+        id: "forging-foundry",
+        title: "Forging and foundry",
+        description:
+          "Hammer, press, and melt peaks overlap with auxiliaries. Idle-auxiliary cuts get a rupee-scored owner on the same playbook as auto-adjacent forging.",
+        imageSrc: "/industries/forging.jpg",
+        imageAlt: "Forging and foundry loads on a metals plant incomer",
+      },
+    ],
+  },
   prescriptionExamples: {
     eyebrow: "Example prescriptions",
-    title: "Furnace and MD actions assigned this week",
+    title: "What supervisors receive",
     description:
-      "Illustrative actions from secondary steel and rolling benchmarks. Your pilot generates prescriptions from your meters and bill.",
+      "Illustrative actions from comparable secondary steel and rolling plants. Your pilot writes these from your meters and bill.",
     footnote:
-      "Impact ranges are benchmark estimates, not customer guarantees. Enterprise-scale integrated plant cases are cited only as context. Stamped targets mid-market induction and rolling plants with plant-specific verification.",
+      "Impact ranges are benchmark estimates from comparable plants, not customer guarantees. Verified figures come from your plant with evidence.",
     items: [
       {
         id: "induction-hold",
@@ -169,32 +201,26 @@ export const steelPage: VerticalPageContent = {
   },
   outcomes: {
     eyebrow: "What you gain",
-    title: "Tighter process efficiency and per-unit cost stability",
-    disclaimer: "Indicative benchmark band. External SEC references are cited for context only.",
+    title: "The floor knows what to do. Leadership sees the evidence.",
+    disclaimer: "Indicative language from comparable plants. Your pilot replaces it with plant figures.",
     items: [
       {
         id: "furnace-md",
-        title: "Tighter process efficiency",
+        title: "Assigned energy moves",
         description:
-          "Prescriptive AI keeps furnaces and rolling processes within efficient operating windows, reducing avoidable energy loss during real production by 5-10%.",
+          "Ranked prescriptions on furnace holding, rolling-stand stagger, and idle auxiliaries, without changing the heat recipe.",
       },
       {
         id: "rolling-sec",
-        title: "Per-unit energy cost stability",
+        title: "Stable SEC in the operating band",
         description:
-          "AI detects captive power generation inefficiencies early and prescribes corrections before small deviations escalate into sustained cost losses, reducing per-unit energy cost by almost 5%.",
+          "kWh per heat or per ton vs this plant's route and shift baseline, not a generic dashboard threshold.",
       },
       {
         id: "pat-sec",
-        title: "Operator-ready guidance",
+        title: "Earlier equipment intervention",
         description:
-          "Actionable insights guide operators on what to adjust and when, reducing reliance on manual judgment and delayed interventions.",
-      },
-      {
-        id: "ledger",
-        title: "Utility efficiency discipline",
-        description:
-          "Continuous monitoring keeps SEC of large utilities such as pumps, compressors, and cooling systems within efficient limits, cutting unplanned utility downtime by 10-15%.",
+          "Power-draw and duty-cycle drift tied to rupee and throughput risk. Not a vibration PdM claim.",
       },
     ],
   },
@@ -207,21 +233,21 @@ export const steelPage: VerticalPageContent = {
   faq: [
     {
       id: "induction-consumption",
-      question: "How much does induction furnace holding power cost?",
+      question: "How can steel plants reduce induction furnace electricity consumption?",
       answer:
-        "Holding power between heats can run 30-50% of furnace electricity with no production output. Stamped quantifies this per furnace and assigns setback schedules with monthly rupee impact.",
+        "Holding between heats is power with no pour. Comparable plants using assigned setback and sequencing typically recover a large share of furnace electricity on that idle window. Your pilot replaces indicative bands with plant figures.",
     },
     {
       id: "pat-sec",
-      question: "How does Stamped support PAT SEC targets?",
+      question: "What is PAT scheme SEC for steel plants?",
       answer:
-        "Stamped tracks SEC improvement with evidence-verified M&V - a ledger for management and PAT evidence. Stamped is prescriptive intelligence, not PAT consulting or audit services.",
+        "PAT tracks specific energy consumption against a notified baseline. Stamped keeps a rupee-scored SEC ledger from meters and the bill. That is evidence support, not PAT consulting or an audit.",
     },
     {
       id: "integrated-steel",
-      question: "Is Stamped suitable for integrated BF-BOF plants?",
+      question: "How does Stamped help rolling mills with maximum demand?",
       answer:
-        "Phase 1-2 focus is secondary steel, rolling, and forging (₹10L-₹1Cr+/mo electricity ). Integrated BF route plants with enterprise-scale bills require a different sales motion - we qualify honestly on discovery calls.",
+        "Stacked stand startups after a break are a common MD spike. Stamped assigns stagger before the billing window closes and ties the rupee impact to the mill supervisor.",
     },
   ],
 };

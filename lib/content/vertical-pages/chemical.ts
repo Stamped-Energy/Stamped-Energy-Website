@@ -7,9 +7,9 @@ export const chemicalPage: VerticalPageContent = {
   slug: "chemical",
   hero: {
     eyebrow: "Chemical & paint",
-    title: "AI-powered energy intelligence for chemical and paint manufacturing",
+    title: "Rupee-scored prescriptions for chemical and paint plants",
     description:
-      "AI brings continuous energy discipline to chemical and paint manufacturing, improving cost control, operational predictability, and long-term competitiveness - with prescriptions assigned to your batch team and outcomes verified with evidence.",
+      "Batch reactors, steam, and plant air already have meters and logs. Stamped is the intelligence layer on that stack: live data, assigned next actions, evidence on the bill. Read-only. No hardware retrofit.",
     primaryCta: CTA,
     secondaryCta: HOW,
     seoHeadings: [
@@ -95,19 +95,51 @@ export const chemicalPage: VerticalPageContent = {
         id: "paint-oven",
         step: "06",
         title: "Paint oven & coating lines",
-        description: "Cure cycle alignment - avoid partial oven heat between short batch gaps.",
+        description:           "Cure cycle alignment - avoid partial oven heat between short batch gaps.",
         potentialLabel: "Est. monthly savings",
         potentialValue: "₹1.2-3L",
       },
     ],
   },
+  plantBand: {
+    eyebrow: "In this plant",
+    title: "Where the chemical bill actually moves",
+    description:
+      "Batch reactors, plant utilities, and compressed air. Same processes you run.",
+    items: [
+      {
+        id: "reactor-idle",
+        title: "Batch reactors",
+        description:
+          "Soak held with no batch on the calendar is a holding bill. Setback is assigned against the next start, not a flat temperature alarm.",
+        imageSrc: "/industries/chemical.png",
+        imageAlt: "Chemical batch reactors and idle hold energy prescriptions",
+      },
+      {
+        id: "steam-thermal",
+        title: "Steam and plant utilities",
+        description:
+          "Steam, chill, and ETP loads sit on the incomer between batches. Duty-cycle cuts are ranked against the production calendar.",
+        imageSrc: "/industries/chemical.png",
+        imageAlt: "Chemical plant steam and utility energy loads",
+      },
+      {
+        id: "batch-md",
+        title: "Compressed air and stagger",
+        description:
+          "Reactors that ramp together at shift start set MD. Sequencing and idle-air cuts get a rupee-scored owner before the billing window closes.",
+        imageSrc: "/industries/chemical.png",
+        imageAlt: "Batch chemical plant maximum demand stagger and compressed air",
+      },
+    ],
+  },
   prescriptionExamples: {
     eyebrow: "Example prescriptions",
-    title: "What to change before month-end - assigned to your batch team",
+    title: "What supervisors receive",
     description:
-      "Illustrative actions from batch chemical benchmarks. Path A: batch log CSV + bill. Path B: DCS integration.",
+      "Illustrative actions from comparable batch chemical plants. Your pilot writes these from your meters, batch log, and bill.",
     footnote:
-      "Impact ranges are benchmark estimates - not customer guarantees. Verified figures come from your pilot M&V.",
+      "Impact ranges are benchmark estimates from comparable plants, not customer guarantees. Verified figures come from your plant with evidence.",
     items: [
       {
         id: "reactor-stagger",
@@ -167,53 +199,47 @@ export const chemicalPage: VerticalPageContent = {
   },
   outcomes: {
     eyebrow: "What you gain",
-    title: "Controlled energy intensity and predictable operations",
-    disclaimer: "Indicative benchmark band. Your pilot replaces these with evidence-verified figures.",
+    title: "The floor knows what to do. Leadership sees the evidence.",
+    disclaimer: "Indicative language from comparable plants. Your pilot replaces it with plant figures.",
     items: [
       {
         id: "batch-sec",
-        title: "Controlled energy intensity",
+        title: "Assigned energy moves",
         description:
-          "Energy stays within defined operating bands across batch and continuous operations, with AI prescribing adjustments to prevent drift, reducing SEC by 8-12%.",
+          "Ranked prescriptions on reactor stagger, soak setback, and off-peak utility windows, without changing the batch recipe.",
       },
       {
         id: "idle-hold",
-        title: "Reduced over-design margins",
+        title: "Stable SEC in the operating band",
         description:
-          "AI identifies energy inefficiencies caused by conservative process over-design in heating, cooling, and purging, locking in 5-10% energy savings without impacting safety or throughput.",
+          "kWh per batch vs this plant's reactor line and product baseline, not a generic dashboard threshold.",
       },
       {
         id: "md-stagger",
-        title: "Early loss visibility",
+        title: "Earlier equipment intervention",
         description:
-          "Small deviations are surfaced early, with AI recommending corrective actions before they compound into sustained losses.",
-      },
-      {
-        id: "ledger",
-        title: "Predictable operations",
-        description:
-          "Stable energy behavior improves run consistency and planning confidence, enabling 10-15% more predictable energy costs across shifts and units.",
+          "Power-draw and duty-cycle drift tied to rupee and batch risk. Not a vibration PdM claim.",
       },
     ],
   },
   faq: [
     {
       id: "batch-sec",
-      question: "How does Stamped measure energy per batch?",
+      question: "How can chemical plants reduce batch process energy consumption?",
       answer:
-        "Stamped aligns incomer and sub-meter kWh with batch windows from logs or DCS - kWh/batch baselines by reactor line and product. Drift triggers prescriptions with rupee impact.",
+        "Idle soak and overlapping reactor ramps are the usual leaks. Comparable plants using assigned, rupee-scored actions recover those windows before month-end. Your pilot replaces indicative bands with plant figures.",
     },
     {
       id: "path-a-batch",
-      question: "Can we start without DCS integration?",
+      question: "What causes maximum demand spikes in batch chemical plants?",
       answer:
-        "Yes - Path A uses batch log CSV (start/end times, reactor ID) plus DISCOM bills. First prescriptions on idle hold and MD stagger typically within two weeks.",
+        "Three reactors heating together at shift start is a common incomer spike. Stamped assigns stagger against the batch calendar so MD is managed before the billing window closes.",
     },
     {
       id: "chlor-alkali",
-      question: "Is Stamped for large chlor-alkali plants?",
+      question: "Does Stamped work without DCS integration?",
       answer:
-        "Phase 1-2 focus is specialty chemicals, resins, agrochemical formulation, and paint - ₹8L-₹80L+/month electricit Mega chlor-alkali DCs require enterprise motion - we qualify on discovery calls.",
+        "Yes. Path A uses batch log start and end times plus DISCOM bills. First prescriptions on idle hold and stagger typically land within two weeks. DCS is Path B, not a gate.",
     },
   ],
 };

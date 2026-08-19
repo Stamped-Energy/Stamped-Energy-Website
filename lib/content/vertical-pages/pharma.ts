@@ -7,9 +7,9 @@ export const pharmaPage: VerticalPageContent = {
   slug: "pharma",
   hero: {
     eyebrow: "Pharmaceutical",
-    title: "AI-driven energy management for pharma",
+    title: "Rupee-scored prescriptions for pharmaceutical plants",
     description:
-      "AI enables pharmaceutical plants to manage energy-intensive operations and utilities at scale, directly impacting operating cost, compliance, uptime, and consistent product quality across regulated manufacturing environments - with evidence-verified savings.",
+      "HVAC, chillers, and compressed air already have meters and BMS. Stamped is the intelligence layer on that stack: live data, assigned next actions, evidence on the bill. Read-only. No hardware retrofit.",
     primaryCta: CTA,
     secondaryCta: HOW,
     seoHeadings: [
@@ -103,13 +103,45 @@ export const pharmaPage: VerticalPageContent = {
       },
     ],
   },
+  plantBand: {
+    eyebrow: "In this plant",
+    title: "Where the pharma bill actually moves",
+    description:
+      "HVAC and cleanroom, plant utilities, and compressed air. Same systems you run.",
+    items: [
+      {
+        id: "hvac-cleanroom",
+        title: "HVAC and cleanroom",
+        description:
+          "Classified air does not pause between batches. Stamped ranks AHU run-hours against the production calendar. Schedule moves stay in the utilities layer, not room reclassification.",
+        imageSrc: "/industries/pharma.png",
+        imageAlt: "Pharmaceutical HVAC and cleanroom utilities energy management",
+      },
+      {
+        id: "chillers-ahu",
+        title: "Chillers and plant utilities",
+        description:
+          "Chiller banks that start together at shift change set MD. Staging is assigned against actual cooling load, not a safety-margin habit.",
+        imageSrc: "/industries/pharma.png",
+        imageAlt: "Pharma chiller plant and AHU staging on the incomer",
+      },
+      {
+        id: "compressed-air",
+        title: "Compressed air",
+        description:
+          "Header pressure held above process need is a quiet kWh leak. Pressure-band and leak-tag moves get a rupee-scored owner.",
+        imageSrc: "/industries/pharma.png",
+        imageAlt: "Pharmaceutical compressed air system energy prescriptions",
+      },
+    ],
+  },
   prescriptionExamples: {
     eyebrow: "Example prescriptions",
-    title: "GMP-safe operational levers - utilities, not room reclassification",
+    title: "What supervisors receive",
     description:
-      "Illustrative actions from BEE pharma cluster benchmarks. Change-control-friendly utility tweaks first.",
+      "Illustrative actions from comparable formulation plants. Change-control-friendly utility tweaks first. Your pilot writes these from your meters and bill.",
     footnote:
-      "Impact ranges are benchmark estimates. Stamped frames prescriptions as utilities operations, not GMP room classification changes. Validate with your quality team before execution.",
+      "Impact ranges are benchmark estimates from comparable plants, not customer guarantees. Verified figures come from your plant with evidence. Quality validates schedule changes before execution.",
     attribution: {
       text: "Large pharma renewable-energy governance cases report significant annual leakage prevented at enterprise scale. Stamped targets MSME and mid-market formulation plants.",
       source: "Published industry case literature",
@@ -173,53 +205,47 @@ export const pharmaPage: VerticalPageContent = {
   },
   outcomes: {
     eyebrow: "What you gain",
-    title: "Targeted waste elimination and stable thermal performance",
-    disclaimer: "Indicative BEE benchmark band. Your pilot replaces these with evidence-verified figures.",
+    title: "The floor knows what to do. Leadership sees the evidence.",
+    disclaimer: "Indicative language from comparable plants. Your pilot replaces it with plant figures.",
     items: [
       {
         id: "hvac-rupees",
-        title: "Targeted energy waste elimination",
+        title: "Assigned energy moves",
         description:
-          "Prescriptive AI identifies hidden wastage across utilities and support systems, converting deviations into operator actions without compromising quality or compliance.",
+          "Ranked prescriptions on chiller staging, AHU run-hours, and CA pressure bands, without touching classified setpoints.",
       },
       {
         id: "md-chiller",
-        title: "Optimized HVAC and AHU efficiency",
+        title: "Stable SEC in the operating band",
         description:
-          "Prescriptive intelligence continuously maintains HVAC KPIs such as kW/TR and kW/CFM, tuning AHU performance in real time to balance temperature, humidity, air quality, and energy consumption.",
+          "Utility kWh vs this plant's batch calendar and shift baseline, not a generic dashboard threshold.",
       },
       {
         id: "schedule",
-        title: "Stable thermal system performance",
+        title: "Earlier equipment intervention",
         description:
-          "AI monitors boilers, steam, and hot-water systems and prescribes actions to prevent efficiency drift, sustaining reliable thermal output.",
-      },
-      {
-        id: "ledger",
-        title: "Seasonal energy demand control",
-        description:
-          "AI adapts utility setpoints and load strategies across seasonal shifts to maintain compliance, stability, and energy efficiency.",
+          "Chiller and AHU power-draw drift tied to rupee and uptime risk. Not a vibration PdM claim.",
       },
     ],
   },
   faq: [
     {
       id: "hvac-share",
-      question: "Why is HVAC 85% of pharma plant electricity?",
+      question: "How much electricity do pharmaceutical plants use for HVAC?",
       answer:
-        "GMP requires 24/7 environmental control - chillers, AHUs, clean air, and WFI systems run continuously. BEE MSME pharma cluster study identifies HVAC as the dominant electrical load in formulation and API plants.",
+        "In formulation plants, HVAC and related utilities typically dominate the electrical bill because classified air runs continuously. BEE cluster studies are context. Your pilot replaces indicative shares with plant figures.",
     },
     {
       id: "gmp-safe",
-      question: "Are Stamped prescriptions safe for GMP facilities?",
+      question: "How can pharma plants reduce chiller energy consumption?",
       answer:
-        "Stamped targets utility operations - chiller staging, AHU schedules, CA pressure bands - not clean room reclassification. Your quality team validates any schedule change before execution. We never promise GMP changes without your validation.",
+        "Staging at production ramp and matching capacity to actual cooling load are the usual rupee-scored moves. Stamped assigns those on the utilities layer. Quality validates any schedule change before execution.",
     },
     {
       id: "api-vs-formulation",
-      question: "Does Stamped work for API and formulation plants?",
+      question: "Is Stamped safe for GMP-regulated pharmaceutical facilities?",
       answer:
-        "Yes - MSME and mid-market formulation, API, and nutraceutical plants in Baddi, Hyderabad, Ahmedabad, and Goa clusters. Bill band ₹5L-₹50L+/month with meaningful HVAC savings potential.",
+        "Stamped is read-only on meters and BMS. Prescriptions target chiller staging, AHU schedules, and compressed-air bands, not cleanroom reclassification. Your quality team remains the gate.",
     },
   ],
 };

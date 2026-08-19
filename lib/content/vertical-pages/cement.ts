@@ -7,9 +7,9 @@ export const cementPage: VerticalPageContent = {
   slug: "cement",
   hero: {
     eyebrow: "Cement",
-    title: "AI-driven energy intelligence for cement",
+    title: "Rupee-scored prescriptions for cement plants",
     description:
-      "AI enables cement plants to prescribe optimal energy actions across continuous processes and utilities in real time, directly influencing cost stability, uptime, and long-term operational competitiveness - with outcomes verified with evidence.",
+      "Mills, kiln auxiliaries, crushers, and WHR already have meters and EMS. Stamped is the intelligence layer on that stack: live data, assigned next actions, evidence on the bill. Read-only. No hardware retrofit.",
     primaryCta: CTA,
     secondaryCta: HOW,
     seoHeadings: [
@@ -103,13 +103,53 @@ export const cementPage: VerticalPageContent = {
       },
     ],
   },
+  plantBand: {
+    eyebrow: "In this plant",
+    title: "Where the cement bill actually moves",
+    description:
+      "Raw and finish mills, kiln auxiliaries, crushers, and WHR. Same processes you run.",
+    items: [
+      {
+        id: "mills",
+        title: "Raw and finish mills",
+        description:
+          "kWh per ton drifts when separators and bearings degrade. Stamped ranks mill SEC against throughput, then assigns the inspection before the month is lost to a silent creep.",
+        imageSrc: "/industries/cement.png",
+        imageAlt: "Cement mill line energy management for kWh per ton prescriptions",
+      },
+      {
+        id: "kiln-aux",
+        title: "Kiln auxiliaries",
+        description:
+          "Fans, coolers, and idle kiln-side loads sit on the incomer whether clinker is moving or not. Idle cuts are ranked against line rate, not a flat kW alarm.",
+        imageSrc: "/industries/cement.png",
+        imageAlt: "Cement kiln auxiliaries and process fans on the plant incomer",
+      },
+      {
+        id: "crushers-md",
+        title: "Crushers and mill startups",
+        description:
+          "Simultaneous restart after an outage is how contracted MD gets breached. Sequencing is assigned before the billing window closes.",
+        imageSrc: "/industries/cement.png",
+        imageAlt: "Cement crushers and mill startup demand on the incomer",
+      },
+      {
+        id: "whr-re",
+        title: "WHR and grid windows",
+        description:
+          "Cheap WHR or solar sitting idle in a peak grid window is a dispatch miss. Source mix is prescribed for the tariff window, not a dashboard heuristic.",
+        imageSrc: "/industries/cement.png",
+        imageAlt: "Cement waste heat recovery and grid dispatch energy mix",
+      },
+    ],
+  },
   prescriptionExamples: {
     eyebrow: "Example prescriptions",
-    title: "Governed dispatch decisions your team executes this week",
+    title: "What supervisors receive",
     description:
-      "Illustrative actions from cement plant benchmarks. Your pilot generates prescriptions from your meters, EMS feeds, and bill.",
+      "Illustrative actions from comparable cement plants. Your pilot writes these from your meters, EMS feeds, and bill.",
     footnote:
-      "Impact ranges are benchmark estimates, not customer guarantees. Published enterprise cement dispatch cases cite large annual potential; Stamped targets mid-market plants with plant-specific verification.",
+      "Impact ranges are benchmark estimates from comparable plants, not customer guarantees. Verified figures come from your plant with evidence.",
     attribution: {
       text: "Enterprise cement plants have reported large annual potential through dispatch governance. Stamped brings governed decisions to mid-market scale.",
       source: "Published industry case literature",
@@ -173,53 +213,47 @@ export const cementPage: VerticalPageContent = {
   },
   outcomes: {
     eyebrow: "What you gain",
-    title: "Prescriptive cost optimization and sustained efficiency outcomes",
-    disclaimer: "Indicative benchmark band. Your pilot replaces these with evidence-verified figures.",
+    title: "The floor knows what to do. Leadership sees the evidence.",
+    disclaimer: "Indicative language from comparable plants. Your pilot replaces it with plant figures.",
     items: [
       {
         id: "kwh-ton",
-        title: "Prescriptive energy cost optimization",
+        title: "Assigned energy moves",
         description:
-          "Prescriptive AI optimizes the mix of captive power, WHRS, renewables, and grid in real time, locking in 5-10% energy cost reduction without operational disruption.",
+          "Ranked prescriptions on mill restart stagger, idle kiln-side fans, and WHR-vs-grid windows, without rewriting the process recipe.",
       },
       {
         id: "dispatch",
-        title: "Stage-wise SEC control",
+        title: "Stable SEC in the operating band",
         description:
-          "AI monitors SEC at each manufacturing stage and prescribes corrective actions across raw grinding, kiln, and cement grinding, reducing stage-wise SEC by 8-12%.",
+          "kWh per ton vs this plant's line and shift baseline, not a generic dashboard threshold.",
       },
       {
         id: "md",
-        title: "Utility-level efficiency and reliability",
+        title: "Earlier equipment intervention",
         description:
-          "AI tracks large utilities like fans, blowers, and mills, prescribing early interventions to prevent degradation and cut unplanned downtime by 15-20%.",
-      },
-      {
-        id: "ledger",
-        title: "Sustained efficiency outcomes",
-        description:
-          "Prescriptive feedback loops continuously enforce efficiency gains, reducing dependence on manual supervision and preventing regression after one-time improvements.",
+          "Power-draw and mill SEC drift tied to rupee and throughput risk. Not a vibration PdM claim.",
       },
     ],
   },
   faq: [
     {
       id: "kwh-ton-benchmark",
-      question: "What is a good kWh/ton benchmark for cement plants?",
+      question: "How can cement plants reduce kWh per ton?",
       answer:
-        "Electrical SEC for cement typically runs 70-80 kWh/ton, with best-performing plants under 67 kWh/ton. Stamped tracks your plant's baseline by line and shift. Benchmarks are starting points, not targets.",
-    },
-    {
-      id: "ems-vs-stamped",
-      question: "We already have an EMS. Why Stamped?",
-      answer:
-        "EMS shows trends; Stamped assigns governed actions with rupee impact, owner, and verification on the next bill. No rip-and-replace - Stamped is the decision layer your EMS lacks.",
+        "Comparable cement plants using assigned, rupee-scored actions typically move electrical SEC by catching mill drift and restart overlap before the month closes. Published 70-80 kWh/ton bands are context, not your target. Your pilot replaces those bands with plant figures.",
     },
     {
       id: "whr-dispatch",
-      question: "Can Stamped optimize WHR and grid dispatch?",
+      question: "What is WHR and grid dispatch optimization for cement plants?",
       answer:
-        "Yes - daily source-mix prescriptions based on tariff windows, WHR output, and solar availability. Mid-market plants get shift-level governance, not 15-minute enterprise agent stacks on day one.",
+        "WHR and solar are cheaper in some windows than grid. Stamped ranks source-mix moves against tariff and available WHR output so dispatch is assigned, not guessed at the desk.",
+    },
+    {
+      id: "ems-vs-stamped",
+      question: "How does Stamped work with existing cement plant EMS?",
+      answer:
+        "EMS shows trends. Stamped is the intelligence layer on that stack: read-only feeds, rupee-scored next actions, owner, and verification on the bill. No rip-and-replace.",
     },
   ],
 };
