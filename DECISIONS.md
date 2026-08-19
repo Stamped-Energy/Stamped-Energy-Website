@@ -540,9 +540,9 @@ Architecture and workflow decisions for this project.
 
 **Context:** `/platform` hero was a centered copy island on a light band. On wide viewports it read empty. Founder asked to match the [CVector product hero](https://www.cvector.com/product) rhythm, not clone copy, dollars, agent-skills catalog, or 2–3 week SLA.
 
-**Decision:** Left-align a short product column (badge, H1, one paragraph, two CTAs, weeks support line from existing deployment copy). Fill the right with existing plant-graph chrome. Keep origin on About. Contact: taller photo hero with jump-to-form CTA, two-column form + unused stats, em dash removed from hero body.
+**Decision:** Split type like the homepage hero: H1 on the left, body + CTAs + weeks support line on the right. No side chrome or plant-graph animation. Keep origin on About. Contact: taller photo hero with jump-to-form CTA, two-column form + unused stats, em dash removed from hero body.
 
-**Alternatives:** Photo overlay like solutions (heavier, fights “product” page). Empty right like CVector (still feels empty on our layout). Dashboard mock (conflicts with ADR-026).
+**Alternatives:** Photo overlay like solutions (heavier, fights “product” page). Plant-graph chrome on the right (rejected: animation read poorly). Empty right like CVector (still feels empty on our layout). Dashboard mock (conflicts with ADR-026).
 
 **Impact:** `HiwOpening`; `lib/content/platform.ts` hero; `ContactPageView`; `lib/content/contact.ts`; `docs/website-copy.md` §§6, 14.
 

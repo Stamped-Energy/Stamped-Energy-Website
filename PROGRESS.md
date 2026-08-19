@@ -51,7 +51,7 @@ Platform product hero (ADR-028): CVector `/product` rhythm on `/platform`; conta
 - [x] **Public copy canon in external (ADR-025)** - `external/brand/` COPY_CANON + WEBSITE_COPY; rupee-scored / rupee-ranked on site; old About hero superseded
 - [x] **Platform page static revamp (ADR-026)** - surfaces, models, capabilities, static loop, weeks-only close; dashboard and pin unmounted
 - [x] **Industry pages plant zig-zag (ADR-027)** - accordion unmounted; in-this-plant photo zig-zag; three Rx; three gains; FAQ dropdowns; automotive template applied to all five verticals
-- [x] **Platform product hero (ADR-028)** - left column + plant-graph chrome; shorter hero body; weeks support line; contact two-column form + hero CTA
+- [x] **Platform product hero (ADR-028)** - homepage-style split: H1 left, body/CTAs right; no side chrome; contact two-column form + hero CTA
 
 ## Remaining Phases
 

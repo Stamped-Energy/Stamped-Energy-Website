@@ -541,7 +541,7 @@ Pump power is high for the flow you are getting. Check the valve path before you
 
 **Support line:** First prescriptions in weeks, from meters and bills already on site.
 
-**Visual:** Left-aligned product column (CVector `/product` rhythm). Right: plant-graph chrome (`PlatformZigZagVisual`). No live dashboard. No scroll hint. Full origin stays on About, not in this hero.
+**Layout:** Same split as the homepage hero. Left: H1. Right: body, CTAs, support line. No side visual. No live dashboard. No scroll hint. Full origin stays on About, not in this hero.
 
 ### Your working view
 
