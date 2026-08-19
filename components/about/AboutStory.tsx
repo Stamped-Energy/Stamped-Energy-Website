@@ -5,7 +5,7 @@ import { useRef } from "react";
 import { useMotion } from "@/components/motion/MotionProvider";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
-import { SectionBadge } from "@/components/ui/SectionBadge";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import { aboutContent } from "@/lib/content/about";
 import { scrollTriggerDefaults } from "@/lib/motion/config";
 import { gsap, useGSAP } from "@/lib/motion/gsap";
@@ -39,28 +39,19 @@ export function AboutStory() {
       className="border-b border-outline-variant/40 bg-surface section-y"
     >
       <Container>
-        <div className="grid gap-8 md:grid-cols-[5rem_1fr] md:gap-12 lg:gap-16">
-          <Reveal>
-            <SectionBadge label={story.eyebrow} />
-          </Reveal>
-          <div className="min-w-0">
-            <Reveal>
-              <h2 className="max-w-2xl font-display text-2xl font-bold tracking-tight text-on-surface md:text-3xl">
-                {story.title}
-              </h2>
-            </Reveal>
-            <div className="mt-8 space-y-6 md:mt-10">
-              {story.paragraphs.map((paragraph) => (
-                <p
-                  key={paragraph}
-                  data-about-story
-                  className="max-w-2xl text-sm leading-7 text-on-surface-variant md:text-base md:leading-8"
-                >
-                  {paragraph}
-                </p>
-              ))}
-            </div>
-          </div>
+        <Reveal className="mx-auto max-w-3xl">
+          <SectionHeading eyebrow={story.eyebrow} title={story.title} align="center" />
+        </Reveal>
+        <div className="mx-auto mt-8 max-w-3xl space-y-6 text-center md:mt-10">
+          {story.paragraphs.map((paragraph) => (
+            <p
+              key={paragraph}
+              data-about-story
+              className="text-sm leading-7 text-on-surface-variant md:text-base md:leading-8"
+            >
+              {paragraph}
+            </p>
+          ))}
         </div>
       </Container>
     </section>
