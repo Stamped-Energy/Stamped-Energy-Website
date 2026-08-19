@@ -10,7 +10,7 @@ Produce a **60-second** animated explainer (default) for Stamped Intelligence.
 
 **Audience:** Plant director / VP Ops / electrical head at a North India Band A plant (≥ ₹30L/month electricity).  
 **Vertical default:** Automotive components (change if brief specifies cement/steel/pharma/chemical).  
-**Outcome:** Viewer understands Stamped is a read-only decision layer that turns plant data into assigned ₹-scored prescriptions, verified with evidence.
+**Outcome:** Viewer understands Stamped is a read-only decision layer that turns plant data into assigned rupee-scored prescriptions, verified with evidence.
 
 ## Structure
 

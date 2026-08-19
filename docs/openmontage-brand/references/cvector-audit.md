@@ -78,7 +78,7 @@ Stamped site already follows a similar **narrative order** (ADR-016). Videos may
 - Their exact metric tiles (e.g. 3–7% margin uplift, 12–15% throughput)  
 - Claret + Mindaro as Stamped’s default brand pair  
 - ABC Monument Grotesk as if licensed  
-- Dollar-scored copy where Stamped is ₹-scored  
+- Dollar-scored copy where Stamped is rupee-scored  
 - Claiming their customers, security badges, or funding as ours  
 
 ---

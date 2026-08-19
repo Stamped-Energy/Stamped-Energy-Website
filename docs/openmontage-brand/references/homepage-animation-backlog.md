@@ -16,7 +16,7 @@
 - Ease-out only (quart / quint / expo). No bounce, elastic, or overshoot.
 - `prefers-reduced-motion` → static still (or hard cut + hold).
 - Do **not** clone CVector `.riv` assets, logos, copy, $ metrics, or Flame Pea / Claret / Mindaro as brand primaries.
-- ₹-scored **prescriptions**, not dollar-scored recommendations. Claims must pass `../context/VOICE_AND_CLAIMS.md`.
+- rupee-scored **prescriptions**, not dollar-scored recommendations. Claims must pass `../context/VOICE_AND_CLAIMS.md`.
 - Prefer handoff path like hero: self-contained HTML sample under `brand/stamped/samples/` → port into Main_Website (not a silent Rive clone of CVector).
 
 ---
@@ -82,7 +82,7 @@ A00 Hero DONE
 | **Slot label** | Problem visual 1 |
 | **Copy beat** | Data is abundant. Clear priorities are not. |
 | **CVector analog** | Toggles / sliders / pie / hourglass — many controls, no ranked next step |
-| **Motion intent** | Unordered meters / signals → one clear ₹-ranked next action (priority metaphor) |
+| **Motion intent** | Unordered meters / signals → one clear rupee-ranked next action (priority metaphor) |
 | **Suggested runtime** | Compact looping SVG/GSAP strip (or HTML sample handoff); keep short height |
 | **Reduced motion** | Static icon strip still |
 | **Anti-clone** | Do not reuse CVector toggle/slider artwork or Flame Pea as default band (Stamped secondary band already set) |
@@ -133,7 +133,7 @@ A00 Hero DONE
 |-------|-------|
 | **ID** | A04 |
 | **Slot label** | Product visual |
-| **Copy beat** | AI-powered energy intelligence — continuous analysis → ₹-scored prescriptions + audit trail |
+| **Copy beat** | AI-powered energy intelligence — continuous analysis → rupee-scored prescriptions + audit trail |
 | **CVector analog** | Icons docking into central processor / isometric block |
 | **Motion intent** | Meters / SCADA / bills → Stamped hub → ₹ prescription (system diagram, not AI-brain particles) |
 | **Suggested runtime** | HTML sample handoff (preferred). Reuse candidate: `brand/stamped/samples/plant-data-flow.html` — **retheme** from dark Obsidian to surface-low; do not ship as-is |
@@ -187,7 +187,7 @@ A00 Hero DONE
 |-------|-------|
 | **ID** | A07 |
 | **Stage** | Prescriptions |
-| **Copy beat** | ₹-scored prescriptions generated in real time. |
+| **Copy beat** | rupee-scored prescriptions generated in real time. |
 | **Motion intent** | Ranked prescription cards assemble: LIVE / mono label → title → owner → ₹ → evidence |
 | **Suggested runtime** | Align with `MOTION_LANGUAGE.md` prescription UI storytelling; may echo hero chip language lightly |
 | **Reduced motion** | One completed card still |

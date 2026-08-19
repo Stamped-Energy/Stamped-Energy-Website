@@ -470,6 +470,26 @@ Architecture and workflow decisions for this project.
 
 **Rationale:** One origin narrative for About, home (light), and this-repo canon. Anti-clone still blocks CVector metrics and brand; origin-story sentences are an explicit exception in `VOICE_AND_CLAIMS.md`.
 
-**Impact:** `lib/content/about.ts`, `plantDecisionMoves`, light `landing.ts` homeProblem/whatIs; `STAMPED_CONTEXT.md`; `docs/website-copy.md`. `external/` not updated.
+**Impact:** `lib/content/about.ts`, `plantDecisionMoves`, light `landing.ts` homeProblem/whatIs; `STAMPED_CONTEXT.md`; `docs/website-copy.md`. `external/` not updated (superseded by ADR-025).
+
+---
+
+## ADR-025: Public website copy SSOT in external/brand; rupee compounds spelled out
+
+**Date:** 2026-08-19
+
+**Context:** Origin-story copy on About, home, and solutions is the public voice, but `external/` still had no copy pack, so agents in the platform submodule (or other consumer repos) could pick Master / Client Positioning / the old About hero. Compound phrases used the rupee symbol (`₹-scored`, `₹-ranked`), which the founder does not want.
+
+**Alternatives:**
+
+1. Leave copy canon only in Main_Website `docs/openmontage-brand/`
+2. Rewrite Master Document and Client Positioning as if they were homepage copy
+3. Add portable `external/brand/` (COPY_CANON + WEBSITE_COPY snapshot) as the copy SSOT for agents without the website repo; align OpenMontage canon with live `lib/content/`; spell rupee compounds as words; keep `₹` on amounts
+
+**Selected:** Option 3.
+
+**Rationale:** Live pages remain the string SSOT. Other-repo agents get a snapshot plus origin/problem/solution rules. GTM decks stay in Client Positioning, explicitly not public About/home. Amounts like ₹2-5L stay symbolic; only `₹-` compounds change.
+
+**Impact:** `lib/content/site.ts`, `landing.ts`, `solutions.ts`, `lib/seo/pages.ts`; `docs/website-copy.md`; OpenMontage STAMPED_CONTEXT / VOICE / SITE_IA; `external/brand/`; `external/.cursor/rules/stamped-copy.mdc`; `external/AGENTS.md`. Submodule pointer still needs a stamped-external commit and pin bump when releasing.
 
 

@@ -8,6 +8,8 @@ timestamp: "2026-08-04T18:00:00+05:30"
 
 # Stamped Energy — Client Positioning & Narrative (v1)
 
+> **Not public homepage or About copy.** This four-step narrative is for WhatsApp follow-ups, technical decks, discovery calls, and enterprise accounts. Public origin, problem, and solution SSOT: Main_Website `lib/content/` and `external/brand/COPY_CANON.md`. Do not lead public pages with this document when it conflicts with the live site.
+
 *Status: **Canonical client narrative** — use for WhatsApp follow-ups, technical decks, discovery calls, and enterprise accounts (e.g. ITC-scale I4.0 buyers).*  
 *Supersedes ad-hoc founder drafts when they conflict.*  
 *Honesty:* `[~]` approximate · `[!]` evolving — validate on pilots before customer guarantees.

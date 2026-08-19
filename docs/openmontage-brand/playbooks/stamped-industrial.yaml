@@ -64,7 +64,7 @@ asset_generation:
   consistency_anchors:
     - "Forge Coral (#F75440) as the only primary brand accent"
     - "Demo-deck background #f7faf5 for default scenes; Obsidian Green #000a07 for problem bands"
-    - "₹-scored prescription cards as the hero visual unit"
+    - "rupee-scored prescription cards as the hero visual unit"
     - "Space Grotesk + Inter + IBM Plex Mono only"
     - "Verified with evidence language; no invented fleet metrics"
     - "Two pillars named Industry Energy Management and Asset Health Intelligence"
@@ -97,7 +97,7 @@ quality_rules:
   - "Read context/STAMPED_CONTEXT.md and VOICE_AND_CLAIMS.md before scripting"
 
 taste_profile:
-  design_read: "Bright mid-morning plant office; director scanning ₹-scored next actions; industrial sparse confidence"
+  design_read: "Bright mid-morning plant office; director scanning rupee-scored next actions; industrial sparse confidence"
   visual_variance: 4
   motion_intensity: 5
   information_density: 5

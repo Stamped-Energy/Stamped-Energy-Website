@@ -8,7 +8,8 @@ Agents **must** follow this before writing narration, on-screen text, or image p
 
 - Direct, industrial, rupee-first.
 - Short sentences. Prefer periods and commas. **No em dashes** and no `--`.
-- Prefer: prescription, assigned action, ₹ impact, verified with evidence, read-only, Improve loop. Origin/pitch may also use: intelligence layer for the industrial world; live data in real time; plant-decision moves (run harder or hold back, adjust a process, delay maintenance, switch production priorities).
+- Prefer: prescription, assigned action, rupee-scored, rupee-ranked, ₹ impact (amounts), verified with evidence, read-only, Improve loop. Origin/pitch may also use: intelligence layer for the industrial world; live data in real time; plant-decision moves (run harder or hold back, adjust a process, delay maintenance, switch production priorities).
+- **Rupee compounds (current rule):** write the word. `rupee-scored`, `rupee-ranked`, `rupee-scores`, `rupee-ranks`. Never `₹-scored` or `₹-ranked`. Keep `₹` on amounts (`₹2-5L`, `₹20 lakh`) and on “₹ impact”.
 - Avoid: “AI magic,” “platform of platforms,” “transform your plant,” MES/CMMS replacement language, glassmorphism SaaS tropes in copy.
 
 ---
@@ -80,3 +81,4 @@ Do not show competitor brand marks or their exact metric tiles (e.g. “3–7% o
 3. Is Improve framed as decisions + verification, not creepy learning?
 4. Are pillar names exact public names?
 5. No em dashes?
+6. Rupee compounds spelled out (`rupee-scored`), not `₹-`?

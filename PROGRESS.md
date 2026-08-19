@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-About page origin story (ADR-024) is the customer/VC “why we were built” pitch: company voice, no founder names in Our Story. Homepage problem/what-is lightly aligned. Inner marketing pages have no closing CTA band; homepage still uses `LandingClosingCta`. Remaining motion is P1 (B01–B04) plus Asset Health reserved rows.
+Public copy canon (ADR-025): live homepage / solutions / About is the voice for copy-writing agents. Portable twin in `external/brand/`. Rupee compounds spelled out (`rupee-scored`, not `₹-scored`); amounts keep `₹`. Remaining motion is P1 (B01–B04) plus Asset Health reserved rows.
 
 ## Completed Phases
 
@@ -48,6 +48,7 @@ About page origin story (ADR-024) is the customer/VC “why we were built” pit
 - [x] **Homepage hero plant-flow (ADR-022)** - OpenMontage handoff ported into `HeroPlantFlow`; replaces MotionSlot in homepage hero visual slot
 - [x] **About CVector-style structure (ADR-023)** - cinematic photo hero, narrative Our Story, founders, values last; inner-page closing CTAs removed except home `LandingClosingCta`
 - [x] **Origin story copy (ADR-024)** - company-voice Our Story + intelligence layer hero; light homepage problem/what-is; canon in STAMPED_CONTEXT / VOICE_AND_CLAIMS; `external/` still pending
+- [x] **Public copy canon in external (ADR-025)** - `external/brand/` COPY_CANON + WEBSITE_COPY; rupee-scored / rupee-ranked on site; old About hero superseded
 
 ## Remaining Phases
 
@@ -74,4 +75,4 @@ None.
 
 ## Push / PR readiness
 
-`main` is ahead of origin with ADR-023/024 About + origin-story commits. Push when requested or at auto-push threshold.
+`main` is ahead of origin with ADR-023/024/025 About, origin-story, and copy-canon work. Push when requested or at auto-push threshold. Submodule `external/` brand files are local until stamped-external is committed and the pin is bumped.

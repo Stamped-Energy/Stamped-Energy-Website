@@ -11,7 +11,7 @@ export const PAGE_SEO = {
     absoluteTitle:
       "Stamped Energy | AI-Powered Energy Intelligence for Industrial Plants",
     description:
-      "Stamped analyzes plant and market data to create ₹-scored prescriptions so operators can act before opportunities are missed. Industry Energy Management and Asset Health Intelligence for industrial manufacturers.",
+      "Stamped analyzes plant and market data to create rupee-scored prescriptions so operators can act before opportunities are missed. Industry Energy Management and Asset Health Intelligence for industrial manufacturers.",
     path: "/",
   },
   platform: {
@@ -36,13 +36,13 @@ export const PAGE_SEO = {
   solutionsLoadEnergy: {
     absoluteTitle: "Industry Energy Management | Stamped Energy",
     description:
-      "₹-scored prescriptions for maximum demand, shift-start overlap, idle loads, HVAC, and tariff - assigned owners and verified with evidence.",
+      "rupee-scored prescriptions for maximum demand, shift-start overlap, idle loads, HVAC, and tariff - assigned owners and verified with evidence.",
     path: "/solutions/load-energy",
   },
   solutionsEquipment: {
     absoluteTitle: "Asset Health Intelligence | Stamped Energy",
     description:
-      "₹-ranked anomalies and early equipment warnings tied to energy and process context - assigned prescriptions before trips and waste compound.",
+      "rupee-ranked anomalies and early equipment warnings tied to energy and process context - assigned prescriptions before trips and waste compound.",
     path: "/solutions/equipment-intelligence",
   },
   about: {

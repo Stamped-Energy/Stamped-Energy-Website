@@ -4,7 +4,7 @@ import { icp } from "./icp";
 export const siteConfig = {
   name: "Stamped Energy",
   tagline:
-    "AI-powered energy intelligence for industrial plants. ₹-scored prescriptions. Verified with evidence.",
+    "AI-powered energy intelligence for industrial plants. rupee-scored prescriptions. Verified with evidence.",
   description: icp.seo.entityDefinition,
   /** Public Case Studies & Blogs listing */
   blogUrl: "/case-studies",

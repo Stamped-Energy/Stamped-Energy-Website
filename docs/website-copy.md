@@ -34,7 +34,7 @@ Live marketing copy as of 19 August 2026. Sourced from what public pages actuall
 ### Site
 
 - **Name:** Stamped Energy
-- **Tagline:** AI-powered energy intelligence for industrial plants. ₹-scored prescriptions. Verified with evidence.
+- **Tagline:** AI-powered energy intelligence for industrial plants. rupee-scored prescriptions. Verified with evidence.
 - **Entity definition (SEO / schema):** Stamped Energy is AI-powered prescriptive energy intelligence software for energy-intensive plants in India. It connects existing incomer meters, SCADA, PLCs, and DISCOM bills into ranked prescriptions - what to change, who owns it, rupee impact, and outcomes verified with evidence (DISCOM bill confirmation optional).
 
 ### Navigation
@@ -96,7 +96,7 @@ Live marketing copy as of 19 August 2026. Sourced from what public pages actuall
 
 **Title tag:** Stamped Energy | AI-Powered Energy Intelligence for Industrial Plants
 
-**Meta description:** Stamped analyzes plant and market data to create ₹-scored prescriptions so operators can act before opportunities are missed. Industry Energy Management and Asset Health Intelligence for industrial manufacturers.
+**Meta description:** Stamped analyzes plant and market data to create rupee-scored prescriptions so operators can act before opportunities are missed. Industry Energy Management and Asset Health Intelligence for industrial manufacturers.
 
 ### Hero
 
@@ -133,7 +133,7 @@ Live marketing copy as of 19 August 2026. Sourced from what public pages actuall
 
 **Headline:** AI-powered energy intelligence for industrial plants
 
-**Body:** Stamped brings those perspectives together with live data in real time, then delivers ₹-scored prescriptions with a full audit trail for front-line operators.
+**Body:** Stamped brings those perspectives together with live data in real time, then delivers rupee-scored prescriptions with a full audit trail for front-line operators.
 
 ### How it works
 
@@ -157,11 +157,11 @@ Stamped continuously runs scenario, impact, and risk analysis against your plant
 - Analysis of economic impact, performance, and operational risk
 - Proactive analysis as plant and market conditions change
 
-#### 3. Prescriptions — ₹-scored prescriptions are generated in real time.
+#### 3. Prescriptions — rupee-scored prescriptions are generated in real time.
 
 Stamped's models generate prescriptions ranked by expected economic impact, so operators can see which actions are projected to have the greatest effect on cost and performance.
 
-- ₹-scored prescriptions focus attention on top priorities
+- rupee-scored prescriptions focus attention on top priorities
 - Continuous updates as plant and market conditions change
 - A full audit trail with data sources, scoring model, and recommendation logic
 
@@ -179,7 +179,7 @@ Plant teams review prescriptions through an easy-to-use interface, decide which 
 
 **Headline:** Measurable impact on plant performance and energy cost.
 
-**Body:** Stamped identifies and ₹-scores high-impact prescriptions as plant and market conditions change.
+**Body:** Stamped identifies and rupee-scores high-impact prescriptions as plant and market conditions change.
 
 **Disclaimer:** Indicative ranges from comparable plants. Your pilot replaces these with figures verified with evidence.
 
@@ -206,7 +206,7 @@ Stamped analyzes energy use at the equipment level in the context of demand, pri
 
 #### Asset Health Intelligence
 
-Stamped ₹-ranks anomalies and predictions tied to each asset and tracks operator decisions so plant expertise is captured and compounds with each shift.
+Stamped rupee-ranks anomalies and predictions tied to each asset and tracks operator decisions so plant expertise is captured and compounds with each shift.
 
 **CTA:** Learn more → `/solutions/equipment-intelligence`
 
@@ -216,7 +216,7 @@ Stamped ₹-ranks anomalies and predictions tied to each asset and tracks operat
 
 **Headline:** Stamped for cement, steel, pharma, chemical, and automotive.
 
-**Body:** Turn energy volatility, process constraints, and equipment risk into ₹-scored prescriptions, so every operating hour protects cost.
+**Body:** Turn energy volatility, process constraints, and equipment risk into rupee-scored prescriptions, so every operating hour protects cost.
 
 - **Automotive** — Shift-start peaks, holding loads, utilities
 - **Cement** — Kiln, raw mill, and WHR timing
@@ -319,7 +319,7 @@ Prefer the platform view first? **See how Connect to Improve works**.
 
 **Title tag:** Industry Energy Management | Stamped Energy
 
-**Meta description:** ₹-scored prescriptions for maximum demand, shift-start overlap, idle loads, HVAC, and tariff - assigned owners and verified with evidence.
+**Meta description:** rupee-scored prescriptions for maximum demand, shift-start overlap, idle loads, HVAC, and tariff - assigned owners and verified with evidence.
 
 ### Hero
 
@@ -339,7 +339,7 @@ Prefer the platform view first? **See how Connect to Improve works**.
 
 **Headline:** Measurable impact across the bill, demand, and wasted kWh
 
-**Intro:** Each prescription is ₹-ranked so plant teams can see what each stagger, ToD shift, or idle cut is worth before they act.
+**Intro:** Each prescription is rupee-ranked so plant teams can see what each stagger, ToD shift, or idle cut is worth before they act.
 
 **Disclaimer:** Indicative ranges from comparable plants. Your pilot replaces these with verified figures. Not a guaranteed outcome.
 
@@ -369,7 +369,7 @@ Prefer the platform view first? **See how Connect to Improve works**.
 3. **Plant teams remain in control**
    Every stagger, ToD move, idle cut, or ramp recommendation is accepted, rejected, or adjusted by your team, so Stamped captures plant priorities and operator expertise over time.
 
-4. **₹-ranked stagger, ToD, idle-holding, and ramp recommendations**
+4. **rupee-ranked stagger, ToD, idle-holding, and ramp recommendations**
    Plant teams see movable loads, timing, and rupee value, with a full evidence trail behind each recommendation. No battery-storage claim; thermal holding and ramp profiles where they apply.
 
 ### Examples
@@ -422,7 +422,7 @@ Warm-up is burning peak-rate power even when output is the same. Shift warm-up e
 
 **Title tag:** Asset Health Intelligence | Stamped Energy
 
-**Meta description:** ₹-ranked anomalies and early equipment warnings tied to energy and process context - assigned prescriptions before trips and waste compound.
+**Meta description:** rupee-ranked anomalies and early equipment warnings tied to energy and process context - assigned prescriptions before trips and waste compound.
 
 ### Hero
 
@@ -442,7 +442,7 @@ Warm-up is burning peak-rate power even when output is the same. Shift warm-up e
 
 **Headline:** Measurable impact across downtime, emergency spend, and operator decisions
 
-**Intro:** Recommendations are ₹-ranked, so operators see which energy-linked drift to act on first. Not a CMMS or full vibration PdM claim.
+**Intro:** Recommendations are rupee-ranked, so operators see which energy-linked drift to act on first. Not a CMMS or full vibration PdM claim.
 
 **Disclaimer:** Indicative ranges when teams act on early energy-linked drift. Your pilot replaces these with verified figures.
 
@@ -451,7 +451,7 @@ Warm-up is burning peak-rate power even when output is the same. Shift warm-up e
 | 10-20% | Unplanned downtime prevented | When early drift prescriptions close before a trip |
 | 15-25% | Emergency maintenance cost reduction | Fewer rush repairs when issues surface on the energy graph first |
 | Same shift | Energy-linked waste flagged | Load-shape and SEC drift routed with an owner, not another ignored alert |
-| ₹-ranked | Anomaly prioritization | So utilities and maintenance see highest impact first |
+| rupee-ranked | Anomaly prioritization | So utilities and maintenance see highest impact first |
 | One trail | Shared utilities and maintenance context | Evidence-backed prescriptions, not two disconnected dashboards |
 | Human-gated | Every recommendation | Accept, reject, or adjust. Expertise compounds across shifts |
 
@@ -1205,15 +1205,13 @@ Forging and foundry operations overlapping automotive heat treatment and forging
 
 **Headline:** Close the gap between the floor and the bill.
 
-Stamped Energy started with a simple conviction: industrial sites should make real-time decisions connected to their economic impact.
+Stamped Energy started with a simple conviction: industrial sites should make **real-time decisions connected to their economic impact**.
 
-Plant teams, operations, engineers, managers, and maintainers, make just-in-time decisions every shift, every day. Run harder or hold back. Adjust a process. Delay maintenance. Switch production priorities. Each of these has an impact on costs, revenue, and margins. Making those calls from data, and keeping track of what actually followed, is hard. With so much happening in the plant at once, real-time decision-making is rarely efficient. A lot gets missed.
+Plant teams make just-in-time calls every shift, every day. Run harder or hold back. Adjust a process. Delay maintenance. Switch production priorities. Each one hits costs, revenue, and margins. Making those calls from data is hard. A lot gets missed.
 
-This gap showed up from both sides. Meters and SCADA already record what the plant is doing, but that signal rarely becomes a decision with economic impact. SCADA, ERPs, and the people on the ground stay in separate places. Real-time decisions from all of those sources were, in practice, not possible. What was missing was a system that could bring these perspectives together, with live data in real time, for the people making decisions.
+Meters and SCADA already record the plant. ERPs and the people on the ground live elsewhere. Real-time decisions from all of that were, in practice, not possible. What was missing was a system that could bring these perspectives together, with live data in real time, for the people making decisions.
 
-For years, such a system was impossible to build. The data was messy, the models stayed with experts, and the context lived in people's heads. Now with AI, decision intelligence informed by economics can be part of daily operations, connecting what happens in the plant with business outcomes.
-
-That is what Stamped Energy is building: an intelligence layer for the industrial world.
+For years, such a system was impossible to build. The data was messy, the models stayed with experts, and the context lived in people's heads. Now with AI, that changes. That is what Stamped Energy is building: an **intelligence layer for the industrial world**.
 
 ### Leadership
 

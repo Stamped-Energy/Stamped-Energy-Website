@@ -112,7 +112,7 @@ export const solutionsContent = {
         title: "Asset Health Intelligence",
         shortTitle: "Asset health",
         description:
-          "Stamped ₹-ranks anomalies and predictions tied to each asset and tracks operator decisions so plant expertise is captured and compounds with each shift.",
+          "Stamped rupee-ranks anomalies and predictions tied to each asset and tracks operator decisions so plant expertise is captured and compounds with each shift.",
         hubBrief:
           "Catch mechanical and process-linked waste early using energy and operating context. Maintenance and utilities get assigned prescriptions before trips, scrap, and energy waste compound across the shift.",
         outcome: "Fewer surprise failures. Same evidence trail.",
@@ -144,7 +144,7 @@ export const solutionsContent = {
         eyebrow: "Outcomes",
         title: "Measurable impact across the bill, demand, and wasted kWh",
         intro:
-          "Each prescription is ₹-ranked so plant teams can see what each stagger, ToD shift, or idle cut is worth before they act.",
+          "Each prescription is rupee-ranked so plant teams can see what each stagger, ToD shift, or idle cut is worth before they act.",
         disclaimer:
           "Indicative ranges from comparable plants. Your pilot replaces these with verified figures. Not a guaranteed outcome.",
         items: [
@@ -212,9 +212,9 @@ export const solutionsContent = {
           },
           {
             id: "rupee-ranked",
-            title: "₹-ranked stagger, ToD, idle-holding, and ramp recommendations",
+            title: "rupee-ranked stagger, ToD, idle-holding, and ramp recommendations",
             body: "Plant teams see movable loads, timing, and rupee value, with a full evidence trail behind each recommendation. No battery-storage claim; thermal holding and ramp profiles where they apply.",
-            mediaLabel: "₹-ranked moves",
+            mediaLabel: "rupee-ranked moves",
           },
         ],
       },
@@ -282,7 +282,7 @@ export const solutionsContent = {
         eyebrow: "Outcomes",
         title: "Measurable impact across downtime, emergency spend, and operator decisions",
         intro:
-          "Recommendations are ₹-ranked, so operators see which energy-linked drift to act on first. Not a CMMS or full vibration PdM claim.",
+          "Recommendations are rupee-ranked, so operators see which energy-linked drift to act on first. Not a CMMS or full vibration PdM claim.",
         disclaimer:
           "Indicative ranges when teams act on early energy-linked drift. Your pilot replaces these with verified figures.",
         items: [
@@ -306,7 +306,7 @@ export const solutionsContent = {
           },
           {
             id: "ranked",
-            value: "₹-ranked",
+            value: "rupee-ranked",
             label: "Anomaly prioritization",
             detail: "So utilities and maintenance see highest impact first",
           },

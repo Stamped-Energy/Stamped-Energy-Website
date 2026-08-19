@@ -1,6 +1,6 @@
 ---
 name: Stamped Energy
-description: AI-powered energy intelligence for industrial plants. ₹-scored prescriptions. Verified with evidence.
+description: AI-powered energy intelligence for industrial plants. rupee-scored prescriptions. Verified with evidence.
 colors:
   primary: "#F75440"
   on-primary: "#ffffff"
@@ -251,7 +251,7 @@ Loaded via `next/font/google` in `app/layout.tsx`; wired as `--font-display`, `-
 - Change colors only in `styles/theme.css`; map utilities through `app/globals.css`.
 - Keep homepage section order unless IA is explicitly revised.
 - Use real plant imagery for industries; MotionSlot only where animation is deferred.
-- Lead with Verified with evidence / ₹-scored language where product truth allows.
+- Lead with Verified with evidence / rupee-scored language where product truth allows.
 - Prefer hairline borders and tonal bands over cards.
 - Keep side accents at **1px** if used at all.
 

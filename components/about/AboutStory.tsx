@@ -10,6 +10,24 @@ import { aboutContent } from "@/lib/content/about";
 import { scrollTriggerDefaults } from "@/lib/motion/config";
 import { gsap, useGSAP } from "@/lib/motion/gsap";
 
+function StoryParagraph({ text }: { text: string }) {
+  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+
+  return (
+    <>
+      {parts.map((part, index) =>
+        part.startsWith("**") && part.endsWith("**") ? (
+          <strong key={index} className="font-semibold text-on-surface">
+            {part.slice(2, -2)}
+          </strong>
+        ) : (
+          part
+        ),
+      )}
+    </>
+  );
+}
+
 export function AboutStory() {
   const sectionRef = useRef<HTMLElement>(null);
   const { story } = aboutContent;
@@ -39,19 +57,26 @@ export function AboutStory() {
       className="border-b border-outline-variant/40 bg-surface section-y"
     >
       <Container>
-        <Reveal className="mx-auto max-w-3xl">
-          <SectionHeading eyebrow={story.eyebrow} title={story.title} align="center" />
-        </Reveal>
-        <div className="mx-auto mt-8 max-w-3xl space-y-6 text-center md:mt-10">
-          {story.paragraphs.map((paragraph) => (
-            <p
-              key={paragraph}
-              data-about-story
-              className="text-sm leading-7 text-on-surface-variant md:text-base md:leading-8"
-            >
-              {paragraph}
-            </p>
-          ))}
+        <div className="mx-auto max-w-3xl">
+          <Reveal>
+            <SectionHeading
+              eyebrow={story.eyebrow}
+              title={story.title}
+              align="center"
+              className="max-w-none"
+            />
+          </Reveal>
+          <div className="mt-8 space-y-6 text-left md:mt-10">
+            {story.paragraphs.map((paragraph) => (
+              <p
+                key={paragraph}
+                data-about-story
+                className="text-base leading-8 text-on-surface-variant md:text-lg md:leading-9"
+              >
+                <StoryParagraph text={paragraph} />
+              </p>
+            ))}
+          </div>
         </div>
       </Container>
     </section>

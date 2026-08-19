@@ -111,7 +111,7 @@ export const landingContent = {
     badge: "What is Stamped",
     title: "AI-powered energy intelligence for industrial plants",
     description:
-      "Stamped brings those perspectives together with live data in real time, then delivers ₹-scored prescriptions with a full audit trail for front-line operators.",
+      "Stamped brings those perspectives together with live data in real time, then delivers rupee-scored prescriptions with a full audit trail for front-line operators.",
     motionSlotLabel: "Product visual",
   },
 
@@ -149,11 +149,11 @@ export const landingContent = {
         id: "recommendations",
         step: 3,
         label: "Prescriptions",
-        title: "₹-scored prescriptions are generated in real time.",
+        title: "rupee-scored prescriptions are generated in real time.",
         description:
           "Stamped's models generate prescriptions ranked by expected economic impact, so operators can see which actions are projected to have the greatest effect on cost and performance.",
         bullets: [
-          "₹-scored prescriptions focus attention on top priorities",
+          "rupee-scored prescriptions focus attention on top priorities",
           "Continuous updates as plant and market conditions change",
           "A full audit trail with data sources, scoring model, and recommendation logic",
         ],
@@ -178,7 +178,7 @@ export const landingContent = {
     badge: "Impact",
     title: "Measurable impact on plant performance and energy cost.",
     description:
-      "Stamped identifies and ₹-scores high-impact prescriptions as plant and market conditions change.",
+      "Stamped identifies and rupee-scores high-impact prescriptions as plant and market conditions change.",
     disclaimer:
       "Indicative ranges from comparable plants. Your pilot replaces these with figures verified with evidence.",
     items: [
@@ -477,7 +477,7 @@ export const landingContent = {
     eyebrow: "Industries",
     title: "Stamped for cement, steel, pharma, chemical, and automotive.",
     description:
-      "Turn energy volatility, process constraints, and equipment risk into ₹-scored prescriptions, so every operating hour protects cost.",
+      "Turn energy volatility, process constraints, and equipment risk into rupee-scored prescriptions, so every operating hour protects cost.",
     cta: { label: "Explore automotive", href: "/industries/automotive" } satisfies CtaLink,
     items: [
       {

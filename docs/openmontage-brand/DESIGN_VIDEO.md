@@ -1,6 +1,6 @@
 ---
 name: Stamped Energy Video
-description: OpenMontage / motion-graphics design system. Plant-office decision layer. ₹-scored prescriptions. Verified with evidence.
+description: OpenMontage / motion-graphics design system. Plant-office decision layer. rupee-scored prescriptions. Verified with evidence.
 register: brand
 colors:
   primary: "#F75440"
@@ -34,7 +34,7 @@ typography:
 
 # Design System: Stamped Energy Video
 
-Impeccable **brand** register. Scene sentence: *Plant director at mid-morning in a bright control office, scanning ₹-scored next actions; not a neon SaaS dashboard at 2am.*
+Impeccable **brand** register. Scene sentence: *Plant director at mid-morning in a bright control office, scanning rupee-scored next actions; not a neon SaaS dashboard at 2am.*
 
 Creative north star matches the website: **Plant-office decision layer.** Videos sell assigned actions and verified ₹, not dashboard theater.
 
@@ -120,7 +120,7 @@ One job per scene. One headline. One support line. One dominant visual.
 
 ### Do
 
-- Lead with ₹-scored prescriptions and verified-with-evidence language
+- Lead with rupee-scored prescriptions and verified-with-evidence language
 - Use Stamped pillar names exactly
 - Prefer UI motion over decorative particles
 - Hold establishing beats ≥2.5s; text cards ≥3s

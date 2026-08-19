@@ -44,7 +44,7 @@ playbooks/stamped-industrial.yaml  →  styles/stamped-industrial.yaml
 ```text
 Read brand/stamped (or docs/openmontage-brand) using README read-order.
 Use playbook stamped-industrial.
-Make a 60-second ₹-scored prescriptions explainer for a North India auto-component plant (Band A ICP).
+Make a 60-second rupee-scored prescriptions explainer for a North India auto-component plant (Band A ICP).
 ```
 
 ---
@@ -58,6 +58,8 @@ Make a 60-second ₹-scored prescriptions explainer for a North India auto-compo
 | Website PRODUCT / DESIGN | Main_Website root | live |
 
 Refresh `context/sources/` when Master or ICP major-bumps. Distillations may need a short edit pass after.
+
+When homepage, solutions, or About copy changes on the live site, also update `external/brand/` (`COPY_CANON.md`, `WEBSITE_COPY.md`) so other-repo agents stay aligned.
 
 ---
 

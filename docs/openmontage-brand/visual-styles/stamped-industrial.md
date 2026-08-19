@@ -12,7 +12,7 @@ created: "2026-08-11"
 
 style_prompt_short: >
   Plant-office decision layer motion graphics for Stamped Energy.
-  Forge coral #F75440 on demo-deck #f7faf5. ₹-scored prescription UI as hero.
+  Forge coral #F75440 on demo-deck #f7faf5. rupee-scored prescription UI as hero.
   Space Grotesk, Inter, Plex Mono. Ease-out only.
 
 style_prompt_full: >

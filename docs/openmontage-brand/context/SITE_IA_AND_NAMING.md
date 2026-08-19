@@ -10,7 +10,7 @@ Canonical marketing strings from Main_Website `lib/content/` and footer config. 
 |------|--------|
 | Company | Stamped Energy |
 | Product | Stamped Intelligence |
-| Tagline (site) | AI-powered energy intelligence for industrial plants. ₹-scored prescriptions. Verified with evidence. |
+| Tagline (site) | AI-powered energy intelligence for industrial plants. rupee-scored prescriptions. Verified with evidence. |
 | Primary CTA | Book a Discovery Call (href `/contact`) |
 | Alt CTA patterns | Start with your plant; See how it works (`/platform`) |
 | Contact email | stamped.energy@gmail.com |
@@ -60,7 +60,10 @@ How-it-works storytelling may also use the four-beat C-Vector-inspired stage nam
 
 - Founders: Vinayak Raizada (Co-Founder), Utso Sarkar (Co-Founder)
 - IIT Roorkee
-- Hero line: *Your plant has the data. It lacks the decision layer.*
+- Hero line: *We're building the intelligence layer for the industrial world.*
+- Story headline: *Close the gap between the floor and the bill.*
+- Origin: four company-voice paragraphs in `lib/content/about.ts`. **Do not name founders** in Our Story.
+- **Superseded:** *Your plant has the data. It lacks the decision layer.* Do not use as public About hero.
 - Values: Integrity · Innovation · Customers first
 
 Do not invent additional executives, offices, or funding rounds unless present in Master / About sources.
