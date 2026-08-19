@@ -1,11 +1,22 @@
 export const aboutContent = {
   hero: {
     eyebrow: "Who we are",
-    title: "Your plant has the data. It lacks the decision layer.",
+    title: "We're building the decision layer for energy-intensive plants.",
     description:
       "Stamped turns meters, SCADA, and bills into assigned actions with ₹ impact—verified with evidence.",
     heroImageSrc: "/industries/die-casting.jpeg",
     heroImageAlt: "Energy-intensive manufacturing plant floor",
+  },
+
+  story: {
+    eyebrow: "Our Story",
+    title: "Close the gap between the floor and the bill.",
+    paragraphs: [
+      "Plant teams already decide what to run, hold, and stagger. Those calls land on the DISCOM bill as maximum demand, TOD, and idle kWh. The floor and the bill stay disconnected.",
+      "Hold a furnace or keep it hot. Stagger a feeder start. Delay a compressor. Each one is an operations choice with a rupee consequence. In most plants that consequence is guesswork until month-end.",
+      "Vinayak came at this as an electrical engineer: meters and SCADA already record the load, but nothing turns that signal into an assigned action with a rupee number. Utso came at it from the floor and the product: supervisors do not need another dashboard. They need prescriptions they can execute and check against evidence.",
+      "Stamped is a read-only decision layer on the systems plants already run. Assigned actions with ₹ impact, verified with evidence.",
+    ],
   },
 
   team: {
