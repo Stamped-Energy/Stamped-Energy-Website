@@ -54,7 +54,7 @@ export function SolutionsHero({
   return (
     <section
       ref={sectionRef}
-      className="page-hero relative overflow-hidden border-b border-outline-variant/40 bg-surface"
+      className="page-hero relative overflow-hidden bg-secondary"
     >
       <div className="absolute inset-0">
         <Image

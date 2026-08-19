@@ -16,7 +16,7 @@ export function HiwProseStack({ content, sectionId, className }: HiwProseStackPr
   return (
     <section
       id={sectionId}
-      className={cn("border-b border-outline-variant/40 bg-surface section-y", className)}
+      className={cn("bg-surface section-y", className)}
     >
       <Container>
         <Reveal>

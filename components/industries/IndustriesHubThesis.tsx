@@ -6,7 +6,7 @@ export function IndustriesHubThesis() {
   const { thesis } = industriesContent.hub;
 
   return (
-    <section className="border-b border-outline-variant/30 bg-surface section-y">
+    <section className="bg-surface section-y">
       <Container>
         <div className="max-w-2xl">
           <SectionBadge label={thesis.eyebrow} />

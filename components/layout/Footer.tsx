@@ -34,7 +34,7 @@ function FooterColumn({
 
 export function Footer() {
   return (
-    <footer className="border-t border-outline-variant/20 bg-secondary text-on-secondary">
+    <footer className="bg-secondary text-on-secondary">
       <Container className="py-16 md:py-20">
         <div className="grid gap-14 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1.4fr)] lg:gap-16">
           <div className="max-w-md">

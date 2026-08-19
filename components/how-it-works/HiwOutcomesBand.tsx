@@ -8,7 +8,7 @@ export function HiwOutcomesBand() {
   const { beforeAfter } = howItWorksContent;
 
   return (
-    <section className="border-y border-outline-variant/30 bg-surface section-y">
+    <section className="bg-surface section-y">
       <Container>
         <Reveal>
           <div className="mx-auto max-w-2xl text-center">

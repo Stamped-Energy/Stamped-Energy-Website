@@ -36,7 +36,7 @@ export function ContactPageView() {
 
   return (
     <div ref={pageRef}>
-      <section className="page-hero relative overflow-hidden border-b border-outline-variant/40 bg-secondary md:min-h-[58vh] md:flex md:items-end">
+      <section className="page-hero relative overflow-hidden bg-secondary md:min-h-[58vh] md:flex md:items-end">
         <div className="absolute inset-0">
           <Image
             src={hero.heroImageSrc}

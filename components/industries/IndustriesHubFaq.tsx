@@ -6,7 +6,7 @@ export function IndustriesHubFaq() {
   const { faq } = industriesContent.hub;
 
   return (
-    <section className="border-t border-outline-variant/30 bg-surface section-y">
+    <section className="bg-surface section-y">
       <Container>
         <div className="mx-auto max-w-3xl text-center">
           <div className="flex justify-center">

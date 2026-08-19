@@ -44,7 +44,7 @@ export function CaseStudyDetailView({ study }: CaseStudyDetailViewProps) {
 
   return (
     <>
-      <section className="page-hero relative overflow-hidden border-b border-outline-variant/40 bg-secondary">
+      <section className="page-hero relative overflow-hidden bg-secondary">
         <div className="absolute inset-0">
           <ContentImage
             src={coverImage}

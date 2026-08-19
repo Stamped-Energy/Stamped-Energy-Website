@@ -38,7 +38,7 @@ export function BlogHero({ eyebrow, title, description }: BlogHeroProps) {
   return (
     <section
       ref={sectionRef}
-      className="page-hero relative overflow-hidden border-b border-outline-variant/40 bg-secondary"
+      className="page-hero relative overflow-hidden bg-secondary"
     >
       <Container className="relative z-10">
         <div className="max-w-2xl">

@@ -83,8 +83,10 @@ export function BlogArticleView({ post, related }: BlogArticleViewProps) {
       <section
         ref={heroRef}
         className={cn(
-          "page-hero relative overflow-hidden border-b border-outline-variant/40",
-          hasCover ? "min-h-[22rem] bg-secondary md:min-h-0" : "bg-surface",
+          "page-hero relative overflow-hidden",
+          hasCover
+            ? "min-h-[22rem] bg-secondary md:min-h-0"
+            : "border-b border-outline-variant/40 bg-surface",
         )}
       >
         {hasCover ? (

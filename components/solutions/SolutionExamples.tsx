@@ -9,7 +9,7 @@ type SolutionExamplesProps = {
 
 export function SolutionExamples({ examples }: SolutionExamplesProps) {
   return (
-    <section className="border-b border-outline-variant/30 bg-surface-low section-y">
+    <section className="bg-surface-low section-y">
       <Container>
         <Reveal>
           <SectionBadge label={examples.eyebrow} />
