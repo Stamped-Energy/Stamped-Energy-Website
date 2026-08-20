@@ -1,8 +1,11 @@
 import type { MetadataRoute } from "next";
 
-import { listPublishedPosts } from "@/lib/blog/posts";
+import { listPublishedPostsForSitemap } from "@/lib/blog/posts";
+import { listPublishedCaseStudiesForSitemap } from "@/lib/case-studies/studies";
 import { safeDbQuery } from "@/lib/db/safe-query";
 import { absoluteUrl } from "@/lib/seo/metadata";
+
+export const revalidate = 3600;
 
 const STATIC_PATHS = [
   "/",
@@ -19,6 +22,10 @@ const STATIC_PATHS = [
   "/industries/steel",
   "/industries/pharma",
   "/industries/chemical",
+  "/resources",
+  "/resources/stamped-vs-ems",
+  "/resources/maximum-demand-india",
+  "/resources/discom-bill-guide",
 ] as const;
 
 const STATIC_PRIORITIES: Record<string, number> = {
@@ -36,15 +43,30 @@ const STATIC_PRIORITIES: Record<string, number> = {
   "/case-studies": 0.85,
   "/industries": 0.8,
   "/contact": 0.75,
+  "/resources": 0.85,
+  "/resources/stamped-vs-ems": 0.85,
+  "/resources/maximum-demand-india": 0.85,
+  "/resources/discom-bill-guide": 0.85,
 };
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const emptyPosts = {
-    posts: [],
-    pagination: { page: 1, limit: 500, total: 0, totalPages: 0, hasMore: false },
-  };
+function safeLastModified(value: string | null | undefined): Date {
+  if (!value) {
+    return new Date();
+  }
+  const parsed = new Date(value);
+  return Number.isNaN(parsed.getTime()) ? new Date() : parsed;
+}
 
-  const postsResult = await safeDbQuery(() => listPublishedPosts({ limit: 500 }), emptyPosts);
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const postsResult = await safeDbQuery(() => listPublishedPostsForSitemap(), []);
+  const studiesResult = await safeDbQuery(() => listPublishedCaseStudiesForSitemap(), []);
+
+  if (postsResult.databaseError) {
+    console.error("[sitemap] database error loading blog posts; returning static + empty posts");
+  }
+  if (studiesResult.databaseError) {
+    console.error("[sitemap] database error loading case studies; returning static + empty studies");
+  }
 
   const staticEntries: MetadataRoute.Sitemap = STATIC_PATHS.map((path) => ({
     url: absoluteUrl(path),
@@ -53,12 +75,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: new Date(),
   }));
 
-  const blogEntries: MetadataRoute.Sitemap = postsResult.data.posts.map((post) => ({
+  const blogEntries: MetadataRoute.Sitemap = postsResult.data.map((post) => ({
     url: absoluteUrl(`/blog/${post.slug}`),
-    lastModified: new Date(post.updatedAt),
+    lastModified: safeLastModified(post.updatedAt),
     changeFrequency: "weekly",
     priority: 0.7,
   }));
 
-  return [...staticEntries, ...blogEntries];
+  const caseStudyEntries: MetadataRoute.Sitemap = studiesResult.data.map((study) => ({
+    url: absoluteUrl(`/case-studies/${study.slug}`),
+    lastModified: safeLastModified(study.updatedAt),
+    changeFrequency: "weekly",
+    priority: 0.75,
+  }));
+
+  return [...staticEntries, ...blogEntries, ...caseStudyEntries];
 }

@@ -24,7 +24,7 @@ export function HomeImpact() {
           </p>
         </Reveal>
 
-        <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3 lg:gap-10">
+        <div className="key-numbers mt-12 grid gap-8 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3 lg:gap-10">
           {impact.items.map((item, index) => (
             <Reveal
               key={item.id}

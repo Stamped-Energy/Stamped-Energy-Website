@@ -548,4 +548,24 @@ Architecture and workflow decisions for this project.
 
 ---
 
+## ADR-029: Full SEO / GEO / AEO remediation
+
+**Date:** 2026-08-20
+
+**Context:** Technical SEO foundation existed, but production discovery, homepage AEO, entity `sameAs`, case-study proof URLs, commercial long-tail landers, and AI crawler files had drifted. GSC was registered with weak/no impressions. Founder approved a full remediation plan.
+
+**Alternatives:**
+
+1. Meta-keywords-only pass (insufficient for rank)
+2. Content landers without fixing sitemap/FAQ (discovery still broken)
+3. Full crawl + AEO + resources + case-detail restore (selected)
+
+**Selected:** Phased remediation: uncapped sitemap helpers; homepage FAQ + Speakable; SearchAction to `/case-studies?search=`; per-page keywords; restore `/case-studies/[slug]`; `/resources` hub + three guides; detailed `llms.txt` / `llms-full.txt`; docs sync. LinkedIn company URL left as `COMPANY_LINKEDIN_URL` until founders paste the real page.
+
+**Rationale:** Rank for this ICP is blocked more by crawl health, entity clarity, and missing intent pages than by missing HTML keyword tags. Restoring FAQ and durable case URLs gives AEO and E-E-A-T something to cite.
+
+**Impact:** `app/sitemap.ts`, `lib/blog/posts.ts`, `lib/case-studies/studies.ts`, `app/page.tsx`, `Hero`, `HomeImpact`, `BlogCatalog`, `app/case-studies/*`, `lib/content/resource-guides/*`, `app/resources/*`, `lib/seo/*`, `public/llms.txt`, `SEO_GEO_AEO.md`, `PROGRESS.md`.
+
+---
+
 

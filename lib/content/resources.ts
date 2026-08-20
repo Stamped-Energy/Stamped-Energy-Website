@@ -14,15 +14,15 @@ export const resourcesContent = {
   items: [
     {
       id: "auto-sec-insight",
-      type: "blog",
+      type: "case-study",
       title: "Automotive & pump manufacturing: 18% SEC reduction",
       description:
         "16 verified measures across compressors, furnaces, and shift-start sequencing, IPMVP-style M&V with ₹12-34L monthly energy savings (reference benchmark).",
-      href: "/case-studies",
-      tag: "Blog",
+      href: "/case-studies/automotive-pump-sec-reduction",
+      tag: "Case study",
       imageSrc: RESOURCE_IMAGES.forging,
       imageAlt: "Forging press line energy cost reduction - maximum demand control",
-      readMoreLabel: "Browse case studies & blogs →",
+      readMoreLabel: "Read case study →",
     },
     {
       id: "die-cast-blog",

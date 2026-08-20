@@ -233,6 +233,20 @@ export async function listPublishedCaseStudies(options?: {
   };
 }
 
+/** Uncapped published case studies for sitemap / llms-full (bypasses the public list limit of 24). */
+export async function listPublishedCaseStudiesForSitemap(): Promise<CaseStudyListItem[]> {
+  const studies = await prisma.caseStudy.findMany({
+    where: {
+      status: "PUBLISHED",
+      publishedAt: { lte: new Date() },
+    },
+    include: { author: { select: { name: true } } },
+    orderBy: [{ featured: "desc" }, { publishedAt: "desc" }],
+  });
+
+  return studies.map(mapListItem);
+}
+
 export async function getPublishedCaseStudyBySlug(slug: string): Promise<CaseStudyDTO | null> {
   try {
     const study = await prisma.caseStudy.findFirst({

@@ -26,8 +26,15 @@ const collectionSchema = buildCollectionPageSchema({
   path: PAGE_SEO.caseStudies.path,
 });
 
+type CaseStudiesRouteProps = {
+  searchParams: Promise<{ search?: string }>;
+};
+
 /** Public Case Studies & Blogs listing. CRM BlogPost data; CaseStudy admin untouched. */
-export default async function CaseStudiesRoute() {
+export default async function CaseStudiesRoute({ searchParams }: CaseStudiesRouteProps) {
+  const { search } = await searchParams;
+  const initialSearch = typeof search === "string" ? search : "";
+
   const emptyPosts = {
     posts: [],
     pagination: { page: 1, limit: 6, total: 0, totalPages: 0, hasMore: false },
@@ -35,7 +42,15 @@ export default async function CaseStudiesRoute() {
 
   const [featuredResult, catalogResult] = await Promise.all([
     safeDbQuery(() => listPublishedPosts({ featured: true, limit: 3 }), emptyPosts),
-    safeDbQuery(() => listPublishedPosts({ page: 1, limit: 6 }), emptyPosts),
+    safeDbQuery(
+      () =>
+        listPublishedPosts({
+          page: 1,
+          limit: 6,
+          ...(initialSearch.trim() ? { search: initialSearch } : {}),
+        }),
+      emptyPosts,
+    ),
   ]);
 
   const databaseError = featuredResult.databaseError || catalogResult.databaseError;
@@ -53,6 +68,7 @@ export default async function CaseStudiesRoute() {
         initialPosts={catalogResult.data.posts}
         initialHasMore={catalogResult.data.pagination.hasMore}
         initialPage={catalogResult.data.pagination.page}
+        initialSearch={initialSearch}
       />
     </>
   );

@@ -105,7 +105,7 @@ export function buildPageMetadataFromConfig(config: PageSeoConfig): Metadata {
     absoluteTitle: config.absoluteTitle,
     description: config.description,
     path: config.path,
-    keywords: [...SEO_KEYWORDS],
+    keywords: config.keywords ? [...config.keywords] : [...SEO_KEYWORDS],
   });
 }
 
