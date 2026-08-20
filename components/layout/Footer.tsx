@@ -65,7 +65,7 @@ export function Footer() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 gap-10 sm:grid-cols-4 sm:gap-8">
+          <div className="hidden grid-cols-2 gap-10 sm:grid-cols-4 sm:gap-8 md:grid">
             <FooterColumn title="Solutions" links={footerLinks.solutions} />
             <FooterColumn title="Industries" links={footerLinks.industries} />
             <FooterColumn title="Resources" links={footerLinks.resources} />
