@@ -173,6 +173,20 @@ export async function listPublishedPosts(options?: {
   };
 }
 
+/** Uncapped published posts for sitemap / llms-full (bypasses the public list limit of 24). */
+export async function listPublishedPostsForSitemap(): Promise<BlogPostListItem[]> {
+  const posts = await prisma.blogPost.findMany({
+    where: {
+      status: "PUBLISHED",
+      publishedAt: { lte: new Date() },
+    },
+    include: { author: { select: { name: true } } },
+    orderBy: [{ featured: "desc" }, { publishedAt: "desc" }],
+  });
+
+  return posts.map(mapListItem);
+}
+
 export async function getPublishedPostBySlug(slug: string): Promise<BlogPostDTO | null> {
   try {
     const post = await prisma.blogPost.findFirst({

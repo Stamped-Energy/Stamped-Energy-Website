@@ -2,7 +2,7 @@ import { landingContent } from "@/lib/content/landing";
 import { icp } from "@/lib/content/icp";
 import { getVerticalPage, type VerticalSlug } from "@/lib/content/vertical-pages";
 import type { IndustryFaqItem } from "@/lib/content/types";
-import { DEFAULT_OG_IMAGE, ORGANIZATION_ID, SITE_URL, WEBSITE_ID } from "@/lib/seo/constants";
+import { DEFAULT_OG_IMAGE, ORGANIZATION_ID, SITE_URL, WEBSITE_ID, COMPANY_LINKEDIN_URL } from "@/lib/seo/constants";
 import type { FaqItem } from "@/lib/seo/extract-faq";
 
 export const organizationPublisher = {
@@ -65,6 +65,7 @@ export const organizationSchema = {
   sameAs: [
     "https://www.linkedin.com/in/vinayak-rz/",
     "https://www.linkedin.com/in/utso/",
+    ...(COMPANY_LINKEDIN_URL ? [COMPANY_LINKEDIN_URL] : []),
   ],
 };
 
@@ -82,7 +83,7 @@ export const websiteSchema = {
     "@type": "SearchAction",
     target: {
       "@type": "EntryPoint",
-      urlTemplate: `${SITE_URL}/blog?search={search_term_string}`,
+      urlTemplate: `${SITE_URL}/case-studies?search={search_term_string}`,
     },
     "query-input": "required name=search_term_string",
   },

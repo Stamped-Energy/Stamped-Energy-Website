@@ -21,6 +21,12 @@ export { icp, icpBillLine } from "./icp";
 export { landingContent } from "./landing";
 export { resourcesContent } from "./resources";
 export {
+  getResourceGuide,
+  listResourceGuides,
+  RESOURCE_GUIDE_SLUGS,
+  type ResourceGuideSlug,
+} from "./resource-guides";
+export {
   solutionsContent,
   getSolutionPillar,
   type SolutionPillarSlug,

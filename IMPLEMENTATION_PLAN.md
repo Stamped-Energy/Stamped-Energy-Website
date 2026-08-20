@@ -1,3 +1,45 @@
+# Implementation Plan — Full SEO / GEO / AEO (ADR-029)
+
+_Status: Implementation complete in-repo 2026-08-20. Deploy + GSC + LinkedIn URL pending founders._
+
+## Goal
+
+Make stamped.work crawlable, FAQ-ready for AEO, entity-ready for GEO, keyword-mapped per route, and content-rich with `/resources` landers and durable case-study URLs.
+
+## Scope
+
+- Sitemap helpers and soft-fail
+- Homepage FAQ + Speakable + SearchAction
+- Per-page keywords + `COMPANY_LINKEDIN_URL`
+- Restore `/case-studies/[slug]`
+- `/resources` hub + three guides
+- Detailed `llms.txt` / `llms-full.txt`
+- Docs: `SEO_GEO_AEO.md`, `PROGRESS.md`, `DECISIONS.md`
+
+## Non-goals
+
+- Guaranteeing #1 for global EMS head terms
+- Inventing customers or fleet metrics
+- Editing the Cursor plan file
+- Creating GBP / Wikidata / LinkedIn page (founder actions)
+
+## Phase breakdown
+
+1. Sitemap completeness  
+2. Homepage FAQ / AEO  
+3. Keywords + entity constant  
+4. Case study detail restore  
+5. Resource guides  
+6. llms expansion  
+7. Docs + build validation  
+
+## Validation
+
+- `npm run build` green (resources + case-study routes present)
+- Post-deploy: GSC sitemap resubmit
+
+---
+
 # Implementation Plan — `/platform` static product page (ADR-026)
 
 _Status: Implementation complete. Hero layout updated 2026-08-20 (ADR-028)._

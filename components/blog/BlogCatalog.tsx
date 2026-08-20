@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import { BlogPostCard } from "@/components/blog/BlogPostCard";
 import { useMotion } from "@/components/motion/MotionProvider";
@@ -16,6 +16,8 @@ type BlogCatalogProps = {
   initialPosts: BlogPostListItem[];
   initialHasMore: boolean;
   initialPage: number;
+  /** From URL ?search= so WebSite SearchAction lands on a working catalog. */
+  initialSearch?: string;
 };
 
 function SearchIcon({ className }: { className?: string }) {
@@ -36,15 +38,21 @@ function SearchIcon({ className }: { className?: string }) {
   );
 }
 
-export function BlogCatalog({ initialPosts, initialHasMore, initialPage }: BlogCatalogProps) {
+export function BlogCatalog({
+  initialPosts,
+  initialHasMore,
+  initialPage,
+  initialSearch = "",
+}: BlogCatalogProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const [posts, setPosts] = useState(initialPosts);
   const [activeCategory, setActiveCategory] = useState("all");
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState(initialSearch);
   const [page, setPage] = useState(initialPage);
   const [hasMore, setHasMore] = useState(initialHasMore);
   const [isLoading, setIsLoading] = useState(false);
   const [fetchError, setFetchError] = useState<string | null>(null);
+  const hydratedSearchRef = useRef(false);
   const { isReady, prefersReducedMotion } = useMotion();
 
   const fetchPosts = useCallback(
@@ -86,6 +94,19 @@ export function BlogCatalog({ initialPosts, initialHasMore, initialPage }: BlogC
     },
     [],
   );
+
+  useEffect(() => {
+    if (hydratedSearchRef.current || !initialSearch.trim()) {
+      return;
+    }
+    hydratedSearchRef.current = true;
+    void fetchPosts({
+      page: 1,
+      category: "all",
+      search: initialSearch,
+      append: false,
+    });
+  }, [fetchPosts, initialSearch]);
 
   const handleCategoryChange = async (categoryId: string) => {
     setActiveCategory(categoryId);

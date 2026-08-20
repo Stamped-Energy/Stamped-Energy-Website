@@ -43,6 +43,12 @@ export const SEO_KEYWORDS = [
   "automotive plant energy cost reduction India",
 ] as const;
 
+/**
+ * LinkedIn Company Page URL for Organization sameAs / GEO.
+ * Leave empty until the real Stamped Energy company page URL is confirmed, then paste it here.
+ */
+export const COMPANY_LINKEDIN_URL = "https://www.linkedin.com/company/stamped-energy";
+
 /** Re-export for llms.txt generation and docs - single positioning source */
 export const SEO_ENTITY_DEFINITION = icp.seo.entityDefinition;
 export const SEO_CATEGORY_LABEL = icp.seo.categoryLabel;

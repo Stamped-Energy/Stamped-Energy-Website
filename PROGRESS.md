@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-Platform product hero (ADR-028): CVector `/product` rhythm on `/platform`; contact form two-column polish. Industry zig-zag (ADR-027) remains shipped. Mobile distill: three Impact stats below `md`; denser home and zig-zag copy hidden or clamped.
+**ADR-029 SEO / GEO / AEO full remediation** — implementation complete in-repo (2026-08-20). Awaiting deploy + GSC sitemap resubmit + LinkedIn company URL for `COMPANY_LINKEDIN_URL`.
 
 ## Completed Phases
 
@@ -55,6 +55,7 @@ Platform product hero (ADR-028): CVector `/product` rhythm on `/platform`; conta
 - [x] **Mobile content distill** - Impact three stats on small screens; HIW bullets and resource blurbs hidden on phone; zig-zag bodies clamped. Problem chromes stay on mobile. Desktop unchanged.
 - [x] **Solution Rx cards** - mobile keeps compact cards; desktop shows What / Why / Effort / How you check. Outcomes: three on small screens, six from `md` up.
 - [x] **Industry photo rematch (2026-08-20)** - steel zig-zag uses mill/forging/cooling shots; pharma hero + band use cleanroom/chillers/utility hall
+- [x] **SEO/GEO/AEO full pass (ADR-029)** - sitemap helpers; homepage FAQ + Speakable; SearchAction; per-page keywords; case-study detail URLs restored; `/resources` hub + 3 guides; detailed llms.txt / llms-full; docs sync; `npm run build` green
 
 ## Remaining Phases
 
@@ -63,15 +64,14 @@ Platform product hero (ADR-028): CVector `/product` rhythm on `/platform`; conta
 - [x] `/solutions/load-energy` How it works chromes — `LoadEnergyHiwVisuals`
 - [x] `/solutions/equipment-intelligence` How it works chromes — `AssetHealthHiwVisuals`
 - [ ] First OpenMontage production using `stamped-industrial` playbook (outside this repo)
-- See **`SEO_GEO_AEO.md` → Remaining & ongoing maintenance** for SEO list. Highlights:
-- [ ] **Google Business Profile** (Section 12 #3)
-- [ ] **LinkedIn Company Page** (Section 12 #4) - then update Organization schema `sameAs`
-- [ ] **Wikidata entry** for Stamped Energy (Section 12 #5)
+- See **`SEO_GEO_AEO.md` → Remaining** for SEO list. Highlights:
+- [ ] **Paste LinkedIn Company URL** into `lib/seo/constants.ts` → `COMPANY_LINKEDIN_URL`
+- [ ] **GSC:** resubmit sitemap + URL Inspection after deploy
+- [ ] **Google Business Profile**
+- [ ] **Wikidata entry** for Stamped Energy
 - [ ] Replace placeholder industry hero images (cement, steel, pharma, chemical photo shoot)
-- [ ] Industries hub live page (still redirects to automotive)
-- [ ] Case Studies deeper editorial redesign (listing/shell polished in ADR-020; full rewrite still open)
 - [ ] Per-vertical blog posts (content roadmap P2)
-- [ ] Real case studies for cement/steel/pharma/chemical
+- [ ] Real case studies for cement/steel/pharma/chemical (CMS detail URLs already work)
 - [ ] Contact form email/CRM forwarding
 - [ ] Customer logos, testimonials
 

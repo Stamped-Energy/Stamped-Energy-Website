@@ -71,7 +71,7 @@ export function Hero() {
         <div className="grid gap-5 md:gap-8 lg:grid-cols-2 lg:items-end lg:gap-16 xl:gap-20">
           <h1
             data-hero-animate="headline"
-            className="max-w-[14ch] font-display text-[2.15rem] font-bold leading-[1.08] tracking-[-0.03em] text-on-surface sm:text-5xl md:text-6xl lg:text-[4.25rem]"
+            className="hero-headline max-w-[14ch] font-display text-[2.15rem] font-bold leading-[1.08] tracking-[-0.03em] text-on-surface sm:text-5xl md:text-6xl lg:text-[4.25rem]"
           >
             {hero.headline}
           </h1>
@@ -80,7 +80,7 @@ export function Hero() {
             <p className="line-clamp-2 text-sm leading-5 text-on-surface/80 md:hidden">
               {hero.supportingLineMobile}
             </p>
-            <p className="hidden text-base leading-7 text-on-surface/80 md:block md:text-lg md:leading-8">
+            <p className="value-proposition hidden text-base leading-7 text-on-surface/80 md:block md:text-lg md:leading-8">
               {hero.supportingLine}
             </p>
             <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center md:mt-7">
