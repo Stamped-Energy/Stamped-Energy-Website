@@ -16,8 +16,17 @@ colors:
   on-surface: "#191c1a"
   on-surface-variant: "#5a403c"
   outline-variant: "#e3beb8"
+  cream: "#fbfcf9"
   impact-lime: "#e8f07a"
   impact-lime-on: "#2f3218"
+  acid-lime: "#eef981"
+  forest: "#4a634d"
+  ember: "#e35f3f"
+  wine: "#761438"
+  wine-deep: "#4b1728"
+  cream-warm: "#eeeae3"
+  cream-paper: "#f1ede3"
+  ink-dark: "#182a27"
 typography:
   display:
     fontFamily: "Space Grotesk, ui-sans-serif, system-ui, sans-serif"
@@ -66,8 +75,18 @@ Website tokens remain SoT in root `DESIGN.md` / `styles/theme.css`. This file go
 | Text | On-surface | `#191c1a` | Headlines/body on light |
 | Mute | On-surface-variant | `#5a403c` | Secondary copy |
 | Border | Outline-variant | `#e3beb8` | Hairline UI chrome |
-| Impact mode | Impact lime | `#e8f07a` | Optional full-bleed outcome beat |
+| Cream | Motion cream | `#fbfcf9` | Ink on coral / forest / ember / wine |
+| Impact mode | Impact lime | `#e8f07a` | Load-energy home chrome; optional outcome beat |
 | On impact | | `#2f3218` | Text on impact lime |
+| Acid lime | | `#eef981` | HIW Analysis; ranked-moves / envelope chromes |
+| Forest | | `#4a634d` | HIW Data; tariff/MD chrome |
+| Ember | | `#e35f3f` | HIW Prescriptions (coral sibling, not `#F75440`) |
+| Wine | | `#761438` | HIW Decisions; plant-control chrome |
+| Wine deep | | `#4b1728` | Asset-health decision chrome |
+| Cream warm / paper | | `#eeeae3` / `#f1ede3` | Load-energy equipment; asset-health constraints |
+| Ink dark | | `#182a27` | Asset-health root-cause chrome |
+
+Website MotionSlot hex inventory (authoritative for site loops): root `DESIGN.md` §8.
 
 **One Coral Rule.** Prefer coral on text, borders, pills, metrics. Large dark fills use secondary. Full coral drench only for short CTA/end cards (C-Vector-inspired band, Stamped hex).
 
@@ -104,13 +123,20 @@ Flat / tonal. Depth from surface steps and 1px borders. Soft shadow only on prim
 
 ## 5. Scene modes
 
-| Mode | Background | Use |
-|------|------------|-----|
-| Office light | `#f7faf5` | Default explainers, HIW |
-| Soft band | `#f1f4f0` | Secondary panels |
-| Problem dark | `#000a07` | Pain / fragmentation beats |
-| Coral drench | `#F75440` | Short CTA / closing |
-| Impact lime | `#e8f07a` | Optional outcome montage (indicative only) |
+| Mode | Background | Ink | Use |
+|------|------------|-----|-----|
+| Office light | `#f7faf5` | `#191c1a` | Default explainers, hero plant-flow |
+| Soft band | `#f1f4f0` | `#191c1a` | Secondary panels, What-is visual |
+| Problem dark | `#000a07` | `#ffffff` | Pain / fragmentation **page** band (not the coral strips) |
+| Coral drench | `#F75440` | `#fbfcf9` | Problem strips, asset-health home chrome, short CTA / closing |
+| Impact lime | `#e8f07a` | `#2f3218` | Load-energy home chrome; optional outcome montage |
+| Acid | `#eef981` | `#2f3218` | Analysis / ranked-moves chapters |
+| Forest | `#4a634d` | `#fbfcf9` | Data / tariff chapters |
+| Ember | `#e35f3f` | `#fbfcf9` | Prescriptions chapter |
+| Wine | `#761438` | `#fbfcf9` | Decisions / control chapters |
+| Wine deep | `#4b1728` | `#e5ded1` | Asset-health feedback chapter |
+| Cream paper | `#eeeae3` / `#f1ede3` | forest / sage ink | Equipment / constraint chapters |
+| Ink dark | `#182a27` | `#f2eee5` | Root-cause chapter |
 
 One job per scene. One headline. One support line. One dominant visual.
 
