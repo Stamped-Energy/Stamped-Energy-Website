@@ -149,7 +149,7 @@ export function HeroPlantFlow() {
               <div className="hpf-rx-head">
                 <div className="hpf-rx-head-text">
                   <div className="hpf-rx-title">Prescriptions</div>
-                  <p className="hpf-rx-sub">Ranked plant actions with rupee impact</p>
+                  <p className="hpf-rx-sub">Who acts, by when. Evidence on the card.</p>
                 </div>
                 <div className="hpf-rx-live" id="hpf-rxLive">
                   Live

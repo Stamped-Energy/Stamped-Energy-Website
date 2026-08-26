@@ -70,7 +70,7 @@ Hub: [Solutions](https://stamped.work/solutions) - Stamped Intelligence for two 
 ## Homepage snapshot
 
 - Eyebrow / badge: For industrial plants
-- H1: Act on energy opportunities in real time.
+- H1: Turn plant data into action.
 - Supporting: Stamped analyzes plant, application, and live market data to create rupee-scored prescriptions so operators can act before opportunities are missed. We tell you exactly what to do, who owns it, the rupee benefit, and the evidence behind each prescription.
 - FAQ section: visible on homepage with FAQPage JSON-LD
 

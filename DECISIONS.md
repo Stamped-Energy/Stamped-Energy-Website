@@ -568,4 +568,24 @@ Architecture and workflow decisions for this project.
 
 ---
 
+## ADR-030: Homepage hero and Rx copy from four-outcome catalogue
+
+**Date:** 2026-08-27
+
+**Context:** Client feedback and the LNM four-outcome catalogue (A Energy, B Equipment, C Real-time action, D Plant context) clarified that plants want execution from data, not energy-only monitoring. Public site must stay two pillars; C and D are expressed in copy, not navigation.
+
+**Alternatives:**
+
+1. Add a third Solutions pillar for real-time action or plant context (rejected: catalogue explicitly says C and D are not products)
+2. Broad site rewrite to de-emphasize energy (rejected: A remains primary commercial wedge)
+3. Slight copy pass: C-layer H1, hero carousel, Asset Health examples (selected)
+
+**Selected:** H1 **Turn plant data into action.** Hero prescription carousel mixes A/B findings with assigned-action copy; owner in label on 7 of 9 cards (Demand and Leak stay outcome labels). Asset Health example prescriptions shift to micro-stop inspect and weekly watchlist. Industry Energy Management examples unchanged.
+
+**Rationale:** Aligns homepage with catalogue positioning without MES/OEE claims or IA change. Supporting hero paragraph stays energy-led.
+
+**Impact:** `lib/content/landing.ts`, `heroPlantFlowEngine.ts`, `HeroPlantFlow.tsx`, `lib/content/solutions.ts`, `docs/website-copy.md`, `external/brand/WEBSITE_COPY.md`, `handoff/hero-plant-flow/hero-plant-flow.html`, `SEO_GEO_AEO.md`, `public/llms.txt`.
+
+---
+
 

@@ -102,7 +102,7 @@ Live marketing copy as of 19 August 2026. Sourced from what public pages actuall
 
 **Badge:** For industrial plants
 
-**Headline:** Act on energy opportunities in real time.
+**Headline:** Turn plant data into action.
 
 **Supporting:** Stamped analyzes plant, application, and live market data to create rupee-scored prescriptions so operators can act before opportunities are missed. We tell you exactly what to do, who owns it, the rupee benefit, and the evidence behind each prescription.
 
@@ -499,29 +499,29 @@ Power is up for the same pressure, nine days running. Inspect in the next approv
 - **Effort:** About two hours. Subject to isolation and permit.
 - **How you check:** Compare compressor power against pressure and run hours for a quiet baseline period.
 
-#### Idle holding — Cut furnace holding when the downstream line is delayed
+#### Micro-stop — Check fixture clamping on the repeating micro-stop
 
-Holding heat for a line already 45+ minutes late. Setback with production before the next peak tariff block.
+Eight short stops in 35 minutes on the same machine. Setter checks clamping in the next 10 minutes.
 
-**Impact:** Idle holding cut  
-**Assigned:** Heat treatment / production
+**Impact:** Minutes recovered  
+**Assigned:** Setter on this shift
 
-- **What:** Reduce furnace holding when the downstream line is delayed 45 minutes or more. Confirm setback with production before the next peak tariff block.
-- **Why:** Holding power continues with zero throughput while the delay sits outside the agreed production window.
-- **Effort:** Setback SOP. Production sign-off.
-- **How you check:** Match holding power against the production delay window before and after the action.
+- **What:** Check fixture and clamping on the machine showing the repeated micro-stop cluster. Complete within 10 minutes of assignment.
+- **Why:** Identical short stops are clustering on one machine, which usually points to a fixture or clamp issue rather than a random process glitch.
+- **Effort:** Setter walk-down. No capital spend.
+- **How you check:** Compare stop count and lost minutes before and after the clamp check against the same shift pattern.
 
-#### Pumps — Check cooling-water pump for stuck recirculation
+#### Weekly watchlist — Inspect the machine losing the most minutes this week
 
-Pump draw is high against delivered flow. Inspect the valve path in the next isolation window.
+Ranked by lost minutes, not alarm count. One bounded inspect with an owner before the week closes.
 
-**Impact:** Wasted power recovered  
-**Assigned:** Utilities / mechanical maintenance
+**Impact:** Downtime risk cut  
+**Assigned:** Maintenance lead / utilities
 
-- **What:** Inspect the cooling-water pump and related valves for stuck recirculation during the next approved isolation window.
-- **Why:** Pump electrical draw is high against delivered flow, which usually means recirculation rather than useful cooling.
-- **Effort:** Inspect and tune. Isolation permit.
-- **How you check:** Compare pump power against delivered flow for a normal operating period.
+- **What:** Inspect the top machine on this week's watchlist with a bounded check from plant TPM text. Assign an owner and report back when complete.
+- **Why:** Micro-stops and lengthening downtime are compounding on one asset while the fleet average stays flat.
+- **Effort:** Bounded inspect. Subject to isolation and permit.
+- **How you check:** Compare lost minutes and stop duration on the asset against its own baseline from the prior week.
 
 ---
 

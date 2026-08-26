@@ -20,7 +20,7 @@ import { getHeroCallouts, getHeroVisual, getScenarioPrescription } from "./scena
 export const landingContent = {
   hero: {
     badge: "For industrial plants",
-    headline: "Act on energy opportunities in real time.",
+    headline: "Turn plant data into action.",
     supportingLine:
       "Stamped analyzes plant, application, and live market data to create rupee-scored prescriptions so operators can act before opportunities are missed. We tell you exactly what to do, who owns it, the rupee benefit, and the evidence behind each prescription.",
     supportingLineMobile:
@@ -31,8 +31,8 @@ export const landingContent = {
     motionSlotLabel: "Hero visual",
     /** Legacy fields kept for unused hero subcomponents until cleanup */
     eyebrow: "For industrial plants",
-    headlineLine1: "Act on energy opportunities",
-    headlineLine2: "in real time.",
+    headlineLine1: "Turn plant data",
+    headlineLine2: "into action.",
     subheadline: "",
     commercialBadge: "Pay as you save · Pilot first · Scale after verified evidence",
     features: [

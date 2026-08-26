@@ -56,6 +56,7 @@
 - [x] **Solution Rx cards** - mobile keeps compact cards; desktop shows What / Why / Effort / How you check. Outcomes: three on small screens, six from `md` up.
 - [x] **Industry photo rematch (2026-08-20)** - steel zig-zag uses mill/forging/cooling shots; pharma hero + band use cleanroom/chillers/utility hall
 - [x] **SEO/GEO/AEO full pass (ADR-029)** - sitemap helpers; homepage FAQ + Speakable; SearchAction; per-page keywords; case-study detail URLs restored; `/resources` hub + 3 guides; detailed llms.txt / llms-full; docs sync; `npm run build` green
+- [x] **Four-outcome copy pass (ADR-030)** - H1 Turn plant data into action; hero Rx carousel + Asset Health examples; snapshots synced; two pillars unchanged
 
 ## Remaining Phases
 

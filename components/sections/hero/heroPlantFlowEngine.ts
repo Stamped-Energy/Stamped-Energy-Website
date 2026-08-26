@@ -67,15 +67,51 @@ const CHIP_DEFS: ChipDef[] = [
 ];
 
 export const RX_ITEMS = [
-  { money: "+ ₹2.4L", label: "Annual", copy: "Reschedule Shift 2 heavy loads before the evening demand peak" },
-  { money: "+ ₹48,000", label: "Avoid scrap", copy: "Lower furnace hold temperature after this batch ran hot" },
-  { money: "+ ₹95,000", label: "Demand", copy: "Stagger high-load startups to cut maximum demand charges" },
-  { money: "+ ₹42,000", label: "Idle waste", copy: "Turn down idle HVAC during the line changeover window" },
-  { money: "+ ₹38,000", label: "Off-peak", copy: "Pull this batch forward into the cheaper off-peak tariff window" },
-  { money: "+ ₹12,000", label: "Power factor", copy: "Switch on power-factor correction on feeder 3" },
-  { money: "+ ₹1.8L", label: "Baseline", copy: "Retune dryer energy settings after the latest recipe change" },
-  { money: "+ ₹11,000", label: "Leak", copy: "Inspect the compressed-air branch on Line B for leaks" },
-  { money: "+ ₹75,000", label: "Schedule", copy: "Avoid a demand spike when both shifts start together" },
+  {
+    money: "+ ₹95,000",
+    label: "Demand",
+    copy: "Stagger the second high-load start. 8 min. This demand window.",
+  },
+  {
+    money: "10 min",
+    label: "Setter",
+    copy: "Repeating micro-stop. Check clamping. Close when the machine is running.",
+  },
+  {
+    money: "+ ₹42,000",
+    label: "Utilities",
+    copy: "Cut HVAC on the idle line this shift. Confirm when output resumes.",
+  },
+  {
+    money: "+ ₹1.8L",
+    label: "Maintenance",
+    copy: "Inspect the compressor before the next run. Walk now. Report back.",
+  },
+  {
+    money: "+ ₹38,000",
+    label: "Shift lead",
+    copy: "Pull this batch into the cheaper window tonight. Do not slip job release.",
+  },
+  {
+    money: "Delay",
+    label: "HT lead",
+    copy: "Hold the furnace. Mill is 40 min late. Page production, then set back.",
+  },
+  {
+    money: "+ ₹11,000",
+    label: "Leak",
+    copy: "Inspect the Line B air leak now. Close when feeder draw drops.",
+  },
+  {
+    money: "Scrap risk",
+    label: "Setter",
+    copy: "Lower furnace hold after this batch ran hot. Check before the next pour.",
+  },
+  {
+    money: "This week",
+    label: "Maintenance",
+    copy: "Inspect the machine losing the most minutes. Owner assigned. Report back.",
+  },
 ] as const;
 
 export const RX_VISIBLE = 2;

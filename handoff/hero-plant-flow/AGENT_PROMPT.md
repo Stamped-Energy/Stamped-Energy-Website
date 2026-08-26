@@ -44,7 +44,7 @@ Port from `handoff/hero-plant-flow/hero-plant-flow.html`:
 3. Animated wires into the **Stamped** mark + **Stamped / Energy** wordmark (Space Grotesk)
 4. Traveling coral data chips with centered pills (Energy price, Power draw, Demand forecast, ToD tariff, Shift plan)
 5. Sequential coral relay from Stamped → **Prescriptions** panel
-6. Prescriptions carousel: title + subtitle “Ranked plant actions with rupee impact”, ink money pills, readable action copy
+6. Prescriptions carousel: title + subtitle “Who acts, by when. Evidence on the card.”, ink money pills, readable action copy
 7. Respect `prefers-reduced-motion`
 8. Keep Stamped brand tokens: demo-deck `#f7faf5`, coral `#F75440`, ink `#191c1a`, fonts Space Grotesk / Inter / IBM Plex Mono
 

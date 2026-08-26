@@ -23,7 +23,7 @@ All SEO, GEO, and AEO copy derives from **`lib/content/icp.ts`**. Do not hardcod
 **Homepage hero (2026-08 live):**
 
 - Badge: For industrial plants
-- H1: Act on energy opportunities in real time.
+- H1: Turn plant data into action.
 - Supporting: rupee-scored prescriptions from plant, application, and live market data
 - FAQ: remounted on homepage (`HomeTerminalBand`) with FAQPage JSON-LD
 
