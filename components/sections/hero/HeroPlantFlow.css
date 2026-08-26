@@ -485,10 +485,10 @@
 
 .hpf-rx-copy {
   font-family: var(--hpf-font-display);
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: -0.025em;
-  line-height: 1.3;
+  line-height: 1.32;
   color: var(--hpf-ink);
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -556,7 +556,7 @@
     font-size: 12px;
   }
   .hpf-rx-copy {
-    font-size: 16px;
+    font-size: 15px;
   }
   .hpf-chip-name {
     font-size: 12px;

@@ -70,47 +70,47 @@ export const RX_ITEMS = [
   {
     money: "+ ₹95,000",
     label: "Demand",
-    copy: "Stagger the second high-load start. 8 min window.",
+    copy: "Stagger the second high-load start. 8 min. This demand window.",
   },
   {
     money: "10 min",
     label: "Setter",
-    copy: "Repeating micro-stop. Check clamping before next run.",
+    copy: "Repeating micro-stop. Check clamping. Close when the machine runs.",
   },
   {
     money: "+ ₹42,000",
     label: "Utilities",
-    copy: "Cut HVAC on the idle line. Confirm when output resumes.",
+    copy: "Cut HVAC on the idle line this shift. Confirm when output resumes.",
   },
   {
     money: "+ ₹1.8L",
     label: "Maintenance",
-    copy: "Inspect the compressor before the next run. Walk now.",
+    copy: "Inspect the compressor before the next run. Walk now. Report back.",
   },
   {
     money: "+ ₹38,000",
     label: "Shift lead",
-    copy: "Pull this batch into tonight's cheaper window.",
+    copy: "Pull this batch into the cheaper window tonight. Do not slip release.",
   },
   {
     money: "Delay",
     label: "HT lead",
-    copy: "Hold the furnace. Mill 40 min late. Page production.",
+    copy: "Hold the furnace. Mill is 40 min late. Page production, then set back.",
   },
   {
     money: "+ ₹11,000",
     label: "Leak",
-    copy: "Inspect Line B air leak. Close when feeder draw drops.",
+    copy: "Inspect the Line B air leak now. Close when feeder draw drops.",
   },
   {
     money: "Scrap risk",
     label: "Setter",
-    copy: "Lower furnace hold. Batch ran hot. Check before pour.",
+    copy: "Lower furnace hold after this batch ran hot. Check before next pour.",
   },
   {
     money: "This week",
     label: "Maintenance",
-    copy: "Inspect the machine losing most minutes. Report back.",
+    copy: "Inspect the machine losing the most minutes. Owner assigned. Report back.",
   },
 ] as const;
 
