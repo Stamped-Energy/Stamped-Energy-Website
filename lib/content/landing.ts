@@ -184,7 +184,7 @@ export const landingContent = {
     items: [
       {
         id: "energy-recovery",
-        value: "14%",
+        value: "10-15%",
         label: "Monthly energy cost recovery",
         detail: "Stagger, ToD, idle, and demand prescriptions when assigned actions close",
       },
@@ -214,7 +214,7 @@ export const landingContent = {
       },
       {
         id: "first-prescriptions",
-        value: "2 weeks",
+        value: "1 week",
         label: "First prescriptions live",
         detail: "Read-only on meters, SCADA, and systems you already run",
       },
@@ -230,7 +230,7 @@ export const landingContent = {
     homeStats: [
       {
         id: "energy-recovery",
-        value: "14%",
+        value: "10-15%",
         label: "Monthly energy cost recovery",
         detail: "Stagger, ToD, idle, and demand prescriptions when assigned actions close",
       },
@@ -250,7 +250,7 @@ export const landingContent = {
     stats: [
       {
         id: "energy-recovery",
-        value: "14%",
+        value: "10-15%",
         label: "Monthly energy cost recovery",
         detail: "Process-intensive plants when assigned actions close",
       },
@@ -268,7 +268,7 @@ export const landingContent = {
       },
       {
         id: "first-prescriptions",
-        value: "2 weeks",
+        value: "1 week",
         label: "First prescriptions live",
         detail: "Read-only on meters, SCADA, and systems you already run",
       },
