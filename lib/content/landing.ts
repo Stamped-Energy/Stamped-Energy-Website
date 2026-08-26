@@ -31,9 +31,8 @@ export const landingContent = {
     motionSlotLabel: "Hero visual",
     /** Legacy fields kept for unused hero subcomponents until cleanup */
     eyebrow: "For industrial plants",
-    headlineLine1: "Turn plant",
-    headlineLine2: "data into",
-    headlineLine3: "action.",
+    headlineLine1: "Turn plant data",
+    headlineLine2: "into action.",
     subheadline: "",
     commercialBadge: "Pay as you save · Pilot first · Scale after verified evidence",
     features: [
@@ -185,7 +184,7 @@ export const landingContent = {
     items: [
       {
         id: "energy-recovery",
-        value: "15-20%",
+        value: "14%",
         label: "Monthly energy cost recovery",
         detail: "Stagger, ToD, idle, and demand prescriptions when assigned actions close",
       },
@@ -196,10 +195,10 @@ export const landingContent = {
         detail: "Early drift and equipment prescriptions acted on before a trip",
       },
       {
-        id: "same-shift",
-        value: "Same shift",
-        label: "Production issues routed",
-        detail: "Micro-stops, holdbacks, and line drift with an owner and evidence on the card",
+        id: "production-efficiency",
+        value: "5-7%",
+        label: "Production efficiency improvement",
+        detail: "Micro-stops, holdbacks, and line drift closed when assigned actions land same shift",
       },
       {
         id: "emergency-maintenance",
@@ -231,7 +230,7 @@ export const landingContent = {
     homeStats: [
       {
         id: "energy-recovery",
-        value: "15-20%",
+        value: "14%",
         label: "Monthly energy cost recovery",
         detail: "Stagger, ToD, idle, and demand prescriptions when assigned actions close",
       },
@@ -242,16 +241,16 @@ export const landingContent = {
         detail: "Early drift and equipment prescriptions acted on before a trip",
       },
       {
-        id: "same-shift",
-        value: "Same shift",
-        label: "Production issues routed",
-        detail: "Micro-stops, holdbacks, and line drift with an owner on the card",
+        id: "production-efficiency",
+        value: "5-7%",
+        label: "Production efficiency improvement",
+        detail: "Micro-stops, holdbacks, and line drift closed when assigned actions land same shift",
       },
     ] satisfies StatItem[],
     stats: [
       {
         id: "energy-recovery",
-        value: "15-20%",
+        value: "14%",
         label: "Monthly energy cost recovery",
         detail: "Process-intensive plants when assigned actions close",
       },

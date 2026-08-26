@@ -3,7 +3,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SectionBadge } from "@/components/ui/SectionBadge";
 import { landingContent } from "@/lib/content";
 
-const IMPACT_MOBILE_IDS = new Set(["energy-recovery", "downtime-prevented", "same-shift"]);
+const IMPACT_MOBILE_IDS = new Set(["energy-recovery", "downtime-prevented", "production-efficiency"]);
 
 export function HomeImpact() {
   const { impact } = landingContent;

@@ -70,7 +70,6 @@ export function Hero() {
             <h1 className="hero-headline max-w-[16ch] font-display text-[2.15rem] font-bold leading-[1.06] tracking-[-0.03em] text-on-surface sm:text-5xl md:text-6xl lg:max-w-none lg:text-[4.75rem] lg:leading-[1.02] xl:text-[5.25rem]">
               <span className="block">{hero.headlineLine1}</span>
               <span className="block">{hero.headlineLine2}</span>
-              <span className="block">{hero.headlineLine3}</span>
             </h1>
           </div>
 
