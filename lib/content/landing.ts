@@ -31,8 +31,8 @@ export const landingContent = {
     motionSlotLabel: "Hero visual",
     /** Legacy fields kept for unused hero subcomponents until cleanup */
     eyebrow: "For industrial plants",
-    headlineLine1: "Turn plant data",
-    headlineLine2: "into action.",
+    headlineLine1: "Turn plant",
+    headlineLine2: "data into action.",
     subheadline: "",
     commercialBadge: "Pay as you save · Pilot first · Scale after verified evidence",
     features: [

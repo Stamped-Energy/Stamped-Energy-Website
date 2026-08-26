@@ -71,9 +71,10 @@ export function Hero() {
         <div className="grid gap-5 md:gap-8 lg:grid-cols-2 lg:items-end lg:gap-16 xl:gap-20">
           <h1
             data-hero-animate="headline"
-            className="hero-headline max-w-[14ch] font-display text-[2.15rem] font-bold leading-[1.08] tracking-[-0.03em] text-on-surface sm:text-5xl md:text-6xl lg:text-[4.25rem]"
+            className="hero-headline max-w-[16ch] font-display text-[2.15rem] font-bold leading-[1.08] tracking-[-0.03em] text-on-surface sm:text-5xl md:text-6xl lg:text-[4.25rem]"
           >
-            {hero.headline}
+            <span className="block">{hero.headlineLine1}</span>
+            <span className="block">{hero.headlineLine2}</span>
           </h1>
 
           <div data-hero-animate="copy" className="w-full min-w-0">
