@@ -32,7 +32,8 @@ export const landingContent = {
     /** Legacy fields kept for unused hero subcomponents until cleanup */
     eyebrow: "For industrial plants",
     headlineLine1: "Turn plant",
-    headlineLine2: "data into action.",
+    headlineLine2: "data into",
+    headlineLine3: "action.",
     subheadline: "",
     commercialBadge: "Pay as you save · Pilot first · Scale after verified evidence",
     features: [

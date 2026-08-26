@@ -62,29 +62,29 @@ export function Hero() {
   );
 
   return (
-    <section ref={sectionRef} className="relative overflow-x-clip bg-surface pb-8 pt-24 md:pb-14 md:pt-32">
+    <section ref={sectionRef} className="relative overflow-x-clip bg-surface pb-8 pt-24 md:pb-14 md:pt-28 lg:pt-24">
       <Container>
-        <div data-hero-animate="badge" className="mb-5 md:mb-10">
-          <SectionBadge label={hero.badge} />
-        </div>
+        <div className="grid gap-5 md:gap-6 lg:grid-cols-2 lg:items-start lg:gap-10 xl:gap-14">
+          <div data-hero-animate="headline" className="flex flex-col gap-5 md:gap-6 lg:gap-4">
+            <SectionBadge label={hero.badge} />
+            <h1 className="hero-headline max-w-[16ch] font-display text-[2.15rem] font-bold leading-[1.06] tracking-[-0.03em] text-on-surface sm:text-5xl md:text-6xl lg:max-w-none lg:text-[4.75rem] lg:leading-[1.02] xl:text-[5.25rem]">
+              <span className="block">{hero.headlineLine1}</span>
+              <span className="block">{hero.headlineLine2}</span>
+              <span className="block">{hero.headlineLine3}</span>
+            </h1>
+          </div>
 
-        <div className="grid gap-5 md:gap-8 lg:grid-cols-2 lg:items-end lg:gap-16 xl:gap-20">
-          <h1
-            data-hero-animate="headline"
-            className="hero-headline max-w-[16ch] font-display text-[2.15rem] font-bold leading-[1.08] tracking-[-0.03em] text-on-surface sm:text-5xl md:text-6xl lg:text-[4.25rem]"
+          <div
+            data-hero-animate="copy"
+            className="flex w-full min-w-0 flex-col justify-center lg:max-w-[32rem] lg:justify-self-end lg:pt-14 xl:pt-[3.75rem]"
           >
-            <span className="block">{hero.headlineLine1}</span>
-            <span className="block">{hero.headlineLine2}</span>
-          </h1>
-
-          <div data-hero-animate="copy" className="w-full min-w-0">
             <p className="line-clamp-2 text-sm leading-5 text-on-surface/80 md:hidden">
               {hero.supportingLineMobile}
             </p>
-            <p className="value-proposition hidden text-base leading-7 text-on-surface/80 md:block md:text-lg md:leading-8">
+            <p className="value-proposition hidden text-base leading-7 text-on-surface/80 md:block lg:text-sm lg:leading-[1.7] xl:text-[0.9375rem] xl:leading-[1.65]">
               {hero.supportingLine}
             </p>
-            <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center md:mt-7">
+            <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center lg:mt-5">
               <Link href={hero.primaryCta.href} className={primaryCta}>
                 {hero.primaryCta.label}
                 <span aria-hidden>»</span>
@@ -93,11 +93,13 @@ export function Hero() {
                 {hero.secondaryCta.label}
               </Link>
             </div>
-            <p className="mt-4 hidden text-sm leading-6 text-on-surface-variant md:block">{hero.microcopy}</p>
+            <p className="mt-3 hidden text-xs leading-5 text-on-surface-variant md:block lg:mt-4">
+              {hero.microcopy}
+            </p>
           </div>
         </div>
 
-        <div data-hero-animate="visual" className="mt-6 border-t border-outline-variant/40 pt-5 md:mt-16 md:pt-10">
+        <div data-hero-animate="visual" className="mt-6 border-t border-outline-variant/40 pt-5 md:mt-12 md:pt-8 lg:mt-14 lg:pt-10">
           <HeroPlantFlow />
         </div>
       </Container>
