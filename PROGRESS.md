@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-**ADR-029 SEO / GEO / AEO full remediation** — implementation complete in-repo (2026-08-20). Awaiting deploy + GSC sitemap resubmit + LinkedIn company URL for `COMPANY_LINKEDIN_URL`.
+**ADR-031 CMS rich-text H1** — TipTap blog/case-study editor gains H1 toolbar + styles; AI writer prompts allow `#` sparingly.
 
 ## Completed Phases
 
@@ -57,6 +57,7 @@
 - [x] **Industry photo rematch (2026-08-20)** - steel zig-zag uses mill/forging/cooling shots; pharma hero + band use cleanroom/chillers/utility hall
 - [x] **SEO/GEO/AEO full pass (ADR-029)** - sitemap helpers; homepage FAQ + Speakable; SearchAction; per-page keywords; case-study detail URLs restored; `/resources` hub + 3 guides; detailed llms.txt / llms-full; docs sync; `npm run build` green
 - [x] **Four-outcome copy pass (ADR-030)** - H1 Turn plant data into action; hero Rx carousel + Asset Health examples; snapshots synced; two pillars unchanged
+- [x] **CMS rich-text H1 (ADR-031)** - TipTap levels 1–3; H1 toolbar; larger `.rich-article h1`; markdown `#` import; AI prompts updated
 
 ## Remaining Phases
 

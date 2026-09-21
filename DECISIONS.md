@@ -588,4 +588,24 @@ Architecture and workflow decisions for this project.
 
 ---
 
+## ADR-031: CMS rich-text H1 headings
+
+**Date:** 2026-09-21
+
+**Context:** Blog/case-study TipTap editor only exposed H2/H3. Editors needed an H1 option with larger published typography. Page title remains a separate page-level H1.
+
+**Alternatives:**
+
+1. Keep H2/H3 only (rejected: editor request)
+2. Style-only “large H2” without semantic H1 (rejected: authors asked for real H1)
+3. Enable TipTap heading level 1 + CSS + markdown import + AI prompt updates (selected)
+
+**Selected:** `RICH_EXTENSIONS` levels `[1, 2, 3]`; toolbar H1; `.rich-article h1` larger than h2; markdown `#` import; FAQ extractors accept H1 questions; AI writer prompts allow `#` sparingly.
+
+**Rationale:** Matches author workflow with minimal surface-area change in the shared rich-content stack.
+
+**Impact:** `lib/rich-content/document.ts`, `RichArticleEditor.tsx`, `styles/rich-article.css`, `BlogMarkdown.tsx`, `lib/seo/extract-faq.ts`, `lib/blog/ai-workflow.ts`, `lib/case-studies/ai-workflow.ts`.
+
+---
+
 

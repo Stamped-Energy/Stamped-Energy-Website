@@ -45,7 +45,7 @@ export function extractFaqFromRichDoc(bodyJson: string | null | undefined): FaqI
     }
 
     const level = node.attrs?.level as number | undefined;
-    if (level !== 2 && level !== 3) {
+    if (level !== 1 && level !== 2 && level !== 3) {
       continue;
     }
 
@@ -69,7 +69,7 @@ export function extractFaqFromMarkdown(content: string): FaqItem[] {
   let i = 0;
 
   while (i < lines.length) {
-    const headingMatch = lines[i].match(/^#{2,3}\s+(.+\?)\s*$/);
+    const headingMatch = lines[i].match(/^#{1,3}\s+(.+\?)\s*$/);
     if (!headingMatch) {
       i++;
       continue;

@@ -61,7 +61,7 @@ ${AI_DISCOVERY_PHASE}
 - Teach something actionable from real manufacturing energy patterns (MD spikes, shift-start, furnaces, compressors, SEC, holding loads)
 - Use Indian context where natural (₹, HT tariffs, SME plants, shift patterns)
 - 800-1,400 words unless discovery agreed on a different length
-- Structure with \`##\` section headings (not H1; title is separate in frontmatter)
+- Structure with \`#\` / \`##\` / \`###\` headings as needed (page title stays in frontmatter; prefer \`##\` for most sections, use \`#\` sparingly for larger in-body titles)
 - Include 1-2 concrete examples or numbers as **reference ranges** when citing savings (e.g. "₹4-8L/month", "15-22% MD reduction") and label as benchmarks if not a named client
 - If discovery agreed on diagrams or GIFs, include Markdown image placeholders: \`![describe the visual](/path/or-url.jpg)\` with a short caption in alt text, or note \`[GIF: description]\` where the author will swap in a file
 
@@ -104,8 +104,9 @@ Short closing paragraph with one clear takeaway.
 The blog body is imported into a **TipTap rich-text editor**. Use only Markdown patterns below so headings, links, tables, images, and embeds render correctly without manual fixes.
 
 ### Structure
-- Start the body with \`##\` headings only - never \`#\` (title lives in frontmatter)
-- Use \`##\` for main sections and \`###\` for subsections
+- Page title lives in frontmatter (separate from body headings)
+- Use \`#\` for H1, \`##\` for H2, and \`###\` for H3 in the body when needed
+- Prefer \`##\` for main sections and \`###\` for subsections; use \`#\` sparingly for larger in-body titles
 - Keep paragraphs short (2-4 sentences)
 - Separate sections with a blank line
 
@@ -146,7 +147,6 @@ flowchart TD
 
 ### Do NOT use
 - HTML tags (\`<table>\`, \`<div>\`, \`<br>\`, etc.)
-- H1 (\`#\`) in the body
 - Bare URLs for links - always \`[label](url)\`
 - Markdown features outside this list (footnotes, task lists, etc.)
 
