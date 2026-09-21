@@ -17,7 +17,7 @@ export type ContentFormat = "MARKDOWN" | "RICH";
 
 export const RICH_EXTENSIONS = [
   StarterKit.configure({
-    heading: { levels: [2, 3] },
+    heading: { levels: [1, 2, 3] },
     codeBlock: {
       languageClassPrefix: "language-",
       HTMLAttributes: {
@@ -372,11 +372,11 @@ export function markdownToRichDoc(markdown: string): JSONContent {
       continue;
     }
 
-    const heading = trimmed.match(/^#{2,3}\s+(.+)$/);
+    const heading = trimmed.match(/^#{1,3}\s+(.+)$/);
     if (heading) {
       flushParagraph();
       flushList();
-      const level = trimmed.startsWith("###") ? 3 : 2;
+      const level = trimmed.startsWith("###") ? 3 : trimmed.startsWith("##") ? 2 : 1;
       content.push({
         type: "heading",
         attrs: { level },

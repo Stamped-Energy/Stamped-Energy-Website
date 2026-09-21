@@ -15,6 +15,11 @@ export function BlogMarkdown({ content, className }: BlogMarkdownProps) {
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeSlug, rehypeSanitize]}
         components={{
+          h1: ({ children }) => (
+            <h1 className="mt-10 font-display text-3xl font-bold text-on-surface first:mt-0 md:text-4xl">
+              {children}
+            </h1>
+          ),
           h2: ({ children }) => (
             <h2 className="mt-10 font-display text-2xl font-bold text-on-surface first:mt-0 md:text-3xl">
               {children}

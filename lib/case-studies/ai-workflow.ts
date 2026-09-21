@@ -117,7 +117,7 @@ Optional short closing takeaway for similar plants.
 ## Field rules
 - \`metrics_json\` must be valid JSON array of \`{"label":"...","value":"..."}\` objects (2-4 items)
 - \`outcomes_json\` must be valid JSON array of strings (3-5 short bullets)
-- Body uses \`##\` headings only (no H1)
+- Body may use \`#\` / \`##\` / \`###\` headings (\`##\` preferred for sections; \`#\` sparingly for larger in-body titles)
 - No HTML in the body
 
 When discovery is complete and the author confirms, output the frontmatter block and markdown body.`;

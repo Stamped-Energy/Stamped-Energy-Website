@@ -353,6 +353,12 @@ export function RichArticleEditor({
             <ToolbarDivider />
 
             <ToolbarButton
+              label="H1"
+              title="Heading 1"
+              active={editor.isActive("heading", { level: 1 })}
+              onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
+            />
+            <ToolbarButton
               label="H2"
               title="Heading 2"
               active={editor.isActive("heading", { level: 2 })}
