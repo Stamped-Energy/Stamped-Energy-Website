@@ -16,7 +16,7 @@ export const AUTHOR_PROFILES: Record<AuthorProfileId, AuthorProfile> = {
     name: "Vinayak Raizada",
     role: "Co-Founder",
     shortBio:
-      "Electrical Engineering, IIT Roorkee. Leads domain technical work, strategy, and marketing-prescriptive energy intelligence from plant data to verified savings on the bill.",
+      "Electrical Engineering, IIT Roorkee. Leads domain technical work, strategy, and marketing. Industrial AI intelligence-turning plant data into actions.",
     linkedIn: "https://www.linkedin.com/in/vinayak-rz/",
   },
   utsavsar: {

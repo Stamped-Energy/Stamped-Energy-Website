@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-**ADR-031 CMS rich-text H1** — TipTap blog/case-study editor gains H1 toolbar + styles; AI writer prompts allow `#` sparingly.
+**Author card copy** — Vinayak “Written by” short bio updated to industrial AI / turning plant data into actions (kept IIT Roorkee + domain/strategy/marketing lines).
 
 ## Completed Phases
 
