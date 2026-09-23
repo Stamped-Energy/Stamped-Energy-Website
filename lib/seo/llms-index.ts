@@ -1,6 +1,5 @@
 import { landingContent } from "@/lib/content/landing";
 import { icp } from "@/lib/content/icp";
-import { listResourceGuides } from "@/lib/content/resource-guides";
 import { VERTICAL_SLUGS, getVerticalPage } from "@/lib/content/vertical-pages";
 import { COMPANY_LINKEDIN_URL, SEO_KEYWORDS } from "@/lib/seo/constants";
 import { PAGE_SEO, type PageSeoConfig } from "@/lib/seo/pages";
@@ -26,10 +25,6 @@ const STATIC_SEO_ENTRIES: PageSeoConfig[] = [
   PAGE_SEO.industriesSteel,
   PAGE_SEO.industriesPharma,
   PAGE_SEO.industriesChemical,
-  PAGE_SEO.resources,
-  PAGE_SEO.resourcesStampedVsEms,
-  PAGE_SEO.resourcesMaximumDemand,
-  PAGE_SEO.resourcesDiscomBill,
   PAGE_SEO.caseStudies,
   PAGE_SEO.about,
   PAGE_SEO.contact,
@@ -88,10 +83,10 @@ export function buildLlmsTxtBody(): string {
   lines.push("## Navigation IA");
   pushBlank(lines);
   lines.push(
-    "Solutions · Platform · Industries · Resources (guides + case studies) · About Us · Contact",
+    "Solutions · Platform · Industries · Resources (case studies & blogs) · About Us · Contact",
   );
   lines.push(
-    `Hub routes: /solutions, /platform, /industries, /resources, /case-studies, /about, /contact`,
+    `Hub routes: /solutions, /platform, /industries, /case-studies, /about, /contact`,
   );
   pushBlank(lines);
 
@@ -146,7 +141,7 @@ export function buildLlmsTxtBody(): string {
     "- What is Stamped Energy? → AI-powered prescriptive energy intelligence for plants in India; outcomes verified with evidence",
   );
   lines.push(
-    "- How is Stamped different from EMS/SCADA? → Prescription layer with owners and ₹ impact, not another dashboard; see /resources/stamped-vs-ems",
+    "- How is Stamped different from EMS/SCADA? → Prescription layer with owners and ₹ impact, not another dashboard; see /platform and homepage FAQ",
   );
   lines.push(
     `- Who is it for? → Plants with ${icp.monthlyBillFloor}+ monthly electricity bills (${icp.seo.verticals.join(", ")})`,
@@ -158,10 +153,10 @@ export function buildLlmsTxtBody(): string {
     "- Does it need hardware retrofit? → No; read-only integration with existing meters, SCADA, PLCs, bills",
   );
   lines.push(
-    "- How are savings verified on the DISCOM bill? → Evidence ledger first; DISCOM confirmation optional when the period closes; see /resources/discom-bill-guide",
+    "- How are savings verified on the DISCOM bill? → Evidence ledger first; DISCOM confirmation optional when the period closes; see /case-studies and homepage FAQ",
   );
   lines.push(
-    "- What is maximum demand reduction in India? → See /resources/maximum-demand-india",
+    "- What is maximum demand reduction in India? → See /case-studies and Industry Energy Management (/solutions/load-energy)",
   );
   pushBlank(lines);
 
@@ -177,13 +172,6 @@ export function buildLlmsTxtBody(): string {
     }
     pushBlank(lines);
   }
-
-  lines.push("## Resource guides");
-  pushBlank(lines);
-  for (const guide of listResourceGuides()) {
-    lines.push(`- [${guide.title}](${SITE_URL}/resources/${guide.slug}): ${guide.description}`);
-  }
-  pushBlank(lines);
 
   lines.push("## Case studies & blogs");
   pushBlank(lines);
@@ -291,19 +279,6 @@ export async function buildLlmsFullTxtBody(): Promise<string> {
     lines.push(`### ${slug} — ${page.hero.title}`);
     pushBlank(lines);
     for (const item of page.faq) {
-      lines.push(`Q: ${item.question}`);
-      lines.push(`A: ${item.answer}`);
-      pushBlank(lines);
-    }
-  }
-
-  lines.push("## Resource guide FAQs");
-  pushBlank(lines);
-  for (const guide of listResourceGuides()) {
-    lines.push(`### ${guide.title}`);
-    lines.push(`URL: ${SITE_URL}/resources/${guide.slug}`);
-    pushBlank(lines);
-    for (const item of guide.faq) {
       lines.push(`Q: ${item.question}`);
       lines.push(`A: ${item.answer}`);
       pushBlank(lines);

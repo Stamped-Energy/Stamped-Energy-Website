@@ -31,8 +31,8 @@ Not hardware retrofit or control-system replacement. Not MES or CMMS. It is a pr
 
 ## Navigation IA
 
-Solutions · Platform · Industries · Resources (guides + case studies) · About Us · Contact
-Hub routes: /solutions, /platform, /industries, /resources, /case-studies, /about, /contact
+Solutions · Platform · Industries · Resources (case studies & blogs) · About Us · Contact
+Hub routes: /solutions, /platform, /industries, /case-studies, /about, /contact
 
 ## Platform loop
 
@@ -59,10 +59,6 @@ Hub: [Solutions](https://stamped.work/solutions) - Stamped Intelligence for two 
 - [Steel Plant Energy Efficiency India | Stamped Energy](https://stamped.work/industries/steel): Rupee-scored prescriptions for steel and metals plants. Induction furnaces, rolling mills, forging and foundry. Intelligence layer on your meters. Verified with evidence.
 - [Pharmaceutical Plant HVAC Energy Savings | Stamped Energy](https://stamped.work/industries/pharma): Rupee-scored prescriptions for pharmaceutical plants. Chiller staging, AHU schedules, compressed air. GMP-safe utility levers. Verified with evidence.
 - [Chemical Plant Batch Energy Optimization | Stamped Energy](https://stamped.work/industries/chemical): Rupee-scored prescriptions for chemical and paint plants. Batch SEC, reactor stagger, idle hold. Intelligence layer on meters and batch logs. Verified with evidence.
-- [Resources | Stamped Energy - Guides for Plant Energy Cost](https://stamped.work/resources): Guides on maximum demand, DISCOM bills, and how Stamped differs from EMS or SCADA. Written for plant directors and electrical heads in India.
-- [Stamped vs EMS and SCADA | Stamped Energy](https://stamped.work/resources/stamped-vs-ems): How Stamped Energy differs from a passive EMS dashboard or SCADA replacement. Prescription layer with owners, rupee impact, and outcomes verified with evidence.
-- [Maximum Demand Reduction India | Stamped Energy](https://stamped.work/resources/maximum-demand-india): How HT plants in India cut maximum demand charges: shift-start stagger, overlapping loads, and rupee-scored prescriptions. Indicative 15-25% MD reduction bands.
-- [How to Read a DISCOM HT Bill | Stamped Energy](https://stamped.work/resources/discom-bill-guide): MD, ToD, power factor, and energy line items on Indian DISCOM HT bills. How plant teams turn bill signals into assigned actions verified with evidence.
 - [Case Studies & Blogs | Stamped Energy](https://stamped.work/case-studies): Case studies and blogs on maximum demand, shift-start overlap, furnace holding, and HVAC waste - written for plant directors and electrical HODs at energy-intensive plants in India.
 - [About Stamped Energy | IIT Roorkee Engineers, Verified Savings](https://stamped.work/about): Stamped Energy is AI-powered prescriptive energy intelligence built by IIT Roorkee electrical engineers for plant heads who need outcomes verified with evidence, not another monitoring dashboard.
 - [Book a Discovery Call | Stamped Energy](https://stamped.work/contact): Book a discovery call with Stamped Energy. We review your last three DISCOM bills, plant meter setup, and outline a pilot - only if the numbers justify it.
@@ -90,12 +86,12 @@ Hub: [Solutions](https://stamped.work/solutions) - Stamped Intelligence for two 
 ## AEO - common questions Stamped answers
 
 - What is Stamped Energy? → AI-powered prescriptive energy intelligence for plants in India; outcomes verified with evidence
-- How is Stamped different from EMS/SCADA? → Prescription layer with owners and ₹ impact, not another dashboard; see /resources/stamped-vs-ems
+- How is Stamped different from EMS/SCADA? → Prescription layer with owners and ₹ impact, not another dashboard; see /platform and homepage FAQ
 - Who is it for? → Plants with ₹20 lakh+ monthly electricity bills (cement, steel, pharmaceutical, chemical, automotive)
 - How much can plants save? → Benchmark 12-20% bill reduction, 15-25% MD reduction (indicative); pilot verifies with evidence
 - Does it need hardware retrofit? → No; read-only integration with existing meters, SCADA, PLCs, bills
-- How are savings verified on the DISCOM bill? → Evidence ledger first; DISCOM confirmation optional when the period closes; see /resources/discom-bill-guide
-- What is maximum demand reduction in India? → See /resources/maximum-demand-india
+- How are savings verified on the DISCOM bill? → Evidence ledger first; DISCOM confirmation optional when the period closes; see /case-studies and homepage FAQ
+- What is maximum demand reduction in India? → See /case-studies and Industry Energy Management (/solutions/load-energy)
 
 ## Industry FAQs (summary)
 
@@ -139,12 +135,6 @@ Hub: [Solutions](https://stamped.work/solutions) - Stamped Intelligence for two 
 - Q: Does Stamped work without DCS integration?
   A: Yes. Path A uses batch log start and end times plus DISCOM bills. First prescriptions on idle hold and stagger typically land within two weeks. DCS is Path B, not a gate.
 
-## Resource guides
-
-- [How Stamped differs from EMS and SCADA](https://stamped.work/resources/stamped-vs-ems): EMS and SCADA show what happened. Stamped is the prescription and accountability layer on data you already have: what to change, who owns it, rupee impact, and outcomes verified with evidence.
-- [Maximum demand reduction for plants in India](https://stamped.work/resources/maximum-demand-india): MD charges are often the fastest line item plant teams can move without capex. Here is how shift-start overlap, holding loads, and rupee-scored prescriptions cut billed kVA on HT bills.
-- [How to read a DISCOM HT bill for action](https://stamped.work/resources/discom-bill-guide): HT bills bury avoidable cost in MD, ToD, power factor, and energy line items. This guide maps those lines to plant decisions and how Stamped turns them into assigned prescriptions.
-
 ## Case studies & blogs
 
 - [Case Studies & Blogs index](https://stamped.work/case-studies): Maximum demand, shift-start overlap, furnace holding, HVAC waste
@@ -178,7 +168,7 @@ Plant directors, VP Operations, electrical heads, and CFOs at energy-intensive p
 ## Off-site GEO status
 
 - Google Search Console: registered by team
-- LinkedIn Company Page sameAs: pending (set COMPANY_LINKEDIN_URL in lib/seo/constants.ts)
+- LinkedIn Company Page sameAs: https://www.linkedin.com/company/stamped-energy
 - Google Business Profile: not done
 - Wikidata: not done
 

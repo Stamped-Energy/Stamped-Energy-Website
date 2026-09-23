@@ -200,54 +200,6 @@ export const PAGE_SEO = {
       "batch idle energy waste",
     ],
   },
-  resources: {
-    absoluteTitle: "Resources | Stamped Energy - Guides for Plant Energy Cost",
-    description:
-      "Guides on maximum demand, DISCOM bills, and how Stamped differs from EMS or SCADA. Written for plant directors and electrical heads in India.",
-    path: "/resources",
-    keywords: [
-      "industrial energy guides India",
-      "maximum demand reduction India",
-      "DISCOM bill savings India",
-      "prescriptive energy vs EMS",
-    ],
-  },
-  resourcesStampedVsEms: {
-    absoluteTitle: "Stamped vs EMS and SCADA | Stamped Energy",
-    description:
-      "How Stamped Energy differs from a passive EMS dashboard or SCADA replacement. Prescription layer with owners, rupee impact, and outcomes verified with evidence.",
-    path: "/resources/stamped-vs-ems",
-    keywords: [
-      "energy management software vs EMS",
-      "SCADA vs prescriptions",
-      "prescriptive energy intelligence vs dashboard",
-      "Stamped Energy vs EMS",
-    ],
-  },
-  resourcesMaximumDemand: {
-    absoluteTitle: "Maximum Demand Reduction India | Stamped Energy",
-    description:
-      "How HT plants in India cut maximum demand charges: shift-start stagger, overlapping loads, and rupee-scored prescriptions. Indicative 15-25% MD reduction bands.",
-    path: "/resources/maximum-demand-india",
-    keywords: [
-      "maximum demand reduction India",
-      "MD charge industrial plant",
-      "shift-start demand spike",
-      "HT bill maximum demand",
-    ],
-  },
-  resourcesDiscomBill: {
-    absoluteTitle: "How to Read a DISCOM HT Bill | Stamped Energy",
-    description:
-      "MD, ToD, power factor, and energy line items on Indian DISCOM HT bills. How plant teams turn bill signals into assigned actions verified with evidence.",
-    path: "/resources/discom-bill-guide",
-    keywords: [
-      "DISCOM bill savings India",
-      "HT electricity bill India",
-      "how to read DISCOM bill",
-      "ToD tariff industrial plant",
-    ],
-  },
 } as const satisfies Record<string, PageSeoConfig>;
 
 const VERTICAL_SEO_MAP: Record<string, PageSeoConfig> = {

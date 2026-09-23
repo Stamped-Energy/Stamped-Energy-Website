@@ -56,9 +56,9 @@ All SEO, GEO, and AEO copy derives from **`lib/content/icp.ts`**. Do not hardcod
 | `AI-powered energy intelligence India` | `/` |
 | `prescriptive energy intelligence India` | `/`, `/platform` |
 | `energy management software for plants India` | `/solutions/load-energy` |
-| `maximum demand reduction India` | `/resources/maximum-demand-india` |
-| `DISCOM bill savings India` | `/resources/discom-bill-guide` |
-| `Stamped vs EMS` / SCADA disambiguation | `/resources/stamped-vs-ems` |
+| `maximum demand reduction India` | `/case-studies`, `/solutions/load-energy` |
+| `DISCOM bill savings India` | `/case-studies`, homepage FAQ |
+| `Stamped vs EMS` / SCADA disambiguation | `/platform`, homepage FAQ |
 
 ### Tier 3 - Vertical
 
@@ -84,8 +84,7 @@ Per-page `keywords` arrays live on each `PAGE_SEO` entry in `lib/seo/pages.ts` (
 | `lib/seo/constants.ts` | `SITE_URL`, OG, `SEO_KEYWORDS`, `COMPANY_LINKEDIN_URL` |
 | `lib/seo/schemas.ts` | JSON-LD |
 | `lib/seo/llms-index.ts` | Builders for `llms.txt` body + `/llms-full.txt` |
-| `lib/content/resource-guides/` | SEO lander copy SSOT |
-| `app/sitemap.ts` | Static + uncapped blogs + case studies + resources |
+| `app/sitemap.ts` | Static + uncapped blogs + case studies |
 | `public/llms.txt` | Static AI site guide (regen via `buildLlmsTxtBody`) |
 | `app/llms-full.txt/route.ts` | Dynamic full index |
 
@@ -98,13 +97,13 @@ Per-page `keywords` arrays live on each `PAGE_SEO` entry in `lib/seo/pages.ts` (
 - [x] Sitemap soft-fail + uncapped post/case helpers (`listPublishedPostsForSitemap`, `listPublishedCaseStudiesForSitemap`)
 - [x] Homepage FAQ remounted + FAQPage + Speakable JSON-LD; speakable CSS classes on hero/impact
 - [x] WebSite SearchAction → `/case-studies?search={search_term_string}` with catalog hydration
-- [x] Per-page keywords on all `PAGE_SEO` routes including `/resources/*`
+- [x] Per-page keywords on all `PAGE_SEO` routes
 - [x] `COMPANY_LINKEDIN_URL` constant wired into Organization `sameAs` (empty until URL confirmed)
 - [x] `/case-studies/[slug]` restored from CMS (no longer 308 to listing)
-- [x] `/resources` hub + stamped-vs-ems + maximum-demand-india + discom-bill-guide
+- [x] `/resources` hub + three guides (superseded by ADR-032 — 308 to `/case-studies`)
 - [x] Extremely detailed `public/llms.txt` + expanded `/llms-full.txt`
-- [x] Nav/footer Resources → `/resources` with guide links
-- [x] `npm run build` green (resources routes + case study SSG present)
+- [x] Nav/footer Resources → `/case-studies` (ADR-032)
+- [x] `npm run build` green (case study SSG present)
 
 ---
 
@@ -129,12 +128,9 @@ Per-page `keywords` arrays live on each `PAGE_SEO` entry in `lib/seo/pages.ts` (
 3. Regenerate `public/llms.txt`: `npx tsx -e "import { buildLlmsTxtBody } from './lib/seo/llms-index.ts'; import { writeFileSync } from 'fs'; writeFileSync('public/llms.txt', buildLlmsTxtBody());"`
 4. Update this file.
 
-## How to add a resource guide
+## Resource guides (historical)
 
-1. Add module under `lib/content/resource-guides/`.
-2. Register in `index.ts` + `PAGE_SEO` + `app/resources/{slug}/page.tsx`.
-3. Add to `app/sitemap.ts` STATIC_PATHS.
-4. Regen `public/llms.txt`.
+ADR-032 removed `/resources` and standalone guide landers. Long-tail intent should land on `/case-studies` posts, pillar pages, or homepage FAQ until a new guide pattern is approved.
 
 ---
 

@@ -29,6 +29,16 @@ const nextConfig: NextConfig = {
         destination: "/platform",
         permanent: true,
       },
+      {
+        source: "/resources",
+        destination: "/case-studies",
+        permanent: true,
+      },
+      {
+        source: "/resources/:path*",
+        destination: "/case-studies",
+        permanent: true,
+      },
     ];
   },
 };

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRef } from "react";
 
 import { useMotion } from "@/components/motion/MotionProvider";
@@ -12,9 +13,17 @@ type BlogHeroProps = {
   eyebrow: string;
   title: string;
   description: string;
+  heroImageSrc?: string;
+  heroImageAlt?: string;
 };
 
-export function BlogHero({ eyebrow, title, description }: BlogHeroProps) {
+export function BlogHero({
+  eyebrow,
+  title,
+  description,
+  heroImageSrc,
+  heroImageAlt,
+}: BlogHeroProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const { isReady, prefersReducedMotion } = useMotion();
 
@@ -40,6 +49,19 @@ export function BlogHero({ eyebrow, title, description }: BlogHeroProps) {
       ref={sectionRef}
       className="page-hero relative overflow-hidden bg-secondary"
     >
+      {heroImageSrc ? (
+        <div className="absolute inset-0">
+          <Image
+            src={heroImageSrc}
+            alt={heroImageAlt ?? ""}
+            fill
+            priority
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-secondary/75" />
+        </div>
+      ) : null}
       <Container className="relative z-10">
         <div className="max-w-2xl">
           <div data-blog-hero>

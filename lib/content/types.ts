@@ -3,6 +3,8 @@ export type NavLink = {
   href: string;
   external?: boolean;
   megaMenu?: "industries" | "solutions";
+  /** Extra path prefixes that mark this nav item active (e.g. blog articles under Resources). */
+  activePrefixes?: string[];
 };
 
 export type HeroFeatureItem = {
