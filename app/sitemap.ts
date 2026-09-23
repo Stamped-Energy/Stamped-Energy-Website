@@ -22,10 +22,6 @@ const STATIC_PATHS = [
   "/industries/steel",
   "/industries/pharma",
   "/industries/chemical",
-  "/resources",
-  "/resources/stamped-vs-ems",
-  "/resources/maximum-demand-india",
-  "/resources/discom-bill-guide",
 ] as const;
 
 const STATIC_PRIORITIES: Record<string, number> = {
@@ -43,10 +39,6 @@ const STATIC_PRIORITIES: Record<string, number> = {
   "/case-studies": 0.85,
   "/industries": 0.8,
   "/contact": 0.75,
-  "/resources": 0.85,
-  "/resources/stamped-vs-ems": 0.85,
-  "/resources/maximum-demand-india": 0.85,
-  "/resources/discom-bill-guide": 0.85,
 };
 
 function safeLastModified(value: string | null | undefined): Date {

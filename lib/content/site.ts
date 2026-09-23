@@ -15,7 +15,11 @@ export const navLinks: NavLink[] = [
   { label: "Solutions", href: "/solutions", megaMenu: "solutions" },
   { label: "Platform", href: "/platform" },
   { label: "Industries", href: "/industries", megaMenu: "industries" },
-  { label: "Resources", href: "/resources" },
+  {
+    label: "Resources",
+    href: "/case-studies",
+    activePrefixes: ["/blog/"],
+  },
   { label: "About Us", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
@@ -33,13 +37,7 @@ export const footerLinks = {
     { label: "Pharmaceutical", href: "/industries/pharma" },
     { label: "Chemical & paint", href: "/industries/chemical" },
   ],
-  resources: [
-    { label: "Guides", href: "/resources" },
-    { label: "Stamped vs EMS", href: "/resources/stamped-vs-ems" },
-    { label: "Maximum demand India", href: "/resources/maximum-demand-india" },
-    { label: "DISCOM bill guide", href: "/resources/discom-bill-guide" },
-    { label: "Case Studies", href: siteConfig.blogUrl },
-  ],
+  resources: [{ label: "Case studies & blogs", href: siteConfig.blogUrl }],
   company: [
     { label: "About Us", href: "/about" },
     { label: "Contact", href: "/contact" },

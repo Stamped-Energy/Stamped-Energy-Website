@@ -20,9 +20,22 @@ export function NavLinkItem({
   lightNav = false,
 }: NavLinkItemProps) {
   const pathname = usePathname();
+  const matchesPrefix = (prefix: string) => {
+    if (!pathname.startsWith(prefix)) {
+      return false;
+    }
+    if (prefix.startsWith("/blog") && pathname.startsWith("/blog/admin")) {
+      return false;
+    }
+    return true;
+  };
+
   const isActive =
     !link.external &&
-    (link.href === "/" ? pathname === "/" : pathname.startsWith(link.href));
+    (link.href === "/"
+      ? pathname === "/"
+      : pathname.startsWith(link.href) ||
+        (link.activePrefixes?.some(matchesPrefix) ?? false));
 
   const className = cn(
     "relative font-display text-[0.8rem] font-semibold uppercase tracking-[0.04em] transition-colors duration-200 ease-out",

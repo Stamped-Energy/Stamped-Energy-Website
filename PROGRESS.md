@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-**Author card copy** — Vinayak “Written by” short bio updated to industrial AI / turning plant data into actions (kept IIT Roorkee + domain/strategy/marketing lines).
+**Resources IA consolidation (ADR-032)** — Nav/footer Resources → `/case-studies`; `/resources` hub + guide landers removed with 308 redirects; case studies hero photo overlay; `llms.txt` regen.
 
 ## Completed Phases
 
@@ -58,6 +58,7 @@
 - [x] **SEO/GEO/AEO full pass (ADR-029)** - sitemap helpers; homepage FAQ + Speakable; SearchAction; per-page keywords; case-study detail URLs restored; `/resources` hub + 3 guides; detailed llms.txt / llms-full; docs sync; `npm run build` green
 - [x] **Four-outcome copy pass (ADR-030)** - H1 Turn plant data into action; hero Rx carousel + Asset Health examples; snapshots synced; two pillars unchanged
 - [x] **CMS rich-text H1 (ADR-031)** - TipTap levels 1–3; H1 toolbar; larger `.rich-article h1`; markdown `#` import; AI prompts updated
+- [x] **Resources IA consolidation (ADR-032)** - `/resources` removed; 308 → `/case-studies`; nav/footer Resources unified; BlogHero plant photo; guides SSOT deleted; `npm run build` green
 
 ## Remaining Phases
 

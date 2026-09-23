@@ -608,4 +608,24 @@ Architecture and workflow decisions for this project.
 
 ---
 
+## ADR-032: Consolidate Resources nav onto Case Studies & Blogs
+
+**Date:** 2026-09-23
+
+**Context:** Public IA had a separate `/resources` guides hub while case studies and blogs already lived at `/case-studies`. Nav “Resources” should match the merged proof surface; standalone guide landers duplicated discovery paths.
+
+**Alternatives:**
+
+1. Keep `/resources` hub and only change nav href (rejected: orphan hub and split IA)
+2. Move guides under `/case-studies/guides/*` (rejected: scope; guides removed for now)
+3. Remove `/resources` routes; 308 to `/case-studies`; nav/footer → `/case-studies` (selected)
+
+**Selected:** Delete `app/resources/*`, `lib/content/resource-guides/*`, and related `PAGE_SEO` entries. Permanent redirects `/resources` and `/resources/:path*` → `/case-studies`. Regenerate `public/llms.txt`. Case studies listing hero uses existing forging plant photo with dark overlay.
+
+**Rationale:** Single public “Resources” destination aligns with `docs/website-copy.md` and reduces maintenance. Redirects preserve bookmarks from the short-lived guides hub (ADR-029).
+
+**Impact:** `lib/content/site.ts`, `next.config.ts`, `app/sitemap.ts`, `lib/seo/pages.ts`, `lib/seo/llms-index.ts`, `components/blog/BlogHero.tsx`, `app/case-studies/page.tsx`, `components/layout/NavLinkItem.tsx`, `public/llms.txt`, `SEO_GEO_AEO.md`, `PROGRESS.md`.
+
+---
+
 

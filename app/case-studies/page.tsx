@@ -5,6 +5,7 @@ import { BlogFeatured } from "@/components/blog/BlogFeatured";
 import { BlogHero } from "@/components/blog/BlogHero";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { listPublishedPosts } from "@/lib/blog/posts";
+import { caseStudiesContent } from "@/lib/content/caseStudies";
 import { safeDbQuery } from "@/lib/db/safe-query";
 import { breadcrumbHome, generateBreadcrumbSchema } from "@/lib/seo/breadcrumbs";
 import { buildPageMetadataFromConfig } from "@/lib/seo/metadata";
@@ -62,6 +63,8 @@ export default async function CaseStudiesRoute({ searchParams }: CaseStudiesRout
         eyebrow="Case studies & blogs"
         title="Notes from the plant floor on electricity cost"
         description="Maximum demand, shift-start overlap, furnace holding, compressor waste, written for plant heads and electrical HODs, not software teams."
+        heroImageSrc={caseStudiesContent.hero.heroImageSrc}
+        heroImageAlt={caseStudiesContent.hero.heroImageAlt}
       />
       <BlogFeatured posts={featuredResult.data.posts} databaseError={databaseError} />
       <BlogCatalog
