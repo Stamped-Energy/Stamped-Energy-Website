@@ -3,8 +3,6 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SectionBadge } from "@/components/ui/SectionBadge";
 import { landingContent } from "@/lib/content";
 
-const IMPACT_MOBILE_IDS = new Set(["energy-recovery", "downtime-prevented", "production-efficiency"]);
-
 export function HomeImpact() {
   const { impact } = landingContent;
 
@@ -16,33 +14,26 @@ export function HomeImpact() {
           <h2 className="mt-6 max-w-3xl font-display text-3xl font-bold tracking-tight text-balance md:text-5xl">
             {impact.title}
           </h2>
-          <p className="mt-5 max-w-2xl text-base leading-8 text-on-secondary/75 md:text-lg">
-            {impact.description}
-          </p>
-          <p className="mt-3 max-w-2xl text-xs leading-6 text-on-secondary/50 md:text-sm">
-            {impact.disclaimer}
-          </p>
         </Reveal>
 
-        <div className="key-numbers mt-12 grid gap-8 sm:grid-cols-2 lg:mt-16 lg:grid-cols-3 lg:gap-10">
+        <ul className="key-numbers mt-12 grid gap-8 sm:grid-cols-2 lg:mt-16 lg:gap-10">
           {impact.items.map((item, index) => (
-            <Reveal
-              key={item.id}
-              delay={index * 0.04}
-              className={IMPACT_MOBILE_IDS.has(item.id) ? undefined : "hidden md:block"}
-            >
-              <article className="border-t border-on-secondary/15 pt-6">
-                <p className="font-display text-4xl font-bold tracking-tight text-primary md:text-5xl">
-                  {item.value}
+            <li key={item.id} className="border-t border-on-secondary/15 pt-6">
+              <Reveal delay={index * 0.04}>
+                <p className="text-lg leading-8 text-on-secondary/80 md:text-xl md:leading-9">
+                  <strong className="font-display font-bold text-on-secondary">{item.title}</strong>{" "}
+                  {item.detail}
                 </p>
-                <p className="mt-4 text-base font-semibold tracking-tight">{item.label}</p>
-                {item.detail ? (
-                  <p className="mt-2 text-sm leading-6 text-on-secondary/65">{item.detail}</p>
-                ) : null}
-              </article>
-            </Reveal>
+              </Reveal>
+            </li>
           ))}
-        </div>
+        </ul>
+
+        <Reveal>
+          <p className="mt-12 max-w-2xl text-sm leading-7 text-on-secondary/65 md:text-base">
+            {impact.footnote}
+          </p>
+        </Reveal>
       </Container>
     </section>
   );

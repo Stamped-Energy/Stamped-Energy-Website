@@ -21,7 +21,7 @@ function getNotifyRecipients(): string[] {
 }
 
 function getFromAddress(): string {
-  return process.env.CONTACT_FROM_EMAIL?.trim() || "Stamped Energy <stamped.energy@gmail.com>";
+  return process.env.CONTACT_FROM_EMAIL?.trim() || "Stamped <stamped.energy@gmail.com>";
 }
 
 function displayValue(value: string | null | undefined): string {
@@ -33,7 +33,7 @@ function buildEmailHtml(submission: ContactSubmissionInput, receivedAt: string):
     ["Name", submission.name],
     ["Company", submission.company],
     ["Plant location", displayValue(submission.location)],
-    ["Monthly bill (approx.)", displayValue(submission.billSize)],
+    ["Plant details", displayValue(submission.billSize)],
     ["WhatsApp", displayValue(submission.whatsapp)],
     ["Email", displayValue(submission.email)],
     ["Received at", receivedAt],
@@ -48,7 +48,7 @@ function buildEmailHtml(submission: ContactSubmissionInput, receivedAt: string):
 
   return `
     <div style="font-family:Inter,Arial,sans-serif;max-width:560px;color:#191c1a;">
-      <p style="font-size:14px;color:#5a403c;margin:0 0 16px;">New discovery call request from stamped.work</p>
+      <p style="font-size:14px;color:#5a403c;margin:0 0 16px;">New site survey request from stamped.work</p>
       <table style="width:100%;border-collapse:collapse;border:1px solid #e3e7e1;border-radius:8px;overflow:hidden;">
         ${tableRows}
       </table>
@@ -72,7 +72,7 @@ export async function sendContactNotification(
   const { error } = await resend.emails.send({
     from: getFromAddress(),
     to: recipients,
-    subject: `Discovery call request - ${submission.company}`,
+    subject: `Site survey request - ${submission.company}`,
     html: buildEmailHtml(submission, receivedAt),
   });
 

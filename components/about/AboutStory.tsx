@@ -77,6 +77,23 @@ export function AboutStory() {
               </p>
             ))}
           </div>
+          <h3
+            data-about-story
+            className="mt-12 font-display text-2xl font-bold tracking-tight text-on-surface md:text-3xl"
+          >
+            {story.whatWeDo.title}
+          </h3>
+          <div className="mt-6 space-y-6 text-left">
+            {story.whatWeDo.paragraphs.map((paragraph) => (
+              <p
+                key={paragraph}
+                data-about-story
+                className="text-base leading-8 text-on-surface-variant md:text-lg md:leading-9"
+              >
+                {paragraph}
+              </p>
+            ))}
+          </div>
         </div>
       </Container>
     </section>

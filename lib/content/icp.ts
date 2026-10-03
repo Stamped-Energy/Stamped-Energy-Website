@@ -1,58 +1,33 @@
-/** Single source for ICP copy - revenue floor, bill band, buyer titles, SEO/AEO positioning. */
+/** Single source for ICP and positioning copy (SEO, AEO, llms.txt, schema). Copy canon: Stamped copy v3 (3 Oct 2026). */
 
 export const icp = {
-  revenueFloor: "₹200 Cr+",
-  revenueFloorShort: "₹200 Cr",
-  monthlyBillBand: "₹20-30 lakh+",
-  monthlyBillFloor: "₹20 lakh",
-  monthlyBillFloorShort: "₹20L",
   buyerTitles: [
-    "Plant Director",
-    "VP Operations",
-    "Head of Electrical",
+    "Owner or MD",
+    "Plant head",
+    "Quality head",
+    "Production and process engineers",
+    "Maintenance lead",
     "CFO",
   ] as const,
-  buyerTitlesShort: "plant directors, VP Ops, and electrical heads",
-  geography: "plants in India",
-  heroBillLine: "Built for plants with ₹20 lakh+ monthly electricity bills.",
+  buyerTitlesShort: "plant heads, quality heads and the engineers who run the lines",
+  geography: "manufacturing plants in India",
   positioning:
-    "Prescriptive energy intelligence - specific prescriptions, rupee impact, verified with evidence.",
+    "Stamped uses machine learning and AI on the data your plant already records to find where efficiency is lost across process, quality, planning and maintenance, and improves it with actions your team can take.",
   seo: {
-    /** Primary category label - use in titles, schema, llms.txt */
-    categoryLabel: "AI-powered energy intelligence",
-    /** Alternate phrasing for variety without diluting category */
-    categoryLabelAlt: "AI-powered prescriptive energy intelligence",
-    /** Entity clarity sentence for AEO / GEO (one paragraph, cite verbatim in llms.txt) */
+    /** Category line: tagline, title tags, schema. */
+    categoryLabel: "AI for plant operations",
+    /** Entity sentence for AEO / GEO (cite verbatim in llms.txt and Organization schema). */
     entityDefinition:
-      "Stamped Energy is AI-powered prescriptive energy intelligence software for energy-intensive plants in India. It connects existing incomer meters, SCADA, PLCs, and DISCOM bills into ranked prescriptions - what to change, who owns it, rupee impact, and outcomes verified with evidence (DISCOM bill confirmation optional).",
-    /** Short meta description pattern */
+      "Stamped is AI for plant operations. It uses machine learning and AI on the data a manufacturing plant already records, from its machines and control systems to its meters, ERP and quality registers, to find where efficiency is lost across process, quality, planning and maintenance, and improves it with ranked actions the plant team can take. Stamped is built in India and is starting with auto-component makers in forging, heat treatment and precision machining.",
+    /** Short meta description pattern. */
     metaDescription:
-      "AI-powered prescriptive intelligence that identifies cost-saving opportunities and delivers actions to improve efficiency. Verified with evidence.",
-    /** Audience line for llms.txt, SEO doc, sales */
+      "Stamped uses machine learning and AI on the data your plant already records to find where efficiency is lost across process, quality, planning and maintenance, and improves it.",
+    /** Audience line for llms.txt and docs. */
     audienceLine:
-      "Plant directors, VP Operations, electrical heads, and CFOs at energy-intensive plants in India (₹200 Cr+ revenue, ₹20 lakh+ monthly electricity bills).",
-    /** Verticals for schema knowsAbout and keyword clusters */
-    verticals: [
-      "cement",
-      "steel",
-      "pharmaceutical",
-      "chemical",
-      "automotive",
-    ] as const,
-    /** Typical verified outcome ranges - always label as benchmark in copy */
-    outcomes: {
-      billReduction: "12-20%",
-      mdReduction: "15-25%",
-    },
-    /** What we are NOT - AEO disambiguation */
-    notA: "Not a passive EMS dashboard or SCADA replacement. Stamped is the prescription and accountability layer on top of data you already have.",
+      "Mid-market manufacturers in India, from a few hundred crore rupees of revenue upward; automotive components first.",
+    /** Industries for schema knowsAbout and keyword clusters. */
+    verticals: ["auto components", "forging", "heat treatment", "precision machining"] as const,
+    /** What Stamped is not (safe to say, per STAMPED_COPY_GUIDE section 7). */
+    notA: "Stamped is not a replacement for MES, ERP, QMS, CMMS or SCADA, and it works alongside them. It is not a dashboard, not hardware and not an energy-only company.",
   },
 } as const;
-
-export function icpBillLine() {
-  return `For ${icp.geography} with ${icp.monthlyBillFloor}+ monthly electricity bills`;
-}
-
-export function icpAudienceShort() {
-  return icp.seo.audienceLine;
-}

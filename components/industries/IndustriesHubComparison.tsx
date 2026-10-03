@@ -54,26 +54,9 @@ export function IndustriesHubComparison() {
                       !imageFirst && "md:order-1",
                     )}
                   >
-                    <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
-                      <h3 className="min-w-0 font-display text-xl font-bold text-on-secondary md:text-2xl">
-                        {row.name}
-                      </h3>
-                      <div className="sm:shrink-0 sm:text-right">
-                        <p className="font-display text-2xl font-extrabold tracking-tight text-primary md:text-3xl">
-                          {row.metricPrimary.value}
-                        </p>
-                        <p className="mt-0.5 max-w-xs text-[10px] font-medium uppercase tracking-[0.1em] text-on-secondary/55 sm:max-w-[12rem]">
-                          {row.metricPrimary.label}
-                        </p>
-                      </div>
-                    </div>
-
-                    <p className="mt-4 font-display text-base font-bold text-on-secondary sm:text-lg md:text-xl">
-                      <span className="text-primary">{row.metricSecondary.value}</span>{" "}
-                      <span className="text-sm font-semibold text-on-secondary/85 sm:text-base md:text-lg">
-                        {row.metricSecondary.label}
-                      </span>
-                    </p>
+                    <h3 className="min-w-0 font-display text-xl font-bold text-on-secondary md:text-2xl">
+                      {row.name}
+                    </h3>
 
                     <p className="mt-4 flex flex-wrap gap-x-2 gap-y-1 text-sm font-semibold text-on-secondary">
                       {row.equipment.map((tag, tagIndex) => (

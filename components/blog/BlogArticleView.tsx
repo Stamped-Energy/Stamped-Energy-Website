@@ -115,7 +115,7 @@ export function BlogArticleView({ post, related }: BlogArticleViewProps) {
                   : "text-on-surface-variant hover:text-primary",
               )}
             >
-              ← All case studies & blogs
+              ← All notes from the plant floor
             </Link>
 
             <div

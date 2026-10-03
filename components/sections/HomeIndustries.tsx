@@ -22,12 +22,12 @@ export function HomeIndustries() {
           </p>
         </Reveal>
 
-        <ul className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 md:mt-12 md:grid-cols-5 md:gap-3">
+        <ul className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 md:mt-12 md:grid-cols-4 md:gap-3">
           {industries.items.map((item, index) => (
             <li key={item.id}>
               <Reveal delay={index * 0.04}>
                 <Link
-                  href={`/industries/${item.id}`}
+                  href={item.href ?? `/industries/${item.id}`}
                   className="group block outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface-low"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden rounded-md bg-on-surface/8">

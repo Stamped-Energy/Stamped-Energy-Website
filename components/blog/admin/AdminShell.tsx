@@ -43,9 +43,9 @@ export function AdminShell({ children, userName, userEmail }: AdminShellProps) {
     <>
       <div className="border-b border-[var(--admin-sidebar-border)] px-4 py-4">
         <Link href="/blog/admin" className="flex items-center gap-3" onClick={() => setMobileOpen(false)}>
-          <Image src="/LogoOrange.png" alt="Stamped Energy" width={28} height={28} className="h-7 w-7" />
+          <Image src="/LogoOrange.png" alt="Stamped" width={28} height={28} className="h-7 w-7" />
           <div>
-            <p className="text-sm font-semibold text-[var(--admin-sidebar-text)]">Stamped Energy</p>
+            <p className="text-sm font-semibold text-[var(--admin-sidebar-text)]">Stamped</p>
             <p className="text-xs text-[var(--admin-sidebar-muted)]">Admin</p>
           </div>
         </Link>

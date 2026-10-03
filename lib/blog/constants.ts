@@ -1,5 +1,5 @@
 export const BLOG_CATEGORIES = [
-  { id: "ai-manufacturing", label: "AI in Manufacturing" },
+  { id: "ai-manufacturing", label: "Machine learning and AI in manufacturing" },
   { id: "cost-optimization", label: "Cost Optimization" },
   { id: "energy-strategy", label: "Energy Strategy" },
   { id: "industrial-transformation", label: "Industrial Transformation" },

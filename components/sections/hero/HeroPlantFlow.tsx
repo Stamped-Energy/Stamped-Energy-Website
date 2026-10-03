@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 import { useMotion } from "@/components/motion/MotionProvider";
+import { landingContent } from "@/lib/content/landing";
 
 import { FRAME10_PATHS, RX_ITEMS, startHeroPlantFlow } from "./heroPlantFlowEngine";
 
@@ -13,6 +14,7 @@ const RX_TRACK_ITEMS = [...RX_ITEMS, ...RX_ITEMS];
 const MOBILE_STAGE_WIDTH = 1200;
 const STAGE_ASPECT = 1274 / 2529;
 const MOBILE_MQ = "(max-width: 1023px)";
+const { actionPanel } = landingContent.hero;
 
 export function HeroPlantFlow() {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -73,7 +75,7 @@ export function HeroPlantFlow() {
       ref={rootRef}
       className="hpf-root"
       role="img"
-      aria-label="Stamped reads market data, plant telemetry, and application systems, then ranks plant actions with rupee impact."
+      aria-label="Stamped reads quality records, machine and meter data, and plans from ERP, then sends example actions to the people who can act on them."
     >
       <div className="hpf-viewport">
         <div className="hpf-stage">
@@ -119,13 +121,13 @@ export function HeroPlantFlow() {
             <span className="hpf-dock-dot" id="hpf-dockApp" aria-hidden="true" />
 
             <div className="hpf-src-label" id="hpf-srcExt">
-              Market data
+              Quality records
             </div>
             <div className="hpf-src-label" id="hpf-srcTel">
-              Plant telemetry
+              Machines and meters
             </div>
             <div className="hpf-src-label" id="hpf-srcApp">
-              Application systems
+              ERP and plans
             </div>
 
             <div className="hpf-signals" id="hpf-signals" aria-hidden="true" />
@@ -140,28 +142,26 @@ export function HeroPlantFlow() {
               />
               <div className="hpf-logo-caption">
                 Stamped
-                <br />
-                Energy
               </div>
             </div>
 
-            <aside className="hpf-rx-panel" id="hpf-rxPanel" aria-label="Prescriptions">
+            <aside className="hpf-rx-panel" id="hpf-rxPanel" aria-label={actionPanel.title}>
               <div className="hpf-rx-head">
                 <div className="hpf-rx-head-text">
-                  <div className="hpf-rx-title">Prescriptions</div>
-                  <p className="hpf-rx-sub">Who acts, by when. Evidence on the card.</p>
+                  <div className="hpf-rx-title">{actionPanel.title}</div>
+                  <p className="hpf-rx-sub">{actionPanel.subtitle}</p>
                 </div>
                 <div className="hpf-rx-live" id="hpf-rxLive">
-                  Live
+                  {actionPanel.badge}
                 </div>
               </div>
               <div className="hpf-rx-viewport" id="hpf-rxViewport">
                 <div className="hpf-rx-track" id="hpf-rxTrack">
                   {RX_TRACK_ITEMS.map((item, index) => (
-                    <article className="hpf-rx-item" key={`${item.label}-${index}`}>
+                    <article className="hpf-rx-item" key={`${item.id}-${index}`}>
                       <div className="hpf-rx-tags">
-                        <span className="hpf-rx-tag is-money">{item.money}</span>
-                        <span className="hpf-rx-tag">{item.label}</span>
+                        <span className="hpf-rx-tag is-money">{item.role}</span>
+                        <span className="hpf-rx-tag">{item.area}</span>
                       </div>
                       <p className="hpf-rx-copy">{item.copy}</p>
                     </article>

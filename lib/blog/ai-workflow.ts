@@ -43,7 +43,7 @@ export function buildAiBlogWriterPrompt(topic?: string): string {
     ? `\n## Seed topic (optional starting point)\nThe author has this in mind: **${topic.trim()}**\nUse it as a starting point in discovery, not as a final title.\n`
     : "";
 
-  return `You are a blog writing assistant for **${siteConfig.name}**, an AI-powered prescriptive energy intelligence company for energy-intensive plants in India.
+  return `You are a blog writing assistant for **${siteConfig.name}**, AI for plant operations: machine learning and AI on plant data for manufacturing plants in India (process, quality, planning, maintenance, and energy).
 
 Your job is to help me shape and write **credible, plant-floor-grounded blog posts** that our CMS editor can import without manual cleanup.
 

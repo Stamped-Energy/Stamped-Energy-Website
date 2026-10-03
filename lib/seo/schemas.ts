@@ -8,7 +8,7 @@ import type { FaqItem } from "@/lib/seo/extract-faq";
 export const organizationPublisher = {
   "@type": "Organization",
   "@id": ORGANIZATION_ID,
-  name: "Stamped Energy",
+  name: "Stamped",
   logo: {
     "@type": "ImageObject",
     url: `${SITE_URL}/LogoOrange.png`,
@@ -21,7 +21,7 @@ export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "@id": ORGANIZATION_ID,
-  name: "Stamped Energy",
+  name: "Stamped",
   url: SITE_URL,
   logo: organizationPublisher.logo,
   description: icp.seo.entityDefinition,
@@ -44,23 +44,18 @@ export const organizationSchema = {
   },
   knowsAbout: [
     icp.seo.categoryLabel,
-    "Prescriptive energy intelligence",
-    "Maximum demand reduction",
-    "DISCOM billing",
-    "SCADA integration",
-    "Industrial plant energy cost reduction",
-    "Cement plant energy management",
-    "Steel plant energy efficiency",
-    "Pharmaceutical HVAC energy optimization",
-    "Chemical batch energy optimization",
-    "Automotive plant energy management",
-    "IPMVP measurement and verification",
-    "Operational sustainability",
-    "Scope 2 emissions reduction",
-    "Specific energy consumption (SEC)",
-    "Perform Achieve Trade (PAT)",
-    "Energy intensity tracking",
-    "Industry 4.0 manufacturing",
+    "Machine learning and AI for manufacturing",
+    "Manufacturing operational efficiency",
+    "Process optimisation",
+    "Predictive quality",
+    "Rejection reduction",
+    "Production planning",
+    "Predictive maintenance",
+    "Plant energy use",
+    "Forging",
+    "Heat treatment",
+    "Precision machining",
+    "Auto component manufacturing",
   ],
   sameAs: [
     "https://www.linkedin.com/in/vinayak-rz/",
@@ -73,9 +68,9 @@ export const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "@id": WEBSITE_ID,
-  name: "Stamped Energy",
+  name: "Stamped",
   url: SITE_URL,
-  description: `${icp.seo.categoryLabelAlt} for energy-intensive plants in India - rupee outcomes verified with evidence.`,
+  description: icp.seo.metaDescription,
   publisher: {
     "@id": ORGANIZATION_ID,
   },
@@ -105,7 +100,7 @@ export const homepageFaqSchema = {
 export const homepageSpeakableSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  name: "Stamped Energy - AI-Powered Energy Intelligence for Plants in India",
+  name: "Stamped | AI for plant operations",
   speakable: {
     "@type": "SpeakableSpecification",
     cssSelector: [".hero-headline", ".value-proposition", ".key-numbers"],
@@ -116,57 +111,37 @@ export const homepageSpeakableSchema = {
 export const howToSchema = {
   "@context": "https://schema.org",
   "@type": "HowTo",
-  name: "How Stamped Energy Runs the Connect to Improve Loop",
+  name: "How Stamped turns plant data into operator actions",
   description:
-    "Connect existing plant meters and SCADA, generate rupee-scored prescriptions, assign actions to your team, verify with evidence, and improve based on decisions taken.",
-  totalTime: "P28D",
-  tool: [
-    { "@type": "HowToTool", name: "Incomer energy meter" },
-    { "@type": "HowToTool", name: "SCADA or PLC system" },
-    { "@type": "HowToTool", name: "DISCOM electricity bill" },
-  ],
+    "Stamped connects to the systems a plant already runs, uses machine learning and AI to find where efficiency is lost, sends ranked actions to the person who can act, and checks the result with the plant team.",
   step: [
     {
       "@type": "HowToStep",
       position: 1,
-      name: "Connect",
-      text: "Bring live plant signals, bills, tariffs, and operating context into one read-only layer. No hardware retrofit required.",
-      url: `${SITE_URL}/platform#connect`,
+      name: "Plant data",
+      text: "Connect to the systems you already run: machines and control systems, meters, ERP and quality registers.",
+      url: `${SITE_URL}/platform`,
     },
     {
       "@type": "HowToStep",
       position: 2,
-      name: "Observe",
-      text: "Track demand, energy use, equipment behaviour, and production state against the plant baseline.",
-      url: `${SITE_URL}/platform#observe`,
+      name: "Models",
+      text: "Machine learning and AI models, tuned to your plant, find where efficiency is lost across process, quality, planning and maintenance.",
+      url: `${SITE_URL}/platform`,
     },
     {
       "@type": "HowToStep",
       position: 3,
-      name: "Decide",
-      text: "Rupee-rank feasible moves by economic impact, effort, and operating risk.",
-      url: `${SITE_URL}/platform#decide`,
+      name: "Actions",
+      text: "Each finding becomes a ranked action that says who should act, by when, and why.",
+      url: `${SITE_URL}/platform`,
     },
     {
       "@type": "HowToStep",
       position: 4,
-      name: "Execute",
-      text: "Assign the accepted action to the person who can carry it out.",
-      url: `${SITE_URL}/platform#execute`,
-    },
-    {
-      "@type": "HowToStep",
-      position: 5,
-      name: "Verify",
-      text: "Compare expected vs observed outcomes in an ops-cleared ledger. DISCOM bill confirmation can follow.",
-      url: `${SITE_URL}/platform#verify`,
-    },
-    {
-      "@type": "HowToStep",
-      position: 6,
-      name: "Improve",
-      text: "Calibrate baselines and ranking from decisions taken and outcomes verified. Human-gated.",
-      url: `${SITE_URL}/platform#improve`,
+      name: "Results",
+      text: "We check the result with your team, and their feedback goes back into the models.",
+      url: `${SITE_URL}/platform`,
     },
   ],
 };
@@ -189,10 +164,9 @@ export const vinayakPersonSchema = {
   sameAs: "https://www.linkedin.com/in/vinayak-rz/",
   knowsAbout: [
     "Electrical engineering",
-    "Energy management systems",
-    "Prescriptive energy intelligence",
-    "SCADA integration",
-    "Manufacturing energy optimization",
+    "Machine learning and AI for manufacturing",
+    "Manufacturing operational efficiency",
+    "Plant energy use",
   ],
 };
 
@@ -258,7 +232,7 @@ export function buildArticleSchema(post: ArticleSchemaInput) {
     inLanguage: "en-IN",
     about: {
       "@type": "Thing",
-      name: "Energy management for energy-intensive plants in India",
+      name: "Plant operations in Indian manufacturing",
     },
   };
 }
@@ -298,7 +272,7 @@ export function buildFaqSchema(faqs: FaqItem[]) {
 export const softwareApplicationSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "Stamped Energy",
+  name: "Stamped",
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web browser",
   url: SITE_URL,
@@ -312,26 +286,25 @@ export const softwareApplicationSchema = {
   },
   offers: {
     "@type": "Offer",
-    price: "0",
-    priceCurrency: "INR",
-    description: "Discovery call and pilot - pricing based on verified savings potential",
+    description:
+      "Site survey, then a paid pilot on one line for 8 to 12 weeks with success criteria and annual price agreed in writing before it starts.",
   },
   featureList: [
-    "AI-powered prescriptive energy intelligence",
-    "Read-only meter and SCADA integration",
-    "Rupee-denominated energy prescriptions",
-    "WhatsApp action assignment to plant floor",
-    "DISCOM bill savings verification",
+    "Machine learning and AI tuned to each plant",
+    "Connects to machines, control systems, meters, ERP and quality registers",
+    "Ranked actions that say who should act, by when, and why",
+    "Actions sent on WhatsApp or on screen",
+    "Results checked with the plant team",
   ],
 };
 
 export const contactPageSchema = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
-  name: "Book a Discovery Call | Stamped Energy",
+  name: "Book a site survey | Stamped",
   url: `${SITE_URL}/contact`,
   description:
-    "Book a discovery call with Stamped Energy. We review your last three DISCOM bills, plant meter setup, and outline a pilot.",
+    "Book a site survey with Stamped. We spend a few days on your floor and send a written read-out of where efficiency is being lost and what we would change first.",
   mainEntity: {
     "@id": ORGANIZATION_ID,
   },
@@ -396,45 +369,14 @@ export function buildCaseStudySchema(study: CaseStudySchemaInput) {
       "@id": `${SITE_URL}/case-studies/${study.slug}`,
     },
     articleSection: "Case Study",
-    keywords: [study.industry, study.category, "energy savings", "manufacturing India"].join(", "),
+    keywords: [study.industry, study.category, "plant operations", "manufacturing India"].join(", "),
     inLanguage: "en-IN",
     about: {
       "@type": "Thing",
-      name: `${study.industry} energy cost reduction for plants in India`,
+      name: `${study.industry} plant operations in India`,
     },
   };
 }
-
-export const automotiveFaqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "How much can auto component manufacturers reduce their electricity bill?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Comparable auto component plants using assigned, rupee-scored actions typically see an indicative 12-20% monthly bill movement, with die casting and forging often recovering a large share on MD from shift-start sequencing. Your pilot replaces those bands with plant figures.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "What is maximum demand and how does it affect my electricity bill?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Maximum demand (MD) is the highest average kVA your plant draws in a billing window. Indian DISCOMs charge a fixed rate per kVA of recorded MD each month. Overlapping furnace pre-heat, compressor startup, and press cycles at shift start are the most common MD drivers in auto component plants.",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "How does Stamped Energy work for die casting plants?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Stamped connects read-only to your incomer meter and SCADA, builds production-aware baselines per cell and shift, then sends rupee-scored prescriptions: stagger furnace pre-heat, stage compressors, cut holding load. Owners get the action on WhatsApp.",
-      },
-    },
-  ],
-};
 
 function faqItemsToSchema(items: IndustryFaqItem[]) {
   return items.map((item) => ({
@@ -450,7 +392,7 @@ function faqItemsToSchema(items: IndustryFaqItem[]) {
 export function verticalFaqSchema(slug: VerticalSlug) {
   const page = getVerticalPage(slug);
   if (!page) {
-    return automotiveFaqSchema;
+    return null;
   }
 
   return {

@@ -1,49 +1,49 @@
 import { siteConfig } from "./site";
 
+/** /contact copy. Canon: Stamped copy v3 (3 Oct 2026) and the website update plan, section 4 (/contact). */
+
 export const contactContent = {
   hero: {
     eyebrow: "Get in touch",
-    title: "Talk to the team behind Stamped Energy",
+    title: "Book a site survey.",
     description:
-      "30 minutes, no slideware. Bring your incomer bill, shift schedule, and one operational headache. We will show you what a pilot would look like for your plant.",
+      "We spend a few days on your floor with your plant head and your quality and maintenance teams, and then send you a written read-out of where efficiency is being lost and what we would change first. If it makes sense, that leads to a paid pilot on one line for 8 to 12 weeks, with the success criteria and the annual price agreed in writing before we start.",
     heroImageSrc: "/industries/die-casting.jpeg",
-    heroImageAlt: "Energy-intensive manufacturing plant floor",
+    heroImageAlt: "Manufacturing plant floor",
   },
 
   stats: [
     { id: "response", label: "Response time", value: "Under 24 hours" },
-    { id: "pilot", label: "Pilot kickoff", value: "4-6 weeks" },
+    { id: "pilot", label: "Pilot", value: "8 to 12 weeks" },
     { id: "location", label: "Location", value: "India" },
   ],
 
-  pilotSection: {
-    eyebrow: "Start with a pilot",
-    title: "Find out what your plant lost last month",
-    description:
-      "30-minute discovery call. We review your meter setup, bill pattern, and processes, and outline a low-risk pilot if the numbers justify it.",
-  },
-
   formSection: {
-    eyebrow: "Request a working session",
-    title: "Tell us what you're solving for",
-    description:
-      "One of our founders will get back to you within one working day.",
+    eyebrow: "Request a site survey",
+    title: "Tell us about your plant",
+    description: "One of our founders will reply within 24 hours.",
   },
 
   contactForm: {
-    title: "Book a discovery call",
-    description: "Tell us about your plant. We will follow up to schedule a conversation.",
+    title: "Book a site survey",
+    description: "Tell us about your plant and we will follow up to plan the survey.",
     fields: {
       name: "Full name",
       company: "Company name",
       location: "Plant location",
-      billSize: "Monthly electricity bill (approx.)",
+      /** Stored in the existing `billSize` column (no schema change); see DECISIONS ADR-033. */
+      processes: "Main processes (e.g. forging, heat treatment, machining)",
+      focus: "What's on your mind",
+      reachVia: "Best way to reach you",
       whatsapp: "WhatsApp number",
       email: "Email address",
     },
+    focusOptions: ["Rejection", "Output", "Breakdowns", "Planning", "Energy", "Other"],
+    reachViaOptions: ["WhatsApp", "Call", "Email"],
+    selectPlaceholder: "Choose one",
     contactMethodHint: "Provide WhatsApp or email so we can reach you (at least one).",
     optionalLabel: "Optional",
-    submitLabel: "Submit request",
+    submitLabel: "Book a site survey",
     successMessage: "Request received. We will contact you shortly.",
     errorMessage: "Something went wrong. Please try again.",
   },
@@ -51,24 +51,12 @@ export const contactContent = {
   quickContact: {
     eyebrow: "Reach us directly",
     email: siteConfig.contactEmail,
-    responseTitle: "Response commitment",
-    responseItems: [
-      { label: "Avg response", value: "Under 24 hours" },
-      { label: "Pilot kickoff", value: "Within 6 weeks" },
-    ],
+    whatsappUrl: siteConfig.whatsappUrl,
+    whatsappLabel: "WhatsApp us",
   },
 
   onSite: {
-    title: "Prefer a plant visit over Zoom?",
     description:
-      "We work on-site with plant heads and electrical HODs. Write to us and we'll coordinate a plant-floor session at your convenience.",
-  },
-
-  office: {
-    eyebrow: "Where we work",
-    title: "On-site with manufacturers across India",
-    description:
-      "Stamped deploys with auto component and process-intensive plants. Remote discovery first, then on-site baselining when the numbers justify a pilot.",
-    locationLabel: "India · Remote & on-site",
+      "The survey happens on your floor, with your plant head and your quality and maintenance teams. Write to us and we will plan the days around your production.",
   },
 } as const;

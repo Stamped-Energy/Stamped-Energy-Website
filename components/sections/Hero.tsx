@@ -77,10 +77,7 @@ export function Hero() {
             data-hero-animate="copy"
             className="flex w-full min-w-0 flex-col justify-center lg:max-w-[32rem] lg:justify-self-end lg:pt-14 xl:pt-[3.75rem]"
           >
-            <p className="line-clamp-2 text-sm leading-5 text-on-surface/80 md:hidden">
-              {hero.supportingLineMobile}
-            </p>
-            <p className="value-proposition hidden text-base leading-7 text-on-surface/80 md:block lg:text-sm lg:leading-[1.7] xl:text-[0.9375rem] xl:leading-[1.65]">
+            <p className="value-proposition text-sm leading-6 text-on-surface/80 md:text-base md:leading-7 lg:text-sm lg:leading-[1.7] xl:text-[0.9375rem] xl:leading-[1.65]">
               {hero.supportingLine}
             </p>
             <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center lg:mt-5">
@@ -92,9 +89,6 @@ export function Hero() {
                 {hero.secondaryCta.label}
               </Link>
             </div>
-            <p className="mt-3 hidden text-xs leading-5 text-on-surface-variant md:block lg:mt-4">
-              {hero.microcopy}
-            </p>
           </div>
         </div>
 

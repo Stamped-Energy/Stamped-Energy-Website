@@ -18,7 +18,7 @@ export const metadata: Metadata = buildPageMetadataFromConfig(PAGE_SEO.caseStudi
 
 const breadcrumbSchema = generateBreadcrumbSchema([
   breadcrumbHome(),
-  { name: "Case Studies & Blogs", url: PAGE_SEO.caseStudies.path },
+  { name: "Resources", url: PAGE_SEO.caseStudies.path },
 ]);
 
 const collectionSchema = buildCollectionPageSchema({
@@ -60,9 +60,9 @@ export default async function CaseStudiesRoute({ searchParams }: CaseStudiesRout
     <>
       <JsonLd data={[collectionSchema, breadcrumbSchema]} />
       <BlogHero
-        eyebrow="Case studies & blogs"
-        title="Notes from the plant floor on electricity cost"
-        description="Maximum demand, shift-start overlap, furnace holding, compressor waste, written for plant heads and electrical HODs, not software teams."
+        eyebrow={caseStudiesContent.hero.eyebrow}
+        title={caseStudiesContent.hero.title}
+        description={caseStudiesContent.hero.description}
         heroImageSrc={caseStudiesContent.hero.heroImageSrc}
         heroImageAlt={caseStudiesContent.hero.heroImageAlt}
       />

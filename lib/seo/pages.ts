@@ -1,4 +1,4 @@
-/** Canonical title tags, meta descriptions, and per-page keywords. */
+/** Canonical title tags, meta descriptions, and per-page keywords. Copy canon: Stamped copy v3 (3 Oct 2026). */
 
 export type PageSeoConfig = {
   absoluteTitle: string;
@@ -7,209 +7,152 @@ export type PageSeoConfig = {
   keywords?: readonly string[];
 };
 
+const HOW_IT_WORKS_SEO = {
+  absoluteTitle: "How it works | Stamped",
+  description:
+    "How Stamped uses machine learning and AI on your existing plant data to send ranked actions to the people who own them, and check the result against your own baseline.",
+  path: "/platform",
+  keywords: [
+    "AI for plant operations",
+    "manufacturing operational efficiency India",
+    "plant data to operator actions",
+    "machine learning and AI for manufacturing",
+  ],
+} as const satisfies PageSeoConfig;
+
 export const PAGE_SEO = {
   home: {
-    absoluteTitle:
-      "Stamped Energy | AI-Powered Energy Intelligence for Industrial Plants",
+    absoluteTitle: "Stamped | AI for plant operations",
     description:
-      "Stamped analyzes plant and market data to create rupee-scored prescriptions so operators can act before opportunities are missed. Industry Energy Management and Asset Health Intelligence for industrial manufacturers.",
+      "Stamped uses machine learning and AI on the data your plant already records to find where efficiency is lost across process, quality, planning and maintenance, and improves it.",
     path: "/",
     keywords: [
-      "stamped energy",
-      "AI-powered energy intelligence India",
-      "prescriptive energy intelligence India",
-      "energy intelligence for industrial plants",
-      "rupee-scored prescriptions",
+      "AI for plant operations",
+      "manufacturing operational efficiency India",
+      "reduce rejection manufacturing",
+      "predictive quality manufacturing India",
+      "process optimisation manufacturing",
+      "auto component manufacturing software",
     ],
   },
-  platform: {
-    absoluteTitle: "Platform | Stamped Energy - Intelligence Layer and Connect to Improve",
-    description:
-      "Stamped is the intelligence layer on the stack you already run. Plant graph, rupee-scored prescriptions, and the Connect to Improve loop. First prescriptions in weeks. No hardware retrofit.",
-    path: "/platform",
-    keywords: [
-      "prescriptive energy intelligence",
-      "Connect to Improve loop",
-      "plant graph energy",
-      "intelligence layer SCADA meters",
-      "stamped energy platform",
-    ],
-  },
+  platform: HOW_IT_WORKS_SEO,
   /** @deprecated Use PAGE_SEO.platform. Kept for transitional imports. */
-  howItWorks: {
-    absoluteTitle: "Platform | Stamped Energy - Intelligence Layer and Connect to Improve",
-    description:
-      "Stamped is the intelligence layer on the stack you already run. Plant graph, rupee-scored prescriptions, and the Connect to Improve loop. First prescriptions in weeks. No hardware retrofit.",
-    path: "/platform",
-    keywords: [
-      "prescriptive energy intelligence",
-      "Connect to Improve loop",
-      "plant graph energy",
-      "stamped energy platform",
-    ],
-  },
+  howItWorks: HOW_IT_WORKS_SEO,
   solutions: {
-    absoluteTitle: "Solutions | Stamped Energy - Industry Energy Management and Asset Health",
+    absoluteTitle: "What Stamped improves | Process, quality, planning, maintenance",
     description:
-      "Stamped Energy delivers Industry Energy Management and Asset Health Intelligence in one product for energy-intensive plants in India.",
+      "Stamped improves process and control, quality and lot checks, planning and maintenance in manufacturing plants, with energy counted in all four.",
     path: "/solutions",
     keywords: [
-      "Industry Energy Management",
-      "Asset Health Intelligence",
-      "Stamped Intelligence",
-      "energy management software for plants India",
+      "process optimisation manufacturing",
+      "predictive quality manufacturing India",
+      "production re-planning software",
+      "maintenance stop ranking",
     ],
   },
-  solutionsLoadEnergy: {
-    absoluteTitle: "Industry Energy Management | Stamped Energy",
+  solutionsProcess: {
+    absoluteTitle: "Process and control optimisation | Stamped",
     description:
-      "rupee-scored prescriptions for maximum demand, shift-start overlap, idle loads, HVAC, and tariff - assigned owners and verified with evidence.",
-    path: "/solutions/load-energy",
+      "Run every shift like your best one. Stamped learns what your best runs looked like and recommends specific setting, restart and pacing changes to your process engineers.",
+    path: "/solutions/process",
     keywords: [
-      "Industry Energy Management",
-      "maximum demand reduction India",
-      "shift-start energy waste",
-      "rupee-scored prescriptions",
-      "industrial load management India",
+      "process optimisation manufacturing",
+      "induction billet heater temperature control",
+      "set point drift manufacturing",
     ],
   },
-  solutionsEquipment: {
-    absoluteTitle: "Asset Health Intelligence | Stamped Energy",
+  solutionsQuality: {
+    absoluteTitle: "Quality and lot checks before rejection | Stamped",
     description:
-      "rupee-ranked anomalies and early equipment warnings tied to energy and process context - assigned prescriptions before trips and waste compound.",
-    path: "/solutions/equipment-intelligence",
+      "Know which batch is at risk before it becomes a rejection. Stamped links process data to each lot and flags batches made under conditions that came before past rejections.",
+    path: "/solutions/quality",
     keywords: [
-      "Asset Health Intelligence",
-      "rupee-ranked anomalies",
-      "equipment energy early warning",
-      "plant asset health India",
+      "predictive quality manufacturing",
+      "rejection reduction auto component",
+      "reduce rejection in forging",
+      "CQI-9 heat treatment records",
+      "8D root cause data",
     ],
+  },
+  solutionsPlanning: {
+    absoluteTitle: "Planning and scheduling | Stamped",
+    description:
+      "When the plan breaks, have the next one ready. Stamped proposes the next sequence and shows what each option would do to output, energy and delivery.",
+    path: "/solutions/planning",
+    keywords: ["production re-planning manufacturing", "furnace loading sequence", "shop floor scheduling India"],
+  },
+  solutionsMaintenance: {
+    absoluteTitle: "Maintenance | Stamped",
+    description:
+      "Fix what costs you the most, before it stops the line. Stamped ranks stops by the output and time they cost and picks up the slow drift that comes before a failure.",
+    path: "/solutions/maintenance",
+    keywords: ["reduce downtime CNC machining", "maintenance stop ranking", "equipment drift detection"],
   },
   about: {
-    absoluteTitle: "About Stamped Energy | IIT Roorkee Engineers, Verified Savings",
+    absoluteTitle: "About Stamped | IIT Roorkee engineers building AI for plant operations",
     description:
-      "Stamped Energy is AI-powered prescriptive energy intelligence built by IIT Roorkee electrical engineers for plant heads who need outcomes verified with evidence, not another monitoring dashboard.",
+      "Stamped is built by IIT Roorkee engineers Vinayak Raizada and Utso Sarkar. We build software that turns plant data into actions, across process, quality, planning and maintenance.",
     path: "/about",
-    keywords: [
-      "Stamped Energy founders",
-      "IIT Roorkee energy software",
-      "prescriptive energy intelligence India",
-    ],
+    keywords: ["Stamped founders", "IIT Roorkee manufacturing software", "AI for plant operations"],
   },
   blog: {
-    absoluteTitle: "Case Studies & Blogs | Stamped Energy",
+    absoluteTitle: "Notes from the plant floor | Stamped",
     description:
-      "Case studies and blogs on maximum demand, shift-start overlap, furnace holding, and HVAC waste - written for plant directors and electrical HODs at energy-intensive plants in India.",
+      "Notes from the plant floor on rejections, restarts, heat treatment, machining and maintenance, written for plant heads and the engineers who run the lines.",
     path: "/case-studies",
-    keywords: [
-      "industrial energy case studies India",
-      "maximum demand plant blog",
-      "DISCOM bill savings India",
-    ],
+    keywords: ["manufacturing operational efficiency India", "reduce rejection manufacturing", "plant floor notes"],
   },
   caseStudies: {
-    absoluteTitle: "Case Studies & Blogs | Stamped Energy",
+    absoluteTitle: "Notes from the plant floor | Stamped",
     description:
-      "Case studies and blogs on maximum demand, shift-start overlap, furnace holding, and HVAC waste - written for plant directors and electrical HODs at energy-intensive plants in India.",
+      "Notes from the plant floor on rejections, restarts, heat treatment, machining and maintenance, written for plant heads and the engineers who run the lines.",
     path: "/case-studies",
-    keywords: [
-      "industrial energy case studies India",
-      "maximum demand plant blog",
-      "DISCOM bill savings India",
-    ],
+    keywords: ["manufacturing operational efficiency India", "reduce rejection manufacturing", "plant floor notes"],
   },
   contact: {
-    absoluteTitle: "Book a Discovery Call | Stamped Energy",
+    absoluteTitle: "Book a site survey | Stamped",
     description:
-      "Book a discovery call with Stamped Energy. We review your last three DISCOM bills, plant meter setup, and outline a pilot - only if the numbers justify it.",
+      "A few days on your floor and a written read-out of where your plant loses efficiency and what we'd do first.",
     path: "/contact",
-    keywords: [
-      "book discovery call Stamped Energy",
-      "industrial energy pilot India",
-      "DISCOM bill review plant",
-    ],
+    keywords: ["book a site survey", "manufacturing efficiency survey India", "AI for plant operations"],
   },
   industries: {
-    absoluteTitle: "Industries | Stamped Energy - Cement, Steel, Pharma, Chemical, Auto",
+    absoluteTitle: "Industries | Stamped",
     description:
-      "AI-powered energy intelligence for cement, steel, pharmaceutical, chemical, and automotive plants in India. Purpose-built for plants with ₹20 lakh+ monthly electricity bills - verified with evidence.",
+      "Built for auto-component makers first: forging, heat-treatment and machining plants that supply OEMs, where a single rejection can cost far more than the part itself.",
     path: "/industries",
-    keywords: [
-      "industrial plant energy intelligence India",
-      "cement steel pharma chemical automotive energy",
-      "plants with high electricity bills India",
-    ],
+    keywords: ["auto component manufacturing software", "forging plant software India", "heat treatment software India"],
   },
   industriesAutomotive: {
-    absoluteTitle: "Automotive Plant Energy Intelligence | Stamped Energy",
+    absoluteTitle: "Auto component manufacturing | Stamped",
     description:
-      "Rupee-scored prescriptions for automotive and auto component plants. Die casting, forging, heat treatment, rubber moulding. Intelligence layer on your meters. Verified with evidence.",
+      "For forging, heat treatment and machining plants supplying OEMs: fewer rejections, more output and fewer breakdowns, from the data your plant already records.",
     path: "/industries/automotive",
     keywords: [
-      "automotive plant energy cost reduction India",
-      "die casting energy cost",
-      "shift-start MD auto component",
-      "forging plant electricity bill",
-    ],
-  },
-  industriesCement: {
-    absoluteTitle: "Cement Plant Energy Management India | Stamped Energy",
-    description:
-      "Rupee-scored prescriptions for cement plants. Mills, kiln auxiliaries, crushers, WHR and grid windows. Intelligence layer on your EMS. Verified with evidence.",
-    path: "/industries/cement",
-    keywords: [
-      "cement plant energy management India",
-      "kWh per ton cement",
-      "WHR dispatch optimization",
-      "cement mill MD reduction",
-    ],
-  },
-  industriesSteel: {
-    absoluteTitle: "Steel Plant Energy Efficiency India | Stamped Energy",
-    description:
-      "Rupee-scored prescriptions for steel and metals plants. Induction furnaces, rolling mills, forging and foundry. Intelligence layer on your meters. Verified with evidence.",
-    path: "/industries/steel",
-    keywords: [
-      "steel plant energy efficiency India",
-      "induction furnace MD",
-      "PAT SEC steel",
-      "rolling mill energy cost",
-    ],
-  },
-  industriesPharma: {
-    absoluteTitle: "Pharmaceutical Plant HVAC Energy Savings | Stamped Energy",
-    description:
-      "Rupee-scored prescriptions for pharmaceutical plants. Chiller staging, AHU schedules, compressed air. GMP-safe utility levers. Verified with evidence.",
-    path: "/industries/pharma",
-    keywords: [
-      "pharmaceutical plant HVAC energy savings",
-      "chiller staging pharma",
-      "cleanroom energy cost India",
-      "pharma utility energy optimization",
-    ],
-  },
-  industriesChemical: {
-    absoluteTitle: "Chemical Plant Batch Energy Optimization | Stamped Energy",
-    description:
-      "Rupee-scored prescriptions for chemical and paint plants. Batch SEC, reactor stagger, idle hold. Intelligence layer on meters and batch logs. Verified with evidence.",
-    path: "/industries/chemical",
-    keywords: [
-      "chemical plant batch energy optimization",
-      "reactor stagger MD",
-      "paint plant SEC",
-      "batch idle energy waste",
+      "auto component manufacturing software",
+      "rejection reduction auto component",
+      "reduce rejection in forging",
+      "heat treatment quench delay",
+      "reduce downtime CNC machining",
     ],
   },
 } as const satisfies Record<string, PageSeoConfig>;
 
 const VERTICAL_SEO_MAP: Record<string, PageSeoConfig> = {
   automotive: PAGE_SEO.industriesAutomotive,
-  cement: PAGE_SEO.industriesCement,
-  steel: PAGE_SEO.industriesSteel,
-  pharma: PAGE_SEO.industriesPharma,
-  chemical: PAGE_SEO.industriesChemical,
 };
 
 export function getVerticalPageSeo(slug: string): PageSeoConfig | undefined {
   return VERTICAL_SEO_MAP[slug];
+}
+
+const SOLUTION_AREA_SEO_MAP: Record<string, PageSeoConfig> = {
+  process: PAGE_SEO.solutionsProcess,
+  quality: PAGE_SEO.solutionsQuality,
+  planning: PAGE_SEO.solutionsPlanning,
+  maintenance: PAGE_SEO.solutionsMaintenance,
+};
+
+export function getSolutionAreaSeo(slug: string): PageSeoConfig | undefined {
+  return SOLUTION_AREA_SEO_MAP[slug];
 }

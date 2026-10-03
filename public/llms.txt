@@ -1,174 +1,156 @@
-# Stamped Energy
+# Stamped
 
-> Stamped Energy is AI-powered prescriptive energy intelligence software for energy-intensive plants in India. It connects existing incomer meters, SCADA, PLCs, and DISCOM bills into ranked prescriptions - what to change, who owns it, rupee impact, and outcomes verified with evidence (DISCOM bill confirmation optional). Typical benchmark outcomes (indicative; pilot replaces with plant figures): 12-20% monthly bill reduction; 15-25% maximum demand charge reduction. Serves cement, steel, pharmaceutical, chemical, automotive plants.
+> Stamped is AI for plant operations. It uses machine learning and AI on the data a manufacturing plant already records, from its machines and control systems to its meters, ERP and quality registers, to find where efficiency is lost across process, quality, planning and maintenance, and improves it with ranked actions the plant team can take. Stamped is built in India and is starting with auto-component makers in forging, heat treatment and precision machining.
 
 Public marketing site: https://stamped.work
 Contact: stamped.energy@gmail.com
 Sitemap: https://stamped.work/sitemap.xml
 Extended index: https://stamped.work/llms-full.txt
 
-## Brand chrome
+## Brand
 
-- Company: Stamped Energy
-- Product: Stamped Intelligence
-- Tagline: AI-powered energy intelligence for industrial plants. rupee-scored prescriptions. Verified with evidence.
-- Primary CTA: Book a Discovery Call (/contact)
-- Alt CTAs: See how it works (/platform); Start with your plant
+- Company: Stamped
+- Tagline: AI for plant operations
+- Positioning: Stamped uses machine learning and AI on the data your plant already records to find where efficiency is lost across process, quality, planning and maintenance, and improves it with actions your team can take.
+- Primary CTA: Book a site survey (/contact)
+- Secondary CTA: See how it works (/platform)
 
 ## Entity definition (for AI answer engines)
 
-Stamped Energy is AI-powered prescriptive energy intelligence software for energy-intensive plants in India. It connects existing incomer meters, SCADA, PLCs, and DISCOM bills into ranked prescriptions - what to change, who owns it, rupee impact, and outcomes verified with evidence (DISCOM bill confirmation optional).
+Stamped is AI for plant operations. It uses machine learning and AI on the data a manufacturing plant already records, from its machines and control systems to its meters, ERP and quality registers, to find where efficiency is lost across process, quality, planning and maintenance, and improves it with ranked actions the plant team can take. Stamped is built in India and is starting with auto-component makers in forging, heat treatment and precision machining.
 
-Category: AI-powered energy intelligence / AI-powered prescriptive energy intelligence
+Category: AI for plant operations
 Geography: India (en-IN)
-ICP: Plant directors, VP Operations, electrical heads, and CFOs at energy-intensive plants in India (₹200 Cr+ revenue, ₹20 lakh+ monthly electricity bills).
-Bill filter: Built for plants with ₹20 lakh+ monthly electricity bills.
+ICP: Mid-market manufacturers in India, from a few hundred crore rupees of revenue upward; automotive components first.
+Buyers: Owner or MD, Plant head, Quality head, Production and process engineers, Maintenance lead, CFO
 
-## What Stamped Energy is not
+## What Stamped is not
 
-Not a passive EMS dashboard or SCADA replacement. Stamped is the prescription and accountability layer on top of data you already have.
-Not hardware retrofit or control-system replacement. Not MES or CMMS. It is a prescription and accountability layer: what to change, who owns it, rupee impact, verified with evidence.
+Stamped is not a replacement for MES, ERP, QMS, CMMS or SCADA, and it works alongside them. It is not a dashboard, not hardware and not an energy-only company.
 
-## Navigation IA
+## What Stamped does
 
-Solutions · Platform · Industries · Resources (case studies & blogs) · About Us · Contact
+Stamped helps manufacturing plants run more efficiently, which in practice means fewer rejections, more output from the lines and shifts you already have, and less energy and material going into every good part. We measure all of it against your own plant's baseline, in the units your team already tracks, so nobody has to take our word for it.
+
+Most plants already record far more than they use. The machines, the control systems, the meters, the ERP and the quality registers each hold a piece of the picture, but they sit in separate places and rarely get looked at together. Stamped brings that data into one view and uses machine learning and AI to understand how your plant actually runs, where efficiency is quietly being lost, and what tends to change in the hours before a loss shows up.
+
+That understanding is only useful if someone acts on it, so Stamped turns it into specific actions and sends each one to the person who can do something about it. It might be a setting that has drifted over a few weeks, a batch that looks a lot like the ones that were rejected last month, or a plan that needs to change because a machine went down mid-shift. Each comes with what to do, by when, and the reasoning behind it.
+
+Stamped recommends and your team decides. Once a change is made, we check whether it actually worked and feed that back into the next recommendation, and if a gain starts slipping a month later, it shows up in the numbers and goes back to the person who owns it.
+
+## Navigation
+
+What we improve · How it works · Industries · Resources · About · Contact
 Hub routes: /solutions, /platform, /industries, /case-studies, /about, /contact
 
-## Platform loop
+## How it works
 
-Connect → Observe → Decide → Execute → Verify → Improve
-Surfaces: Plant graph · Alarms and prescriptions · Agents. Models: Energy markets · Efficiency · Equipment · Production context.
-Capabilities: Connect and normalise · Context and time alignment · Decision intelligence · Assign, verify, improve
+Plant data → Models → Actions → Results, with team feedback going back into the models.
+Stamped connects to the systems your plant already runs, so there is nothing new to install before we start. Its machine learning and AI models learn what normal operation looks like in your plant and which conditions tend to come before a rejection, a stoppage or wasted energy.
+When something is worth acting on, Stamped sends it to the person best placed to act, ranked by what it is costing you and explained well enough that they can judge it for themselves. Once your team has made a change, Stamped checks the result against your own baseline and uses what it learns to make the next recommendation better.
+Stamped recommends and your team decides.
 
-## Solutions pillars
+## What Stamped improves
 
-- [Industry Energy Management](https://stamped.work/solutions/load-energy): rupee-scored prescriptions for MD, shift-start, idle loads, HVAC, tariff
-- [Asset Health Intelligence](https://stamped.work/solutions/equipment-intelligence): rupee-ranked anomalies and early equipment warnings
-Hub: [Solutions](https://stamped.work/solutions) - Stamped Intelligence for two plant outcomes
+- [Process and control](https://stamped.work/solutions/process): Run every shift like your best one, with settings, control rules, restart routines and pacing recommended to your engineers.
+- [Quality and lot checks](https://stamped.work/solutions/quality): Know which batch is at risk before it becomes a rejection, and have each lot's record ready when the auditor or the customer asks.
+- [Planning and scheduling](https://stamped.work/solutions/planning): When the plan breaks, have the next one ready, along with what each option would do to output and delivery.
+- [Maintenance](https://stamped.work/solutions/maintenance): Find out which stops cost you the most and fix them before they halt the line.
+- Energy: Energy follows every operating decision. Counted inside every action in all four areas.
+Hub: [What we improve](https://stamped.work/solutions)
 
 ## Core pages (live)
 
-- [Stamped Energy | AI-Powered Energy Intelligence for Industrial Plants](https://stamped.work/): Stamped analyzes plant and market data to create rupee-scored prescriptions so operators can act before opportunities are missed. Industry Energy Management and Asset Health Intelligence for industrial manufacturers.
-- [Platform | Stamped Energy - Intelligence Layer and Connect to Improve](https://stamped.work/platform): Stamped is the intelligence layer on the stack you already run. Plant graph, rupee-scored prescriptions, and the Connect to Improve loop. First prescriptions in weeks. No hardware retrofit.
-- [Solutions | Stamped Energy - Industry Energy Management and Asset Health](https://stamped.work/solutions): Stamped Energy delivers Industry Energy Management and Asset Health Intelligence in one product for energy-intensive plants in India.
-- [Industry Energy Management | Stamped Energy](https://stamped.work/solutions/load-energy): rupee-scored prescriptions for maximum demand, shift-start overlap, idle loads, HVAC, and tariff - assigned owners and verified with evidence.
-- [Asset Health Intelligence | Stamped Energy](https://stamped.work/solutions/equipment-intelligence): rupee-ranked anomalies and early equipment warnings tied to energy and process context - assigned prescriptions before trips and waste compound.
-- [Industries | Stamped Energy - Cement, Steel, Pharma, Chemical, Auto](https://stamped.work/industries): AI-powered energy intelligence for cement, steel, pharmaceutical, chemical, and automotive plants in India. Purpose-built for plants with ₹20 lakh+ monthly electricity bills - verified with evidence.
-- [Automotive Plant Energy Intelligence | Stamped Energy](https://stamped.work/industries/automotive): Rupee-scored prescriptions for automotive and auto component plants. Die casting, forging, heat treatment, rubber moulding. Intelligence layer on your meters. Verified with evidence.
-- [Cement Plant Energy Management India | Stamped Energy](https://stamped.work/industries/cement): Rupee-scored prescriptions for cement plants. Mills, kiln auxiliaries, crushers, WHR and grid windows. Intelligence layer on your EMS. Verified with evidence.
-- [Steel Plant Energy Efficiency India | Stamped Energy](https://stamped.work/industries/steel): Rupee-scored prescriptions for steel and metals plants. Induction furnaces, rolling mills, forging and foundry. Intelligence layer on your meters. Verified with evidence.
-- [Pharmaceutical Plant HVAC Energy Savings | Stamped Energy](https://stamped.work/industries/pharma): Rupee-scored prescriptions for pharmaceutical plants. Chiller staging, AHU schedules, compressed air. GMP-safe utility levers. Verified with evidence.
-- [Chemical Plant Batch Energy Optimization | Stamped Energy](https://stamped.work/industries/chemical): Rupee-scored prescriptions for chemical and paint plants. Batch SEC, reactor stagger, idle hold. Intelligence layer on meters and batch logs. Verified with evidence.
-- [Case Studies & Blogs | Stamped Energy](https://stamped.work/case-studies): Case studies and blogs on maximum demand, shift-start overlap, furnace holding, and HVAC waste - written for plant directors and electrical HODs at energy-intensive plants in India.
-- [About Stamped Energy | IIT Roorkee Engineers, Verified Savings](https://stamped.work/about): Stamped Energy is AI-powered prescriptive energy intelligence built by IIT Roorkee electrical engineers for plant heads who need outcomes verified with evidence, not another monitoring dashboard.
-- [Book a Discovery Call | Stamped Energy](https://stamped.work/contact): Book a discovery call with Stamped Energy. We review your last three DISCOM bills, plant meter setup, and outline a pilot - only if the numbers justify it.
+- [Stamped | AI for plant operations](https://stamped.work/): Stamped uses machine learning and AI on the data your plant already records to find where efficiency is lost across process, quality, planning and maintenance, and improves it.
+- [How it works | Stamped](https://stamped.work/platform): How Stamped uses machine learning and AI on your existing plant data to send ranked actions to the people who own them, and check the result against your own baseline.
+- [What Stamped improves | Process, quality, planning, maintenance](https://stamped.work/solutions): Stamped improves process and control, quality and lot checks, planning and maintenance in manufacturing plants, with energy counted in all four.
+- [Process and control optimisation | Stamped](https://stamped.work/solutions/process): Run every shift like your best one. Stamped learns what your best runs looked like and recommends specific setting, restart and pacing changes to your process engineers.
+- [Quality and lot checks before rejection | Stamped](https://stamped.work/solutions/quality): Know which batch is at risk before it becomes a rejection. Stamped links process data to each lot and flags batches made under conditions that came before past rejections.
+- [Planning and scheduling | Stamped](https://stamped.work/solutions/planning): When the plan breaks, have the next one ready. Stamped proposes the next sequence and shows what each option would do to output, energy and delivery.
+- [Maintenance | Stamped](https://stamped.work/solutions/maintenance): Fix what costs you the most, before it stops the line. Stamped ranks stops by the output and time they cost and picks up the slow drift that comes before a failure.
+- [Industries | Stamped](https://stamped.work/industries): Built for auto-component makers first: forging, heat-treatment and machining plants that supply OEMs, where a single rejection can cost far more than the part itself.
+- [Auto component manufacturing | Stamped](https://stamped.work/industries/automotive): For forging, heat treatment and machining plants supplying OEMs: fewer rejections, more output and fewer breakdowns, from the data your plant already records.
+- [Notes from the plant floor | Stamped](https://stamped.work/case-studies): Notes from the plant floor on rejections, restarts, heat treatment, machining and maintenance, written for plant heads and the engineers who run the lines.
+- [About Stamped | IIT Roorkee engineers building AI for plant operations](https://stamped.work/about): Stamped is built by IIT Roorkee engineers Vinayak Raizada and Utso Sarkar. We build software that turns plant data into actions, across process, quality, planning and maintenance.
+- [Book a site survey | Stamped](https://stamped.work/contact): A few days on your floor and a written read-out of where your plant loses efficiency and what we'd do first.
 
 ## Homepage snapshot
 
-- Eyebrow / badge: For industrial plants
-- H1: Turn plant data into action.
-- Supporting: Stamped analyzes plant, application, and live market data to create rupee-scored prescriptions so operators can act before opportunities are missed. We tell you exactly what to do, who owns it, the rupee benefit, and the evidence behind each prescription.
+- Badge: AI for plant operations
+- H1: From monitoring your plant to improving it.
+- Supporting: Stamped uses machine learning and AI on the data your plant already records to find where efficiency is lost across process, quality, planning and maintenance, and improves it with actions your team can take.
 - FAQ section: visible on homepage with FAQPage JSON-LD
 
 ## Homepage FAQ
 
-- Q: What does Stamped actually do?
-  A: Stamped Energy connects to your existing meters, SCADA, and plant data, finds where energy and rupees are leaking, and sends assigned prescriptions to your team. Outcomes are verified with evidence; DISCOM bill confirmation can follow.
-- Q: Do we need to install new hardware?
-  A: No hardware retrofit program is required. Stamped is software-only and connects read-only to the incomer meter, SCADA, PLCs, and CNCs you already run.
-- Q: Is this only energy savings, or equipment too?
-  A: One product, two pillars: Industry Energy Management and Asset Health Intelligence on the same stack. Not a separate MES or CMMS.
-- Q: Who receives the prescriptions?
-  A: Actions reach the supervisors and electrical or maintenance staff who can act, delivered on WhatsApp - not a screen only the plant head opens once a month.
-- Q: How do we know outcomes are real?
-  A: We lead with verified with evidence: an ops-cleared ledger of potential vs realised impact. DISCOM bill confirmation is optional when the period closes, not the only proof story.
+- Q: What does Stamped do?
+  A: Stamped connects to the systems already in your plant, uses machine learning and AI to find where efficiency is lost across process, quality, planning and maintenance, and sends ranked actions to the people who can act on them, then checks the results against your own baseline.
+- Q: Do we need new hardware?
+  A: No hardware retrofit is needed to get started, because Stamped is software that works with the systems you already run.
+- Q: Who decides what changes?
+  A: Stamped recommends and your team decides.
+- Q: We already have MES, ERP and SCADA.
+  A: That's good, because that is where the data comes from. Stamped is not another MES or CMMS, and it works alongside what you already run.
+- Q: Where does our data go?
+  A: We sign an NDA before the site survey.
+- Q: How do actions reach the floor?
+  A: They go on WhatsApp or on screen to the supervisors, engineers and maintenance staff who can act on them, so they don't sit on a screen that only the plant head opens once a month.
+- Q: How do we start?
+  A: We start with a site survey, which means a few days on your floor and a written read-out. If it makes sense, that is followed by a paid pilot on one line for eight to twelve weeks, with the success criteria and the annual price agreed in writing first.
 
-## AEO - common questions Stamped answers
+## Common questions Stamped answers
 
-- What is Stamped Energy? → AI-powered prescriptive energy intelligence for plants in India; outcomes verified with evidence
-- How is Stamped different from EMS/SCADA? → Prescription layer with owners and ₹ impact, not another dashboard; see /platform and homepage FAQ
-- Who is it for? → Plants with ₹20 lakh+ monthly electricity bills (cement, steel, pharmaceutical, chemical, automotive)
-- How much can plants save? → Benchmark 12-20% bill reduction, 15-25% MD reduction (indicative); pilot verifies with evidence
-- Does it need hardware retrofit? → No; read-only integration with existing meters, SCADA, PLCs, bills
-- How are savings verified on the DISCOM bill? → Evidence ledger first; DISCOM confirmation optional when the period closes; see /case-studies and homepage FAQ
-- What is maximum demand reduction in India? → See /case-studies and Industry Energy Management (/solutions/load-energy)
+- What is Stamped? → Stamped is AI for plant operations. It uses machine learning and AI on the data a manufacturing plant already records, from its machines and control systems to its meters, ERP and quality registers, to find where efficiency is lost across process, quality, planning and maintenance, and improves it with ranked actions the plant team can take. Stamped is built in India and is starting with auto-component makers in forging, heat treatment and precision machining.
+- How is Stamped different from MES, ERP, SCADA or a dashboard? → It works alongside them. It reads the data they already hold, uses machine learning and AI to find where efficiency is lost, and sends ranked actions to the person who can act, then checks the result with the plant team.
+- Who is it for? → Mid-market manufacturers in India, from a few hundred crore rupees of revenue upward; automotive components first.
+- Does it need new hardware? → No. Stamped connects to the systems the plant already runs, so there is nothing new to install before work starts.
+- How are results measured? → Against the plant's own baseline, in the units the team already tracks. Pilot success criteria are agreed in writing before the pilot starts.
+- How does an engagement start? → A site survey of a few days on the floor, then a written read-out, then, if it makes sense, a paid pilot on one line for 8 to 12 weeks.
 
 ## Industry FAQs (summary)
 
-### Rupee-scored prescriptions for auto component plants
-- Q: How much can auto component manufacturers reduce their electricity bill?
-  A: Comparable auto component plants using assigned, rupee-scored actions typically see an indicative 12-20% monthly bill movement, with die casting and forging often recovering a large share on MD from shift-start sequencing. Your pilot replaces those bands with plant figures.
-- Q: What is maximum demand and how does it affect my electricity bill?
-  A: Maximum demand (MD) is the highest average kVA your plant draws in a billing window. Indian DISCOMs charge a fixed rate per kVA of recorded MD each month. Overlapping furnace pre-heat, compressor startup, and press cycles at shift start are the most common MD drivers in auto component plants.
-- Q: How does Stamped Energy work for die casting plants?
-  A: Stamped connects read-only to your incomer meter and SCADA, builds production-aware baselines per cell and shift, then sends rupee-scored prescriptions: stagger furnace pre-heat, stage compressors, cut holding load. Owners get the action on WhatsApp.
+### Fewer rejections reach your OEM.
+- Q: Which plants is Stamped working with?
+  A: We are starting with forging, heat-treatment and machining plants that supply OEMs, where a single rejection can cost far more than the part itself.
+- Q: Do we need new hardware?
+  A: No hardware retrofit is needed to get started, because Stamped is software that works with the systems you already run.
+- Q: Who decides what changes?
+  A: Stamped recommends and your team decides.
+- Q: How do we start?
+  A: We start with a site survey, which means a few days on your floor and a written read-out. If it makes sense, that is followed by a paid pilot on one line for eight to twelve weeks, with the success criteria and the annual price agreed in writing first.
 
-### Rupee-scored prescriptions for cement plants
-- Q: How can cement plants reduce kWh per ton?
-  A: Comparable cement plants using assigned, rupee-scored actions typically move electrical SEC by catching mill drift and restart overlap before the month closes. Published 70-80 kWh/ton bands are context, not your target. Your pilot replaces those bands with plant figures.
-- Q: What is WHR and grid dispatch optimization for cement plants?
-  A: WHR and solar are cheaper in some windows than grid. Stamped ranks source-mix moves against tariff and available WHR output so dispatch is assigned, not guessed at the desk.
-- Q: How does Stamped work with existing cement plant EMS?
-  A: EMS shows trends. Stamped is the intelligence layer on that stack: read-only feeds, rupee-scored next actions, owner, and verification on the bill. No rip-and-replace.
+## Notes from the plant floor
 
-### Rupee-scored prescriptions for steel and metals plants
-- Q: How can steel plants reduce induction furnace electricity consumption?
-  A: Holding between heats is power with no pour. Comparable plants using assigned setback and sequencing typically recover a large share of furnace electricity on that idle window. Your pilot replaces indicative bands with plant figures.
-- Q: What is PAT scheme SEC for steel plants?
-  A: PAT tracks specific energy consumption against a notified baseline. Stamped keeps a rupee-scored SEC ledger from meters and the bill. That is evidence support, not PAT consulting or an audit.
-- Q: How does Stamped help rolling mills with maximum demand?
-  A: Stacked stand startups after a break are a common MD spike. Stamped assigns stagger before the billing window closes and ties the rupee impact to the mill supervisor.
-
-### Rupee-scored prescriptions for pharmaceutical plants
-- Q: How much electricity do pharmaceutical plants use for HVAC?
-  A: In formulation plants, HVAC and related utilities typically dominate the electrical bill because classified air runs continuously. BEE cluster studies are context. Your pilot replaces indicative shares with plant figures.
-- Q: How can pharma plants reduce chiller energy consumption?
-  A: Staging at production ramp and matching capacity to actual cooling load are the usual rupee-scored moves. Stamped assigns those on the utilities layer. Quality validates any schedule change before execution.
-- Q: Is Stamped safe for GMP-regulated pharmaceutical facilities?
-  A: Stamped is read-only on meters and BMS. Prescriptions target chiller staging, AHU schedules, and compressed-air bands, not cleanroom reclassification. Your quality team remains the gate.
-
-### Rupee-scored prescriptions for chemical and paint plants
-- Q: How can chemical plants reduce batch process energy consumption?
-  A: Idle soak and overlapping reactor ramps are the usual leaks. Comparable plants using assigned, rupee-scored actions recover those windows before month-end. Your pilot replaces indicative bands with plant figures.
-- Q: What causes maximum demand spikes in batch chemical plants?
-  A: Three reactors heating together at shift start is a common incomer spike. Stamped assigns stagger against the batch calendar so MD is managed before the billing window closes.
-- Q: Does Stamped work without DCS integration?
-  A: Yes. Path A uses batch log start and end times plus DISCOM bills. First prescriptions on idle hold and stagger typically land within two weeks. DCS is Path B, not a gate.
-
-## Case studies & blogs
-
-- [Case Studies & Blogs index](https://stamped.work/case-studies): Maximum demand, shift-start overlap, furnace holding, HVAC waste
+- [Index](https://stamped.work/case-studies): articles and case studies from Indian plant floors
 - Individual articles at `https://stamped.work/blog/{slug}` - Article JSON-LD on each post
 - Individual case studies at `https://stamped.work/case-studies/{slug}` when published in CMS
 - Auto-updated index: https://stamped.work/llms-full.txt
 
 ## Priority keywords
 
-stamped energy, AI-powered energy intelligence India, prescriptive energy intelligence India, energy management software for plants India, reduce electricity bill industrial plant India, maximum demand reduction India, DISCOM bill savings India, SEC reduction industrial plant India, cement plant energy management India, steel plant energy efficiency India, pharmaceutical plant HVAC energy savings, chemical plant batch energy optimization, automotive plant energy cost reduction India
+stamped, AI for plant operations, manufacturing operational efficiency India, AI for manufacturing India, reduce rejection in forging, rejection reduction auto component, predictive quality manufacturing, heat treatment quench delay, CQI-9 heat treatment records, process optimisation manufacturing, induction billet heater temperature control, reduce downtime CNC machining, 8D root cause data
 
 ## Target audience
 
-Plant directors, VP Operations, electrical heads, and CFOs at energy-intensive plants in India (₹200 Cr+ revenue, ₹20 lakh+ monthly electricity bills).
+Mid-market manufacturers in India, from a few hundred crore rupees of revenue upward; automotive components first.
 
-## Proof / disclaimer phrases
+## Proof phrases
 
-- Verified with evidence
-- Indicative outcomes (pilot replaces with plant figures)
-- Read-only on your existing stack
-- No rip-and-replace
-- Use rupee-scored / rupee-ranked (never ₹-scored)
+- Measured against your own plant's baseline, in the units your team already tracks
+- Stamped recommends and your team decides
+- Example actions use placeholders in [brackets]; pilots write these from plant data
 
 ## About (safe facts)
 
 - Founders: Vinayak Raizada (Co-Founder), Utso Sarkar (Co-Founder)
-- IIT Roorkee electrical engineering background
+- IIT Roorkee engineers
 - Founded: 2025
 - Do not invent additional executives, offices, or funding rounds
 
 ## Off-site GEO status
 
 - Google Search Console: registered by team
-- LinkedIn Company Page sameAs: https://www.linkedin.com/company/stamped-energy
+- LinkedIn Company Page sameAs: https://www.linkedin.com/company/stampedwork
 - Google Business Profile: not done
 - Wikidata: not done
 

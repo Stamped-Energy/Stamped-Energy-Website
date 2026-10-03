@@ -10,8 +10,7 @@ export const DEFAULT_OG_IMAGE_VERSION = "20260630-product";
 
 export const DEFAULT_OG_IMAGE = `${SITE_URL}${DEFAULT_OG_IMAGE_PATH}?v=${DEFAULT_OG_IMAGE_VERSION}`;
 
-export const DEFAULT_OG_IMAGE_ALT =
-  "Stamped Energy - AI-powered industrial energy optimization for plants in India";
+export const DEFAULT_OG_IMAGE_ALT = "Stamped · AI for plant operations";
 
 export const ORGANIZATION_ID = `${SITE_URL}/#organization`;
 
@@ -24,30 +23,27 @@ export const GEO_METADATA = {
 } as const;
 
 /**
- * Primary and secondary target keywords for metadata `keywords` field.
- * Brand first; category second; vertical and problem-intent long-tail follow.
+ * Target keywords for the metadata `keywords` field (website update plan, section 5).
+ * Hypotheses with no volume data yet; check in Search Console after launch.
  */
 export const SEO_KEYWORDS = [
-  "stamped energy",
-  "AI-powered energy intelligence India",
-  "prescriptive energy intelligence India",
-  "energy management software for plants India",
-  "reduce electricity bill industrial plant India",
-  "maximum demand reduction India",
-  "DISCOM bill savings India",
-  "SEC reduction industrial plant India",
-  "cement plant energy management India",
-  "steel plant energy efficiency India",
-  "pharmaceutical plant HVAC energy savings",
-  "chemical plant batch energy optimization",
-  "automotive plant energy cost reduction India",
+  "stamped",
+  "AI for plant operations",
+  "manufacturing operational efficiency India",
+  "AI for manufacturing India",
+  "reduce rejection in forging",
+  "rejection reduction auto component",
+  "predictive quality manufacturing",
+  "heat treatment quench delay",
+  "CQI-9 heat treatment records",
+  "process optimisation manufacturing",
+  "induction billet heater temperature control",
+  "reduce downtime CNC machining",
+  "8D root cause data",
 ] as const;
 
-/**
- * LinkedIn Company Page URL for Organization sameAs / GEO.
- * Leave empty until the real Stamped Energy company page URL is confirmed, then paste it here.
- */
-export const COMPANY_LINKEDIN_URL = "https://www.linkedin.com/company/stamped-energy";
+/** LinkedIn Company Page URL for Organization sameAs / GEO (per the website update plan, section 5). */
+export const COMPANY_LINKEDIN_URL = "https://www.linkedin.com/company/stampedwork";
 
 /** Re-export for llms.txt generation and docs - single positioning source */
 export const SEO_ENTITY_DEFINITION = icp.seo.entityDefinition;

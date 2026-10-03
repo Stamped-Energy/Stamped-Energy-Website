@@ -155,13 +155,13 @@ export function CaseStudyDetailView({ study }: CaseStudyDetailViewProps) {
               <ArticleAuthorCard author={study.author} />
               <div className="rounded-2xl border border-outline-variant/50 bg-surface-lowest p-5 shadow-sm">
                 <p className="text-sm font-bold text-on-surface">
-                  Want similar outcomes on your plant?
+                  Want to see this on your plant?
                 </p>
                 <p className="mt-2 text-sm leading-6 text-on-surface-variant">
-                  Start with a pilot. Verify savings on your next bill before annual commitment.
+                  Start with a site survey. If it makes sense, we agree a paid pilot on one line with success criteria in writing.
                 </p>
                 <Button href="/contact" variant="primary" className="mt-4 w-full">
-                  Book a Discovery Call
+                  Book a site survey
                 </Button>
               </div>
             </aside>

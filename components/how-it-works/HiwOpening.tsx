@@ -64,9 +64,6 @@ export function HiwOpening() {
                 {hero.secondaryCta.label}
               </Button>
             </div>
-            {hero.supportLine ? (
-              <p className="mt-4 text-sm leading-6 text-on-surface-variant">{hero.supportLine}</p>
-            ) : null}
           </div>
         </div>
       </Container>

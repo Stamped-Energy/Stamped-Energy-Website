@@ -1,5 +1,8 @@
 import { landingContent } from "@/lib/content/landing";
 import { icp } from "@/lib/content/icp";
+import { platformContent } from "@/lib/content/platform";
+import { navLinks } from "@/lib/content/site";
+import { solutionsContent } from "@/lib/content/solutions";
 import { VERTICAL_SLUGS, getVerticalPage } from "@/lib/content/vertical-pages";
 import { COMPANY_LINKEDIN_URL, SEO_KEYWORDS } from "@/lib/seo/constants";
 import { PAGE_SEO, type PageSeoConfig } from "@/lib/seo/pages";
@@ -17,14 +20,12 @@ const STATIC_SEO_ENTRIES: PageSeoConfig[] = [
   PAGE_SEO.home,
   PAGE_SEO.platform,
   PAGE_SEO.solutions,
-  PAGE_SEO.solutionsLoadEnergy,
-  PAGE_SEO.solutionsEquipment,
+  PAGE_SEO.solutionsProcess,
+  PAGE_SEO.solutionsQuality,
+  PAGE_SEO.solutionsPlanning,
+  PAGE_SEO.solutionsMaintenance,
   PAGE_SEO.industries,
   PAGE_SEO.industriesAutomotive,
-  PAGE_SEO.industriesCement,
-  PAGE_SEO.industriesSteel,
-  PAGE_SEO.industriesPharma,
-  PAGE_SEO.industriesChemical,
   PAGE_SEO.caseStudies,
   PAGE_SEO.about,
   PAGE_SEO.contact,
@@ -34,16 +35,14 @@ function pushBlank(lines: string[]) {
   lines.push("");
 }
 
-/** Extremely detailed static site guide for AI crawlers (llms.txt body). */
+/** Static site guide for AI crawlers (llms.txt body). Copy canon: Stamped copy v3 (3 Oct 2026). */
 export function buildLlmsTxtBody(): string {
   const SITE_URL = llmsSiteUrl();
   const lines: string[] = [];
 
-  lines.push("# Stamped Energy");
+  lines.push("# Stamped");
   pushBlank(lines);
-  lines.push(
-    `> ${icp.seo.entityDefinition} Typical benchmark outcomes (indicative; pilot replaces with plant figures): ${icp.seo.outcomes.billReduction} monthly bill reduction; ${icp.seo.outcomes.mdReduction} maximum demand charge reduction. Serves ${icp.seo.verticals.join(", ")} plants.`,
-  );
+  lines.push(`> ${icp.seo.entityDefinition}`);
   pushBlank(lines);
   lines.push(`Public marketing site: ${SITE_URL}`);
   lines.push(`Contact: stamped.energy@gmail.com`);
@@ -51,65 +50,59 @@ export function buildLlmsTxtBody(): string {
   lines.push(`Extended index: ${SITE_URL}/llms-full.txt`);
   pushBlank(lines);
 
-  lines.push("## Brand chrome");
+  lines.push("## Brand");
   pushBlank(lines);
-  lines.push("- Company: Stamped Energy");
-  lines.push("- Product: Stamped Intelligence");
-  lines.push(
-    "- Tagline: AI-powered energy intelligence for industrial plants. rupee-scored prescriptions. Verified with evidence.",
-  );
-  lines.push("- Primary CTA: Book a Discovery Call (/contact)");
-  lines.push("- Alt CTAs: See how it works (/platform); Start with your plant");
+  lines.push("- Company: Stamped");
+  lines.push(`- Tagline: ${icp.seo.categoryLabel}`);
+  lines.push(`- Positioning: ${icp.positioning}`);
+  lines.push("- Primary CTA: Book a site survey (/contact)");
+  lines.push("- Secondary CTA: See how it works (/platform)");
   pushBlank(lines);
 
   lines.push("## Entity definition (for AI answer engines)");
   pushBlank(lines);
   lines.push(icp.seo.entityDefinition);
   pushBlank(lines);
-  lines.push(`Category: ${icp.seo.categoryLabel} / ${icp.seo.categoryLabelAlt}`);
+  lines.push(`Category: ${icp.seo.categoryLabel}`);
   lines.push("Geography: India (en-IN)");
   lines.push(`ICP: ${icp.seo.audienceLine}`);
-  lines.push(`Bill filter: ${icp.heroBillLine}`);
+  lines.push(`Buyers: ${icp.buyerTitles.join(", ")}`);
   pushBlank(lines);
 
-  lines.push("## What Stamped Energy is not");
+  lines.push("## What Stamped is not");
   pushBlank(lines);
   lines.push(icp.seo.notA);
-  lines.push(
-    "Not hardware retrofit or control-system replacement. Not MES or CMMS. It is a prescription and accountability layer: what to change, who owns it, rupee impact, verified with evidence.",
-  );
   pushBlank(lines);
 
-  lines.push("## Navigation IA");
+  lines.push("## What Stamped does");
   pushBlank(lines);
-  lines.push(
-    "Solutions · Platform · Industries · Resources (case studies & blogs) · About Us · Contact",
-  );
-  lines.push(
-    `Hub routes: /solutions, /platform, /industries, /case-studies, /about, /contact`,
-  );
+  for (const paragraph of platformContent.whatWeDo.paragraphs) {
+    lines.push(paragraph);
+    pushBlank(lines);
+  }
+
+  lines.push("## Navigation");
+  pushBlank(lines);
+  lines.push(navLinks.map((item) => item.label).join(" · "));
+  lines.push("Hub routes: /solutions, /platform, /industries, /case-studies, /about, /contact");
   pushBlank(lines);
 
-  lines.push("## Platform loop");
+  lines.push("## How it works");
   pushBlank(lines);
-  lines.push("Connect → Observe → Decide → Execute → Verify → Improve");
-  lines.push(
-    "Surfaces: Plant graph · Alarms and prescriptions · Agents. Models: Energy markets · Efficiency · Equipment · Production context.",
-  );
-  lines.push(
-    "Capabilities: Connect and normalise · Context and time alignment · Decision intelligence · Assign, verify, improve",
-  );
+  lines.push("Plant data → Models → Actions → Results, with team feedback going back into the models.");
+  for (const paragraph of platformContent.flow.paragraphs) {
+    lines.push(paragraph);
+  }
+  lines.push(platformContent.flow.controlLine);
   pushBlank(lines);
 
-  lines.push("## Solutions pillars");
+  lines.push("## What Stamped improves");
   pushBlank(lines);
-  lines.push(
-    `- [Industry Energy Management](${SITE_URL}/solutions/load-energy): rupee-scored prescriptions for MD, shift-start, idle loads, HVAC, tariff`,
-  );
-  lines.push(
-    `- [Asset Health Intelligence](${SITE_URL}/solutions/equipment-intelligence): rupee-ranked anomalies and early equipment warnings`,
-  );
-  lines.push(`Hub: [Solutions](${SITE_URL}/solutions) - Stamped Intelligence for two plant outcomes`);
+  for (const area of solutionsContent.areas) {
+    lines.push(`- [${area.title}](${SITE_URL}${area.href}): ${area.homeSummary}`);
+  }
+  lines.push(`- Energy: ${solutionsContent.energy.heading} Counted inside every action in all four areas.`);
+  lines.push(`Hub: [What we improve](${SITE_URL}/solutions)`);
   pushBlank(lines);
 
   lines.push("## Core pages (live)");
@@ -121,7 +114,7 @@ export function buildLlmsTxtBody(): string {
 
   lines.push("## Homepage snapshot");
   pushBlank(lines);
-  lines.push(`- Eyebrow / badge: ${landingContent.hero.badge}`);
+  lines.push(`- Badge: ${landingContent.hero.badge}`);
   lines.push(`- H1: ${landingContent.hero.headline}`);
   lines.push(`- Supporting: ${landingContent.hero.supportingLine}`);
   lines.push("- FAQ section: visible on homepage with FAQPage JSON-LD");
@@ -135,28 +128,21 @@ export function buildLlmsTxtBody(): string {
   }
   pushBlank(lines);
 
-  lines.push("## AEO - common questions Stamped answers");
+  lines.push("## Common questions Stamped answers");
   pushBlank(lines);
+  lines.push(`- What is Stamped? → ${icp.seo.entityDefinition}`);
   lines.push(
-    "- What is Stamped Energy? → AI-powered prescriptive energy intelligence for plants in India; outcomes verified with evidence",
+    "- How is Stamped different from MES, ERP, SCADA or a dashboard? → It works alongside them. It reads the data they already hold, uses machine learning and AI to find where efficiency is lost, and sends ranked actions to the person who can act, then checks the result with the plant team.",
+  );
+  lines.push(`- Who is it for? → ${icp.seo.audienceLine}`);
+  lines.push(
+    "- Does it need new hardware? → No. Stamped connects to the systems the plant already runs, so there is nothing new to install before work starts.",
   );
   lines.push(
-    "- How is Stamped different from EMS/SCADA? → Prescription layer with owners and ₹ impact, not another dashboard; see /platform and homepage FAQ",
+    "- How are results measured? → Against the plant's own baseline, in the units the team already tracks. Pilot success criteria are agreed in writing before the pilot starts.",
   );
   lines.push(
-    `- Who is it for? → Plants with ${icp.monthlyBillFloor}+ monthly electricity bills (${icp.seo.verticals.join(", ")})`,
-  );
-  lines.push(
-    `- How much can plants save? → Benchmark ${icp.seo.outcomes.billReduction} bill reduction, ${icp.seo.outcomes.mdReduction} MD reduction (indicative); pilot verifies with evidence`,
-  );
-  lines.push(
-    "- Does it need hardware retrofit? → No; read-only integration with existing meters, SCADA, PLCs, bills",
-  );
-  lines.push(
-    "- How are savings verified on the DISCOM bill? → Evidence ledger first; DISCOM confirmation optional when the period closes; see /case-studies and homepage FAQ",
-  );
-  lines.push(
-    "- What is maximum demand reduction in India? → See /case-studies and Industry Energy Management (/solutions/load-energy)",
+    "- How does an engagement start? → A site survey of a few days on the floor, then a written read-out, then, if it makes sense, a paid pilot on one line for 8 to 12 weeks.",
   );
   pushBlank(lines);
 
@@ -173,15 +159,11 @@ export function buildLlmsTxtBody(): string {
     pushBlank(lines);
   }
 
-  lines.push("## Case studies & blogs");
+  lines.push("## Notes from the plant floor");
   pushBlank(lines);
-  lines.push(
-    `- [Case Studies & Blogs index](${SITE_URL}/case-studies): Maximum demand, shift-start overlap, furnace holding, HVAC waste`,
-  );
+  lines.push(`- [Index](${SITE_URL}/case-studies): articles and case studies from Indian plant floors`);
   lines.push(`- Individual articles at \`${SITE_URL}/blog/{slug}\` - Article JSON-LD on each post`);
-  lines.push(
-    `- Individual case studies at \`${SITE_URL}/case-studies/{slug}\` when published in CMS`,
-  );
+  lines.push(`- Individual case studies at \`${SITE_URL}/case-studies/{slug}\` when published in CMS`);
   lines.push(`- Auto-updated index: ${SITE_URL}/llms-full.txt`);
   pushBlank(lines);
 
@@ -195,19 +177,17 @@ export function buildLlmsTxtBody(): string {
   lines.push(icp.seo.audienceLine);
   pushBlank(lines);
 
-  lines.push("## Proof / disclaimer phrases");
+  lines.push("## Proof phrases");
   pushBlank(lines);
-  lines.push("- Verified with evidence");
-  lines.push("- Indicative outcomes (pilot replaces with plant figures)");
-  lines.push("- Read-only on your existing stack");
-  lines.push("- No rip-and-replace");
-  lines.push("- Use rupee-scored / rupee-ranked (never ₹-scored)");
+  lines.push("- Measured against your own plant's baseline, in the units your team already tracks");
+  lines.push("- Stamped recommends and your team decides");
+  lines.push("- Example actions use placeholders in [brackets]; pilots write these from plant data");
   pushBlank(lines);
 
   lines.push("## About (safe facts)");
   pushBlank(lines);
   lines.push("- Founders: Vinayak Raizada (Co-Founder), Utso Sarkar (Co-Founder)");
-  lines.push("- IIT Roorkee electrical engineering background");
+  lines.push("- IIT Roorkee engineers");
   lines.push("- Founded: 2025");
   lines.push("- Do not invent additional executives, offices, or funding rounds");
   pushBlank(lines);
@@ -241,7 +221,7 @@ export async function buildLlmsFullTxtBody(): Promise<string> {
 
   const lines: string[] = [];
 
-  lines.push("# Stamped Energy - Full Content Index");
+  lines.push("# Stamped - Full Content Index");
   pushBlank(lines);
   lines.push(
     "> Auto-generated index of published case studies, blogs, FAQs, and static pages for AI crawlers and answer engines.",
@@ -276,7 +256,7 @@ export async function buildLlmsFullTxtBody(): Promise<string> {
   for (const slug of VERTICAL_SLUGS) {
     const page = getVerticalPage(slug);
     if (!page) continue;
-    lines.push(`### ${slug} — ${page.hero.title}`);
+    lines.push(`### ${slug}: ${page.hero.title}`);
     pushBlank(lines);
     for (const item of page.faq) {
       lines.push(`Q: ${item.question}`);

@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: BlogArticlePageProps): Promis
 
   return buildPageMetadata({
     title: post.title,
-    absoluteTitle: `${post.title} | Stamped Energy`,
+    absoluteTitle: `${post.title} | Stamped`,
     description: post.excerpt,
     path: `/blog/${post.slug}`,
     image: post.coverImage,
@@ -84,7 +84,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
 
   const breadcrumbSchema = generateBreadcrumbSchema([
     breadcrumbHome(),
-    { name: "Case Studies & Blogs", url: absoluteUrl("/case-studies") },
+    { name: "Resources", url: absoluteUrl("/case-studies") },
     { name: post.title, url: absoluteUrl(`/blog/${post.slug}`) },
   ]);
 

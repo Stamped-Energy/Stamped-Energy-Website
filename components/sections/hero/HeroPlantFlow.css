@@ -13,7 +13,7 @@
   --hpf-tag-pos-ink: #fbfcf9;
   --hpf-tag-neg: #ffdad4;
   --hpf-tag-neg-ink: #5a403c;
-  --hpf-rx-h: 124px;
+  --hpf-rx-h: 148px;
   --hpf-rx-visible: 2;
   --hpf-font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
   --hpf-font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
@@ -485,15 +485,15 @@
 
 .hpf-rx-copy {
   font-family: var(--hpf-font-display);
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.02em;
   line-height: 1.32;
   color: var(--hpf-ink);
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
   overflow: hidden;
 }
 
@@ -521,7 +521,7 @@
   }
   .hpf-rx-viewport,
   .hpf-rx-item {
-    --hpf-rx-h: 114px;
+    --hpf-rx-h: 140px;
   }
 }
 
@@ -556,7 +556,7 @@
     font-size: 12px;
   }
   .hpf-rx-copy {
-    font-size: 15px;
+    font-size: 14px;
   }
   .hpf-chip-name {
     font-size: 12px;
@@ -570,7 +570,7 @@
   }
   .hpf-rx-viewport,
   .hpf-rx-item {
-    --hpf-rx-h: 108px;
+    --hpf-rx-h: 132px;
   }
 }
 

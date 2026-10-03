@@ -47,8 +47,8 @@ export function BlogFeatured({ posts, databaseError = false }: BlogFeaturedProps
       <Container>
         <SectionHeading
           eyebrow="Featured"
-          title="Featured case studies & blogs"
-          description="Shift-start MD, furnace holding, compressor waste, practical notes for plant heads."
+          title="Featured notes"
+          description="Practical notes for plant heads and the engineers who run the lines."
           align="center"
           className="mx-auto max-w-2xl"
         />

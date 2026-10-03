@@ -15,19 +15,19 @@ const HUB = { id: "hub", label: "Common timeline", x: 400, y: 96 };
 
 const GRAPH_NODES_DESKTOP = [
   { id: "assets", label: "Assets", x: 152, y: 252 },
-  { id: "feeders", label: "Feeders", x: 278, y: 288 },
+  { id: "feeders", label: "Machines", x: 278, y: 288 },
   { id: "shifts", label: "Shifts", x: 522, y: 288 },
   { id: "batches", label: "Batches", x: 648, y: 252 },
-  { id: "tariffs", label: "Tariffs", x: 400, y: 398 },
+  { id: "tariffs", label: "Lots", x: 400, y: 398 },
 ] as const;
 
 /** Wider star layout - same topology, nodes spread on compact viewports. */
 const GRAPH_NODES_COMPACT = [
   { id: "assets", label: "Assets", x: 168, y: 244 },
-  { id: "feeders", label: "Feeders", x: 288, y: 276 },
+  { id: "feeders", label: "Machines", x: 288, y: 276 },
   { id: "shifts", label: "Shifts", x: 512, y: 276 },
   { id: "batches", label: "Batches", x: 632, y: 244 },
-  { id: "tariffs", label: "Tariffs", x: 400, y: 388 },
+  { id: "tariffs", label: "Lots", x: 400, y: 388 },
 ] as const;
 
 const TIMING = {

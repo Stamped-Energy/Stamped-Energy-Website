@@ -135,7 +135,7 @@ export function ContactInquiryDetail({
           </h3>
           <div className="mt-3 grid gap-2.5 sm:grid-cols-2">
             <DetailRow label="Plant location" value={inquiry.location} />
-            <DetailRow label="Monthly electricity bill" value={inquiry.billSize} />
+            <DetailRow label="Plant details" value={inquiry.billSize} />
           </div>
         </section>
       </div>

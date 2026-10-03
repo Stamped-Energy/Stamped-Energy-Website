@@ -20,7 +20,7 @@ export default function BlogAdminLoginPage() {
               <span className="text-sm font-bold text-[var(--admin-sidebar-text)]">SE</span>
             </div>
             <div>
-              <p className="text-sm font-semibold text-[var(--admin-text)]">Stamped Energy</p>
+              <p className="text-sm font-semibold text-[var(--admin-text)]">Stamped</p>
               <p className="text-xs text-[var(--admin-text-muted)]">Blog CMS</p>
             </div>
           </div>

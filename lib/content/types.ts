@@ -88,6 +88,7 @@ export type IndustryPrescriptionExample = {
   id: string;
   title: string;
   description: string;
+  /** Short tag shown on the card, e.g. "Example". */
   impactRange: string;
   assignee?: string;
 };
@@ -118,13 +119,13 @@ export type IndustryPlantRow = {
 export type VerticalPageContent = {
   slug: string;
   hero: VerticalPageHero;
-  economics: {
+  economics?: {
     eyebrow: string;
     title: string;
     description: string;
     stats: StatItem[];
   };
-  wasteTable: {
+  wasteTable?: {
     eyebrow: string;
     title: string;
     description: string;
@@ -144,7 +145,7 @@ export type VerticalPageContent = {
     items: IndustryPrescriptionExample[];
     attribution?: { text: string; source: string };
   };
-  integration: {
+  integration?: {
     eyebrow: string;
     title: string;
     items: IndustryIntegrationItem[];
@@ -240,6 +241,8 @@ export type IndustryItem = {
   /** Operational sustainability one-liner shown under the description */
   sustainability?: string;
   featured?: boolean;
+  /** Link target; defaults to /industries/{id} */
+  href?: string;
   imageSrc?: string;
   imageAlt?: string;
 };

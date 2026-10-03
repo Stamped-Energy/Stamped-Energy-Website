@@ -8,22 +8,21 @@ export {
 export { platformContent, howItWorksContent } from "./platform";
 export {
   industriesContent,
-  getAutomotiveSegments,
+  getIndustryNavItems,
   getIndustryVertical,
-  getVerticalSegments,
   getVerticalPage,
   getLiveVerticals,
-  getFeaturedVerticals,
   VERTICAL_SLUGS,
   type VerticalSlug,
 } from "./industries";
-export { icp, icpBillLine } from "./icp";
+export { icp } from "./icp";
 export { landingContent } from "./landing";
 export { resourcesContent } from "./resources";
 export {
   solutionsContent,
-  getSolutionPillar,
-  type SolutionPillarSlug,
+  getSolutionArea,
+  type SolutionArea,
+  type SolutionAreaSlug,
 } from "./solutions";
 export { footerLinks, navLinks, siteConfig } from "./site";
 export type * from "./types";

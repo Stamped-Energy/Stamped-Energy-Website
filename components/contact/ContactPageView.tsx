@@ -73,6 +73,15 @@ export function ContactPageView() {
               <Button href="#contact-form" variant="primary" className="w-full sm:w-auto">
                 {contactContent.contactForm.title}
               </Button>
+              {quickContact.whatsappUrl ? (
+                <Button
+                  href={quickContact.whatsappUrl}
+                  variant="outline"
+                  className="w-full border-on-secondary/30 bg-on-secondary/5 text-on-secondary hover:bg-on-secondary/10 sm:w-auto"
+                >
+                  {quickContact.whatsappLabel}
+                </Button>
+              ) : null}
               <a
                 href={`mailto:${quickContact.email}`}
                 className="text-sm font-semibold text-inverse-primary underline-offset-4 hover:underline"

@@ -302,7 +302,7 @@ export function WhatIsProductVisual() {
       ref={ref}
       className="a04-root"
       role="img"
-      aria-label="Meters, SCADA, bills, and ToD tariff run into Stamped. Prescriptions and Verify run out."
+      aria-label="Machines, meters, ERP and quality records run into Stamped. An example action and a result check run out."
     >
       <svg viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg">
         <rect width="420" height="420" fill="#f1f4f0" />
@@ -355,7 +355,7 @@ export function WhatIsProductVisual() {
           <rect className="tick" x="24" y="66" width="2" height="7" />
           <rect className="tick" x="28" y="66" width="2" height="7" />
           <text className="lbl" x="34" y="73">
-            Meters
+            Machines
           </text>
         </g>
 
@@ -374,7 +374,7 @@ export function WhatIsProductVisual() {
           <rect className="tick" x="134" y="66" width="2" height="7" />
           <rect className="tick" x="138" y="66" width="2" height="7" />
           <text className="lbl" x="144" y="73">
-            SCADA
+            Meters
           </text>
         </g>
 
@@ -391,7 +391,7 @@ export function WhatIsProductVisual() {
           <rect className="tick" x="248" y="66" width="2" height="7" />
           <rect className="tick" x="252" y="66" width="2" height="7" />
           <text className="lbl" x="258" y="73">
-            Bills
+            ERP
           </text>
         </g>
 
@@ -408,7 +408,7 @@ export function WhatIsProductVisual() {
           <rect className="tick" x="336" y="66" width="2" height="7" />
           <rect className="tick" x="340" y="66" width="2" height="7" />
           <text className="lbl" x="346" y="73">
-            ToD tariff
+            Quality
           </text>
         </g>
 
@@ -420,13 +420,13 @@ export function WhatIsProductVisual() {
           <rect className="rx-card" x="28" y="284" width="254" height="112" rx="6" />
           <circle cx="46" cy="304" r="3.2" fill="#F75440" />
           <text className="lbl" x="56" y="308" fill="#F75440">
-            Live · Prescription
+            Example action
           </text>
-          <text x="44" y="336" fontFamily="Space Grotesk, sans-serif" fontWeight="700" fontSize="22" fill="#191c1a">
-            Shed idle HVAC
+          <text x="44" y="336" fontFamily="Space Grotesk, sans-serif" fontWeight="700" fontSize="20" fill="#191c1a">
+            Hold lot for recheck
           </text>
           <text className="rx-bit" data-bit="owner" x="44" y="368" fontFamily="Inter, sans-serif" fontSize="15" fill="#5a403c">
-            Owner · Utilities
+            Quality head
           </text>
           <text
             className="rx-bit"
@@ -436,10 +436,10 @@ export function WhatIsProductVisual() {
             textAnchor="end"
             fontFamily="Space Grotesk, sans-serif"
             fontWeight="700"
-            fontSize="20"
+            fontSize="15"
             fill="#F75440"
           >
-            ₹ 0.8L / mo
+            Before dispatch
           </text>
         </g>
 
@@ -451,7 +451,7 @@ export function WhatIsProductVisual() {
           <rect className="tick" x="316" y="362" width="2" height="7" />
           <rect className="tick" x="320" y="362" width="2" height="7" />
           <text className="lbl" x="326" y="369">
-            Verify
+            Check
           </text>
         </g>
       </svg>

@@ -22,9 +22,13 @@ export function HomeWhatIs() {
             <h2 className="mt-6 max-w-xl font-display text-3xl font-bold tracking-tight text-balance md:text-4xl lg:text-5xl">
               {whatIs.title}
             </h2>
-            <p className="mt-5 max-w-xl text-base leading-8 text-on-surface/80 md:text-lg">
-              {whatIs.description}
-            </p>
+            <div className="mt-5 max-w-xl space-y-4">
+              {whatIs.paragraphs.map((paragraph) => (
+                <p key={paragraph.slice(0, 32)} className="text-base leading-8 text-on-surface/80 md:text-lg">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
           </Reveal>
         </div>
       </Container>

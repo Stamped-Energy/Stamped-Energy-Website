@@ -63,16 +63,20 @@ export function IndustryPrescriptionExamples({ slug }: IndustryPrescriptionExamp
               data-prescription-card
               className="flex flex-col rounded-xl border border-outline-variant/50 bg-surface-lowest p-5 md:p-6"
             >
-              <h3 className="text-base font-bold text-on-surface md:text-lg">{item.title}</h3>
-              <p className="mt-2 flex-1 text-sm leading-6 text-on-surface-variant md:leading-7">
-                {item.description}
-              </p>
-              <div className="mt-4 border-t border-outline-variant/35 pt-4">
-                <p className="font-display text-lg font-extrabold text-primary">{item.impactRange}</p>
-                {item.assignee ? (
-                  <p className="mt-1 text-xs text-on-surface-variant">Assigned: {item.assignee}</p>
-                ) : null}
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="rounded-full bg-primary/10 px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-primary">
+                  {item.impactRange}
+                </span>
+                <h3 className="text-xs font-semibold uppercase tracking-[0.1em] text-on-surface-variant">
+                  {item.title}
+                </h3>
               </div>
+              <p className="mt-4 flex-1 text-sm leading-7 text-on-surface md:text-base">{item.description}</p>
+              {item.assignee ? (
+                <p className="mt-4 border-t border-outline-variant/35 pt-4 text-xs text-on-surface-variant">
+                  Assigned: {item.assignee}
+                </p>
+              ) : null}
             </article>
           ))}
         </div>

@@ -12,7 +12,7 @@ export const metadata: Metadata = buildPageMetadataFromConfig(PAGE_SEO.industrie
 const breadcrumbSchema = generateBreadcrumbSchema([
   breadcrumbHome(),
   { name: "Industries", url: PAGE_SEO.industries.path },
-  { name: "Automotive", url: PAGE_SEO.industriesAutomotive.path },
+  { name: "Auto components", url: PAGE_SEO.industriesAutomotive.path },
 ]);
 
 export default function AutomotiveIndustryPage() {

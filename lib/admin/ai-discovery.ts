@@ -4,7 +4,7 @@
  */
 export const AI_DISCOVERY_PHASE = `## Phase 1 - Blog discovery (do this FIRST)
 
-You are helping me plan and write a **Stamped Energy blog post** for Indian manufacturing leaders. Do **not** draft the article yet.
+You are helping me plan and write a **Stamped blog post** for Indian manufacturing leaders. Do **not** draft the article yet.
 
 **How to run discovery**
 - Ask the questions below **one at a time** (two at most if they are closely related). Wait for my answers before continuing.

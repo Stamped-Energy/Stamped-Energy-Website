@@ -628,4 +628,31 @@ Architecture and workflow decisions for this project.
 
 ---
 
+## ADR-033: Copy v3, "Stamped" rebrand, four improvement areas
+
+**Date:** 2026-10-03
+
+**Context:** The approved copy v3 (`docs/copy/stamped-copy-v3.md`) repositions Stamped from energy-bill optimisation to AI for plant operations (process, quality, planning, maintenance, with energy counted in all four). Customer copy must say "Stamped" (not "Stamped Energy") and "machine learning and AI"; approved outcome paragraphs are used word for word; no unbacked % or rupee figures, no DISCOM claims, no hard-stop "we never" lists; CTA "Book a site survey".
+
+**Alternatives:**
+
+1. Edit strings in place and keep the two energy pillars and five verticals (rejected: the pages are built around rupee/MD claims the new copy does not back)
+2. Rewrite content, restructure `/solutions` into four areas, keep only the automotive vertical, delete dead components that still carried retired copy (selected)
+
+**Selected:**
+
+- `lib/content/` rewritten (landing, solutions, platform, industries, automotive, about, contact, caseStudies, resources, icp, site). New `app/solutions/[slug]` for process, quality, planning, maintenance.
+- 308 redirects: `/solutions/load-energy` → `/solutions/process`, `/solutions/equipment-intelligence` → `/solutions/maintenance`, `/industries/{cement,steel,pharma,chemical}` → `/industries`.
+- Homepage "How it works" uses a static Plant data → Models → Actions → Results diagram (`components/diagrams/PlantFlowDiagram.tsx`); the pinned step animation and its visuals were removed. Unrendered components and content (payAsYouSave, workflow, scenarios, old pillar pages, vertical economics) deleted.
+- Example action cards keep copy v3 [bracketed] placeholders and an "Example" label.
+- WhatsApp buttons render only when `NEXT_PUBLIC_WHATSAPP_URL` is set.
+- Contact form: the `billSize` column is reused for "Main processes", "What's on your mind" and "Best way to reach you" (joined into one string client-side) to avoid a Prisma migration. Admin and email label it "Plant details".
+- SEO: Organization/WebSite/SoftwareApplication name "Stamped"; entity sentence from `icp.seo.entityDefinition`; HowTo is the four-step loop; automotive FAQ schema built from page FAQ only; keywords per the website update plan; `public/llms.txt` regenerated.
+- Kept: contact email `stamped.energy@gmail.com` (no domain mailbox yet), package/repo names, env var names, session-secret dev string.
+
+**Rationale:** One source per page in `lib/content/`, with nothing left in the tree that could resurface retired claims.
+
+**Impact:** `lib/content/*`, `lib/seo/*`, `app/solutions/*`, `app/industries/*`, `app/sitemap.ts`, `next.config.ts`, `components/{sections,solutions,industries,how-it-works,about,contact,layout,motion-slots}`, `lib/contact/notify.ts`, `public/llms.txt`, `.env.example`, `docs/website-copy.md`, `docs/copy/stamped-copy-v3.md`.
+
+---
 
