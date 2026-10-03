@@ -99,6 +99,8 @@ Use it on the About page, the How it works page (/platform) and in longer writte
 > - **Quality:** "Catch the problem while the lot can still be saved." Process data is linked to every lot, and real-time alerts are added where live data is connected, for example ageing running over or quench water out of band.
 > - **Planning:** "Re-plan with the whole plant in view." Re-plans account for the live state of the whole plant: machines, furnace loads, material, dispatch and maintenance windows.
 > - **Maintenance:** "Prescriptive maintenance, planned around production." It ranks stops by cost, watches specific energy consumption for drift, and prescribes the fix and the best window given production constraints.
+>
+> **Page FAQs (3 Oct 2026, ADR-040).** Each area page and /platform now ends with four or five answer-first questions, kept in `faq` in `lib/content/solutions.ts` and `lib/content/platform.ts`. The answers paraphrase the approved text above, contain no ₹ or % figures, and were reviewed by Vinayak before shipping. Edit them there; the FAQ JSON-LD, `/ai/faq.json` and `llms.txt` follow.
 
 Each area has a short statement heading, a paragraph and a few example action cards. The cards follow the current site's instruction style, written as complete sentences. Their numbers are placeholders, and they should be labelled "Example" on the site.
 

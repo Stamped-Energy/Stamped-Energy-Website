@@ -53,6 +53,8 @@ export function buildLlmsTxtBody(): string {
   lines.push(`Contact: stamped.energy@gmail.com`);
   lines.push(`Sitemap: ${SITE_URL}/sitemap.xml`);
   lines.push(`Extended index: ${SITE_URL}/llms-full.txt`);
+  lines.push(`RSS: ${SITE_URL}/feed.xml`);
+  lines.push(`AI discovery: ${SITE_URL}/.well-known/ai.txt, ${SITE_URL}/ai/summary.json, ${SITE_URL}/ai/faq.json, ${SITE_URL}/ai/service.json`);
   pushBlank(lines);
 
   lines.push("## Brand");
@@ -134,6 +136,25 @@ export function buildLlmsTxtBody(): string {
   }
   pushBlank(lines);
 
+  lines.push("## How it works FAQ");
+  pushBlank(lines);
+  for (const item of platformContent.faq) {
+    lines.push(`- Q: ${item.question}`);
+    lines.push(`  A: ${item.answer}`);
+  }
+  pushBlank(lines);
+
+  lines.push("## Solution area FAQs");
+  pushBlank(lines);
+  for (const area of solutionsContent.areas) {
+    lines.push(`### ${area.title} (${SITE_URL}${area.href})`);
+    for (const item of area.faq) {
+      lines.push(`- Q: ${item.question}`);
+      lines.push(`  A: ${item.answer}`);
+    }
+    pushBlank(lines);
+  }
+
   lines.push("## Common questions Stamped answers");
   pushBlank(lines);
   lines.push(`- What is Stamped? → ${icp.seo.entityDefinition}`);
@@ -205,8 +226,7 @@ export function buildLlmsTxtBody(): string {
   lines.push(
     `- LinkedIn Company Page sameAs: ${COMPANY_LINKEDIN_URL || "pending (set COMPANY_LINKEDIN_URL in lib/seo/constants.ts)"}`,
   );
-  lines.push("- Google Business Profile: not done");
-  lines.push("- Wikidata: not done");
+  lines.push("- Google Business Profile, Wikidata, Crunchbase, Bing Webmaster Tools: not done");
   pushBlank(lines);
 
   lines.push("## Crawling");
@@ -256,6 +276,24 @@ export async function buildLlmsFullTxtBody(): Promise<string> {
     lines.push(`### ${item.question}`);
     lines.push(item.answer);
     pushBlank(lines);
+  }
+
+  lines.push("## How it works FAQ");
+  pushBlank(lines);
+  for (const item of platformContent.faq) {
+    lines.push(`### ${item.question}`);
+    lines.push(item.answer);
+    pushBlank(lines);
+  }
+
+  lines.push("## Solution area FAQs");
+  pushBlank(lines);
+  for (const area of solutionsContent.areas) {
+    for (const item of area.faq) {
+      lines.push(`### ${area.title}: ${item.question}`);
+      lines.push(item.answer);
+      pushBlank(lines);
+    }
   }
 
   lines.push("## Industry FAQs");

@@ -6,6 +6,8 @@ Public marketing site: https://stamped.work
 Contact: stamped.energy@gmail.com
 Sitemap: https://stamped.work/sitemap.xml
 Extended index: https://stamped.work/llms-full.txt
+RSS: https://stamped.work/feed.xml
+AI discovery: https://stamped.work/.well-known/ai.txt, https://stamped.work/ai/summary.json, https://stamped.work/ai/faq.json, https://stamped.work/ai/service.json
 
 ## Brand
 
@@ -63,20 +65,20 @@ Hub: [What we improve](https://stamped.work/solutions)
 ## Core pages (live)
 
 - [Stamped | AI for plant operations](https://stamped.work/): Stamped is AI for industrial plants. It models your plant from the data it already records and improves process, quality, planning and maintenance.
-- [How it works | Stamped](https://stamped.work/platform): How Stamped builds models of your plant from the data it already records, from machine learning to digital twins of your process, sends ranked actions to the people who own them, and checks the result against your own baseline.
-- [What Stamped improves | Process, quality, planning, maintenance](https://stamped.work/solutions): Stamped improves process and control, quality and lot checks, planning and maintenance in manufacturing plants, with energy counted in all four.
-- [Process and control optimisation | Stamped](https://stamped.work/solutions/process): Run better than your best shift. Stamped tests improved control policies on a digital twin of your line, using mathematical models, reinforcement learning and machine learning, and recommends them to your process engineers.
-- [Quality and lot checks before rejection | Stamped](https://stamped.work/solutions/quality): Catch the problem while the lot can still be saved. Stamped links process data to each lot and alerts your team in real time, for example when a basket overstays in ageing or quench water drifts out of band.
-- [Planning and scheduling | Stamped](https://stamped.work/solutions/planning): Re-plan with the whole plant in view. Stamped tracks what every machine, furnace and dispatch is doing and proposes the sequence that works best for the plant, with its effect on output, energy and delivery.
-- [Maintenance | Stamped](https://stamped.work/solutions/maintenance): Prescriptive maintenance, planned around production. Stamped ranks stops by what they cost, watches specific energy consumption for drift and prescribes the fix and the best window to make it.
-- [Industries | Stamped](https://stamped.work/industries): Stamped improves process, quality, planning and maintenance in auto-component, steel and cement plants, with the same four areas applied in pharma and chemical plants.
-- [Auto component manufacturing | Stamped](https://stamped.work/industries/automotive): For forging, heat treatment, machining, die casting and rubber moulding plants supplying OEMs: fewer rejections, more output and fewer breakdowns, from the data your plant already records.
-- [Steel plant operations | Stamped](https://stamped.work/industries/steel): For induction and arc furnace melt shops and rolling mills: power per tonne, heat chemistry, yield and cobbles, improved from the data your plant already records.
+- [How it works | Stamped](https://stamped.work/platform): How Stamped models your plant from the data it already records, sends ranked actions to the people who own them, and checks each result against your baseline.
+- [Process, quality, planning and maintenance | Stamped](https://stamped.work/solutions): Stamped improves process and control, quality and lot checks, planning and maintenance in manufacturing plants, with energy counted in all four.
+- [Process and control optimisation | Stamped](https://stamped.work/solutions/process): Run better than your best shift. Stamped tests better control policies on a digital twin of your line and recommends them to your process engineers.
+- [Quality and lot checks before rejection | Stamped](https://stamped.work/solutions/quality): Catch the problem while the lot can still be saved. Stamped links process data to each lot and alerts your team in real time, before parts are rejected.
+- [Planning and scheduling | Stamped](https://stamped.work/solutions/planning): Re-plan with the whole plant in view. Stamped proposes the sequence that works best for the plant, with its effect on output, energy and delivery.
+- [Maintenance | Stamped](https://stamped.work/solutions/maintenance): Prescriptive maintenance, planned around production. Stamped ranks stops by what they cost and prescribes the fix and the best window to make it.
+- [Industries | Stamped](https://stamped.work/industries): Stamped improves process, quality, planning and maintenance in auto-component, steel, cement, pharma and chemical plants.
+- [Auto component manufacturing | Stamped](https://stamped.work/industries/automotive): For forging, heat treatment, machining, die casting and rubber moulding plants: fewer rejections, more output and fewer breakdowns, from data you already have.
+- [Steel plant operations | Stamped](https://stamped.work/industries/steel): For induction and arc furnace melt shops and rolling mills: power per tonne, heat chemistry, yield and cobbles, improved from the data your plant records.
 - [Cement plant operations | Stamped](https://stamped.work/industries/cement): For cement plants: kiln stability, free lime, heat and power per tonne, mill throughput and kiln stops, improved from the data your plant already records.
 - [Pharmaceutical manufacturing operations | Stamped](https://stamped.work/industries/pharma): For pharma plants: batches right the first time, deviations and batch records, campaign planning and HVAC and utilities, with QA keeping every release decision.
-- [Chemical plant operations | Stamped](https://stamped.work/industries/chemical): For batch and specialty chemical plants: reactor yield, batch cycle time, off-spec batches and steam and cooling, improved from the data your plant already records.
+- [Chemical plant operations | Stamped](https://stamped.work/industries/chemical): For batch and specialty chemical plants: reactor yield, cycle time, off-spec batches, steam and cooling, improved from the data your plant already records.
 - [Notes from the plant floor | Stamped](https://stamped.work/case-studies): Notes from the plant floor on rejections, restarts, heat treatment, machining and maintenance, written for plant heads and the engineers who run the lines.
-- [About Stamped | IIT Roorkee engineers building AI for plant operations](https://stamped.work/about): Stamped is built by IIT Roorkee engineers Vinayak Raizada and Utso Sarkar. We build software that turns plant data into actions, across process, quality, planning and maintenance.
+- [About Stamped | Built by IIT Roorkee engineers](https://stamped.work/about): Stamped is built by IIT Roorkee engineers Vinayak Raizada and Utso Sarkar. We turn plant data into actions across process, quality, planning and maintenance.
 - [Book a site survey | Stamped](https://stamped.work/contact): A few days on your floor and a written read-out of where your plant loses efficiency and what we'd do first.
 
 ## Homepage snapshot
@@ -104,6 +106,61 @@ Hub: [What we improve](https://stamped.work/solutions)
   A: We don't publish prices, because they depend on the plant. During the site survey we agree only the price of the pilot, once we know which line and which problem it will cover. The pilot is a paid engagement of 8 to 12 weeks, priced on its own and not tied to an annual contract value, and the annual contract price is decided afterwards, based on the results of the pilot.
 - Q: Some of our records are still on paper or in Excel. Can we start?
   A: Yes. Most plants keep some registers on paper or in Excel, and the site survey tells you plainly whether what you already record is enough to start on one line, and what would be worth recording if it is not.
+
+## How it works FAQ
+
+- Q: What data does Stamped use?
+  A: Stamped reads from your machines, control systems, meters, ERP, quality registers and what operators enter, then lines up the clocks, units and names, because each system records them its own way.
+- Q: Do we need to install new hardware or another system?
+  A: No hardware retrofit is needed to get started. Stamped is software that works with the systems your plant already runs, and it is not another MES or CMMS: your MES, ERP and SCADA are where the data comes from.
+- Q: How does Stamped decide which actions come first?
+  A: Stamped builds models of each line from its own history to learn what normal looks like and spot where efficiency is lost. Each possible fix is checked against the day's plan and production constraints, and what is left is ranked by what it is costing you.
+- Q: How do actions reach the team?
+  A: Each action goes to its owner on WhatsApp or on screen, with what to do, by when and why, and your team decides. It stays open until it is closed, and every decision and result is kept on record.
+- Q: How do we know a change worked?
+  A: Once your team makes a change, Stamped checks the result against your own baseline. What each result shows goes back into the models, so the next recommendation is better.
+
+## Solution area FAQs
+
+### Process and control (https://stamped.work/solutions/process)
+- Q: How does Stamped improve process control?
+  A: Stamped builds a digital twin of each line from its own history and uses mathematical models of the process, reinforcement learning and machine learning to test better control policies before anything changes on the floor. It then recommends the improved setting, control rule or restart routine to your process engineer.
+- Q: Where do most process losses come from?
+  A: Most process losses come from a setting that has slowly drifted, a restart that night shift handles differently from day shift, or a line running faster than the next station can absorb, far more often than from a broken machine.
+- Q: Does Stamped change settings on the line by itself?
+  A: No. Stamped recommends and your team decides. Your process engineer can accept a recommendation, adjust it or turn it down, and new control policies are tested on the digital twin first.
+- Q: How is energy counted in process recommendations?
+  A: Restarts, reheats and settings that have drifted all use energy that never ends up in a good part, so every process recommendation shows what it does to energy per good part as well as to output and quality.
+
+### Quality and lot checks (https://stamped.work/solutions/quality)
+- Q: How does Stamped help reduce rejections?
+  A: Stamped links process data to each lot and batch and learns which conditions came before past rejections. Where live data is connected, it watches each lot as it moves and alerts the right person while there is still time to act, so the lot is saved instead of sorted afterwards.
+- Q: What kind of alerts does the team get?
+  A: For example, an alert when a basket has stayed in ageing too long or the quench water has drifted out of its temperature band. Where a check is against a written limit, the card gives a clear yes or no, and where it is a prediction, the card shows how confident the model is.
+- Q: What happens to batches already made under risky conditions?
+  A: Batches already made under risky conditions are flagged while they are still in the plant, so the inspector can decide what to do with them.
+- Q: Does Stamped help with audits and customer complaints?
+  A: Yes. Process data is linked to every lot, so each lot's record is ready when the auditor or the customer asks, for example for an 8D on a customer complaint.
+
+### Planning and scheduling (https://stamped.work/solutions/planning)
+- Q: What does Stamped do when the production plan breaks?
+  A: When something changes, such as a die change running long, a furnace tripping or material arriving late, Stamped proposes the sequence that works best for the plant as a whole and shows what each option would do to output, energy and delivery.
+- Q: What does Stamped keep track of to re-plan?
+  A: Which machines are running, down or waiting, what each furnace is holding, what material is on hand, which dispatches are due and when maintenance is booked.
+- Q: Who makes the final scheduling decision?
+  A: The planner. Stamped recommends and your team decides, so the planner chooses with the trade-offs of each option in front of them.
+- Q: How does planning affect energy use?
+  A: Grouping lots by temperature, filling furnace loads and timing heat-up to the moment the next charge is ready keep furnaces from sitting hot and empty, and tariff windows are weighed as one input to the plan.
+
+### Maintenance (https://stamped.work/solutions/maintenance)
+- Q: What does prescriptive maintenance mean in Stamped?
+  A: Stamped ranks stops by the output and time they cost and watches for the slow drift that usually comes before a failure. Because it knows the production plan, dispatch commitments and other constraints, it prescribes the fix and the best window to make it instead of only raising an alarm.
+- Q: What early warning signs does Stamped watch?
+  A: Specific energy consumption and other slow drift, such as a furnace burning more gas per kilo on the same recipe or a compressor running a little longer every week.
+- Q: How does Stamped decide which stops matter most?
+  A: The stop log already shows where the hours go, but it rarely says which stops matter most or when to fix them. Stamped ranks stops by the output and time they cost.
+- Q: What if a machine has no sensor for a fault?
+  A: Stamped tells maintenance what it is seeing and how sure it is, and is equally open about what it cannot see, for example bearing wear on a machine that has no vibration sensor.
 
 ## Common questions Stamped answers
 
@@ -201,8 +258,7 @@ Mid-market manufacturers in India, from a few hundred crore rupees of revenue up
 
 - Google Search Console: registered by team
 - LinkedIn Company Page sameAs: https://www.linkedin.com/company/stampedwork
-- Google Business Profile: not done
-- Wikidata: not done
+- Google Business Profile, Wikidata, Crunchbase, Bing Webmaster Tools: not done
 
 ## Crawling
 

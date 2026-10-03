@@ -744,3 +744,25 @@ Architecture and workflow decisions for this project.
 **Selected:** Homepage title "Different plants, the same four places to improve." with three cards (auto components, steel, cement), pills for pharma and chemicals, and one "See all industries" link. The grid is now three columns, one column below `sm`. Hub hero title is "Built for plants across industries.", with the same split in its description and SEO description. The automotive industry page keeps its own auto-specific copy.
 
 **Impact:** `lib/content/{landing,industries}.ts`, `components/sections/HomeIndustries.tsx`, `lib/seo/pages.ts`, `docs/copy/stamped-copy-v3.md`.
+
+## ADR-040: Audit-driven SEO, GEO and AEO pass
+
+**Date:** 2026-10-03
+
+**Context:** `SEO_GEO_AEO.md` still described the retired energy-intelligence positioning, several titles and descriptions ran past search-result limits, and nothing measured whether search engines or AI answer engines could read the site well. Vinayak asked to use open-source SEO, GEO and AEO tools to drive the work.
+
+**Alternatives:** (1) Add SEO libraries such as `next-seo` or `next-sitemap` as runtime dependencies. (2) Hand-audit without tools. (3) Run external auditors only, and add just `schema-dts` for typed JSON-LD.
+
+**Selected:** Option 3. GEO Optimizer (`geo-optimizer-skill` 4.18.3, via `uvx`) and Unlighthouse (via `npx`) run as audits, and `schema-dts` is the only new package (dev only). Next.js metadata, sitemap and robots already cover what the runtime libraries offer. The fixes:
+- Every JSON-LD builder is typed.
+- Titles are capped at 60 characters and descriptions at 160 by `npm run seo:check`.
+- A WebPage node on every page carries `dateModified`.
+- The Organization schema carries `founder`, `alternateName`, `slogan` and the LinkedIn `sameAs`.
+- `/feed.xml` (RSS) is added, and robots.txt names six more AI crawlers.
+- Visible FAQs with FAQ JSON-LD are on the four solution pages and `/platform`, plus Service schema on each solution page.
+- Content-generated AI discovery files: `/.well-known/ai.txt` and `/ai/{summary,faq,service}.json`.
+- Accessibility fixes found by Lighthouse.
+
+**Rationale:** Audits give a before and after number instead of a checklist, and avoiding runtime SEO packages keeps the bundle and the architecture unchanged. Generating the AI files from `lib/content` keeps them in step with the copy.
+
+**Impact:** GEO average 69.9 to 86.5. Lighthouse averages: accessibility 0.92 to 0.96, SEO 0.978 to 0.985 (the remaining misses are local robots.txt fetch timeouts). Files: `lib/seo/*`, `app/{feed.xml,ai,.well-known}/`, `lib/content/{solutions,platform}.ts`, `components/ui/{FaqSection,Button}.tsx`, `scripts/{seo-check.ts,geo-audit.py}`, `SEO_GEO_AEO.md`, `public/llms.txt`.

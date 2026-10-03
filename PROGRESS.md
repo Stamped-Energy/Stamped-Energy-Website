@@ -2,6 +2,8 @@
 
 ## Current Phase
 
+**SEO, GEO and AEO pass (ADR-040):** audit-driven fixes with GEO Optimizer and Unlighthouse, typed JSON-LD, FAQs on solution pages and How it works, RSS and AI discovery files. GEO average 69.9 to 86.5. Off-site work (Search Console, Bing, Wikidata, Crunchbase, Google Business Profile) is listed in `SEO_GEO_AEO.md`.
+
 **Solution area framing v3.1 (ADR-038):** Process now improves control policies, Quality adds real-time alerts, Planning re-plans with the whole plant in view, and Maintenance is prescriptive. Applied sitewide, with method wording chosen by placement instead of a stock "machine learning and AI".
 
 **Homepage motion revival (ADR-036)** on branch `cursor/homepage-motion-revival`: pinned How it works journey back with four stage visuals, Solutions area loops, Impact rule draw, offscreen pause for slot loops, shorter What Stamped does.

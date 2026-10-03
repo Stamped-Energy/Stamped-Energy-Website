@@ -1,153 +1,134 @@
-# SEO, GEO & AEO - Stamped Energy (`stamped.work`)
+# SEO, GEO and AEO - Stamped (`stamped.work`)
 
-> **Update 2026-10-03 (ADR-033):** brand is now "Stamped", category "AI for plant operations". The keyword list lives in `lib/seo/constants.ts` (`SEO_KEYWORDS`) and per-page keywords in `lib/seo/pages.ts`. Routes `/solutions/load-energy` and `/solutions/equipment-intelligence` now 308 (see `next.config.ts`); keyword-to-URL rows below that point at them are historical. `/industries/{steel,cement,pharma,chemical}` were restored in ADR-034. New area URLs: `/solutions/{process,quality,planning,maintenance}`.
+How the site is set up for search engines (SEO), for being named as an entity by AI systems (GEO), and for being quoted as the answer by AI assistants (AEO), and how to check it.
 
-
-Living record of search, generative-engine, and answer-engine optimizations for the marketing site.  
-**Last updated:** 2026-08-20 · **Domain:** `https://stamped.work`
+**Last updated:** 2026-10-03 (ADR-040) · **Domain:** `https://stamped.work`
 
 ---
 
-## Positioning (source of truth)
+## Positioning
 
-All SEO, GEO, and AEO copy derives from **`lib/content/icp.ts`**. Do not hardcode positioning in components.
+All search and answer copy comes from `lib/content/`, mainly `icp.ts`, `landing.ts`, `solutions.ts` and `platform.ts`. Do not hardcode positioning in components or SEO files.
 
 | Field | Current value |
-|-------|----------------|
-| **Category** | AI-powered energy intelligence |
-| **Alternate category** | AI-powered prescriptive energy intelligence |
-| **Entity definition** | Stamped Energy is AI-powered prescriptive energy intelligence software for energy-intensive plants in India. Connects meters, SCADA, PLCs, and DISCOM bills into ranked prescriptions with outcomes verified with evidence (DISCOM bill confirmation optional). |
-| **ICP bill filter** | Built for plants with ₹20 lakh+ monthly electricity bills. |
-| **Audience** | Plant directors, VP Operations, electrical heads, CFOs at energy-intensive plants in India (₹200 Cr+ revenue). |
-| **Verticals** | Cement, steel, pharmaceutical, chemical, automotive |
-| **Benchmark outcomes** | 12-20% monthly bill reduction; 15-25% MD reduction - always labelled indicative; pilot replaces with plant figures |
-| **Not** | Passive EMS dashboard or SCADA replacement |
-
-**Homepage hero (2026-08 live):**
-
-- Badge: For industrial plants
-- H1: Turn plant data into action.
-- Supporting: rupee-scored prescriptions from plant, application, and live market data
-- FAQ: remounted on homepage (`HomeTerminalBand`) with FAQPage JSON-LD
+|-------|---------------|
+| Brand | Stamped (alternate names in schema: Stamped Energy, stamped.work) |
+| Category | AI for industrial plants. Tagline: AI for plant operations |
+| What it does | Models the plant from the data it already records and improves process, quality, planning and maintenance. Energy is counted inside every action. |
+| Audience | Plant heads, operations, quality and maintenance leaders at Indian manufacturing plants. Auto components, steel, cement, pharma and chemicals |
+| Proof stance | Results are checked against the plant's own baseline. No published ₹ or % outcome figures until a named pilot exists |
+| Control line | Stamped recommends and your team decides. |
+| Not | Another MES, CMMS or dashboard. Works alongside MES, ERP and SCADA |
 
 ---
 
-## Purpose
-
-| Discipline | Goal |
-|------------|------|
-| **SEO** | Rank for brand, category, and vertical-intent queries in Google/Bing |
-| **AEO** | Be cited as the authoritative answer in AI assistants (ChatGPT, Perplexity, Google AI Overviews, Claude) |
-| **GEO** | Establish **Stamped Energy** as a recognizable entity across the web (schema, profiles, Wikidata, consistent entity sentences) |
-
----
-
-## Keyword strategy
-
-### Tier 1 - Brand
-
-| Keyword | Primary page |
-|---------|--------------|
-| `stamped energy` | `/` |
-| `stamped energy india` | `/` |
-| `stamped.work` | `/` |
-
-### Tier 2 - Category
-
-| Keyword | Primary page |
-|---------|--------------|
-| `AI-powered energy intelligence India` | `/` |
-| `prescriptive energy intelligence India` | `/`, `/platform` |
-| `energy management software for plants India` | `/solutions/load-energy` |
-| `maximum demand reduction India` | `/case-studies`, `/solutions/load-energy` |
-| `DISCOM bill savings India` | `/case-studies`, homepage FAQ |
-| `Stamped vs EMS` / SCADA disambiguation | `/platform`, homepage FAQ |
-
-### Tier 3 - Vertical
-
-| Vertical | Primary page |
-|----------|--------------|
-| Cement | `/industries/cement` |
-| Steel | `/industries/steel` |
-| Pharma | `/industries/pharma` |
-| Chemical | `/industries/chemical` |
-| Automotive | `/industries/automotive` |
-
-Per-page `keywords` arrays live on each `PAGE_SEO` entry in `lib/seo/pages.ts` (not only the global `SEO_KEYWORDS` fallback).
-
----
-
-## Code architecture
+## Code map
 
 | File | Responsibility |
 |------|----------------|
-| `lib/content/icp.ts` | Positioning SSOT |
-| `lib/seo/pages.ts` | Titles, descriptions, **per-page keywords**, paths |
-| `lib/seo/metadata.ts` | `buildPageMetadata()` / `buildPageMetadataFromConfig()` |
-| `lib/seo/constants.ts` | `SITE_URL`, OG, `SEO_KEYWORDS`, `COMPANY_LINKEDIN_URL` |
-| `lib/seo/schemas.ts` | JSON-LD |
-| `lib/seo/llms-index.ts` | Builders for `llms.txt` body + `/llms-full.txt` |
-| `app/sitemap.ts` | Static + uncapped blogs + case studies |
-| `public/llms.txt` | Static AI site guide (regen via `buildLlmsTxtBody`) |
-| `app/llms-full.txt/route.ts` | Dynamic full index |
+| `lib/seo/pages.ts` | Title, description, path and keywords per page (`PAGE_SEO`) |
+| `lib/seo/metadata.ts` | `buildPageMetadata()`, canonical, OG, Twitter, RSS alternate |
+| `lib/seo/constants.ts` | `SITE_URL`, OG image, `CONTENT_UPDATED`, `SEO_KEYWORDS`, `COMPANY_LINKEDIN_URL` |
+| `lib/seo/schemas.ts` | JSON-LD builders, typed with `schema-dts` |
+| `lib/seo/crawlers.ts` | Search and AI crawler list for `robots.txt` |
+| `lib/seo/llms-index.ts` | Builders for `public/llms.txt` and `/llms-full.txt` |
+| `lib/seo/ai-discovery.ts` | Builders for `/.well-known/ai.txt` and `/ai/*.json` |
+| `app/sitemap.ts`, `app/robots.ts` | Sitemap (static `lastModified` = `CONTENT_UPDATED`) and robots |
+| `app/feed.xml/route.ts` | RSS 2.0 feed of posts and case studies |
 
-**Environment:** Set `NEXT_PUBLIC_SITE_URL=https://stamped.work` in production.
+**Environment:** set `NEXT_PUBLIC_SITE_URL=https://stamped.work` in production.
+
+### Structured data by page
+
+| Page | JSON-LD |
+|------|---------|
+| All pages (layout) | Organization (logo, founders, `sameAs` LinkedIn, slogan), WebSite with SearchAction |
+| Every marketing page | WebPage (or AboutPage, ContactPage, CollectionPage) with `dateModified`, BreadcrumbList |
+| `/` | SoftwareApplication, FAQPage, Speakable |
+| `/platform` | HowTo, FAQPage |
+| `/solutions/{process,quality,planning,maintenance}` | Service, FAQPage |
+| `/industries/*` | FAQPage |
+| `/blog/*`, `/case-studies/*` | Article with Person authors |
+
+### FAQs
+
+Visible FAQs and FAQPage schema come from the same arrays, so they cannot drift: `landingContent.faq`, `platformContent.faq`, each `solutionsContent.areas[].faq`, and each vertical page `faq`. Answers are written answer-first and use approved copy only. `/ai/faq.json` and `llms.txt` read the same arrays.
 
 ---
 
-## Completed (2026-08-20 full SEO pass — ADR-029)
+## Tools and commands
 
-- [x] Sitemap soft-fail + uncapped post/case helpers (`listPublishedPostsForSitemap`, `listPublishedCaseStudiesForSitemap`)
-- [x] Homepage FAQ remounted + FAQPage + Speakable JSON-LD; speakable CSS classes on hero/impact
-- [x] WebSite SearchAction → `/case-studies?search={search_term_string}` with catalog hydration
-- [x] Per-page keywords on all `PAGE_SEO` routes
-- [x] `COMPANY_LINKEDIN_URL` constant wired into Organization `sameAs` (empty until URL confirmed)
-- [x] `/case-studies/[slug]` restored from CMS (no longer 308 to listing)
-- [x] `/resources` hub + three guides (superseded by ADR-032 — 308 to `/case-studies`)
-- [x] Extremely detailed `public/llms.txt` + expanded `/llms-full.txt`
-- [x] Nav/footer Resources → `/case-studies` (ADR-032)
-- [x] `npm run build` green (case study SSG present)
+| Command | What it checks |
+|---------|----------------|
+| `npm run seo:check` | Every `PAGE_SEO` title is 60 characters or fewer and description 160 or fewer. Fails the run otherwise |
+| `npm run seo:audit` | GEO Optimizer 4.18.3 on 11 key pages; writes `reports/seo/geo-<stamp>.json`. Needs `uv` installed |
+| Unlighthouse (below) | Lighthouse performance, accessibility, best practices and SEO for the same 11 pages |
+
+Run audits against a production build, not the dev server:
+
+```bash
+npx next build
+npx next start -p 3100
+SEO_BASE_URL=http://localhost:3100 npm run seo:audit
+npx -y @unlighthouse/cli@latest --site http://localhost:3100 --ci --reporter jsonExpanded \
+  --output-path reports/seo/unlighthouse-<name> \
+  --urls "/,/platform,/solutions,/solutions/process,/solutions/quality,/solutions/planning,/solutions/maintenance,/industries/automotive,/about,/case-studies,/contact" \
+  --disable-robots-txt --disable-sitemap --throttle false
+```
+
+`reports/` is gitignored. GEO Optimizer blocks localhost by default; `scripts/geo-audit.py` lifts that block for local runs only.
 
 ---
 
-## Remaining (owner: Marketing / Founders)
+## Scores (2026-10-03, local production build)
+
+| Audit | Baseline | After ADR-040 |
+|-------|----------|---------------|
+| GEO Optimizer average (11 pages) | 69.9 | 86.5 |
+| Lighthouse performance (average) | 0.73 | 0.86 |
+| Lighthouse accessibility | 0.92 | 0.96 |
+| Lighthouse best practices | 0.96 | 0.96 |
+| Lighthouse SEO | 0.978 | 0.985, with 1.0 on `/solutions` in a re-run after the link-text fix |
+
+The remaining Lighthouse SEO misses are robots.txt fetch timeouts on the local server, not site issues. Performance moves between local runs, so treat it as indicative.
+
+What still costs GEO points:
+- Knowledge-graph `sameAs` covers only LinkedIn (needs the off-site profiles below).
+- Keyword density and a few decorative images without alt text.
+
+---
+
+## Off-site checklist (owner: founders)
 
 | Item | Status |
 |------|--------|
-| Paste LinkedIn Company URL into `COMPANY_LINKEDIN_URL` | Pending your URL |
-| Google Search Console: resubmit sitemap after deploy; URL Inspection | You |
+| LinkedIn Company Page (`linkedin.com/company/stampedwork`) | Done, in Organization `sameAs` |
+| Google Search Console: submit `sitemap.xml`, inspect key URLs after deploy | Registered; resubmit after deploy |
+| Bing Webmaster Tools (also feeds ChatGPT search and Copilot): import from Search Console | Not done |
+| Wikidata item for Stamped (then add its URL to `sameAs`) | Not done |
+| Crunchbase profile (then add to `sameAs`) | Not done |
 | Google Business Profile | Not done |
-| Wikidata | Not done |
-| Custom OG images per major page | Medium |
-| Per-vertical blog depth (pharma HVAC, steel furnace) | Medium |
-| Real named M&V case studies | When plant permission exists |
+| Rich Results Test on `/`, one solution page, one blog post | After deploy |
+
+When a new profile exists, add its URL to `sameAs` in `organizationSchema` (`lib/seo/schemas.ts`) and to `buildAiSummary` (`lib/seo/ai-discovery.ts`).
 
 ---
 
-## How to update when positioning changes
+## When copy or positioning changes
 
-1. Update `lib/content/icp.ts` first.
-2. Sync `lib/seo/pages.ts` / `constants.ts` if needed.
-3. Regenerate `public/llms.txt`: `npx tsx -e "import { buildLlmsTxtBody } from './lib/seo/llms-index.ts'; import { writeFileSync } from 'fs'; writeFileSync('public/llms.txt', buildLlmsTxtBody());"`
-4. Update this file.
-
-## Resource guides (historical)
-
-ADR-032 removed `/resources` and standalone guide landers. Long-tail intent should land on `/case-studies` posts, pillar pages, or homepage FAQ until a new guide pattern is approved.
+1. Edit `lib/content/` first.
+2. Update `lib/seo/pages.ts` if titles or descriptions change, then run `npm run seo:check`.
+3. Bump `CONTENT_UPDATED` in `lib/seo/constants.ts`.
+4. Regenerate `public/llms.txt`: `npx tsx -e "import { buildLlmsTxtBody } from './lib/seo/llms-index'; import { writeFileSync } from 'fs'; writeFileSync('public/llms.txt', buildLlmsTxtBody());"`
+5. Re-run the audits and update the scores above.
 
 ---
 
-## Validation checklist
+## History
 
-- [x] `npm run build` passes (2026-08-20)
-- [ ] Production `https://stamped.work/sitemap.xml` returns 200 after deploy
-- [ ] Rich Results Test on `/`, one blog, one case study, one resource guide
-- [ ] GSC sitemap resubmit
-- [ ] `llms.txt` uses `https://stamped.work` (not localhost)
+- ADR-029 (2026-08): first full pass under the old energy positioning.
+- ADR-032: `/resources` folded into `/case-studies`.
+- ADR-033 to ADR-039: copy v3, rebrand to Stamped, four improvement areas.
+- ADR-040 (2026-10-03): audit-driven pass described here.
 
----
-
-## Related docs
-
-- `PROGRESS.md`, `DECISIONS.md` (ADR-029), `IMPLEMENTATION_PLAN.md`
-- `lib/content/icp.ts`, `lib/seo/llms-index.ts`
+Related: `PROGRESS.md`, `DECISIONS.md`, `docs/copy/stamped-copy-v3.md`.
