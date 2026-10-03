@@ -57,7 +57,7 @@ export function Footer() {
               Turn plant data into action.
             </h2>
             <p className="mt-4 text-sm leading-7 text-on-secondary/75 md:text-base">
-              No rip-and-replace. Full record from day one.
+              There is nothing new to install to start, and Stamped recommends and your team decides.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Link

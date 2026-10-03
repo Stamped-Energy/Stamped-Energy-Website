@@ -1,13 +1,21 @@
 import type { VerticalPageContent } from "../types";
 import { automotivePage } from "./automotive";
+import { cementPage } from "./cement";
+import { chemicalPage } from "./chemical";
+import { pharmaPage } from "./pharma";
+import { steelPage } from "./steel";
 
-/** Only auto components is live. Cement, steel, pharma and chemical pages were removed (301 to /industries). */
-export const VERTICAL_SLUGS = ["automotive"] as const;
+/** Auto components leads; steel, cement, pharma and chemicals are covered with the same four areas (copy v3, revision 2). */
+export const VERTICAL_SLUGS = ["automotive", "steel", "cement", "pharma", "chemical"] as const;
 
 export type VerticalSlug = (typeof VERTICAL_SLUGS)[number];
 
 export const verticalPages: Record<VerticalSlug, VerticalPageContent> = {
   automotive: automotivePage,
+  steel: steelPage,
+  cement: cementPage,
+  pharma: pharmaPage,
+  chemical: chemicalPage,
 };
 
 export function isVerticalSlug(slug: string): slug is VerticalSlug {
@@ -21,4 +29,4 @@ export function getVerticalPage(slug: string): VerticalPageContent | undefined {
   return verticalPages[slug];
 }
 
-export { automotivePage };
+export { automotivePage, cementPage, steelPage, pharmaPage, chemicalPage };

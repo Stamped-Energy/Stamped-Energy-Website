@@ -26,7 +26,7 @@ export const icp = {
     audienceLine:
       "Mid-market manufacturers in India, from a few hundred crore rupees of revenue upward; automotive components first.",
     /** Industries for schema knowsAbout and keyword clusters. */
-    verticals: ["auto components", "forging", "heat treatment", "precision machining"] as const,
+    verticals: ["auto components", "forging", "heat treatment", "precision machining", "die casting", "rubber moulding", "steel", "cement", "pharma", "chemicals"] as const,
     /** What Stamped is not (safe to say, per STAMPED_COPY_GUIDE section 7). */
     notA: "Stamped is not a replacement for MES, ERP, QMS, CMMS or SCADA, and it works alongside them. It is not a dashboard, not hardware and not an energy-only company.",
   },

@@ -41,31 +41,13 @@ export const landingContent = {
         id: "inspector",
         area: "Quality",
         role: "For the inspector",
-        copy: "Bin [14] was made after a [9]-minute stop, and similar bins were rejected more often, so check it before heat treatment.",
+        copy: "Bin [14] was made after a [9]-minute stop with the die running cold, so check it before heat treatment.",
       },
       {
         id: "shift-lead",
-        area: "Restart",
+        area: "Process",
         role: "For the shift lead",
         copy: "Keep the heater warm during stops shorter than [N] minutes, starting from A shift.",
-      },
-      {
-        id: "setter",
-        area: "Maintenance",
-        role: "For the setter",
-        copy: "The repeating micro-stop looks like a clamping issue, so close the card once the machine runs cleanly.",
-      },
-      {
-        id: "ht-lead",
-        area: "Planning",
-        role: "For the heat-treatment lead",
-        copy: "The mill is running 40 minutes late, so hold the furnace and set it back once production confirms.",
-      },
-      {
-        id: "process-engineer",
-        area: "Process",
-        role: "For the process engineer",
-        copy: "The heater aim has drifted, and a new aim is ready for your review.",
       },
       {
         id: "planner",
@@ -74,10 +56,34 @@ export const landingContent = {
         copy: "Press [3] is down for about [N] hours, and a re-plan is ready for review by [time].",
       },
       {
-        id: "maintenance",
+        id: "maintenance-lead",
+        area: "Maintenance",
+        role: "For the maintenance lead",
+        copy: "Gas per kilo on Furnace [1] is creeping up on the same recipe, so check the burners and door seals.",
+      },
+      {
+        id: "ht-heatup",
         area: "Energy",
-        role: "For maintenance",
-        copy: "The air leak on Line B is worth inspecting now, and the card closes once the feeder draw drops.",
+        role: "For the heat-treatment lead",
+        copy: "Furnace [2] is hot with no charge ready until [time], so heat-up can start later.",
+      },
+      {
+        id: "ht-load",
+        area: "Planning",
+        role: "For the heat-treatment lead",
+        copy: "The next basket is well below a normal load, and a lot on the same recipe is ready by [time].",
+      },
+      {
+        id: "process-engineer",
+        area: "Process",
+        role: "For the process engineer",
+        copy: "The heater aim has drifted, and a new aim is ready for your review.",
+      },
+      {
+        id: "setter",
+        area: "Maintenance",
+        role: "For the setter",
+        copy: "The repeating micro-stop looks like a clamping issue, so close the card once the machine runs cleanly.",
       },
     ] satisfies HomeActionCard[],
     /** Legacy chip copy (HeroFeatureBar was removed; kept for reuse). */
@@ -183,6 +189,16 @@ export const landingContent = {
     description:
       "We are starting with forging, heat-treatment and machining plants that supply OEMs, where a single rejection can cost far more than the part itself.",
     cta: { label: "Explore auto components", href: "/industries/automotive" } satisfies CtaLink,
+    allCta: { label: "See all industries", href: "/industries" } satisfies CtaLink,
+    moreLabel: "The same four areas apply in",
+    more: [
+      { label: "Die casting", href: "/industries/automotive#die-casting" },
+      { label: "Rubber moulding", href: "/industries/automotive#rubber-moulding" },
+      { label: "Steel", href: "/industries/steel" },
+      { label: "Cement", href: "/industries/cement" },
+      { label: "Pharma", href: "/industries/pharma" },
+      { label: "Chemicals", href: "/industries/chemical" },
+    ] satisfies CtaLink[],
     items: [
       {
         id: "automotive",
@@ -274,7 +290,7 @@ export const landingContent = {
     title: "Turn plant data into action.",
     description:
       "Spend a few days with us on your floor, and we'll give you a written read-out of where efficiency is being lost and what we would do first.",
-    smallLine: "No rip-and-replace. Full record from day one.",
+    smallLine: "There is nothing new to install to start, and Stamped recommends and your team decides.",
     primaryCta: { label: "Book a site survey", href: "/contact" } satisfies CtaLink,
     whatsappLabel: "WhatsApp us",
     /** Shown when no WhatsApp link is configured. */

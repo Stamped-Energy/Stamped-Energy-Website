@@ -39,9 +39,11 @@ export const footerLinks = {
   ],
   industries: [
     { label: "Auto components", href: "/industries/automotive" },
-    { label: "Forging", href: "/industries/automotive#forging" },
-    { label: "Heat treatment", href: "/industries/automotive#heat-treatment" },
-    { label: "Precision machining", href: "/industries/automotive#precision-machining" },
+    { label: "Steel", href: "/industries/steel" },
+    { label: "Cement", href: "/industries/cement" },
+    { label: "Pharma", href: "/industries/pharma" },
+    { label: "Chemicals", href: "/industries/chemical" },
+    { label: "All industries", href: "/industries" },
   ],
   resources: [{ label: "Notes from the plant floor", href: siteConfig.blogUrl }],
   company: [

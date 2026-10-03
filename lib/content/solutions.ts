@@ -28,6 +28,8 @@ export type SolutionArea = {
   intro: string;
   /** Optional note under the example cards. */
   note?: string;
+  /** How energy is counted inside this area (energy is never a separate pillar). */
+  energyNote: string;
   examples: SolutionExampleCard[];
   heroImageSrc: string;
   heroImageAlt: string;
@@ -63,7 +65,14 @@ const areas: SolutionArea[] = [
         role: "Best run, for the plant head",
         copy: "Line [2] had its best week in [month], and today's settings differ from that week on [N] parameters, which are listed in the comparison.",
       },
+      {
+        id: "warm-up",
+        role: "Die casting, for the cell lead",
+        copy: "Castings from the first [N] shots after a die change on cell [4] failed leak test more often last month, so a longer warm-up before releasing parts is ready for your review.",
+      },
     ],
+    energyNote:
+      "Restarts, reheats and settings that have drifted all use energy that never ends up in a good part, so every process recommendation shows what it does to energy per good part as well as to output and quality.",
     heroImageSrc: "/industries/forging.jpg",
     heroImageAlt: "Forging press line on a plant floor",
     heroObjectPosition: "center 40%",
@@ -95,6 +104,8 @@ const areas: SolutionArea[] = [
         copy: "Here is every process record for lot [N], gathered in one place for the 8D on the customer complaint that came in this morning.",
       },
     ],
+    energyNote:
+      "A part rejected after heat treatment or machining has already used all the energy of a good one, so every rejection avoided is energy that goes into a part you can ship.",
     heroImageSrc: "/industries/heat-treatment.webp",
     heroImageAlt: "Heat treatment furnace in operation",
   },
@@ -118,7 +129,19 @@ const areas: SolutionArea[] = [
         role: "For the heat-treatment lead",
         copy: "Running these [N] lots back to back by temperature would save the furnace from heating up and cooling down between them.",
       },
+      {
+        id: "consolidate",
+        role: "Loading, for the heat-treatment lead",
+        copy: "The next basket on Furnace [2] is well below a normal load, and a lot on the same recipe is ready by [time], so the two can run together without mixing grades.",
+      },
+      {
+        id: "handoff",
+        role: "Handoff, for the production lead",
+        copy: "Forged parts for lot [N] waited about [N] minutes for the furnace on most days last week, so moving the furnace start to match the forge schedule is ready for your review.",
+      },
     ],
+    energyNote:
+      "Grouping lots by temperature, filling furnace loads and timing heat-up to the moment the next charge is ready keep furnaces from sitting hot and empty, and tariff windows are weighed as one input to the plan.",
     heroImageSrc: "/industries/die-casting.jpeg",
     heroImageAlt: "Molten metal pour on a casting line",
     heroObjectPosition: "center 35%",
@@ -148,7 +171,14 @@ const areas: SolutionArea[] = [
         role: "For the setter",
         copy: "The repeating micro-stop on [machine] looks like a clamping issue, and the card can be closed once the machine runs cleanly.",
       },
+      {
+        id: "tool-life",
+        role: "For the tool room",
+        copy: "Tool [T12] on [machine] is lasting about [N] parts fewer than its last [N] tools on the same part, so the insert and the coolant are worth checking before it shows up as first-off rejections.",
+      },
     ],
+    energyNote:
+      "A furnace burning more gas for the same load or a compressor running a little longer every week is often the first sign of a fault, so energy drift is one of the signals maintenance hears about.",
     heroImageSrc: "/industries/rubber-moulding.jpg",
     heroImageAlt: "Moulding presses on a plant floor",
   },
@@ -179,6 +209,11 @@ export const solutionsContent = {
         id: "idle-furnace",
         role: "For the shift lead",
         copy: "Furnace [2] has been idle and hot for [N] hours with the next load due at [time], so it can be set back now.",
+      },
+      {
+        id: "stagger",
+        role: "For the electrical lead",
+        copy: "Three furnaces and the compressors are due to start together at [time], so starting Furnace [3] [N] minutes later keeps the demand peak down without moving any charge.",
       },
       {
         id: "air-leak",

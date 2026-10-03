@@ -55,7 +55,13 @@ export const organizationSchema = {
     "Forging",
     "Heat treatment",
     "Precision machining",
+    "Die casting",
+    "Rubber moulding",
     "Auto component manufacturing",
+    "Steel manufacturing",
+    "Cement manufacturing",
+    "Pharmaceutical manufacturing",
+    "Chemical manufacturing",
   ],
   sameAs: [
     "https://www.linkedin.com/in/vinayak-rz/",

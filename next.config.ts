@@ -46,11 +46,6 @@ const nextConfig: NextConfig = {
         destination: "/solutions/maintenance",
         permanent: true,
       },
-      // Copy v3 (ADR-033): retired vertical pages fold back into the industries hub.
-      { source: "/industries/cement", destination: "/industries", permanent: true },
-      { source: "/industries/steel", destination: "/industries", permanent: true },
-      { source: "/industries/pharma", destination: "/industries", permanent: true },
-      { source: "/industries/chemical", destination: "/industries", permanent: true },
     ];
   },
 };

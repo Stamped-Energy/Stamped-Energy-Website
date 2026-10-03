@@ -656,3 +656,21 @@ Architecture and workflow decisions for this project.
 
 ---
 
+
+## ADR-034: Copy v3 revision 2, industry pages restored around the four areas
+
+**Date:** 2026-10-03
+
+**Context:** Vinayak asked that every industry stay visibly covered so no prospect thinks Stamped does not serve them. ADR-033 had cut cement, steel, pharma and chemical (308 to `/industries`) and trimmed automotive to three processes.
+
+**Selected:**
+
+- `/industries/{steel,cement,pharma,chemical}` restored (redirects removed) and rewritten in the v3 voice. Each page has a new "Where efficiency is lost" section (`IndustryImprovementAreas`) with the four areas and an energy line inside each, an "In this plant" zig-zag, area-tagged example action cards and an FAQ.
+- Process-industry pages are qualitative and carry an honest hero note and FAQ answer that first deployments are in auto components (copy guide section 1). No %, rupee or result claims.
+- `/industries/automotive` covers forging, heat treatment, precision machining, die casting and rubber moulding.
+- Industries hub: industry x area matrix, five industry cards, auto-component process tiles. Nav and footer list all five industries plus the hub. Homepage industries section adds links to the other industries.
+- Example actions across hero ticker, solution pages, platform visuals and industry pages now span process, quality, planning, maintenance and energy; furnace hot-idle before the charge is ready, under-filled baskets with a compatible lot, forge-to-furnace handoff waits, tool life and staggered starts were added.
+- Hero headline renders as one balanced string in a 7/12 column so it sits on three lines on desktop.
+- SEO: page configs, sitemap entries, FAQ JSON-LD (via `verticalFaqSchema`), `knowsAbout`, `public/llms.txt` updated.
+
+**Impact:** `lib/content/{industries,landing,solutions,site,icp,types}.ts`, `lib/content/vertical-pages/*`, `components/industries/*`, `components/sections/{Hero,HomeIndustries}.tsx`, `components/solutions/SolutionAreaPage.tsx`, `components/motion-slots/HiwStageVisuals.tsx`, `lib/seo/*`, `app/sitemap.ts`, `next.config.ts`, `public/llms.txt`.

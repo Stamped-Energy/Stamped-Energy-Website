@@ -64,23 +64,22 @@ export function Hero() {
   return (
     <section ref={sectionRef} className="relative overflow-x-clip bg-surface pb-8 pt-24 md:pb-14 md:pt-28 lg:pt-24">
       <Container>
-        <div className="grid gap-5 md:gap-6 lg:grid-cols-2 lg:items-start lg:gap-10 xl:gap-14">
-          <div data-hero-animate="headline" className="flex flex-col gap-5 md:gap-6 lg:gap-4">
+        <div className="grid gap-5 md:gap-6 lg:grid-cols-12 lg:items-end lg:gap-10 xl:gap-14">
+          <div data-hero-animate="headline" className="flex flex-col gap-5 md:gap-6 lg:col-span-7 lg:gap-5">
             <SectionBadge label={hero.badge} />
-            <h1 className="hero-headline max-w-[16ch] font-display text-[2.15rem] font-bold leading-[1.06] tracking-[-0.03em] text-on-surface sm:text-5xl md:text-6xl lg:max-w-none lg:text-[4.75rem] lg:leading-[1.02] xl:text-[5.25rem]">
-              <span className="block">{hero.headlineLine1}</span>
-              <span className="block">{hero.headlineLine2}</span>
+            <h1 className="hero-headline max-w-[17ch] text-balance font-display text-[2.15rem] font-bold leading-[1.06] tracking-[-0.03em] text-on-surface sm:text-5xl md:text-6xl lg:max-w-[14.5ch] lg:text-[clamp(3.5rem,5.2vw,5rem)] lg:leading-[1.02]">
+              {hero.headline}
             </h1>
           </div>
 
           <div
             data-hero-animate="copy"
-            className="flex w-full min-w-0 flex-col justify-center lg:max-w-[32rem] lg:justify-self-end lg:pt-14 xl:pt-[3.75rem]"
+            className="flex w-full min-w-0 flex-col lg:col-span-5 lg:max-w-[30rem] lg:justify-self-end lg:pb-2"
           >
-            <p className="value-proposition text-sm leading-6 text-on-surface/80 md:text-base md:leading-7 lg:text-sm lg:leading-[1.7] xl:text-[0.9375rem] xl:leading-[1.65]">
+            <p className="value-proposition text-sm leading-6 text-on-surface/80 md:text-base md:leading-7 lg:text-[0.975rem] lg:leading-[1.7]">
               {hero.supportingLine}
             </p>
-            <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center lg:mt-5">
+            <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center lg:mt-6">
               <Link href={hero.primaryCta.href} className={primaryCta}>
                 {hero.primaryCta.label}
                 <span aria-hidden>»</span>

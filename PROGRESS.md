@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-**Copy v3 rebrand to "Stamped" (ADR-033)** on branch `copy/stamped-copy-v3` (not pushed). New approved copy across home, `/solutions` (four improvement areas), `/platform`, `/industries` (+ automotive), `/about`, `/contact`, `/case-studies`; SEO metadata, JSON-LD, `llms.txt` aligned; old energy-only verticals and solution pillars retired with 308s; dead components carrying retired copy deleted. `tsc` + `next build` green.
+**Copy v3 rebrand to "Stamped" (ADR-033)** on branch `copy/stamped-copy-v3` (PR #12). New approved copy across home, `/solutions` (four improvement areas), `/platform`, `/industries` (+ automotive), `/about`, `/contact`, `/case-studies`; SEO metadata, JSON-LD, `llms.txt` aligned; old solution pillars retired with 308s; steel, cement, pharma and chemical pages restored in v3 voice (ADR-034); dead components carrying retired copy deleted. `tsc` + `next build` green.
 
 ## Completed Phases
 

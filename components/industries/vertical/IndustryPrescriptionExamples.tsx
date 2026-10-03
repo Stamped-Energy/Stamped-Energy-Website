@@ -56,7 +56,7 @@ export function IndustryPrescriptionExamples({ slug }: IndustryPrescriptionExamp
           />
         </Reveal>
 
-        <div className="mx-auto mt-8 grid max-w-5xl gap-4 md:mt-12 md:grid-cols-3 md:gap-5">
+        <div className="mx-auto mt-8 grid max-w-6xl gap-4 md:mt-12 md:grid-cols-2 md:gap-5 lg:grid-cols-3">
           {prescriptionExamples.items.map((item) => (
             <article
               key={item.id}
@@ -67,11 +67,16 @@ export function IndustryPrescriptionExamples({ slug }: IndustryPrescriptionExamp
                 <span className="rounded-full bg-primary/10 px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-primary">
                   {item.impactRange}
                 </span>
-                <h3 className="text-xs font-semibold uppercase tracking-[0.1em] text-on-surface-variant">
-                  {item.title}
-                </h3>
+                {item.area ? (
+                  <span className="rounded-full border border-outline-variant/60 px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-on-surface-variant">
+                    {item.area}
+                  </span>
+                ) : null}
               </div>
-              <p className="mt-4 flex-1 text-sm leading-7 text-on-surface md:text-base">{item.description}</p>
+              <h3 className="mt-4 text-xs font-semibold uppercase tracking-[0.1em] text-on-surface-variant">
+                {item.title}
+              </h3>
+              <p className="mt-2 flex-1 text-sm leading-7 text-on-surface md:text-base">{item.description}</p>
               {item.assignee ? (
                 <p className="mt-4 border-t border-outline-variant/35 pt-4 text-xs text-on-surface-variant">
                   Assigned: {item.assignee}

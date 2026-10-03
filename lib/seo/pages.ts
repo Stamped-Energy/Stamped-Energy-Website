@@ -119,14 +119,19 @@ export const PAGE_SEO = {
   industries: {
     absoluteTitle: "Industries | Stamped",
     description:
-      "Built for auto-component makers first: forging, heat-treatment and machining plants that supply OEMs, where a single rejection can cost far more than the part itself.",
+      "Built for auto-component makers first, with the same four areas applied in die casting, rubber moulding, steel, cement, pharma and chemical plants.",
     path: "/industries",
-    keywords: ["auto component manufacturing software", "forging plant software India", "heat treatment software India"],
+    keywords: [
+      "auto component manufacturing software",
+      "forging plant software India",
+      "heat treatment software India",
+      "steel cement pharma chemical plant software",
+    ],
   },
   industriesAutomotive: {
     absoluteTitle: "Auto component manufacturing | Stamped",
     description:
-      "For forging, heat treatment and machining plants supplying OEMs: fewer rejections, more output and fewer breakdowns, from the data your plant already records.",
+      "For forging, heat treatment, machining, die casting and rubber moulding plants supplying OEMs: fewer rejections, more output and fewer breakdowns, from the data your plant already records.",
     path: "/industries/automotive",
     keywords: [
       "auto component manufacturing software",
@@ -134,12 +139,66 @@ export const PAGE_SEO = {
       "reduce rejection in forging",
       "heat treatment quench delay",
       "reduce downtime CNC machining",
+      "die casting porosity scrap",
+      "rubber moulding cure time",
+    ],
+  },
+  industriesSteel: {
+    absoluteTitle: "Steel plant operations | Stamped",
+    description:
+      "For induction and arc furnace melt shops and rolling mills: power per tonne, heat chemistry, yield and cobbles, improved from the data your plant already records.",
+    path: "/industries/steel",
+    keywords: [
+      "steel plant software India",
+      "induction furnace power per tonne",
+      "rolling mill yield cobbles",
+      "AI for steel melt shops",
+    ],
+  },
+  industriesCement: {
+    absoluteTitle: "Cement plant operations | Stamped",
+    description:
+      "For cement plants: kiln stability, free lime, heat and power per tonne, mill throughput and kiln stops, improved from the data your plant already records.",
+    path: "/industries/cement",
+    keywords: [
+      "cement plant software India",
+      "kiln stability free lime",
+      "cement mill power per tonne",
+      "AI for cement plants",
+    ],
+  },
+  industriesPharma: {
+    absoluteTitle: "Pharmaceutical manufacturing operations | Stamped",
+    description:
+      "For pharma plants: batches right the first time, deviations and batch records, campaign planning and HVAC and utilities, with QA keeping every release decision.",
+    path: "/industries/pharma",
+    keywords: [
+      "pharma manufacturing software India",
+      "right first time batch",
+      "deviation investigation batch record",
+      "pharma HVAC utilities",
+    ],
+  },
+  industriesChemical: {
+    absoluteTitle: "Chemical plant operations | Stamped",
+    description:
+      "For batch and specialty chemical plants: reactor yield, batch cycle time, off-spec batches and steam and cooling, improved from the data your plant already records.",
+    path: "/industries/chemical",
+    keywords: [
+      "chemical plant software India",
+      "batch reactor cycle time",
+      "off-spec batch reduction",
+      "golden batch chemical",
     ],
   },
 } as const satisfies Record<string, PageSeoConfig>;
 
 const VERTICAL_SEO_MAP: Record<string, PageSeoConfig> = {
   automotive: PAGE_SEO.industriesAutomotive,
+  steel: PAGE_SEO.industriesSteel,
+  cement: PAGE_SEO.industriesCement,
+  pharma: PAGE_SEO.industriesPharma,
+  chemical: PAGE_SEO.industriesChemical,
 };
 
 export function getVerticalPageSeo(slug: string): PageSeoConfig | undefined {

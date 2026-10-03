@@ -50,16 +50,16 @@ const RX = [
     ev: "Why · delay drifting up on Furnace 2",
   },
   {
-    title: "Hold lot for check",
-    owner: "For the quality head",
-    rupee: "Before dispatch",
-    ev: "Why · pattern matches rejected lots",
+    title: "Re-plan Press 3 stop",
+    owner: "For the planner",
+    rupee: "This shift",
+    ev: "Why · keeps today's dispatches on time",
   },
   {
-    title: "Inspect press bearing",
+    title: "Check burner drift",
     owner: "For maintenance",
     rupee: "This week",
-    ev: "Why · vibration above its baseline",
+    ev: "Why · more gas per kg, same recipe",
   },
 ] as const;
 
@@ -492,17 +492,17 @@ export function PrescriptionsStageVisual() {
             <rect className="chip" x="0" y="0" width="248" height="78" rx="6" />
             <text className="lbl lbl-hi" x="16" y="22">02</text>
             <text className="val" x="16" y="46" fontFamily="Space Grotesk, sans-serif" fontWeight="700" fontSize="19">
-              Hold lot for check
+              Re-plan Press 3 stop
             </text>
             <text className="mute-txt" x="16" y="66" fontFamily="IBM Plex Mono, monospace" fontSize="13" letterSpacing="0.4">
-              Quality head
+              Planner
             </text>
           </g>
           <g className="rank-row" data-rank="2" transform="translate(44, 300)">
             <rect className="chip" x="0" y="0" width="248" height="78" rx="6" />
             <text className="lbl lbl-hi" x="16" y="22">03</text>
             <text className="val" x="16" y="46" fontFamily="Space Grotesk, sans-serif" fontWeight="700" fontSize="19">
-              Inspect press bearing
+              Check burner drift
             </text>
             <text className="mute-txt" x="16" y="66" fontFamily="IBM Plex Mono, monospace" fontSize="13" letterSpacing="0.4">
               Maintenance
@@ -611,7 +611,7 @@ export function DecisionsStageVisual() {
           <circle className="live-dot" cx="52" cy="118" r="4" />
           <text className="lbl lbl-hi" x="64" y="122">Example action</text>
           <text className="val" x="52" y="176" fontFamily="Space Grotesk, sans-serif" fontWeight="700" fontSize="26">
-            Inspect Press 3 bearing
+            Check Press 3 hydraulics
           </text>
           <text className="mute-txt" x="52" y="220" fontFamily="Inter, sans-serif" fontSize="18">
             For maintenance
@@ -630,7 +630,7 @@ export function DecisionsStageVisual() {
             fontSize="15"
             letterSpacing="0.4"
           >
-            Why · vibration above its baseline
+            Why · cycle time creeping up, same die
           </text>
           <text className="lbl" x="52" y="392">Example action · review on the floor</text>
         </g>

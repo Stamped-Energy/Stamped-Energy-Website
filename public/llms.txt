@@ -68,8 +68,12 @@ Hub: [What we improve](https://stamped.work/solutions)
 - [Quality and lot checks before rejection | Stamped](https://stamped.work/solutions/quality): Know which batch is at risk before it becomes a rejection. Stamped links process data to each lot and flags batches made under conditions that came before past rejections.
 - [Planning and scheduling | Stamped](https://stamped.work/solutions/planning): When the plan breaks, have the next one ready. Stamped proposes the next sequence and shows what each option would do to output, energy and delivery.
 - [Maintenance | Stamped](https://stamped.work/solutions/maintenance): Fix what costs you the most, before it stops the line. Stamped ranks stops by the output and time they cost and picks up the slow drift that comes before a failure.
-- [Industries | Stamped](https://stamped.work/industries): Built for auto-component makers first: forging, heat-treatment and machining plants that supply OEMs, where a single rejection can cost far more than the part itself.
-- [Auto component manufacturing | Stamped](https://stamped.work/industries/automotive): For forging, heat treatment and machining plants supplying OEMs: fewer rejections, more output and fewer breakdowns, from the data your plant already records.
+- [Industries | Stamped](https://stamped.work/industries): Built for auto-component makers first, with the same four areas applied in die casting, rubber moulding, steel, cement, pharma and chemical plants.
+- [Auto component manufacturing | Stamped](https://stamped.work/industries/automotive): For forging, heat treatment, machining, die casting and rubber moulding plants supplying OEMs: fewer rejections, more output and fewer breakdowns, from the data your plant already records.
+- [Steel plant operations | Stamped](https://stamped.work/industries/steel): For induction and arc furnace melt shops and rolling mills: power per tonne, heat chemistry, yield and cobbles, improved from the data your plant already records.
+- [Cement plant operations | Stamped](https://stamped.work/industries/cement): For cement plants: kiln stability, free lime, heat and power per tonne, mill throughput and kiln stops, improved from the data your plant already records.
+- [Pharmaceutical manufacturing operations | Stamped](https://stamped.work/industries/pharma): For pharma plants: batches right the first time, deviations and batch records, campaign planning and HVAC and utilities, with QA keeping every release decision.
+- [Chemical plant operations | Stamped](https://stamped.work/industries/chemical): For batch and specialty chemical plants: reactor yield, batch cycle time, off-spec batches and steam and cooling, improved from the data your plant already records.
 - [Notes from the plant floor | Stamped](https://stamped.work/case-studies): Notes from the plant floor on rejections, restarts, heat treatment, machining and maintenance, written for plant heads and the engineers who run the lines.
 - [About Stamped | IIT Roorkee engineers building AI for plant operations](https://stamped.work/about): Stamped is built by IIT Roorkee engineers Vinayak Raizada and Utso Sarkar. We build software that turns plant data into actions, across process, quality, planning and maintenance.
 - [Book a site survey | Stamped](https://stamped.work/contact): A few days on your floor and a written read-out of where your plant loses efficiency and what we'd do first.
@@ -112,10 +116,52 @@ Hub: [What we improve](https://stamped.work/solutions)
 ### Fewer rejections reach your OEM.
 - Q: Which plants is Stamped working with?
   A: We are starting with forging, heat-treatment and machining plants that supply OEMs, where a single rejection can cost far more than the part itself.
+- Q: Does Stamped work for die casting and rubber moulding?
+  A: The same four areas apply there, and the site survey tells us which signals matter on your cells, whether that is die temperature and shot profile in die casting or compound batch and cure settings in rubber moulding.
 - Q: Do we need new hardware?
   A: No hardware retrofit is needed to get started, because Stamped is software that works with the systems you already run.
 - Q: Who decides what changes?
   A: Stamped recommends and your team decides.
+- Q: How do we start?
+  A: We start with a site survey, which means a few days on your floor and a written read-out. If it makes sense, that is followed by a paid pilot on one line for eight to twelve weeks, with the success criteria and the annual price agreed in writing first.
+
+### More good tonnes from every heat.
+- Q: Has Stamped worked with steel plants?
+  A: Our first deployments are with auto-component makers, including forging and heat treatment, which share a lot with a melt shop and a rolling mill. In steel we start the same way, with a site survey on your floor and a written read-out of where we would begin.
+- Q: Does it work for induction furnace plants as well as arc furnaces?
+  A: The approach is the same for both, because it learns from your own heats. The site survey tells us which furnace, lab and mill records you already have and where the first finding is most likely to come from.
+- Q: Do we need new hardware?
+  A: No hardware retrofit is needed to get started, because Stamped is software that works with the systems you already run.
+- Q: How do we start?
+  A: We start with a site survey, which means a few days on your floor and a written read-out. If it makes sense, that is followed by a paid pilot on one line for eight to twelve weeks, with the success criteria and the annual price agreed in writing first.
+
+### More good clinker from the kiln you already run.
+- Q: Has Stamped worked with cement plants?
+  A: Our first deployments are with auto-component makers. In cement we start the same way, with a site survey on your floor and a written read-out of where we would begin, and we publish results only with a plant's written permission.
+- Q: Does Stamped replace our kiln control or expert system?
+  A: No. Stamped works alongside the control systems you already run and sends its recommendations to your team. Stamped recommends and your team decides.
+- Q: Do we need new hardware?
+  A: No hardware retrofit is needed to get started, because Stamped is software that works with the systems you already run.
+- Q: How do we start?
+  A: We start with a site survey, which means a few days on your floor and a written read-out. If it makes sense, that is followed by a paid pilot on one line for eight to twelve weeks, with the success criteria and the annual price agreed in writing first.
+
+### More batches right the first time.
+- Q: Has Stamped worked with pharma plants?
+  A: Our first deployments are with auto-component makers. In pharma we start the same way, with a site survey on your floor and a written read-out of where we would begin, and we work within your quality system and change control.
+- Q: Does Stamped make release or GMP decisions?
+  A: No. Release and disposition stay with your QA team, and Stamped gathers the records and flags what looks unusual so they can decide faster. Stamped recommends and your team decides.
+- Q: Do we need new hardware?
+  A: No hardware retrofit is needed to get started, because Stamped is software that works with the systems you already run.
+- Q: How do we start?
+  A: We start with a site survey, which means a few days on your floor and a written read-out. If it makes sense, that is followed by a paid pilot on one line for eight to twelve weeks, with the success criteria and the annual price agreed in writing first.
+
+### More on-spec batches from the reactors you already have.
+- Q: Has Stamped worked with chemical plants?
+  A: Our first deployments are with auto-component makers. In chemicals we start the same way, with a site survey on your floor and a written read-out of where we would begin, and we publish results only with a plant's written permission.
+- Q: Does Stamped change our recipes or control system?
+  A: No. Stamped works alongside the control system you already run and sends its recommendations to your team. Stamped recommends and your team decides.
+- Q: Do we need new hardware?
+  A: No hardware retrofit is needed to get started, because Stamped is software that works with the systems you already run.
 - Q: How do we start?
   A: We start with a site survey, which means a few days on your floor and a written read-out. If it makes sense, that is followed by a paid pilot on one line for eight to twelve weeks, with the success criteria and the annual price agreed in writing first.
 
