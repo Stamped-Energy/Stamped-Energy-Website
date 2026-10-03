@@ -54,14 +54,14 @@ export function AboutHero() {
 
         <div
           data-about-hero
-          className="relative mt-10 aspect-[16/9] overflow-hidden rounded-2xl md:mt-14 md:aspect-[21/8]"
+          className="relative mt-10 aspect-[16/9] overflow-hidden rounded-2xl md:mt-14 md:aspect-[2/1]"
         >
           <Image
             src={hero.heroImageSrc}
             alt={hero.heroImageAlt}
             fill
             priority
-            className="object-cover object-center"
+            className="object-cover object-top"
             sizes="(max-width: 1280px) 100vw, 1200px"
           />
         </div>
