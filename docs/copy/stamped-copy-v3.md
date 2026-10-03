@@ -162,7 +162,13 @@ A reheat or an hour of a furnace sitting hot and empty uses energy that never en
 
 ## 7. About
 
-> Stamped was started by Vinayak Raizada and Utso Sarkar, engineers from IIT Roorkee. We began by working on energy in Indian plants, and the more time we spent on plant floors, the clearer it became that energy was only one symptom of a bigger problem: plants have the data they need to run better, but very little help turning it into decisions. That is what we build now. We know that being wrong in a factory has a real cost, and we try to work with that in mind.
+> Stamped started with two engineers from IIT Roorkee, Vinayak Raizada and Utso Sarkar, looking at energy in Indian plants: furnace gas, compressor hours and the monthly power bill.
+>
+> The more time we spent on plant floors, the less the energy numbers looked like the real problem. Extra gas usually traced back to something else, such as a lot that arrived late and left a furnace sitting hot and empty, a restart that went differently on night shift, or a basket that waited too long before quench. The plant had already recorded all of it. Nobody had the time to join it up and tell the right person while it still mattered.
+>
+> That is what we build now. We also know that a wrong call in a factory gets paid for in scrap, lost hours and sometimes safety, so the rule is simple: Stamped recommends and your team decides.
+
+*(Revised 3 Oct 2026: split into three paragraphs in a plainer, first-person voice.)*
 
 Optional line for the About page, for people searching the old name: "Stamped was called Stamped Energy until 2026." (Vinayak to confirm.)
 

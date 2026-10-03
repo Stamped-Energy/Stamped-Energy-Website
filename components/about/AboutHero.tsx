@@ -5,6 +5,7 @@ import { useRef } from "react";
 
 import { useMotion } from "@/components/motion/MotionProvider";
 import { Container } from "@/components/ui/Container";
+import { SectionBadge } from "@/components/ui/SectionBadge";
 import { aboutContent } from "@/lib/content/about";
 import { gsap, useGSAP } from "@/lib/motion/gsap";
 
@@ -21,8 +22,9 @@ export function AboutHero() {
 
       gsap.from("[data-about-hero]", {
         autoAlpha: 0,
-        y: 28,
-        duration: 0.85,
+        y: 24,
+        duration: 0.75,
+        stagger: 0.08,
         ease: "power2.out",
       });
     },
@@ -30,29 +32,49 @@ export function AboutHero() {
   );
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative flex min-h-[70vh] items-end overflow-hidden bg-secondary md:min-h-[80vh]"
-    >
-      <div className="absolute inset-0">
-        <Image
-          src={hero.heroImageSrc}
-          alt={hero.heroImageAlt}
-          fill
-          priority
-          className="object-cover object-center"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/55 to-secondary/20" />
-      </div>
+    <section ref={sectionRef} className="page-hero relative overflow-hidden bg-secondary">
+      <Container className="relative z-10 grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+        <div>
+          <div data-about-hero>
+            <SectionBadge label={hero.eyebrow} alternate />
+          </div>
+          <h1
+            data-about-hero
+            className="mt-5 max-w-2xl font-display text-[1.75rem] font-extrabold leading-[1.15] tracking-tight text-on-secondary sm:text-4xl lg:text-[2.85rem]"
+          >
+            {hero.title}
+          </h1>
+          <p
+            data-about-hero
+            className="mt-4 max-w-xl text-base leading-7 text-on-secondary/85 md:text-lg md:leading-8"
+          >
+            {hero.description}
+          </p>
+          <ul data-about-hero className="mt-6 flex flex-wrap gap-2">
+            {hero.facts.map((fact) => (
+              <li
+                key={fact}
+                className="rounded-full border border-on-secondary/20 bg-on-secondary/5 px-3.5 py-1.5 text-sm font-medium text-on-secondary/90"
+              >
+                {fact}
+              </li>
+            ))}
+          </ul>
+        </div>
 
-      <Container className="relative z-10 pb-12 pt-24 md:pb-16 md:pt-28 lg:pb-20">
-        <h1
+        <div
           data-about-hero
-          className="max-w-3xl font-display text-3xl font-extrabold leading-[1.12] tracking-tight text-on-secondary sm:text-4xl md:text-5xl lg:text-[3.25rem]"
+          className="relative aspect-[4/3] overflow-hidden rounded-xl border border-on-secondary/15"
         >
-          {hero.title}
-        </h1>
+          <Image
+            src={hero.heroImageSrc}
+            alt={hero.heroImageAlt}
+            fill
+            priority
+            className="object-cover object-center"
+            sizes="(max-width: 1024px) 100vw, 45vw"
+          />
+        </div>
       </Container>
     </section>
   );
