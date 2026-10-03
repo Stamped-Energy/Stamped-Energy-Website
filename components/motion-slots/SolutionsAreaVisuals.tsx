@@ -68,7 +68,7 @@ function ActionCard({ role, title, sub, pill }: { role: string; title: string; s
   );
 }
 
-/* Process: line drifts out of the best-run band, a new aim brings it back. */
+/* Process: today's rule lets the line drift, a better rule tested on the twin brings it into a tighter band. */
 function startProcess(root: HTMLElement, { reduce }: SlotLoopOptions) {
   const path = root.querySelector<SVGPathElement>("[data-sa-spark]");
   const pill = root.querySelector("[data-sa-pill]");
@@ -86,9 +86,9 @@ function startProcess(root: HTMLElement, { reduce }: SlotLoopOptions) {
     return 142 - 72 * drift + 4 * Math.sin(t * 3.1) + 2 * Math.sin(t * 7.3);
   };
   const STATES = {
-    steady: ["In band", "Matches your best runs"],
-    drift: ["Aim drifting", "Heater moving out of band"],
-    aim: ["New aim ready", "Ready for your review"],
+    steady: ["In band", "Today's control rule"],
+    drift: ["Better rule", "Tested on digital twin"],
+    aim: ["New rule ready", "Ready for your review"],
   } as const;
   let phase: keyof typeof STATES | "" = "";
 
@@ -127,7 +127,7 @@ function startProcess(root: HTMLElement, { reduce }: SlotLoopOptions) {
 
 function ProcessVisual() {
   return (
-    <StageShell className="hiw-forest sa-slot" label="A process setting drifts out of the best-run band and a new aim brings it back." start={startProcess}>
+    <StageShell className="hiw-forest sa-slot" label="A process setting drifts under today's control rule, and a better rule tested on a digital twin brings it back into an improved band." start={startProcess}>
       <svg viewBox="0 0 640 280" xmlns="http://www.w3.org/2000/svg">
         <rect width="640" height="280" fill="#4A634D" />
         <rect className="chip" x="20" y="20" width="380" height="240" rx="8" />
@@ -135,49 +135,53 @@ function ProcessVisual() {
           Line 2 · heater aim
         </text>
         <text className="lbl lbl-hi" x="36" y="112">
-          Best runs
+          Improved aim
         </text>
         <rect className="sa-band" x="36" y="120" width="348" height="44" />
         <line className="axis" x1="36" y1="236" x2="384" y2="236" />
         <path className="spark" data-sa-spark d="" />
-        <ActionCard role="Process engineer" title="In band" sub="Matches your best runs" pill="Review" />
+        <ActionCard role="Process engineer" title="In band" sub="Today's control rule" pill="Review" />
       </svg>
     </StageShell>
   );
 }
 
-/* Quality: a lot made under risky conditions is flagged and moved to the held lane. */
+/* Quality: a live alert fires while a lot can still be saved, and the lot moves to the saved lane. */
 const LOTS = ["2417", "2418", "2419", "2420"];
+const ALERTS = [
+  { sub: "Ageing 12 min over", act: "Pull it now", done: "Lot saved in time" },
+  { sub: "Quench water 6°C high", act: "Hold the charge", done: "Water back in band" },
+] as const;
 
 function startQuality(root: HTMLElement, { reduce }: SlotLoopOptions) {
   const tiles = [...root.querySelectorAll<SVGGElement>("[data-sa-tile]")];
   const reset = () => {
     tiles.forEach((t) => t.classList.remove("is-flag", "is-held"));
     setText(root, "[data-sa-title]", "Watching lots");
-    setText(root, "[data-sa-sub]", "Linked to process data");
+    setText(root, "[data-sa-sub]", "Live, linked to process");
   };
-  const flag = (i: number) => {
+  const flag = (i: number, alert: (typeof ALERTS)[number]) => {
     tiles[i]?.classList.add("is-flag");
-    setText(root, "[data-sa-title]", `Lot ${LOTS[i]} at risk`);
-    setText(root, "[data-sa-sub]", "Made after a stop, die cold");
+    setText(root, "[data-sa-title]", `Lot ${LOTS[i]} alert`);
+    setText(root, "[data-sa-sub]", alert.sub);
   };
-  const hold = (i: number) => {
+  const hold = (i: number, alert: (typeof ALERTS)[number]) => {
     tiles[i]?.classList.add("is-held");
-    setText(root, "[data-sa-title]", "Held for recheck");
-    setText(root, "[data-sa-sub]", "Check before heat treatment");
+    setText(root, "[data-sa-title]", alert.act);
+    setText(root, "[data-sa-sub]", alert.done);
   };
 
   if (reduce) {
-    flag(1);
-    hold(1);
+    flag(1, ALERTS[0]);
+    hold(1, ALERTS[0]);
     return () => undefined;
   }
   const order = [1, 3, 0, 2];
   let n = 0;
   return cycle([
     [reset, 900],
-    [() => flag(order[n % order.length]), 1500],
-    [() => hold(order[n % order.length]), 2200],
+    [() => flag(order[n % order.length], ALERTS[n % ALERTS.length]), 1500],
+    [() => hold(order[n % order.length], ALERTS[n % ALERTS.length]), 2200],
     [
       () => {
         tiles.forEach((t) => t.classList.remove("is-held"));
@@ -190,7 +194,7 @@ function startQuality(root: HTMLElement, { reduce }: SlotLoopOptions) {
 
 function QualityVisual() {
   return (
-    <StageShell className="hiw-acid sa-slot" label="A lot made under risky conditions is flagged and held for recheck." start={startQuality}>
+    <StageShell className="hiw-acid sa-slot" label="A live alert fires while a lot can still be saved, such as ageing running over or quench water out of band, and the lot is saved in time." start={startQuality}>
       <svg viewBox="0 0 640 280" xmlns="http://www.w3.org/2000/svg">
         <rect width="640" height="280" fill="#EEF981" />
         <rect className="chip" x="20" y="20" width="380" height="240" rx="8" />
@@ -210,9 +214,9 @@ function QualityVisual() {
         ))}
         <line className="sa-lane" x1="36" y1="160" x2="384" y2="160" />
         <text className="lbl" x="36" y="152">
-          Held for recheck
+          Saved in time
         </text>
-        <ActionCard role="For the inspector" title="Watching lots" sub="Linked to process data" />
+        <ActionCard role="Shift lead" title="Watching lots" sub="Live, linked to process" />
       </svg>
     </StageShell>
   );
@@ -230,7 +234,7 @@ function startPlanning(root: HTMLElement, { reduce }: SlotLoopOptions) {
   };
   const onPlan = state(false, false, "On plan", "Sequence running");
   const down = state(true, false, "Press 3 down", "Unplanned stop");
-  const replan = state(true, true, "Re-plan ready", "Review and confirm");
+  const replan = state(true, true, "Re-plan ready", "Whole plant checked");
 
   if (reduce) {
     replan();
@@ -246,7 +250,7 @@ function startPlanning(root: HTMLElement, { reduce }: SlotLoopOptions) {
 function PlanningVisual() {
   const rows = ["Press 1", "Press 2", "Press 3"];
   return (
-    <StageShell className="hiw-ember sa-slot" label="A press goes down and its job moves to another press in a ready re-plan." start={startPlanning}>
+    <StageShell className="hiw-ember sa-slot" label="A press goes down and its job moves to another press in a re-plan checked against the whole plant." start={startPlanning}>
       <svg viewBox="0 0 640 280" xmlns="http://www.w3.org/2000/svg">
         <rect width="640" height="280" fill="#E35F3F" />
         <rect className="chip" x="20" y="20" width="380" height="240" rx="8" />
@@ -300,7 +304,7 @@ function startMaintenance(root: HTMLElement, { reduce }: SlotLoopOptions) {
   const card = (on: boolean) => {
     pill?.classList.toggle("is-on", on);
     setText(root, "[data-sa-title]", on ? "Check burners" : "Furnace 1");
-    setText(root, "[data-sa-sub]", on ? "Gas creeping up, same recipe" : "Watching gas per kg");
+    setText(root, "[data-sa-sub]", on ? "Before Thu changeover" : "Gas per kg rising");
   };
 
   if (reduce) {
@@ -330,7 +334,7 @@ function startMaintenance(root: HTMLElement, { reduce }: SlotLoopOptions) {
 
 function MaintenanceVisual() {
   return (
-    <StageShell className="hiw-wine sa-slot" label="Gas per kilo creeps up on the same recipe and maintenance gets a card to check the burners." start={startMaintenance}>
+    <StageShell className="hiw-wine sa-slot" label="Gas per kilo creeps up on the same recipe and maintenance gets a prescribed burner check, timed before the next changeover." start={startMaintenance}>
       <svg viewBox="0 0 640 280" xmlns="http://www.w3.org/2000/svg">
         <rect width="640" height="280" fill="#761438" />
         <rect className="chip" x="20" y="20" width="380" height="240" rx="8" />
@@ -343,7 +347,7 @@ function MaintenanceVisual() {
         </text>
         <line className="axis" x1="36" y1="236" x2="384" y2="236" />
         <path className="spark" data-sa-trend d={TREND} />
-        <ActionCard role="Maintenance lead" title="Furnace 1" sub="Watching gas per kg" pill="This week" />
+        <ActionCard role="Maintenance lead" title="Furnace 1" sub="Gas per kg rising" pill="Prescribed" />
       </svg>
     </StageShell>
   );

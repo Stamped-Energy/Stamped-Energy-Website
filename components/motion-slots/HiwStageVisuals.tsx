@@ -602,7 +602,7 @@ export function AnalysisStageVisual() {
   return (
     <StageShell
       className="hiw-acid"
-      label="Today's run compared with your plant's best runs, with the causes of drift highlighted."
+      label="Today's run compared with an improved control policy, with the causes of drift highlighted."
       start={startAnalysis}
     >
       <svg viewBox="0 0 720 450" xmlns="http://www.w3.org/2000/svg">
@@ -638,7 +638,7 @@ export function AnalysisStageVisual() {
         </g>
         <g>
           <rect className="chip" x="28" y="86" width="280" height="340" rx="8" />
-          <text className="lbl" x="44" y="112">Best runs vs today</text>
+          <text className="lbl" x="44" y="112">Improved control vs today</text>
           <g className="leg is-on" data-leg="drift">
             <rect className="chip" x="44" y="128" width="72" height="26" rx="4" />
             <text className="lbl lbl-hi" x="54" y="145">Drift</text>
