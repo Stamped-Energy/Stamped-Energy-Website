@@ -83,7 +83,8 @@ export function RichArticleBody({
       bodyJson: bodyJson ?? null,
       content,
     });
-    return richDocToHtml(doc);
+    // The page title is the only h1; body headings start at h2.
+    return richDocToHtml(doc).replace(/<(\/?)h1(?=[\s>])/g, "<$1h2");
   }, [contentFormat, bodyJson, content]);
 
   useEffect(() => {
