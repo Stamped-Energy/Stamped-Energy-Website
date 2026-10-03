@@ -16,6 +16,9 @@ export function absoluteUrl(path: string): string {
   return path.startsWith("/") ? `${base}${path}` : `${base}/${path}`;
 }
 
+/** Page-level `alternates` replaces the root one, so every builder repeats the feed link. */
+const FEED_ALTERNATE = { "application/rss+xml": "/feed.xml" };
+
 type BuildPageMetadataOptions = {
   title: string;
   description: string;
@@ -70,7 +73,7 @@ export function buildPageMetadata({
   return {
     title: absoluteTitle ? { absolute: absoluteTitle } : title,
     description,
-    alternates: { canonical: url },
+    alternates: { canonical: url, types: FEED_ALTERNATE },
     other: { ...GEO_METADATA },
     ...(keywords?.length ? { keywords } : {}),
     openGraph: {
@@ -111,6 +114,7 @@ export function buildPageMetadataFromConfig(config: PageSeoConfig): Metadata {
 
 export const siteMetadataBase: Metadata = {
   metadataBase: new URL(SITE_ORIGIN),
+  alternates: { types: FEED_ALTERNATE },
   other: { ...GEO_METADATA },
   keywords: [...SEO_KEYWORDS],
   robots: {

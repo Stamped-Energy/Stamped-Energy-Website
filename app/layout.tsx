@@ -7,7 +7,7 @@ import { MotionProvider } from "@/components/motion/MotionProvider";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/lib/content";
 import { siteMetadataBase } from "@/lib/seo/metadata";
-import { organizationSchema } from "@/lib/seo/schemas";
+import { organizationSchema, websiteSchema } from "@/lib/seo/schemas";
 import { cn } from "@/lib/utils";
 
 import "./globals.css";
@@ -57,7 +57,7 @@ export default function RootLayout({
         className="min-h-screen bg-surface font-sans text-on-surface antialiased"
         suppressHydrationWarning
       >
-        <JsonLd data={organizationSchema} />
+        <JsonLd data={[organizationSchema, websiteSchema]} />
         <MotionProvider>
           <SiteChrome>{children}</SiteChrome>
         </MotionProvider>

@@ -7,6 +7,8 @@ import { breadcrumbHome, generateBreadcrumbSchema } from "@/lib/seo/breadcrumbs"
 import { buildPageMetadataFromConfig } from "@/lib/seo/metadata";
 import { PAGE_SEO } from "@/lib/seo/pages";
 import { SITE_URL } from "@/lib/seo/constants";
+import { buildWebPageSchema } from "@/lib/seo/schemas";
+import type { WebPage } from "schema-dts";
 
 export const metadata: Metadata = buildPageMetadataFromConfig(PAGE_SEO.solutions);
 
@@ -15,18 +17,14 @@ const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "What we improve", url: PAGE_SEO.solutions.path },
 ]);
 
-const collectionSchema = {
-  "@context": "https://schema.org",
+const collectionSchema = buildWebPageSchema(PAGE_SEO.solutions, {
   "@type": "CollectionPage",
-  name: "What Stamped improves",
-  description: PAGE_SEO.solutions.description,
-  url: `${SITE_URL}/solutions`,
   hasPart: solutionsContent.areas.map((area) => ({
     "@type": "WebPage",
     name: area.title,
     url: `${SITE_URL}${area.href}`,
   })),
-};
+} as Partial<WebPage>);
 
 export default function SolutionsPage() {
   return (

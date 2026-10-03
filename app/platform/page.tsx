@@ -13,7 +13,7 @@ import { platformContent } from "@/lib/content";
 import { breadcrumbHome, generateBreadcrumbSchema } from "@/lib/seo/breadcrumbs";
 import { buildPageMetadataFromConfig } from "@/lib/seo/metadata";
 import { PAGE_SEO } from "@/lib/seo/pages";
-import { howToSchema } from "@/lib/seo/schemas";
+import { buildWebPageSchema, howToSchema } from "@/lib/seo/schemas";
 
 export const metadata: Metadata = buildPageMetadataFromConfig(PAGE_SEO.platform);
 
@@ -25,7 +25,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 export default function PlatformPage() {
   return (
     <>
-      <JsonLd data={[howToSchema, breadcrumbSchema]} />
+      <JsonLd data={[buildWebPageSchema(PAGE_SEO.platform), howToSchema, breadcrumbSchema]} />
       <HiwOpening />
       <HiwWhatWeDo />
       <HiwProseStack content={platformContent.surfaces} sectionId="surfaces" />

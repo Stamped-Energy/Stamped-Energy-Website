@@ -10,7 +10,7 @@ export type PageSeoConfig = {
 const HOW_IT_WORKS_SEO = {
   absoluteTitle: "How it works | Stamped",
   description:
-    "How Stamped builds models of your plant from the data it already records, from machine learning to digital twins of your process, sends ranked actions to the people who own them, and checks the result against your own baseline.",
+    "How Stamped models your plant from the data it already records, sends ranked actions to the people who own them, and checks each result against your baseline.",
   path: "/platform",
   keywords: [
     "AI for plant operations",
@@ -40,7 +40,7 @@ export const PAGE_SEO = {
   /** @deprecated Use PAGE_SEO.platform. Kept for transitional imports. */
   howItWorks: HOW_IT_WORKS_SEO,
   solutions: {
-    absoluteTitle: "What Stamped improves | Process, quality, planning, maintenance",
+    absoluteTitle: "Process, quality, planning and maintenance | Stamped",
     description:
       "Stamped improves process and control, quality and lot checks, planning and maintenance in manufacturing plants, with energy counted in all four.",
     path: "/solutions",
@@ -54,7 +54,7 @@ export const PAGE_SEO = {
   solutionsProcess: {
     absoluteTitle: "Process and control optimisation | Stamped",
     description:
-      "Run better than your best shift. Stamped tests improved control policies on a digital twin of your line, using mathematical models, reinforcement learning and machine learning, and recommends them to your process engineers.",
+      "Run better than your best shift. Stamped tests better control policies on a digital twin of your line and recommends them to your process engineers.",
     path: "/solutions/process",
     keywords: [
       "process optimisation manufacturing",
@@ -67,7 +67,7 @@ export const PAGE_SEO = {
   solutionsQuality: {
     absoluteTitle: "Quality and lot checks before rejection | Stamped",
     description:
-      "Catch the problem while the lot can still be saved. Stamped links process data to each lot and alerts your team in real time, for example when a basket overstays in ageing or quench water drifts out of band.",
+      "Catch the problem while the lot can still be saved. Stamped links process data to each lot and alerts your team in real time, before parts are rejected.",
     path: "/solutions/quality",
     keywords: [
       "predictive quality manufacturing",
@@ -81,7 +81,7 @@ export const PAGE_SEO = {
   solutionsPlanning: {
     absoluteTitle: "Planning and scheduling | Stamped",
     description:
-      "Re-plan with the whole plant in view. Stamped tracks what every machine, furnace and dispatch is doing and proposes the sequence that works best for the plant, with its effect on output, energy and delivery.",
+      "Re-plan with the whole plant in view. Stamped proposes the sequence that works best for the plant, with its effect on output, energy and delivery.",
     path: "/solutions/planning",
     keywords: [
       "production re-planning manufacturing",
@@ -93,7 +93,7 @@ export const PAGE_SEO = {
   solutionsMaintenance: {
     absoluteTitle: "Maintenance | Stamped",
     description:
-      "Prescriptive maintenance, planned around production. Stamped ranks stops by what they cost, watches specific energy consumption for drift and prescribes the fix and the best window to make it.",
+      "Prescriptive maintenance, planned around production. Stamped ranks stops by what they cost and prescribes the fix and the best window to make it.",
     path: "/solutions/maintenance",
     keywords: [
       "prescriptive maintenance manufacturing",
@@ -103,9 +103,9 @@ export const PAGE_SEO = {
     ],
   },
   about: {
-    absoluteTitle: "About Stamped | IIT Roorkee engineers building AI for plant operations",
+    absoluteTitle: "About Stamped | Built by IIT Roorkee engineers",
     description:
-      "Stamped is built by IIT Roorkee engineers Vinayak Raizada and Utso Sarkar. We build software that turns plant data into actions, across process, quality, planning and maintenance.",
+      "Stamped is built by IIT Roorkee engineers Vinayak Raizada and Utso Sarkar. We turn plant data into actions across process, quality, planning and maintenance.",
     path: "/about",
     keywords: ["Stamped founders", "IIT Roorkee manufacturing software", "AI for plant operations"],
   },
@@ -133,7 +133,7 @@ export const PAGE_SEO = {
   industries: {
     absoluteTitle: "Industries | Stamped",
     description:
-      "Stamped improves process, quality, planning and maintenance in auto-component, steel and cement plants, with the same four areas applied in pharma and chemical plants.",
+      "Stamped improves process, quality, planning and maintenance in auto-component, steel, cement, pharma and chemical plants.",
     path: "/industries",
     keywords: [
       "auto component manufacturing software",
@@ -145,7 +145,7 @@ export const PAGE_SEO = {
   industriesAutomotive: {
     absoluteTitle: "Auto component manufacturing | Stamped",
     description:
-      "For forging, heat treatment, machining, die casting and rubber moulding plants supplying OEMs: fewer rejections, more output and fewer breakdowns, from the data your plant already records.",
+      "For forging, heat treatment, machining, die casting and rubber moulding plants: fewer rejections, more output and fewer breakdowns, from data you already have.",
     path: "/industries/automotive",
     keywords: [
       "auto component manufacturing software",
@@ -160,7 +160,7 @@ export const PAGE_SEO = {
   industriesSteel: {
     absoluteTitle: "Steel plant operations | Stamped",
     description:
-      "For induction and arc furnace melt shops and rolling mills: power per tonne, heat chemistry, yield and cobbles, improved from the data your plant already records.",
+      "For induction and arc furnace melt shops and rolling mills: power per tonne, heat chemistry, yield and cobbles, improved from the data your plant records.",
     path: "/industries/steel",
     keywords: [
       "steel plant software India",
@@ -196,7 +196,7 @@ export const PAGE_SEO = {
   industriesChemical: {
     absoluteTitle: "Chemical plant operations | Stamped",
     description:
-      "For batch and specialty chemical plants: reactor yield, batch cycle time, off-spec batches and steam and cooling, improved from the data your plant already records.",
+      "For batch and specialty chemical plants: reactor yield, cycle time, off-spec batches, steam and cooling, improved from the data your plant already records.",
     path: "/industries/chemical",
     keywords: [
       "chemical plant software India",

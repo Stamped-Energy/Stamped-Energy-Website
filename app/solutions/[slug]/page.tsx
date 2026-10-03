@@ -7,6 +7,7 @@ import { solutionsContent, type SolutionAreaSlug } from "@/lib/content/solutions
 import { breadcrumbHome, generateBreadcrumbSchema } from "@/lib/seo/breadcrumbs";
 import { buildPageMetadataFromConfig } from "@/lib/seo/metadata";
 import { PAGE_SEO, getSolutionAreaSeo } from "@/lib/seo/pages";
+import { buildWebPageSchema } from "@/lib/seo/schemas";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -45,7 +46,7 @@ export default async function SolutionAreaRoutePage({ params }: PageProps) {
 
   return (
     <>
-      <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={[buildWebPageSchema(seo), breadcrumbSchema]} />
       <SolutionAreaPage area={area} />
     </>
   );

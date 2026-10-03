@@ -10,7 +10,8 @@ import { safeDbQuery } from "@/lib/db/safe-query";
 import { breadcrumbHome, generateBreadcrumbSchema } from "@/lib/seo/breadcrumbs";
 import { buildPageMetadataFromConfig } from "@/lib/seo/metadata";
 import { PAGE_SEO } from "@/lib/seo/pages";
-import { buildCollectionPageSchema } from "@/lib/seo/schemas";
+import { buildWebPageSchema } from "@/lib/seo/schemas";
+import type { WebPage } from "schema-dts";
 
 export const revalidate = 60;
 
@@ -21,11 +22,9 @@ const breadcrumbSchema = generateBreadcrumbSchema([
   { name: "Resources", url: PAGE_SEO.caseStudies.path },
 ]);
 
-const collectionSchema = buildCollectionPageSchema({
-  name: PAGE_SEO.caseStudies.absoluteTitle,
-  description: PAGE_SEO.caseStudies.description,
-  path: PAGE_SEO.caseStudies.path,
-});
+const collectionSchema = buildWebPageSchema(PAGE_SEO.caseStudies, {
+  "@type": "CollectionPage",
+} as Partial<WebPage>);
 
 type CaseStudiesRouteProps = {
   searchParams: Promise<{ search?: string }>;

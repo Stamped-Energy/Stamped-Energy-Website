@@ -7,7 +7,7 @@ import { getIndustryVertical, getVerticalPage, VERTICAL_SLUGS, type VerticalSlug
 import { breadcrumbHome, generateBreadcrumbSchema } from "@/lib/seo/breadcrumbs";
 import { buildPageMetadataFromConfig } from "@/lib/seo/metadata";
 import { getVerticalPageSeo } from "@/lib/seo/pages";
-import { verticalFaqSchema } from "@/lib/seo/schemas";
+import { buildWebPageSchema, verticalFaqSchema } from "@/lib/seo/schemas";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -49,7 +49,7 @@ export default async function IndustryVerticalRoutePage({ params }: PageProps) {
 
   return (
     <>
-      <JsonLd data={[verticalFaqSchema(slug as VerticalSlug), breadcrumbSchema]} />
+      <JsonLd data={[buildWebPageSchema(seo), verticalFaqSchema(slug as VerticalSlug), breadcrumbSchema]} />
       <IndustryVerticalPage slug={slug as VerticalSlug} />
     </>
   );

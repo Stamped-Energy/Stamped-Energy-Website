@@ -3,14 +3,21 @@ import { ENGAGEMENT_STEPS, ENGAGEMENT_SUMMARY } from "@/lib/content/engagement";
 import { icp } from "@/lib/content/icp";
 import { getVerticalPage, type VerticalSlug } from "@/lib/content/vertical-pages";
 import type { IndustryFaqItem } from "@/lib/content/types";
-import { DEFAULT_OG_IMAGE, ORGANIZATION_ID, SITE_URL, WEBSITE_ID, COMPANY_LINKEDIN_URL } from "@/lib/seo/constants";
+import { siteConfig } from "@/lib/content/site";
+import {
+  COMPANY_LINKEDIN_URL,
+  CONTENT_UPDATED,
+  DEFAULT_OG_IMAGE,
+  ORGANIZATION_ID,
+  SITE_URL,
+  WEBSITE_ID,
+} from "@/lib/seo/constants";
 import type { FaqItem } from "@/lib/seo/extract-faq";
+import type { PageSeoConfig } from "@/lib/seo/pages";
 import type {
   Article,
-  CollectionPage,
   ImageObject,
   SearchAction,
-  ContactPage,
   FAQPage,
   HowTo,
   Organization,
@@ -29,6 +36,9 @@ const organizationLogo: ImageObject = {
   height: "248",
 };
 
+const VINAYAK_ID = `${SITE_URL}/about#vinayak-raizada`;
+const UTSO_ID = `${SITE_URL}/about#utso-sarkar`;
+
 export const organizationPublisher: Organization = {
   "@type": "Organization",
   "@id": ORGANIZATION_ID,
@@ -41,9 +51,12 @@ export const organizationSchema: WithContext<Organization> = {
   "@type": "Organization",
   "@id": ORGANIZATION_ID,
   name: "Stamped",
+  alternateName: ["Stamped Energy", "stamped.work"],
   url: SITE_URL,
   logo: organizationLogo,
+  slogan: siteConfig.tagline,
   description: icp.seo.entityDefinition,
+  founder: [{ "@id": VINAYAK_ID }, { "@id": UTSO_ID }],
   email: "stamped.energy@gmail.com",
   foundingDate: "2025",
   foundingLocation: {
@@ -82,11 +95,7 @@ export const organizationSchema: WithContext<Organization> = {
     "Pharmaceutical manufacturing",
     "Chemical manufacturing",
   ],
-  sameAs: [
-    "https://www.linkedin.com/in/vinayak-rz/",
-    "https://www.linkedin.com/in/utso/",
-    ...(COMPANY_LINKEDIN_URL ? [COMPANY_LINKEDIN_URL] : []),
-  ],
+  sameAs: COMPANY_LINKEDIN_URL ? [COMPANY_LINKEDIN_URL] : [],
 };
 
 /** Google still reads `query-input` for sitelinks search; schema.org types omit it. */
@@ -125,15 +134,33 @@ export const homepageFaqSchema: WithContext<FAQPage> = {
   })),
 };
 
-export const homepageSpeakableSchema: WithContext<WebPage> = {
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  name: "Stamped | AI for plant operations",
+/** Ties a page into the site graph: WebPage → WebSite, about → Organization, with a freshness date. */
+export function buildWebPageSchema(
+  page: PageSeoConfig,
+  extra: Partial<WebPage> = {},
+): WithContext<WebPage> {
+  const url = page.path === "/" ? SITE_URL : `${SITE_URL}${page.path}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${url}#webpage`,
+    url,
+    name: page.absoluteTitle,
+    description: page.description,
+    isPartOf: { "@id": WEBSITE_ID },
+    about: { "@id": ORGANIZATION_ID },
+    publisher: { "@id": ORGANIZATION_ID },
+    inLanguage: "en-IN",
+    dateModified: CONTENT_UPDATED,
+    ...extra,
+  } as WithContext<WebPage>;
+}
+
+export const homepageSpeakable: Partial<WebPage> = {
   speakable: {
     "@type": "SpeakableSpecification",
     cssSelector: [".hero-headline", ".value-proposition", ".key-numbers"],
   },
-  url: SITE_URL,
 };
 
 export const howToSchema: WithContext<HowTo> = {
@@ -191,7 +218,7 @@ export const engagementHowToSchema: WithContext<HowTo> = {
 export const vinayakPersonSchema: WithContext<Person> = {
   "@context": "https://schema.org",
   "@type": "Person",
-  "@id": `${SITE_URL}/about#vinayak-raizada`,
+  "@id": VINAYAK_ID,
   name: "Vinayak Raizada",
   jobTitle: "Co-Founder",
   worksFor: {
@@ -215,7 +242,7 @@ export const vinayakPersonSchema: WithContext<Person> = {
 export const utsoPersonSchema: WithContext<Person> = {
   "@context": "https://schema.org",
   "@type": "Person",
-  "@id": `${SITE_URL}/about#utso-sarkar`,
+  "@id": UTSO_ID,
   name: "Utso Sarkar",
   jobTitle: "Co-Founder",
   worksFor: {
@@ -260,7 +287,7 @@ export function buildArticleSchema(post: ArticleSchemaInput): WithContext<Articl
     dateModified: post.modifiedDate ?? post.publishedDate,
     author: {
       "@type": "Person",
-      "@id": `${SITE_URL}/about#vinayak-raizada`,
+      "@id": VINAYAK_ID,
       name: post.authorName ?? "Vinayak Raizada",
       url: post.authorUrl ?? "https://www.linkedin.com/in/vinayak-rz/",
     },
@@ -340,37 +367,6 @@ export const softwareApplicationSchema: WithContext<SoftwareApplication> = {
   ],
 };
 
-export const contactPageSchema: WithContext<ContactPage> = {
-  "@context": "https://schema.org",
-  "@type": "ContactPage",
-  name: "Book a site survey | Stamped",
-  url: `${SITE_URL}/contact`,
-  description:
-    "Book a site survey with Stamped. We spend a few days on your floor and send a written read-out of where efficiency is being lost and what we would change first.",
-  mainEntity: {
-    "@id": ORGANIZATION_ID,
-  },
-};
-
-export function buildCollectionPageSchema(options: {
-  name: string;
-  description: string;
-  path: string;
-}) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    name: options.name,
-    description: options.description,
-    url: `${SITE_URL}${options.path}`,
-    isPartOf: {
-      "@id": WEBSITE_ID,
-    },
-    inLanguage: "en-IN",
-    publisher: organizationPublisher,
-  };
-}
-
 type CaseStudySchemaInput = {
   title: string;
   description: string;
@@ -401,7 +397,7 @@ export function buildCaseStudySchema(study: CaseStudySchemaInput): WithContext<A
     dateModified: study.modifiedDate ?? study.publishedDate,
     author: {
       "@type": "Person",
-      "@id": `${SITE_URL}/about#vinayak-raizada`,
+      "@id": VINAYAK_ID,
       name: study.authorName ?? "Vinayak Raizada",
       url: study.authorUrl ?? "https://www.linkedin.com/in/vinayak-rz/",
     },
