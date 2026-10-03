@@ -42,7 +42,7 @@ export const aboutContent = {
         imageSrc: "/team/vinayak.png",
         imageAlt: "Vinayak Raizada, Co-Founder of Stamped, IIT Roorkee Electrical Engineering",
         linkedIn: "https://www.linkedin.com/in/vinayak-rz/",
-        bio: "Leads core technical work, strategy and marketing. Electrical Engineering, IIT Roorkee.",
+        bio: "Leads core technical work, strategy and marketing. Electrical Engineering, IIT Roorkee. Shapes the models behind Stamped, from digital twins of plant lines to the control improvements they recommend, and works with plant engineers to make sure each recommendation holds up on the floor.",
       },
       {
         id: "utso",
