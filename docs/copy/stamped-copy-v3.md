@@ -45,7 +45,8 @@ Avoid "machine learning and AI" as a stock phrase, and avoid "AI-powered", "cutt
 | Line | Where it goes |
 |---|---|
 | **From monitoring your plant to improving it.** | Homepage H1 |
-| **AI for plant operations.** | Eyebrow above the H1, title tag, LinkedIn tagline, email signature, footer |
+| **AI for industrial plants** | Homepage hero eyebrow above the H1 (3 Oct 2026: broad on purpose, no sector or country) |
+| **AI for plant operations.** | Title tag, LinkedIn tagline, email signature, footer |
 | **Turn plant data into action.** | Heading of the "What Stamped does" section and the final call-to-action band |
 | **From plant data to operator actions.** | How-it-works heading on the homepage and /platform |
 
@@ -188,7 +189,7 @@ Optional line for the About page, for people searching the old name: "Stamped wa
 
 ---
 
-**Eyebrow:** AI for plant operations
+**Eyebrow:** AI for industrial plants
 
 # From monitoring your plant to improving it.
 

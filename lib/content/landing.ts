@@ -23,7 +23,7 @@ export type HomeActionCard = {
 
 export const landingContent = {
   hero: {
-    badge: "AI for plant operations",
+    badge: "AI for industrial plants",
     headline: "From monitoring your plant to improving it.",
     headlineLine1: "From monitoring your plant",
     headlineLine2: "to improving it.",
