@@ -123,10 +123,10 @@ export const landingContent = {
   whatIs: {
     badge: "What Stamped does",
     title: "Turn plant data into action.",
-    /** Approved short outcomes-and-how text (Vinayak, 3 Oct 2026). Word for word. */
+    /** Homepage cut of the approved outcomes-and-how text (ADR-034). Full version: platform.ts. The last item renders as the kicker. */
     paragraphs: [
-      "Stamped helps manufacturing plants run more efficiently, with fewer rejections, more output from the lines you already have, and less energy and material in every good part. Most plants already record the data that explains where efficiency is lost, but it sits in separate systems that rarely get looked at together. Stamped brings it into one view and uses machine learning and AI to find those losses, then turns them into specific actions for the person who can fix them, whether that's a setting that has drifted or a batch that looks like last month's rejections.",
-      "Stamped recommends and your team decides. Once a change is made, we check it against your own baseline, so you can see what actually worked and catch it early if a gain starts to slip.",
+      "Stamped helps plants cut rejections, get more output from the lines they already have, and use less energy in every good part. It brings data from separate systems into one view and uses machine learning and AI to turn hidden losses into specific actions for the person who can fix them.",
+      "Stamped recommends and your team decides, and every change is checked against your own baseline.",
     ],
     motionSlotLabel: "Product visual",
   },
