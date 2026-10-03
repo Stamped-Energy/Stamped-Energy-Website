@@ -708,3 +708,15 @@ Architecture and workflow decisions for this project.
 **Rationale:** Motion where it explains the product (the loop, each area's action), less prose, and no extra cost from loops nobody can see.
 
 **Impact:** `components/sections/{HomeWhatIs,HomeHowItWorks,HomeSolutionsRows,HomeImpact}.tsx`, `components/motion-slots/{useSlotLoop,HiwStageVisuals,SolutionsAreaVisuals}.tsx`, `components/motion-slots/solutions-areas.css`, `lib/content/landing.ts`.
+
+---
+
+## ADR-037: Homepage FAQ cut from 11 to 8 questions
+
+**Date:** 2026-10-03
+
+**Context:** Vinayak found the homepage FAQ too long and asked for about seven or eight boxes, answering related questions together.
+
+**Selected:** Merged pairs into one box each, keeping the approved answer text: hardware + MES/ERP/SCADA (`hardware`), who decides + experienced supervisors (`supervisors`), how actions reach the floor + team time (`reach-the-floor`). Removed ids `who-decides`, `mes-erp-scada`, `team-time`. The automotive page now uses `supervisors` only, and the industries hub uses `hardware` instead of `mes-erp-scada`. FAQ JSON-LD and `public/llms.txt` follow from `landingContent.faq` (llms.txt regenerated from `buildLlmsTxtBody`). `docs/copy/stamped-copy-v3.md` is unchanged as the source copy record.
+
+**Impact:** `lib/content/{landing,industries}.ts`, `lib/content/vertical-pages/automotive.ts`, `public/llms.txt`.

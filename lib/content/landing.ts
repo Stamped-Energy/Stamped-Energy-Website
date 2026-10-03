@@ -287,20 +287,15 @@ export const landingContent = {
       },
       {
         id: "hardware",
-        question: "Do we need new hardware?",
+        question: "Do we need new hardware, or another system next to MES, ERP and SCADA?",
         answer:
-          "No hardware retrofit is needed to get started, because Stamped is software that works with the systems you already run.",
+          "No hardware retrofit is needed to get started, because Stamped is software that works with the systems you already run. It is not another MES or CMMS: your MES, ERP and SCADA are where the data comes from, and Stamped works alongside them.",
       },
       {
-        id: "who-decides",
-        question: "Who decides what changes?",
-        answer: "Stamped recommends and your team decides.",
-      },
-      {
-        id: "mes-erp-scada",
-        question: "We already have MES, ERP and SCADA.",
+        id: "supervisors",
+        question: "Who decides what changes, and what does Stamped add if my supervisors already know the plant?",
         answer:
-          "That's good, because that is where the data comes from. Stamped is not another MES or CMMS, and it works alongside what you already run.",
+          "Stamped recommends and your team decides. Your senior supervisors usually know the plant well, and Stamped is built to back them up: it looks at every line on every shift, including the shifts they are not on, and writes down what it finds with the reasoning, so the night shift gets the same advice the day shift gets from your best hands.",
       },
       {
         id: "data",
@@ -310,9 +305,9 @@ export const landingContent = {
       },
       {
         id: "reach-the-floor",
-        question: "How do actions reach the floor?",
+        question: "How do actions reach the floor, and how much of my team's time does this take?",
         answer:
-          "They go on WhatsApp or on screen to the supervisors, engineers and maintenance staff who can act on them, so they don't sit on a screen that only the plant head opens once a month.",
+          "Each action goes on WhatsApp or on screen to the supervisor, engineer or maintenance lead who already owns that work, so nobody has to learn a new system before they can act on one, and nothing sits on a screen that only the plant head opens once a month. During the site survey we need some hours with your plant head and your quality and maintenance leads, planned around production.",
       },
       {
         id: "start",
@@ -330,18 +325,6 @@ export const landingContent = {
         question: "Some of our records are still on paper or in Excel. Can we start?",
         answer:
           "Yes. Most plants keep some registers on paper or in Excel, and the site survey tells you plainly whether what you already record is enough to start on one line, and what would be worth recording if it is not.",
-      },
-      {
-        id: "team-time",
-        question: "How much time does this take from my team?",
-        answer:
-          "During the survey we need some hours with your plant head and your quality and maintenance leads, planned around production. In the pilot, each action goes on WhatsApp or on screen to the person who already owns that work, so nobody has to learn a new system before they can act on one.",
-      },
-      {
-        id: "supervisors",
-        question: "My senior supervisors already know the plant. What does Stamped add?",
-        answer:
-          "They usually do, and Stamped is built to back them up. It looks at every line on every shift, including the shifts your most experienced people are not on, and writes down what it finds with the reasoning, so the night shift gets the same advice the day shift gets from your best hands.",
       },
     ] satisfies HomeFaqItem[],
   },

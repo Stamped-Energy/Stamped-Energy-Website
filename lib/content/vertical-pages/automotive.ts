@@ -201,7 +201,6 @@ export const automotivePage: VerticalPageContent = {
         "The same four areas apply there, and the site survey tells us which signals matter on your cells, whether that is die temperature and shot profile in die casting or compound batch and cure settings in rubber moulding.",
     },
     homeFaq("hardware"),
-    homeFaq("who-decides"),
     homeFaq("supervisors"),
     homeFaq("start"),
   ],

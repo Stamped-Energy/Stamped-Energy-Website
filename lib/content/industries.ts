@@ -260,7 +260,7 @@ export const industriesContent = {
           answer:
             "The approach is the same, because every plant loses efficiency in process, quality, planning and maintenance, but the models learn from your own plant's data, so what Stamped looks at in a kiln is different from what it looks at in a forge.",
         },
-        ...landingContent.faq.items.filter((item) => item.id === "mes-erp-scada" || item.id === "start"),
+        ...landingContent.faq.items.filter((item) => item.id === "hardware" || item.id === "start"),
       ],
     },
     cta: { label: "Book a site survey", href: "/contact" } satisfies CtaLink,
