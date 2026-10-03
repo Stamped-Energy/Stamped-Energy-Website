@@ -62,7 +62,7 @@ Hub: [What we improve](https://stamped.work/solutions)
 
 ## Core pages (live)
 
-- [Stamped | AI for plant operations](https://stamped.work/): Stamped is AI for plant operations. It builds models of your plant from the data it already records, finds where efficiency is lost across process, quality, planning and maintenance, and improves it.
+- [Stamped | AI for plant operations](https://stamped.work/): Stamped is AI for industrial plants. It models your plant from the data it already records and improves process, quality, planning and maintenance.
 - [How it works | Stamped](https://stamped.work/platform): How Stamped builds models of your plant from the data it already records, from machine learning to digital twins of your process, sends ranked actions to the people who own them, and checks the result against your own baseline.
 - [What Stamped improves | Process, quality, planning, maintenance](https://stamped.work/solutions): Stamped improves process and control, quality and lot checks, planning and maintenance in manufacturing plants, with energy counted in all four.
 - [Process and control optimisation | Stamped](https://stamped.work/solutions/process): Run better than your best shift. Stamped tests improved control policies on a digital twin of your line, using mathematical models, reinforcement learning and machine learning, and recommends them to your process engineers.
@@ -81,7 +81,7 @@ Hub: [What we improve](https://stamped.work/solutions)
 
 ## Homepage snapshot
 
-- Badge: AI for plant operations
+- Badge: AI for industrial plants
 - H1: From monitoring your plant to improving it.
 - Supporting: Stamped builds models of your plant from the data it already records, finds where efficiency is lost across process, quality, planning and maintenance, and improves it with actions your team can take.
 - FAQ section: visible on homepage with FAQPage JSON-LD

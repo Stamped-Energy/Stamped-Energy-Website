@@ -174,7 +174,8 @@ Optional line for the About page, for people searching the old name: "Stamped wa
 ## 8. Short lines
 
 - **Title tag:** Stamped | AI for plant operations
-- **Meta description:** Stamped is AI for plant operations. It builds models of your plant from the data it already records, finds where efficiency is lost across process, quality, planning and maintenance, and improves it.
+- **Meta description (also the share text):** Stamped is AI for industrial plants. It models your plant from the data it already records and improves process, quality, planning and maintenance.
+- **Share image (`public/og-default.png`):** logo, eyebrow "AI for industrial plants", the hero headline, the four areas and two example actions, with "Stamped recommends and your team decides."
 - **LinkedIn tagline:** AI for plant operations. From monitoring your plant to improving it.
 - **Email signature:** Stamped, AI for plant operations, stamped.work
 - **Primary call to action:** Book a site survey
@@ -184,7 +185,7 @@ Optional line for the About page, for people searching the old name: "Stamped wa
 ## 9. Full homepage, top to bottom
 
 **Title tag:** Stamped | AI for plant operations
-**Meta description:** Stamped is AI for plant operations. It builds models of your plant from the data it already records, finds where efficiency is lost across process, quality, planning and maintenance, and improves it.
+**Meta description (also the share text):** Stamped is AI for industrial plants. It models your plant from the data it already records and improves process, quality, planning and maintenance.
 **Nav:** What we improve · How it works · Industries · Resources · About · Contact · **[Book a site survey]**
 
 ---
