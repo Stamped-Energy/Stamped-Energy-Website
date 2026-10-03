@@ -9,9 +9,9 @@ export type SlotLoopOptions = {
 };
 
 /**
- * Starts a DOM animation engine the first time the slot is on screen.
- * It keeps running after that (no restart on scroll away / back).
- * Stops only on unmount or when motion prefs change.
+ * Runs a DOM animation engine only while the slot is on screen.
+ * Leaving the viewport calls the engine's stop; coming back starts it again,
+ * so engines must set their own initial state on start.
  */
 export function useSlotLoop(start: (root: HTMLElement, opts: SlotLoopOptions) => () => void) {
   const ref = useRef<HTMLDivElement>(null);
@@ -24,21 +24,17 @@ export function useSlotLoop(start: (root: HTMLElement, opts: SlotLoopOptions) =>
     if (!isReady || !root) return;
 
     let stop: (() => void) | undefined;
-    let started = false;
-
-    const connect = () => {
-      if (started) return;
-      started = true;
-      const reduce =
-        prefersReducedMotion || window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      stop = startRef.current(root, { reduce });
-    };
+    const reduce =
+      prefersReducedMotion || window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const io = new IntersectionObserver(
       (entries) => {
-        if (entries.some((entry) => entry.isIntersecting)) {
-          connect();
-          io.disconnect();
+        const visible = entries.some((entry) => entry.isIntersecting);
+        if (visible && !stop) {
+          stop = startRef.current(root, { reduce });
+        } else if (!visible && stop) {
+          stop();
+          stop = undefined;
         }
       },
       { threshold: 0.12 },
