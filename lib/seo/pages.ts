@@ -53,10 +53,12 @@ export const PAGE_SEO = {
   solutionsProcess: {
     absoluteTitle: "Process and control optimisation | Stamped",
     description:
-      "Run every shift like your best one. Stamped learns what your best runs looked like and recommends specific setting, restart and pacing changes to your process engineers.",
+      "Run better than your best shift. Stamped tests improved control policies on a digital twin of your line, using mathematical models, reinforcement learning and machine learning, and recommends them to your process engineers.",
     path: "/solutions/process",
     keywords: [
       "process optimisation manufacturing",
+      "control optimisation manufacturing",
+      "digital twin process control",
       "induction billet heater temperature control",
       "set point drift manufacturing",
     ],
@@ -64,10 +66,11 @@ export const PAGE_SEO = {
   solutionsQuality: {
     absoluteTitle: "Quality and lot checks before rejection | Stamped",
     description:
-      "Know which batch is at risk before it becomes a rejection. Stamped links process data to each lot and flags batches made under conditions that came before past rejections.",
+      "Catch the problem while the lot can still be saved. Stamped links process data to each lot and alerts your team in real time, for example when a basket overstays in ageing or quench water drifts out of band.",
     path: "/solutions/quality",
     keywords: [
       "predictive quality manufacturing",
+      "real-time quality alarms",
       "rejection reduction auto component",
       "reduce rejection in forging",
       "CQI-9 heat treatment records",
@@ -77,16 +80,26 @@ export const PAGE_SEO = {
   solutionsPlanning: {
     absoluteTitle: "Planning and scheduling | Stamped",
     description:
-      "When the plan breaks, have the next one ready. Stamped proposes the next sequence and shows what each option would do to output, energy and delivery.",
+      "Re-plan with the whole plant in view. Stamped tracks what every machine, furnace and dispatch is doing and proposes the sequence that works best for the plant, with its effect on output, energy and delivery.",
     path: "/solutions/planning",
-    keywords: ["production re-planning manufacturing", "furnace loading sequence", "shop floor scheduling India"],
+    keywords: [
+      "production re-planning manufacturing",
+      "dynamic production planning",
+      "furnace loading sequence",
+      "shop floor scheduling India",
+    ],
   },
   solutionsMaintenance: {
     absoluteTitle: "Maintenance | Stamped",
     description:
-      "Fix what costs you the most, before it stops the line. Stamped ranks stops by the output and time they cost and picks up the slow drift that comes before a failure.",
+      "Prescriptive maintenance, planned around production. Stamped ranks stops by what they cost, watches specific energy consumption for drift and prescribes the fix and the best window to make it.",
     path: "/solutions/maintenance",
-    keywords: ["reduce downtime CNC machining", "maintenance stop ranking", "equipment drift detection"],
+    keywords: [
+      "prescriptive maintenance manufacturing",
+      "reduce downtime CNC machining",
+      "maintenance stop ranking",
+      "specific energy consumption monitoring",
+    ],
   },
   about: {
     absoluteTitle: "About Stamped | IIT Roorkee engineers building AI for plant operations",
