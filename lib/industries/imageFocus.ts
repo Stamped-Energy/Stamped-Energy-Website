@@ -7,6 +7,9 @@ export const SEGMENT_IMAGE_FOCUS: Record<string, string> = {
   "eaf-induction": "object-cover object-center",
   rolling: "object-cover object-center",
   "forging-foundry": "object-cover object-center",
+  "precision-machining": "object-cover object-center",
+  kiln: "object-cover object-[center_45%]",
+  cleanrooms: "object-cover object-[center_35%]",
 };
 
 export function getSegmentImageFocus(segmentId: string) {

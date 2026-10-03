@@ -46,7 +46,7 @@ export function buildAiCaseStudyWriterPrompt(topic?: string): string {
     ? `\n## Seed topic (optional starting point)\nThe author has this in mind: **${topic.trim()}**\nUse it as a starting point in discovery, not as a final title.\n`
     : "";
 
-  return `You are a case study writing assistant for **${siteConfig.name}**, an AI-powered prescriptive energy intelligence company for energy-intensive plants in India.
+  return `You are a case study writing assistant for **${siteConfig.name}**, AI for plant operations: machine learning and AI on plant data for manufacturing plants in India (process, quality, planning, maintenance, and energy).
 
 ${AI_DISCOVERY_PHASE}
 
@@ -103,7 +103,7 @@ What the plant faced. Specific loads, bills, or operational pain.
 
 ## Our approach
 
-How Stamped Energy connected data and assigned fixes. Use bullets if helpful.
+How Stamped connected data and assigned fixes. Use bullets if helpful.
 
 ## Results
 

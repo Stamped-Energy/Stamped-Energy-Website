@@ -57,10 +57,10 @@ function IconPlant() {
 }
 
 const MODEL_ICONS: Record<string, ReactNode> = {
-  "energy-markets": <IconGrid />,
-  efficiency: <IconGauge />,
-  equipment: <IconGear />,
-  "production-context": <IconPlant />,
+  process: <IconGauge />,
+  quality: <IconGrid />,
+  planning: <IconPlant />,
+  maintenance: <IconGear />,
 };
 
 export function HiwModelsGrid() {

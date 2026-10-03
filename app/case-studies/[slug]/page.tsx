@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
 
   return buildPageMetadata({
     title: study.title,
-    absoluteTitle: `${study.title} | Stamped Energy`,
+    absoluteTitle: `${study.title} | Stamped`,
     description: study.excerpt,
     path: `/case-studies/${study.slug}`,
     image: study.coverImage,
@@ -48,7 +48,7 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
     publishedTime,
     modifiedTime: study.updatedAt,
     authors: [study.author.name],
-    keywords: [study.industry, study.categoryLabel, "energy savings", "manufacturing India"],
+    keywords: [study.industry, study.categoryLabel, "plant operations", "manufacturing India"],
   });
 }
 
@@ -77,7 +77,7 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
 
   const breadcrumbSchema = generateBreadcrumbSchema([
     breadcrumbHome(),
-    { name: "Case Studies & Blogs", url: absoluteUrl("/case-studies") },
+    { name: "Resources", url: absoluteUrl("/case-studies") },
     { name: study.title, url: absoluteUrl(`/case-studies/${study.slug}`) },
   ]);
 

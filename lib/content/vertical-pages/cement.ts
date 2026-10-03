@@ -1,259 +1,175 @@
-import type { CtaLink, StatItem, VerticalPageContent } from "../types";
+import type { VerticalPageContent } from "../types";
+import {
+  AREAS_EYEBROW,
+  EARLY_INDUSTRY_NOTE,
+  EXAMPLE_FOOTNOTE,
+  HOW_CTA,
+  STANDARD_DESCRIPTION,
+  SURVEY_CTA,
+  homeFaq,
+  sharedOutcomes,
+} from "./shared";
 
-const CTA = { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink;
-const HOW = { label: "Platform", href: "/platform" } satisfies CtaLink;
+/** Cement. Copy canon: Stamped copy v3 (3 Oct 2026), revision 2. Qualitative only; no claims of past cement work. */
 
 export const cementPage: VerticalPageContent = {
   slug: "cement",
   hero: {
     eyebrow: "Cement",
-    title: "Rupee-scored prescriptions for cement plants",
+    title: "More good clinker from the kiln you already run.",
     description:
-      "Mills, kiln auxiliaries, crushers, and WHR already have meters and EMS. Stamped is the intelligence layer on that stack: live data, assigned next actions, evidence on the bill. Read-only. No hardware retrofit.",
-    primaryCta: CTA,
-    secondaryCta: HOW,
-    seoHeadings: [
-      "How can cement plants reduce kWh per ton?",
-      "What is WHR and grid dispatch optimization for cement plants?",
-      "How does Stamped work with existing cement plant EMS?",
-    ],
+      "In a cement plant, efficiency is decided by how steadily the kiln burns, how much heat and power go into every tonne, and how many hours the kiln and the mills actually run between stops.",
+    primaryCta: SURVEY_CTA,
+    secondaryCta: HOW_CTA,
+    note: EARLY_INDUSTRY_NOTE,
   },
-  economics: {
-    eyebrow: "Energy challenges",
-    title: "Energy challenges in cement manufacturing",
-    description:
-      "Cement plants operate continuous, energy-intensive processes with limited real-time coordination across stages and utilities, leading to cost leakage, SEC variability, and inconsistent plant performance.",
-    stats: [
+  improvementAreas: {
+    eyebrow: AREAS_EYEBROW,
+    title: "Four places a cement plant loses efficiency.",
+    description: STANDARD_DESCRIPTION,
+    items: [
       {
-        id: "cost-share",
-        value: "40-50%",
-        label: "Total manufacturing cost linked to energy and utilities",
-        detail: "Structural margin driver for cement",
-      },
-      {
-        id: "sec",
-        value: "50-60%",
-        label: "Electrical energy consumed by core process equipment",
-        detail: "Mills, kiln auxiliaries, and process fans",
-      },
-      {
-        id: "tariff",
-        value: "85%",
-        label: "Thermal energy share complicates energy control",
-        detail: "Multi-source dispatch requires governed decisions",
-      },
-    ] satisfies StatItem[],
-  },
-  wasteTable: {
-    eyebrow: "Actionable energy intelligence",
-    title: "Where energy value sits across processes and utilities",
-    description:
-      "The platform identifies and prescribes actions on where energy value typically sits across processes and utilities. Reference ranges from industry benchmarks - your pilot replaces them with verified numbers.",
-    areas: [
-      {
-        id: "mills",
-        step: "01",
-        title: "Raw & finish mills",
+        area: "process",
+        title: "Keep the kiln in its best band.",
         description:
-          "SEC drift 5-12% when bearings or separators degrade. Anomaly triggers a maintenance work order and schedule adjustment.",
-        potentialLabel: "Est. monthly savings",
-        potentialValue: "₹2-6L",
+          "Most kiln losses come from instability rather than a broken machine: raw-meal chemistry swinging between shifts, false air creeping in at a seal, a coal feeder pulsing, or a burning zone that one crew runs hotter than another. Stamped learns what your steadiest days on each line looked like and recommends the feed, fuel, draught or cooler settings that bring the kiln back toward them, for your process engineer to accept, adjust or turn down.",
+        energy: "Heat per kilo of clinker and power per tonne of cement are counted on every recommendation.",
       },
       {
-        id: "kiln-aux",
-        step: "02",
-        title: "Kiln auxiliaries",
-        description: "Idling fans, cooler inefficiency - idle load plus kWh/clinker SEC tracked per line.",
-        potentialLabel: "Est. monthly savings",
-        potentialValue: "₹1.5-4L",
-      },
-      {
-        id: "crushers-md",
-        step: "03",
-        title: "Crushers & mill startups",
-        description: "Simultaneous restart after outage → MD breach. Stagger startup prescriptions assigned to electrical.",
-        potentialLabel: "Est. MD savings",
-        potentialValue: "₹3-8L",
-      },
-      {
-        id: "whr-re",
-        step: "04",
-        title: "WHR + grid + RE dispatch",
+        area: "quality",
+        title: "Catch a free-lime excursion before it fills a silo.",
         description:
-          "Under-use of cheap power in peak grid windows. Daily source-mix prescription - increase WHR/solar draw when grid tariff peaks.",
-        potentialLabel: "Est. monthly savings",
-        potentialValue: "₹4-12L",
+          "Free lime and fineness come back from the lab hours after the conditions that caused them. Stamped links lab results to the kiln and mill conditions that came before them, so when the kiln starts behaving the way it did before the last high free-lime results the shift in-charge hears about it early, and each grade's record is ready when a customer asks.",
+        energy: "Overburning to stay safe on free lime costs fuel, so a controlled band saves both.",
       },
       {
-        id: "compressed-air",
-        step: "05",
-        title: "Compressed air",
-        description: "Instrument and plant air leaks - recurring Category 1 waste across cement utilities.",
-        potentialLabel: "Est. monthly savings",
-        potentialValue: "₹1-2.5L",
-      },
-      {
-        id: "dispatch",
-        step: "06",
-        title: "Dispatch heuristics",
+        area: "planning",
+        title: "Plan mills, grades and dispatch together.",
         description:
-          '"Safe" thermal when RE is available - governed dispatch habits replace operator guesswork.',
-        potentialLabel: "Est. monthly savings",
-        potentialValue: "₹5-15L",
+          "Mill run plans, grade changes, power availability and silo levels are usually juggled in spreadsheets, and an unplanned kiln stop throws all of them out at once. Stamped proposes the next mill and dispatch sequence when something changes and shows what each option does to output, power cost and silo position.",
+        energy: "Running mills in cheaper power windows is treated as one input to the plan, alongside output and dispatch.",
+      },
+      {
+        area: "maintenance",
+        title: "Fix the stop that costs the most clinker.",
+        description:
+          "Kiln stops from refractory hot spots, fan vibration, cooler problems or mill trips each cost hours of output and a heat-up. Stamped ranks stops by the clinker and cement they cost and watches for slow drift, such as shell temperature creeping up in one zone or a fan drawing more power for the same flow, so maintenance knows where to look first.",
+        energy: "Every unplanned stop is another heat-up, so fewer stops also means less fuel.",
       },
     ],
   },
   plantBand: {
     eyebrow: "In this plant",
-    title: "Where the cement bill actually moves",
+    title: "Raw mill, kiln and cooler, cement mills and utilities.",
     description:
-      "Raw and finish mills, kiln auxiliaries, crushers, and WHR. Same processes you run.",
+      "A cement plant records a great deal already, from the control room and the lab to the electrical system and the dispatch yard, but those records rarely get looked at together.",
     items: [
       {
-        id: "mills",
-        title: "Raw and finish mills",
+        id: "raw-mill",
+        title: "Crushing and raw mill",
         description:
-          "kWh per ton drifts when separators and bearings degrade. Stamped ranks mill SEC against throughput, then assigns the inspection before the month is lost to a silent creep.",
-        imageSrc: "/industries/plant/cement/batch-plant.jpg",
-        imageAlt: "Cement mill silos and conveyor towers on a plant site",
-      },
-      {
-        id: "kiln-aux",
-        title: "Kiln auxiliaries",
-        description:
-          "Fans, coolers, and idle kiln-side loads sit on the incomer whether clinker is moving or not. Idle cuts are ranked against line rate, not a flat kW alarm.",
-        imageSrc: "/industries/plant/cement/plant-exterior.jpg",
-        imageAlt: "Cement kiln-side towers, silos, and process auxiliaries",
-      },
-      {
-        id: "crushers-md",
-        title: "Crushers and mill startups",
-        description:
-          "Simultaneous restart after an outage is how contracted MD gets breached. Sequencing is assigned before the billing window closes.",
+          "Kiln stability starts with the raw meal, so Stamped follows how quarry and stockpile changes show up in raw-mix chemistry and in raw-mill throughput, and flags the shifts where the kiln is likely to be fed something harder to burn.",
         imageSrc: "/industries/plant/cement/crushers.jpg",
         imageAlt: "Cement quarry and crusher plant on a hillside",
       },
       {
-        id: "whr-re",
-        title: "WHR and grid windows",
+        id: "kiln",
+        title: "Kiln and cooler",
         description:
-          "Cheap WHR or solar sitting idle in a peak grid window is a dispatch miss. Source mix is prescribed for the tariff window, not a dashboard heuristic.",
+          "In the pyro section the questions are about heat per kilo of clinker, free lime, back-end oxygen and kiln availability, and Stamped compares each shift with the line's steadiest days so the process engineer can see which setting moved and what it cost.",
+        imageSrc: "/industries/plant/cement/plant-exterior.jpg",
+        imageAlt: "Cement preheater tower, kiln and silos",
+      },
+      {
+        id: "cement-mill",
+        title: "Cement mills",
+        description:
+          "Grinding is the largest electrical load in most plants, and mill output and power per tonne move with fresh feed, separator speed and fineness targets, so Stamped ranks each mill against its own best weeks on the same grade.",
+        imageSrc: "/industries/plant/cement/batch-plant.jpg",
+        imageAlt: "Cement mill silos and conveyor towers on a plant site",
+      },
+      {
+        id: "utilities",
+        title: "Fans, compressed air and waste heat recovery",
+        description:
+          "Fans, compressors and the waste heat recovery system sit on the power bill whether clinker is moving or not, and Stamped points out the ones running harder than the line needs and the drift that usually comes before a trip.",
         imageSrc: "/industries/plant/cement/whr-pipes.jpg",
-        imageAlt: "Cement plant silos and material-handling towers for WHR and dispatch",
+        imageAlt: "Cement plant ducting and material-handling towers",
       },
     ],
   },
   prescriptionExamples: {
-    eyebrow: "Example prescriptions",
-    title: "What supervisors receive",
+    eyebrow: "Example actions",
+    title: "What the people who own the problem receive",
     description:
-      "Illustrative actions from comparable cement plants. Your pilot writes these from your meters, EMS feeds, and bill.",
-    footnote:
-      "Impact ranges are benchmark estimates from comparable plants, not customer guarantees. Verified figures come from your plant with evidence.",
-    attribution: {
-      text: "Enterprise cement plants have reported large annual potential through dispatch governance. Stamped brings governed decisions to mid-market scale.",
-      source: "Published industry case literature",
-    },
+      "Each action goes to the person best placed to act, with what to do, by when, and the reasoning behind it.",
+    footnote: EXAMPLE_FOOTNOTE,
     items: [
       {
-        id: "peak-whr",
-        title: "Increase WHR and solar draw 18:00-22:00 peak grid window",
+        id: "false-air",
+        area: "Process",
+        title: "Kiln, for the process engineer",
         description:
-          "Grid tariff peaks while WHR output available. Shift load to cheaper sources before MD window closes.",
-        impactRange: "₹4-12L/month",
-        assignee: "Plant electrical / dispatch coordinator",
+          "Back-end oxygen has run above its usual band for [N] hours, which on this line usually means false air at the inlet seal, so a seal check and a small draught correction are ready for review.",
+        impactRange: "Example",
       },
       {
-        id: "mill-restart",
-        title: "Stagger finish mill restart after power outage",
+        id: "free-lime",
+        area: "Quality",
+        title: "Kiln, for the shift in-charge",
         description:
-          "Three mills restarted simultaneously - incomer breached contracted MD by 180 kVA. Sequence restart over 20 minutes.",
-        impactRange: "₹3-8L/month",
-        assignee: "Head electrical",
+          "Kiln conditions over the last [N] hours look like the run before last week's high free-lime results, so an extra clinker sample this shift would show early whether the burning zone needs attention.",
+        impactRange: "Example",
       },
       {
-        id: "sec-drift",
-        title: "Finish mill SEC drift vs baseline - maintenance trigger",
+        id: "mill-power",
+        area: "Energy",
+        title: "Cement mill, for the mill in-charge",
         description:
-          "kWh/ton up 8% over 14 days with stable output. Separator and bearing inspection before SEC degrades further.",
-        impactRange: "₹2-5L/month",
-        assignee: "Maintenance planner",
+          "Mill [2] is using more power per tonne than in its best week on the same grade and fineness, and separator speed is the main difference, so a new setting is ready for your review.",
+        impactRange: "Example",
+      },
+      {
+        id: "kiln-stop-plan",
+        area: "Planning",
+        title: "Planning, for the planner",
+        description:
+          "Kiln [1] is expected to be down for about [N] hours, and the proposed mill and dispatch plan keeps [N] of today's [N] trucks on time using clinker already in the silo.",
+        impactRange: "Example",
+      },
+      {
+        id: "shell-temp",
+        area: "Maintenance",
+        title: "Kiln, for the maintenance lead",
+        description:
+          "Shell temperature in zone [N] has crept up by about [N]°C over [N] days, which is worth checking against the last refractory survey before it becomes a hot spot.",
+        impactRange: "Example",
+      },
+      {
+        id: "fan-drift",
+        area: "Maintenance",
+        title: "Fans, for the electrical lead",
+        description:
+          "Fan [N] is drawing more power for the same flow than it did [N] weeks ago, so the impeller and dampers are worth inspecting at the next stop.",
+        impactRange: "Example",
       },
     ],
   },
-  integration: {
-    eyebrow: "Integration",
-    title: "Works with your existing EMS - no rip-and-replace",
-    items: [
-      {
-        id: "path-a",
-        title: "Path A: Bill + HT metering first",
-        description:
-          "Last three DISCOM bills and incomer MD data - prescriptions on demand windows and source mix within two weeks.",
-      },
-      {
-        id: "path-b",
-        title: "Path B: EMS / PMS / SCADA feeds",
-        description:
-          "Unify mill SEC, WHR output, and grid draw into one time-aligned graph - prescriptions on kWh/ton and dispatch.",
-      },
-      {
-        id: "coexist",
-        title: "Coexists with OEM EMS",
-        description:
-          "Stamped is the decision layer on top of trends your EMS already shows - assigned actions with ₹ impact and M&V.",
-      },
-      {
-        id: "pat",
-        title: "PAT evidence support",
-        description:
-          "SEC improvement ledger for management reviews and PAT discipline - verified on monthly bills.",
-      },
-    ],
-  },
-  outcomes: {
-    eyebrow: "What you gain",
-    title: "The floor knows what to do. Leadership sees the evidence.",
-    disclaimer: "Indicative language from comparable plants. Your pilot replaces it with plant figures.",
-    items: [
-      {
-        id: "kwh-ton",
-        title: "Assigned energy moves",
-        description:
-          "Ranked prescriptions on mill restart stagger, idle kiln-side fans, and WHR-vs-grid windows, without rewriting the process recipe.",
-      },
-      {
-        id: "dispatch",
-        title: "Stable SEC in the operating band",
-        description:
-          "kWh per ton vs this plant's line and shift baseline, not a generic dashboard threshold.",
-      },
-      {
-        id: "md",
-        title: "Earlier equipment intervention",
-        description:
-          "Power-draw and mill SEC drift tied to rupee and throughput risk. Not a vibration PdM claim.",
-      },
-    ],
-  },
+  outcomes: sharedOutcomes(),
   faq: [
     {
-      id: "kwh-ton-benchmark",
-      question: "How can cement plants reduce kWh per ton?",
+      id: "cement-experience",
+      question: "Has Stamped worked with cement plants?",
       answer:
-        "Comparable cement plants using assigned, rupee-scored actions typically move electrical SEC by catching mill drift and restart overlap before the month closes. Published 70-80 kWh/ton bands are context, not your target. Your pilot replaces those bands with plant figures.",
+        "Our first deployments are with auto-component makers. In cement we start the same way, with a site survey on your floor and a written read-out of where we would begin, and we publish results only with a plant's written permission.",
     },
     {
-      id: "whr-dispatch",
-      question: "What is WHR and grid dispatch optimization for cement plants?",
+      id: "cement-control",
+      question: "Does Stamped replace our kiln control or expert system?",
       answer:
-        "WHR and solar are cheaper in some windows than grid. Stamped ranks source-mix moves against tariff and available WHR output so dispatch is assigned, not guessed at the desk.",
+        "No. Stamped works alongside the control systems you already run and sends its recommendations to your team. Stamped recommends and your team decides.",
     },
-    {
-      id: "ems-vs-stamped",
-      question: "How does Stamped work with existing cement plant EMS?",
-      answer:
-        "EMS shows trends. Stamped is the intelligence layer on that stack: read-only feeds, rupee-scored next actions, owner, and verification on the bill. No rip-and-replace.",
-    },
+    homeFaq("hardware"),
+    homeFaq("start"),
   ],
 };

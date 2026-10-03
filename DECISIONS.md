@@ -628,4 +628,58 @@ Architecture and workflow decisions for this project.
 
 ---
 
+## ADR-033: Copy v3, "Stamped" rebrand, four improvement areas
 
+**Date:** 2026-10-03
+
+**Context:** The approved copy v3 (`docs/copy/stamped-copy-v3.md`) repositions Stamped from energy-bill optimisation to AI for plant operations (process, quality, planning, maintenance, with energy counted in all four). Customer copy must say "Stamped" (not "Stamped Energy") and "machine learning and AI"; approved outcome paragraphs are used word for word; no unbacked % or rupee figures, no DISCOM claims, no hard-stop "we never" lists; CTA "Book a site survey".
+
+**Alternatives:**
+
+1. Edit strings in place and keep the two energy pillars and five verticals (rejected: the pages are built around rupee/MD claims the new copy does not back)
+2. Rewrite content, restructure `/solutions` into four areas, keep only the automotive vertical, delete dead components that still carried retired copy (selected)
+
+**Selected:**
+
+- `lib/content/` rewritten (landing, solutions, platform, industries, automotive, about, contact, caseStudies, resources, icp, site). New `app/solutions/[slug]` for process, quality, planning, maintenance.
+- 308 redirects: `/solutions/load-energy` → `/solutions/process`, `/solutions/equipment-intelligence` → `/solutions/maintenance`, `/industries/{cement,steel,pharma,chemical}` → `/industries`.
+- Homepage "How it works" uses a static Plant data → Models → Actions → Results diagram (`components/diagrams/PlantFlowDiagram.tsx`); the pinned step animation and its visuals were removed. Unrendered components and content (payAsYouSave, workflow, scenarios, old pillar pages, vertical economics) deleted.
+- Example action cards keep copy v3 [bracketed] placeholders and an "Example" label.
+- WhatsApp buttons render only when `NEXT_PUBLIC_WHATSAPP_URL` is set.
+- Contact form: the `billSize` column is reused for "Main processes", "What's on your mind" and "Best way to reach you" (joined into one string client-side) to avoid a Prisma migration. Admin and email label it "Plant details".
+- SEO: Organization/WebSite/SoftwareApplication name "Stamped"; entity sentence from `icp.seo.entityDefinition`; HowTo is the four-step loop; automotive FAQ schema built from page FAQ only; keywords per the website update plan; `public/llms.txt` regenerated.
+- Kept: contact email `stamped.energy@gmail.com` (no domain mailbox yet), package/repo names, env var names, session-secret dev string.
+
+**Rationale:** One source per page in `lib/content/`, with nothing left in the tree that could resurface retired claims.
+
+**Impact:** `lib/content/*`, `lib/seo/*`, `app/solutions/*`, `app/industries/*`, `app/sitemap.ts`, `next.config.ts`, `components/{sections,solutions,industries,how-it-works,about,contact,layout,motion-slots}`, `lib/contact/notify.ts`, `public/llms.txt`, `.env.example`, `docs/website-copy.md`, `docs/copy/stamped-copy-v3.md`.
+
+---
+
+
+## ADR-034: Copy v3 revision 2, industry pages restored around the four areas
+
+**Date:** 2026-10-03
+
+**Context:** Vinayak asked that every industry stay visibly covered so no prospect thinks Stamped does not serve them. ADR-033 had cut cement, steel, pharma and chemical (308 to `/industries`) and trimmed automotive to three processes.
+
+**Selected:**
+
+- `/industries/{steel,cement,pharma,chemical}` restored (redirects removed) and rewritten in the v3 voice. Each page has a new "Where efficiency is lost" section (`IndustryImprovementAreas`) with the four areas and an energy line inside each, an "In this plant" zig-zag, area-tagged example action cards and an FAQ.
+- Process-industry pages are qualitative and carry an honest hero note and FAQ answer that first deployments are in auto components (copy guide section 1). No %, rupee or result claims.
+- `/industries/automotive` covers forging, heat treatment, precision machining, die casting and rubber moulding.
+- Industries hub: industry x area matrix, five industry cards, auto-component process tiles. Nav and footer list all five industries plus the hub. Homepage industries section adds links to the other industries.
+- Example actions across hero ticker, solution pages, platform visuals and industry pages now span process, quality, planning, maintenance and energy; furnace hot-idle before the charge is ready, under-filled baskets with a compatible lot, forge-to-furnace handoff waits, tool life and staggered starts were added.
+- Hero headline renders as one balanced string in a 7/12 column so it sits on three lines on desktop.
+- SEO: page configs, sitemap entries, FAQ JSON-LD (via `verticalFaqSchema`), `knowsAbout`, `public/llms.txt` updated.
+
+**Impact:** `lib/content/{industries,landing,solutions,site,icp,types}.ts`, `lib/content/vertical-pages/*`, `components/industries/*`, `components/sections/{Hero,HomeIndustries}.tsx`, `components/solutions/SolutionAreaPage.tsx`, `components/motion-slots/HiwStageVisuals.tsx`, `lib/seo/*`, `app/sitemap.ts`, `next.config.ts`, `public/llms.txt`.
+
+## ADR-035: Copy v3 revision 3, pilot pricing and owner objections
+
+- **Pricing model (Vinayak, 3 Oct 2026):** during the site survey we agree only the price of the pilot; the pilot is a paid 8 to 12 week engagement priced on its own and not tied to an annual contract value; the annual contract price is decided after the pilot, based on its results. This supersedes the copy-guide line "the success criteria and the annual price are agreed in writing first".
+- Single source: `lib/content/engagement.ts` (ENGAGEMENT_STEPS, ENGAGEMENT_SUMMARY, PRICING_ANSWER, BEFORE_YOU_BOOK), used by /contact, /platform, the home FAQ, JSON-LD (Offer, HowTo on /contact) and llms.txt.
+- New `components/engagement/BeforeYouBook.tsx` (cost, install, team time, data) near the CTA on solution, industry, platform and contact pages; `EngagementSteps.tsx` on /contact.
+- Home FAQ adds cost, paper/Excel records, team time and supervisors; data answer expanded without hosting claims (still [CONFIRM]).
+- Mobile hero shows readable example action cards under the unchanged animation; three true reassurance points under the hero CTAs.
+- Persona review: `/workspace/stamped-website/research/persona-review-delhi-ncr.md`.

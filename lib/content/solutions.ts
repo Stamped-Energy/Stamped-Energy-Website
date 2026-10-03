@@ -1,419 +1,238 @@
 import type { CtaLink } from "./types";
 
-export type SolutionPillarSlug = "load-energy" | "equipment-intelligence";
+/**
+ * "What we improve" copy. Source: Stamped copy v3 (3 Oct 2026), section 5.
+ * Four areas, always presented together, with energy counted inside all four.
+ * Example cards use [placeholders] by design; they are labelled "Example" on the site.
+ */
 
-export type SolutionPillarSummary = {
-  slug: SolutionPillarSlug;
+export type SolutionAreaSlug = "process" | "quality" | "planning" | "maintenance";
+
+export type SolutionExampleCard = {
+  id: string;
+  /** Role (and optional topic) the card is addressed to, e.g. "Restart, for the shift lead". */
+  role: string;
+  copy: string;
+};
+
+export type SolutionArea = {
+  slug: SolutionAreaSlug;
   href: string;
+  /** Area name, e.g. "Process and control". */
   title: string;
-  shortTitle: string;
-  description: string;
-  hubBrief: string;
-  outcome: string;
-  ctaLabel: string;
-  highlights: string[];
-};
-
-export type SolutionOutcomeItem = {
-  id: string;
-  value: string;
-  label: string;
-  detail: string;
-};
-
-export type SolutionHowItWorksStep = {
-  id: string;
-  title: string;
-  body: string;
-  mediaLabel: string;
-};
-
-export type SolutionRxExample = {
-  id: string;
-  badge: string;
-  title: string;
-  description: string;
-  impactRange: string;
-  assignee: string;
-  what: string;
-  why: string;
-  effort: string;
-  evidence: string;
-};
-
-export type SolutionPillarPage = {
-  slug: SolutionPillarSlug;
-  path: string;
-  eyebrow: string;
-  title: string;
-  description: string;
+  /** Statement heading, used as the page H1. */
+  heading: string;
+  /** One-sentence summary for the homepage rows (copy v3 section 9). */
+  homeSummary: string;
+  /** Intro paragraph (copy v3 section 5). */
+  intro: string;
+  /** Optional note under the example cards. */
+  note?: string;
+  /** How energy is counted inside this area (energy is never a separate pillar). */
+  energyNote: string;
+  examples: SolutionExampleCard[];
   heroImageSrc: string;
   heroImageAlt: string;
   heroObjectPosition?: string;
-  outcomes: {
-    eyebrow: string;
-    title: string;
-    intro: string;
-    disclaimer: string;
-    items: SolutionOutcomeItem[];
-  };
-  howItWorks: {
-    eyebrow: string;
-    title: string;
-    intro: string;
-    steps: SolutionHowItWorksStep[];
-  };
-  examples: {
-    eyebrow: string;
-    title: string;
-    intro: string;
-    footnote: string;
-    items: SolutionRxExample[];
-  };
-  primaryCta: CtaLink;
-  secondaryCta: CtaLink;
 };
+
+const PRIMARY_CTA = { label: "Book a site survey", href: "/contact" } satisfies CtaLink;
+const HOW_CTA = { label: "See how it works", href: "/platform" } satisfies CtaLink;
+
+const areas: SolutionArea[] = [
+  {
+    slug: "process",
+    href: "/solutions/process",
+    title: "Process and control",
+    heading: "Run every shift like your best one.",
+    homeSummary:
+      "Run every shift like your best one, with settings, control rules, restart routines and pacing recommended to your engineers.",
+    intro:
+      "Most process losses come from a setting that has slowly drifted, a restart that night shift handles differently from day shift, or a line running faster than the next station can absorb, far more often than from a broken machine. Stamped learns what your best runs looked like and what tends to go wrong before a poor one, then recommends a specific change to your process engineer, who can accept it, adjust it or turn it down.",
+    examples: [
+      {
+        id: "restart",
+        role: "Restart, for the shift lead",
+        copy: "Keep the heater warm during stops shorter than [N] minutes, starting from A shift, because last month's restarts sent [N] parts out of window.",
+      },
+      {
+        id: "control",
+        role: "Control, for the process engineer",
+        copy: "The heater aim has drifted by about [N]°C over [N] weeks, so a new aim with a small drift correction is ready for review before a step test.",
+      },
+      {
+        id: "best-run",
+        role: "Best run, for the plant head",
+        copy: "Line [2] had its best week in [month], and today's settings differ from that week on [N] parameters, which are listed in the comparison.",
+      },
+      {
+        id: "warm-up",
+        role: "Die casting, for the cell lead",
+        copy: "Castings from the first [N] shots after a die change on cell [4] failed leak test more often last month, so a longer warm-up before releasing parts is ready for your review.",
+      },
+    ],
+    energyNote:
+      "Restarts, reheats and settings that have drifted all use energy that never ends up in a good part, so every process recommendation shows what it does to energy per good part as well as to output and quality.",
+    heroImageSrc: "/industries/forging.jpg",
+    heroImageAlt: "Forging press line on a plant floor",
+    heroObjectPosition: "center 40%",
+  },
+  {
+    slug: "quality",
+    href: "/solutions/quality",
+    title: "Quality and lot checks",
+    heading: "Know which batch is at risk before it becomes a rejection.",
+    homeSummary:
+      "Know which batch is at risk before it becomes a rejection, and have each lot's record ready when the auditor or the customer asks.",
+    intro:
+      "By the time a part fails inspection, the cause is usually hours or days old: a part that went in cold, a transfer that took too long, or a quench that started late. Stamped links process data to each lot and batch, learns which conditions came before past rejections, and flags any batch made under similar conditions while it is still in the plant, so the inspector can decide what to do with it.",
+    note: "Where a check is against a written limit, the card gives a clear yes or no, and where it is a prediction, the card shows how confident the model is.",
+    examples: [
+      {
+        id: "inspector",
+        role: "For the inspector",
+        copy: "Bin [14] was made after a [9]-minute stop with the die below temperature, and bins made that way were rejected more often last quarter, so it is worth checking before it moves on.",
+      },
+      {
+        id: "ht-lead",
+        role: "For the heat-treatment lead",
+        copy: "Basket [B-07] reached ageing [N] minutes after quench against a written limit of [N], and its full record is attached for the audit file.",
+      },
+      {
+        id: "quality-head",
+        role: "For the quality head",
+        copy: "Here is every process record for lot [N], gathered in one place for the 8D on the customer complaint that came in this morning.",
+      },
+    ],
+    energyNote:
+      "A part rejected after heat treatment or machining has already used all the energy of a good one, so every rejection avoided is energy that goes into a part you can ship.",
+    heroImageSrc: "/industries/heat-treatment.webp",
+    heroImageAlt: "Heat treatment furnace in operation",
+  },
+  {
+    slug: "planning",
+    href: "/solutions/planning",
+    title: "Planning and scheduling",
+    heading: "When the plan breaks, have the next one ready.",
+    homeSummary:
+      "When the plan breaks, have the next one ready, along with what each option would do to output and delivery.",
+    intro:
+      "Plans break in almost every shift, whether because a die change ran long, a furnace tripped or material arrived late. Stamped proposes the next sequence and shows what each option would do to output, energy and delivery, so the planner can choose with the trade-offs in front of them.",
+    examples: [
+      {
+        id: "planner",
+        role: "For the planner",
+        copy: "Press [3] will be down for about [N] hours, and the proposed re-plan keeps [N] of today's [N] dispatches on time if it is confirmed by [time].",
+      },
+      {
+        id: "ht-lead",
+        role: "For the heat-treatment lead",
+        copy: "Running these [N] lots back to back by temperature would save the furnace from heating up and cooling down between them.",
+      },
+      {
+        id: "consolidate",
+        role: "Loading, for the heat-treatment lead",
+        copy: "The next basket on Furnace [2] is well below a normal load, and a lot on the same recipe is ready by [time], so the two can run together without mixing grades.",
+      },
+      {
+        id: "handoff",
+        role: "Handoff, for the production lead",
+        copy: "Forged parts for lot [N] waited about [N] minutes for the furnace on most days last week, so moving the furnace start to match the forge schedule is ready for your review.",
+      },
+    ],
+    energyNote:
+      "Grouping lots by temperature, filling furnace loads and timing heat-up to the moment the next charge is ready keep furnaces from sitting hot and empty, and tariff windows are weighed as one input to the plan.",
+    heroImageSrc: "/industries/die-casting.jpeg",
+    heroImageAlt: "Molten metal pour on a casting line",
+    heroObjectPosition: "center 35%",
+  },
+  {
+    slug: "maintenance",
+    href: "/solutions/maintenance",
+    title: "Maintenance",
+    heading: "Fix what costs you the most, before it stops the line.",
+    homeSummary:
+      "Find out which stops cost you the most and fix them before they halt the line.",
+    intro:
+      "The stop log already shows where the hours go, but it rarely says which stops matter most. Stamped ranks them by the output and time they cost, and it picks up the slow drift that usually comes before a failure, such as a furnace burning more gas for the same load or a compressor running a little longer every week. It tells maintenance what it is seeing and how sure it is, and is equally open about what it cannot see, for example bearing wear on a machine that has no vibration sensor.",
+    examples: [
+      {
+        id: "biggest-loss",
+        role: "For the maintenance lead",
+        copy: "Press [2] lost [N] hours last month to [stop reason], which makes it the biggest single loss on the line.",
+      },
+      {
+        id: "gas-drift",
+        role: "For the maintenance lead",
+        copy: "Gas per kilo on Furnace [1] has crept up by [N]% on the same recipe over [N] weeks, so the burners and door seals are worth checking.",
+      },
+      {
+        id: "micro-stop",
+        role: "For the setter",
+        copy: "The repeating micro-stop on [machine] looks like a clamping issue, and the card can be closed once the machine runs cleanly.",
+      },
+      {
+        id: "tool-life",
+        role: "For the tool room",
+        copy: "Tool [T12] on [machine] is lasting about [N] parts fewer than its last [N] tools on the same part, so the insert and the coolant are worth checking before it shows up as first-off rejections.",
+      },
+    ],
+    energyNote:
+      "A furnace burning more gas for the same load or a compressor running a little longer every week is often the first sign of a fault, so energy drift is one of the signals maintenance hears about.",
+    heroImageSrc: "/industries/rubber-moulding.jpg",
+    heroImageAlt: "Moulding presses on a plant floor",
+  },
+];
 
 export const solutionsContent = {
   hub: {
-    eyebrow: "Solutions",
-    title: "Two outcomes. One evidence trail.",
+    eyebrow: "What we improve",
+    title: "Across the plant, not one machine.",
     description:
-      "One product for energy-intensive plants in India. Pick the pillar that matches how you buy: same stack, real-time intelligence, verified with evidence.",
-    heroImageSrc: "/industries/cement.png",
-    heroImageAlt: "Cement plant with silos and kiln illuminated at twilight",
-    primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
-    secondaryCta: { label: "See the Platform", href: "/platform" } satisfies CtaLink,
-    sectionEyebrow: "The intelligence",
-    sectionTitle: "Two pillars. One operating loop.",
-    sectionIntro:
-      "Start here for the overview, then open the pillar that matches how your plant buys. Each page covers outcomes, how it works, and practical prescriptions.",
-    pillars: [
-      {
-        slug: "load-energy",
-        href: "/solutions/load-energy",
-        title: "Industry Energy Management",
-        shortTitle: "Energy management",
-        description:
-          "Stamped analyzes energy use at the equipment level in the context of demand, price, and tariff windows. Predict and optimize consumption and rupee impact from demand charges, idle loads, and ramp profiles.",
-        hubBrief:
-          "Turn incomer, sub-meters, SCADA, and bills into ranked actions: what to change, who owns it, and monthly rupee impact. Built for MD peaks, idle loads, HVAC waste, and tariff windows without a hardware retrofit.",
-        outcome: "Lower bill line items. No hardware retrofit.",
-        ctaLabel: "Learn more",
-        highlights: [
-          "MD and demand charges",
-          "Shift-start stagger",
-          "Idle and HVAC loads",
-          "Tariff-aware timing",
-        ],
-      },
-      {
-        slug: "equipment-intelligence",
-        href: "/solutions/equipment-intelligence",
-        title: "Asset Health Intelligence",
-        shortTitle: "Asset health",
-        description:
-          "Stamped rupee-ranks anomalies and predictions tied to each asset and tracks operator decisions so plant expertise is captured and compounds with each shift.",
-        hubBrief:
-          "Catch mechanical and process-linked waste early using energy and operating context. Maintenance and utilities get assigned prescriptions before trips, scrap, and energy waste compound across the shift.",
-        outcome: "Fewer surprise failures. Same evidence trail.",
-        ctaLabel: "Learn more",
-        highlights: [
-          "Process-aware early warnings",
-          "Assigned maintenance actions",
-          "Energy-linked waste",
-          "Verified with evidence",
-        ],
-      },
-    ] satisfies SolutionPillarSummary[],
-    sharedNote:
-      "Orders and department context inform schedule-type actions. Stamped is not your MES, CMMS, or plant OS.",
+      "Stamped uses machine learning and AI on the data your plant already records to find where efficiency is lost across process, quality, planning and maintenance, and improves it with actions your team can take.",
+    heroImageSrc: "/industries/forging.jpg",
+    heroImageAlt: "Forging press line on a plant floor",
+    primaryCta: PRIMARY_CTA,
+    secondaryCta: HOW_CTA,
+    areaCtaLabel: "Learn more",
   },
 
-  pillars: {
-    "load-energy": {
-      slug: "load-energy",
-      path: "/solutions/load-energy",
-      eyebrow: "Industry Energy Management",
-      title: "Industry Energy Management",
-      description:
-        "Incomer, sub-meters, SCADA, and bills become ranked actions: what to change, who owns it, monthly rupee impact. Real-time decisions on the loads that move your bill.",
-      heroImageSrc: "/industries/die-casting.jpeg",
-      heroImageAlt: "Molten metal pour in an energy-intensive manufacturing plant",
-      heroObjectPosition: "center 35%",
-      outcomes: {
-        eyebrow: "Outcomes",
-        title: "Measurable impact across the bill, demand, and wasted kWh",
-        intro:
-          "Each prescription is rupee-ranked so plant teams can see what each stagger, ToD shift, or idle cut is worth before they act.",
-        disclaimer:
-          "Indicative ranges from comparable plants. Your pilot replaces these with verified figures. Not a guaranteed outcome.",
-        items: [
-          {
-            id: "bill",
-            value: "15-20%",
-            label: "Electricity cost recovery",
-            detail: "Typical band on process-intensive mid-market plants when assigned actions close",
-          },
-          {
-            id: "md",
-            value: "15-25%",
-            label: "MD / demand charge reduction",
-            detail: "Often addressable from incomer meter and bill data alone",
-          },
-          {
-            id: "idle",
-            value: "10-20%",
-            label: "Non-production energy flagged",
-            detail: "Idle loads, holding, HVAC staging, and batch gaps",
-          },
-          {
-            id: "evidence",
-            value: "Verified",
-            label: "With evidence",
-            detail: "Ops-cleared ledger; DISCOM bill confirmation optional when the period closes",
-          },
-          {
-            id: "speed",
-            value: "2 weeks",
-            label: "First prescriptions",
-            detail: "No rip-and-replace. Start on meters and bills you already have",
-          },
-          {
-            id: "control",
-            value: "Human-gated",
-            label: "Every recommendation",
-            detail: "Accept, reject, or adjust. Plant expertise compounds in the loop",
-          },
-        ],
+  areas,
+
+  energy: {
+    eyebrow: "Energy",
+    heading: "Energy follows every operating decision.",
+    intro:
+      "A reheat or an hour of a furnace sitting hot and empty uses energy that never ends up in a good part. Because most of the saving comes from running the plant better, Stamped counts energy inside every action described above and measures it against your own baseline, with tariff windows and demand peaks treated as one input among many.",
+    examples: [
+      {
+        id: "idle-furnace",
+        role: "For the shift lead",
+        copy: "Furnace [2] has been idle and hot for [N] hours with the next load due at [time], so it can be set back now.",
       },
-      howItWorks: {
-        eyebrow: "How it works",
-        title: "Continuous analysis for equipment-level energy recommendations",
-        intro:
-          "Stamped maps equipment-level energy use and contextualizes it with production state, DISCOM tariff windows, and your bill pattern.",
-        steps: [
-          {
-            id: "equipment-model",
-            title: "Equipment-level energy modeling",
-            body: "Energy use is mapped to compressors, furnaces, chillers, presses, and other major loads, with modeled target usage as the baseline against actual draw.",
-            mediaLabel: "Equipment load model",
-          },
-          {
-            id: "discom-analysis",
-            title: "Continuous DISCOM, ToD, and MD analysis",
-            body: "Live demand, tariff slabs, and bill pattern are evaluated continuously against shift and production context, so actions land before the billing window closes.",
-            mediaLabel: "Tariff and MD context",
-          },
-          {
-            id: "plant-control",
-            title: "Plant teams remain in control",
-            body: "Every stagger, ToD move, idle cut, or ramp recommendation is accepted, rejected, or adjusted by your team, so Stamped captures plant priorities and operator expertise over time.",
-            mediaLabel: "Accept, adjust, reject",
-          },
-          {
-            id: "rupee-ranked",
-            title: "rupee-ranked stagger, ToD, idle-holding, and ramp recommendations",
-            body: "Plant teams see movable loads, timing, and rupee value, with a full evidence trail behind each recommendation. No battery-storage claim; thermal holding and ramp profiles where they apply.",
-            mediaLabel: "rupee-ranked moves",
-          },
-        ],
+      {
+        id: "stagger",
+        role: "For the electrical lead",
+        copy: "Three furnaces and the compressors are due to start together at [time], so starting Furnace [3] [N] minutes later keeps the demand peak down without moving any charge.",
       },
-      examples: {
-        eyebrow: "Example prescriptions",
-        title: "What operators receive",
-        intro:
-          "Illustrative actions from comparable plants. Your pilot writes these from your meters and bill.",
-        footnote:
-          "Impact ranges are samples until they are checked on your plant. Verified figures come with evidence.",
-        items: [
-          {
-            id: "md-feeder",
-            badge: "Demand peak",
-            title: "Hold the second feeder start about 10 minutes",
-            description:
-              "Two heavy feeders ramped in the same window. Stagger the second start 8-12 minutes until the first load settles.",
-            impactRange: "₹80k-1.2L/month",
-            assignee: "Electrical lead / area supervisor",
-            what: "Hold the second large feeder start until the first load settles. Typical stagger is 8-12 minutes inside the open demand window.",
-            why: "Two heavy feeders started together and pushed the plant past the demand peak. The bill shows the spike, not which machines overlapped.",
-            effort: "Sequence change. No new equipment.",
-            evidence: "Compare the demand peak window with both feeder start times against a quiet baseline week.",
-          },
-          {
-            id: "idle-aux",
-            badge: "Idle load",
-            title: "Cut packaging auxiliaries after 20 minutes idle",
-            description:
-              "Conveyors and fans stay on with no output. Switch tagged auxiliaries off per SOP; restart when production returns.",
-            impactRange: "₹50k-90k/month",
-            assignee: "Packaging supervisor / utilities lead",
-            what: "When packaging output stays at zero for 20 minutes, switch off tagged auxiliaries such as conveyors, idle fans, and non-critical pumps. Restart when production returns.",
-            why: "Auxiliaries keep running during idle because nobody is watching output and machine power together in real time.",
-            effort: "Idle SOP. Keep safety loads on the protect list.",
-            evidence: "Match line output against auxiliary power over the last few idle windows.",
-          },
-          {
-            id: "tod-warmup",
-            badge: "Tariff timing",
-            title: "Move dryer warm-up into the cheaper window",
-            description:
-              "Warm-up sits in the peak tariff band. Start about 25 minutes earlier; job release stays the same.",
-            impactRange: "₹35k-55k/month",
-            assignee: "Utilities lead / shift supervisor",
-            what: "Start dryer warm-up about 25 minutes earlier into the lower tariff window before day-shift release, without changing job start time.",
-            why: "Warm-up load overlaps the peak tariff band on most weekday runs, even when production volume is stable.",
-            effort: "Schedule change only. Production sign-off.",
-            evidence: "Compare warm-up power against the tariff window and the unchanged job release time.",
-          },
-        ],
+      {
+        id: "air-leak",
+        role: "For maintenance",
+        copy: "The air leak on Line B is worth inspecting now, and the card closes once the feeder draw drops.",
       },
-      primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
-      secondaryCta: { label: "See the Platform", href: "/platform" } satisfies CtaLink,
-    },
-    "equipment-intelligence": {
-      slug: "equipment-intelligence",
-      path: "/solutions/equipment-intelligence",
-      eyebrow: "Asset Health Intelligence",
-      title: "Asset Health Intelligence",
-      description:
-        "The stack that finds energy waste also flags equipment issues early, with owners and evidence. Real-time decisions before trips and waste compound.",
-      heroImageSrc: "/industries/steel.png",
-      heroImageAlt: "Steel rolling mill with glowing hot metal billets on the production line",
-      heroObjectPosition: "center 45%",
-      outcomes: {
-        eyebrow: "Outcomes",
-        title: "Measurable impact across downtime, emergency spend, and operator decisions",
-        intro:
-          "Recommendations are rupee-ranked, so operators see which energy-linked drift to act on first. Not a CMMS or full vibration PdM claim.",
-        disclaimer:
-          "Indicative ranges when teams act on early energy-linked drift. Your pilot replaces these with verified figures.",
-        items: [
-          {
-            id: "downtime",
-            value: "10-20%",
-            label: "Unplanned downtime prevented",
-            detail: "When early drift prescriptions close before a trip",
-          },
-          {
-            id: "emergency",
-            value: "15-25%",
-            label: "Emergency maintenance cost reduction",
-            detail: "Fewer rush repairs when issues surface on the energy graph first",
-          },
-          {
-            id: "same-shift",
-            value: "Same shift",
-            label: "Energy-linked waste flagged",
-            detail: "Load-shape and SEC drift routed with an owner, not another ignored alert",
-          },
-          {
-            id: "ranked",
-            value: "rupee-ranked",
-            label: "Anomaly prioritization",
-            detail: "So utilities and maintenance see highest impact first",
-          },
-          {
-            id: "shared",
-            value: "One trail",
-            label: "Shared utilities and maintenance context",
-            detail: "Evidence-backed prescriptions, not two disconnected dashboards",
-          },
-          {
-            id: "control",
-            value: "Human-gated",
-            label: "Every recommendation",
-            detail: "Accept, reject, or adjust. Expertise compounds across shifts",
-          },
-        ],
-      },
-      howItWorks: {
-        eyebrow: "How it works",
-        title: "Continuous analysis for asset operating decisions",
-        intro:
-          "Stamped connects to existing meters and plant signals, contextualizing asset behavior with operating constraints and rupee exposure.",
-        steps: [
-          {
-            id: "constraints",
-            title: "Plant-specific constraint context",
-            body: "Recommendations respect operating constraints, production windows, and economic exposure specific to your plant, not a generic alert threshold.",
-            mediaLabel: "Constraint checks",
-          },
-          {
-            id: "root-cause",
-            title: "Root-cause identification with ₹ impact",
-            body: "Root causes are identified from energy and process context, with related cost estimated before a ranked prescription is routed to the owner.",
-            mediaLabel: "Root cause to ₹",
-          },
-          {
-            id: "expected-behavior",
-            title: "Expected-behavior and energy-linked drift",
-            body: "Models compare observed load shape and specific energy against expected behavior so early drift shows up before a hard failure or MD surprise.",
-            mediaLabel: "Modeled vs observed",
-          },
-          {
-            id: "operators-control",
-            title: "Operators remain in control",
-            body: "Every recommendation is accepted, rejected, or adjusted so Stamped captures plant priorities and operator expertise over time.",
-            mediaLabel: "Decision feedback",
-          },
-        ],
-      },
-      examples: {
-        eyebrow: "Example prescriptions",
-        title: "What operators receive",
-        intro:
-          "Illustrative actions from comparable plants. Your pilot writes these from your meters and signals.",
-        footnote:
-          "Impact ranges are samples until they are checked on your plant. Verified figures come with evidence.",
-        items: [
-          {
-            id: "compressor-drift",
-            badge: "Equipment drift",
-            title: "Inspect Compressor 2 filter and unload valve",
-            description:
-              "Power is up for the same pressure, nine days running. Inspect in the next approved low-load window.",
-            impactRange: "₹45k-70k/month",
-            assignee: "Utilities lead / mechanical maintenance",
-            what: "Inspect Compressor 2 inlet filter and unload valve in the next approved low-load window. Use Compressor 1 as standby only if capacity is confirmed.",
-            why: "The compressor is drawing more power for the same pressure and run pattern than it did over the last several weeks. The drift has held for about nine days.",
-            effort: "About two hours. Subject to isolation and permit.",
-            evidence: "Compare compressor power against pressure and run hours for a quiet baseline period.",
-          },
-          {
-            id: "micro-stop-clamp",
-            badge: "Micro-stop",
-            title: "Check fixture clamping on the repeating micro-stop",
-            description:
-              "Eight short stops in 35 minutes on the same machine. Setter checks clamping in the next 10 minutes.",
-            impactRange: "Minutes recovered",
-            assignee: "Setter on this shift",
-            what: "Check fixture and clamping on the machine showing the repeated micro-stop cluster. Complete within 10 minutes of assignment.",
-            why: "Identical short stops are clustering on one machine, which usually points to a fixture or clamp issue rather than a random process glitch.",
-            effort: "Setter walk-down. No capital spend.",
-            evidence: "Compare stop count and lost minutes before and after the clamp check against the same shift pattern.",
-          },
-          {
-            id: "weekly-watchlist",
-            badge: "Weekly watchlist",
-            title: "Inspect the machine losing the most minutes this week",
-            description:
-              "Ranked by lost minutes, not alarm count. One bounded inspect with an owner before the week closes.",
-            impactRange: "Downtime risk cut",
-            assignee: "Maintenance lead / utilities",
-            what: "Inspect the top machine on this week's watchlist with a bounded check from plant TPM text. Assign an owner and report back when complete.",
-            why: "Micro-stops and lengthening downtime are compounding on one asset while the fleet average stays flat.",
-            effort: "Bounded inspect. Subject to isolation and permit.",
-            evidence: "Compare lost minutes and stop duration on the asset against its own baseline from the prior week.",
-          },
-        ],
-      },
-      primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
-      secondaryCta: { label: "See the Platform", href: "/platform" } satisfies CtaLink,
-    },
-  } satisfies Record<SolutionPillarSlug, SolutionPillarPage>,
+    ] satisfies SolutionExampleCard[],
+  },
+
+  examplesLabel: "Example actions",
+  examplesNote: "Numbers in [brackets] are placeholders. Your pilot writes these from your own plant data.",
+  primaryCta: PRIMARY_CTA,
+  secondaryCta: HOW_CTA,
 };
 
-export function getSolutionPillar(slug: SolutionPillarSlug): SolutionPillarPage {
-  return solutionsContent.pillars[slug];
+export function getSolutionArea(slug: SolutionAreaSlug): SolutionArea {
+  const area = solutionsContent.areas.find((item) => item.slug === slug);
+  if (!area) {
+    throw new Error(`Unknown solution area: ${slug}`);
+  }
+  return area;
 }

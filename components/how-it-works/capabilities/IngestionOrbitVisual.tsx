@@ -13,9 +13,9 @@ const LINE_GAP = 2;
 
 const INGESTION_SOURCES = [
   { id: "meters", label: "Meters" },
-  { id: "scada", label: "SCADA" },
-  { id: "bills", label: "DISCOM bills" },
-  { id: "tariff", label: "Tariff" },
+  { id: "scada", label: "Machines" },
+  { id: "bills", label: "Quality" },
+  { id: "tariff", label: "Lots" },
   { id: "erp", label: "ERP" },
   { id: "ops", label: "Operators" },
 ];
@@ -310,7 +310,7 @@ export function IngestionOrbitVisual() {
             Stamped
           </span>
           <span className={cn("text-on-surface-variant", compact ? "text-[6px]" : "text-[7px] md:text-[8px]")}>
-            Read-only
+            One view
           </span>
         </div>
 

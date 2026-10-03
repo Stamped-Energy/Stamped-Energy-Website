@@ -1,9 +1,11 @@
 type JsonLdProps = {
-  data: object | object[];
+  data: object | (object | null)[];
 };
 
 export function JsonLd({ data }: JsonLdProps) {
-  const payload = Array.isArray(data) ? data : [data];
+  const payload = (Array.isArray(data) ? data : [data]).filter(
+    (item): item is object => item !== null,
+  );
 
   return (
     <>

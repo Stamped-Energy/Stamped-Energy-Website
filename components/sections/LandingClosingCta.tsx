@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
-import { landingContent } from "@/lib/content";
+import { landingContent, siteConfig } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
 export function LandingClosingCta() {
@@ -30,13 +30,25 @@ export function LandingClosingCta() {
                 {closingCta.primaryCta.label}
                 <span aria-hidden>»</span>
               </Link>
-              <Link
-                href={closingCta.secondaryCta.href}
-                className="inline-flex h-12 items-center justify-center rounded-md border border-on-secondary/30 px-7 text-sm font-semibold text-on-secondary transition-colors hover:border-on-secondary/55 hover:bg-on-secondary/5"
-              >
-                {closingCta.secondaryCta.label}
-              </Link>
+              {siteConfig.whatsappUrl ? (
+                <a
+                  href={siteConfig.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-12 items-center justify-center rounded-md border border-on-secondary/30 px-7 text-sm font-semibold text-on-secondary transition-colors hover:border-on-secondary/55 hover:bg-on-secondary/5"
+                >
+                  {closingCta.whatsappLabel}
+                </a>
+              ) : (
+                <Link
+                  href={closingCta.secondaryCta.href}
+                  className="inline-flex h-12 items-center justify-center rounded-md border border-on-secondary/30 px-7 text-sm font-semibold text-on-secondary transition-colors hover:border-on-secondary/55 hover:bg-on-secondary/5"
+                >
+                  {closingCta.secondaryCta.label}
+                </Link>
+              )}
             </div>
+            <p className="mt-6 text-sm text-on-secondary/60">{closingCta.smallLine}</p>
           </div>
         </Reveal>
       </Container>

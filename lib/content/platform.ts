@@ -1,237 +1,184 @@
+import { ENGAGEMENT_STEPS } from "./engagement";
 import type {
   CtaLink,
   HiwCapability,
   HiwDeploymentPhase,
-  HiwJourneyStep,
   PlatformProseSection,
 } from "./types";
 
+/** /platform ("How it works") copy. Canon: Stamped copy v3 (3 Oct 2026), sections 3 and 4. */
+
 export const platformContent = {
   hero: {
-    eyebrow: "Platform",
-    title: "The intelligence layer on the stack you already run",
+    eyebrow: "How it works",
+    title: "From plant data to operator actions.",
     description:
-      "Turns live plant, bill, and operator context into rupee-scored prescriptions for the floor, with evidence on the action. Read-only. No hardware retrofit.",
-    supportLine: "First prescriptions in weeks, from meters and bills already on site.",
-    primaryCta: { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink,
-    secondaryCta: { label: "View solutions", href: "/solutions" } satisfies CtaLink,
+      "Stamped uses machine learning and AI on the data your plant already records to find where efficiency is lost across process, quality, planning and maintenance, and improves it with actions your team can take.",
+    primaryCta: { label: "Book a site survey", href: "/contact" } satisfies CtaLink,
+    secondaryCta: { label: "What we improve", href: "/solutions" } satisfies CtaLink,
+  },
+
+  /** Approved long outcomes-and-how text (Vinayak, 3 Oct 2026). Word for word. */
+  whatWeDo: {
+    eyebrow: "What we do",
+    title: "What Stamped achieves, and how.",
+    paragraphs: [
+      "Stamped helps manufacturing plants run more efficiently, which in practice means fewer rejections, more output from the lines and shifts you already have, and less energy and material going into every good part. We measure all of it against your own plant's baseline, in the units your team already tracks, so nobody has to take our word for it.",
+      "Most plants already record far more than they use. The machines, the control systems, the meters, the ERP and the quality registers each hold a piece of the picture, but they sit in separate places and rarely get looked at together. Stamped brings that data into one view and uses machine learning and AI to understand how your plant actually runs, where efficiency is quietly being lost, and what tends to change in the hours before a loss shows up.",
+      "That understanding is only useful if someone acts on it, so Stamped turns it into specific actions and sends each one to the person who can do something about it. It might be a setting that has drifted over a few weeks, a batch that looks a lot like the ones that were rejected last month, or a plan that needs to change because a machine went down mid-shift. Each comes with what to do, by when, and the reasoning behind it.",
+      "Stamped recommends and your team decides. Once a change is made, we check whether it actually worked and feed that back into the next recommendation, and if a gain starts slipping a month later, it shows up in the numbers and goes back to the person who owns it.",
+    ],
+  },
+
+  /** How it works (copy v3 section 4) with the Plant data → Models → Actions → Results diagram. */
+  flow: {
+    eyebrow: "The loop",
+    paragraphs: [
+      "Stamped connects to the systems your plant already runs, so there is nothing new to install before we start. Its machine learning and AI models learn what normal operation looks like in your plant and which conditions tend to come before a rejection, a stoppage or wasted energy.",
+      "When something is worth acting on, Stamped sends it to the person best placed to act, ranked by what it is costing you and explained well enough that they can judge it for themselves. Once your team has made a change, Stamped checks the result against your own baseline and uses what it learns to make the next recommendation better.",
+    ],
+    controlLine: "Stamped recommends and your team decides.",
   },
 
   surfaces: {
     eyebrow: "Your working view",
-    title: "One plant picture. Ranked next actions. Operators in control.",
+    title: "You get one picture of the plant and a ranked list of next actions, and your team decides what to act on.",
     description:
-      "See what is happening, decide what matters, and move the right action to the floor.",
+      "What changed, what matters and who should act sit side by side, so the right action reaches the floor.",
     items: [
       {
         id: "plant-graph",
-        title: "Plant graph",
+        title: "One picture of the plant",
         description:
-          "Consumption, assets, production context, tariffs, and operator inputs on one live view. Follow a demand peak back to the loads and shifts that caused it.",
+          "Machines, lots, shifts, plans and meters sit on one view, so you can follow a rejection or a stoppage back to the conditions and the shift that came before it.",
       },
       {
         id: "alarms-prescriptions",
-        title: "Alarms and prescriptions",
+        title: "Alarms and actions",
         description:
-          "Alarms show what changed. Prescriptions add what to do, who owns it, and rupee impact. Ranked, assigned on WhatsApp, with evidence on the dashboard.",
+          "Alarms show what changed. Actions add what to do, who owns it, and why, and they reach the floor on WhatsApp or on screen.",
       },
       {
         id: "agents",
-        title: "Agents",
+        title: "Your team's answer",
         description:
-          "When load, tariff, maintenance, and production conflict, agents assemble a feasible prescription. Operators accept, reject, or adjust. Chat is evidence-bound. No PLC writes.",
+          "Your team can accept a recommendation, adjust it or turn it down, and Stamped learns from each answer.",
       },
     ],
   } satisfies PlatformProseSection,
 
   models: {
-    eyebrow: "Plant and economic models",
+    eyebrow: "Models",
     title: "Models built around the way your plant runs",
     description:
-      "These models use your plant baselines and DISCOM structure to rupee-score each move. Weather, humidity, and product specifications are operating constraints inside the move, not separate products.",
+      "Stamped's machine learning and AI models are trained on your own plant's history, so normal means normal for your machines, products and shifts, and energy is counted inside each of them.",
     items: [
       {
-        id: "energy-markets",
-        title: "Energy markets",
+        id: "process",
+        title: "Process and control",
         description:
-          "Analyzes live HT tariffs, ToD windows, billing-demand floors, coincidence peaks, and kWh or kVAh billing where they apply. It identifies load flexibility before the tariff window closes or a higher MD is set.",
+          "Learns what your best runs looked like, which settings have drifted and how restarts differ between shifts, and recommends a specific change to the process engineer.",
       },
       {
-        id: "efficiency",
-        title: "Efficiency",
+        id: "quality",
+        title: "Quality and lot checks",
         description:
-          "Continuously identifies idle load, specific energy drift, utility waste, and equipment running outside the plant’s normal operating envelope. It separates avoidable energy from the load required to meet production.",
+          "Links process data to each lot and batch, learns which conditions came before past rejections, and flags batches made under similar conditions while they are still in the plant.",
       },
       {
-        id: "equipment",
-        title: "Equipment",
+        id: "planning",
+        title: "Planning and scheduling",
         description:
-          "Detects changes in power draw, duty cycle, starts, trips, and operating patterns. It relates each deviation to energy cost, equipment condition, and process risk before ranking the next check or intervention.",
+          "When a die change runs long or a furnace trips, proposes the next sequence and shows what each option would do to output, energy and delivery.",
       },
       {
-        id: "production-context",
-        title: "Production context",
+        id: "maintenance",
+        title: "Maintenance",
         description:
-          "Analyzes shift, batch, holding, utility timing, and dispatch commitments before recommending an energy move. Product specifications, storage limits, and production deadlines can block one option and force a feasible alternative.",
+          "Ranks stops by the output and time they cost and picks up the slow drift that usually comes before a failure, and says plainly when a machine has no sensor that would show the problem.",
       },
     ],
   } satisfies PlatformProseSection,
 
   capabilities: {
-    eyebrow: "Core capabilities",
-    title: "A technical stack built for live plant decisions",
+    eyebrow: "Under the hood",
+    title: "What happens to your data before an action reaches the floor",
     description:
-      "Stamped connects read-only to the systems and data you already have. It runs without a hardware retrofit and leaves plant control with your team.",
+      "Stamped connects to the systems already in your plant, and there is nothing new to install to start.",
     items: [
       {
         id: "ingestion",
-        title: "Connect and normalise",
+        title: "Connect and clean up",
         description:
-          "Ingest meter streams, SCADA tags, bills, tariff schedules, ERP context, and operator inputs. Standardise timestamps, units, tag names, intervals, and data quality before analysis begins.",
+          "Stamped reads from your machines and control systems, meters, ERP plans, quality registers and what operators enter, then lines up the clocks, units and names, because each system usually records them differently.",
         mediaSrc: null,
-        mediaAlt: "Data streams from plant systems flowing into Stamped",
+        mediaAlt: "Data from plant systems flowing into Stamped",
       },
       {
         id: "repository",
-        title: "Context and time alignment",
+        title: "One timeline for the plant",
         description:
-          "Link assets, feeders, utilities, shifts, batches, tariffs, and operating states on a common timeline. Preserve the relationships between what changed, where it changed, and what else was running at that moment.",
+          "Machines, lots, shifts and batches go onto one timeline, so when a lot is rejected you can see what that press, that furnace and that shift were doing at the moment it was made.",
         mediaSrc: null,
-        mediaAlt: "Time-aligned plant context connecting sources and loads",
+        mediaAlt: "Time-aligned plant context connecting sources",
       },
       {
         id: "intelligence",
-        title: "Decision intelligence",
+        title: "Find the losses and rank them",
         description:
-          "Build plant-specific baselines, detect deviations, test operating scenarios, and apply tariff and process constraints. Estimate economic impact, reject infeasible moves, and rupee-score the options that remain.",
+          "Stamped learns what normal looks like for your plant, notices when a line moves away from it, checks each possible fix against the day's plan, and puts the remaining options in order of what they are costing you.",
         mediaSrc: null,
-        mediaAlt: "Plant-tuned models scoring feasible operating moves",
+        mediaAlt: "Plant-tuned models ranking feasible actions",
       },
       {
         id: "governance",
-        title: "Assign, verify, improve",
+        title: "Send, follow up and check",
         description:
-          "Route an accepted action to its owner and track its status through closure. Compare expected and observed outcomes, attach supporting evidence, and retain every acceptance, rejection, adjustment, and result in the audit trail.",
+          "Each action goes to its owner and stays open until it is closed, and the result is compared with your own baseline, with every acceptance, change and result kept on record.",
         mediaSrc: null,
-        mediaAlt: "Closed-loop action tracking and outcome verification",
+        mediaAlt: "Action tracking and result checks",
       },
     ] satisfies HiwCapability[],
   },
 
-  journey: {
-    eyebrow: "The operating loop",
-    title: "Connect to Improve",
-    description: "The same operating loop runs each time plant conditions change.",
-    steps: [
-      {
-        id: "connect",
-        step: 1,
-        title: "Connect",
-        tagline: "",
-        description:
-          "Bring live plant signals, bills, tariffs, and operating context into one read-only layer.",
-        bullets: [],
-        diagram: "connect",
-      },
-      {
-        id: "observe",
-        step: 2,
-        title: "Observe",
-        tagline: "",
-        description:
-          "Track demand, energy use, equipment behaviour, and production state against the plant baseline.",
-        bullets: [],
-        diagram: "observe",
-      },
-      {
-        id: "decide",
-        step: 3,
-        title: "Decide",
-        tagline: "",
-        description:
-          "Rupee-rank feasible moves by economic impact, effort, and operating risk.",
-        bullets: [],
-        diagram: "decide",
-      },
-      {
-        id: "execute",
-        step: 4,
-        title: "Execute",
-        tagline: "",
-        description: "Assign the accepted action to the person who can carry it out.",
-        bullets: [],
-        diagram: "execute",
-      },
-      {
-        id: "verify",
-        step: 5,
-        title: "Verify",
-        description:
-          "Compare expected vs observed outcomes in an ops-cleared ledger.",
-        tagline: "",
-        bullets: [],
-        diagram: "verify",
-      },
-      {
-        id: "improve",
-        step: 6,
-        title: "Improve",
-        tagline: "",
-        description:
-          "Calibrate baselines and ranking from decisions taken and outcomes verified. Human-gated.",
-        bullets: [],
-        diagram: "improve",
-      },
-    ] satisfies HiwJourneyStep[],
-  },
-
   beforeAfter: {
-    eyebrow: "The shift",
-    title: "Keep what runs the plant. Add what closes the action.",
+    eyebrow: "What changes",
+    title: "Keep what runs the plant, and add what turns its data into action.",
     description:
-      "Stamped works with the data, systems, and operating knowledge already present at the site.",
+      "Stamped works alongside the data, systems and operating knowledge already in your plant.",
     before: {
       title: "What you already have",
       items: [
-        "Incomer meters and sub-meter data",
-        "SCADA tags and historian records",
-        "ERP plans, shifts, batches, and dispatch context",
-        "DISCOM bills, tariffs, and demand rules",
-        "SOPs and people who understand the plant",
+        "Machines and control systems that record how each run went",
+        "Meters that show where energy goes",
+        "ERP plans, shifts, batches and dispatch commitments",
+        "Quality registers, lot records and inspection results",
+        "SOPs and people who know the plant",
       ],
     },
     after: {
       title: "What Stamped adds",
       items: [
-        "One time-aligned view of plant and economic context",
-        "Plant-specific baselines for load, efficiency, and equipment",
-        "Feasible actions ranked by expected rupee impact",
-        "Clear owners, effort, timing, and supporting evidence",
-        "A tracked record from prescription to verified outcome",
+        "One view that brings that data together on a common timeline",
+        "Baselines built from your own plant's history",
+        "Actions ranked by what each loss is costing you",
+        "A named owner and the reasoning behind every action",
+        "A check against your own baseline once a change is made",
       ],
     },
   },
 
   deployment: {
-    eyebrow: "Time to first action",
-    title: "First prescriptions in weeks",
-    description: "Start with one site, using the meters and bills already available.",
-    phases: [
-      {
-        id: "week-1-2",
-        week: "Week 1-2",
-        title: "Meter and bill live",
-        description:
-          "Connect the incomer, available sub-meters, and current DISCOM bills. Reconcile timestamps, units, tariffs, and billing demand. Establish the first live plant baseline.",
-      },
-      {
-        id: "week-3-4",
-        week: "Week 3-4",
-        title: "First assigned actions",
-        description:
-          "Run the models against live operating conditions. Issue the first rupee-scored prescriptions with an owner, effort, timing, expected ₹ impact, and evidence. Plant teams accept, reject, or adjust each action before execution.",
-      },
-    ] satisfies HiwDeploymentPhase[],
+    eyebrow: "How we start",
+    title: "Start with one line, and decide on the annual price after the pilot.",
+    description:
+      "We start with a site survey, which is a few days on your floor followed by a written read-out of where you're losing efficiency and what we would do first. You only commit to the next step once you have seen it.",
+    phases: ENGAGEMENT_STEPS.map((step) => ({
+      id: step.id,
+      week: step.label,
+      title: step.title,
+      description: step.description,
+    })) satisfies HiwDeploymentPhase[],
   },
 } as const;
 

@@ -1,259 +1,175 @@
-import type { CtaLink, StatItem, VerticalPageContent } from "../types";
+import type { VerticalPageContent } from "../types";
+import {
+  AREAS_EYEBROW,
+  EARLY_INDUSTRY_NOTE,
+  EXAMPLE_FOOTNOTE,
+  HOW_CTA,
+  STANDARD_DESCRIPTION,
+  SURVEY_CTA,
+  homeFaq,
+  sharedOutcomes,
+} from "./shared";
 
-const CTA = { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink;
-const HOW = { label: "Platform", href: "/platform" } satisfies CtaLink;
+/** Pharma. Copy canon: Stamped copy v3 (3 Oct 2026), revision 2. Qualitative only; QA decides; no claims of past pharma work. */
 
 export const pharmaPage: VerticalPageContent = {
   slug: "pharma",
   hero: {
-    eyebrow: "Pharmaceutical",
-    title: "Rupee-scored prescriptions for pharmaceutical plants",
+    eyebrow: "Pharma",
+    title: "More batches right the first time.",
     description:
-      "HVAC, chillers, and compressed air already have meters and BMS. Stamped is the intelligence layer on that stack: live data, assigned next actions, evidence on the bill. Read-only. No hardware retrofit.",
-    primaryCta: CTA,
-    secondaryCta: HOW,
-    seoHeadings: [
-      "How much electricity do pharmaceutical plants use for HVAC?",
-      "How can pharma plants reduce chiller energy consumption?",
-      "Is Stamped safe for GMP-regulated pharmaceutical facilities?",
-    ],
+      "In a pharmaceutical plant the costly losses are a batch that fails release, a deviation that ties up QA for days, and utilities that run as hard on an idle day as on a full one.",
+    primaryCta: SURVEY_CTA,
+    secondaryCta: HOW_CTA,
+    note: EARLY_INDUSTRY_NOTE,
   },
-  economics: {
-    eyebrow: "Energy challenges",
-    title: "Energy challenges in pharmaceutical manufacturing",
-    description:
-      "Pharma facilities rely heavily on utility-driven support systems to maintain strict indoor air quality conditions, where continuous control requirements drive sustained energy consumption and operational rigidity.",
-    stats: [
+  improvementAreas: {
+    eyebrow: AREAS_EYEBROW,
+    title: "Four places a pharma plant loses efficiency.",
+    description: STANDARD_DESCRIPTION,
+    items: [
       {
-        id: "hvac-share",
-        value: "55-65%",
-        label: "Plant energy consumed by utilities",
-        detail: "HVAC, steam, chilled water, and CA dominate",
-      },
-      {
-        id: "ee-potential",
-        value: "40-50%",
-        label: "Energy driven by HVAC and clean-room systems",
-        detail: "BEE MSME pharma cluster mapping",
-      },
-      {
-        id: "focus-loads",
-        value: "20-30%",
-        label: "Seasonal energy demand shifts for IAQ",
-        detail: "Climate and production mix drive variability",
-      },
-    ] satisfies StatItem[],
-  },
-  wasteTable: {
-    eyebrow: "Actionable energy intelligence",
-    title: "Where energy value sits across processes and utilities",
-    description:
-      "The platform identifies and prescribes actions on where energy value typically sits across processes and utilities. Low-risk operational levers first - setpoints, schedules, stagin",
-    areas: [
-      {
-        id: "chillers-ahu",
-        step: "01",
-        title: "Chillers & AHUs",
+        area: "process",
+        title: "Run every batch like your best one.",
         description:
-          "Over-cooling and fixed setpoints vs occupancy - schedule and setpoint band prescriptions.",
-        potentialLabel: "Est. monthly savings",
-        potentialValue: "₹2-8L",
+          "Granulation end points, drying times, compression force and coating conditions vary between batches, shifts and equipment trains, even inside the validated ranges, and the operators who run the steadiest batches rarely write down why. Stamped learns what your best batches looked like and points out where a running batch is moving away from them, for your production and process teams to decide on.",
+        energy: "Over-drying and long granulation cycles use energy and time without adding anything to the batch.",
       },
       {
-        id: "chiller-staging",
-        step: "02",
-        title: "Chiller staging & MD",
-        description: "All chiller units start together at shift change → MD spike. Stagger and load-balance.",
-        potentialLabel: "Est. MD savings",
-        potentialValue: "₹3-10L",
-      },
-      {
-        id: "compressed-air",
-        step: "03",
-        title: "Compressed air",
-        description: 'Overpressure for "safety margin" - pressure band and leak-tag prescriptions.',
-        potentialLabel: "Est. monthly savings",
-        potentialValue: "₹1-3L",
-      },
-      {
-        id: "pumps-cw",
-        step: "04",
-        title: "Pumps & chilled water loops",
-        description: "Constant flow when batch load varies - duty cycle and VFD opportunities.",
-        potentialLabel: "Est. monthly savings",
-        potentialValue: "₹1.5-4L",
-      },
-      {
-        id: "clean-room-idle",
-        step: "05",
-        title: "Clean room idle HVAC",
+        area: "quality",
+        title: "See a deviation coming before it becomes an investigation.",
         description:
-          "Full HVAC during non-production windows - qualified setback prescriptions with GMP documentation note.",
-        potentialLabel: "Est. monthly savings",
-        potentialValue: "₹2-6L",
+          "When an OOS result or a deviation comes in, most of the time goes into pulling together the batch record, equipment data, environmental readings and related lots. Stamped links that data to each batch as it is made, flags batches made under conditions that came before past deviations, and puts the full record in one place for the investigation and for QA's release decision.",
+        energy: "A batch that is reworked or rejected has already used all the utilities of a good one.",
       },
       {
-        id: "captive-re",
-        step: "06",
-        title: "Captive RE / open access",
+        area: "planning",
+        title: "Keep the campaign on plan when a step slips.",
         description:
-          "Banking leakage and peak grid draw - RE utilization prescriptions for plants with solar.",
-        potentialLabel: "Est. monthly savings",
-        potentialValue: "₹2-5L",
+          "A cleaning that runs long, a granulator down for maintenance or material held at QC ripples through the week's campaign. Stamped proposes the next sequence across rooms and equipment and shows what each option does to batch output, changeovers and dispatch.",
+        energy: "Grouping products to cut changeovers also cuts the cleaning and HVAC hours that come with them.",
+      },
+      {
+        area: "maintenance",
+        title: "Fix what stops the line before it triggers a deviation.",
+        description:
+          "Stamped ranks equipment stops by the batch time they cost and watches utilities for slow drift, such as an air handler drawing more power for the same airflow, a chiller losing efficiency, or a room pressure differential that keeps getting close to its limit, so engineering can act before it turns into an excursion.",
+        energy: "Air handlers and chillers are usually the largest energy users on a pharma site.",
       },
     ],
   },
   plantBand: {
     eyebrow: "In this plant",
-    title: "Where the pharma bill actually moves",
+    title: "Production suites, cleanrooms and HVAC, QC and release, and utilities.",
     description:
-      "HVAC and cleanroom, plant utilities, compressed air, and chilled-water loops. Same systems you run.",
+      "A pharma plant already keeps careful records for GMP, but the batch record, the building management system, the equipment logs and the lab results usually sit in separate places.",
     items: [
       {
-        id: "hvac-cleanroom",
-        title: "HVAC and cleanroom",
+        id: "production",
+        title: "Granulation, drying, compression and coating",
         description:
-          "Classified air does not pause between batches. Stamped ranks AHU run-hours against the production calendar. Schedule moves stay in the utilities layer, not room reclassification.",
-        imageSrc: "/industries/plant/pharma/cleanroom.jpg",
-        imageAlt: "Operators in a pharmaceutical cleanroom on the utilities-adjacent production floor",
-      },
-      {
-        id: "chillers-ahu",
-        title: "Chillers and plant utilities",
-        description:
-          "Chiller banks that start together at shift change set MD. Staging is assigned against actual cooling load, not a safety-margin habit.",
-        imageSrc: "/industries/plant/pharma/hvac-roof.jpg",
-        imageAlt: "Outdoor chiller and condenser bank serving plant HVAC",
-      },
-      {
-        id: "compressed-air",
-        title: "Compressed air",
-        description:
-          "Header pressure held above process need is a quiet kWh leak. Pressure-band and leak-tag moves get a rupee-scored owner.",
+          "In oral solid dose and API production the questions are about end points, cycle times and in-process results, and Stamped compares each batch with the best batches of the same product so the production manager can see which step drifted.",
         imageSrc: "/industries/plant/pharma/factory-machinery.jpg",
-        imageAlt: "Plant utility hall with motors, piping, and compressed-air side equipment",
+        imageAlt: "Pharmaceutical production equipment on a plant floor",
       },
       {
-        id: "pumps-cw",
-        title: "Pumps and chilled-water loops",
+        id: "cleanrooms",
+        title: "Cleanrooms and HVAC",
         description:
-          "Constant flow when batch load drops is a quiet kWh leak. Duty-cycle and VFD moves get a rupee-scored owner on the utilities layer.",
-        imageSrc: "/industries/plant/pharma/ahu-units.jpg",
-        imageAlt: "Rooftop air-handling and exhaust units on a plant utilities deck",
+          "Room pressures, temperature, humidity and air changes have to stay inside their limits, and Stamped watches how close each room runs to them and how hard the air handlers work to keep it there, on production days and idle days alike.",
+        imageSrc: "/industries/plant/pharma/cleanroom.jpg",
+        imageAlt: "Operators in a pharmaceutical cleanroom",
+      },
+      {
+        id: "qc",
+        title: "QC and batch release",
+        description:
+          "Every release depends on the record being complete and every deviation being closed, so Stamped gathers the process, equipment and environmental data for each batch in one place before QA needs it.",
+        imageSrc: "/industries/plant/pharma/qc.jpg",
+        imageAlt: "Quality control laboratory in a pharmaceutical plant",
+      },
+      {
+        id: "pharma-utilities",
+        title: "Chillers, purified water and compressed air",
+        description:
+          "Utilities keep running whether or not a batch is in the room, and Stamped points out where chillers, pumps and compressors can follow the production calendar and where their performance is drifting.",
+        imageSrc: "/industries/plant/pharma/chillers.jpg",
+        imageAlt: "Chiller plant serving a pharmaceutical site",
       },
     ],
   },
   prescriptionExamples: {
-    eyebrow: "Example prescriptions",
-    title: "What supervisors receive",
+    eyebrow: "Example actions",
+    title: "What the people who own the problem receive",
     description:
-      "Illustrative actions from comparable formulation plants. Change-control-friendly utility tweaks first. Your pilot writes these from your meters and bill.",
-    footnote:
-      "Impact ranges are benchmark estimates from comparable plants, not customer guarantees. Verified figures come from your plant with evidence. Quality validates schedule changes before execution.",
-    attribution: {
-      text: "Large pharma renewable-energy governance cases report significant annual leakage prevented at enterprise scale. Stamped targets MSME and mid-market formulation plants.",
-      source: "Published industry case literature",
-    },
+      "Each action goes to the person best placed to act, with what to do, by when, and the reasoning behind it. Anything that touches a validated parameter goes through your change control.",
+    footnote: EXAMPLE_FOOTNOTE,
     items: [
       {
-        id: "chiller-staging",
-        title: "Stagger chiller bank startup at morning production ramp",
+        id: "fbd-drying",
+        area: "Process",
+        title: "Drying, for the production manager",
         description:
-          "Three chillers started simultaneously at 06:00 - incomer MD hit 980 kVA with only 60% AHU load required.",
-        impactRange: "₹3-10L/month",
-        assignee: "Utilities / engineering head",
+          "Drying on FBD [2] has run about [N] minutes longer than the best batches of this product, with inlet air humidity the main difference, so the moisture end point is worth checking before the next batch.",
+        impactRange: "Example",
       },
       {
-        id: "ahu-schedule",
-        title: "Align AHU run-hours with batch production calendar",
+        id: "compression",
+        area: "Quality",
+        title: "Compression, for QA",
         description:
-          "AHUs at full flow 4 hours before first batch start. Schedule adjustment - no setpoint change in classified zones.",
-        impactRange: "₹2-6L/month",
-        assignee: "Production planner / utilities",
+          "Batch [N] was compressed while hardness drifted toward the upper limit for [N] minutes, similar to the batches behind last quarter's dissolution deviations, so it is worth an extra review before release.",
+        impactRange: "Example",
       },
       {
-        id: "ca-pressure",
-        title: "Reduce compressed air header pressure band",
+        id: "investigation",
+        area: "Quality",
+        title: "Investigation, for the QA lead",
         description:
-          "Header at 8.2 bar for a 7.5 bar process requirement. About 9% energy reduction on the compressed-air system.",
-        impactRange: "₹1-3L/month",
-        assignee: "Maintenance / utilities",
+          "Here is every equipment, environmental and process record for batch [N], gathered in one place for the deviation opened this morning.",
+        impactRange: "Example",
+      },
+      {
+        id: "campaign",
+        area: "Planning",
+        title: "Planning, for the planner",
+        description:
+          "Granulator [1] will be down for about [N] hours, and the proposed sequence moves [product] forward so [N] of this week's [N] batches still finish on time.",
+        impactRange: "Example",
+      },
+      {
+        id: "pressure-diff",
+        area: "Maintenance",
+        title: "HVAC, for engineering",
+        description:
+          "Room [N]'s pressure differential has come close to its alarm limit on [N] days this month, each time after the air handler filter passed [N] hours, so a filter change before the next campaign is worth scheduling.",
+        impactRange: "Example",
+      },
+      {
+        id: "ahu-idle",
+        area: "Energy",
+        title: "Utilities, for the utilities head",
+        description:
+          "Air handlers serving rooms [N] to [N] ran at full flow through [N] idle hours last week, so an idle mode within what your validation allows is worth raising with QA.",
+        impactRange: "Example",
       },
     ],
   },
-  integration: {
-    eyebrow: "Integration",
-    title: "Utilities layer - no GMP system replacement",
-    items: [
-      {
-        id: "path-a",
-        title: "Path A: Bill + sub-metering on utilities",
-        description:
-          "Chiller, AHU, and CA kWh from existing meters - MD and schedule prescriptions within two weeks.",
-      },
-      {
-        id: "path-b",
-        title: "Path B: BMS / SCADA historian",
-        description:
-          "Chiller run-hours, AHU states, and production batch logs aligned - staging prescriptions with context.",
-      },
-      {
-        id: "gmp-safe",
-        title: "GMP-safe operational framing",
-        description:
-          "Prescriptions target utility schedules and staging - not clean room reclassification. Quality team validates before execution.",
-      },
-      {
-        id: "re-solar",
-        title: "Solar and open-access plants",
-        description:
-          "RE banking and peak grid draw prescriptions for plants with captive solar or open access.",
-      },
-    ],
-  },
-  outcomes: {
-    eyebrow: "What you gain",
-    title: "The floor knows what to do. Leadership sees the evidence.",
-    disclaimer: "Indicative language from comparable plants. Your pilot replaces it with plant figures.",
-    items: [
-      {
-        id: "hvac-rupees",
-        title: "Assigned energy moves",
-        description:
-          "Ranked prescriptions on chiller staging, AHU run-hours, and CA pressure bands, without touching classified setpoints.",
-      },
-      {
-        id: "md-chiller",
-        title: "Stable SEC in the operating band",
-        description:
-          "Utility kWh vs this plant's batch calendar and shift baseline, not a generic dashboard threshold.",
-      },
-      {
-        id: "schedule",
-        title: "Earlier equipment intervention",
-        description:
-          "Chiller and AHU power-draw drift tied to rupee and uptime risk. Not a vibration PdM claim.",
-      },
-    ],
-  },
+  outcomes: sharedOutcomes(),
   faq: [
     {
-      id: "hvac-share",
-      question: "How much electricity do pharmaceutical plants use for HVAC?",
+      id: "pharma-experience",
+      question: "Has Stamped worked with pharma plants?",
       answer:
-        "In formulation plants, HVAC and related utilities typically dominate the electrical bill because classified air runs continuously. BEE cluster studies are context. Your pilot replaces indicative shares with plant figures.",
+        "Our first deployments are with auto-component makers. In pharma we start the same way, with a site survey on your floor and a written read-out of where we would begin, and we work within your quality system and change control.",
     },
     {
-      id: "gmp-safe",
-      question: "How can pharma plants reduce chiller energy consumption?",
+      id: "pharma-gmp",
+      question: "Does Stamped make release or GMP decisions?",
       answer:
-        "Staging at production ramp and matching capacity to actual cooling load are the usual rupee-scored moves. Stamped assigns those on the utilities layer. Quality validates any schedule change before execution.",
+        "No. Release and disposition stay with your QA team, and Stamped gathers the records and flags what looks unusual so they can decide faster. Stamped recommends and your team decides.",
     },
-    {
-      id: "api-vs-formulation",
-      question: "Is Stamped safe for GMP-regulated pharmaceutical facilities?",
-      answer:
-        "Stamped is read-only on meters and BMS. Prescriptions target chiller staging, AHU schedules, and compressed-air bands, not cleanroom reclassification. Your quality team remains the gate.",
-    },
+    homeFaq("hardware"),
+    homeFaq("start"),
   ],
 };

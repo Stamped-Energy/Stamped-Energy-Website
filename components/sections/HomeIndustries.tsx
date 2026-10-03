@@ -22,12 +22,12 @@ export function HomeIndustries() {
           </p>
         </Reveal>
 
-        <ul className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 md:mt-12 md:grid-cols-5 md:gap-3">
+        <ul className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 md:mt-12 md:grid-cols-4 md:gap-3">
           {industries.items.map((item, index) => (
             <li key={item.id}>
               <Reveal delay={index * 0.04}>
                 <Link
-                  href={`/industries/${item.id}`}
+                  href={item.href ?? `/industries/${item.id}`}
                   className="group block outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface-low"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden rounded-md bg-on-surface/8">
@@ -53,12 +53,36 @@ export function HomeIndustries() {
           ))}
         </ul>
 
-        <div className="mt-8">
+        <Reveal>
+          <div className="mt-8 flex flex-col gap-3 border-t border-outline-variant/40 pt-6 md:mt-10 md:flex-row md:items-center md:gap-5">
+            <p className="shrink-0 text-sm font-medium text-on-surface/70">{industries.moreLabel}</p>
+            <ul className="flex flex-wrap gap-2">
+              {industries.more.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="inline-flex h-9 items-center rounded-full border border-on-surface/15 bg-surface px-4 text-sm font-semibold text-on-surface transition-colors hover:border-primary hover:text-primary"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Reveal>
+
+        <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3">
           <Link
             href={industries.cta.href}
             className="inline-flex text-sm font-semibold text-primary transition-opacity hover:opacity-80"
           >
             {industries.cta.label} »
+          </Link>
+          <Link
+            href={industries.allCta.href}
+            className="inline-flex text-sm font-semibold text-on-surface transition-colors hover:text-primary"
+          >
+            {industries.allCta.label} »
           </Link>
         </div>
       </Container>

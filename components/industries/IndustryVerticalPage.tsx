@@ -1,5 +1,7 @@
+import { BeforeYouBook } from "@/components/engagement/BeforeYouBook";
 import { IndustryFaq } from "@/components/industries/vertical/IndustryFaq";
 import { IndustryHero } from "@/components/industries/vertical/IndustryHero";
+import { IndustryImprovementAreas } from "@/components/industries/vertical/IndustryImprovementAreas";
 import { IndustryOutcomes } from "@/components/industries/vertical/IndustryOutcomes";
 import { IndustryPlantZigZag } from "@/components/industries/vertical/IndustryPlantZigZag";
 import { IndustryPrescriptionExamples } from "@/components/industries/vertical/IndustryPrescriptionExamples";
@@ -26,9 +28,11 @@ export function IndustryVerticalPage({ slug }: IndustryVerticalPageProps) {
         </div>
       ) : null}
       <IndustryHero slug={slug} />
+      <IndustryImprovementAreas slug={slug} />
       <IndustryPlantZigZag slug={slug} />
       <IndustryPrescriptionExamples slug={slug} />
       <IndustryOutcomes slug={slug} />
+      <BeforeYouBook />
       <IndustryFaq slug={slug} />
     </>
   );

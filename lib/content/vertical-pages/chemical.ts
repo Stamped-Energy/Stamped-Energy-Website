@@ -1,253 +1,175 @@
-import type { CtaLink, StatItem, VerticalPageContent } from "../types";
+import type { VerticalPageContent } from "../types";
+import {
+  AREAS_EYEBROW,
+  EARLY_INDUSTRY_NOTE,
+  EXAMPLE_FOOTNOTE,
+  HOW_CTA,
+  STANDARD_DESCRIPTION,
+  SURVEY_CTA,
+  homeFaq,
+  sharedOutcomes,
+} from "./shared";
 
-const CTA = { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink;
-const HOW = { label: "Platform", href: "/platform" } satisfies CtaLink;
+/** Chemicals. Copy canon: Stamped copy v3 (3 Oct 2026), revision 2. Qualitative only; no claims of past chemical work. */
 
 export const chemicalPage: VerticalPageContent = {
   slug: "chemical",
   hero: {
-    eyebrow: "Chemical & paint",
-    title: "Rupee-scored prescriptions for chemical and paint plants",
+    eyebrow: "Chemicals",
+    title: "More on-spec batches from the reactors you already have.",
     description:
-      "Batch reactors, steam, and plant air already have meters and logs. Stamped is the intelligence layer on that stack: live data, assigned next actions, evidence on the bill. Read-only. No hardware retrofit.",
-    primaryCta: CTA,
-    secondaryCta: HOW,
-    seoHeadings: [
-      "How can chemical plants reduce batch process energy consumption?",
-      "What causes maximum demand spikes in batch chemical plants?",
-      "Does Stamped work without DCS integration?",
-    ],
+      "In a chemical plant the margin sits in reactor yield, in batch cycle time, and in how many batches come out off-spec and need rework, blending or a downgrade.",
+    primaryCta: SURVEY_CTA,
+    secondaryCta: HOW_CTA,
+    note: EARLY_INDUSTRY_NOTE,
   },
-  economics: {
-    eyebrow: "Energy challenges",
-    title: "Energy challenges in chemical and paint manufacturing",
-    description:
-      "Chemical and paint plants operate energy-critical batch and continuous processes where heat, mixing, and separation dominate consumption, requiring tight control to avoid excess energy use while maintaining safety and product stability.",
-    stats: [
+  improvementAreas: {
+    eyebrow: AREAS_EYEBROW,
+    title: "Four places a chemical plant loses efficiency.",
+    description: STANDARD_DESCRIPTION,
+    items: [
       {
-        id: "batch-idle",
-        value: "10-20%",
-        label: "Share of energy in manufacturing cost",
-        detail: "Batch and continuous process mix",
-      },
-      {
-        id: "md-overlap",
-        value: "20-40%",
-        label: "Plant energy consumed by utilities",
-        detail: "Steam, chillers, compressed air, and ETP",
-      },
-      {
-        id: "pat",
-        value: "50-60%",
-        label: "Thermal energy share complicates energy control",
-        detail: "Reactors, distillation, and drying loads",
-      },
-    ] satisfies StatItem[],
-  },
-  wasteTable: {
-    eyebrow: "Actionable energy intelligence",
-    title: "Where energy value sits across processes and utilities",
-    description:
-      "The platform identifies and prescribes actions on where energy value typically sits across processes and utilities. Reference ranges - your pilot replaces them with verified numbers.",
-    areas: [
-      {
-        id: "reactor-idle",
-        step: "01",
-        title: "Batch reactor idle hold",
+        area: "process",
+        title: "Run every batch like your best one.",
         description:
-          "Soak temperature maintained with no batch scheduled - setback schedule vs production calendar.",
-        potentialLabel: "Est. monthly savings",
-        potentialValue: "₹2-6L",
+          "Two batches of the same product rarely run the same way, because dosing rates, heat-up and cooling times, hold times and end points vary by reactor, raw-material lot and shift. Stamped learns what your best batches looked like phase by phase and recommends the change that brings the next one closer, for your process engineer to accept, adjust or turn down.",
+        energy: "Long heat-ups and holds at temperature use steam and power without adding yield.",
       },
       {
-        id: "batch-md",
-        step: "02",
-        title: "Simultaneous batch heating",
-        description: "Three reactors ramp together at shift start → MD breach. Stagger prescriptions.",
-        potentialLabel: "Est. MD savings",
-        potentialValue: "₹3-10L",
+        area: "quality",
+        title: "Know which batch is heading off-spec while it can still be corrected.",
+        description:
+          "Lab results usually arrive after the batch is finished, when the only options left are rework, blending or a downgrade. Stamped compares each running batch with past batches phase by phase, flags the ones following the path of earlier off-spec batches, and keeps each batch's record ready for the certificate of analysis or a customer complaint.",
+        energy: "Rework repeats the heating, cooling and separation the batch has already had.",
       },
       {
-        id: "steam-thermal",
-        step: "03",
-        title: "Steam & thermal systems",
-        description: "Trap maintenance signals from condensate temperature drift [Path B].",
-        potentialLabel: "Est. monthly savings",
-        potentialValue: "₹1.5-5L",
+        area: "planning",
+        title: "Keep reactors, utilities and dispatch in step.",
+        description:
+          "Reactors wait for raw material, QC release, cleaning or cooling water, and those idle hours rarely show up on a report. Stamped proposes the next sequence across reactors and shows what each option does to output, utility load and dispatch dates.",
+        energy: "Staggering heating starts keeps the boiler and cooling towers in their efficient range.",
       },
       {
-        id: "cooling-between",
-        step: "04",
-        title: "Cooling between batches",
-        description: "Chiller setpoint vs next batch start - avoid full cool when short gap scheduled.",
-        potentialLabel: "Est. monthly savings",
-        potentialValue: "₹1-3L",
-      },
-      {
-        id: "solvent-recovery",
-        step: "05",
-        title: "Solvent recovery units",
-        description: "Run window vs tariff - shift recovery to off-peak when batch schedule allows.",
-        potentialLabel: "Est. monthly savings",
-        potentialValue: "₹1.5-4L",
-      },
-      {
-        id: "paint-oven",
-        step: "06",
-        title: "Paint oven & coating lines",
-        description:           "Cure cycle alignment - avoid partial oven heat between short batch gaps.",
-        potentialLabel: "Est. monthly savings",
-        potentialValue: "₹1.2-3L",
+        area: "maintenance",
+        title: "Fix what costs the most batch time.",
+        description:
+          "Stamped ranks stops and slow phases by the batch time they cost and watches for slow drift, such as a reactor taking longer to cool than it used to, which often points to jacket fouling or a cooling tower falling behind, or an agitator drawing more power for the same batch.",
+        energy: "Fouling shows up as longer heat-ups and cool-downs well before it shows up in a breakdown.",
       },
     ],
   },
   plantBand: {
     eyebrow: "In this plant",
-    title: "Where the chemical bill actually moves",
+    title: "Reactors, separation and drying, utilities and effluent.",
     description:
-      "Batch reactors, plant utilities, compressed air, and effluent. Same processes you run.",
+      "The control system, the batch sheets, the lab and the utility meters each hold part of the story of a batch, and Stamped brings them into one view.",
     items: [
       {
-        id: "reactor-idle",
+        id: "reactors",
         title: "Batch reactors",
         description:
-          "Soak held with no batch on the calendar is a holding bill. Setback is assigned against the next start, not a flat temperature alarm.",
-        imageSrc: "/industries/plant/chemical/waterfront.jpg",
-        imageAlt: "Chemical and petrochemical plant tanks and towers on a waterfront",
+          "In the reactor bay the questions are about yield, phase times and end points, and Stamped lines up every batch of a product phase by phase so the process engineer can see where the slow or off-spec ones parted company with the best.",
+        imageSrc: "/industries/plant/chemical/pipes.jpg",
+        imageAlt: "Process piping and reactor vessels in a chemical plant",
       },
       {
-        id: "steam-thermal",
-        title: "Steam and plant utilities",
+        id: "separation",
+        title: "Separation, drying and solvent recovery",
         description:
-          "Steam, chill, and ETP loads sit on the incomer between batches. Duty-cycle cuts are ranked against the production calendar.",
+          "Distillation, filtration, drying and solvent recovery often set the real cycle time, and Stamped tracks how long each step takes against its best runs and how much steam and power it uses for each batch.",
         imageSrc: "/industries/plant/chemical/refinery.jpg",
-        imageAlt: "Chemical plant towers, piping, and steam on the incomer",
+        imageAlt: "Distillation columns and piping in a chemical plant",
       },
       {
-        id: "batch-md",
-        title: "Compressed air and stagger",
+        id: "chemical-utilities",
+        title: "Steam, cooling water and compressed air",
         description:
-          "Reactors that ramp together at shift start set MD. Sequencing and idle-air cuts get a rupee-scored owner before the billing window closes.",
-        imageSrc: "/industries/plant/chemical/existing.png",
-        imageAlt: "Batch chemical plant maximum demand stagger and compressed air",
-      },
-      {
-        id: "etp",
-        title: "Effluent and ETP",
-        description:
-          "Blowers and pumps that run between batches as if the next charge were already in. Duty-cycle cuts are assigned against the production calendar.",
+          "Boilers, chillers and cooling towers feel every batch that starts heating or cooling at the same time, and Stamped points out the peaks that can be staggered and the equipment whose performance is drifting.",
         imageSrc: "/industries/plant/chemical/complex.jpg",
-        imageAlt: "Process plant on the waterline with silos, conveyors, and utility loads",
+        imageAlt: "Chemical plant utilities, silos and conveyors",
+      },
+      {
+        id: "effluent",
+        title: "Effluent treatment",
+        description:
+          "Effluent load follows what happened in the reactors and the cleaning schedule, and Stamped links the two so the ETP team sees a heavy load coming before it arrives.",
+        imageSrc: "/industries/plant/chemical/waterfront.jpg",
+        imageAlt: "Chemical plant tanks and towers on a waterfront",
       },
     ],
   },
   prescriptionExamples: {
-    eyebrow: "Example prescriptions",
-    title: "What supervisors receive",
+    eyebrow: "Example actions",
+    title: "What the people who own the problem receive",
     description:
-      "Illustrative actions from comparable batch chemical plants. Your pilot writes these from your meters, batch log, and bill.",
-    footnote:
-      "Impact ranges are benchmark estimates from comparable plants, not customer guarantees. Verified figures come from your plant with evidence.",
+      "Each action goes to the person best placed to act, with what to do, by when, and the reasoning behind it.",
+    footnote: EXAMPLE_FOOTNOTE,
     items: [
       {
-        id: "reactor-stagger",
-        title: "Stagger reactor heating start across three batch lines",
+        id: "heat-up",
+        area: "Process",
+        title: "Reactor, for the process engineer",
         description:
-          "Reactors R1, R2, R3 heated simultaneously at 07:00 - incomer MD breached by 195 kVA. Sequence over 25 minutes.",
-        impactRange: "₹3-10L/month",
-        assignee: "Batch supervisor / electrical",
+          "Heat-up on Reactor [R-3] has taken [N] minutes longer than the best batches of this product for the last [N] batches, so a jacket temperature ramp closer to those batches is ready for review.",
+        impactRange: "Example",
       },
       {
-        id: "soak-setback",
-        title: "Setback reactor soak during 4-hour batch gap",
+        id: "off-spec",
+        area: "Quality",
+        title: "Reactor, for the shift chemist",
         description:
-          "Reactor held at 180°C with no batch until 14:00. Setback to 140°C during gap - production calendar confirmed.",
-        impactRange: "₹2-6L/month",
-        assignee: "Process operator",
+          "Batch [N] is following the temperature and dosing path of the last [N] off-spec batches during the addition phase, so an in-process sample now would show whether the dosing rate needs correcting.",
+        impactRange: "Example",
       },
       {
-        id: "off-peak-utility",
-        title: "Shift solvent recovery run to off-peak tariff window",
+        id: "qc-wait",
+        area: "Planning",
+        title: "Planning, for the planner",
         description:
-          "Recovery unit running peak hours when batch schedule allows night-window operation.",
-        impactRange: "₹1.5-4L/month",
-        assignee: "Utilities / production planner",
+          "Reactor [R-2] is waiting on QC release for about [N] hours, and moving the next [product] batch to Reactor [R-4] keeps [N] of this week's [N] dispatches on time.",
+        impactRange: "Example",
+      },
+      {
+        id: "steam-peak",
+        area: "Energy",
+        title: "Utilities, for the utilities in-charge",
+        description:
+          "Steam demand is due to peak at [time] when [N] reactors start heating together, so staggering the starts by [N] minutes would keep the boiler in its efficient range without delaying any batch.",
+        impactRange: "Example",
+      },
+      {
+        id: "fouling",
+        area: "Maintenance",
+        title: "Reactor, for the maintenance lead",
+        description:
+          "Cooling on Reactor [R-1] has crept up by about [N] minutes per batch over [N] weeks on the same recipe, which often points to jacket fouling, so it is worth inspecting at the next cleaning.",
+        impactRange: "Example",
+      },
+      {
+        id: "coa",
+        area: "Quality",
+        title: "Quality, for the quality head",
+        description:
+          "Here is every process and lab record for batch [N], gathered in one place for the customer complaint that came in this morning.",
+        impactRange: "Example",
       },
     ],
   },
-  integration: {
-    eyebrow: "Integration",
-    title: "Batch log + bill first, DCS when available",
-    items: [
-      {
-        id: "path-a",
-        title: "Path A: Batch log CSV + DISCOM bills",
-        description:
-          "Batch windows and incomer MD aligned manually - first prescriptions on idle hold and stagger within two weeks.",
-      },
-      {
-        id: "path-b",
-        title: "Path B: DCS / batch MES historian",
-        description:
-          "Reactor states, steam flow, and production aligned - kWh/batch baselines with anomaly prescriptions.",
-      },
-      {
-        id: "pat-sec",
-        title: "PAT SEC note",
-        description:
-          "Gate-to-gate SEC tracking for PAT-covered chemical subsectors - verified ledger, not audit services.",
-      },
-      {
-        id: "clusters",
-        title: "Built for batch clusters",
-        description:
-          "Specialty chemicals, resins, agrochemical formulation, paint - Vapi, Ankleshwar, Dahej, Cuddalore, Alwar.",
-      },
-    ],
-  },
-  outcomes: {
-    eyebrow: "What you gain",
-    title: "The floor knows what to do. Leadership sees the evidence.",
-    disclaimer: "Indicative language from comparable plants. Your pilot replaces it with plant figures.",
-    items: [
-      {
-        id: "batch-sec",
-        title: "Assigned energy moves",
-        description:
-          "Ranked prescriptions on reactor stagger, soak setback, and off-peak utility windows, without changing the batch recipe.",
-      },
-      {
-        id: "idle-hold",
-        title: "Stable SEC in the operating band",
-        description:
-          "kWh per batch vs this plant's reactor line and product baseline, not a generic dashboard threshold.",
-      },
-      {
-        id: "md-stagger",
-        title: "Earlier equipment intervention",
-        description:
-          "Power-draw and duty-cycle drift tied to rupee and batch risk. Not a vibration PdM claim.",
-      },
-    ],
-  },
+  outcomes: sharedOutcomes(),
   faq: [
     {
-      id: "batch-sec",
-      question: "How can chemical plants reduce batch process energy consumption?",
+      id: "chemical-experience",
+      question: "Has Stamped worked with chemical plants?",
       answer:
-        "Idle soak and overlapping reactor ramps are the usual leaks. Comparable plants using assigned, rupee-scored actions recover those windows before month-end. Your pilot replaces indicative bands with plant figures.",
+        "Our first deployments are with auto-component makers. In chemicals we start the same way, with a site survey on your floor and a written read-out of where we would begin, and we publish results only with a plant's written permission.",
     },
     {
-      id: "path-a-batch",
-      question: "What causes maximum demand spikes in batch chemical plants?",
+      id: "chemical-control",
+      question: "Does Stamped change our recipes or control system?",
       answer:
-        "Three reactors heating together at shift start is a common incomer spike. Stamped assigns stagger against the batch calendar so MD is managed before the billing window closes.",
+        "No. Stamped works alongside the control system you already run and sends its recommendations to your team. Stamped recommends and your team decides.",
     },
-    {
-      id: "chlor-alkali",
-      question: "Does Stamped work without DCS integration?",
-      answer:
-        "Yes. Path A uses batch log start and end times plus DISCOM bills. First prescriptions on idle hold and stagger typically land within two weeks. DCS is Path B, not a gate.",
-    },
+    homeFaq("hardware"),
+    homeFaq("start"),
   ],
 };

@@ -102,7 +102,7 @@ export function HiwDeployment() {
           className="mx-auto"
         />
 
-        <div ref={trackRef} className="relative mx-auto mt-10 max-w-4xl md:mt-14">
+        <div ref={trackRef} className="relative mx-auto mt-10 max-w-6xl md:mt-14">
           {/* Mobile: vertical timeline */}
           <div className="relative md:hidden">
             <div
@@ -129,7 +129,7 @@ export function HiwDeployment() {
                       {phase.week}
                     </p>
                     <h3 className="mt-1.5 text-base font-bold text-on-surface">{phase.title}</h3>
-                    <p className="mt-1.5 text-xs leading-5 text-on-surface-variant">
+                    <p className="mt-2 text-sm leading-6 text-on-surface-variant">
                       {phase.description}
                     </p>
                   </article>
@@ -144,12 +144,12 @@ export function HiwDeployment() {
               <div data-deploy-progress className="h-full w-full bg-primary" />
             </div>
 
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid gap-6 md:grid-cols-3">
               {deployment.phases.map((phase, index) => (
                 <article
                   key={phase.id}
                   data-deploy-phase
-                  className="relative rounded-lg border border-outline-variant/50 bg-surface-lowest p-5 pt-10"
+                  className="relative rounded-lg border border-outline-variant/50 bg-surface-lowest p-6 pt-11"
                 >
                   <span className="absolute left-1/2 top-0 flex h-8 w-8 -translate-x-1/2 items-center justify-center rounded-full bg-primary text-xs font-bold text-on-primary">
                     {index + 1}
@@ -158,7 +158,7 @@ export function HiwDeployment() {
                     {phase.week}
                   </p>
                   <h3 className="mt-2 text-base font-bold text-on-surface">{phase.title}</h3>
-                  <p className="mt-1.5 text-xs leading-5 text-on-surface-variant">
+                  <p className="mt-2 text-sm leading-6 text-on-surface-variant">
                     {phase.description}
                   </p>
                 </article>

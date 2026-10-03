@@ -6,6 +6,8 @@ import { useRef } from "react";
 import { useMotion } from "@/components/motion/MotionProvider";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
+import { BeforeYouBook } from "@/components/engagement/BeforeYouBook";
+import { EngagementSteps } from "@/components/engagement/EngagementSteps";
 import { ContactForm } from "@/components/ui/ContactForm";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionBadge } from "@/components/ui/SectionBadge";
@@ -15,7 +17,7 @@ import { gsap, useGSAP } from "@/lib/motion/gsap";
 export function ContactPageView() {
   const pageRef = useRef<HTMLDivElement>(null);
   const { isReady, prefersReducedMotion } = useMotion();
-  const { hero, formSection, quickContact, stats } = contactContent;
+  const { hero, formSection, quickContact, stats, steps } = contactContent;
 
   useGSAP(
     () => {
@@ -73,6 +75,15 @@ export function ContactPageView() {
               <Button href="#contact-form" variant="primary" className="w-full sm:w-auto">
                 {contactContent.contactForm.title}
               </Button>
+              {quickContact.whatsappUrl ? (
+                <Button
+                  href={quickContact.whatsappUrl}
+                  variant="outline"
+                  className="w-full border-on-secondary/30 bg-on-secondary/5 text-on-secondary hover:bg-on-secondary/10 sm:w-auto"
+                >
+                  {quickContact.whatsappLabel}
+                </Button>
+              ) : null}
               <a
                 href={`mailto:${quickContact.email}`}
                 className="text-sm font-semibold text-inverse-primary underline-offset-4 hover:underline"
@@ -84,9 +95,24 @@ export function ContactPageView() {
         </Container>
       </section>
 
+      <section className="border-b border-outline-variant/30 bg-surface section-y">
+        <Container>
+          <Reveal>
+            <SectionBadge label={steps.eyebrow} />
+            <h2 className="mt-5 max-w-2xl font-display text-2xl font-bold tracking-tight text-balance text-on-surface md:text-3xl">
+              {steps.title}
+            </h2>
+            <p className="mt-3 max-w-2xl text-sm leading-7 text-on-surface-variant md:text-base">
+              {steps.description}
+            </p>
+          </Reveal>
+          <EngagementSteps className="mt-8 md:mt-10" />
+        </Container>
+      </section>
+
       <section
         id="contact-form"
-        className="scroll-mt-20 bg-surface py-10 md:scroll-mt-28 md:section-y"
+        className="scroll-mt-20 bg-surface section-y md:scroll-mt-28"
       >
         <Container>
           <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(16rem,0.85fr)] lg:gap-14">
@@ -137,6 +163,7 @@ export function ContactPageView() {
           </div>
         </Container>
       </section>
+      <BeforeYouBook showCta={false} />
     </div>
   );
 }

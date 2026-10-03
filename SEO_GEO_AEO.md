@@ -1,5 +1,8 @@
 # SEO, GEO & AEO - Stamped Energy (`stamped.work`)
 
+> **Update 2026-10-03 (ADR-033):** brand is now "Stamped", category "AI for plant operations". The keyword list lives in `lib/seo/constants.ts` (`SEO_KEYWORDS`) and per-page keywords in `lib/seo/pages.ts`. Routes `/solutions/load-energy` and `/solutions/equipment-intelligence` now 308 (see `next.config.ts`); keyword-to-URL rows below that point at them are historical. `/industries/{steel,cement,pharma,chemical}` were restored in ADR-034. New area URLs: `/solutions/{process,quality,planning,maintenance}`.
+
+
 Living record of search, generative-engine, and answer-engine optimizations for the marketing site.  
 **Last updated:** 2026-08-20 · **Domain:** `https://stamped.work`
 

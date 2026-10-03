@@ -1,261 +1,175 @@
-import type { CtaLink, StatItem, VerticalPageContent } from "../types";
+import type { VerticalPageContent } from "../types";
+import {
+  AREAS_EYEBROW,
+  EARLY_INDUSTRY_NOTE,
+  EXAMPLE_FOOTNOTE,
+  HOW_CTA,
+  STANDARD_DESCRIPTION,
+  SURVEY_CTA,
+  homeFaq,
+  sharedOutcomes,
+} from "./shared";
 
-const CTA = { label: "Book a Discovery Call", href: "/contact" } satisfies CtaLink;
-const HOW = { label: "Platform", href: "/platform" } satisfies CtaLink;
+/** Steel. Copy canon: Stamped copy v3 (3 Oct 2026), revision 2. Qualitative only; no claims of past steel work. */
 
 export const steelPage: VerticalPageContent = {
   slug: "steel",
   hero: {
-    eyebrow: "Steel & metals",
-    title: "Rupee-scored prescriptions for steel and metals plants",
+    eyebrow: "Steel",
+    title: "More good tonnes from every heat.",
     description:
-      "EAF and induction, rolling, and foundry already have meters and SCADA. Stamped is the intelligence layer on that stack: live data, assigned next actions, evidence on the bill. Read-only. No hardware retrofit.",
-    primaryCta: CTA,
-    secondaryCta: HOW,
-    seoHeadings: [
-      "How can steel plants reduce induction furnace electricity consumption?",
-      "What is PAT scheme SEC for steel plants?",
-      "How does Stamped help rolling mills with maximum demand?",
-    ],
+      "In a steel plant the margin sits in melt-shop yield and power per tonne, in getting each heat's chemistry right the first time, and in rolling through a shift without cobbles or quality rejects.",
+    primaryCta: SURVEY_CTA,
+    secondaryCta: HOW_CTA,
+    note: EARLY_INDUSTRY_NOTE,
   },
-  economics: {
-    eyebrow: "Energy challenges",
-    title: "Energy challenges in steel manufacturing",
-    description:
-      "Steel production is inherently energy-intensive, with energy cost tightly coupled to profits. Even small deviations during operation quickly translate into higher energy losses and margin pressure.",
-    stats: [
+  improvementAreas: {
+    eyebrow: AREAS_EYEBROW,
+    title: "Four places a steel plant loses efficiency.",
+    description: STANDARD_DESCRIPTION,
+    items: [
       {
-        id: "cost-share",
-        value: "30-40%",
-        label: "Share of energy in manufacturing cost",
-        detail: "TERI steel sector review",
-      },
-      {
-        id: "sec-win",
-        value: "3-5%",
-        label: "Minor instability causes measurable energy loss",
-        detail: "Small deviations compound into sustained losses",
-      },
-      {
-        id: "pat",
-        value: "60-70%",
-        label: "Captive power energy drives production margins",
-        detail: "Fuel-power balance determines competitiveness",
-      },
-    ] satisfies StatItem[],
-  },
-  wasteTable: {
-    eyebrow: "Actionable energy intelligence",
-    title: "Where energy value sits across processes and utilities",
-    description:
-      "The platform identifies and prescribes actions on where energy value typically sits across processes and utilities. Reference ranges - your pilot replaces them with verified numbers.",
-    areas: [
-      {
-        id: "eaf-induction",
-        step: "01",
-        title: "EAF / induction furnace",
+        area: "process",
+        title: "Run every heat like your best one.",
         description:
-          "Holding power between heats and power factor penalties - schedule and PF sequencing prescriptions.",
-        potentialLabel: "Est. monthly savings",
-        potentialValue: "₹3-8L",
+          "Tap-to-tap time and power per tonne swing with the charge mix, how full the furnace runs, delays between heats and how much superheat each crew carries. Stamped learns what your best heats looked like for each grade and charge mix and recommends the charging, power or temperature practice that brings the others closer, for the melt-shop in-charge to accept, adjust or turn down.",
+        energy: "Superheat, delays and part-full heats show up directly in power per tonne.",
       },
       {
-        id: "reheating",
-        step: "02",
-        title: "Reheating furnace",
+        area: "quality",
+        title: "Know which heat or bar is at risk before it ships.",
         description:
-          "Weekend hold and idle soak - same playbook as heat treatment in auto-adjacent forging plants.",
-        potentialLabel: "Est. monthly savings",
-        potentialValue: "₹2-6L",
+          "Chemistry misses, surface defects and dimensional rejects usually trace back to the scrap mix, the time a billet spent in the reheating furnace or a stand set slightly off. Stamped links melt, casting and rolling data to each heat and bundle, so heats that look like past rejects are flagged while they can still be checked, and each heat's record is ready when a customer asks.",
+        energy: "A rejected bar has already been melted, cast, reheated and rolled.",
       },
       {
-        id: "rolling-md",
-        step: "03",
-        title: "Rolling mill startup",
-        description: "Simultaneous stand startup → MD spike. Stagger prescriptions assigned to electrical.",
-        potentialLabel: "Est. MD savings",
-        potentialValue: "₹4-10L",
-      },
-      {
-        id: "pumps-vfd",
-        step: "04",
-        title: "Cooling water & fume extraction",
-        description: "Constant-speed pumps running at full flow - VFD opportunity ranked by ROI.",
-        potentialLabel: "Est. monthly savings",
-        potentialValue: "₹1.5-4L",
-      },
-      {
-        id: "compressed-air",
-        step: "05",
-        title: "Compressed air",
-        description: "Leak and overpressure - Category 1 waste across steel utilities.",
-        potentialLabel: "Est. monthly savings",
-        potentialValue: "₹1-3L",
-      },
-      {
-        id: "gas-electric",
-        step: "06",
-        title: "Gas-electric mix",
+        area: "planning",
+        title: "Keep the melt shop and the mill in step.",
         description:
-          "Suboptimal scheduling when grid time-of-day is high - shift production to tariff windows [Path B].",
-        potentialLabel: "Est. monthly savings",
-        potentialValue: "₹2-5L",
+          "When the furnace runs late or the mill stops, billets wait, cool down and need more fuel to reheat, and the rolling programme slips. Stamped proposes the next sequence across melt shop, caster and mill and shows what each option does to output, reheating fuel and delivery.",
+        energy: "Keeping hot charging going through a delay saves reheating fuel and scale.",
+      },
+      {
+        area: "maintenance",
+        title: "Fix the stop that costs the most tonnes.",
+        description:
+          "Cobbles, guide and roll problems, lining wear and crane delays each cost tonnes in different ways. Stamped ranks stops by the output and yield they cost and picks up slow drift, such as power per tonne creeping up on the same charge or a stand drawing more load for the same section.",
+        energy: "Rising power for the same charge is often the first sign of lining or electrical wear.",
       },
     ],
   },
   plantBand: {
     eyebrow: "In this plant",
-    title: "Where the steel bill actually moves",
+    title: "Melt shop, casting and reheating, rolling and utilities.",
     description:
-      "EAF and induction, rolling, forging-foundry, and cooling auxiliaries. Same processes you run.",
+      "Most of the data that explains a poor heat or a cobble is already recorded somewhere between the furnace logs, the lab, the mill and the electrical system.",
     items: [
       {
-        id: "eaf-induction",
-        title: "EAF and induction",
+        id: "melt-shop",
+        title: "Induction and arc furnaces",
         description:
-          "Holding between heats is a power bill with no pour. Setback and power-factor sequencing are assigned before the next heat, not after the MD window closes.",
+          "In the melt shop the questions are about power per tonne, tap-to-tap time, metallic yield and chemistry hit rate, and Stamped compares each heat with the best ones on the same grade and charge mix so the in-charge can see which practice made the difference.",
         imageSrc: "/industries/plant/steel/melt.jpg",
-        imageAlt: "Molten metal and furnace stations in a steel plant",
+        imageAlt: "Molten metal and furnace stations in a steel melt shop",
+      },
+      {
+        id: "reheating",
+        title: "Casting and reheating",
+        description:
+          "Billets that sit too long in the reheating furnace lose metal to scale and burn extra fuel, so Stamped follows residence time and zone temperatures against what the mill actually needs, especially during delays.",
+        imageSrc: "/industries/plant/steel/interior.jpg",
+        imageAlt: "Steel plant interior with casting and reheating equipment",
       },
       {
         id: "rolling",
-        title: "Rolling",
+        title: "Rolling mill",
         description:
-          "Stand startups stacked after a break set MD. Sequencing is ranked against mill output, not a flat kW alarm.",
+          "Crop, cobbles and dimensional rejects decide mill yield, and Stamped links each of them to the stand setup, guide changes and billet temperature that came before them, so the mill team knows which problem to fix first.",
         imageSrc: "/industries/steel.png",
         imageAlt: "Hot steel billets on a rolling mill line",
       },
       {
-        id: "forging-foundry",
-        title: "Forging and foundry",
+        id: "steel-utilities",
+        title: "Cooling water, fume extraction and compressed air",
         description:
-          "Hammer, press, and melt peaks overlap with auxiliaries. Idle-auxiliary cuts get a rupee-scored owner on the same playbook as auto-adjacent forging.",
-        imageSrc: "/industries/forging.jpg",
-        imageAlt: "Foundry pour and press work in a metals plant",
-      },
-      {
-        id: "cooling-water",
-        title: "Cooling water and fume extraction",
-        description:
-          "Pumps and fans that sit at full flow when rolling output is down. Duty-cycle cuts are ranked against mill rate, not a flat kW alarm.",
+          "Pumps, fans and compressors often run at the same duty whatever the furnace and mill are doing, and Stamped points out where they can follow production and where their power draw is drifting.",
         imageSrc: "/industries/plant/steel/cooling.jpg",
-        imageAlt: "Steel mill cooling tower and outdoor process auxiliaries",
+        imageAlt: "Steel plant cooling tower and outdoor process equipment",
       },
     ],
   },
   prescriptionExamples: {
-    eyebrow: "Example prescriptions",
-    title: "What supervisors receive",
+    eyebrow: "Example actions",
+    title: "What the people who own the problem receive",
     description:
-      "Illustrative actions from comparable secondary steel and rolling plants. Your pilot writes these from your meters and bill.",
-    footnote:
-      "Impact ranges are benchmark estimates from comparable plants, not customer guarantees. Verified figures come from your plant with evidence.",
+      "Each action goes to the person best placed to act, with what to do, by when, and the reasoning behind it.",
+    footnote: EXAMPLE_FOOTNOTE,
     items: [
       {
-        id: "induction-hold",
-        title: "Reduce induction furnace holding power between heats",
+        id: "tap-temp",
+        area: "Process",
+        title: "Melt shop, for the melt-shop in-charge",
         description:
-          "Furnace held at full power 45 minutes between heats with no pour scheduled. Setback schedule aligned to production calendar.",
-        impactRange: "₹3-8L/month",
-        assignee: "Furnace operator / electrical",
+          "Heats on Furnace [1] this week tapped about [N]°C hotter than the grade needs, compared with the best crew's practice, so a lower tap-temperature aim is ready for your review.",
+        impactRange: "Example",
       },
       {
-        id: "rolling-startup",
-        title: "Sequence rolling mill stand startup after morning break",
+        id: "chemistry",
+        area: "Quality",
+        title: "Melt shop, for the quality in-charge",
         description:
-          "Four stands restarted simultaneously at 06:30 - incomer MD breached by 220 kVA. Stagger over 15 minutes.",
-        impactRange: "₹4-10L/month",
-        assignee: "Rolling mill supervisor",
+          "Heat [N] was charged with a scrap mix similar to the heats behind last month's residual copper misses, so a chemistry check before casting is worth doing.",
+        impactRange: "Example",
       },
       {
-        id: "pump-vfd",
-        title: "Duty-cycle cooling water pumps during low-production window",
+        id: "mill-delay",
+        area: "Planning",
+        title: "Rolling, for the mill planner",
         description:
-          "CW pumps at 100% flow with 40% rolling output. VFD setpoint adjustment - capital action ranked by payback.",
-        impactRange: "₹1.5-4L/month",
-        assignee: "Utilities / maintenance",
+          "The mill is expected to stop for about [N] minutes, so holding the next [N] billets at the caster and rolling the [section] order first keeps hot charging going for most of the shift.",
+        impactRange: "Example",
+      },
+      {
+        id: "reheat-delay",
+        area: "Energy",
+        title: "Reheating, for the furnace operator",
+        description:
+          "Billets sat in the furnace about [N] minutes longer than the mill needed during last week's delays, so lowering zone setpoints during delays longer than [N] minutes is ready for review.",
+        impactRange: "Example",
+      },
+      {
+        id: "cobbles",
+        area: "Maintenance",
+        title: "Rolling, for the mill maintenance lead",
+        description:
+          "Stand [N] has had [N] cobbles this month on the same section, mostly within [N] minutes of a guide change, so the guide setup is the first thing to check.",
+        impactRange: "Example",
+      },
+      {
+        id: "power-drift",
+        area: "Maintenance",
+        title: "Melt shop, for the electrical lead",
+        description:
+          "Power per tonne on Furnace [2] has crept up on the same charge mix over [N] weeks, so the lining and the power connections are worth checking at the next relining window.",
+        impactRange: "Example",
       },
     ],
   },
-  integration: {
-    eyebrow: "Integration",
-    title: "Path A bill-first, Path B when SCADA exists",
-    items: [
-      {
-        id: "path-a",
-        title: "Path A: Incomer meter + DISCOM bills",
-        description:
-          "MD windows and furnace holding patterns from bill data alone - first prescriptions within two weeks.",
-      },
-      {
-        id: "path-b",
-        title: "Path B: Furnace SCADA and production data",
-        description:
-          "Heat schedules, rolling output, and kWh aligned - SEC baselines per route with PAT evidence support.",
-      },
-      {
-        id: "forging-overlap",
-        title: "Forging & foundry overlap",
-        description:
-          "Same playbook as automotive heat treatment and forging - one platform for multi-process metal plants.",
-      },
-      {
-        id: "pat-ccts",
-        title: "PAT / CCTS alignment",
-        description:
-          "SEC improvement tracked and verified - informational support for PAT discipline, not compliance consulting.",
-      },
-    ],
-  },
-  outcomes: {
-    eyebrow: "What you gain",
-    title: "The floor knows what to do. Leadership sees the evidence.",
-    disclaimer: "Indicative language from comparable plants. Your pilot replaces it with plant figures.",
-    items: [
-      {
-        id: "furnace-md",
-        title: "Assigned energy moves",
-        description:
-          "Ranked prescriptions on furnace holding, rolling-stand stagger, and idle auxiliaries, without changing the heat recipe.",
-      },
-      {
-        id: "rolling-sec",
-        title: "Stable SEC in the operating band",
-        description:
-          "kWh per heat or per ton vs this plant's route and shift baseline, not a generic dashboard threshold.",
-      },
-      {
-        id: "pat-sec",
-        title: "Earlier equipment intervention",
-        description:
-          "Power-draw and duty-cycle drift tied to rupee and throughput risk. Not a vibration PdM claim.",
-      },
-    ],
-  },
-  segments: {
-    eyebrow: "Process routes",
-    title: "EAF, rolling, forging - where the bill hurts most",
-    description:
-      "Secondary steel, rolling mills, and forging-adjacent plants - expand each route for typical leaks and prescriptions.",
-  },
+  outcomes: sharedOutcomes(),
   faq: [
     {
-      id: "induction-consumption",
-      question: "How can steel plants reduce induction furnace electricity consumption?",
+      id: "steel-experience",
+      question: "Has Stamped worked with steel plants?",
       answer:
-        "Holding between heats is power with no pour. Comparable plants using assigned setback and sequencing typically recover a large share of furnace electricity on that idle window. Your pilot replaces indicative bands with plant figures.",
+        "Our first deployments are with auto-component makers, including forging and heat treatment, which share a lot with a melt shop and a rolling mill. In steel we start the same way, with a site survey on your floor and a written read-out of where we would begin.",
     },
     {
-      id: "pat-sec",
-      question: "What is PAT scheme SEC for steel plants?",
+      id: "steel-route",
+      question: "Does it work for induction furnace plants as well as arc furnaces?",
       answer:
-        "PAT tracks specific energy consumption against a notified baseline. Stamped keeps a rupee-scored SEC ledger from meters and the bill. That is evidence support, not PAT consulting or an audit.",
+        "The approach is the same for both, because it learns from your own heats. The site survey tells us which furnace, lab and mill records you already have and where the first finding is most likely to come from.",
     },
-    {
-      id: "integrated-steel",
-      question: "How does Stamped help rolling mills with maximum demand?",
-      answer:
-        "Stacked stand startups after a break are a common MD spike. Stamped assigns stagger before the billing window closes and ties the rupee impact to the mill supervisor.",
-    },
+    homeFaq("hardware"),
+    homeFaq("start"),
   ],
 };

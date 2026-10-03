@@ -11,7 +11,10 @@ type ContactFormState = {
   name: string;
   company: string;
   location: string;
+  /** "Main processes" field; sent as `billSize` together with focus and reachVia. */
   billSize: string;
+  focus: string;
+  reachVia: string;
   whatsapp: string;
   email: string;
 };
@@ -23,11 +26,24 @@ const initialState: ContactFormState = {
   company: "",
   location: "",
   billSize: "",
+  focus: "",
+  reachVia: "",
   whatsapp: "",
   email: "",
 };
 
 const { contactForm } = contactContent;
+
+/** Folds the plant-detail fields into the existing `billSize` column so no schema change is needed. */
+function buildPayload(state: ContactFormState) {
+  const { focus, reachVia, billSize, ...rest } = state;
+  const details = [
+    billSize.trim() ? `Processes: ${billSize.trim()}` : "",
+    focus ? `On their mind: ${focus}` : "",
+    reachVia ? `Reach via: ${reachVia}` : "",
+  ].filter(Boolean);
+  return { ...rest, billSize: details.join(" | ") };
+}
 
 function FieldLabel({
   htmlFor,
@@ -81,7 +97,8 @@ export function ContactForm() {
     setStatus("loading");
     setErrorMessage("");
 
-    const validation = validateContactSubmission(formState);
+    const payload = buildPayload(formState);
+    const validation = validateContactSubmission(payload);
     if (!validation.ok) {
       setStatus("error");
       setErrorMessage(validation.error);
@@ -95,13 +112,13 @@ export function ContactForm() {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formState),
+        body: JSON.stringify(payload),
       });
 
-      const payload = (await response.json()) as { error?: string };
+      const result = (await response.json()) as { error?: string };
 
       if (!response.ok) {
-        throw new Error(payload.error ?? contactForm.errorMessage);
+        throw new Error(result.error ?? contactForm.errorMessage);
       }
 
       setStatus("success");
@@ -169,15 +186,52 @@ export function ContactForm() {
       </div>
 
       <div>
-        <FieldLabel htmlFor="billSize" label={contactForm.fields.billSize} optional />
+        <FieldLabel htmlFor="billSize" label={contactForm.fields.processes} optional />
         <input
           id="billSize"
-          name="billSize"
+          name="processes"
           type="text"
           value={formState.billSize}
           onChange={(event) => updateField("billSize", event.target.value)}
           className={inputClassName}
         />
+      </div>
+
+      <div className="grid gap-5 sm:grid-cols-2">
+        <div>
+          <FieldLabel htmlFor="focus" label={contactForm.fields.focus} optional />
+          <select
+            id="focus"
+            name="focus"
+            value={formState.focus}
+            onChange={(event) => updateField("focus", event.target.value)}
+            className={inputClassName}
+          >
+            <option value="">{contactForm.selectPlaceholder}</option>
+            {contactForm.focusOptions.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <FieldLabel htmlFor="reachVia" label={contactForm.fields.reachVia} optional />
+          <select
+            id="reachVia"
+            name="reachVia"
+            value={formState.reachVia}
+            onChange={(event) => updateField("reachVia", event.target.value)}
+            className={inputClassName}
+          >
+            <option value="">{contactForm.selectPlaceholder}</option>
+            {contactForm.reachViaOptions.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
 
       <div className="rounded-lg border border-outline-variant/60 bg-surface-container-low/40 p-4">

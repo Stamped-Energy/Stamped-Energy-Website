@@ -42,55 +42,28 @@ function tweenVal(
   });
 }
 
-const SCENARIOS = [
-  {
-    scen: "Hold 10 min",
-    title: "Hold second feeder",
-    rupee: "₹ 0.6L / mo",
-    cat: "Idle + HVAC vs this-shift baseline",
-    idle: "180 kW",
-    hvac: "On hold",
-  },
-  {
-    scen: "Shed HVAC",
-    title: "Shed idle HVAC",
-    rupee: "₹ 0.8L / mo",
-    cat: "Idle HVAC in ToD peak window",
-    idle: "210 kW",
-    hvac: "Shed",
-  },
-  {
-    scen: "Stagger start",
-    title: "Stagger feeder 2",
-    rupee: "₹ 0.4L / mo",
-    cat: "Ramp overlap vs MD ceiling",
-    idle: "90 kW",
-    hvac: "Steady",
-  },
-] as const;
-
 const RX = [
   {
-    title: "Shed idle HVAC",
-    owner: "Owner · Utilities",
-    rupee: "₹ 0.8L / mo",
-    ev: "Evidence · feeder F-02 idle 180 kW",
+    title: "Check quench delay",
+    owner: "For the shift lead",
+    rupee: "Next batch",
+    ev: "Why · delay drifting up on Furnace 2",
   },
   {
-    title: "Stagger feeder 2",
-    owner: "Owner · Utilities",
-    rupee: "₹ 0.4L / mo",
-    ev: "Evidence · MD window · 10 min hold",
+    title: "Re-plan Press 3 stop",
+    owner: "For the planner",
+    rupee: "This shift",
+    ev: "Why · keeps today's dispatches on time",
   },
   {
-    title: "Shift dryer warm-up",
-    owner: "Owner · Production",
-    rupee: "₹ 0.3L / mo",
-    ev: "Evidence · cheaper ToD window",
+    title: "Check burner drift",
+    owner: "For maintenance",
+    rupee: "This week",
+    ev: "Why · more gas per kg, same recipe",
   },
 ] as const;
 
-const TOD = ["Peak window", "Shoulder", "Off-peak", "Peak window"];
+const TOD = ["Lot 2417", "Lot 2418", "Lot 2419", "Lot 2420"];
 
 function startData(root: HTMLElement, { reduce }: SlotLoopOptions) {
   const path = root.querySelector<SVGPathElement>("[data-a05-spark]");
@@ -174,143 +147,6 @@ function startData(root: HTMLElement, { reduce }: SlotLoopOptions) {
   };
 }
 
-function startAnalysis(root: HTMLElement, { reduce }: SlotLoopOptions) {
-  const base = root.querySelector<SVGPathElement>("[data-a06-base]");
-  const act = root.querySelector<SVGPathElement>("[data-a06-act]");
-  const fill = root.querySelector<SVGPathElement>("[data-a06-fill]");
-  const now = root.querySelector<SVGLineElement>("[data-a06-now]");
-  if (!base || !act || !fill || !now) return noop;
-
-  const legs = {
-    idle: root.querySelector('[data-leg="idle"]'),
-    hvac: root.querySelector('[data-leg="hvac"]'),
-    ramp: root.querySelector('[data-leg="ramp"]'),
-  };
-  let live = true;
-  let raf = 0;
-  const X0 = 52;
-  const X1 = 284;
-  const N = 112;
-  const Y_FLOOR = 396;
-  const Y_TOP = 170;
-  const KW_MIN = 78;
-  const KW_MAX = 372;
-  const CYCLE = 8;
-  const WINDOW = 8;
-  const t0 = performance.now();
-
-  const smoothstep = (a: number, b: number, x: number) => {
-    const t = Math.max(0, Math.min(1, (x - a) / (b - a)));
-    return t * t * (3 - 2 * t);
-  };
-  const gate = (p: number, on: [number, number], off: [number, number]) =>
-    smoothstep(on[0], on[1], p) * (1 - smoothstep(off[0], off[1], p));
-  const period = (t: number) => ((t % CYCLE) + CYCLE) % CYCLE;
-
-  const baselineKw = (t: number) => {
-    const p = period(t);
-    const shiftOn = gate(p, [1.3, 2.0], [6.6, 7.6]);
-    return 198 + 52 * shiftOn + 5 * Math.sin(t * 0.22);
-  };
-
-  const actualKw = (t: number) => {
-    const p = period(t);
-    const chatter = 7 * Math.sin(t * 2.15) + 3.4 * Math.sin(t * 4.6 + 0.8);
-    let v = 86 + chatter * 0.45;
-    v += 158 * gate(p, [1.5, 2.2], [6.3, 7.4]);
-    v += 52 * gate(p, [3.05, 3.4], [4.15, 4.5]);
-    v -= 62 * gate(p, [4.4, 4.65], [4.78, 5.1]);
-    v += 128 * gate(p, [5.1, 5.45], [5.9, 6.25]);
-    return Math.max(KW_MIN, Math.min(KW_MAX, v));
-  };
-
-  const yOf = (kw: number) => {
-    const u = (kw - KW_MIN) / (KW_MAX - KW_MIN);
-    return Y_FLOOR - u * (Y_FLOOR - Y_TOP);
-  };
-
-  const phaseAt = (t: number) => {
-    const p = period(t);
-    if (p < 2.3 || p > 6.4) return "idle";
-    if (p >= 3.0 && p < 4.55) return "hvac";
-    if (p >= 5.05 && p < 6.35) return "ramp";
-    return "idle";
-  };
-
-  const paint = (elapsed: number) => {
-    const xs: number[] = [];
-    const yB: number[] = [];
-    const yA: number[] = [];
-    for (let i = 0; i < N; i++) {
-      const frac = i / (N - 1);
-      const t = elapsed - (1 - frac) * WINDOW;
-      xs.push(X0 + frac * (X1 - X0));
-      yB.push(yOf(baselineKw(t)));
-      yA.push(yOf(actualKw(t)));
-    }
-    base.setAttribute("d", poly(xs, yB));
-    act.setAttribute("d", poly(xs, yA));
-    let d = `M${xs[0].toFixed(1)} ${yB[0].toFixed(1)} `;
-    for (let i = 0; i < N; i++) d += `L${xs[i].toFixed(1)} ${yA[i].toFixed(1)} `;
-    for (let i = N - 1; i >= 0; i--) d += `L${xs[i].toFixed(1)} ${yB[i].toFixed(1)} `;
-    d += "Z";
-    fill.setAttribute("d", d);
-    now.setAttribute("x1", String(X1));
-    now.setAttribute("x2", String(X1));
-    const phase = phaseAt(elapsed);
-    (Object.keys(legs) as Array<keyof typeof legs>).forEach((k) => {
-      legs[k]?.classList.toggle("is-on", k === phase);
-    });
-  };
-
-  const applyScenario = (n: number) => {
-    const s = SCENARIOS[n];
-    const set = (sel: string, text: string) => {
-      const el = root.querySelector(sel);
-      if (el) el.textContent = text;
-    };
-    set("[data-a06-scen]", s.scen);
-    set("[data-a06-title]", s.title);
-    set("[data-a06-rupee]", s.rupee);
-    set("[data-a06-cat]", s.cat);
-    set("[data-a06-idle]", s.idle);
-    set("[data-a06-hvac]", s.hvac);
-  };
-
-  paint(5);
-  applyScenario(0);
-  if (reduce) {
-    return () => {
-      live = false;
-    };
-  }
-
-  const tick = (nowTs: number) => {
-    if (!live) return;
-    paint((nowTs - t0) / 1000 + 5);
-    raf = requestAnimationFrame(tick);
-  };
-  raf = requestAnimationFrame(tick);
-
-  void (async () => {
-    let n = 0;
-    try {
-      while (live) {
-        applyScenario(n);
-        n = (n + 1) % SCENARIOS.length;
-        await wait(3200, () => live);
-      }
-    } catch {
-      /* stopped */
-    }
-  })();
-
-  return () => {
-    live = false;
-    cancelAnimationFrame(raf);
-  };
-}
-
 function startPrescriptions(root: HTMLElement, { reduce }: SlotLoopOptions) {
   const rows = [...root.querySelectorAll(".rank-row")];
   let live = true;
@@ -367,7 +203,7 @@ function startDecisions(root: HTMLElement, { reduce }: SlotLoopOptions) {
   const logged = {
     ok: "Accept logged",
     adj: "Adjust logged",
-    x: "Reject logged",
+    x: "Decline logged",
   } as const;
   type PickName = keyof typeof pos;
 
@@ -503,36 +339,36 @@ export function DataStageVisual() {
   return (
     <StageShell
       className="hiw-forest"
-      label="Plant and market signals stored and modeled on a live energy graph."
+      label="Plant signals stored and modeled in one picture of the plant."
       start={startData}
     >
       <svg viewBox="0 0 720 450" xmlns="http://www.w3.org/2000/svg">
         <rect width="720" height="450" fill="#4A634D" />
         <g className="src-chip is-on" data-src="0">
           <rect className="chip" x="28" y="24" width="132" height="44" rx="6" />
-          <text className="lbl" x="42" y="42">Incomer</text>
+          <text className="lbl" x="42" y="42">Machines</text>
           <text className="val" x="42" y="58" fontFamily="Space Grotesk, sans-serif" fontWeight="700" fontSize="15">
-            F-01
+            Live
           </text>
         </g>
         <g className="src-chip" data-src="1">
           <rect className="chip" x="172" y="24" width="132" height="44" rx="6" />
           <circle className="live-dot" data-a05-livedot cx="188" cy="38" r="3.2" />
-          <text className="lbl lbl-hi" x="198" y="42">SCADA</text>
+          <text className="lbl lbl-hi" x="198" y="42">Control</text>
           <text className="val" x="188" y="58" fontFamily="Space Grotesk, sans-serif" fontWeight="700" fontSize="15">
             Live
           </text>
         </g>
         <g className="src-chip" data-src="2">
           <rect className="chip" x="316" y="24" width="132" height="44" rx="6" />
-          <text className="lbl" x="330" y="42">Bills</text>
+          <text className="lbl" x="330" y="42">ERP</text>
           <text className="val" x="330" y="58" fontFamily="Space Grotesk, sans-serif" fontWeight="700" fontSize="15">
-            DISCOM
+            Plans
           </text>
         </g>
         <g className="src-chip" data-src="3">
           <rect className="chip" x="460" y="24" width="148" height="44" rx="6" />
-          <text className="lbl" x="474" y="42">ToD / weather</text>
+          <text className="lbl" x="474" y="42">Quality</text>
           <text
             data-a05-tod
             className="val"
@@ -542,12 +378,12 @@ export function DataStageVisual() {
             fontWeight="700"
             fontSize="15"
           >
-            Peak window
+            Lot 2417
           </text>
         </g>
         <g>
           <rect className="chip" x="28" y="86" width="280" height="340" rx="8" />
-          <text className="lbl" x="44" y="112">Energy graph · live</text>
+          <text className="lbl" x="44" y="112">Plant picture · live</text>
           <defs>
             <clipPath id={`${uid}-a05`}>
               <rect x="44" y="126" width="248" height="276" />
@@ -565,13 +401,13 @@ export function DataStageVisual() {
           <circle className="live-dot" cx="352" cy="118" r="4" />
           <text className="lbl lbl-hi" x="364" y="122">Signals stored</text>
           <text className="val" x="352" y="168" fontFamily="Space Grotesk, sans-serif" fontWeight="700" fontSize="26">
-            Modeled in real time
+            Updated as data comes in
           </text>
           <text data-sig="0" className="sig is-on mute-txt" x="352" y="222" fontFamily="Inter, sans-serif" fontSize="18">
-            Incomer · feeder F-01
+            Machines · press and furnace
           </text>
           <text data-sig="1" className="sig mute-txt" x="352" y="264" fontFamily="Inter, sans-serif" fontSize="18">
-            SCADA · assets on the floor
+            Control systems · the floor
           </text>
           <text
             data-sig="2"
@@ -582,7 +418,7 @@ export function DataStageVisual() {
             fontSize="15"
             letterSpacing="0.4"
           >
-            Bills · DISCOM ToD tariff
+            ERP · plans and orders
           </text>
           <text
             data-sig="3"
@@ -593,154 +429,7 @@ export function DataStageVisual() {
             fontSize="15"
             letterSpacing="0.4"
           >
-            Weather · peak window open
-          </text>
-        </g>
-      </svg>
-    </StageShell>
-  );
-}
-
-export function AnalysisStageVisual() {
-  const uid = useId().replace(/:/g, "");
-  return (
-    <StageShell
-      className="hiw-acid"
-      label="Baseline versus waste analysis scored in rupees."
-      start={startAnalysis}
-    >
-      <svg viewBox="0 0 720 450" xmlns="http://www.w3.org/2000/svg">
-        <rect width="720" height="450" fill="#EEF981" />
-        <g>
-          <rect className="chip" x="28" y="24" width="148" height="44" rx="6" />
-          <text className="lbl" x="42" y="42">Scenario</text>
-          <text
-            data-a06-scen
-            className="val"
-            x="42"
-            y="58"
-            fontFamily="Space Grotesk, sans-serif"
-            fontWeight="700"
-            fontSize="15"
-          >
-            Hold 10 min
-          </text>
-        </g>
-        <g>
-          <rect className="chip" x="188" y="24" width="132" height="44" rx="6" />
-          <circle className="live-dot" cx="204" cy="38" r="3.2" />
-          <text className="lbl lbl-hi" x="214" y="42">Idle</text>
-          <text
-            data-a06-idle
-            className="val"
-            x="204"
-            y="58"
-            fontFamily="Space Grotesk, sans-serif"
-            fontWeight="700"
-            fontSize="15"
-          >
-            180 kW
-          </text>
-        </g>
-        <g>
-          <rect className="chip" x="332" y="24" width="132" height="44" rx="6" />
-          <text className="lbl" x="346" y="42">HVAC</text>
-          <text
-            data-a06-hvac
-            className="val"
-            x="346"
-            y="58"
-            fontFamily="Space Grotesk, sans-serif"
-            fontWeight="700"
-            fontSize="15"
-          >
-            On hold
-          </text>
-        </g>
-        <g>
-          <rect className="chip" x="476" y="24" width="132" height="44" rx="6" />
-          <text className="lbl" x="490" y="42">Baseline</text>
-          <text className="val" x="490" y="58" fontFamily="Space Grotesk, sans-serif" fontWeight="700" fontSize="15">
-            Shift 2
-          </text>
-        </g>
-        <g>
-          <rect className="chip" x="28" y="86" width="280" height="340" rx="8" />
-          <text className="lbl" x="44" y="112">Baseline vs waste</text>
-          <g className="leg is-on" data-leg="idle">
-            <rect className="chip" x="44" y="128" width="72" height="26" rx="4" />
-            <text className="lbl lbl-hi" x="54" y="145">Idle</text>
-          </g>
-          <g className="leg" data-leg="hvac">
-            <rect className="chip" x="124" y="128" width="72" height="26" rx="4" />
-            <text className="lbl lbl-hi" x="134" y="145">HVAC</text>
-          </g>
-          <g className="leg" data-leg="ramp">
-            <rect className="chip" x="204" y="128" width="72" height="26" rx="4" />
-            <text className="lbl lbl-hi" x="214" y="145">Ramp</text>
-          </g>
-          <defs>
-            <clipPath id={`${uid}-a06`}>
-              <rect x="44" y="164" width="248" height="232" />
-            </clipPath>
-          </defs>
-          <line className="axis" x1="52" y1="396" x2="284" y2="396" />
-          <g clipPath={`url(#${uid}-a06)`}>
-            <path className="waste-fill" data-a06-fill d="" />
-            <path className="base-line" data-a06-base d="" />
-            <path className="waste-line" data-a06-act d="" />
-            <line className="now-rule" data-a06-now x1="284" y1="168" x2="284" y2="396" />
-          </g>
-        </g>
-        <g>
-          <rect className="rx" x="328" y="86" width="364" height="340" rx="8" />
-          <circle className="live-dot" cx="352" cy="118" r="4" />
-          <text className="lbl lbl-hi" x="364" y="122">₹ impact of scenario</text>
-          <text
-            data-a06-title
-            className="val"
-            x="352"
-            y="176"
-            fontFamily="Space Grotesk, sans-serif"
-            fontWeight="700"
-            fontSize="26"
-          >
-            Hold second feeder
-          </text>
-          <text className="mute-txt" x="352" y="220" fontFamily="Inter, sans-serif" fontSize="18">
-            Owner · Utilities
-          </text>
-          <text
-            data-a06-rupee
-            className="val"
-            x="352"
-            y="268"
-            fontFamily="Space Grotesk, sans-serif"
-            fontWeight="700"
-            fontSize="28"
-          >
-            ₹ 0.6L / mo
-          </text>
-          <text
-            data-a06-cat
-            className="mute-txt"
-            x="352"
-            y="322"
-            fontFamily="IBM Plex Mono, monospace"
-            fontSize="15"
-            letterSpacing="0.4"
-          >
-            Idle + HVAC vs this-shift baseline
-          </text>
-          <text
-            className="mute-txt"
-            x="352"
-            y="358"
-            fontFamily="IBM Plex Mono, monospace"
-            fontSize="15"
-            letterSpacing="0.4"
-          >
-            Evidence · not a fleet average
+            Quality · lot records
           </text>
         </g>
       </svg>
@@ -752,7 +441,7 @@ export function PrescriptionsStageVisual() {
   return (
     <StageShell
       className="hiw-ember"
-      label="Ranked rupee-scored prescriptions in a live queue."
+      label="Ranked example actions in a live queue."
       start={startPrescriptions}
     >
       <svg viewBox="0 0 720 450" xmlns="http://www.w3.org/2000/svg">
@@ -769,21 +458,21 @@ export function PrescriptionsStageVisual() {
           <rect className="chip" x="172" y="24" width="148" height="44" rx="6" />
           <text className="lbl" x="186" y="42">Top action</text>
           <text className="val" x="186" y="58" fontFamily="Space Grotesk, sans-serif" fontWeight="700" fontSize="15">
-            ₹ scored
+            By cost
           </text>
         </g>
         <g>
           <rect className="chip" x="332" y="24" width="148" height="44" rx="6" />
           <text className="lbl" x="346" y="42">Window</text>
           <text className="val" x="346" y="58" fontFamily="Space Grotesk, sans-serif" fontWeight="700" fontSize="15">
-            ToD peak
+            This shift
           </text>
         </g>
         <g>
           <rect className="chip" x="492" y="24" width="128" height="44" rx="6" />
-          <text className="lbl" x="506" y="42">Feeder</text>
+          <text className="lbl" x="506" y="42">Line</text>
           <text className="val" x="506" y="58" fontFamily="Space Grotesk, sans-serif" fontWeight="700" fontSize="15">
-            F-02
+            Line B
           </text>
         </g>
         <g>
@@ -793,37 +482,37 @@ export function PrescriptionsStageVisual() {
             <rect className="chip" x="0" y="0" width="248" height="78" rx="6" />
             <text className="lbl lbl-hi" x="16" y="22">01</text>
             <text className="val" x="16" y="46" fontFamily="Space Grotesk, sans-serif" fontWeight="700" fontSize="19">
-              Shed idle HVAC
+              Check quench delay
             </text>
             <text className="mute-txt" x="16" y="66" fontFamily="IBM Plex Mono, monospace" fontSize="13" letterSpacing="0.4">
-              ₹ 0.8L / mo
+              Shift lead
             </text>
           </g>
           <g className="rank-row" data-rank="1" transform="translate(44, 214)">
             <rect className="chip" x="0" y="0" width="248" height="78" rx="6" />
             <text className="lbl lbl-hi" x="16" y="22">02</text>
             <text className="val" x="16" y="46" fontFamily="Space Grotesk, sans-serif" fontWeight="700" fontSize="19">
-              Stagger feeder 2
+              Re-plan Press 3 stop
             </text>
             <text className="mute-txt" x="16" y="66" fontFamily="IBM Plex Mono, monospace" fontSize="13" letterSpacing="0.4">
-              ₹ 0.4L / mo
+              Planner
             </text>
           </g>
           <g className="rank-row" data-rank="2" transform="translate(44, 300)">
             <rect className="chip" x="0" y="0" width="248" height="78" rx="6" />
             <text className="lbl lbl-hi" x="16" y="22">03</text>
             <text className="val" x="16" y="46" fontFamily="Space Grotesk, sans-serif" fontWeight="700" fontSize="19">
-              Shift dryer warm-up
+              Check burner drift
             </text>
             <text className="mute-txt" x="16" y="66" fontFamily="IBM Plex Mono, monospace" fontSize="13" letterSpacing="0.4">
-              ₹ 0.3L / mo
+              Maintenance
             </text>
           </g>
         </g>
         <g>
           <rect className="rx" x="328" y="86" width="364" height="340" rx="8" />
           <circle className="live-dot" cx="352" cy="118" r="4" />
-          <text className="lbl lbl-hi" x="364" y="122">Live · Prescription</text>
+          <text className="lbl lbl-hi" x="364" y="122">Example action</text>
           <text
             data-a07-title
             className="val"
@@ -833,10 +522,10 @@ export function PrescriptionsStageVisual() {
             fontWeight="700"
             fontSize="26"
           >
-            Shed idle HVAC
+            Check quench delay
           </text>
           <text data-a07-owner className="mute-txt" x="352" y="220" fontFamily="Inter, sans-serif" fontSize="18">
-            Owner · Utilities
+            For the shift lead
           </text>
           <g>
             <rect className="pill-fill" x="352" y="244" width="168" height="34" />
@@ -849,7 +538,7 @@ export function PrescriptionsStageVisual() {
               fontWeight="700"
               fontSize="22"
             >
-              ₹ 0.8L / mo
+              Next batch
             </text>
           </g>
           <text
@@ -861,7 +550,7 @@ export function PrescriptionsStageVisual() {
             fontSize="15"
             letterSpacing="0.4"
           >
-            Evidence · feeder F-02 idle 180 kW
+            Why · delay drifting up on Furnace 2
           </text>
           <text
             className="mute-txt"
@@ -871,7 +560,7 @@ export function PrescriptionsStageVisual() {
             fontSize="15"
             letterSpacing="0.4"
           >
-            Audit trail · scoring model on file
+            Reasoning on file for review
           </text>
         </g>
       </svg>
@@ -883,7 +572,7 @@ export function DecisionsStageVisual() {
   return (
     <StageShell
       className="hiw-wine"
-      label="Operator accepts, adjusts, or rejects a prescription. Ledger records Verify."
+      label="The team accepts, adjusts or declines an action, and the result is checked."
       start={startDecisions}
     >
       <svg viewBox="0 0 720 450" xmlns="http://www.w3.org/2000/svg">
@@ -907,30 +596,30 @@ export function DecisionsStageVisual() {
           <rect className="chip" x="332" y="24" width="168" height="44" rx="6" />
           <text className="lbl" x="346" y="42">Control</text>
           <text className="val" x="346" y="58" fontFamily="Space Grotesk, sans-serif" fontWeight="700" fontSize="15">
-            Human in loop
+            Team decides
           </text>
         </g>
         <g>
           <rect className="chip" x="512" y="24" width="128" height="44" rx="6" />
           <text className="lbl" x="526" y="42">Asset</text>
           <text className="val" x="526" y="58" fontFamily="Space Grotesk, sans-serif" fontWeight="700" fontSize="15">
-            AHU-04
+            Press 3
           </text>
         </g>
         <g>
           <rect className="rx" x="28" y="86" width="364" height="340" rx="8" />
           <circle className="live-dot" cx="52" cy="118" r="4" />
-          <text className="lbl lbl-hi" x="64" y="122">Live · Prescription</text>
+          <text className="lbl lbl-hi" x="64" y="122">Example action</text>
           <text className="val" x="52" y="176" fontFamily="Space Grotesk, sans-serif" fontWeight="700" fontSize="26">
-            Inspect AHU-04 bearing
+            Check Press 3 hydraulics
           </text>
           <text className="mute-txt" x="52" y="220" fontFamily="Inter, sans-serif" fontSize="18">
-            Owner · Maintenance
+            For maintenance
           </text>
           <g>
             <rect className="pill-fill" x="52" y="244" width="148" height="36" />
             <text className="pill-ink" x="66" y="270" fontFamily="Space Grotesk, sans-serif" fontWeight="700" fontSize="22">
-              ₹ 1.2L risk
+              This week
             </text>
           </g>
           <text
@@ -941,9 +630,9 @@ export function DecisionsStageVisual() {
             fontSize="15"
             letterSpacing="0.4"
           >
-            Evidence · signature vs baseline
+            Why · cycle time creeping up, same die
           </text>
-          <text className="lbl" x="52" y="392">Assigned action · review on the floor</text>
+          <text className="lbl" x="52" y="392">Example action · review on the floor</text>
         </g>
         <g>
           <rect className="chip" x="408" y="86" width="284" height="340" rx="8" />
@@ -963,14 +652,14 @@ export function DecisionsStageVisual() {
           <g className="btn-group" data-btn="x" transform="translate(428, 256)">
             <rect className="btn" x="0" y="0" width="244" height="48" rx="6" />
             <text className="val" x="20" y="31" fontFamily="Space Grotesk, sans-serif" fontWeight="700" fontSize="19">
-              Reject
+              Decline
             </text>
           </g>
           <g>
             <rect className="chip" x="428" y="320" width="244" height="62" rx="6" />
             <rect className="chip" x="440" y="334" width="22" height="22" rx="4" />
             <path className="tick-draw" data-a08-tick d="M446 345 L450.5 350 L458 337" />
-            <text className="verify-kicker" x="474" y="342">Verify</text>
+            <text className="verify-kicker" x="474" y="342">Check</text>
             <text
               data-a08-vtitle
               className="val"
@@ -991,7 +680,7 @@ export function DecisionsStageVisual() {
             fontSize="12"
             letterSpacing="0.4"
           >
-            Improve · expertise compounds
+            Feedback · next action improves
           </text>
         </g>
         <g data-a08-cursor className="cursor-arrow" style={{ transform: "translate(548px, 158px)" }}>
@@ -1004,7 +693,6 @@ export function DecisionsStageVisual() {
 
 export const hiwStageVisuals = [
   DataStageVisual,
-  AnalysisStageVisual,
   PrescriptionsStageVisual,
   DecisionsStageVisual,
 ] as const;

@@ -1,3 +1,5 @@
+import { landingContent } from "@/lib/content/landing";
+
 /**
  * Motion engine ported from handoff/hero-plant-flow/hero-plant-flow.html.
  * Geometry, chip timing, and prescription copy stay aligned with that SoT.
@@ -36,24 +38,24 @@ type ChipDef = {
 
 const CHIP_POOLS: Record<"wExt" | "wTel" | "wApp", ChipFace[]> = {
   wExt: [
-    { name: "Energy price", tag: "↑ 8%", dir: "up" },
-    { name: "ToD tariff", tag: "↑ 6%", dir: "up" },
-    { name: "Day-ahead", tag: "↑ 4%", dir: "up" },
-    { name: "Grid freq", tag: "↓ 1%", dir: "down" },
-    { name: "Weather", tag: "↑ 3%", dir: "up" },
+    { name: "Lot record", tag: "new", dir: "up" },
+    { name: "Inspection", tag: "↑", dir: "up" },
+    { name: "Rejections", tag: "↑", dir: "up" },
+    { name: "Complaint", tag: "new", dir: "up" },
+    { name: "Audit file", tag: "new", dir: "up" },
   ],
   wTel: [
-    { name: "Power draw", tag: "↑ 8%", dir: "up" },
-    { name: "Furnace kW", tag: "↑ 5%", dir: "up" },
-    { name: "Line load", tag: "↑ 3%", dir: "up" },
-    { name: "Air kW", tag: "↓ 2%", dir: "down" },
+    { name: "Die temp", tag: "↓", dir: "down" },
+    { name: "Furnace load", tag: "↑", dir: "up" },
+    { name: "Micro-stops", tag: "↑", dir: "up" },
+    { name: "Heater aim", tag: "drift", dir: "up" },
   ],
   wApp: [
-    { name: "Demand forecast", tag: "↑ 5%", dir: "up" },
-    { name: "Shift plan", tag: "↑ 2%", dir: "up" },
-    { name: "Batch queue", tag: "↑ 4%", dir: "up" },
-    { name: "Work order", tag: "↑ 1%", dir: "up" },
-    { name: "Recipe", tag: "↑ 3%", dir: "up" },
+    { name: "Shift plan", tag: "late", dir: "up" },
+    { name: "Batch queue", tag: "↑", dir: "up" },
+    { name: "Work order", tag: "new", dir: "up" },
+    { name: "Dispatch", tag: "due", dir: "up" },
+    { name: "Recipe", tag: "new", dir: "up" },
   ],
 };
 
@@ -66,53 +68,8 @@ const CHIP_DEFS: ChipDef[] = [
   { path: "wOut", bare: true, sequential: true, phase: 0, speed: CHIP_SPEED },
 ];
 
-export const RX_ITEMS = [
-  {
-    money: "+ ₹95,000",
-    label: "Demand",
-    copy: "Stagger the second high-load start. 8 min. This demand window.",
-  },
-  {
-    money: "10 min",
-    label: "Setter",
-    copy: "Repeating micro-stop. Check clamping. Close when the machine runs.",
-  },
-  {
-    money: "+ ₹42,000",
-    label: "Utilities",
-    copy: "Cut HVAC on the idle line this shift. Confirm when output resumes.",
-  },
-  {
-    money: "+ ₹1.8L",
-    label: "Maintenance",
-    copy: "Inspect the compressor before the next run. Walk now. Report back.",
-  },
-  {
-    money: "+ ₹38,000",
-    label: "Shift lead",
-    copy: "Pull this batch into the cheaper window tonight. Do not slip release.",
-  },
-  {
-    money: "Delay",
-    label: "HT lead",
-    copy: "Hold the furnace. Mill is 40 min late. Page production, then set back.",
-  },
-  {
-    money: "+ ₹11,000",
-    label: "Leak",
-    copy: "Inspect the Line B air leak now. Close when feeder draw drops.",
-  },
-  {
-    money: "Scrap risk",
-    label: "Setter",
-    copy: "Lower furnace hold after this batch ran hot. Check before next pour.",
-  },
-  {
-    money: "This week",
-    label: "Maintenance",
-    copy: "Inspect the machine losing the most minutes. Owner assigned. Report back.",
-  },
-] as const;
+/** Example action cards (copy v3). Source of truth: landingContent.hero.actionCards. */
+export const RX_ITEMS = landingContent.hero.actionCards;
 
 export const RX_VISIBLE = 2;
 

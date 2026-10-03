@@ -88,8 +88,22 @@ export type IndustryPrescriptionExample = {
   id: string;
   title: string;
   description: string;
+  /** Short tag shown on the card, e.g. "Example". */
   impactRange: string;
+  /** Improvement area the card belongs to, e.g. "Quality". */
+  area?: string;
   assignee?: string;
+};
+
+export type ImprovementAreaKey = "process" | "quality" | "planning" | "maintenance";
+
+export type IndustryImprovementArea = {
+  area: ImprovementAreaKey;
+  /** Short statement heading for this area in this industry. */
+  title: string;
+  description: string;
+  /** One sentence on how energy shows up in this area for this industry. */
+  energy: string;
 };
 
 export type IndustryFaqItem = {
@@ -104,6 +118,8 @@ export type VerticalPageHero = {
   description: string;
   primaryCta: CtaLink;
   secondaryCta: CtaLink;
+  /** Optional small note under the hero buttons. */
+  note?: string;
   seoHeadings?: string[];
 };
 
@@ -118,17 +134,23 @@ export type IndustryPlantRow = {
 export type VerticalPageContent = {
   slug: string;
   hero: VerticalPageHero;
-  economics: {
+  economics?: {
     eyebrow: string;
     title: string;
     description: string;
     stats: StatItem[];
   };
-  wasteTable: {
+  wasteTable?: {
     eyebrow: string;
     title: string;
     description: string;
     areas: IndustryValueArea[];
+  };
+  improvementAreas?: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    items: IndustryImprovementArea[];
   };
   plantBand: {
     eyebrow: string;
@@ -144,7 +166,7 @@ export type VerticalPageContent = {
     items: IndustryPrescriptionExample[];
     attribution?: { text: string; source: string };
   };
-  integration: {
+  integration?: {
     eyebrow: string;
     title: string;
     items: IndustryIntegrationItem[];
@@ -240,6 +262,8 @@ export type IndustryItem = {
   /** Operational sustainability one-liner shown under the description */
   sustainability?: string;
   featured?: boolean;
+  /** Link target; defaults to /industries/{id} */
+  href?: string;
   imageSrc?: string;
   imageAlt?: string;
 };

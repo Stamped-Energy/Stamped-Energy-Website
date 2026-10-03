@@ -4,12 +4,9 @@ import {
   SimpleNavDropdown,
   SimpleNavMobileAccordion,
 } from "@/components/layout/SimpleNavDropdown";
-import { getLiveVerticals } from "@/lib/content";
+import { getIndustryNavItems } from "@/lib/content";
 
-const industryItems = getLiveVerticals().map((vertical) => ({
-  label: vertical.name,
-  href: vertical.href,
-}));
+const industryItems = getIndustryNavItems();
 
 export function IndustriesMegaMenu({ lightNav = false }: { lightNav?: boolean }) {
   return (

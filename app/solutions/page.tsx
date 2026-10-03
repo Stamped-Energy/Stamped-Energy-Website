@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { SolutionsHub } from "@/components/solutions/SolutionsHub";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { solutionsContent } from "@/lib/content/solutions";
 import { breadcrumbHome, generateBreadcrumbSchema } from "@/lib/seo/breadcrumbs";
 import { buildPageMetadataFromConfig } from "@/lib/seo/metadata";
 import { PAGE_SEO } from "@/lib/seo/pages";
@@ -11,27 +12,20 @@ export const metadata: Metadata = buildPageMetadataFromConfig(PAGE_SEO.solutions
 
 const breadcrumbSchema = generateBreadcrumbSchema([
   breadcrumbHome(),
-  { name: "Solutions", url: PAGE_SEO.solutions.path },
+  { name: "What we improve", url: PAGE_SEO.solutions.path },
 ]);
 
 const collectionSchema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  name: "Stamped Energy Solutions",
+  name: "What Stamped improves",
   description: PAGE_SEO.solutions.description,
   url: `${SITE_URL}/solutions`,
-  hasPart: [
-    {
-      "@type": "WebPage",
-      name: "Load management and energy efficiency",
-      url: `${SITE_URL}/solutions/load-energy`,
-    },
-    {
-      "@type": "WebPage",
-      name: "Prescriptive equipment intelligence",
-      url: `${SITE_URL}/solutions/equipment-intelligence`,
-    },
-  ],
+  hasPart: solutionsContent.areas.map((area) => ({
+    "@type": "WebPage",
+    name: area.title,
+    url: `${SITE_URL}${area.href}`,
+  })),
 };
 
 export default function SolutionsPage() {

@@ -5,7 +5,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbHome, generateBreadcrumbSchema } from "@/lib/seo/breadcrumbs";
 import { buildPageMetadataFromConfig } from "@/lib/seo/metadata";
 import { PAGE_SEO } from "@/lib/seo/pages";
-import { contactPageSchema } from "@/lib/seo/schemas";
+import { contactPageSchema, engagementHowToSchema } from "@/lib/seo/schemas";
 
 export const metadata: Metadata = buildPageMetadataFromConfig(PAGE_SEO.contact);
 
@@ -17,7 +17,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 export default function ContactPage() {
   return (
     <>
-      <JsonLd data={[contactPageSchema, breadcrumbSchema]} />
+      <JsonLd data={[contactPageSchema, engagementHowToSchema, breadcrumbSchema]} />
       <ContactPageView />
     </>
   );

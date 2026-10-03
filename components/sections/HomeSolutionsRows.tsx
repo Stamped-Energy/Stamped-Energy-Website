@@ -1,15 +1,13 @@
 import Link from "next/link";
 
-import { AssetHealthVisual, EnergyManagementVisual } from "@/components/motion-slots/SolutionsVisuals";
 import { Container } from "@/components/ui/Container";
-import { MotionSlot } from "@/components/ui/MotionSlot";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionBadge } from "@/components/ui/SectionBadge";
 import { landingContent, solutionsContent } from "@/lib/content";
 
 export function HomeSolutionsRows() {
   const { solutionsSection } = landingContent;
-  const pillars = solutionsContent.hub.pillars;
+  const { areas } = solutionsContent;
 
   return (
     <section className="section-y bg-surface">
@@ -21,37 +19,27 @@ export function HomeSolutionsRows() {
           </h2>
         </Reveal>
 
-        <div className="mt-12 space-y-10 md:mt-16 md:space-y-14">
-          {pillars.map((pillar, index) => (
-            <article
-              key={pillar.slug}
-              className="grid items-center gap-8 border-t border-outline-variant/40 pt-10 lg:grid-cols-2 lg:gap-14"
-            >
-              <MotionSlot
-                label={`${pillar.title} visual`}
-                aspectClassName="aspect-[16/10]"
-                className={index % 2 === 1 ? "lg:order-2" : undefined}
-              >
-                {index === 0 ? <EnergyManagementVisual /> : <AssetHealthVisual />}
-              </MotionSlot>
-              <div className={index % 2 === 1 ? "lg:order-1" : undefined}>
-                <h3 className="font-display text-2xl font-bold tracking-tight md:text-3xl">
-                  {pillar.title}
-                </h3>
-                <p className="mt-4 max-w-xl text-base leading-8 text-on-surface/80">
-                  {pillar.description}
-                </p>
+        <ul className="mt-12 grid gap-6 md:mt-16 md:grid-cols-2 md:gap-8">
+          {areas.map((area, index) => (
+            <li key={area.slug} className="border-t border-outline-variant/40 pt-8">
+              <Reveal delay={index * 0.04}>
+                <h3 className="font-display text-2xl font-bold tracking-tight md:text-3xl">{area.title}</h3>
+                <p className="mt-4 max-w-xl text-base leading-8 text-on-surface/80">{area.homeSummary}</p>
                 <Link
-                  href={pillar.href}
-                  className="mt-7 inline-flex h-11 items-center gap-2 rounded-md border border-on-surface/20 px-5 text-sm font-semibold text-on-surface transition-colors hover:border-primary hover:text-primary"
+                  href={area.href}
+                  className="mt-6 inline-flex h-11 items-center gap-2 rounded-md border border-on-surface/20 px-5 text-sm font-semibold text-on-surface transition-colors hover:border-primary hover:text-primary"
                 >
-                  {pillar.ctaLabel}
+                  {solutionsSection.ctaLabel}
                   <span aria-hidden>»</span>
                 </Link>
-              </div>
-            </article>
+              </Reveal>
+            </li>
           ))}
-        </div>
+        </ul>
+
+        <Reveal>
+          <p className="mt-10 text-base font-medium text-on-surface md:mt-12">{solutionsSection.footnote}</p>
+        </Reveal>
       </Container>
     </section>
   );

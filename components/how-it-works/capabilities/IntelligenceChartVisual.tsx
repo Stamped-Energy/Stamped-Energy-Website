@@ -180,7 +180,7 @@ export function IntelligenceChartVisual() {
             y={CHART.top - 10}
             className="fill-[var(--brand-on-surface-variant)] text-[12px] font-semibold"
           >
-            Production-normalized load
+            Heater temperature by lot
           </text>
           <text
             x={CHART.left}
@@ -250,31 +250,31 @@ export function IntelligenceChartVisual() {
         className="absolute left-[3%] top-[6%] z-10 w-[min(42%,10.5rem)] rounded-lg border border-primary/40 bg-surface-lowest p-2 shadow-[0_12px_32px_-16px_color-mix(in_srgb,var(--brand-primary)_45%,transparent)] md:w-[11.25rem] md:p-3"
       >
         <p className="text-[9px] font-bold uppercase tracking-[0.12em] text-primary md:text-[10px]">
-          Scored move
+          Example action
         </p>
         <p className="mt-1 text-[10px] font-semibold leading-snug text-on-surface md:text-[11px]">
-          Stagger compressor 1 startup
+          Keep the heater warm during short stops
         </p>
         <p className="mt-1 text-[9px] text-on-surface-variant md:text-[10px]">
-          Feasible · Shift B
+          For the shift lead · A shift
         </p>
         <p
           data-intel-impact
           className="mt-1.5 inline-flex rounded-full bg-primary/10 px-2.5 py-1 text-[10px] font-bold text-primary md:text-[11px]"
         >
-          ₹ 0.6L / month
+          [N] parts back in window
         </p>
         <p
           data-intel-reject
           className="mt-2 text-[9px] leading-snug text-on-surface-variant md:text-[10px]"
         >
-          Shed HVAC blocked · production window
+          Faster line speed blocked · next station
         </p>
         <p
           data-intel-score
           className="mt-1 text-[9px] font-semibold text-primary md:text-[10px]"
         >
-          Rupee-scored against ToD and MD
+          Ranked by what it is costing you
         </p>
       </div>
     </div>

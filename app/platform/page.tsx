@@ -6,7 +6,8 @@ import { HiwOpening } from "@/components/how-it-works/HiwOpening";
 import { HiwOutcomesBand } from "@/components/how-it-works/HiwOutcomesBand";
 import { HiwModelsGrid } from "@/components/how-it-works/HiwModelsGrid";
 import { HiwProseStack } from "@/components/how-it-works/HiwProseStack";
-import { HiwStaticLoop } from "@/components/how-it-works/HiwStaticLoop";
+import { HiwWhatWeDo } from "@/components/how-it-works/HiwWhatWeDo";
+import { BeforeYouBook } from "@/components/engagement/BeforeYouBook";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { platformContent } from "@/lib/content";
 import { breadcrumbHome, generateBreadcrumbSchema } from "@/lib/seo/breadcrumbs";
@@ -18,7 +19,7 @@ export const metadata: Metadata = buildPageMetadataFromConfig(PAGE_SEO.platform)
 
 const breadcrumbSchema = generateBreadcrumbSchema([
   breadcrumbHome(),
-  { name: "Platform", url: PAGE_SEO.platform.path },
+  { name: "How it works", url: PAGE_SEO.platform.path },
 ]);
 
 export default function PlatformPage() {
@@ -26,12 +27,13 @@ export default function PlatformPage() {
     <>
       <JsonLd data={[howToSchema, breadcrumbSchema]} />
       <HiwOpening />
+      <HiwWhatWeDo />
       <HiwProseStack content={platformContent.surfaces} sectionId="surfaces" />
       <HiwModelsGrid />
       <HiwCapabilities />
-      <HiwStaticLoop />
       <HiwOutcomesBand />
       <HiwDeployment />
+      <BeforeYouBook />
     </>
   );
 }

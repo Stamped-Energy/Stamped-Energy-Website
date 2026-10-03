@@ -84,6 +84,11 @@ export function IndustryHero({ slug }: IndustryHeroProps) {
               {page.hero.secondaryCta.label}
             </Button>
           </div>
+          {page.hero.note ? (
+            <p data-industry-hero className="mt-5 max-w-xl text-xs leading-6 text-on-secondary/70 md:text-sm">
+              {page.hero.note}
+            </p>
+          ) : null}
         </div>
       </Container>
     </section>

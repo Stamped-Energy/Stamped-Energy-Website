@@ -1,51 +1,57 @@
-/** Reuse on later pages, pitches, and (when updated) external canon. */
+import { platformContent } from "./platform";
+
+/** /about copy. Canon: Stamped copy v3 (3 Oct 2026), sections 3 (long version) and 7. */
+
+/** Reuse on later pages and pitches. Plant decisions named in the guide's voice section. */
 export const plantDecisionMoves = [
   "Run harder or hold back",
   "Adjust a process",
   "Delay maintenance",
-  "Switch production priorities",
+  "Change the sequence",
 ] as const;
 
 export const aboutContent = {
   hero: {
-    title: "We're building the intelligence layer for the industrial world.",
+    title: "Plants have the data to run better, and we build the way to act on it.",
     heroImageSrc: "/industries/die-casting.jpeg",
-    heroImageAlt: "Energy-intensive manufacturing plant floor",
+    heroImageAlt: "Manufacturing plant floor",
   },
 
   story: {
-    eyebrow: "Our Story",
-    title: "Close the gap between the floor and the bill.",
+    eyebrow: "Our story",
+    title: "How Stamped started",
     paragraphs: [
-      "Stamped Energy started with a simple conviction: industrial sites should make **real-time decisions connected to their economic impact**.",
-      "Plant teams make just-in-time calls every shift, every day. Run harder or hold back. Adjust a process. Delay maintenance. Switch production priorities. Each one hits costs, revenue, and margins. Making those calls from data is hard. A lot gets missed.",
-      "Meters and SCADA already record the plant. ERPs and the people on the ground live elsewhere. Real-time decisions from all of that were, in practice, not possible. What was missing was a system that could bring these perspectives together, with live data in real time, for the people making decisions.",
-      "For years, such a system was impossible to build. The data was messy, the models stayed with experts, and the context lived in people's heads. Now with AI, that changes. That is what Stamped Energy is building: an **intelligence layer for the industrial world**.",
+      "Stamped was started by Vinayak Raizada and Utso Sarkar, engineers from IIT Roorkee. We began by working on energy in Indian plants, and the more time we spent on plant floors, the clearer it became that energy was only one symptom of a bigger problem: plants have the data they need to run better, but very little help turning it into decisions. That is what we build now. We know that being wrong in a factory has a real cost, and we try to work with that in mind.",
     ],
+    whatWeDo: {
+      title: "What we do",
+      /** Approved long outcomes-and-how text. Word for word, shared with /platform. */
+      paragraphs: platformContent.whatWeDo.paragraphs,
+    },
   },
 
   team: {
     eyebrow: "Leadership",
     title: "Meet our founders",
-    description: "IIT Roorkee engineers building for plant heads who measure success on the bill.",
+    description: "IIT Roorkee engineers building for plant teams who have to get it right every shift.",
     members: [
       {
         id: "vinayak",
         name: "Vinayak Raizada",
         role: "Co-Founder",
         imageSrc: "/team/vinayak.png",
-        imageAlt: "Vinayak Raizada, Co-Founder of Stamped Energy, IIT Roorkee Electrical Engineering",
+        imageAlt: "Vinayak Raizada, Co-Founder of Stamped, IIT Roorkee Electrical Engineering",
         linkedIn: "https://www.linkedin.com/in/vinayak-rz/",
-        bio: "Leads core technical work, electrical engineering depth, strategy, and marketing. Electrical Engineering, IIT Roorkee. Focuses on prescriptive energy intelligence, turning meter, SCADA, and bill data into rupee-denominated actions plant teams can verify with evidence.",
+        bio: "Leads core technical work, strategy and marketing. Electrical Engineering, IIT Roorkee.",
       },
       {
         id: "utso",
         name: "Utso Sarkar",
         role: "Co-Founder",
         imageSrc: "/team/utso.jpg",
-        imageAlt: "Utso Sarkar, Co-Founder of Stamped Energy",
+        imageAlt: "Utso Sarkar, Co-Founder of Stamped",
         linkedIn: "https://www.linkedin.com/in/utso/",
-        bio: "Leads sales, outreach, and software engineering. IIT Roorkee. Builds the product platform and works directly with manufacturers through discovery, pilots, and deployment, connecting what we ship to what plant teams execute on the floor.",
+        bio: "Leads sales, outreach and software engineering. IIT Roorkee. Builds the product and works directly with manufacturers through site surveys, pilots and deployment, connecting what we ship to what plant teams do on the floor.",
       },
     ],
   },
@@ -53,25 +59,25 @@ export const aboutContent = {
   values: {
     eyebrow: "What we value",
     title: "How we build and serve",
-    description: "Standards we hold on every plant engagement.",
+    description: "What you can hold us to in every plant we work with.",
     items: [
       {
         id: "integrity",
-        title: "Integrity",
+        title: "Honest numbers",
         description:
-          "Honest discovery, clear scope, and proof you can check. No invented savings.",
+          "We say what we found and how sure we are. Results are measured against your own baseline, and we don't publish savings that no plant has produced.",
       },
       {
-        id: "innovation",
-        title: "Innovation",
+        id: "floor",
+        title: "On your floor",
         description:
-          "Plant-tuned models and a real-time decision layer on systems you already run.",
+          "We learn your plant by spending time on it with your plant head, quality and maintenance teams, and we build on the systems you already run.",
       },
       {
         id: "customers",
-        title: "Customers first",
+        title: "Here after the pilot",
         description:
-          "Assigned actions, verified outcomes, and a team that stays through pilot and beyond.",
+          "Actions go to the right person, we check the results with you, and the same team stays with you through the pilot and after it.",
       },
     ],
   },

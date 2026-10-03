@@ -50,23 +50,38 @@ export function Footer() {
                 {siteConfig.name}
               </span>
             </Link>
-            <h2 className="mt-8 font-display text-2xl font-bold tracking-tight text-balance md:text-3xl">
-              See how quickly Stamped can deliver prescriptions for your plant
+            <p className="mt-3 text-sm font-semibold uppercase tracking-[0.12em] text-inverse-primary">
+              {siteConfig.tagline}
+            </p>
+            <h2 className="mt-6 font-display text-2xl font-bold tracking-tight text-balance md:text-3xl">
+              Turn plant data into action.
             </h2>
             <p className="mt-4 text-sm leading-7 text-on-secondary/75 md:text-base">
-              No rip-and-replace. Full audit trail from day one.
+              There is nothing new to install to start, and Stamped recommends and your team decides.
             </p>
-            <Link
-              href="/contact"
-              className="mt-8 inline-flex h-12 items-center justify-center gap-2 rounded-md border border-primary bg-primary px-6 text-sm font-semibold uppercase tracking-[0.06em] text-on-primary transition-opacity hover:opacity-90"
-            >
-              Book a Discovery Call
-              <span aria-hidden>»</span>
-            </Link>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <Link
+                href={siteConfig.primaryCta.href}
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-primary bg-primary px-6 text-sm font-semibold uppercase tracking-[0.06em] text-on-primary transition-opacity hover:opacity-90"
+              >
+                {siteConfig.primaryCta.label}
+                <span aria-hidden>»</span>
+              </Link>
+              {siteConfig.whatsappUrl ? (
+                <a
+                  href={siteConfig.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-12 items-center justify-center rounded-md border border-on-secondary/30 px-6 text-sm font-semibold text-on-secondary transition-colors hover:bg-on-secondary/5"
+                >
+                  WhatsApp us
+                </a>
+              ) : null}
+            </div>
           </div>
 
           <div className="hidden grid-cols-2 gap-10 sm:grid-cols-4 sm:gap-8 md:grid">
-            <FooterColumn title="Solutions" links={footerLinks.solutions} />
+            <FooterColumn title="What we improve" links={footerLinks.solutions} />
             <FooterColumn title="Industries" links={footerLinks.industries} />
             <FooterColumn title="Resources" links={footerLinks.resources} />
             <FooterColumn title="Company" links={footerLinks.company} />

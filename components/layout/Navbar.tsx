@@ -123,7 +123,7 @@ export function Navbar() {
                 "border-on-secondary/50 text-on-secondary hover:border-on-secondary hover:bg-on-secondary/10",
             )}
           >
-            Book a Discovery Call
+            {siteConfig.primaryCta.label}
           </Button>
         </div>
 
@@ -155,9 +155,19 @@ export function Navbar() {
                 onNavigate={() => setIsMenuOpen(false)}
               />
             ))}
-            <Button href="/contact" variant="primary" className="mt-4 w-full uppercase tracking-[0.06em]">
-              Book a Discovery Call
+            <Button href={siteConfig.primaryCta.href} variant="primary" className="mt-4 w-full uppercase tracking-[0.06em]">
+              {siteConfig.primaryCta.label}
             </Button>
+            {siteConfig.whatsappUrl ? (
+              <a
+                href={siteConfig.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex h-11 w-full items-center justify-center rounded-md border border-outline-variant text-sm font-semibold text-on-surface"
+              >
+                WhatsApp us
+              </a>
+            ) : null}
           </Container>
         </div>
       ) : null}

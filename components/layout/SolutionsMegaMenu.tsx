@@ -6,14 +6,16 @@ import {
 } from "@/components/layout/SimpleNavDropdown";
 import { solutionsContent } from "@/lib/content/solutions";
 
-const solutionItems = solutionsContent.hub.pillars.map((pillar) => ({
-  label: pillar.title,
-  href: pillar.href,
+const MENU_LABEL = "What we improve";
+
+const solutionItems = solutionsContent.areas.map((area) => ({
+  label: area.title,
+  href: area.href,
 }));
 
 export function SolutionsMegaMenu({ lightNav = false }: { lightNav?: boolean }) {
   return (
-    <SimpleNavDropdown label="Solutions" items={solutionItems} lightNav={lightNav} />
+    <SimpleNavDropdown label={MENU_LABEL} items={solutionItems} lightNav={lightNav} />
   );
 }
 
@@ -24,7 +26,7 @@ export function SolutionsMobileNav({
 }) {
   return (
     <SimpleNavMobileAccordion
-      label="Solutions"
+      label={MENU_LABEL}
       items={solutionItems}
       onNavigate={onNavigate}
     />

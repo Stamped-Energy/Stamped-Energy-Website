@@ -12,10 +12,13 @@ import { easeOut, heroDelay, heroDuration, heroStagger } from "@/lib/motion/conf
 import { gsap, useGSAP } from "@/lib/motion/gsap";
 import { cn } from "@/lib/utils";
 
+const MOBILE_CARD_IDS = ["inspector", "shift-lead", "planner", "maintenance-lead", "ht-heatup"];
+
 export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
   const introPlayedRef = useRef(false);
   const { hero } = landingContent;
+  const mobileActionCards = hero.actionCards.filter((card) => MOBILE_CARD_IDS.includes(card.id));
   const { isReady, prefersReducedMotion } = useMotion();
 
   useGSAP(
@@ -64,26 +67,22 @@ export function Hero() {
   return (
     <section ref={sectionRef} className="relative overflow-x-clip bg-surface pb-8 pt-24 md:pb-14 md:pt-28 lg:pt-24">
       <Container>
-        <div className="grid gap-5 md:gap-6 lg:grid-cols-2 lg:items-start lg:gap-10 xl:gap-14">
-          <div data-hero-animate="headline" className="flex flex-col gap-5 md:gap-6 lg:gap-4">
+        <div className="grid gap-5 md:gap-6 lg:grid-cols-12 lg:items-end lg:gap-10 xl:gap-14">
+          <div data-hero-animate="headline" className="flex flex-col gap-5 md:gap-6 lg:col-span-7 lg:gap-5">
             <SectionBadge label={hero.badge} />
-            <h1 className="hero-headline max-w-[16ch] font-display text-[2.15rem] font-bold leading-[1.06] tracking-[-0.03em] text-on-surface sm:text-5xl md:text-6xl lg:max-w-none lg:text-[4.75rem] lg:leading-[1.02] xl:text-[5.25rem]">
-              <span className="block">{hero.headlineLine1}</span>
-              <span className="block">{hero.headlineLine2}</span>
+            <h1 className="hero-headline max-w-[17ch] text-balance font-display text-[2.15rem] font-bold leading-[1.06] tracking-[-0.03em] text-on-surface sm:text-5xl md:text-6xl lg:max-w-[14.5ch] lg:text-[clamp(3.5rem,5.2vw,5rem)] lg:leading-[1.02]">
+              {hero.headline}
             </h1>
           </div>
 
           <div
             data-hero-animate="copy"
-            className="flex w-full min-w-0 flex-col justify-center lg:max-w-[32rem] lg:justify-self-end lg:pt-14 xl:pt-[3.75rem]"
+            className="flex w-full min-w-0 flex-col lg:col-span-5 lg:max-w-[30rem] lg:justify-self-end lg:pb-2"
           >
-            <p className="line-clamp-2 text-sm leading-5 text-on-surface/80 md:hidden">
-              {hero.supportingLineMobile}
-            </p>
-            <p className="value-proposition hidden text-base leading-7 text-on-surface/80 md:block lg:text-sm lg:leading-[1.7] xl:text-[0.9375rem] xl:leading-[1.65]">
+            <p className="value-proposition text-sm leading-6 text-on-surface/80 md:text-base md:leading-7 lg:text-[0.975rem] lg:leading-[1.7]">
               {hero.supportingLine}
             </p>
-            <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center lg:mt-5">
+            <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center lg:mt-6">
               <Link href={hero.primaryCta.href} className={primaryCta}>
                 {hero.primaryCta.label}
                 <span aria-hidden>»</span>
@@ -92,14 +91,43 @@ export function Hero() {
                 {hero.secondaryCta.label}
               </Link>
             </div>
-            <p className="mt-3 hidden text-xs leading-5 text-on-surface-variant md:block lg:mt-4">
-              {hero.microcopy}
-            </p>
           </div>
         </div>
 
-        <div data-hero-animate="visual" className="mt-6 border-t border-outline-variant/40 pt-5 md:mt-12 md:pt-8 lg:mt-14 lg:pt-10">
+        <ul data-hero-animate="copy" className="mt-5 grid gap-1.5 text-[0.8rem] leading-5 text-on-surface-variant sm:grid-cols-3 sm:gap-4 lg:mt-8 lg:justify-items-start">
+          {hero.features.map((feature) => (
+            <li key={feature.id} className="flex items-start gap-2">
+              <span aria-hidden className="mt-[0.4rem] h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+              <span>{feature.title}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div data-hero-animate="visual" className="mt-6 border-t border-outline-variant/40 pt-5 md:mt-8 md:pt-8 lg:mt-8 lg:pt-10">
           <HeroPlantFlow />
+          <div className="mt-5 lg:hidden">
+            <p className="font-mono text-[0.68rem] font-medium uppercase tracking-[0.12em] text-primary">
+              {hero.actionPanel.title} · {hero.actionPanel.badge}
+            </p>
+            <ul className="-mx-4 mt-3 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 [scrollbar-width:none] sm:-mx-6 sm:px-6">
+              {mobileActionCards.map((card) => (
+                <li
+                  key={card.id}
+                  className="w-[78%] shrink-0 snap-start rounded-lg border border-outline-variant/50 bg-surface-lowest p-4 sm:w-[46%]"
+                >
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="rounded-full bg-on-surface px-2.5 py-1 font-mono text-[0.62rem] font-medium uppercase tracking-[0.1em] text-surface">
+                      {card.role}
+                    </span>
+                    <span className="rounded-full border border-outline-variant/70 px-2.5 py-1 font-mono text-[0.62rem] uppercase tracking-[0.1em] text-on-surface-variant">
+                      {card.area}
+                    </span>
+                  </div>
+                  <p className="mt-3 text-sm leading-6 text-on-surface">{card.copy}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </Container>
     </section>

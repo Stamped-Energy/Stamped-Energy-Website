@@ -1,5 +1,5 @@
-import Link from "next/link";
-
+import { BeforeYouBook } from "@/components/engagement/BeforeYouBook";
+import { SolutionExampleCards } from "@/components/solutions/SolutionExampleCards";
 import { SolutionsHero } from "@/components/solutions/SolutionsHero";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -8,7 +8,7 @@ import { SectionBadge } from "@/components/ui/SectionBadge";
 import { solutionsContent } from "@/lib/content/solutions";
 
 export function SolutionsHub() {
-  const { hub } = solutionsContent;
+  const { hub, areas, energy, examplesNote } = solutionsContent;
 
   return (
     <>
@@ -23,27 +23,14 @@ export function SolutionsHub() {
         secondaryCta={hub.secondaryCta}
       />
 
-      <section className="border-b border-outline-variant/30 bg-surface section-y">
-        <Container>
-          <Reveal>
-            <SectionBadge label={hub.sectionEyebrow} />
-            <h2 className="mt-5 max-w-xl font-display text-2xl font-bold tracking-tight text-on-surface md:text-3xl">
-              {hub.sectionTitle}
-            </h2>
-            <p className="mt-3 max-w-2xl text-sm leading-7 text-on-surface-variant md:text-base">
-              {hub.sectionIntro}
-            </p>
-          </Reveal>
-        </Container>
-      </section>
-
-      {hub.pillars.map((pillar, index) => {
+      {areas.map((area, index) => {
         const number = String(index + 1).padStart(2, "0");
         const isAlt = index % 2 === 1;
 
         return (
           <section
-            key={pillar.slug}
+            key={area.slug}
+            id={area.slug}
             className={
               isAlt
                 ? "border-b border-outline-variant/30 bg-surface-low section-y"
@@ -60,27 +47,16 @@ export function SolutionsHub() {
                     {number}
                   </span>
                   <div className="min-w-0">
-                    <SectionBadge label={pillar.shortTitle} />
-                    <h3 className="mt-5 font-display text-2xl font-bold tracking-tight text-on-surface md:text-3xl">
-                      {pillar.title}
-                    </h3>
-                    <p className="mt-4 max-w-2xl text-sm leading-7 text-on-surface-variant md:text-base">
-                      {pillar.hubBrief}
+                    <SectionBadge label={area.title} />
+                    <h2 className="mt-5 font-display text-2xl font-bold tracking-tight text-on-surface md:text-3xl">
+                      {area.heading}
+                    </h2>
+                    <p className="mt-4 max-w-3xl text-sm leading-7 text-on-surface-variant md:text-base md:leading-8">
+                      {area.intro}
                     </p>
-                    <p className="mt-3 text-sm font-medium text-on-surface">{pillar.outcome}</p>
-                    <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2">
-                      {pillar.highlights.map((item) => (
-                        <li
-                          key={item}
-                          className="text-xs font-medium uppercase tracking-[0.08em] text-on-surface-variant"
-                        >
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
                     <div className="mt-8">
-                      <Button href={pillar.href} variant="outline">
-                        {pillar.ctaLabel}
+                      <Button href={area.href} variant="outline">
+                        {hub.areaCtaLabel}
                       </Button>
                     </div>
                   </div>
@@ -91,23 +67,27 @@ export function SolutionsHub() {
         );
       })}
 
-      <section className="border-b border-outline-variant/30 bg-surface section-y">
+      <section id="energy" className="border-b border-outline-variant/30 bg-secondary section-y text-on-secondary">
         <Container>
           <Reveal>
-            <p className="max-w-2xl text-sm leading-7 text-on-surface-variant">{hub.sharedNote}</p>
-            <p className="mt-4 text-sm text-on-surface-variant">
-              Prefer the platform view first?{" "}
-              <Link
-                href="/platform"
-                className="font-semibold text-primary underline-offset-4 hover:underline"
-              >
-                See how Connect to Improve works
-              </Link>
-              .
+            <SectionBadge label={energy.eyebrow} alternate />
+            <h2 className="mt-5 max-w-2xl font-display text-2xl font-bold tracking-tight md:text-3xl">
+              {energy.heading}
+            </h2>
+            <p className="mt-4 max-w-3xl text-sm leading-7 text-on-secondary/80 md:text-base md:leading-8">
+              {energy.intro}
             </p>
           </Reveal>
         </Container>
       </section>
+
+      <section className="bg-surface section-y">
+        <Container>
+          <SolutionExampleCards label="Example" items={energy.examples} />
+          <p className="mt-4 max-w-3xl text-xs leading-6 text-on-surface-variant">{examplesNote}</p>
+        </Container>
+      </section>
+      <BeforeYouBook />
     </>
   );
 }

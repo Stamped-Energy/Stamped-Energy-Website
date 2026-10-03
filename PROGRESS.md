@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-**Resources IA consolidation (ADR-032)** — Nav/footer Resources → `/case-studies`; `/resources` hub + guide landers removed with 308 redirects; case studies hero photo overlay; `llms.txt` regen.
+**Copy v3 rebrand to "Stamped" (ADR-033)** on branch `copy/stamped-copy-v3` (PR #12). New approved copy across home, `/solutions` (four improvement areas), `/platform`, `/industries` (+ automotive), `/about`, `/contact`, `/case-studies`; SEO metadata, JSON-LD, `llms.txt` aligned; old solution pillars retired with 308s; steel, cement, pharma and chemical pages restored in v3 voice (ADR-034); dead components carrying retired copy deleted. `tsc` + `next build` green.
 
 ## Completed Phases
 
@@ -37,6 +37,7 @@
 - [x] **CVector chrome (ADR-016 Phase 2)** - navbar/footer restyle
 - [x] **CVector homepage structure (ADR-016 Phase 3)** - new section stack + MotionSlot placeholders; FAQ off home
 - [x] **CVector docs/SEO (ADR-016 Phase 4)** - ADR-016, meta titles, build green
+- [x] **Copy v3 / Stamped rebrand (ADR-033, 2026-10-03)** - `lib/content/*` rewritten from `docs/copy/stamped-copy-v3.md`; solution areas process/quality/planning/maintenance; verticals cut to automotive; contact form site-survey fields; WhatsApp behind `NEXT_PUBLIC_WHATSAPP_URL`
 - [x] **CVector visual QA (ADR-016 Phase 5)** - founder-reviewed; no further layout fixes this pass
 - [x] **Typography (ADR-017)** - Space Grotesk + Inter + IBM Plex Mono replacing Helvetica Neue
 - [x] **Homepage HIW pin (ADR-018)** - client GSAP ScrollTrigger pin/scrub through Data → Analysis → Prescriptions → Decisions; stacked mobile / reduced-motion
@@ -68,19 +69,19 @@
 - [x] `/solutions/equipment-intelligence` How it works chromes — `AssetHealthHiwVisuals`
 - [ ] First OpenMontage production using `stamped-industrial` playbook (outside this repo)
 - See **`SEO_GEO_AEO.md` → Remaining** for SEO list. Highlights:
-- [ ] **Paste LinkedIn Company URL** into `lib/seo/constants.ts` → `COMPANY_LINKEDIN_URL`
+- [x] LinkedIn Company URL set to `linkedin.com/company/stampedwork` (rename page to "Stamped"; fix industry field)
 - [ ] **GSC:** resubmit sitemap + URL Inspection after deploy
 - [ ] **Google Business Profile**
-- [ ] **Wikidata entry** for Stamped Energy
-- [ ] Replace placeholder industry hero images (cement, steel, pharma, chemical photo shoot)
-- [ ] Per-vertical blog posts (content roadmap P2)
-- [ ] Real case studies for cement/steel/pharma/chemical (CMS detail URLs already work)
+- [ ] **Wikidata entry** for Stamped
+- [ ] **Copy v3 follow-ups (ADR-033):** set `NEXT_PUBLIC_WHATSAPP_URL`; set up a domain mailbox and replace `stamped.energy@gmail.com`; real precision-machining photo (homepage industries uses a CNC energy infographic); regenerate `public/og-default.png` as "Stamped · AI for plant operations"; fill [N] placeholders and the first permitted plant result once a pilot allows; confirm the hosting answer for "Where does our data go?"
+- [ ] **CMS posts (DB, not code):** retitle the precision machining post and remove the town name; unpublish the cement and chemical posts; review post bodies for % / ₹ / "Stamped Energy"
+- [ ] Bump `external/` submodule brand files to copy v3 (submodule not checked out on this box)
 - [ ] Contact form email/CRM forwarding
 - [ ] Customer logos, testimonials
 
 ## Active Blockers
 
-None.
+- Branch `copy/stamped-copy-v3` is committed locally only; push needs GitHub credentials.
 
 ## Push / PR readiness
 
