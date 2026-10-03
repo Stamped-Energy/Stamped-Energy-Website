@@ -13,13 +13,13 @@ const TITLE = { fontFamily: "Space Grotesk, sans-serif", fontWeight: 700, fontSi
 const SUB = { fontFamily: "Inter, sans-serif", fontSize: 13 } as const;
 const PILL = { fontFamily: "Space Grotesk, sans-serif", fontWeight: 700, fontSize: 14 } as const;
 
-function setText(root: HTMLElement, sel: string, text: string) {
+export function setText(root: HTMLElement, sel: string, text: string) {
   const el = root.querySelector(sel);
   if (el) el.textContent = text;
 }
 
 /** Runs [action, holdMs] steps in order, forever, until stopped. */
-function cycle(steps: Array<[() => void, number]>) {
+export function cycle(steps: Array<[() => void, number]>) {
   let live = true;
   const isLive = () => live;
   void (async () => {

@@ -128,39 +128,39 @@ export const platformContent = {
     eyebrow: "Under the hood",
     title: "What happens to your data before an action reaches the floor",
     description:
-      "Stamped connects to the systems already in your plant, and there is nothing new to install to start.",
+      "Four steps sit between the systems your plant already runs and an action your team can take, and there is nothing new to install to start.",
     items: [
       {
         id: "ingestion",
         title: "Connect and clean up",
         description:
-          "Stamped reads from your machines and control systems, meters, ERP plans, quality registers and what operators enter, then lines up the clocks, units and names, because each system usually records them differently.",
+          "Stamped reads from your machines, control systems, meters, ERP, quality registers and what operators enter, then lines up the clocks, units and names, because each system records them its own way.",
         mediaSrc: null,
-        mediaAlt: "Data from plant systems flowing into Stamped",
+        mediaAlt: "Records from plant systems lined up to one clock and one set of names",
       },
       {
         id: "repository",
-        title: "One timeline for the plant",
+        title: "One timeline for the whole plant",
         description:
-          "Machines, lots, shifts and batches go onto one timeline, so when a lot is rejected you can see what that press, that furnace and that shift were doing at the moment it was made.",
+          "Machines, furnaces, lots, shifts and plans go onto one timeline. When a lot is rejected you can see what that press, that furnace and that shift were doing when it was made, and every re-plan starts from where the whole plant actually is.",
         mediaSrc: null,
-        mediaAlt: "Time-aligned plant context connecting sources",
+        mediaAlt: "A rejected lot traced across press, furnace and shift on one timeline",
       },
       {
         id: "intelligence",
-        title: "Find the losses and rank them",
+        title: "Model the plant and rank the losses",
         description:
-          "Stamped learns what normal looks like for your plant, notices when a line moves away from it, checks each possible fix against the day's plan, and puts the remaining options in order of what they are costing you.",
+          "Stamped builds models of each line from its own history, including digital twins where the process allows, to learn what normal looks like and spot where efficiency is lost. Each possible fix is checked against the day's plan and production constraints, and what is left is ranked by what it is costing you.",
         mediaSrc: null,
-        mediaAlt: "Plant-tuned models ranking feasible actions",
+        mediaAlt: "Losses checked against the plan and ranked by cost",
       },
       {
         id: "governance",
         title: "Send, follow up and check",
         description:
-          "Each action goes to its owner and stays open until it is closed, and the result is compared with your own baseline, with every acceptance, change and result kept on record.",
+          "Each action goes to its owner on WhatsApp or on screen, with what to do, by when and why, and your team decides. It stays open until it is closed, the result is checked against your own baseline, and every decision and result is kept on record.",
         mediaSrc: null,
-        mediaAlt: "Action tracking and result checks",
+        mediaAlt: "An action moving from sent to accepted, checked and closed",
       },
     ] satisfies HiwCapability[],
   },
