@@ -87,6 +87,7 @@ export function Navbar() {
       <Container className="flex h-16 items-center justify-between gap-3 sm:gap-4 md:h-[4.5rem]">
         <Link
           href="/"
+          aria-label={`${siteConfig.name} home`}
           className={cn(
             "flex shrink-0 items-center gap-2.5 font-display text-[1.05rem] font-bold tracking-tight transition-colors",
             isLightNav ? "text-on-secondary hover:text-on-secondary/90" : "text-on-surface hover:text-on-surface/90",

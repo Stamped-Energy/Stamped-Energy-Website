@@ -57,6 +57,7 @@ export function SolutionsHub() {
                     <div className="mt-8">
                       <Button href={area.href} variant="outline">
                         {hub.areaCtaLabel}
+                        <span className="sr-only"> about {area.title.toLowerCase()}</span>
                       </Button>
                     </div>
                   </div>

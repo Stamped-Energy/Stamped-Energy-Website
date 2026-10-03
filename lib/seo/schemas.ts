@@ -18,6 +18,7 @@ import type {
   Article,
   ImageObject,
   SearchAction,
+  Service,
   FAQPage,
   HowTo,
   Organization,
@@ -154,6 +155,26 @@ export function buildWebPageSchema(
     dateModified: CONTENT_UPDATED,
     ...extra,
   } as WithContext<WebPage>;
+}
+
+export function buildServiceSchema(
+  area: { title: string; heading: string; homeSummary: string },
+  page: PageSeoConfig,
+): WithContext<Service> {
+  const url = `${SITE_URL}${page.path}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${url}#service`,
+    name: `${area.title}: ${area.heading.replace(/\.$/, "")}`,
+    serviceType: area.title,
+    description: area.homeSummary,
+    url,
+    provider: { "@id": ORGANIZATION_ID },
+    areaServed: { "@type": "Country", name: "India" },
+    audience: { "@type": "BusinessAudience", audienceType: "Manufacturing plants" },
+    mainEntityOfPage: { "@id": `${url}#webpage` },
+  };
 }
 
 export const homepageSpeakable: Partial<WebPage> = {

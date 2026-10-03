@@ -4,6 +4,7 @@ import { BeforeYouBook } from "@/components/engagement/BeforeYouBook";
 import { SolutionExampleCards } from "@/components/solutions/SolutionExampleCards";
 import { SolutionsHero } from "@/components/solutions/SolutionsHero";
 import { Container } from "@/components/ui/Container";
+import { FaqSection } from "@/components/ui/FaqSection";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionBadge } from "@/components/ui/SectionBadge";
 import { industriesContent } from "@/lib/content/industries";
@@ -107,6 +108,11 @@ export function SolutionAreaPage({ area }: { area: SolutionArea }) {
           </Reveal>
         </Container>
       </section>
+      <FaqSection
+        items={area.faq}
+        title={`Questions about ${area.title.toLowerCase()}`}
+        className="border-t border-outline-variant/30 bg-surface-low"
+      />
       <BeforeYouBook />
     </>
   );

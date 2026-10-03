@@ -3,6 +3,7 @@ import type {
   CtaLink,
   HiwCapability,
   HiwDeploymentPhase,
+  IndustryFaqItem,
   PlatformProseSection,
 } from "./types";
 
@@ -204,6 +205,40 @@ export const platformContent = {
       description: step.description,
     })) satisfies HiwDeploymentPhase[],
   },
+
+  /** Answer-first questions for the page FAQ and FAQPage JSON-LD. Built from approved copy only. */
+  faq: [
+    {
+      id: "data",
+      question: "What data does Stamped use?",
+      answer:
+        "Stamped reads from your machines, control systems, meters, ERP, quality registers and what operators enter, then lines up the clocks, units and names, because each system records them its own way.",
+    },
+    {
+      id: "install",
+      question: "Do we need to install new hardware or another system?",
+      answer:
+        "No hardware retrofit is needed to get started. Stamped is software that works with the systems your plant already runs, and it is not another MES or CMMS: your MES, ERP and SCADA are where the data comes from.",
+    },
+    {
+      id: "ranked",
+      question: "How does Stamped decide which actions come first?",
+      answer:
+        "Stamped builds models of each line from its own history to learn what normal looks like and spot where efficiency is lost. Each possible fix is checked against the day's plan and production constraints, and what is left is ranked by what it is costing you.",
+    },
+    {
+      id: "reach",
+      question: "How do actions reach the team?",
+      answer:
+        "Each action goes to its owner on WhatsApp or on screen, with what to do, by when and why, and your team decides. It stays open until it is closed, and every decision and result is kept on record.",
+    },
+    {
+      id: "checked",
+      question: "How do we know a change worked?",
+      answer:
+        "Once your team makes a change, Stamped checks the result against your own baseline. What each result shows goes back into the models, so the next recommendation is better.",
+    },
+  ] satisfies IndustryFaqItem[],
 } as const;
 
 /** @deprecated Prefer platformContent */
