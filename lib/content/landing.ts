@@ -134,9 +134,44 @@ export const landingContent = {
   homeHowItWorks: {
     badge: "How it works",
     title: "From plant data to operator actions.",
-    paragraphs: [
-      "Stamped connects to the systems your plant already runs, so there is nothing new to install before we start. Its machine learning and AI models learn what normal operation looks like in your plant and which conditions tend to come before a rejection, a stoppage or wasted energy.",
-      "When something is worth acting on, Stamped sends it to the person best placed to act, on WhatsApp or on screen, ranked by what it is costing you and explained well enough that they can judge it for themselves. Once your team has made a change, Stamped checks the result against your own baseline and uses what it learns to make the next recommendation better.",
+    /** Scroll-pinned steps; order matches hiwStageVisuals. */
+    steps: [
+      {
+        id: "data",
+        step: 1,
+        label: "Data",
+        title: "Connects to what you already run.",
+        description:
+          "Stamped works with the systems your plant already runs, so there is nothing new to install before we start.",
+        bullets: ["Machines, control systems and meters", "ERP plans and quality records"],
+      },
+      {
+        id: "models",
+        step: 2,
+        label: "Models",
+        title: "Learns what normal looks like.",
+        description:
+          "Machine learning and AI models learn your best runs and the conditions that come before a rejection, a stoppage or wasted energy.",
+        bullets: ["Compared with your own plant, not an industry average", "Patterns across shifts, lines and lots"],
+      },
+      {
+        id: "actions",
+        step: 3,
+        label: "Actions",
+        title: "Sends the action to the right person.",
+        description:
+          "On WhatsApp or on screen, ranked by what it is costing you and explained well enough to judge.",
+        bullets: ["Who should act, by when, and why", "Rupee-ranked, so the biggest loss comes first"],
+      },
+      {
+        id: "results",
+        step: 4,
+        label: "Results",
+        title: "Checks what actually worked.",
+        description:
+          "Your team decides. Every change is measured against your own baseline, and each result improves the next recommendation.",
+        bullets: ["Accept, adjust or decline every action", "Catch it early if a gain starts to slip"],
+      },
     ],
   },
 
