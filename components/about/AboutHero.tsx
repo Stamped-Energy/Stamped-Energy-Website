@@ -32,39 +32,29 @@ export function AboutHero() {
   );
 
   return (
-    <section ref={sectionRef} className="page-hero relative overflow-hidden bg-secondary">
-      <Container className="relative z-10 grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
-        <div>
-          <div data-about-hero>
-            <SectionBadge label={hero.eyebrow} alternate />
-          </div>
+    <section ref={sectionRef} className="page-hero relative overflow-hidden bg-surface">
+      <Container className="relative z-10">
+        <div data-about-hero>
+          <SectionBadge label={hero.eyebrow} />
+        </div>
+        <div className="mt-5 grid gap-5 md:mt-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-end lg:gap-16">
           <h1
             data-about-hero
-            className="mt-5 max-w-2xl font-display text-[1.75rem] font-extrabold leading-[1.15] tracking-tight text-on-secondary sm:text-4xl lg:text-[2.85rem]"
+            className="font-display text-[1.9rem] font-extrabold leading-[1.12] tracking-tight text-on-surface sm:text-4xl lg:text-[3rem]"
           >
             {hero.title}
           </h1>
           <p
             data-about-hero
-            className="mt-4 max-w-xl text-base leading-7 text-on-secondary/85 md:text-lg md:leading-8"
+            className="text-base leading-7 text-on-surface/75 md:text-lg md:leading-8"
           >
             {hero.description}
           </p>
-          <ul data-about-hero className="mt-6 flex flex-wrap gap-2">
-            {hero.facts.map((fact) => (
-              <li
-                key={fact}
-                className="rounded-full border border-on-secondary/20 bg-on-secondary/5 px-3.5 py-1.5 text-sm font-medium text-on-secondary/90"
-              >
-                {fact}
-              </li>
-            ))}
-          </ul>
         </div>
 
         <div
           data-about-hero
-          className="relative aspect-[4/3] overflow-hidden rounded-xl border border-on-secondary/15"
+          className="relative mt-10 aspect-[16/9] overflow-hidden rounded-2xl md:mt-14 md:aspect-[21/8]"
         >
           <Image
             src={hero.heroImageSrc}
@@ -72,7 +62,7 @@ export function AboutHero() {
             fill
             priority
             className="object-cover object-center"
-            sizes="(max-width: 1024px) 100vw, 45vw"
+            sizes="(max-width: 1280px) 100vw, 1200px"
           />
         </div>
       </Container>
