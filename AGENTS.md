@@ -35,12 +35,12 @@ Before completion:
 | `DECISIONS.md` | Architecture decision log |
 | `PROGRESS.md` | Current status and blockers |
 | `SEO_GEO_AEO.md` | SEO, GEO, and AEO implementation log and remaining checklist |
-| `docs/openmontage-brand/references/homepage-animation-backlog.md` | **Homepage MotionSlots** — A00–A10 shipped. Twin: OpenMontage `brand/stamped/references/…` |
+| `docs/openmontage-brand/references/homepage-animation-backlog.md` | **Homepage MotionSlots** — A00–A12 + B01 shipped. Twin: OpenMontage `brand/stamped/references/…` |
 | `external/brand/` | Portable public copy canon for agents in the platform pack |
 
 ## Open work — homepage animations
 
-Hero (A00), problem (A01–A03), product (A04), How it works (A05–A08), and solutions (A09–A10) are shipped. Optional P1 polish is inventoried in [`docs/openmontage-brand/references/homepage-animation-backlog.md`](docs/openmontage-brand/references/homepage-animation-backlog.md). Status checkbox: `PROGRESS.md`.
+Hero (A00), problem (A01–A03), product (A04), How it works pin with stage visuals (A05–A08), solutions area loops (A09–A12) and Impact rule draw (B01) are shipped (ADR-036). Optional P1 polish is inventoried in [`docs/openmontage-brand/references/homepage-animation-backlog.md`](docs/openmontage-brand/references/homepage-animation-backlog.md). Status checkbox: `PROGRESS.md`.
 
 ## Rule Activation
 

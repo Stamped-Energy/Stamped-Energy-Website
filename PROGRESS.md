@@ -2,7 +2,9 @@
 
 ## Current Phase
 
-**Copy v3 rebrand to "Stamped" (ADR-033)** on branch `copy/stamped-copy-v3` (PR #12). New approved copy across home, `/solutions` (four improvement areas), `/platform`, `/industries` (+ automotive), `/about`, `/contact`, `/case-studies`; SEO metadata, JSON-LD, `llms.txt` aligned; old solution pillars retired with 308s; steel, cement, pharma and chemical pages restored in v3 voice (ADR-034); dead components carrying retired copy deleted. `tsc` + `next build` green.
+**Homepage motion revival (ADR-036)** on branch `cursor/homepage-motion-revival`: pinned How it works journey back with four stage visuals, Solutions area loops, Impact rule draw, offscreen pause for slot loops, shorter What Stamped does.
+
+**Previous: Copy v3 rebrand to "Stamped" (ADR-033)** on branch `copy/stamped-copy-v3` (PR #12). New approved copy across home, `/solutions` (four improvement areas), `/platform`, `/industries` (+ automotive), `/about`, `/contact`, `/case-studies`; SEO metadata, JSON-LD, `llms.txt` aligned; old solution pillars retired with 308s; steel, cement, pharma and chemical pages restored in v3 voice (ADR-034); dead components carrying retired copy deleted. `tsc` + `next build` green.
 
 ## Completed Phases
 
@@ -63,10 +65,9 @@
 
 ## Remaining Phases
 
-- [x] Homepage MotionSlots A01–A04, A09–A10 — problem strips, product visual, solutions chromes (`components/motion-slots/`)
-- [x] Homepage HIW stage visuals (A05–A08) — `HiwStageVisuals` in `HomeHowItWorks`
-- [x] `/solutions/load-energy` How it works chromes — `LoadEnergyHiwVisuals`
-- [x] `/solutions/equipment-intelligence` How it works chromes — `AssetHealthHiwVisuals`
+- [x] Homepage MotionSlots A01–A04 — problem strips, product visual (`components/motion-slots/`)
+- [x] **Homepage motion revival (ADR-036, 2026-10-03)** — pinned HIW journey with A05–A08 stage visuals (Analysis relabelled), four Solutions area loops (`SolutionsAreaVisuals`), Impact rule draw, slot loops pause offscreen, shorter What Stamped does
+- Retired with ADR-033: energy-pillar chromes (`SolutionsVisuals`, `LoadEnergyHiwVisuals`, `AssetHealthHiwVisuals`)
 - [ ] First OpenMontage production using `stamped-industrial` playbook (outside this repo)
 - See **`SEO_GEO_AEO.md` → Remaining** for SEO list. Highlights:
 - [x] LinkedIn Company URL set to `linkedin.com/company/stampedwork` (rename page to "Stamped"; fix industry field)

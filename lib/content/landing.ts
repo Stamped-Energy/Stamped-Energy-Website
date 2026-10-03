@@ -123,7 +123,7 @@ export const landingContent = {
   whatIs: {
     badge: "What Stamped does",
     title: "Turn plant data into action.",
-    /** Homepage cut of the approved outcomes-and-how text (ADR-034). Full version: platform.ts. The last item renders as the kicker. */
+    /** Homepage cut of the approved outcomes-and-how text (ADR-036). Full version: platform.ts. The last item renders as the kicker. */
     paragraphs: [
       "Stamped helps plants cut rejections, get more output from the lines they already have, and use less energy in every good part. It brings data from separate systems into one view and uses machine learning and AI to turn hidden losses into specific actions for the person who can fix them.",
       "Stamped recommends and your team decides, and every change is checked against your own baseline.",

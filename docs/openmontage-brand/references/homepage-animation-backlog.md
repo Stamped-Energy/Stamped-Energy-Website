@@ -1,7 +1,7 @@
 # Homepage animation backlog (Stamped)
 
 **Status:** Inventory only — no implementation in this doc.  
-**Date:** Aug 2026  
+**Date:** Aug 2026, status table updated Oct 2026 (ADR-036)  
 **Canonical (OpenMontage):** keep in sync with Montage-Stamped `brand/stamped/references/homepage-animation-backlog.md`.  
 **Agent discovery:** Linked from this pack’s [`README.md`](../README.md), repo-root [`AGENTS.md`](../../../AGENTS.md), and `PROGRESS.md`. If an agent is asked what homepage motion still needs building, **open this file first**.  
 **Authority for site slots:** Main_Website CVector-parity homepage (`app/page.tsx`), not the older live [stamped.work](https://stamped.work/) hero.  
@@ -23,25 +23,29 @@
 
 ## Status snapshot
 
+> **Oct 2026 (ADR-036):** this table reflects the live tree after copy v3. The A05–A10 package notes further down describe the earlier energy-pillar versions and are kept for history only.
+
 | ID | Slot | Status |
 |----|------|--------|
 | A00 | Homepage hero visual | **DONE** — `HeroPlantFlow` |
 | A01–A03 | Problem strips (×3) | **DONE** — `ProblemStripVisuals` |
-| A04 | What is Stamped | **DONE** — `WhatIsProductVisual` |
-| — | HIW pin / scrub / step nav | **DONE** — GSAP ScrollTrigger |
-| A05–A08 | HIW stage visuals (×4) | **DONE** — `HiwStageVisuals` |
-| A09–A10 | Solutions pillar chromes (×2) | **DONE** — `SolutionsVisuals` |
-| B01–B04 | Impact / CTA / photos / CVector-only | **P1** — no MotionSlot today |
+| A04 | What Stamped does | **DONE** — `WhatIsProductVisual` |
+| — | HIW pin / scrub / step nav / progress rail | **DONE** — GSAP ScrollTrigger in `HomeHowItWorks` (`+=180%`) |
+| A05–A08 | HIW stage visuals: Data, Models, Actions, Results | **DONE** — `HiwStageVisuals` (Models = `AnalysisStageVisual`, "Best runs vs today") |
+| A09–A12 | Solutions area loops: process, quality, planning, maintenance | **DONE** — `SolutionsAreaVisuals` (replaces retired energy-pillar `SolutionsVisuals`) |
+| B01 | Impact | **DONE** — staggered accent-rule draw in `HomeImpact` |
+| B02–B04 | CTA / photos / CVector-only | **P1** — optional |
 
-**Count:** 0 remaining P0 MotionSlot compositions. B01–B04 optional.  
+All slot loops run through `useSlotLoop`, which stops them offscreen.
 
 ```text
 A00 Hero DONE
   → A01–A03 Problem DONE
-  → A04 What is DONE
+  → A04 What Stamped does DONE
   → HIW pin DONE → A05–A08 HIW visuals DONE
-  → A09–A10 Solutions DONE
-  → B01–B04 P1 optional
+  → B01 Impact DONE
+  → A09–A12 Solutions areas DONE
+  → B02–B04 P1 optional
 ```
 
 ### Not missing (do not treat as backlog)

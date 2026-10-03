@@ -683,3 +683,28 @@ Architecture and workflow decisions for this project.
 - Home FAQ adds cost, paper/Excel records, team time and supervisors; data answer expanded without hosting claims (still [CONFIRM]).
 - Mobile hero shows readable example action cards under the unchanged animation; three true reassurance points under the hero CTAs.
 - Persona review: `/workspace/stamped-website/research/persona-review-delhi-ncr.md`.
+
+---
+
+## ADR-036: Homepage motion revival and shorter homepage copy
+
+**Date:** 2026-10-03
+
+**Context:** After ADR-033 the homepage read as plain and text-heavy: How it works was a static diagram plus two long paragraphs, Solutions and Impact had no motion, and What Stamped does ran to about 120 words. Vinayak asked to bring back suitable earlier animations with retuned text and to shorten What Stamped does.
+
+**Alternatives:**
+
+1. How it works: keep the static diagram and animate it (rejected: least visual lift); show the four stage visuals in a grid with no pin (rejected: loses the guided story); restore the scroll-pinned journey (selected).
+2. Solutions: reuse the two retired energy-pillar chromes relabelled (rejected: only two areas, MD/AHU metaphors); keep static (rejected); one compact loop per area (selected).
+
+**Selected:**
+
+- Partly reverses ADR-033. `HomeHowItWorks` is the pinned Data → Models → Actions → Results journey again, restored from `7b6aa09^` with a shorter scroll (`+=180%`, start under the 72px navbar), a progress rail on the step nav and `landingContent.homeHowItWorks.steps` replacing the two paragraphs. `AnalysisStageVisual` is restored as "Best runs vs today" with drift / restarts / waits legends; no kW, HVAC or rupee values. `PlantFlowDiagram` stays for `/platform`.
+- `SolutionsAreaVisuals.tsx`: Process (drift out of best-run band, new aim), Quality (lot flagged and held), Planning (Press 3 down, re-plan), Maintenance (gas per kg creep, card to maintenance). Built on the exported `StageShell`, `poly`, `wait` and the `hiw-chromes.css` palettes.
+- `HomeImpact`: accent rules draw in with a stagger.
+- `useSlotLoop` now stops engines offscreen and restarts them on return, so only visible loops run.
+- What Stamped does is cut to about 50 words plus a one-line kicker. This overrides the "word for word" note for the homepage only; the full approved paragraph stays in `lib/content/platform.ts` and `public/llms.txt`.
+
+**Rationale:** Motion where it explains the product (the loop, each area's action), less prose, and no extra cost from loops nobody can see.
+
+**Impact:** `components/sections/{HomeWhatIs,HomeHowItWorks,HomeSolutionsRows,HomeImpact}.tsx`, `components/motion-slots/{useSlotLoop,HiwStageVisuals,SolutionsAreaVisuals}.tsx`, `components/motion-slots/solutions-areas.css`, `lib/content/landing.ts`.
