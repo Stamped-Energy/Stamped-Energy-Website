@@ -8,7 +8,7 @@ export const HOW_CTA = { label: "See how it works", href: "/platform" } satisfie
 
 /** Approved one-sentence description (copy guide, section 2). Use verbatim. */
 export const STANDARD_DESCRIPTION =
-  "Stamped uses machine learning and AI on the data your plant already records to find where efficiency is lost across process, quality, planning and maintenance, and improves it with actions your team can take.";
+  "Stamped builds models of your plant from the data it already records, finds where efficiency is lost across process, quality, planning and maintenance, and improves it with actions your team can take.";
 
 export const EXAMPLE_FOOTNOTE =
   "These are examples, and numbers in [brackets] are placeholders. Your pilot writes the real ones from your own plant data.";

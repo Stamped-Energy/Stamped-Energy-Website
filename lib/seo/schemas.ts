@@ -45,7 +45,7 @@ export const organizationSchema = {
   },
   knowsAbout: [
     icp.seo.categoryLabel,
-    "Machine learning and AI for manufacturing",
+    "Process modelling and machine learning for manufacturing",
     "Manufacturing operational efficiency",
     "Process optimisation",
     "Predictive quality",
@@ -120,7 +120,7 @@ export const howToSchema = {
   "@type": "HowTo",
   name: "How Stamped turns plant data into operator actions",
   description:
-    "Stamped connects to the systems a plant already runs, uses machine learning and AI to find where efficiency is lost, sends ranked actions to the person who can act, and checks the result with the plant team.",
+    "Stamped connects to the systems a plant already runs, learns how it actually runs, finds where efficiency is lost, sends ranked actions to the person who can act, and checks the result with the plant team.",
   step: [
     {
       "@type": "HowToStep",
@@ -133,7 +133,7 @@ export const howToSchema = {
       "@type": "HowToStep",
       position: 2,
       name: "Models",
-      text: "Machine learning and AI models, tuned to your plant, find where efficiency is lost across process, quality, planning and maintenance.",
+      text: "Models trained on your plant's own history find where efficiency is lost across process, quality, planning and maintenance.",
       url: `${SITE_URL}/platform`,
     },
     {
@@ -185,7 +185,7 @@ export const vinayakPersonSchema = {
   sameAs: "https://www.linkedin.com/in/vinayak-rz/",
   knowsAbout: [
     "Electrical engineering",
-    "Machine learning and AI for manufacturing",
+    "Process modelling and machine learning for manufacturing",
     "Manufacturing operational efficiency",
     "Plant energy use",
   ],
@@ -311,7 +311,8 @@ export const softwareApplicationSchema = {
       ENGAGEMENT_SUMMARY,
   },
   featureList: [
-    "Machine learning and AI tuned to each plant",
+    "Models trained on each plant's own history",
+    "Real-time quality alerts and prescriptive maintenance",
     "Connects to machines, control systems, meters, ERP and quality registers",
     "Ranked actions that say who should act, by when, and why",
     "Actions sent on WhatsApp or on screen",

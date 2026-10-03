@@ -69,7 +69,7 @@ export const industriesContent = {
     thesis: {
       eyebrow: "Across industries",
       title: "Every plant loses efficiency in the same four places.",
-      body: "A forge, a kiln, a melt shop and a granulation suite look nothing alike, but the losses sit in the same places: a process setting that has drifted, a batch that goes wrong without anyone noticing in time, a plan that breaks mid-shift, and a stop or slow drift that maintenance hears about too late, with energy running through all four. What changes from one industry to the next is which signals matter, so Stamped's machine learning and AI models learn your plant's own processes before recommending anything.",
+      body: "A forge, a kiln, a melt shop and a granulation suite look nothing alike, but the losses sit in the same places: a process setting that has drifted, a batch that goes wrong without anyone noticing in time, a plan that breaks mid-shift, and a stop or slow drift that maintenance hears about too late, with energy running through all four. What changes from one industry to the next is which signals matter, so Stamped's models learn your plant's own processes from its own history before recommending anything.",
     },
     matrix: {
       eyebrow: "By industry and area",
@@ -191,7 +191,7 @@ export const industriesContent = {
           imageSrc: INDUSTRY_IMAGES.chemical,
           imageAlt: "Chemical plant towers and piping",
           equipment: ["Reactor yield", "Cycle time", "Off-spec batches", "Steam and cooling"],
-          body: "More on-spec batches from the reactors you already have, with each batch compared phase by phase against your best ones and the off-spec path caught while it can still be corrected.",
+          body: "More on-spec batches from the reactors you already have, with each batch improved phase by phase beyond your best ones and the off-spec path caught while it can still be corrected.",
           footerNote: "Batch and specialty",
         },
       ] satisfies IndustryHubRow[],

@@ -30,30 +30,30 @@ export const pharmaPage: VerticalPageContent = {
     items: [
       {
         area: "process",
-        title: "Run every batch like your best one.",
+        title: "Run every batch better than your best.",
         description:
-          "Granulation end points, drying times, compression force and coating conditions vary between batches, shifts and equipment trains, even inside the validated ranges, and the operators who run the steadiest batches rarely write down why. Stamped learns what your best batches looked like and points out where a running batch is moving away from them, for your production and process teams to decide on.",
+          "Granulation end points, drying times, compression force and coating conditions vary between batches, shifts and equipment trains, even inside the validated ranges, and the operators who run the steadiest batches rarely write down why. Stamped models how each batch actually runs within those ranges, points out where a running batch is moving away from its best path and recommends improvements for your production and process teams to take through change control.",
         energy: "Over-drying and long granulation cycles use energy and time without adding anything to the batch.",
       },
       {
         area: "quality",
         title: "See a deviation coming before it becomes an investigation.",
         description:
-          "When an OOS result or a deviation comes in, most of the time goes into pulling together the batch record, equipment data, environmental readings and related lots. Stamped links that data to each batch as it is made, flags batches made under conditions that came before past deviations, and puts the full record in one place for the investigation and for QA's release decision.",
+          "When an OOS result or a deviation comes in, most of the time goes into pulling together the batch record, equipment data, environmental readings and related lots. Stamped links that data to each batch as it is made and alerts the floor while a running batch can still be brought back, for example when a hold time is nearing its limit or a dryer is drifting off its profile. It also flags batches made under conditions that came before past deviations and puts the full record in one place for the investigation and for QA's release decision.",
         energy: "A batch that is reworked or rejected has already used all the utilities of a good one.",
       },
       {
         area: "planning",
         title: "Keep the campaign on plan when a step slips.",
         description:
-          "A cleaning that runs long, a granulator down for maintenance or material held at QC ripples through the week's campaign. Stamped proposes the next sequence across rooms and equipment and shows what each option does to batch output, changeovers and dispatch.",
+          "A cleaning that runs long, a granulator down for maintenance or material held at QC ripples through the week's campaign. Stamped keeps track of the whole site, from room and equipment status to cleaning, QC holds and dispatch dates, and proposes the sequence that works best across all of it, showing what each option does to batch output, changeovers and dispatch.",
         energy: "Grouping products to cut changeovers also cuts the cleaning and HVAC hours that come with them.",
       },
       {
         area: "maintenance",
-        title: "Fix what stops the line before it triggers a deviation.",
+        title: "Prescribe the fix before it triggers a deviation.",
         description:
-          "Stamped ranks equipment stops by the batch time they cost and watches utilities for slow drift, such as an air handler drawing more power for the same airflow, a chiller losing efficiency, or a room pressure differential that keeps getting close to its limit, so engineering can act before it turns into an excursion.",
+          "Stamped ranks equipment stops by the batch time they cost and watches specific energy consumption and other slow drift in utilities, such as an air handler drawing more power for the same airflow, a chiller losing efficiency, or a room pressure differential that keeps getting close to its limit. It prescribes the fix and a slot between campaigns, so engineering can act before it turns into an excursion.",
         energy: "Air handlers and chillers are usually the largest energy users on a pharma site.",
       },
     ],

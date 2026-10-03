@@ -30,30 +30,30 @@ export const cementPage: VerticalPageContent = {
     items: [
       {
         area: "process",
-        title: "Keep the kiln in its best band.",
+        title: "Run the kiln better than its best days.",
         description:
-          "Most kiln losses come from instability rather than a broken machine: raw-meal chemistry swinging between shifts, false air creeping in at a seal, a coal feeder pulsing, or a burning zone that one crew runs hotter than another. Stamped learns what your steadiest days on each line looked like and recommends the feed, fuel, draught or cooler settings that bring the kiln back toward them, for your process engineer to accept, adjust or turn down.",
+          "Most kiln losses come from instability rather than a broken machine: raw-meal chemistry swinging between shifts, false air creeping in at a seal, a coal feeder pulsing, or a burning zone that one crew runs hotter than another. Stamped models how each kiln line behaves and recommends feed, fuel, draught or cooler settings that improve on your steadiest days, for your process engineer to accept, adjust or turn down.",
         energy: "Heat per kilo of clinker and power per tonne of cement are counted on every recommendation.",
       },
       {
         area: "quality",
         title: "Catch a free-lime excursion before it fills a silo.",
         description:
-          "Free lime and fineness come back from the lab hours after the conditions that caused them. Stamped links lab results to the kiln and mill conditions that came before them, so when the kiln starts behaving the way it did before the last high free-lime results the shift in-charge hears about it early, and each grade's record is ready when a customer asks.",
+          "Free lime and fineness come back from the lab hours after the conditions that caused them. Stamped links lab results to the kiln and mill conditions that came before them, so when the kiln starts behaving the way it did before the last high free-lime results the shift in-charge hears about it in time to correct it, and each grade's record is ready when a customer asks.",
         energy: "Overburning to stay safe on free lime costs fuel, so a controlled band saves both.",
       },
       {
         area: "planning",
         title: "Plan mills, grades and dispatch together.",
         description:
-          "Mill run plans, grade changes, power availability and silo levels are usually juggled in spreadsheets, and an unplanned kiln stop throws all of them out at once. Stamped proposes the next mill and dispatch sequence when something changes and shows what each option does to output, power cost and silo position.",
+          "Mill run plans, grade changes, power availability and silo levels are usually juggled in spreadsheets, and an unplanned kiln stop throws all of them out at once. Stamped keeps track of the whole plant, from kiln and mill status to silo levels, power availability and dispatch, and when something changes it proposes the mill and dispatch sequence that works best across all of it, showing what each option does to output, power cost and silo position.",
         energy: "Running mills in cheaper power windows is treated as one input to the plan, alongside output and dispatch.",
       },
       {
         area: "maintenance",
-        title: "Fix the stop that costs the most clinker.",
+        title: "Prescribe the fix that saves the most clinker.",
         description:
-          "Kiln stops from refractory hot spots, fan vibration, cooler problems or mill trips each cost hours of output and a heat-up. Stamped ranks stops by the clinker and cement they cost and watches for slow drift, such as shell temperature creeping up in one zone or a fan drawing more power for the same flow, so maintenance knows where to look first.",
+          "Kiln stops from refractory hot spots, fan vibration, cooler problems or mill trips each cost hours of output and a heat-up. Stamped ranks stops by the clinker and cement they cost, watches specific energy consumption and other slow drift, such as shell temperature creeping up in one zone or a fan drawing more power for the same flow, and prescribes the fix and a window that fits the kiln and mill plan, so maintenance knows where to look first and when.",
         energy: "Every unplanned stop is another heat-up, so fewer stops also means less fuel.",
       },
     ],

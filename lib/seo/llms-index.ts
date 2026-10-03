@@ -137,7 +137,7 @@ export function buildLlmsTxtBody(): string {
   pushBlank(lines);
   lines.push(`- What is Stamped? → ${icp.seo.entityDefinition}`);
   lines.push(
-    "- How is Stamped different from MES, ERP, SCADA or a dashboard? → It works alongside them. It reads the data they already hold, uses machine learning and AI to find where efficiency is lost, and sends ranked actions to the person who can act, then checks the result with the plant team.",
+    "- How is Stamped different from MES, ERP, SCADA or a dashboard? → It works alongside them. It reads the data they already hold, learns how the plant actually runs, finds where efficiency is lost, and sends ranked actions to the person who can act, then checks the result with the plant team.",
   );
   lines.push(`- Who is it for? → ${icp.seo.audienceLine}`);
   lines.push(

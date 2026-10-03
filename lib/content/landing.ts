@@ -3,8 +3,8 @@ import type { CtaLink, HomeFaqItem, HomeProblemPoint, IndustryItem } from "./typ
 
 /**
  * Homepage copy. Source: Stamped copy v3 (3 Oct 2026), section 9 "Full homepage, top to bottom".
- * Rules: STAMPED_COPY_GUIDE.md (approved lines word for word, "machine learning and AI",
- * no hard-stop lists, no unbacked % or rupee figures).
+ * Rules: STAMPED_COPY_GUIDE.md (approved lines word for word, method wording by placement per
+ * copy v3 section 1, no hard-stop lists, no unbacked % or rupee figures).
  */
 
 export type HomeImpactItem = {
@@ -28,7 +28,7 @@ export const landingContent = {
     headlineLine1: "From monitoring your plant",
     headlineLine2: "to improving it.",
     supportingLine:
-      "Stamped uses machine learning and AI on the data your plant already records to find where efficiency is lost across process, quality, planning and maintenance, and improves it with actions your team can take.",
+      "Stamped builds models of your plant from the data it already records, finds where efficiency is lost across process, quality, planning and maintenance, and improves it with actions your team can take.",
     primaryCta: { label: "Book a site survey", href: "/contact" } satisfies CtaLink,
     secondaryCta: { label: "See how it works", href: "#hiw" } satisfies CtaLink,
     actionPanel: {
@@ -125,7 +125,7 @@ export const landingContent = {
     title: "Turn plant data into action.",
     /** Homepage cut of the approved outcomes-and-how text (ADR-036). Full version: platform.ts. The last item renders as the kicker. */
     paragraphs: [
-      "Stamped helps plants cut rejections, get more output from the lines they already have, and use less energy in every good part. It brings data from separate systems into one view and uses machine learning and AI to turn hidden losses into specific actions for the person who can fix them.",
+      "Stamped helps plants cut rejections, get more output from the lines they already have, and use less energy in every good part. It brings data from separate systems into one view, builds a model of how your plant actually runs and turns hidden losses into specific actions for the person who can fix them.",
       "Stamped recommends and your team decides, and every change is checked against your own baseline.",
     ],
     motionSlotLabel: "Product visual",
@@ -151,7 +151,7 @@ export const landingContent = {
         label: "Models",
         title: "Learns what normal looks like.",
         description:
-          "Machine learning and AI models learn your best runs and the conditions that come before a rejection, a stoppage or wasted energy.",
+          "Models trained on your plant's own history learn how it runs, where its control can improve and which conditions come before a rejection, a stoppage or wasted energy.",
         bullets: ["Compared with your own plant, not an industry average", "Patterns across shifts, lines and lots"],
       },
       {
@@ -182,12 +182,12 @@ export const landingContent = {
       {
         id: "rejections",
         title: "Fewer rejections reach the customer,",
-        detail: "because batches at risk are flagged while they are still in the plant.",
+        detail: "because lots at risk are caught in real time, while they can still be saved.",
       },
       {
         id: "output",
         title: "More output from the same lines,",
-        detail: "with restarts, pacing and settings brought closer to your best runs.",
+        detail: "with control, restarts and pacing improved beyond your best runs.",
       },
       {
         id: "breakdowns",
@@ -283,7 +283,7 @@ export const landingContent = {
         id: "what-is-stamped",
         question: "What does Stamped do?",
         answer:
-          "Stamped connects to the systems already in your plant, uses machine learning and AI to find where efficiency is lost across process, quality, planning and maintenance, and sends ranked actions to the people who can act on them, then checks the results against your own baseline.",
+          "Stamped connects to the systems already in your plant and learns how it actually runs. It finds where efficiency is lost across process, quality, planning and maintenance, improves control, alerts your team in real time while a lot can still be saved, and sends ranked actions to the people who can act on them, then checks the results against your own baseline.",
       },
       {
         id: "hardware",

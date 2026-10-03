@@ -13,7 +13,7 @@ export const platformContent = {
     eyebrow: "How it works",
     title: "From plant data to operator actions.",
     description:
-      "Stamped uses machine learning and AI on the data your plant already records to find where efficiency is lost across process, quality, planning and maintenance, and improves it with actions your team can take.",
+      "Stamped builds models of your plant from the data it already records, finds where efficiency is lost across process, quality, planning and maintenance, and improves it with actions your team can take.",
     primaryCta: { label: "Book a site survey", href: "/contact" } satisfies CtaLink,
     secondaryCta: { label: "What we improve", href: "/solutions" } satisfies CtaLink,
   },
@@ -24,7 +24,7 @@ export const platformContent = {
     title: "What Stamped achieves, and how.",
     paragraphs: [
       "Stamped helps manufacturing plants run more efficiently, which in practice means fewer rejections, more output from the lines and shifts you already have, and less energy and material going into every good part. We measure all of it against your own plant's baseline, in the units your team already tracks, so nobody has to take our word for it.",
-      "Most plants already record far more than they use. The machines, the control systems, the meters, the ERP and the quality registers each hold a piece of the picture, but they sit in separate places and rarely get looked at together. Stamped brings that data into one view and uses machine learning and AI to understand how your plant actually runs, where efficiency is quietly being lost, and what tends to change in the hours before a loss shows up.",
+      "Most plants already record far more than they use. The machines, the control systems, the meters, the ERP and the quality registers each hold a piece of the picture, but they sit in separate places and rarely get looked at together. Stamped brings that data into one view and models it to understand how your plant actually runs, where efficiency is quietly being lost, and what tends to change in the hours before a loss shows up.",
       "That understanding is only useful if someone acts on it, so Stamped turns it into specific actions and sends each one to the person who can do something about it. It might be a setting that has drifted over a few weeks, a batch that looks a lot like the ones that were rejected last month, or a plan that needs to change because a machine went down mid-shift. Each comes with what to do, by when, and the reasoning behind it.",
       "Stamped recommends and your team decides. Once a change is made, we check whether it actually worked and feed that back into the next recommendation, and if a gain starts slipping a month later, it shows up in the numbers and goes back to the person who owns it.",
     ],
@@ -34,7 +34,7 @@ export const platformContent = {
   flow: {
     eyebrow: "The loop",
     paragraphs: [
-      "Stamped connects to the systems your plant already runs, so there is nothing new to install before we start. Its machine learning and AI models learn what normal operation looks like in your plant and which conditions tend to come before a rejection, a stoppage or wasted energy.",
+      "Stamped connects to the systems your plant already runs, so there is nothing new to install before we start. Its models are trained on your plant's own history, so they learn what normal operation looks like in your plant and which conditions tend to come before a rejection, a stoppage or wasted energy.",
       "When something is worth acting on, Stamped sends it to the person best placed to act, ranked by what it is costing you and explained well enough that they can judge it for themselves. Once your team has made a change, Stamped checks the result against your own baseline and uses what it learns to make the next recommendation better.",
     ],
     controlLine: "Stamped recommends and your team decides.",
@@ -71,31 +71,31 @@ export const platformContent = {
     eyebrow: "Models",
     title: "Models built around the way your plant runs",
     description:
-      "Stamped's machine learning and AI models are trained on your own plant's history, so normal means normal for your machines, products and shifts, and energy is counted inside each of them.",
+      "Stamped's models are trained on your own plant's history, from machine learning on its sensor and lab data to digital twins and mathematical models of its process, so normal means normal for your machines, products and shifts, and energy is counted inside each of them.",
     items: [
       {
         id: "process",
         title: "Process and control",
         description:
-          "Learns what your best runs looked like, which settings have drifted and how restarts differ between shifts, and recommends a specific change to the process engineer.",
+          "Builds a digital twin of each line and uses mathematical models of the process, reinforcement learning and machine learning to test better control policies, then recommends the improved setting, control rule or restart routine to the process engineer.",
       },
       {
         id: "quality",
         title: "Quality and lot checks",
         description:
-          "Links process data to each lot and batch, learns which conditions came before past rejections, and flags batches made under similar conditions while they are still in the plant.",
+          "Links process data to each lot and batch, learns which conditions came before past rejections, and raises a real-time alarm while a lot can still be saved, such as a basket overstaying in ageing or quench water out of its band.",
       },
       {
         id: "planning",
         title: "Planning and scheduling",
         description:
-          "When a die change runs long or a furnace trips, proposes the next sequence and shows what each option would do to output, energy and delivery.",
+          "Keeps track of what every machine, furnace and dispatch is doing, so when a die change runs long or a furnace trips it proposes the sequence that works best for the whole plant and shows what each option would do to output, energy and delivery.",
       },
       {
         id: "maintenance",
         title: "Maintenance",
         description:
-          "Ranks stops by the output and time they cost and picks up the slow drift that usually comes before a failure, and says plainly when a machine has no sensor that would show the problem.",
+          "Prescriptive maintenance: ranks stops by what they cost, watches specific energy consumption and other drift that comes before a failure, and prescribes the fix and the best window for it given production constraints, saying plainly when a machine has no sensor that would show the problem.",
       },
     ],
   } satisfies PlatformProseSection,

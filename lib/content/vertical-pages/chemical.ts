@@ -30,30 +30,30 @@ export const chemicalPage: VerticalPageContent = {
     items: [
       {
         area: "process",
-        title: "Run every batch like your best one.",
+        title: "Run every batch better than your best.",
         description:
-          "Two batches of the same product rarely run the same way, because dosing rates, heat-up and cooling times, hold times and end points vary by reactor, raw-material lot and shift. Stamped learns what your best batches looked like phase by phase and recommends the change that brings the next one closer, for your process engineer to accept, adjust or turn down.",
+          "Two batches of the same product rarely run the same way, because dosing rates, heat-up and cooling times, hold times and end points vary by reactor, raw-material lot and shift. Stamped models how each reactor behaves phase by phase and recommends changes to dosing, heat-up or hold practice that improve on your best batches, for your process engineer to accept, adjust or turn down.",
         energy: "Long heat-ups and holds at temperature use steam and power without adding yield.",
       },
       {
         area: "quality",
         title: "Know which batch is heading off-spec while it can still be corrected.",
         description:
-          "Lab results usually arrive after the batch is finished, when the only options left are rework, blending or a downgrade. Stamped compares each running batch with past batches phase by phase, flags the ones following the path of earlier off-spec batches, and keeps each batch's record ready for the certificate of analysis or a customer complaint.",
+          "Lab results usually arrive after the batch is finished, when the only options left are rework, blending or a downgrade. Stamped compares each running batch with past batches phase by phase, alerts the shift chemist while a batch following the path of earlier off-spec batches can still be corrected, for example when a dosing rate or reactor temperature drifts off its profile, and keeps each batch's record ready for the certificate of analysis or a customer complaint.",
         energy: "Rework repeats the heating, cooling and separation the batch has already had.",
       },
       {
         area: "planning",
         title: "Keep reactors, utilities and dispatch in step.",
         description:
-          "Reactors wait for raw material, QC release, cleaning or cooling water, and those idle hours rarely show up on a report. Stamped proposes the next sequence across reactors and shows what each option does to output, utility load and dispatch dates.",
+          "Reactors wait for raw material, QC release, cleaning or cooling water, and those idle hours rarely show up on a report. Stamped keeps track of the whole plant, from reactor status and raw-material lots to QC holds, utilities and dispatch dates, and proposes the sequence that works best across all of it, showing what each option does to output, utility load and dispatch dates.",
         energy: "Staggering heating starts keeps the boiler and cooling towers in their efficient range.",
       },
       {
         area: "maintenance",
-        title: "Fix what costs the most batch time.",
+        title: "Prescribe the fix that saves the most batch time.",
         description:
-          "Stamped ranks stops and slow phases by the batch time they cost and watches for slow drift, such as a reactor taking longer to cool than it used to, which often points to jacket fouling or a cooling tower falling behind, or an agitator drawing more power for the same batch.",
+          "Stamped ranks stops and slow phases by the batch time they cost and watches specific energy consumption and other slow drift, such as a reactor taking longer to cool than it used to, which often points to jacket fouling or a cooling tower falling behind, or an agitator drawing more power for the same batch. It then prescribes the fix and a window that fits the production plan.",
         energy: "Fouling shows up as longer heat-ups and cool-downs well before it shows up in a breakdown.",
       },
     ],
@@ -76,7 +76,7 @@ export const chemicalPage: VerticalPageContent = {
         id: "separation",
         title: "Separation, drying and solvent recovery",
         description:
-          "Distillation, filtration, drying and solvent recovery often set the real cycle time, and Stamped tracks how long each step takes against its best runs and how much steam and power it uses for each batch.",
+          "Distillation, filtration, drying and solvent recovery often set the real cycle time, and Stamped tracks how long each step takes and how much steam and power it uses for each batch, and finds where each step can run better than its best so far.",
         imageSrc: "/industries/plant/chemical/refinery.jpg",
         imageAlt: "Distillation columns and piping in a chemical plant",
       },

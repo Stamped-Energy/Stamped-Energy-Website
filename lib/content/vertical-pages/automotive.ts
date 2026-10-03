@@ -29,30 +29,30 @@ export const automotivePage: VerticalPageContent = {
     items: [
       {
         area: "process",
-        title: "Run every shift like your best one.",
+        title: "Run better than your best shift.",
         description:
-          "Most process losses in an auto-component plant trace back to a billet that went in cold, a die running below temperature after a stop, a shot profile that has drifted on one cell, or a cure time set for an average compound rather than the batch in the hopper. Stamped learns what your best runs looked like on each line and recommends the setting or restart routine that brings the others closer to it.",
+          "Most process losses in an auto-component plant trace back to a billet that went in cold, a die running below temperature after a stop, a shot profile that has drifted on one cell, or a cure time set for an average compound rather than the batch in the hopper. Stamped models how each line actually behaves and finds settings, control rules and restart routines that improve on your best runs, for your process engineer to accept, adjust or turn down.",
         energy: "Reheats, restarts and cold dies use energy that never ends up in a good part.",
       },
       {
         area: "quality",
         title: "Know which lot is at risk before it reaches the OEM.",
         description:
-          "Stamped links forging, casting, heat-treatment and machining data to each lot, so a bin made after a long stop, a basket that waited too long for quench or a casting made while the die was cold is flagged while it is still in the plant, and the full record is ready for the PPAP file, the heat-treatment audit or the 8D when a complaint arrives.",
+          "Stamped links forging, casting, heat-treatment and machining data to each lot and, where live data is connected, alerts the heat-treatment lead while a lot can still be saved, such as a basket overstaying in ageing or quench water drifting out of its band. A bin made after a long stop or a casting made while the die was cold is flagged while it is still in the plant, and the full record is ready for the PPAP file, the heat-treatment audit or the 8D when a complaint arrives.",
         energy: "A part rejected after heat treatment and machining has already used all the energy of a good one.",
       },
       {
         area: "planning",
         title: "When a press goes down, have the re-plan ready.",
         description:
-          "Die changes run long, furnaces trip and material arrives late, and each one ripples through the forge, the heat-treatment queue and the machining cells. Stamped proposes the next sequence and shows what it does to dispatches, furnace loading and changeovers, so the planner can choose with the trade-offs in front of them.",
+          "Die changes run long, furnaces trip and material arrives late, and each one ripples through the forge, the heat-treatment queue and the machining cells. Stamped keeps track of what the whole plant is doing, from press status and furnace loads to material and dispatch dates, and proposes the sequence that works best across all of it, showing what it does to dispatches, furnace loading and changeovers, so the planner can choose with the trade-offs in front of them.",
         energy: "Full furnace loads and heat-ups timed to the next charge keep furnaces from sitting hot and empty.",
       },
       {
         area: "maintenance",
-        title: "Fix the stop that costs the most output.",
+        title: "Prescribe the fix, and the right time to make it.",
         description:
-          "The stop log already shows where the hours go on presses, casting cells and CNC machines, but rarely which stops matter most. Stamped ranks them by the output they cost and picks up slow drift, such as a furnace using more gas for the same load, a tool wearing out faster than its last few on the same part, or a hydraulic pack running longer every week.",
+          "The stop log already shows where the hours go on presses, casting cells and CNC machines, but rarely which stops matter most. Stamped ranks them by the output they cost, watches specific energy consumption and other slow drift, such as a furnace using more gas per kilo on the same recipe, a tool wearing out faster than its last few on the same part, or a hydraulic pack running longer every week, and prescribes the fix and a window that fits the production plan.",
         energy: "More gas or power for the same output is often the first sign that burners, seals or pumps need attention.",
       },
     ],
@@ -61,7 +61,7 @@ export const automotivePage: VerticalPageContent = {
     eyebrow: "In this plant",
     title: "Forging, heat treatment, precision machining, die casting and rubber moulding.",
     description:
-      "Each process loses efficiency in its own way, so Stamped's machine learning and AI models learn the signals that matter on each line before recommending anything.",
+      "Each process loses efficiency in its own way, so Stamped's models learn the signals that matter on each line from that line's own history before recommending anything.",
     items: [
       {
         id: "forging",

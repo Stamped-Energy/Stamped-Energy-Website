@@ -10,13 +10,14 @@ export type PageSeoConfig = {
 const HOW_IT_WORKS_SEO = {
   absoluteTitle: "How it works | Stamped",
   description:
-    "How Stamped uses machine learning and AI on your existing plant data to send ranked actions to the people who own them, and check the result against your own baseline.",
+    "How Stamped builds models of your plant from the data it already records, from machine learning to digital twins of your process, sends ranked actions to the people who own them, and checks the result against your own baseline.",
   path: "/platform",
   keywords: [
     "AI for plant operations",
     "manufacturing operational efficiency India",
     "plant data to operator actions",
-    "machine learning and AI for manufacturing",
+    "machine learning for manufacturing",
+    "digital twin manufacturing",
   ],
 } as const satisfies PageSeoConfig;
 
@@ -24,7 +25,7 @@ export const PAGE_SEO = {
   home: {
     absoluteTitle: "Stamped | AI for plant operations",
     description:
-      "Stamped uses machine learning and AI on the data your plant already records to find where efficiency is lost across process, quality, planning and maintenance, and improves it.",
+      "Stamped is AI for plant operations. It builds models of your plant from the data it already records, finds where efficiency is lost across process, quality, planning and maintenance, and improves it.",
     path: "/",
     keywords: [
       "AI for plant operations",
