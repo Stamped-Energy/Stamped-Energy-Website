@@ -1,0 +1,75 @@
+.sa-slot .sa-band {
+  fill: currentColor;
+  opacity: 0.14;
+}
+
+.sa-slot .sa-lane {
+  stroke: currentColor;
+  stroke-width: 1;
+  stroke-dasharray: 4 4;
+  opacity: 0.45;
+}
+
+.sa-slot .sa-pop,
+.sa-slot .sa-down {
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 0.35s ease-out,
+    transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.sa-slot .sa-pop.is-on,
+.sa-slot.is-down .sa-down {
+  opacity: 1;
+  transform: none;
+}
+
+.sa-slot .sa-tile {
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.sa-slot .sa-tile .chip {
+  transition: fill-opacity 0.3s ease-out;
+  fill: currentColor;
+  fill-opacity: 0;
+}
+
+.sa-slot .sa-tile.is-flag .chip {
+  fill-opacity: 0.22;
+}
+
+.sa-slot .sa-tile.is-held {
+  transform: translateY(110px);
+}
+
+.sa-slot .sa-job {
+  fill: currentColor;
+  opacity: 0.85;
+}
+
+.sa-slot .sa-down rect {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.2;
+  stroke-dasharray: 4 3;
+}
+
+.sa-slot .sa-move {
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.sa-slot.is-down .sa-move {
+  opacity: 0.55;
+}
+
+.sa-slot.is-replan .sa-move {
+  opacity: 0.85;
+  transform: translate(60px, -60px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sa-slot * {
+    transition: none !important;
+  }
+}

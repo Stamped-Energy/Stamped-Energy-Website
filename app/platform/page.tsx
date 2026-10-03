@@ -13,7 +13,8 @@ import { platformContent } from "@/lib/content";
 import { breadcrumbHome, generateBreadcrumbSchema } from "@/lib/seo/breadcrumbs";
 import { buildPageMetadataFromConfig } from "@/lib/seo/metadata";
 import { PAGE_SEO } from "@/lib/seo/pages";
-import { howToSchema } from "@/lib/seo/schemas";
+import { buildFaqSchema, buildWebPageSchema, howToSchema } from "@/lib/seo/schemas";
+import { FaqSection } from "@/components/ui/FaqSection";
 
 export const metadata: Metadata = buildPageMetadataFromConfig(PAGE_SEO.platform);
 
@@ -25,7 +26,14 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 export default function PlatformPage() {
   return (
     <>
-      <JsonLd data={[howToSchema, breadcrumbSchema]} />
+      <JsonLd
+        data={[
+          buildWebPageSchema(PAGE_SEO.platform),
+          howToSchema,
+          buildFaqSchema(platformContent.faq),
+          breadcrumbSchema,
+        ]}
+      />
       <HiwOpening />
       <HiwWhatWeDo />
       <HiwProseStack content={platformContent.surfaces} sectionId="surfaces" />
@@ -33,6 +41,7 @@ export default function PlatformPage() {
       <HiwCapabilities />
       <HiwOutcomesBand />
       <HiwDeployment />
+      <FaqSection items={platformContent.faq} title="Questions about how it works" />
       <BeforeYouBook />
     </>
   );

@@ -9,6 +9,7 @@ type ButtonBaseProps = {
   children: ReactNode;
   className?: string;
   variant?: ButtonVariant;
+  "aria-label"?: string;
 };
 
 type ButtonAsButton = ButtonBaseProps & {
@@ -61,7 +62,7 @@ function ButtonInner({ children }: { children: ReactNode }) {
 }
 
 export function Button(props: ButtonProps) {
-  const { children, className, variant = "primary" } = props;
+  const { children, className, variant = "primary", "aria-label": ariaLabel } = props;
   const classes = cn(baseClasses, variantClasses[variant], className);
 
   if (isLinkProps(props)) {
@@ -70,6 +71,7 @@ export function Button(props: ButtonProps) {
         <a
           href={props.href}
           className={classes}
+          aria-label={ariaLabel}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -79,7 +81,7 @@ export function Button(props: ButtonProps) {
     }
 
     return (
-      <Link href={props.href} className={classes}>
+      <Link href={props.href} className={classes} aria-label={ariaLabel}>
         <ButtonInner>{children}</ButtonInner>
       </Link>
     );
@@ -91,6 +93,7 @@ export function Button(props: ButtonProps) {
     <button
       type={buttonProps.type ?? "button"}
       className={classes}
+      aria-label={ariaLabel}
       onClick={buttonProps.onClick}
       disabled={buttonProps.disabled}
     >

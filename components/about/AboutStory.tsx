@@ -77,12 +77,12 @@ export function AboutStory() {
               </p>
             ))}
           </div>
-          <h3
+          <h2
             data-about-story
             className="mt-12 font-display text-2xl font-bold tracking-tight text-on-surface md:text-3xl"
           >
             {story.whatWeDo.title}
-          </h3>
+          </h2>
           <div className="mt-6 space-y-6 text-left">
             {story.whatWeDo.paragraphs.map((paragraph) => (
               <p

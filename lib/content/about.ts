@@ -12,9 +12,12 @@ export const plantDecisionMoves = [
 
 export const aboutContent = {
   hero: {
+    eyebrow: "About Stamped",
     title: "Plants have the data to run better, and we build the way to act on it.",
+    description:
+      "Stamped is built by engineers from IIT Roorkee for the people who run Indian plants: plant heads, process and quality engineers, and maintenance teams.",
     heroImageSrc: "/industries/die-casting.jpeg",
-    heroImageAlt: "Manufacturing plant floor",
+    heroImageAlt: "Molten metal pour on a casting line",
   },
 
   story: {
@@ -42,7 +45,7 @@ export const aboutContent = {
         imageSrc: "/team/vinayak.png",
         imageAlt: "Vinayak Raizada, Co-Founder of Stamped, IIT Roorkee Electrical Engineering",
         linkedIn: "https://www.linkedin.com/in/vinayak-rz/",
-        bio: "Leads core technical work, strategy and marketing. Electrical Engineering, IIT Roorkee.",
+        bio: "Leads core technical work, strategy and marketing. Electrical Engineering, IIT Roorkee. Shapes the models behind Stamped, from digital twins of plant lines to the control improvements they recommend, and works with plant engineers to make sure each recommendation holds up on the floor.",
       },
       {
         id: "utso",

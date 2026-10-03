@@ -5,6 +5,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbHome, generateBreadcrumbSchema } from "@/lib/seo/breadcrumbs";
 import { buildPageMetadataFromConfig } from "@/lib/seo/metadata";
 import { PAGE_SEO } from "@/lib/seo/pages";
+import { buildWebPageSchema } from "@/lib/seo/schemas";
 
 export const metadata: Metadata = buildPageMetadataFromConfig(PAGE_SEO.industries);
 
@@ -16,7 +17,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 export default function IndustriesPage() {
   return (
     <>
-      <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={[buildWebPageSchema(PAGE_SEO.industries), breadcrumbSchema]} />
       <IndustriesHubPage />
     </>
   );

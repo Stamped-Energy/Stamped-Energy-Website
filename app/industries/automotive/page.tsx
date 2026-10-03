@@ -5,7 +5,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbHome, generateBreadcrumbSchema } from "@/lib/seo/breadcrumbs";
 import { buildPageMetadataFromConfig } from "@/lib/seo/metadata";
 import { PAGE_SEO } from "@/lib/seo/pages";
-import { verticalFaqSchema } from "@/lib/seo/schemas";
+import { buildWebPageSchema, verticalFaqSchema } from "@/lib/seo/schemas";
 
 export const metadata: Metadata = buildPageMetadataFromConfig(PAGE_SEO.industriesAutomotive);
 
@@ -18,7 +18,9 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 export default function AutomotiveIndustryPage() {
   return (
     <>
-      <JsonLd data={[verticalFaqSchema("automotive"), breadcrumbSchema]} />
+      <JsonLd
+        data={[buildWebPageSchema(PAGE_SEO.industriesAutomotive), verticalFaqSchema("automotive"), breadcrumbSchema]}
+      />
       <IndustryVerticalPage slug="automotive" />
     </>
   );

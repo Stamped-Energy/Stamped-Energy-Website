@@ -683,3 +683,86 @@ Architecture and workflow decisions for this project.
 - Home FAQ adds cost, paper/Excel records, team time and supervisors; data answer expanded without hosting claims (still [CONFIRM]).
 - Mobile hero shows readable example action cards under the unchanged animation; three true reassurance points under the hero CTAs.
 - Persona review: `/workspace/stamped-website/research/persona-review-delhi-ncr.md`.
+
+---
+
+## ADR-036: Homepage motion revival and shorter homepage copy
+
+**Date:** 2026-10-03
+
+**Context:** After ADR-033 the homepage read as plain and text-heavy: How it works was a static diagram plus two long paragraphs, Solutions and Impact had no motion, and What Stamped does ran to about 120 words. Vinayak asked to bring back suitable earlier animations with retuned text and to shorten What Stamped does.
+
+**Alternatives:**
+
+1. How it works: keep the static diagram and animate it (rejected: least visual lift); show the four stage visuals in a grid with no pin (rejected: loses the guided story); restore the scroll-pinned journey (selected).
+2. Solutions: reuse the two retired energy-pillar chromes relabelled (rejected: only two areas, MD/AHU metaphors); keep static (rejected); one compact loop per area (selected).
+
+**Selected:**
+
+- Partly reverses ADR-033. `HomeHowItWorks` is the pinned Data → Models → Actions → Results journey again, restored from `7b6aa09^` with a shorter scroll (`+=180%`, start under the 72px navbar), a progress rail on the step nav and `landingContent.homeHowItWorks.steps` replacing the two paragraphs. `AnalysisStageVisual` is restored as "Best runs vs today" with drift / restarts / waits legends; no kW, HVAC or rupee values. `PlantFlowDiagram` stays for `/platform`.
+- `SolutionsAreaVisuals.tsx`: Process (drift out of best-run band, new aim), Quality (lot flagged and held), Planning (Press 3 down, re-plan), Maintenance (gas per kg creep, card to maintenance). Built on the exported `StageShell`, `poly`, `wait` and the `hiw-chromes.css` palettes.
+- `HomeImpact`: accent rules draw in with a stagger.
+- `useSlotLoop` now stops engines offscreen and restarts them on return, so only visible loops run.
+- What Stamped does is cut to about 50 words plus a one-line kicker. This overrides the "word for word" note for the homepage only; the full approved paragraph stays in `lib/content/platform.ts` and `public/llms.txt`.
+
+**Rationale:** Motion where it explains the product (the loop, each area's action), less prose, and no extra cost from loops nobody can see.
+
+**Impact:** `components/sections/{HomeWhatIs,HomeHowItWorks,HomeSolutionsRows,HomeImpact}.tsx`, `components/motion-slots/{useSlotLoop,HiwStageVisuals,SolutionsAreaVisuals}.tsx`, `components/motion-slots/solutions-areas.css`, `lib/content/landing.ts`.
+
+---
+
+## ADR-037: Homepage FAQ cut from 11 to 8 questions
+
+**Date:** 2026-10-03
+
+**Context:** Vinayak found the homepage FAQ too long and asked for about seven or eight boxes, answering related questions together.
+
+**Selected:** Merged pairs into one box each, keeping the approved answer text: hardware + MES/ERP/SCADA (`hardware`), who decides + experienced supervisors (`supervisors`), how actions reach the floor + team time (`reach-the-floor`). Removed ids `who-decides`, `mes-erp-scada`, `team-time`. The automotive page now uses `supervisors` only, and the industries hub uses `hardware` instead of `mes-erp-scada`. FAQ JSON-LD and `public/llms.txt` follow from `landingContent.faq` (llms.txt regenerated from `buildLlmsTxtBody`). `docs/copy/stamped-copy-v3.md` is unchanged as the source copy record.
+
+**Impact:** `lib/content/{landing,industries}.ts`, `lib/content/vertical-pages/automotive.ts`, `public/llms.txt`.
+
+## ADR-038: Solution area framing v3.1 and placement-based method wording
+
+**Date:** 2026-10-03
+
+**Context:** Vinayak clarified what each area actually does. Process improves the plant's control policies, not just matching its best run. Quality raises real-time alerts while a lot can still be saved, not only flagging it afterwards. Planning re-plans with the context of the whole plant. Maintenance is prescriptive, aware of production constraints and watches specific energy consumption. He also asked that "machine learning and AI" stop being a required phrase, because every vendor says it.
+
+**Alternatives:** (1) Change only the four `/solutions` pages and the homepage. (2) Name methods such as digital twins and reinforcement learning everywhere. (3) Never name methods. (4) Apply the new framing sitewide and name methods only where the reader is technical.
+
+**Selected:** Option 4. The new framing is applied to `/solutions/*`, homepage summaries, Impact, How it works and FAQ, `/platform` Models, all five industry pages, the industries hub, SEO metadata, JSON-LD and the homepage animation labels. Digital twins, mathematical models of the process, reinforcement learning and machine learning are named only on the Process page, `/platform` and the Process and `/platform` SEO descriptions. Elsewhere the default wording is "builds models of your plant from the data it already records". "AI" stays in the category line, title tags and metadata. Real-time alerts are qualified "where live data is connected", and every recommendation still goes to the team to decide.
+
+**Rationale:** The old "best run" framing undersold control improvement, and a stock method phrase reads as generic. Naming methods only where the reader is technical keeps short copy plain while still showing depth.
+
+**Impact:** `docs/copy/stamped-copy-v3.md` (new "Describing the technology" placement table; approved texts use the plainer default), `docs/website-copy.md`, `lib/content/{solutions,landing,platform,icp,industries}.ts`, `lib/content/vertical-pages/*`, `lib/seo/{pages,schemas,llms-index}.ts`, `lib/blog/constants.ts`, `components/motion-slots/{SolutionsAreaVisuals,HiwStageVisuals}.tsx`, `public/llms.txt`.
+
+## ADR-039: Industries section no longer auto-first
+
+**Date:** 2026-10-03
+
+**Context:** The homepage Industries section and the `/industries` hub led with "Built for auto-component makers first", and the homepage cards were all auto sub-processes. Vinayak wants the section general across industries, with auto components, steel and cement shown and pharma and chemicals listed as places the same four areas apply.
+
+**Selected:** Homepage title "Different plants, the same four places to improve." with three cards (auto components, steel, cement), pills for pharma and chemicals, and one "See all industries" link. The grid is now three columns, one column below `sm`. Hub hero title is "Built for plants across industries.", with the same split in its description and SEO description. The automotive industry page keeps its own auto-specific copy.
+
+**Impact:** `lib/content/{landing,industries}.ts`, `components/sections/HomeIndustries.tsx`, `lib/seo/pages.ts`, `docs/copy/stamped-copy-v3.md`.
+
+## ADR-040: Audit-driven SEO, GEO and AEO pass
+
+**Date:** 2026-10-03
+
+**Context:** `SEO_GEO_AEO.md` still described the retired energy-intelligence positioning, several titles and descriptions ran past search-result limits, and nothing measured whether search engines or AI answer engines could read the site well. Vinayak asked to use open-source SEO, GEO and AEO tools to drive the work.
+
+**Alternatives:** (1) Add SEO libraries such as `next-seo` or `next-sitemap` as runtime dependencies. (2) Hand-audit without tools. (3) Run external auditors only, and add just `schema-dts` for typed JSON-LD.
+
+**Selected:** Option 3. GEO Optimizer (`geo-optimizer-skill` 4.18.3, via `uvx`) and Unlighthouse (via `npx`) run as audits, and `schema-dts` is the only new package (dev only). Next.js metadata, sitemap and robots already cover what the runtime libraries offer. The fixes:
+- Every JSON-LD builder is typed.
+- Titles are capped at 60 characters and descriptions at 160 by `npm run seo:check`.
+- A WebPage node on every page carries `dateModified`.
+- The Organization schema carries `founder`, `alternateName`, `slogan` and the LinkedIn `sameAs`.
+- `/feed.xml` (RSS) is added, and robots.txt names six more AI crawlers.
+- Visible FAQs with FAQ JSON-LD are on the four solution pages and `/platform`, plus Service schema on each solution page.
+- Content-generated AI discovery files: `/.well-known/ai.txt` and `/ai/{summary,faq,service}.json`.
+- Accessibility fixes found by Lighthouse.
+
+**Rationale:** Audits give a before and after number instead of a checklist, and avoiding runtime SEO packages keeps the bundle and the architecture unchanged. Generating the AI files from `lib/content` keeps them in step with the copy.
+
+**Impact:** GEO average 69.9 to 86.5. Lighthouse averages: accessibility 0.92 to 0.96, SEO 0.978 to 0.985 (the remaining misses are local robots.txt fetch timeouts). Files: `lib/seo/*`, `app/{feed.xml,ai,.well-known}/`, `lib/content/{solutions,platform}.ts`, `components/ui/{FaqSection,Button}.tsx`, `scripts/{seo-check.ts,geo-audit.py}`, `SEO_GEO_AEO.md`, `public/llms.txt`.

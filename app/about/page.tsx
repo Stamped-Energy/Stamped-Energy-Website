@@ -5,7 +5,8 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbHome, generateBreadcrumbSchema } from "@/lib/seo/breadcrumbs";
 import { buildPageMetadataFromConfig } from "@/lib/seo/metadata";
 import { PAGE_SEO } from "@/lib/seo/pages";
-import { utsoPersonSchema, vinayakPersonSchema } from "@/lib/seo/schemas";
+import { buildWebPageSchema, utsoPersonSchema, vinayakPersonSchema } from "@/lib/seo/schemas";
+import type { WebPage } from "schema-dts";
 
 export const metadata: Metadata = buildPageMetadataFromConfig(PAGE_SEO.about);
 
@@ -17,7 +18,14 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 export default function AboutRoute() {
   return (
     <>
-      <JsonLd data={[vinayakPersonSchema, utsoPersonSchema, breadcrumbSchema]} />
+      <JsonLd
+        data={[
+          buildWebPageSchema(PAGE_SEO.about, { "@type": "AboutPage" } as Partial<WebPage>),
+          vinayakPersonSchema,
+          utsoPersonSchema,
+          breadcrumbSchema,
+        ]}
+      />
       <AboutPageView />
     </>
   );

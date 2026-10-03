@@ -53,6 +53,8 @@ export function buildLlmsTxtBody(): string {
   lines.push(`Contact: stamped.energy@gmail.com`);
   lines.push(`Sitemap: ${SITE_URL}/sitemap.xml`);
   lines.push(`Extended index: ${SITE_URL}/llms-full.txt`);
+  lines.push(`RSS: ${SITE_URL}/feed.xml`);
+  lines.push(`AI discovery: ${SITE_URL}/.well-known/ai.txt, ${SITE_URL}/ai/summary.json, ${SITE_URL}/ai/faq.json, ${SITE_URL}/ai/service.json`);
   pushBlank(lines);
 
   lines.push("## Brand");
@@ -95,9 +97,10 @@ export function buildLlmsTxtBody(): string {
   lines.push("## How it works");
   pushBlank(lines);
   lines.push("Plant data → Models → Actions → Results, with team feedback going back into the models.");
-  for (const paragraph of platformContent.flow.paragraphs) {
-    lines.push(paragraph);
+  for (const step of platformContent.flow.steps) {
+    lines.push(`${step.label}: ${step.description}`);
   }
+  lines.push(platformContent.flow.feedback);
   lines.push(platformContent.flow.controlLine);
   pushBlank(lines);
 
@@ -133,11 +136,30 @@ export function buildLlmsTxtBody(): string {
   }
   pushBlank(lines);
 
+  lines.push("## How it works FAQ");
+  pushBlank(lines);
+  for (const item of platformContent.faq) {
+    lines.push(`- Q: ${item.question}`);
+    lines.push(`  A: ${item.answer}`);
+  }
+  pushBlank(lines);
+
+  lines.push("## Solution area FAQs");
+  pushBlank(lines);
+  for (const area of solutionsContent.areas) {
+    lines.push(`### ${area.title} (${SITE_URL}${area.href})`);
+    for (const item of area.faq) {
+      lines.push(`- Q: ${item.question}`);
+      lines.push(`  A: ${item.answer}`);
+    }
+    pushBlank(lines);
+  }
+
   lines.push("## Common questions Stamped answers");
   pushBlank(lines);
   lines.push(`- What is Stamped? → ${icp.seo.entityDefinition}`);
   lines.push(
-    "- How is Stamped different from MES, ERP, SCADA or a dashboard? → It works alongside them. It reads the data they already hold, uses machine learning and AI to find where efficiency is lost, and sends ranked actions to the person who can act, then checks the result with the plant team.",
+    "- How is Stamped different from MES, ERP, SCADA or a dashboard? → It works alongside them. It reads the data they already hold, learns how the plant actually runs, finds where efficiency is lost, and sends ranked actions to the person who can act, then checks the result with the plant team.",
   );
   lines.push(`- Who is it for? → ${icp.seo.audienceLine}`);
   lines.push(
@@ -204,8 +226,7 @@ export function buildLlmsTxtBody(): string {
   lines.push(
     `- LinkedIn Company Page sameAs: ${COMPANY_LINKEDIN_URL || "pending (set COMPANY_LINKEDIN_URL in lib/seo/constants.ts)"}`,
   );
-  lines.push("- Google Business Profile: not done");
-  lines.push("- Wikidata: not done");
+  lines.push("- Google Business Profile, Wikidata, Crunchbase, Bing Webmaster Tools: not done");
   pushBlank(lines);
 
   lines.push("## Crawling");
@@ -255,6 +276,24 @@ export async function buildLlmsFullTxtBody(): Promise<string> {
     lines.push(`### ${item.question}`);
     lines.push(item.answer);
     pushBlank(lines);
+  }
+
+  lines.push("## How it works FAQ");
+  pushBlank(lines);
+  for (const item of platformContent.faq) {
+    lines.push(`### ${item.question}`);
+    lines.push(item.answer);
+    pushBlank(lines);
+  }
+
+  lines.push("## Solution area FAQs");
+  pushBlank(lines);
+  for (const area of solutionsContent.areas) {
+    for (const item of area.faq) {
+      lines.push(`### ${area.title}: ${item.question}`);
+      lines.push(item.answer);
+      pushBlank(lines);
+    }
   }
 
   lines.push("## Industry FAQs");

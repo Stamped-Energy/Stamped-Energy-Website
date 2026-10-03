@@ -2,7 +2,13 @@
 
 ## Current Phase
 
-**Copy v3 rebrand to "Stamped" (ADR-033)** on branch `copy/stamped-copy-v3` (PR #12). New approved copy across home, `/solutions` (four improvement areas), `/platform`, `/industries` (+ automotive), `/about`, `/contact`, `/case-studies`; SEO metadata, JSON-LD, `llms.txt` aligned; old solution pillars retired with 308s; steel, cement, pharma and chemical pages restored in v3 voice (ADR-034); dead components carrying retired copy deleted. `tsc` + `next build` green.
+**SEO, GEO and AEO pass (ADR-040):** audit-driven fixes with GEO Optimizer and Unlighthouse, typed JSON-LD, FAQs on solution pages and How it works, RSS and AI discovery files. GEO average 69.9 to 86.5. Off-site work (Search Console, Bing, Wikidata, Crunchbase, Google Business Profile) is listed in `SEO_GEO_AEO.md`.
+
+**Solution area framing v3.1 (ADR-038):** Process now improves control policies, Quality adds real-time alerts, Planning re-plans with the whole plant in view, and Maintenance is prescriptive. Applied sitewide, with method wording chosen by placement instead of a stock "machine learning and AI".
+
+**Homepage motion revival (ADR-036)** on branch `cursor/homepage-motion-revival`: pinned How it works journey back with four stage visuals, Solutions area loops, Impact rule draw, offscreen pause for slot loops, shorter What Stamped does.
+
+**Previous: Copy v3 rebrand to "Stamped" (ADR-033)** on branch `copy/stamped-copy-v3` (PR #12). New approved copy across home, `/solutions` (four improvement areas), `/platform`, `/industries` (+ automotive), `/about`, `/contact`, `/case-studies`; SEO metadata, JSON-LD, `llms.txt` aligned; old solution pillars retired with 308s; steel, cement, pharma and chemical pages restored in v3 voice (ADR-034); dead components carrying retired copy deleted. `tsc` + `next build` green.
 
 ## Completed Phases
 
@@ -63,17 +69,16 @@
 
 ## Remaining Phases
 
-- [x] Homepage MotionSlots A01–A04, A09–A10 — problem strips, product visual, solutions chromes (`components/motion-slots/`)
-- [x] Homepage HIW stage visuals (A05–A08) — `HiwStageVisuals` in `HomeHowItWorks`
-- [x] `/solutions/load-energy` How it works chromes — `LoadEnergyHiwVisuals`
-- [x] `/solutions/equipment-intelligence` How it works chromes — `AssetHealthHiwVisuals`
+- [x] Homepage MotionSlots A01–A04 — problem strips, product visual (`components/motion-slots/`)
+- [x] **Homepage motion revival (ADR-036, 2026-10-03)** — pinned HIW journey with A05–A08 stage visuals (Analysis relabelled), four Solutions area loops (`SolutionsAreaVisuals`), Impact rule draw, slot loops pause offscreen, shorter What Stamped does
+- Retired with ADR-033: energy-pillar chromes (`SolutionsVisuals`, `LoadEnergyHiwVisuals`, `AssetHealthHiwVisuals`)
 - [ ] First OpenMontage production using `stamped-industrial` playbook (outside this repo)
 - See **`SEO_GEO_AEO.md` → Remaining** for SEO list. Highlights:
 - [x] LinkedIn Company URL set to `linkedin.com/company/stampedwork` (rename page to "Stamped"; fix industry field)
 - [ ] **GSC:** resubmit sitemap + URL Inspection after deploy
 - [ ] **Google Business Profile**
 - [ ] **Wikidata entry** for Stamped
-- [ ] **Copy v3 follow-ups (ADR-033):** set `NEXT_PUBLIC_WHATSAPP_URL`; set up a domain mailbox and replace `stamped.energy@gmail.com`; real precision-machining photo (homepage industries uses a CNC energy infographic); regenerate `public/og-default.png` as "Stamped · AI for plant operations"; fill [N] placeholders and the first permitted plant result once a pilot allows; confirm the hosting answer for "Where does our data go?"
+- [ ] **Copy v3 follow-ups (ADR-033):** set `NEXT_PUBLIC_WHATSAPP_URL`; set up a domain mailbox and replace `stamped.energy@gmail.com`; real precision-machining photo (homepage industries uses a CNC energy infographic); fill [N] placeholders and the first permitted plant result once a pilot allows; confirm the hosting answer for "Where does our data go?"
 - [ ] **CMS posts (DB, not code):** retitle the precision machining post and remove the town name; unpublish the cement and chemical posts; review post bodies for % / ₹ / "Stamped Energy"
 - [ ] Bump `external/` submodule brand files to copy v3 (submodule not checked out on this box)
 - [ ] Contact form email/CRM forwarding

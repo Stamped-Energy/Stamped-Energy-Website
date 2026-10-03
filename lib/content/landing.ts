@@ -3,8 +3,8 @@ import type { CtaLink, HomeFaqItem, HomeProblemPoint, IndustryItem } from "./typ
 
 /**
  * Homepage copy. Source: Stamped copy v3 (3 Oct 2026), section 9 "Full homepage, top to bottom".
- * Rules: STAMPED_COPY_GUIDE.md (approved lines word for word, "machine learning and AI",
- * no hard-stop lists, no unbacked % or rupee figures).
+ * Rules: STAMPED_COPY_GUIDE.md (approved lines word for word, method wording by placement per
+ * copy v3 section 1, no hard-stop lists, no unbacked % or rupee figures).
  */
 
 export type HomeImpactItem = {
@@ -23,12 +23,12 @@ export type HomeActionCard = {
 
 export const landingContent = {
   hero: {
-    badge: "AI for plant operations",
+    badge: "AI for industrial plants",
     headline: "From monitoring your plant to improving it.",
     headlineLine1: "From monitoring your plant",
     headlineLine2: "to improving it.",
     supportingLine:
-      "Stamped uses machine learning and AI on the data your plant already records to find where efficiency is lost across process, quality, planning and maintenance, and improves it with actions your team can take.",
+      "Stamped builds models of your plant from the data it already records, finds where efficiency is lost across process, quality, planning and maintenance, and improves it with actions your team can take.",
     primaryCta: { label: "Book a site survey", href: "/contact" } satisfies CtaLink,
     secondaryCta: { label: "See how it works", href: "#hiw" } satisfies CtaLink,
     actionPanel: {
@@ -123,10 +123,10 @@ export const landingContent = {
   whatIs: {
     badge: "What Stamped does",
     title: "Turn plant data into action.",
-    /** Approved short outcomes-and-how text (Vinayak, 3 Oct 2026). Word for word. */
+    /** Homepage cut of the approved outcomes-and-how text (ADR-036). Full version: platform.ts. The last item renders as the kicker. */
     paragraphs: [
-      "Stamped helps manufacturing plants run more efficiently, with fewer rejections, more output from the lines you already have, and less energy and material in every good part. Most plants already record the data that explains where efficiency is lost, but it sits in separate systems that rarely get looked at together. Stamped brings it into one view and uses machine learning and AI to find those losses, then turns them into specific actions for the person who can fix them, whether that's a setting that has drifted or a batch that looks like last month's rejections.",
-      "Stamped recommends and your team decides. Once a change is made, we check it against your own baseline, so you can see what actually worked and catch it early if a gain starts to slip.",
+      "Stamped helps plants cut rejections, get more output from the lines they already have, and use less energy in every good part. It brings data from separate systems into one view, builds a model of how your plant actually runs and turns hidden losses into specific actions for the person who can fix them.",
+      "Stamped recommends and your team decides, and every change is checked against your own baseline.",
     ],
     motionSlotLabel: "Product visual",
   },
@@ -134,9 +134,44 @@ export const landingContent = {
   homeHowItWorks: {
     badge: "How it works",
     title: "From plant data to operator actions.",
-    paragraphs: [
-      "Stamped connects to the systems your plant already runs, so there is nothing new to install before we start. Its machine learning and AI models learn what normal operation looks like in your plant and which conditions tend to come before a rejection, a stoppage or wasted energy.",
-      "When something is worth acting on, Stamped sends it to the person best placed to act, on WhatsApp or on screen, ranked by what it is costing you and explained well enough that they can judge it for themselves. Once your team has made a change, Stamped checks the result against your own baseline and uses what it learns to make the next recommendation better.",
+    /** Scroll-pinned steps; order matches hiwStageVisuals. */
+    steps: [
+      {
+        id: "data",
+        step: 1,
+        label: "Data",
+        title: "Connects to what you already run.",
+        description:
+          "Stamped works with the systems your plant already runs, so there is nothing new to install before we start.",
+        bullets: ["Machines, control systems and meters", "ERP plans and quality records"],
+      },
+      {
+        id: "models",
+        step: 2,
+        label: "Models",
+        title: "Learns what normal looks like.",
+        description:
+          "Models trained on your plant's own history learn how it runs, where its control can improve and which conditions come before a rejection, a stoppage or wasted energy.",
+        bullets: ["Compared with your own plant, not an industry average", "Patterns across shifts, lines and lots"],
+      },
+      {
+        id: "actions",
+        step: 3,
+        label: "Actions",
+        title: "Sends the action to the right person.",
+        description:
+          "On WhatsApp or on screen, ranked by what it is costing you and explained well enough to judge.",
+        bullets: ["Who should act, by when, and why", "Rupee-ranked, so the biggest loss comes first"],
+      },
+      {
+        id: "results",
+        step: 4,
+        label: "Results",
+        title: "Checks what actually worked.",
+        description:
+          "Your team decides. Every change is measured against your own baseline, and each result improves the next recommendation.",
+        bullets: ["Accept, adjust or decline every action", "Catch it early if a gain starts to slip"],
+      },
     ],
   },
 
@@ -147,12 +182,12 @@ export const landingContent = {
       {
         id: "rejections",
         title: "Fewer rejections reach the customer,",
-        detail: "because batches at risk are flagged while they are still in the plant.",
+        detail: "because lots at risk are caught in real time, while they can still be saved.",
       },
       {
         id: "output",
         title: "More output from the same lines,",
-        detail: "with restarts, pacing and settings brought closer to your best runs.",
+        detail: "with control, restarts and pacing improved beyond your best runs.",
       },
       {
         id: "breakdowns",
@@ -186,17 +221,12 @@ export const landingContent = {
   industries: {
     badge: "Industries",
     eyebrow: "Industries",
-    title: "Built for auto-component makers first.",
+    title: "Different plants, the same four places to improve.",
     description:
-      "We are starting with forging, heat-treatment and machining plants that supply OEMs, where a single rejection can cost far more than the part itself.",
-    cta: { label: "Explore auto components", href: "/industries/automotive" } satisfies CtaLink,
-    allCta: { label: "See all industries", href: "/industries" } satisfies CtaLink,
+      "A forge, a melt shop and a kiln look nothing alike, but each one loses efficiency in process, quality, planning and maintenance. Stamped learns the signals that matter in each plant from its own history.",
+    cta: { label: "See all industries", href: "/industries" } satisfies CtaLink,
     moreLabel: "The same four areas apply in",
     more: [
-      { label: "Die casting", href: "/industries/automotive#die-casting" },
-      { label: "Rubber moulding", href: "/industries/automotive#rubber-moulding" },
-      { label: "Steel", href: "/industries/steel" },
-      { label: "Cement", href: "/industries/cement" },
       { label: "Pharma", href: "/industries/pharma" },
       { label: "Chemicals", href: "/industries/chemical" },
     ] satisfies CtaLink[],
@@ -204,38 +234,29 @@ export const landingContent = {
       {
         id: "automotive",
         name: "Auto components",
-        focus: "Rejections, customer complaints, audits and on-time delivery.",
-        description: "Rejections, customer complaints, audits and on-time delivery.",
+        focus: "Forging, heat treatment and machining: rejections, audits and on-time delivery.",
+        description: "Forging, heat treatment and machining: rejections, audits and on-time delivery.",
         href: "/industries/automotive",
-        imageSrc: "/industries/die-casting.jpeg",
-        imageAlt: "Auto component plant floor",
-      },
-      {
-        id: "forging",
-        name: "Forging",
-        focus: "Billet temperature, restarts, die temperature and press pacing.",
-        description: "Billet temperature, restarts, die temperature and press pacing.",
-        href: "/industries/automotive#forging",
         imageSrc: "/industries/forging.jpg",
-        imageAlt: "Forging press line",
+        imageAlt: "Forging press line on an auto-component plant floor",
       },
       {
-        id: "heat-treatment",
-        name: "Heat treatment",
-        focus: "Quench and ageing, furnace loading and idle hours.",
-        description: "Quench and ageing, furnace loading and idle hours.",
-        href: "/industries/automotive#heat-treatment",
-        imageSrc: "/industries/heat-treatment.webp",
-        imageAlt: "Heat treatment furnace in operation",
+        id: "steel",
+        name: "Steel",
+        focus: "Power per tonne, heat chemistry, yield and cobbles.",
+        description: "Power per tonne, heat chemistry, yield and cobbles.",
+        href: "/industries/steel",
+        imageSrc: "/industries/steel.png",
+        imageAlt: "Hot steel billets on a rolling mill line",
       },
       {
-        id: "precision-machining",
-        name: "Precision machining",
-        focus: "Tool life, first-off rejection and setups.",
-        description: "Tool life, first-off rejection and setups.",
-        href: "/industries/automotive#precision-machining",
-        imageSrc: "/blog/cnc-energy-decomposition.jpg",
-        imageAlt: "CNC machining cell",
+        id: "cement",
+        name: "Cement",
+        focus: "Kiln stability, free lime, and heat and power per tonne.",
+        description: "Kiln stability, free lime, and heat and power per tonne.",
+        href: "/industries/cement",
+        imageSrc: "/industries/cement.png",
+        imageAlt: "Cement plant with silos and kiln at twilight",
       },
     ] satisfies IndustryItem[],
   },
@@ -248,24 +269,19 @@ export const landingContent = {
         id: "what-is-stamped",
         question: "What does Stamped do?",
         answer:
-          "Stamped connects to the systems already in your plant, uses machine learning and AI to find where efficiency is lost across process, quality, planning and maintenance, and sends ranked actions to the people who can act on them, then checks the results against your own baseline.",
+          "Stamped connects to the systems already in your plant and learns how it actually runs. It finds where efficiency is lost across process, quality, planning and maintenance, improves control, alerts your team in real time while a lot can still be saved, and sends ranked actions to the people who can act on them, then checks the results against your own baseline.",
       },
       {
         id: "hardware",
-        question: "Do we need new hardware?",
+        question: "Do we need new hardware, or another system next to MES, ERP and SCADA?",
         answer:
-          "No hardware retrofit is needed to get started, because Stamped is software that works with the systems you already run.",
+          "No hardware retrofit is needed to get started, because Stamped is software that works with the systems you already run. It is not another MES or CMMS: your MES, ERP and SCADA are where the data comes from, and Stamped works alongside them.",
       },
       {
-        id: "who-decides",
-        question: "Who decides what changes?",
-        answer: "Stamped recommends and your team decides.",
-      },
-      {
-        id: "mes-erp-scada",
-        question: "We already have MES, ERP and SCADA.",
+        id: "supervisors",
+        question: "Who decides what changes, and what does Stamped add if my supervisors already know the plant?",
         answer:
-          "That's good, because that is where the data comes from. Stamped is not another MES or CMMS, and it works alongside what you already run.",
+          "Stamped recommends and your team decides. Your senior supervisors usually know the plant well, and Stamped is built to back them up: it looks at every line on every shift, including the shifts they are not on, and writes down what it finds with the reasoning, so the night shift gets the same advice the day shift gets from your best hands.",
       },
       {
         id: "data",
@@ -275,9 +291,9 @@ export const landingContent = {
       },
       {
         id: "reach-the-floor",
-        question: "How do actions reach the floor?",
+        question: "How do actions reach the floor, and how much of my team's time does this take?",
         answer:
-          "They go on WhatsApp or on screen to the supervisors, engineers and maintenance staff who can act on them, so they don't sit on a screen that only the plant head opens once a month.",
+          "Each action goes on WhatsApp or on screen to the supervisor, engineer or maintenance lead who already owns that work, so nobody has to learn a new system before they can act on one, and nothing sits on a screen that only the plant head opens once a month. During the site survey we need some hours with your plant head and your quality and maintenance leads, planned around production.",
       },
       {
         id: "start",
@@ -295,18 +311,6 @@ export const landingContent = {
         question: "Some of our records are still on paper or in Excel. Can we start?",
         answer:
           "Yes. Most plants keep some registers on paper or in Excel, and the site survey tells you plainly whether what you already record is enough to start on one line, and what would be worth recording if it is not.",
-      },
-      {
-        id: "team-time",
-        question: "How much time does this take from my team?",
-        answer:
-          "During the survey we need some hours with your plant head and your quality and maintenance leads, planned around production. In the pilot, each action goes on WhatsApp or on screen to the person who already owns that work, so nobody has to learn a new system before they can act on one.",
-      },
-      {
-        id: "supervisors",
-        question: "My senior supervisors already know the plant. What does Stamped add?",
-        answer:
-          "They usually do, and Stamped is built to back them up. It looks at every line on every shift, including the shifts your most experienced people are not on, and writes down what it finds with the reasoning, so the night shift gets the same advice the day shift gets from your best hands.",
       },
     ] satisfies HomeFaqItem[],
   },

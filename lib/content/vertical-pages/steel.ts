@@ -30,30 +30,30 @@ export const steelPage: VerticalPageContent = {
     items: [
       {
         area: "process",
-        title: "Run every heat like your best one.",
+        title: "Run every heat better than your best.",
         description:
-          "Tap-to-tap time and power per tonne swing with the charge mix, how full the furnace runs, delays between heats and how much superheat each crew carries. Stamped learns what your best heats looked like for each grade and charge mix and recommends the charging, power or temperature practice that brings the others closer, for the melt-shop in-charge to accept, adjust or turn down.",
+          "Tap-to-tap time and power per tonne swing with the charge mix, how full the furnace runs, delays between heats and how much superheat each crew carries. Stamped models how each grade and charge mix behaves in your furnaces and recommends charging, power or temperature practice that improves on your best heats, for the melt-shop in-charge to accept, adjust or turn down.",
         energy: "Superheat, delays and part-full heats show up directly in power per tonne.",
       },
       {
         area: "quality",
         title: "Know which heat or bar is at risk before it ships.",
         description:
-          "Chemistry misses, surface defects and dimensional rejects usually trace back to the scrap mix, the time a billet spent in the reheating furnace or a stand set slightly off. Stamped links melt, casting and rolling data to each heat and bundle, so heats that look like past rejects are flagged while they can still be checked, and each heat's record is ready when a customer asks.",
+          "Chemistry misses, surface defects and dimensional rejects usually trace back to the scrap mix, the time a billet spent in the reheating furnace or a stand set slightly off. Stamped links melt, casting and rolling data to each heat and bundle and alerts the in-charge while there is still time to act, for example when a billet has overstayed in the reheating furnace. Heats that look like past rejects are flagged while they can still be checked, and each heat's record is ready when a customer asks.",
         energy: "A rejected bar has already been melted, cast, reheated and rolled.",
       },
       {
         area: "planning",
         title: "Keep the melt shop and the mill in step.",
         description:
-          "When the furnace runs late or the mill stops, billets wait, cool down and need more fuel to reheat, and the rolling programme slips. Stamped proposes the next sequence across melt shop, caster and mill and shows what each option does to output, reheating fuel and delivery.",
+          "When the furnace runs late or the mill stops, billets wait, cool down and need more fuel to reheat, and the rolling programme slips. Stamped keeps track of the whole plant, from furnace and caster status to billet temperatures and the rolling programme, and proposes the sequence that works best across melt shop, caster and mill, showing what each option does to output, reheating fuel and delivery.",
         energy: "Keeping hot charging going through a delay saves reheating fuel and scale.",
       },
       {
         area: "maintenance",
-        title: "Fix the stop that costs the most tonnes.",
+        title: "Prescribe the fix that saves the most tonnes.",
         description:
-          "Cobbles, guide and roll problems, lining wear and crane delays each cost tonnes in different ways. Stamped ranks stops by the output and yield they cost and picks up slow drift, such as power per tonne creeping up on the same charge or a stand drawing more load for the same section.",
+          "Cobbles, guide and roll problems, lining wear and crane delays each cost tonnes in different ways. Stamped ranks stops by the output and yield they cost, watches specific energy consumption and other slow drift, such as power per tonne creeping up on the same charge or a stand drawing more load for the same section, and prescribes the fix and a window that fits the rolling programme.",
         energy: "Rising power for the same charge is often the first sign of lining or electrical wear.",
       },
     ],
@@ -68,7 +68,7 @@ export const steelPage: VerticalPageContent = {
         id: "melt-shop",
         title: "Induction and arc furnaces",
         description:
-          "In the melt shop the questions are about power per tonne, tap-to-tap time, metallic yield and chemistry hit rate, and Stamped compares each heat with the best ones on the same grade and charge mix so the in-charge can see which practice made the difference.",
+          "In the melt shop the questions are about power per tonne, tap-to-tap time, metallic yield and chemistry hit rate, and Stamped compares each heat with the best ones on the same grade and charge mix, shows which practice made the difference and where it can be improved further.",
         imageSrc: "/industries/plant/steel/melt.jpg",
         imageAlt: "Molten metal and furnace stations in a steel melt shop",
       },

@@ -24,7 +24,10 @@ export function HomeWhatIs() {
             </h2>
             <div className="mt-5 max-w-xl space-y-4">
               {whatIs.paragraphs.map((paragraph) => (
-                <p key={paragraph.slice(0, 32)} className="text-base leading-8 text-on-surface/80 md:text-lg">
+                <p
+                  key={paragraph.slice(0, 32)}
+                  className="text-base leading-8 text-on-surface/80 last:font-medium last:text-on-surface md:text-lg"
+                >
                   {paragraph}
                 </p>
               ))}

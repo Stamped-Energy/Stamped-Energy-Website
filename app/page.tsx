@@ -13,10 +13,10 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { buildPageMetadataFromConfig } from "@/lib/seo/metadata";
 import { PAGE_SEO } from "@/lib/seo/pages";
 import {
+  buildWebPageSchema,
   homepageFaqSchema,
-  homepageSpeakableSchema,
+  homepageSpeakable,
   softwareApplicationSchema,
-  websiteSchema,
 } from "@/lib/seo/schemas";
 
 export const metadata: Metadata = buildPageMetadataFromConfig(PAGE_SEO.home);
@@ -26,10 +26,9 @@ export default function HomePage() {
     <>
       <JsonLd
         data={[
-          websiteSchema,
+          buildWebPageSchema(PAGE_SEO.home, homepageSpeakable),
           softwareApplicationSchema,
           homepageFaqSchema,
-          homepageSpeakableSchema,
         ]}
       />
       <Hero />

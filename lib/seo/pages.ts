@@ -10,13 +10,14 @@ export type PageSeoConfig = {
 const HOW_IT_WORKS_SEO = {
   absoluteTitle: "How it works | Stamped",
   description:
-    "How Stamped uses machine learning and AI on your existing plant data to send ranked actions to the people who own them, and check the result against your own baseline.",
+    "How Stamped models your plant from the data it already records, sends ranked actions to the people who own them, and checks each result against your baseline.",
   path: "/platform",
   keywords: [
     "AI for plant operations",
     "manufacturing operational efficiency India",
     "plant data to operator actions",
-    "machine learning and AI for manufacturing",
+    "machine learning for manufacturing",
+    "digital twin manufacturing",
   ],
 } as const satisfies PageSeoConfig;
 
@@ -24,7 +25,7 @@ export const PAGE_SEO = {
   home: {
     absoluteTitle: "Stamped | AI for plant operations",
     description:
-      "Stamped uses machine learning and AI on the data your plant already records to find where efficiency is lost across process, quality, planning and maintenance, and improves it.",
+      "Stamped is AI for industrial plants. It models your plant from the data it already records and improves process, quality, planning and maintenance.",
     path: "/",
     keywords: [
       "AI for plant operations",
@@ -39,7 +40,7 @@ export const PAGE_SEO = {
   /** @deprecated Use PAGE_SEO.platform. Kept for transitional imports. */
   howItWorks: HOW_IT_WORKS_SEO,
   solutions: {
-    absoluteTitle: "What Stamped improves | Process, quality, planning, maintenance",
+    absoluteTitle: "Process, quality, planning and maintenance | Stamped",
     description:
       "Stamped improves process and control, quality and lot checks, planning and maintenance in manufacturing plants, with energy counted in all four.",
     path: "/solutions",
@@ -53,10 +54,12 @@ export const PAGE_SEO = {
   solutionsProcess: {
     absoluteTitle: "Process and control optimisation | Stamped",
     description:
-      "Run every shift like your best one. Stamped learns what your best runs looked like and recommends specific setting, restart and pacing changes to your process engineers.",
+      "Run better than your best shift. Stamped tests better control policies on a digital twin of your line and recommends them to your process engineers.",
     path: "/solutions/process",
     keywords: [
       "process optimisation manufacturing",
+      "control optimisation manufacturing",
+      "digital twin process control",
       "induction billet heater temperature control",
       "set point drift manufacturing",
     ],
@@ -64,10 +67,11 @@ export const PAGE_SEO = {
   solutionsQuality: {
     absoluteTitle: "Quality and lot checks before rejection | Stamped",
     description:
-      "Know which batch is at risk before it becomes a rejection. Stamped links process data to each lot and flags batches made under conditions that came before past rejections.",
+      "Catch the problem while the lot can still be saved. Stamped links process data to each lot and alerts your team in real time, before parts are rejected.",
     path: "/solutions/quality",
     keywords: [
       "predictive quality manufacturing",
+      "real-time quality alarms",
       "rejection reduction auto component",
       "reduce rejection in forging",
       "CQI-9 heat treatment records",
@@ -77,21 +81,31 @@ export const PAGE_SEO = {
   solutionsPlanning: {
     absoluteTitle: "Planning and scheduling | Stamped",
     description:
-      "When the plan breaks, have the next one ready. Stamped proposes the next sequence and shows what each option would do to output, energy and delivery.",
+      "Re-plan with the whole plant in view. Stamped proposes the sequence that works best for the plant, with its effect on output, energy and delivery.",
     path: "/solutions/planning",
-    keywords: ["production re-planning manufacturing", "furnace loading sequence", "shop floor scheduling India"],
+    keywords: [
+      "production re-planning manufacturing",
+      "dynamic production planning",
+      "furnace loading sequence",
+      "shop floor scheduling India",
+    ],
   },
   solutionsMaintenance: {
     absoluteTitle: "Maintenance | Stamped",
     description:
-      "Fix what costs you the most, before it stops the line. Stamped ranks stops by the output and time they cost and picks up the slow drift that comes before a failure.",
+      "Prescriptive maintenance, planned around production. Stamped ranks stops by what they cost and prescribes the fix and the best window to make it.",
     path: "/solutions/maintenance",
-    keywords: ["reduce downtime CNC machining", "maintenance stop ranking", "equipment drift detection"],
+    keywords: [
+      "prescriptive maintenance manufacturing",
+      "reduce downtime CNC machining",
+      "maintenance stop ranking",
+      "specific energy consumption monitoring",
+    ],
   },
   about: {
-    absoluteTitle: "About Stamped | IIT Roorkee engineers building AI for plant operations",
+    absoluteTitle: "About Stamped | Built by IIT Roorkee engineers",
     description:
-      "Stamped is built by IIT Roorkee engineers Vinayak Raizada and Utso Sarkar. We build software that turns plant data into actions, across process, quality, planning and maintenance.",
+      "Stamped is built by IIT Roorkee engineers Vinayak Raizada and Utso Sarkar. We turn plant data into actions across process, quality, planning and maintenance.",
     path: "/about",
     keywords: ["Stamped founders", "IIT Roorkee manufacturing software", "AI for plant operations"],
   },
@@ -119,7 +133,7 @@ export const PAGE_SEO = {
   industries: {
     absoluteTitle: "Industries | Stamped",
     description:
-      "Built for auto-component makers first, with the same four areas applied in die casting, rubber moulding, steel, cement, pharma and chemical plants.",
+      "Stamped improves process, quality, planning and maintenance in auto-component, steel, cement, pharma and chemical plants.",
     path: "/industries",
     keywords: [
       "auto component manufacturing software",
@@ -131,7 +145,7 @@ export const PAGE_SEO = {
   industriesAutomotive: {
     absoluteTitle: "Auto component manufacturing | Stamped",
     description:
-      "For forging, heat treatment, machining, die casting and rubber moulding plants supplying OEMs: fewer rejections, more output and fewer breakdowns, from the data your plant already records.",
+      "For forging, heat treatment, machining, die casting and rubber moulding plants: fewer rejections, more output and fewer breakdowns, from data you already have.",
     path: "/industries/automotive",
     keywords: [
       "auto component manufacturing software",
@@ -146,7 +160,7 @@ export const PAGE_SEO = {
   industriesSteel: {
     absoluteTitle: "Steel plant operations | Stamped",
     description:
-      "For induction and arc furnace melt shops and rolling mills: power per tonne, heat chemistry, yield and cobbles, improved from the data your plant already records.",
+      "For induction and arc furnace melt shops and rolling mills: power per tonne, heat chemistry, yield and cobbles, improved from the data your plant records.",
     path: "/industries/steel",
     keywords: [
       "steel plant software India",
@@ -182,7 +196,7 @@ export const PAGE_SEO = {
   industriesChemical: {
     absoluteTitle: "Chemical plant operations | Stamped",
     description:
-      "For batch and specialty chemical plants: reactor yield, batch cycle time, off-spec batches and steam and cooling, improved from the data your plant already records.",
+      "For batch and specialty chemical plants: reactor yield, cycle time, off-spec batches, steam and cooling, improved from the data your plant already records.",
     path: "/industries/chemical",
     keywords: [
       "chemical plant software India",

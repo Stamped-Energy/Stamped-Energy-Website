@@ -10,11 +10,11 @@ const easeOut = (t: number) => 1 - Math.pow(1 - t, 4);
 
 const noop = () => {};
 
-function poly(xs: number[], ys: number[]) {
+export function poly(xs: number[], ys: number[]) {
   return xs.map((x, i) => `${i === 0 ? "M" : "L"}${x.toFixed(1)} ${ys[i].toFixed(1)}`).join(" ");
 }
 
-function wait(ms: number, live: () => boolean) {
+export function wait(ms: number, live: () => boolean) {
   return new Promise<void>((resolve) => {
     window.setTimeout(() => resolve(), ms);
   }).then(() => {
@@ -64,6 +64,33 @@ const RX = [
 ] as const;
 
 const TOD = ["Lot 2417", "Lot 2418", "Lot 2419", "Lot 2420"];
+
+const FINDINGS = [
+  {
+    title: "Die running cold",
+    sub: "After short stops on Press 2",
+    next: "Flag before next lot",
+    cat: "Came before past rejections",
+    die: "Drifting",
+    restarts: "Night shift",
+  },
+  {
+    title: "Restarts differ",
+    sub: "Night shift vs day shift",
+    next: "Review restart steps",
+    cat: "Output lost after every stop",
+    die: "Steady",
+    restarts: "Night shift",
+  },
+  {
+    title: "Lots wait for furnace",
+    sub: "Forge to heat treatment",
+    next: "Re-time furnace start",
+    cat: "Linked to late quench",
+    die: "Steady",
+    restarts: "Day shift",
+  },
+] as const;
 
 function startData(root: HTMLElement, { reduce }: SlotLoopOptions) {
   const path = root.querySelector<SVGPathElement>("[data-a05-spark]");
@@ -135,6 +162,137 @@ function startData(root: HTMLElement, { reduce }: SlotLoopOptions) {
         setSource(n);
         n = (n + 1) % 4;
         await wait(1600, () => live);
+      }
+    } catch {
+      /* stopped */
+    }
+  })();
+
+  return () => {
+    live = false;
+    cancelAnimationFrame(raf);
+  };
+}
+
+function startAnalysis(root: HTMLElement, { reduce }: SlotLoopOptions) {
+  const base = root.querySelector<SVGPathElement>("[data-a06-base]");
+  const act = root.querySelector<SVGPathElement>("[data-a06-act]");
+  const fill = root.querySelector<SVGPathElement>("[data-a06-fill]");
+  const now = root.querySelector<SVGLineElement>("[data-a06-now]");
+  if (!base || !act || !fill || !now) return noop;
+
+  const legs = {
+    drift: root.querySelector('[data-leg="drift"]'),
+    restarts: root.querySelector('[data-leg="restarts"]'),
+    waits: root.querySelector('[data-leg="waits"]'),
+  };
+  let live = true;
+  let raf = 0;
+  const X0 = 52;
+  const X1 = 284;
+  const N = 112;
+  const Y_FLOOR = 396;
+  const Y_TOP = 170;
+  const V_MIN = 78;
+  const V_MAX = 372;
+  const CYCLE = 8;
+  const WINDOW = 8;
+  const t0 = performance.now();
+
+  const smoothstep = (a: number, b: number, x: number) => {
+    const t = Math.max(0, Math.min(1, (x - a) / (b - a)));
+    return t * t * (3 - 2 * t);
+  };
+  const gate = (p: number, on: [number, number], off: [number, number]) =>
+    smoothstep(on[0], on[1], p) * (1 - smoothstep(off[0], off[1], p));
+  const period = (t: number) => ((t % CYCLE) + CYCLE) % CYCLE;
+
+  const bestRun = (t: number) => {
+    const p = period(t);
+    return 198 + 52 * gate(p, [1.3, 2.0], [6.6, 7.6]) + 5 * Math.sin(t * 0.22);
+  };
+
+  const today = (t: number) => {
+    const p = period(t);
+    const chatter = 7 * Math.sin(t * 2.15) + 3.4 * Math.sin(t * 4.6 + 0.8);
+    let v = 86 + chatter * 0.45;
+    v += 158 * gate(p, [1.5, 2.2], [6.3, 7.4]);
+    v += 52 * gate(p, [3.05, 3.4], [4.15, 4.5]);
+    v -= 62 * gate(p, [4.4, 4.65], [4.78, 5.1]);
+    v += 128 * gate(p, [5.1, 5.45], [5.9, 6.25]);
+    return Math.max(V_MIN, Math.min(V_MAX, v));
+  };
+
+  const yOf = (v: number) => Y_FLOOR - ((v - V_MIN) / (V_MAX - V_MIN)) * (Y_FLOOR - Y_TOP);
+
+  const phaseAt = (t: number) => {
+    const p = period(t);
+    if (p >= 3.0 && p < 4.55) return "restarts";
+    if (p >= 5.05 && p < 6.35) return "waits";
+    return "drift";
+  };
+
+  const paint = (elapsed: number) => {
+    const xs: number[] = [];
+    const yB: number[] = [];
+    const yA: number[] = [];
+    for (let i = 0; i < N; i++) {
+      const frac = i / (N - 1);
+      const t = elapsed - (1 - frac) * WINDOW;
+      xs.push(X0 + frac * (X1 - X0));
+      yB.push(yOf(bestRun(t)));
+      yA.push(yOf(today(t)));
+    }
+    base.setAttribute("d", poly(xs, yB));
+    act.setAttribute("d", poly(xs, yA));
+    let d = `M${xs[0].toFixed(1)} ${yB[0].toFixed(1)} `;
+    for (let i = 0; i < N; i++) d += `L${xs[i].toFixed(1)} ${yA[i].toFixed(1)} `;
+    for (let i = N - 1; i >= 0; i--) d += `L${xs[i].toFixed(1)} ${yB[i].toFixed(1)} `;
+    fill.setAttribute("d", `${d}Z`);
+    now.setAttribute("x1", String(X1));
+    now.setAttribute("x2", String(X1));
+    const phase = phaseAt(elapsed);
+    (Object.keys(legs) as Array<keyof typeof legs>).forEach((k) => {
+      legs[k]?.classList.toggle("is-on", k === phase);
+    });
+  };
+
+  const setFinding = (n: number) => {
+    const f = FINDINGS[n];
+    const set = (sel: string, text: string) => {
+      const el = root.querySelector(sel);
+      if (el) el.textContent = text;
+    };
+    set("[data-a06-title]", f.title);
+    set("[data-a06-sub]", f.sub);
+    set("[data-a06-next]", f.next);
+    set("[data-a06-cat]", f.cat);
+    set("[data-a06-die]", f.die);
+    set("[data-a06-restarts]", f.restarts);
+  };
+
+  paint(5);
+  setFinding(0);
+  if (reduce) {
+    return () => {
+      live = false;
+    };
+  }
+
+  const tick = (nowTs: number) => {
+    if (!live) return;
+    paint((nowTs - t0) / 1000 + 5);
+    raf = requestAnimationFrame(tick);
+  };
+  raf = requestAnimationFrame(tick);
+
+  void (async () => {
+    let n = 0;
+    try {
+      while (live) {
+        setFinding(n);
+        n = (n + 1) % FINDINGS.length;
+        await wait(3200, () => live);
       }
     } catch {
       /* stopped */
@@ -315,7 +473,7 @@ function startDecisions(root: HTMLElement, { reduce }: SlotLoopOptions) {
   };
 }
 
-function StageShell({
+export function StageShell({
   className,
   label,
   children,
@@ -430,6 +588,100 @@ export function DataStageVisual() {
             letterSpacing="0.4"
           >
             Quality · lot records
+          </text>
+        </g>
+      </svg>
+    </StageShell>
+  );
+}
+
+export function AnalysisStageVisual() {
+  const uid = useId().replace(/:/g, "");
+  const chipVal = { fontFamily: "Space Grotesk, sans-serif", fontWeight: 700, fontSize: 15 } as const;
+  const mono = { fontFamily: "IBM Plex Mono, monospace", fontSize: 15, letterSpacing: 0.4 } as const;
+  return (
+    <StageShell
+      className="hiw-acid"
+      label="Today's run compared with an improved control policy, with the causes of drift highlighted."
+      start={startAnalysis}
+    >
+      <svg viewBox="0 0 720 450" xmlns="http://www.w3.org/2000/svg">
+        <rect width="720" height="450" fill="#EEF981" />
+        <g>
+          <rect className="chip" x="28" y="24" width="148" height="44" rx="6" />
+          <text className="lbl" x="42" y="42">Compare</text>
+          <text className="val" x="42" y="58" {...chipVal}>
+            Best week
+          </text>
+        </g>
+        <g>
+          <rect className="chip" x="188" y="24" width="132" height="44" rx="6" />
+          <circle className="live-dot" cx="204" cy="38" r="3.2" />
+          <text className="lbl lbl-hi" x="214" y="42">Die temp</text>
+          <text data-a06-die className="val" x="204" y="58" {...chipVal}>
+            Drifting
+          </text>
+        </g>
+        <g>
+          <rect className="chip" x="332" y="24" width="132" height="44" rx="6" />
+          <text className="lbl" x="346" y="42">Restarts</text>
+          <text data-a06-restarts className="val" x="346" y="58" {...chipVal}>
+            Night shift
+          </text>
+        </g>
+        <g>
+          <rect className="chip" x="476" y="24" width="132" height="44" rx="6" />
+          <text className="lbl" x="490" y="42">Baseline</text>
+          <text className="val" x="490" y="58" {...chipVal}>
+            Your plant
+          </text>
+        </g>
+        <g>
+          <rect className="chip" x="28" y="86" width="280" height="340" rx="8" />
+          <text className="lbl" x="44" y="112">Improved control vs today</text>
+          <g className="leg is-on" data-leg="drift">
+            <rect className="chip" x="44" y="128" width="72" height="26" rx="4" />
+            <text className="lbl lbl-hi" x="54" y="145">Drift</text>
+          </g>
+          <g className="leg" data-leg="restarts">
+            <rect className="chip" x="124" y="128" width="80" height="26" rx="4" />
+            <text className="lbl lbl-hi" x="134" y="145">Restarts</text>
+          </g>
+          <g className="leg" data-leg="waits">
+            <rect className="chip" x="212" y="128" width="72" height="26" rx="4" />
+            <text className="lbl lbl-hi" x="222" y="145">Waits</text>
+          </g>
+          <defs>
+            <clipPath id={`${uid}-a06`}>
+              <rect x="44" y="164" width="248" height="232" />
+            </clipPath>
+          </defs>
+          <line className="axis" x1="52" y1="396" x2="284" y2="396" />
+          <g clipPath={`url(#${uid}-a06)`}>
+            <path className="waste-fill" data-a06-fill d="" />
+            <path className="base-line" data-a06-base d="" />
+            <path className="waste-line" data-a06-act d="" />
+            <line className="now-rule" data-a06-now x1="284" y1="168" x2="284" y2="396" />
+          </g>
+        </g>
+        <g>
+          <rect className="rx" x="328" y="86" width="364" height="340" rx="8" />
+          <circle className="live-dot" cx="352" cy="118" r="4" />
+          <text className="lbl lbl-hi" x="364" y="122">Model finding</text>
+          <text data-a06-title className="val" x="352" y="176" fontFamily="Space Grotesk, sans-serif" fontWeight="700" fontSize="26">
+            Die running cold
+          </text>
+          <text data-a06-sub className="mute-txt" x="352" y="220" fontFamily="Inter, sans-serif" fontSize="18">
+            After short stops on Press 2
+          </text>
+          <text data-a06-next className="val" x="352" y="268" fontFamily="Space Grotesk, sans-serif" fontWeight="700" fontSize="22">
+            Flag before next lot
+          </text>
+          <text data-a06-cat className="mute-txt" x="352" y="322" {...mono}>
+            Came before past rejections
+          </text>
+          <text className="mute-txt" x="352" y="358" {...mono}>
+            Evidence · your plant&apos;s own history
           </text>
         </g>
       </svg>
@@ -693,6 +945,7 @@ export function DecisionsStageVisual() {
 
 export const hiwStageVisuals = [
   DataStageVisual,
+  AnalysisStageVisual,
   PrescriptionsStageVisual,
   DecisionsStageVisual,
 ] as const;

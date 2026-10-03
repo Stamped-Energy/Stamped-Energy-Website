@@ -59,9 +59,9 @@ export const IMPROVEMENT_AREA_LABELS: Record<ImprovementAreaKey, { label: string
 export const industriesContent = {
   hub: {
     eyebrow: "Industries",
-    title: "Built for auto-component makers first.",
+    title: "Built for plants across industries.",
     description:
-      "We are starting with forging, heat-treatment and machining plants that supply OEMs, where a single rejection can cost far more than the part itself. The same four areas apply in die casting, rubber moulding, steel, cement, pharma and chemical plants, and each page below explains what Stamped looks at there.",
+      "Stamped is built for auto-component, steel and cement plants, and the same four areas apply in pharma and chemical plants. Each page below explains what Stamped looks at there.",
     heroImageSrc: INDUSTRY_IMAGES.forging,
     heroImageAlt: "Forging press line on an auto-component plant floor",
     primaryCta: { label: "Explore auto components", href: "/industries/automotive" } satisfies CtaLink,
@@ -69,7 +69,7 @@ export const industriesContent = {
     thesis: {
       eyebrow: "Across industries",
       title: "Every plant loses efficiency in the same four places.",
-      body: "A forge, a kiln, a melt shop and a granulation suite look nothing alike, but the losses sit in the same places: a process setting that has drifted, a batch that goes wrong without anyone noticing in time, a plan that breaks mid-shift, and a stop or slow drift that maintenance hears about too late, with energy running through all four. What changes from one industry to the next is which signals matter, so Stamped's machine learning and AI models learn your plant's own processes before recommending anything.",
+      body: "A forge, a kiln, a melt shop and a granulation suite look nothing alike, but the losses sit in the same places: a process setting that has drifted, a batch that goes wrong without anyone noticing in time, a plan that breaks mid-shift, and a stop or slow drift that maintenance hears about too late, with energy running through all four. What changes from one industry to the next is which signals matter, so Stamped's models learn your plant's own processes from its own history before recommending anything.",
     },
     matrix: {
       eyebrow: "By industry and area",
@@ -191,7 +191,7 @@ export const industriesContent = {
           imageSrc: INDUSTRY_IMAGES.chemical,
           imageAlt: "Chemical plant towers and piping",
           equipment: ["Reactor yield", "Cycle time", "Off-spec batches", "Steam and cooling"],
-          body: "More on-spec batches from the reactors you already have, with each batch compared phase by phase against your best ones and the off-spec path caught while it can still be corrected.",
+          body: "More on-spec batches from the reactors you already have, with each batch improved phase by phase beyond your best ones and the off-spec path caught while it can still be corrected.",
           footerNote: "Batch and specialty",
         },
       ] satisfies IndustryHubRow[],
@@ -260,7 +260,7 @@ export const industriesContent = {
           answer:
             "The approach is the same, because every plant loses efficiency in process, quality, planning and maintenance, but the models learn from your own plant's data, so what Stamped looks at in a kiln is different from what it looks at in a forge.",
         },
-        ...landingContent.faq.items.filter((item) => item.id === "mes-erp-scada" || item.id === "start"),
+        ...landingContent.faq.items.filter((item) => item.id === "hardware" || item.id === "start"),
       ],
     },
     cta: { label: "Book a site survey", href: "/contact" } satisfies CtaLink,

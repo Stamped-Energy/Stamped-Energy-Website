@@ -4,7 +4,8 @@ Live marketing copy as of 3 October 2026 (copy v3, ADR-033). The approved wordin
 [`docs/copy/stamped-copy-v3.md`](copy/stamped-copy-v3.md); voice rules are in `STAMPED_COPY_GUIDE.md`
 (research workspace). This page maps each public page to the file that renders it, so the copy has one source.
 
-**Rules that apply everywhere:** brand is "Stamped" (never "Stamped Energy" in customer copy); say
+**Rules that apply everywhere:** brand is "Stamped" (never "Stamped Energy" in customer copy); name
+the technology to fit the placement (copy v3 section 1, "Describing the technology"), not with a stock
 "machine learning and AI"; approved outcome paragraphs are used word for word; no unbacked % or rupee
 figures; example action cards keep their [bracketed] placeholders and carry an "Example" label; primary
 CTA is "Book a site survey" → `/contact`; no em dashes.

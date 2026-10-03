@@ -6,15 +6,18 @@ export const SITE_URL = SITE_ORIGIN.replace(/\/$/, "");
 export const DEFAULT_OG_IMAGE_PATH = "/og-default.png";
 
 /** Bump when replacing public/og-default.png so social crawlers refetch the asset. */
-export const DEFAULT_OG_IMAGE_VERSION = "20260630-product";
+export const DEFAULT_OG_IMAGE_VERSION = "20261003-industrial";
 
 export const DEFAULT_OG_IMAGE = `${SITE_URL}${DEFAULT_OG_IMAGE_PATH}?v=${DEFAULT_OG_IMAGE_VERSION}`;
 
-export const DEFAULT_OG_IMAGE_ALT = "Stamped · AI for plant operations";
+export const DEFAULT_OG_IMAGE_ALT = "Stamped · AI for industrial plants. From monitoring your plant to improving it.";
 
 export const ORGANIZATION_ID = `${SITE_URL}/#organization`;
 
 export const WEBSITE_ID = `${SITE_URL}/#website`;
+
+/** Last substantive edit to the static marketing pages. Bump with copy changes; feeds sitemap lastmod and WebPage dateModified. */
+export const CONTENT_UPDATED = "2026-10-03";
 
 export const GEO_METADATA = {
   "geo.region": "IN",

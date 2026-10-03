@@ -154,7 +154,7 @@ export async function listPublishedPosts(options?: {
     prisma.blogPost.findMany({
       where,
       include: { author: { select: { name: true } } },
-      orderBy: [{ featured: "desc" }, { publishedAt: "desc" }],
+      orderBy: { publishedAt: "desc" },
       skip,
       take: limit,
     }),

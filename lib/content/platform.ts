@@ -3,6 +3,7 @@ import type {
   CtaLink,
   HiwCapability,
   HiwDeploymentPhase,
+  IndustryFaqItem,
   PlatformProseSection,
 } from "./types";
 
@@ -13,7 +14,7 @@ export const platformContent = {
     eyebrow: "How it works",
     title: "From plant data to operator actions.",
     description:
-      "Stamped uses machine learning and AI on the data your plant already records to find where efficiency is lost across process, quality, planning and maintenance, and improves it with actions your team can take.",
+      "Stamped builds models of your plant from the data it already records, finds where efficiency is lost across process, quality, planning and maintenance, and improves it with actions your team can take.",
     primaryCta: { label: "Book a site survey", href: "/contact" } satisfies CtaLink,
     secondaryCta: { label: "What we improve", href: "/solutions" } satisfies CtaLink,
   },
@@ -23,20 +24,44 @@ export const platformContent = {
     eyebrow: "What we do",
     title: "What Stamped achieves, and how.",
     paragraphs: [
-      "Stamped helps manufacturing plants run more efficiently, which in practice means fewer rejections, more output from the lines and shifts you already have, and less energy and material going into every good part. We measure all of it against your own plant's baseline, in the units your team already tracks, so nobody has to take our word for it.",
-      "Most plants already record far more than they use. The machines, the control systems, the meters, the ERP and the quality registers each hold a piece of the picture, but they sit in separate places and rarely get looked at together. Stamped brings that data into one view and uses machine learning and AI to understand how your plant actually runs, where efficiency is quietly being lost, and what tends to change in the hours before a loss shows up.",
-      "That understanding is only useful if someone acts on it, so Stamped turns it into specific actions and sends each one to the person who can do something about it. It might be a setting that has drifted over a few weeks, a batch that looks a lot like the ones that were rejected last month, or a plan that needs to change because a machine went down mid-shift. Each comes with what to do, by when, and the reasoning behind it.",
-      "Stamped recommends and your team decides. Once a change is made, we check whether it actually worked and feed that back into the next recommendation, and if a gain starts slipping a month later, it shows up in the numbers and goes back to the person who owns it.",
+      "Stamped helps manufacturing plants run more efficiently: fewer rejections, more output from the lines and shifts you already have, and less energy and material going into every good part. We measure all of it against your own plant's baseline, in the units your team already tracks, so nobody has to take our word for it.",
+      "Most plants already record far more than they use. The machines, control systems, meters, ERP and quality registers each hold a piece of the picture, but they sit in separate places and rarely get looked at together. Stamped brings that data into one view and models it to understand how your plant actually runs and where efficiency is quietly being lost.",
+      "Stamped then turns that understanding into specific actions and sends each one to the person who can act on it, whether it is a setting that has drifted over a few weeks, a batch that looks like last month's rejections, or a plan that needs to change because a machine went down mid-shift. Stamped recommends and your team decides. Once a change is made, we check whether it worked, and if a gain starts slipping later, it goes back to the person who owns it.",
     ],
   },
 
   /** How it works (copy v3 section 4) with the Plant data → Models → Actions → Results diagram. */
   flow: {
     eyebrow: "The loop",
-    paragraphs: [
-      "Stamped connects to the systems your plant already runs, so there is nothing new to install before we start. Its machine learning and AI models learn what normal operation looks like in your plant and which conditions tend to come before a rejection, a stoppage or wasted energy.",
-      "When something is worth acting on, Stamped sends it to the person best placed to act, ranked by what it is costing you and explained well enough that they can judge it for themselves. Once your team has made a change, Stamped checks the result against your own baseline and uses what it learns to make the next recommendation better.",
+    title: "From plant data to a checked result, and back again.",
+    description:
+      "Every recommendation follows the same four steps, and each result makes the next recommendation better.",
+    steps: [
+      {
+        id: "plant-data",
+        label: "Plant data",
+        description:
+          "Stamped connects to the machines, control systems, meters, ERP and quality registers your plant already runs. There is nothing new to install.",
+      },
+      {
+        id: "models",
+        label: "Models",
+        description:
+          "Trained on your plant's own history, they learn what normal looks like and which conditions tend to come before a rejection, a stoppage or wasted energy.",
+      },
+      {
+        id: "actions",
+        label: "Actions",
+        description:
+          "Each goes to the person best placed to act, ranked by what it is costing you and explained well enough to judge for themselves.",
+      },
+      {
+        id: "results",
+        label: "Results",
+        description: "Once your team makes a change, Stamped checks the result against your own baseline.",
+      },
     ],
+    feedback: "What each result shows goes back into the models, so the next recommendation is better.",
     controlLine: "Stamped recommends and your team decides.",
   },
 
@@ -71,31 +96,31 @@ export const platformContent = {
     eyebrow: "Models",
     title: "Models built around the way your plant runs",
     description:
-      "Stamped's machine learning and AI models are trained on your own plant's history, so normal means normal for your machines, products and shifts, and energy is counted inside each of them.",
+      "Stamped's models are trained on your own plant's history, from machine learning on its sensor and lab data to digital twins and mathematical models of its process, so normal means normal for your machines, products and shifts, and energy is counted inside each of them.",
     items: [
       {
         id: "process",
         title: "Process and control",
         description:
-          "Learns what your best runs looked like, which settings have drifted and how restarts differ between shifts, and recommends a specific change to the process engineer.",
+          "Builds a digital twin of each line and uses mathematical models of the process, reinforcement learning and machine learning to test better control policies, then recommends the improved setting, control rule or restart routine to the process engineer.",
       },
       {
         id: "quality",
         title: "Quality and lot checks",
         description:
-          "Links process data to each lot and batch, learns which conditions came before past rejections, and flags batches made under similar conditions while they are still in the plant.",
+          "Links process data to each lot and batch, learns which conditions came before past rejections, and raises a real-time alarm while a lot can still be saved, such as a basket overstaying in ageing or quench water out of its band.",
       },
       {
         id: "planning",
         title: "Planning and scheduling",
         description:
-          "When a die change runs long or a furnace trips, proposes the next sequence and shows what each option would do to output, energy and delivery.",
+          "Keeps track of what every machine, furnace and dispatch is doing, so when a die change runs long or a furnace trips it proposes the sequence that works best for the whole plant and shows what each option would do to output, energy and delivery.",
       },
       {
         id: "maintenance",
         title: "Maintenance",
         description:
-          "Ranks stops by the output and time they cost and picks up the slow drift that usually comes before a failure, and says plainly when a machine has no sensor that would show the problem.",
+          "Prescriptive maintenance: ranks stops by what they cost, watches specific energy consumption and other drift that comes before a failure, and prescribes the fix and the best window for it given production constraints, saying plainly when a machine has no sensor that would show the problem.",
       },
     ],
   } satisfies PlatformProseSection,
@@ -104,39 +129,39 @@ export const platformContent = {
     eyebrow: "Under the hood",
     title: "What happens to your data before an action reaches the floor",
     description:
-      "Stamped connects to the systems already in your plant, and there is nothing new to install to start.",
+      "Four steps sit between the systems your plant already runs and an action your team can take, and there is nothing new to install to start.",
     items: [
       {
         id: "ingestion",
         title: "Connect and clean up",
         description:
-          "Stamped reads from your machines and control systems, meters, ERP plans, quality registers and what operators enter, then lines up the clocks, units and names, because each system usually records them differently.",
+          "Stamped reads from your machines, control systems, meters, ERP, quality registers and what operators enter, then lines up the clocks, units and names, because each system records them its own way.",
         mediaSrc: null,
-        mediaAlt: "Data from plant systems flowing into Stamped",
+        mediaAlt: "Records from plant systems lined up to one clock and one set of names",
       },
       {
         id: "repository",
-        title: "One timeline for the plant",
+        title: "One timeline for the whole plant",
         description:
-          "Machines, lots, shifts and batches go onto one timeline, so when a lot is rejected you can see what that press, that furnace and that shift were doing at the moment it was made.",
+          "Machines, furnaces, lots, shifts and plans go onto one timeline. When a lot is rejected you can see what that press, that furnace and that shift were doing when it was made, and every re-plan starts from where the whole plant actually is.",
         mediaSrc: null,
-        mediaAlt: "Time-aligned plant context connecting sources",
+        mediaAlt: "A rejected lot traced across press, furnace and shift on one timeline",
       },
       {
         id: "intelligence",
-        title: "Find the losses and rank them",
+        title: "Model the plant and rank the losses",
         description:
-          "Stamped learns what normal looks like for your plant, notices when a line moves away from it, checks each possible fix against the day's plan, and puts the remaining options in order of what they are costing you.",
+          "Stamped builds models of each line from its own history, including digital twins where the process allows, to learn what normal looks like and spot where efficiency is lost. Each possible fix is checked against the day's plan and production constraints, and what is left is ranked by what it is costing you.",
         mediaSrc: null,
-        mediaAlt: "Plant-tuned models ranking feasible actions",
+        mediaAlt: "Losses checked against the plan and ranked by cost",
       },
       {
         id: "governance",
         title: "Send, follow up and check",
         description:
-          "Each action goes to its owner and stays open until it is closed, and the result is compared with your own baseline, with every acceptance, change and result kept on record.",
+          "Each action goes to its owner on WhatsApp or on screen, with what to do, by when and why, and your team decides. It stays open until it is closed, the result is checked against your own baseline, and every decision and result is kept on record.",
         mediaSrc: null,
-        mediaAlt: "Action tracking and result checks",
+        mediaAlt: "An action moving from sent to accepted, checked and closed",
       },
     ] satisfies HiwCapability[],
   },
@@ -180,6 +205,40 @@ export const platformContent = {
       description: step.description,
     })) satisfies HiwDeploymentPhase[],
   },
+
+  /** Answer-first questions for the page FAQ and FAQPage JSON-LD. Built from approved copy only. */
+  faq: [
+    {
+      id: "data",
+      question: "What data does Stamped use?",
+      answer:
+        "Stamped reads from your machines, control systems, meters, ERP, quality registers and what operators enter, then lines up the clocks, units and names, because each system records them its own way.",
+    },
+    {
+      id: "install",
+      question: "Do we need to install new hardware or another system?",
+      answer:
+        "No hardware retrofit is needed to get started. Stamped is software that works with the systems your plant already runs, and it is not another MES or CMMS: your MES, ERP and SCADA are where the data comes from.",
+    },
+    {
+      id: "ranked",
+      question: "How does Stamped decide which actions come first?",
+      answer:
+        "Stamped builds models of each line from its own history to learn what normal looks like and spot where efficiency is lost. Each possible fix is checked against the day's plan and production constraints, and what is left is ranked by what it is costing you.",
+    },
+    {
+      id: "reach",
+      question: "How do actions reach the team?",
+      answer:
+        "Each action goes to its owner on WhatsApp or on screen, with what to do, by when and why, and your team decides. It stays open until it is closed, and every decision and result is kept on record.",
+    },
+    {
+      id: "checked",
+      question: "How do we know a change worked?",
+      answer:
+        "Once your team makes a change, Stamped checks the result against your own baseline. What each result shows goes back into the models, so the next recommendation is better.",
+    },
+  ] satisfies IndustryFaqItem[],
 } as const;
 
 /** @deprecated Prefer platformContent */

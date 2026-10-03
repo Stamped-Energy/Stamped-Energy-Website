@@ -5,6 +5,7 @@ import { useRef } from "react";
 
 import { useMotion } from "@/components/motion/MotionProvider";
 import { Container } from "@/components/ui/Container";
+import { SectionBadge } from "@/components/ui/SectionBadge";
 import { aboutContent } from "@/lib/content/about";
 import { gsap, useGSAP } from "@/lib/motion/gsap";
 
@@ -21,8 +22,9 @@ export function AboutHero() {
 
       gsap.from("[data-about-hero]", {
         autoAlpha: 0,
-        y: 28,
-        duration: 0.85,
+        y: 24,
+        duration: 0.75,
+        stagger: 0.08,
         ease: "power2.out",
       });
     },
@@ -30,29 +32,39 @@ export function AboutHero() {
   );
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative flex min-h-[70vh] items-end overflow-hidden bg-secondary md:min-h-[80vh]"
-    >
-      <div className="absolute inset-0">
-        <Image
-          src={hero.heroImageSrc}
-          alt={hero.heroImageAlt}
-          fill
-          priority
-          className="object-cover object-center"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/55 to-secondary/20" />
-      </div>
+    <section ref={sectionRef} className="page-hero relative overflow-hidden bg-surface">
+      <Container className="relative z-10">
+        <div data-about-hero>
+          <SectionBadge label={hero.eyebrow} />
+        </div>
+        <div className="mt-5 grid gap-5 md:mt-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-end lg:gap-16">
+          <h1
+            data-about-hero
+            className="font-display text-[1.9rem] font-extrabold leading-[1.12] tracking-tight text-on-surface sm:text-4xl lg:text-[3rem]"
+          >
+            {hero.title}
+          </h1>
+          <p
+            data-about-hero
+            className="text-base leading-7 text-on-surface/75 md:text-lg md:leading-8"
+          >
+            {hero.description}
+          </p>
+        </div>
 
-      <Container className="relative z-10 pb-12 pt-24 md:pb-16 md:pt-28 lg:pb-20">
-        <h1
+        <div
           data-about-hero
-          className="max-w-3xl font-display text-3xl font-extrabold leading-[1.12] tracking-tight text-on-secondary sm:text-4xl md:text-5xl lg:text-[3.25rem]"
+          className="relative mt-10 aspect-[16/9] overflow-hidden rounded-2xl md:mt-14 md:aspect-[2/1]"
         >
-          {hero.title}
-        </h1>
+          <Image
+            src={hero.heroImageSrc}
+            alt={hero.heroImageAlt}
+            fill
+            priority
+            className="object-cover object-top"
+            sizes="(max-width: 1280px) 100vw, 1200px"
+          />
+        </div>
       </Container>
     </section>
   );
