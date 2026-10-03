@@ -273,16 +273,19 @@ Energy is counted in all four.
 
 **Eyebrow:** Industries
 
-## Built for auto-component makers first.
+## Different plants, the same four places to improve.
 
-We are starting with forging, heat-treatment and machining plants that supply OEMs, where a single rejection can cost far more than the part itself.
+A forge, a melt shop and a kiln look nothing alike, but each one loses efficiency in process, quality, planning and maintenance. Stamped learns the signals that matter in each plant from its own history.
 
-- **Auto components:** rejections, customer complaints, audits and on-time delivery.
-- **Forging:** billet temperature, restarts, die temperature and press pacing.
-- **Heat treatment:** quench and ageing, furnace loading and idle hours.
-- **Precision machining:** tool life, first-off rejection and setups.
+- **Auto components:** forging, heat treatment and machining: rejections, audits and on-time delivery.
+- **Steel:** power per tonne, heat chemistry, yield and cobbles.
+- **Cement:** kiln stability, free lime, and heat and power per tonne.
 
-Explore auto components »
+The same four areas apply in: Pharma · Chemicals
+
+See all industries »
+
+*(Revised 3 Oct 2026, ADR-039: the section is no longer auto-first.)*
 
 ---
 

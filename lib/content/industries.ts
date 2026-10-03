@@ -59,9 +59,9 @@ export const IMPROVEMENT_AREA_LABELS: Record<ImprovementAreaKey, { label: string
 export const industriesContent = {
   hub: {
     eyebrow: "Industries",
-    title: "Built for auto-component makers first.",
+    title: "Built for plants across industries.",
     description:
-      "We are starting with forging, heat-treatment and machining plants that supply OEMs, where a single rejection can cost far more than the part itself. The same four areas apply in die casting, rubber moulding, steel, cement, pharma and chemical plants, and each page below explains what Stamped looks at there.",
+      "Stamped is built for auto-component, steel and cement plants, and the same four areas apply in pharma and chemical plants. Each page below explains what Stamped looks at there.",
     heroImageSrc: INDUSTRY_IMAGES.forging,
     heroImageAlt: "Forging press line on an auto-component plant floor",
     primaryCta: { label: "Explore auto components", href: "/industries/automotive" } satisfies CtaLink,

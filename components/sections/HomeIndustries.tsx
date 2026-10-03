@@ -22,7 +22,7 @@ export function HomeIndustries() {
           </p>
         </Reveal>
 
-        <ul className="mt-10 grid grid-cols-2 gap-3 sm:gap-4 md:mt-12 md:grid-cols-4 md:gap-3">
+        <ul className="mt-10 grid gap-4 sm:grid-cols-3 md:mt-12 md:gap-5">
           {industries.items.map((item, index) => (
             <li key={item.id}>
               <Reveal delay={index * 0.04}>
@@ -36,7 +36,7 @@ export function HomeIndustries() {
                         src={item.imageSrc}
                         alt={item.imageAlt ?? item.name}
                         fill
-                        sizes="(max-width: 768px) 45vw, 18vw"
+                        sizes="(max-width: 640px) 90vw, 30vw"
                         className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
                       />
                     ) : null}
@@ -77,12 +77,6 @@ export function HomeIndustries() {
             className="inline-flex text-sm font-semibold text-primary transition-opacity hover:opacity-80"
           >
             {industries.cta.label} »
-          </Link>
-          <Link
-            href={industries.allCta.href}
-            className="inline-flex text-sm font-semibold text-on-surface transition-colors hover:text-primary"
-          >
-            {industries.allCta.label} »
           </Link>
         </div>
       </Container>

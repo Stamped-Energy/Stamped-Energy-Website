@@ -133,7 +133,7 @@ export const PAGE_SEO = {
   industries: {
     absoluteTitle: "Industries | Stamped",
     description:
-      "Built for auto-component makers first, with the same four areas applied in die casting, rubber moulding, steel, cement, pharma and chemical plants.",
+      "Stamped improves process, quality, planning and maintenance in auto-component, steel and cement plants, with the same four areas applied in pharma and chemical plants.",
     path: "/industries",
     keywords: [
       "auto component manufacturing software",

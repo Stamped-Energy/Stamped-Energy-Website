@@ -734,3 +734,13 @@ Architecture and workflow decisions for this project.
 **Rationale:** The old "best run" framing undersold control improvement, and a stock method phrase reads as generic. Naming methods only where the reader is technical keeps short copy plain while still showing depth.
 
 **Impact:** `docs/copy/stamped-copy-v3.md` (new "Describing the technology" placement table; approved texts use the plainer default), `docs/website-copy.md`, `lib/content/{solutions,landing,platform,icp,industries}.ts`, `lib/content/vertical-pages/*`, `lib/seo/{pages,schemas,llms-index}.ts`, `lib/blog/constants.ts`, `components/motion-slots/{SolutionsAreaVisuals,HiwStageVisuals}.tsx`, `public/llms.txt`.
+
+## ADR-039: Industries section no longer auto-first
+
+**Date:** 2026-10-03
+
+**Context:** The homepage Industries section and the `/industries` hub led with "Built for auto-component makers first", and the homepage cards were all auto sub-processes. Vinayak wants the section general across industries, with auto components, steel and cement shown and pharma and chemicals listed as places the same four areas apply.
+
+**Selected:** Homepage title "Different plants, the same four places to improve." with three cards (auto components, steel, cement), pills for pharma and chemicals, and one "See all industries" link. The grid is now three columns, one column below `sm`. Hub hero title is "Built for plants across industries.", with the same split in its description and SEO description. The automotive industry page keeps its own auto-specific copy.
+
+**Impact:** `lib/content/{landing,industries}.ts`, `components/sections/HomeIndustries.tsx`, `lib/seo/pages.ts`, `docs/copy/stamped-copy-v3.md`.
