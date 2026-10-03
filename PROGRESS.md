@@ -2,6 +2,8 @@
 
 ## Current Phase
 
+**Solution area framing v3.1 (ADR-038):** Process now improves control policies, Quality adds real-time alerts, Planning re-plans with the whole plant in view, and Maintenance is prescriptive. Applied sitewide, with method wording chosen by placement instead of a stock "machine learning and AI".
+
 **Homepage motion revival (ADR-036)** on branch `cursor/homepage-motion-revival`: pinned How it works journey back with four stage visuals, Solutions area loops, Impact rule draw, offscreen pause for slot loops, shorter What Stamped does.
 
 **Previous: Copy v3 rebrand to "Stamped" (ADR-033)** on branch `copy/stamped-copy-v3` (PR #12). New approved copy across home, `/solutions` (four improvement areas), `/platform`, `/industries` (+ automotive), `/about`, `/contact`, `/case-studies`; SEO metadata, JSON-LD, `llms.txt` aligned; old solution pillars retired with 308s; steel, cement, pharma and chemical pages restored in v3 voice (ADR-034); dead components carrying retired copy deleted. `tsc` + `next build` green.

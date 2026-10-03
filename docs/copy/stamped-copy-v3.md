@@ -5,6 +5,8 @@
 - no hard-stop or "never" lists in public copy;
 - flowing prose instead of short choppy sentences and fragment lists.
 
+Revised 3 Oct 2026, 22:30 IST: "machine learning and AI" is no longer a required phrase. How the technology is named depends on where the copy sits (section 1, "Describing the technology"), and the approved texts below now use the plainer default.
+
 Rules for anyone editing this, including any AI: `STAMPED_COPY_GUIDE.md`. [Brackets] are placeholders; no number, customer or result is invented. Client work stays confidential.
 
 ---
@@ -13,7 +15,21 @@ Rules for anyone editing this, including any AI: `STAMPED_COPY_GUIDE.md`. [Brack
 
 **Category line** (tagline, title tag, LinkedIn, decks): AI for plant operations.
 
-**What we say we do:** Stamped uses machine learning and AI on the data a plant already records to find where efficiency is lost across process, quality, planning and maintenance, and improves it with actions the plant team can take.
+**What we say we do:** Stamped builds models of a plant from the data it already records, finds where efficiency is lost across process, quality, planning and maintenance, and improves it with actions the plant team can take.
+
+### Describing the technology
+
+No method label is required anywhere. "Machine learning and AI" is what every vendor says, so it tells a plant head nothing about us. Say what the models do in this plant, and get more specific the more technical the reader is.
+
+| Placement | How to describe it | Example |
+|---|---|---|
+| Hero, homepage summaries, pitches, FAQ | Plain words about what the models do, without naming methods | "builds models of your plant from the data it already records", "learns how your plant actually runs" |
+| How it works, About | Say what the models are trained on and what they learn | "models trained on your plant's own history, so normal means normal for your machines, products and shifts" |
+| Process page, /platform "Models", technical decks | Name the specific methods | "digital twins of your lines, mathematical models of the process, reinforcement learning and machine learning to test and improve control policies" |
+| Quality, Maintenance pages | Name the technique when it says what we do | "real-time alarms", "prescriptive maintenance", "specific energy consumption" |
+| Category line, title tag, SEO metadata | "AI" is fine here because buyers and search engines file us under it | "AI for plant operations" |
+
+Avoid "machine learning and AI" as a stock phrase, and avoid "AI-powered", "cutting-edge", "advanced analytics" and other words any competitor could use. If a sentence still reads the same after removing the method name, remove it.
 
 ## 2. Hero
 
@@ -35,7 +51,7 @@ Rules for anyone editing this, including any AI: `STAMPED_COPY_GUIDE.md`. [Brack
 
 ### Subhead
 
-> Stamped uses machine learning and AI on the data your plant already records to find where efficiency is lost across process, quality, planning and maintenance, and improves it with actions your team can take.
+> Stamped builds models of your plant from the data it already records, finds where efficiency is lost across process, quality, planning and maintenance, and improves it with actions your team can take.
 
 ## 3. What we achieve and how (approved text)
 
@@ -45,7 +61,7 @@ Approved by Vinayak on 3 Oct 2026, in two lengths. Use each word for word.
 
 Use it where space is tight, such as the homepage "What Stamped does" section, pitch decks and one-pagers.
 
-> Stamped helps manufacturing plants run more efficiently, with fewer rejections, more output from the lines you already have, and less energy and material in every good part. Most plants already record the data that explains where efficiency is lost, but it sits in separate systems that rarely get looked at together. Stamped brings it into one view and uses machine learning and AI to find those losses, then turns them into specific actions for the person who can fix them, whether that's a setting that has drifted or a batch that looks like last month's rejections.
+> Stamped helps manufacturing plants run more efficiently, with fewer rejections, more output from the lines you already have, and less energy and material in every good part. Most plants already record the data that explains where efficiency is lost, but it sits in separate systems that rarely get looked at together. Stamped brings it into one view and builds a model of how your plant actually runs to find those losses, then turns them into specific actions for the person who can fix them, whether that's a setting that has drifted or a batch that looks like last month's rejections.
 >
 > Stamped recommends and your team decides. Once a change is made, we check it against your own baseline, so you can see what actually worked and catch it early if a gain starts to slip.
 
@@ -55,7 +71,7 @@ Use it on the About page, the How it works page (/platform) and in longer writte
 
 > Stamped helps manufacturing plants run more efficiently, which in practice means fewer rejections, more output from the lines and shifts you already have, and less energy and material going into every good part. We measure all of it against your own plant's baseline, in the units your team already tracks, so nobody has to take our word for it.
 >
-> Most plants already record far more than they use. The machines, the control systems, the meters, the ERP and the quality registers each hold a piece of the picture, but they sit in separate places and rarely get looked at together. Stamped brings that data into one view and uses machine learning and AI to understand how your plant actually runs, where efficiency is quietly being lost, and what tends to change in the hours before a loss shows up.
+> Most plants already record far more than they use. The machines, the control systems, the meters, the ERP and the quality registers each hold a piece of the picture, but they sit in separate places and rarely get looked at together. Stamped brings that data into one view and models it to understand how your plant actually runs, where efficiency is quietly being lost, and what tends to change in the hours before a loss shows up.
 >
 > That understanding is only useful if someone acts on it, so Stamped turns it into specific actions and sends each one to the person who can do something about it. It might be a setting that has drifted over a few weeks, a batch that looks a lot like the ones that were rejected last month, or a plan that needs to change because a machine went down mid-shift. Each comes with what to do, by when, and the reasoning behind it.
 >
@@ -65,7 +81,7 @@ Use it on the About page, the How it works page (/platform) and in longer writte
 
 **Heading:** From plant data to operator actions.
 
-> Stamped connects to the systems your plant already runs, so there is nothing new to install before we start. Its machine learning and AI models learn what normal operation looks like in your plant and which conditions tend to come before a rejection, a stoppage or wasted energy.
+> Stamped connects to the systems your plant already runs, so there is nothing new to install before we start. Its models are trained on your plant's own history, so they learn what normal operation looks like in your plant and which conditions tend to come before a rejection, a stoppage or wasted energy.
 >
 > When something is worth acting on, Stamped sends it to the person best placed to act, ranked by what it is costing you and explained well enough that they can judge it for themselves. Once your team has made a change, Stamped checks the result against your own baseline and uses what it learns to make the next recommendation better.
 
@@ -74,6 +90,12 @@ Use it on the About page, the How it works page (/platform) and in longer writte
 **Diagram note** (labels only, never in body copy): a left-to-right diagram with four nodes labelled "Plant data", "Models", "Actions" and "Results", and a return arrow from "Results" to "Models" labelled "Team feedback". Short labels are fine inside the diagram. Written copy always uses the prose above.
 
 ## 5. What Stamped improves
+
+> **v3.1 area framing (3 Oct 2026, ADR-038).** The headings and paragraphs below are the original v3 record. The live text is in `lib/content/solutions.ts`, and it changes these points:
+> - **Process:** "Run better than your best shift." Stamped improves control policies, not just repeating the best run. It tests them on a digital twin of each line using mathematical models of the process, reinforcement learning and machine learning, and names those methods on the Process page and /platform only.
+> - **Quality:** "Catch the problem while the lot can still be saved." Process data is linked to every lot, and real-time alerts are added where live data is connected, for example ageing running over or quench water out of band.
+> - **Planning:** "Re-plan with the whole plant in view." Re-plans account for the live state of the whole plant: machines, furnace loads, material, dispatch and maintenance windows.
+> - **Maintenance:** "Prescriptive maintenance, planned around production." It ranks stops by cost, watches specific energy consumption for drift, and prescribes the fix and the best window given production constraints.
 
 Each area has a short statement heading, a paragraph and a few example action cards. The cards follow the current site's instruction style, written as complete sentences. Their numbers are placeholders, and they should be labelled "Example" on the site.
 
@@ -125,14 +147,14 @@ A reheat or an hour of a furnace sitting hot and empty uses energy that never en
 ## 6. Pitches
 
 ### 30 seconds
-> "Most plants record far more data than they ever use, and it sits in separate systems that nobody looks at together. Stamped brings it into one place and uses machine learning and AI to find where efficiency is being lost, whether that's in the process, in quality, in planning or in maintenance. Then it sends a specific action to the person who can fix it and checks afterwards whether it worked. Stamped recommends and your team decides, and there's nothing new to install to get started. We usually begin with a few days on your floor."
+> "Most plants record far more data than they ever use, and it sits in separate systems that nobody looks at together. Stamped brings it into one place, learns how the plant actually runs and finds where efficiency is being lost, whether that's in the process, in quality, in planning or in maintenance. Then it sends a specific action to the person who can fix it and checks afterwards whether it worked. Stamped recommends and your team decides, and there's nothing new to install to get started. We usually begin with a few days on your floor."
 
 ### 2 minutes
 > "Manufacturing is a hard industry to build software for, because every plant runs a little differently and getting something wrong on the floor has a real cost. So most plants end up with plenty of data and surprisingly few decisions that actually come out of it.
 >
 > Say rejections went up last week. The dashboard will tell you that much, but it won't tell you whether it was the restarts on night shift, a die that was running cold, or a batch that waited too long before heat treatment, and working that out is the part that takes people days.
 >
-> That's the gap Stamped fills. We connect to the systems you already run and use machine learning and AI to learn how your plant actually behaves, including what tends to change in the hours before a loss shows up. When we find something worth acting on, it goes to the person who can act on it, with what to do, by when and why. That could mean keeping a heater warm during short stops, correcting a set point that has drifted, checking a batch that looks like last month's rejections, or re-planning the day after a press goes down.
+> That's the gap Stamped fills. We connect to the systems you already run and build models from your own plant's history to learn how it actually behaves, including what tends to change in the hours before a loss shows up. When we find something worth acting on, it goes to the person who can act on it, with what to do, by when and why. That could mean keeping a heater warm during short stops, correcting a set point that has drifted, checking a batch that looks like last month's rejections, or re-planning the day after a press goes down.
 >
 > Stamped recommends and your team decides. After a change is made, we measure the result in your own units against your own baseline, and that answer goes into the next recommendation.
 >
@@ -147,7 +169,7 @@ Optional line for the About page, for people searching the old name: "Stamped wa
 ## 8. Short lines
 
 - **Title tag:** Stamped | AI for plant operations
-- **Meta description:** Stamped uses machine learning and AI on the data your plant already records to find where efficiency is lost across process, quality, planning and maintenance, and improves it.
+- **Meta description:** Stamped is AI for plant operations. It builds models of your plant from the data it already records, finds where efficiency is lost across process, quality, planning and maintenance, and improves it.
 - **LinkedIn tagline:** AI for plant operations. From monitoring your plant to improving it.
 - **Email signature:** Stamped, AI for plant operations, stamped.work
 - **Primary call to action:** Book a site survey
@@ -157,7 +179,7 @@ Optional line for the About page, for people searching the old name: "Stamped wa
 ## 9. Full homepage, top to bottom
 
 **Title tag:** Stamped | AI for plant operations
-**Meta description:** Stamped uses machine learning and AI on the data your plant already records to find where efficiency is lost across process, quality, planning and maintenance, and improves it.
+**Meta description:** Stamped is AI for plant operations. It builds models of your plant from the data it already records, finds where efficiency is lost across process, quality, planning and maintenance, and improves it.
 **Nav:** What we improve · How it works · Industries · Resources · About · Contact · **[Book a site survey]**
 
 ---
@@ -166,7 +188,7 @@ Optional line for the About page, for people searching the old name: "Stamped wa
 
 # From monitoring your plant to improving it.
 
-Stamped uses machine learning and AI on the data your plant already records to find where efficiency is lost across process, quality, planning and maintenance, and improves it with actions your team can take.
+Stamped builds models of your plant from the data it already records, finds where efficiency is lost across process, quality, planning and maintenance, and improves it with actions your team can take.
 
 **[Book a site survey »]**   See how it works
 
@@ -202,7 +224,7 @@ Choices like running harder, delaying maintenance or changing the sequence all a
 
 ## Turn plant data into action.
 
-Stamped helps manufacturing plants run more efficiently, with fewer rejections, more output from the lines you already have, and less energy and material in every good part. Most plants already record the data that explains where efficiency is lost, but it sits in separate systems that rarely get looked at together. Stamped brings it into one view and uses machine learning and AI to find those losses, then turns them into specific actions for the person who can fix them, whether that's a setting that has drifted or a batch that looks like last month's rejections.
+Stamped helps manufacturing plants run more efficiently, with fewer rejections, more output from the lines you already have, and less energy and material in every good part. Most plants already record the data that explains where efficiency is lost, but it sits in separate systems that rarely get looked at together. Stamped brings it into one view and builds a model of how your plant actually runs to find those losses, then turns them into specific actions for the person who can fix them, whether that's a setting that has drifted or a batch that looks like last month's rejections.
 
 Stamped recommends and your team decides. Once a change is made, we check it against your own baseline, so you can see what actually worked and catch it early if a gain starts to slip.
 
@@ -214,7 +236,7 @@ Stamped recommends and your team decides. Once a change is made, we check it aga
 
 *[Diagram: Plant data → Models → Actions → Results, with a feedback arrow labelled "Team feedback"]*
 
-Stamped connects to the systems your plant already runs, so there is nothing new to install before we start. Its machine learning and AI models learn what normal operation looks like in your plant and which conditions tend to come before a rejection, a stoppage or wasted energy.
+Stamped connects to the systems your plant already runs, so there is nothing new to install before we start. Its models are trained on your plant's own history, so they learn what normal operation looks like in your plant and which conditions tend to come before a rejection, a stoppage or wasted energy.
 
 When something is worth acting on, Stamped sends it to the person best placed to act, on WhatsApp or on screen, ranked by what it is costing you and explained well enough that they can judge it for themselves. Once your team has made a change, Stamped checks the result against your own baseline and uses what it learns to make the next recommendation better.
 
@@ -277,7 +299,7 @@ Explore auto components »
 ## Questions plant leaders ask
 
 **What does Stamped do?**
-Stamped connects to the systems already in your plant, uses machine learning and AI to find where efficiency is lost across process, quality, planning and maintenance, and sends ranked actions to the people who can act on them, then checks the results against your own baseline.
+Stamped connects to the systems already in your plant, learns how your plant actually runs, finds where efficiency is lost across process, quality, planning and maintenance, and sends ranked actions to the people who can act on them, then checks the results against your own baseline.
 
 **Do we need new hardware?**
 No hardware retrofit is needed to get started, because Stamped is software that works with the systems you already run.

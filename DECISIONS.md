@@ -720,3 +720,17 @@ Architecture and workflow decisions for this project.
 **Selected:** Merged pairs into one box each, keeping the approved answer text: hardware + MES/ERP/SCADA (`hardware`), who decides + experienced supervisors (`supervisors`), how actions reach the floor + team time (`reach-the-floor`). Removed ids `who-decides`, `mes-erp-scada`, `team-time`. The automotive page now uses `supervisors` only, and the industries hub uses `hardware` instead of `mes-erp-scada`. FAQ JSON-LD and `public/llms.txt` follow from `landingContent.faq` (llms.txt regenerated from `buildLlmsTxtBody`). `docs/copy/stamped-copy-v3.md` is unchanged as the source copy record.
 
 **Impact:** `lib/content/{landing,industries}.ts`, `lib/content/vertical-pages/automotive.ts`, `public/llms.txt`.
+
+## ADR-038: Solution area framing v3.1 and placement-based method wording
+
+**Date:** 2026-10-03
+
+**Context:** Vinayak clarified what each area actually does. Process improves the plant's control policies, not just matching its best run. Quality raises real-time alerts while a lot can still be saved, not only flagging it afterwards. Planning re-plans with the context of the whole plant. Maintenance is prescriptive, aware of production constraints and watches specific energy consumption. He also asked that "machine learning and AI" stop being a required phrase, because every vendor says it.
+
+**Alternatives:** (1) Change only the four `/solutions` pages and the homepage. (2) Name methods such as digital twins and reinforcement learning everywhere. (3) Never name methods. (4) Apply the new framing sitewide and name methods only where the reader is technical.
+
+**Selected:** Option 4. The new framing is applied to `/solutions/*`, homepage summaries, Impact, How it works and FAQ, `/platform` Models, all five industry pages, the industries hub, SEO metadata, JSON-LD and the homepage animation labels. Digital twins, mathematical models of the process, reinforcement learning and machine learning are named only on the Process page, `/platform` and the Process and `/platform` SEO descriptions. Elsewhere the default wording is "builds models of your plant from the data it already records". "AI" stays in the category line, title tags and metadata. Real-time alerts are qualified "where live data is connected", and every recommendation still goes to the team to decide.
+
+**Rationale:** The old "best run" framing undersold control improvement, and a stock method phrase reads as generic. Naming methods only where the reader is technical keeps short copy plain while still showing depth.
+
+**Impact:** `docs/copy/stamped-copy-v3.md` (new "Describing the technology" placement table; approved texts use the plainer default), `docs/website-copy.md`, `lib/content/{solutions,landing,platform,icp,industries}.ts`, `lib/content/vertical-pages/*`, `lib/seo/{pages,schemas,llms-index}.ts`, `lib/blog/constants.ts`, `components/motion-slots/{SolutionsAreaVisuals,HiwStageVisuals}.tsx`, `public/llms.txt`.
