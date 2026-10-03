@@ -23,20 +23,44 @@ export const platformContent = {
     eyebrow: "What we do",
     title: "What Stamped achieves, and how.",
     paragraphs: [
-      "Stamped helps manufacturing plants run more efficiently, which in practice means fewer rejections, more output from the lines and shifts you already have, and less energy and material going into every good part. We measure all of it against your own plant's baseline, in the units your team already tracks, so nobody has to take our word for it.",
-      "Most plants already record far more than they use. The machines, the control systems, the meters, the ERP and the quality registers each hold a piece of the picture, but they sit in separate places and rarely get looked at together. Stamped brings that data into one view and models it to understand how your plant actually runs, where efficiency is quietly being lost, and what tends to change in the hours before a loss shows up.",
-      "That understanding is only useful if someone acts on it, so Stamped turns it into specific actions and sends each one to the person who can do something about it. It might be a setting that has drifted over a few weeks, a batch that looks a lot like the ones that were rejected last month, or a plan that needs to change because a machine went down mid-shift. Each comes with what to do, by when, and the reasoning behind it.",
-      "Stamped recommends and your team decides. Once a change is made, we check whether it actually worked and feed that back into the next recommendation, and if a gain starts slipping a month later, it shows up in the numbers and goes back to the person who owns it.",
+      "Stamped helps manufacturing plants run more efficiently: fewer rejections, more output from the lines and shifts you already have, and less energy and material going into every good part. We measure all of it against your own plant's baseline, in the units your team already tracks, so nobody has to take our word for it.",
+      "Most plants already record far more than they use. The machines, control systems, meters, ERP and quality registers each hold a piece of the picture, but they sit in separate places and rarely get looked at together. Stamped brings that data into one view and models it to understand how your plant actually runs and where efficiency is quietly being lost.",
+      "Stamped then turns that understanding into specific actions and sends each one to the person who can act on it, whether it is a setting that has drifted over a few weeks, a batch that looks like last month's rejections, or a plan that needs to change because a machine went down mid-shift. Stamped recommends and your team decides. Once a change is made, we check whether it worked, and if a gain starts slipping later, it goes back to the person who owns it.",
     ],
   },
 
   /** How it works (copy v3 section 4) with the Plant data → Models → Actions → Results diagram. */
   flow: {
     eyebrow: "The loop",
-    paragraphs: [
-      "Stamped connects to the systems your plant already runs, so there is nothing new to install before we start. Its models are trained on your plant's own history, so they learn what normal operation looks like in your plant and which conditions tend to come before a rejection, a stoppage or wasted energy.",
-      "When something is worth acting on, Stamped sends it to the person best placed to act, ranked by what it is costing you and explained well enough that they can judge it for themselves. Once your team has made a change, Stamped checks the result against your own baseline and uses what it learns to make the next recommendation better.",
+    title: "From plant data to a checked result, and back again.",
+    description:
+      "Every recommendation follows the same four steps, and each result makes the next recommendation better.",
+    steps: [
+      {
+        id: "plant-data",
+        label: "Plant data",
+        description:
+          "Stamped connects to the machines, control systems, meters, ERP and quality registers your plant already runs. There is nothing new to install.",
+      },
+      {
+        id: "models",
+        label: "Models",
+        description:
+          "Trained on your plant's own history, they learn what normal looks like and which conditions tend to come before a rejection, a stoppage or wasted energy.",
+      },
+      {
+        id: "actions",
+        label: "Actions",
+        description:
+          "Each goes to the person best placed to act, ranked by what it is costing you and explained well enough to judge for themselves.",
+      },
+      {
+        id: "results",
+        label: "Results",
+        description: "Once your team makes a change, Stamped checks the result against your own baseline.",
+      },
     ],
+    feedback: "What each result shows goes back into the models, so the next recommendation is better.",
     controlLine: "Stamped recommends and your team decides.",
   },
 

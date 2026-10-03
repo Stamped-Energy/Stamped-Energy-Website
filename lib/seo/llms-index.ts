@@ -95,9 +95,10 @@ export function buildLlmsTxtBody(): string {
   lines.push("## How it works");
   pushBlank(lines);
   lines.push("Plant data → Models → Actions → Results, with team feedback going back into the models.");
-  for (const paragraph of platformContent.flow.paragraphs) {
-    lines.push(paragraph);
+  for (const step of platformContent.flow.steps) {
+    lines.push(`${step.label}: ${step.description}`);
   }
+  lines.push(platformContent.flow.feedback);
   lines.push(platformContent.flow.controlLine);
   pushBlank(lines);
 

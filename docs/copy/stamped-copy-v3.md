@@ -69,13 +69,13 @@ Use it where space is tight, such as the homepage "What Stamped does" section, p
 
 Use it on the About page, the How it works page (/platform) and in longer written pitches.
 
-> Stamped helps manufacturing plants run more efficiently, which in practice means fewer rejections, more output from the lines and shifts you already have, and less energy and material going into every good part. We measure all of it against your own plant's baseline, in the units your team already tracks, so nobody has to take our word for it.
+> Stamped helps manufacturing plants run more efficiently: fewer rejections, more output from the lines and shifts you already have, and less energy and material going into every good part. We measure all of it against your own plant's baseline, in the units your team already tracks, so nobody has to take our word for it.
 >
-> Most plants already record far more than they use. The machines, the control systems, the meters, the ERP and the quality registers each hold a piece of the picture, but they sit in separate places and rarely get looked at together. Stamped brings that data into one view and models it to understand how your plant actually runs, where efficiency is quietly being lost, and what tends to change in the hours before a loss shows up.
+> Most plants already record far more than they use. The machines, control systems, meters, ERP and quality registers each hold a piece of the picture, but they sit in separate places and rarely get looked at together. Stamped brings that data into one view and models it to understand how your plant actually runs and where efficiency is quietly being lost.
 >
-> That understanding is only useful if someone acts on it, so Stamped turns it into specific actions and sends each one to the person who can do something about it. It might be a setting that has drifted over a few weeks, a batch that looks a lot like the ones that were rejected last month, or a plan that needs to change because a machine went down mid-shift. Each comes with what to do, by when, and the reasoning behind it.
->
-> Stamped recommends and your team decides. Once a change is made, we check whether it actually worked and feed that back into the next recommendation, and if a gain starts slipping a month later, it shows up in the numbers and goes back to the person who owns it.
+> Stamped then turns that understanding into specific actions and sends each one to the person who can act on it, whether it is a setting that has drifted over a few weeks, a batch that looks like last month's rejections, or a plan that needs to change because a machine went down mid-shift. Stamped recommends and your team decides. Once a change is made, we check whether it worked, and if a gain starts slipping later, it goes back to the person who owns it.
+
+*(3 Oct 2026: trimmed from four paragraphs to three.)*
 
 ## 4. How it works
 
@@ -88,6 +88,8 @@ Use it on the About page, the How it works page (/platform) and in longer writte
 **Line under the section:** Stamped recommends and your team decides.
 
 **Diagram note** (labels only, never in body copy): a left-to-right diagram with four nodes labelled "Plant data", "Models", "Actions" and "Results", and a return arrow from "Results" to "Models" labelled "Team feedback". Short labels are fine inside the diagram. Written copy always uses the prose above.
+
+**/platform loop section** (3 Oct 2026): heading "From plant data to a checked result, and back again." The two paragraphs above are split across four numbered step cards (one sentence each) plus a "Team feedback" path from Results back to Models. Source: `platformContent.flow` in `lib/content/platform.ts`.
 
 ## 5. What Stamped improves
 
