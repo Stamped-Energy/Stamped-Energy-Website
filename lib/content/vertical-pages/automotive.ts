@@ -202,6 +202,7 @@ export const automotivePage: VerticalPageContent = {
     },
     homeFaq("hardware"),
     homeFaq("who-decides"),
+    homeFaq("supervisors"),
     homeFaq("start"),
   ],
 };

@@ -1,3 +1,4 @@
+import { BeforeYouBook } from "@/components/engagement/BeforeYouBook";
 import { SolutionExampleCards } from "@/components/solutions/SolutionExampleCards";
 import { SolutionsHero } from "@/components/solutions/SolutionsHero";
 import { Button } from "@/components/ui/Button";
@@ -86,6 +87,7 @@ export function SolutionsHub() {
           <p className="mt-4 max-w-3xl text-xs leading-6 text-on-surface-variant">{examplesNote}</p>
         </Container>
       </section>
+      <BeforeYouBook />
     </>
   );
 }

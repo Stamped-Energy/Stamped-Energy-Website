@@ -59,24 +59,25 @@ export const aboutContent = {
   values: {
     eyebrow: "What we value",
     title: "How we build and serve",
-    description: "Standards we hold on every plant engagement.",
+    description: "What you can hold us to in every plant we work with.",
     items: [
       {
         id: "integrity",
-        title: "Integrity",
+        title: "Honest numbers",
         description:
-          "Honest discovery, clear scope, and proof you can check. No invented savings.",
+          "We say what we found and how sure we are. Results are measured against your own baseline, and we don't publish savings that no plant has produced.",
       },
       {
-        id: "innovation",
-        title: "Innovation",
-        description: "Plant-tuned machine learning and AI on systems you already run.",
+        id: "floor",
+        title: "On your floor",
+        description:
+          "We learn your plant by spending time on it with your plant head, quality and maintenance teams, and we build on the systems you already run.",
       },
       {
         id: "customers",
-        title: "Customers first",
+        title: "Here after the pilot",
         description:
-          "Actions sent to the right person, results we check with you, and a team that stays through the pilot and beyond.",
+          "Actions go to the right person, we check the results with you, and the same team stays with you through the pilot and after it.",
       },
     ],
   },

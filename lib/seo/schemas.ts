@@ -1,4 +1,5 @@
 import { landingContent } from "@/lib/content/landing";
+import { ENGAGEMENT_STEPS, ENGAGEMENT_SUMMARY } from "@/lib/content/engagement";
 import { icp } from "@/lib/content/icp";
 import { getVerticalPage, type VerticalSlug } from "@/lib/content/vertical-pages";
 import type { IndustryFaqItem } from "@/lib/content/types";
@@ -152,6 +153,20 @@ export const howToSchema = {
   ],
 };
 
+export const engagementHowToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to start with Stamped",
+  description: ENGAGEMENT_SUMMARY,
+  step: ENGAGEMENT_STEPS.map((step, index) => ({
+    "@type": "HowToStep",
+    position: index + 1,
+    name: `${step.label}: ${step.title}`,
+    text: step.description,
+    url: `${SITE_URL}/contact`,
+  })),
+};
+
 export const vinayakPersonSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
@@ -293,7 +308,7 @@ export const softwareApplicationSchema = {
   offers: {
     "@type": "Offer",
     description:
-      "Site survey, then a paid pilot on one line for 8 to 12 weeks with success criteria and annual price agreed in writing before it starts.",
+      ENGAGEMENT_SUMMARY,
   },
   featureList: [
     "Machine learning and AI tuned to each plant",

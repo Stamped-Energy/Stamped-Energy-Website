@@ -674,3 +674,12 @@ Architecture and workflow decisions for this project.
 - SEO: page configs, sitemap entries, FAQ JSON-LD (via `verticalFaqSchema`), `knowsAbout`, `public/llms.txt` updated.
 
 **Impact:** `lib/content/{industries,landing,solutions,site,icp,types}.ts`, `lib/content/vertical-pages/*`, `components/industries/*`, `components/sections/{Hero,HomeIndustries}.tsx`, `components/solutions/SolutionAreaPage.tsx`, `components/motion-slots/HiwStageVisuals.tsx`, `lib/seo/*`, `app/sitemap.ts`, `next.config.ts`, `public/llms.txt`.
+
+## ADR-035: Copy v3 revision 3, pilot pricing and owner objections
+
+- **Pricing model (Vinayak, 3 Oct 2026):** during the site survey we agree only the price of the pilot; the pilot is a paid 8 to 12 week engagement priced on its own and not tied to an annual contract value; the annual contract price is decided after the pilot, based on its results. This supersedes the copy-guide line "the success criteria and the annual price are agreed in writing first".
+- Single source: `lib/content/engagement.ts` (ENGAGEMENT_STEPS, ENGAGEMENT_SUMMARY, PRICING_ANSWER, BEFORE_YOU_BOOK), used by /contact, /platform, the home FAQ, JSON-LD (Offer, HowTo on /contact) and llms.txt.
+- New `components/engagement/BeforeYouBook.tsx` (cost, install, team time, data) near the CTA on solution, industry, platform and contact pages; `EngagementSteps.tsx` on /contact.
+- Home FAQ adds cost, paper/Excel records, team time and supervisors; data answer expanded without hosting claims (still [CONFIRM]).
+- Mobile hero shows readable example action cards under the unchanged animation; three true reassurance points under the hero CTAs.
+- Persona review: `/workspace/stamped-website/research/persona-review-delhi-ncr.md`.

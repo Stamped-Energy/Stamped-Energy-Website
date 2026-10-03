@@ -401,7 +401,7 @@ export function DataStageVisual() {
           <circle className="live-dot" cx="352" cy="118" r="4" />
           <text className="lbl lbl-hi" x="364" y="122">Signals stored</text>
           <text className="val" x="352" y="168" fontFamily="Space Grotesk, sans-serif" fontWeight="700" fontSize="26">
-            Modeled in real time
+            Updated as data comes in
           </text>
           <text data-sig="0" className="sig is-on mute-txt" x="352" y="222" fontFamily="Inter, sans-serif" fontSize="18">
             Machines · press and furnace

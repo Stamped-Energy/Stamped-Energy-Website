@@ -7,6 +7,7 @@ import { HiwOutcomesBand } from "@/components/how-it-works/HiwOutcomesBand";
 import { HiwModelsGrid } from "@/components/how-it-works/HiwModelsGrid";
 import { HiwProseStack } from "@/components/how-it-works/HiwProseStack";
 import { HiwWhatWeDo } from "@/components/how-it-works/HiwWhatWeDo";
+import { BeforeYouBook } from "@/components/engagement/BeforeYouBook";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { platformContent } from "@/lib/content";
 import { breadcrumbHome, generateBreadcrumbSchema } from "@/lib/seo/breadcrumbs";
@@ -32,6 +33,7 @@ export default function PlatformPage() {
       <HiwCapabilities />
       <HiwOutcomesBand />
       <HiwDeployment />
+      <BeforeYouBook />
     </>
   );
 }

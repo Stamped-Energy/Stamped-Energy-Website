@@ -1,3 +1,4 @@
+import { ENGAGEMENT_STEPS } from "./engagement";
 import type {
   CtaLink,
   HiwCapability,
@@ -94,46 +95,46 @@ export const platformContent = {
         id: "maintenance",
         title: "Maintenance",
         description:
-          "Ranks stops by the output and time they cost and picks up the slow drift that usually comes before a failure, while being open about what it cannot see.",
+          "Ranks stops by the output and time they cost and picks up the slow drift that usually comes before a failure, and says plainly when a machine has no sensor that would show the problem.",
       },
     ],
   } satisfies PlatformProseSection,
 
   capabilities: {
     eyebrow: "Under the hood",
-    title: "The technical work behind each action",
+    title: "What happens to your data before an action reaches the floor",
     description:
       "Stamped connects to the systems already in your plant, and there is nothing new to install to start.",
     items: [
       {
         id: "ingestion",
-        title: "Connect and normalise",
+        title: "Connect and clean up",
         description:
-          "Bring in machine and control-system tags, meter streams, ERP plans, quality registers and operator inputs, then standardise timestamps, units, tag names, intervals and data quality before any analysis begins.",
+          "Stamped reads from your machines and control systems, meters, ERP plans, quality registers and what operators enter, then lines up the clocks, units and names, because each system usually records them differently.",
         mediaSrc: null,
         mediaAlt: "Data from plant systems flowing into Stamped",
       },
       {
         id: "repository",
-        title: "Context and time alignment",
+        title: "One timeline for the plant",
         description:
-          "Link machines, lots, shifts, batches and operating states on a common timeline, so the relationships between what changed, where it changed and what else was running at that moment are kept.",
+          "Machines, lots, shifts and batches go onto one timeline, so when a lot is rejected you can see what that press, that furnace and that shift were doing at the moment it was made.",
         mediaSrc: null,
         mediaAlt: "Time-aligned plant context connecting sources",
       },
       {
         id: "intelligence",
-        title: "Models and ranking",
+        title: "Find the losses and rank them",
         description:
-          "Build plant-specific baselines, detect deviations, test operating options against the constraints of the plan, and rank what is left by what it is costing you.",
+          "Stamped learns what normal looks like for your plant, notices when a line moves away from it, checks each possible fix against the day's plan, and puts the remaining options in order of what they are costing you.",
         mediaSrc: null,
         mediaAlt: "Plant-tuned models ranking feasible actions",
       },
       {
         id: "governance",
-        title: "Send, check and learn",
+        title: "Send, follow up and check",
         description:
-          "Send an accepted action to its owner, track it through to closure, compare the result with your own baseline, and keep every acceptance, adjustment and result on record.",
+          "Each action goes to its owner and stays open until it is closed, and the result is compared with your own baseline, with every acceptance, change and result kept on record.",
         mediaSrc: null,
         mediaAlt: "Action tracking and result checks",
       },
@@ -169,25 +170,15 @@ export const platformContent = {
 
   deployment: {
     eyebrow: "How we start",
-    title: "From a site survey to a pilot on one line",
+    title: "Start with one line, and decide on the annual price after the pilot.",
     description:
-      "We start with a site survey, which is a few days on your floor followed by a written read-out of where you're losing efficiency and what we would do first.",
-    phases: [
-      {
-        id: "survey",
-        week: "Site survey",
-        title: "A few days on your floor",
-        description:
-          "We spend a few days on your floor with your plant head and your quality and maintenance teams, and then send you a written read-out of where efficiency is being lost and what we would change first.",
-      },
-      {
-        id: "pilot",
-        week: "8 to 12 weeks",
-        title: "Paid pilot on one line",
-        description:
-          "If it makes sense, that leads to a paid pilot on one line for 8 to 12 weeks, with the success criteria and the annual price agreed in writing before we start. The first finding usually comes within about two weeks.",
-      },
-    ] satisfies HiwDeploymentPhase[],
+      "We start with a site survey, which is a few days on your floor followed by a written read-out of where you're losing efficiency and what we would do first. You only commit to the next step once you have seen it.",
+    phases: ENGAGEMENT_STEPS.map((step) => ({
+      id: step.id,
+      week: step.label,
+      title: step.title,
+      description: step.description,
+    })) satisfies HiwDeploymentPhase[],
   },
 } as const;
 

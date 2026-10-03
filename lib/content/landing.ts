@@ -1,3 +1,4 @@
+import { PRICING_ANSWER } from "./engagement";
 import type { CtaLink, HomeFaqItem, HomeProblemPoint, IndustryItem } from "./types";
 
 /**
@@ -86,11 +87,11 @@ export const landingContent = {
         copy: "The repeating micro-stop looks like a clamping issue, so close the card once the machine runs cleanly.",
       },
     ] satisfies HomeActionCard[],
-    /** Legacy chip copy (HeroFeatureBar was removed; kept for reuse). */
+    /** Short, true reassurance points shown under the hero CTAs. */
     features: [
-      { id: "systems", title: "Works with what you run", subtitle: "Nothing new to install" },
-      { id: "actions", title: "Actions, not charts", subtitle: "Sent to the right person" },
-      { id: "first-finding", title: "First finding", subtitle: "Usually within two weeks" },
+      { id: "systems", title: "Nothing new to install to start" },
+      { id: "actions", title: "Actions reach your team on WhatsApp or on screen" },
+      { id: "first-finding", title: "First finding usually within about two weeks" },
     ],
   },
 
@@ -269,7 +270,8 @@ export const landingContent = {
       {
         id: "data",
         question: "Where does our data go?",
-        answer: "We sign an NDA before the site survey.",
+        answer:
+          "We sign an NDA before the site survey, and during the survey and the pilot we work only with the data your team agrees to share. You can ask us anything about where it is kept and who can see it before anything is connected.",
       },
       {
         id: "reach-the-floor",
@@ -281,7 +283,30 @@ export const landingContent = {
         id: "start",
         question: "How do we start?",
         answer:
-          "We start with a site survey, which means a few days on your floor and a written read-out. If it makes sense, that is followed by a paid pilot on one line for eight to twelve weeks, with the success criteria and the annual price agreed in writing first.",
+          "We start with a site survey, which means a few days on your floor and a written read-out of where efficiency is being lost and what we would change first. If it makes sense, that is followed by a paid pilot on one line for eight to twelve weeks, and the first finding usually comes within about two weeks.",
+      },
+      {
+        id: "cost",
+        question: "What does it cost?",
+        answer: PRICING_ANSWER,
+      },
+      {
+        id: "paper-records",
+        question: "Some of our records are still on paper or in Excel. Can we start?",
+        answer:
+          "Yes. Most plants keep some registers on paper or in Excel, and the site survey tells you plainly whether what you already record is enough to start on one line, and what would be worth recording if it is not.",
+      },
+      {
+        id: "team-time",
+        question: "How much time does this take from my team?",
+        answer:
+          "During the survey we need some hours with your plant head and your quality and maintenance leads, planned around production. In the pilot, each action goes on WhatsApp or on screen to the person who already owns that work, so nobody has to learn a new system before they can act on one.",
+      },
+      {
+        id: "supervisors",
+        question: "My senior supervisors already know the plant. What does Stamped add?",
+        answer:
+          "They usually do, and Stamped is built to back them up. It looks at every line on every shift, including the shifts your most experienced people are not on, and writes down what it finds with the reasoning, so the night shift gets the same advice the day shift gets from your best hands.",
       },
     ] satisfies HomeFaqItem[],
   },

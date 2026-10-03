@@ -7,21 +7,28 @@ export const contactContent = {
     eyebrow: "Get in touch",
     title: "Book a site survey.",
     description:
-      "We spend a few days on your floor with your plant head and your quality and maintenance teams, and then send you a written read-out of where efficiency is being lost and what we would change first. If it makes sense, that leads to a paid pilot on one line for 8 to 12 weeks, with the success criteria and the annual price agreed in writing before we start.",
+      "We spend a few days on your floor with your plant head and your quality and maintenance teams, and then send you a written read-out of where efficiency is being lost and what we would change first. If it makes sense, the next step is a paid pilot on one line, and you decide on anything longer only after you have seen its results.",
     heroImageSrc: "/industries/die-casting.jpeg",
     heroImageAlt: "Manufacturing plant floor",
   },
 
   stats: [
     { id: "response", label: "Response time", value: "Under 24 hours" },
-    { id: "pilot", label: "Pilot", value: "8 to 12 weeks" },
-    { id: "location", label: "Location", value: "India" },
+    { id: "pilot", label: "Paid pilot on one line, priced on its own", value: "8 to 12 weeks" },
+    { id: "location", label: "Where the survey happens", value: "On your plant floor" },
   ],
+
+  steps: {
+    eyebrow: "What happens after you write to us",
+    title: "Three steps, and you decide at each one.",
+    description:
+      "During the site survey we agree only the price of the pilot. The annual price comes later, once you have seen what the pilot did in your plant.",
+  },
 
   formSection: {
     eyebrow: "Request a site survey",
     title: "Tell us about your plant",
-    description: "One of our founders will reply within 24 hours.",
+    description: "One of our founders will reply within 24 hours to plan the survey days around your production.",
   },
 
   contactForm: {

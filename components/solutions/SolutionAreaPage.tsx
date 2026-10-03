@@ -1,8 +1,8 @@
 import Link from "next/link";
 
+import { BeforeYouBook } from "@/components/engagement/BeforeYouBook";
 import { SolutionExampleCards } from "@/components/solutions/SolutionExampleCards";
 import { SolutionsHero } from "@/components/solutions/SolutionsHero";
-import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionBadge } from "@/components/ui/SectionBadge";
@@ -104,14 +104,10 @@ export function SolutionAreaPage({ area }: { area: SolutionArea }) {
                 </li>
               ))}
             </ul>
-            <div className="mt-10">
-              <Button href={primaryCta.href} variant="primary">
-                {primaryCta.label}
-              </Button>
-            </div>
           </Reveal>
         </Container>
       </section>
+      <BeforeYouBook />
     </>
   );
 }

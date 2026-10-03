@@ -1,4 +1,5 @@
 import { landingContent } from "@/lib/content/landing";
+import { PRICING_ANSWER } from "@/lib/content/engagement";
 import { icp } from "@/lib/content/icp";
 import { platformContent } from "@/lib/content/platform";
 import { navLinks } from "@/lib/content/site";
@@ -143,11 +144,12 @@ export function buildLlmsTxtBody(): string {
     "- Does it need new hardware? → No. Stamped connects to the systems the plant already runs, so there is nothing new to install before work starts.",
   );
   lines.push(
-    "- How are results measured? → Against the plant's own baseline, in the units the team already tracks. Pilot success criteria are agreed in writing before the pilot starts.",
+    "- How are results measured? → Against the plant's own baseline, in the units the team already tracks. What the pilot should achieve is agreed in writing during the site survey, together with the price of the pilot.",
   );
   lines.push(
     "- How does an engagement start? → A site survey of a few days on the floor, then a written read-out, then, if it makes sense, a paid pilot on one line for 8 to 12 weeks.",
   );
+  lines.push(`- How is it priced? → ${PRICING_ANSWER}`);
   pushBlank(lines);
 
   lines.push("## Industry FAQs (summary)");

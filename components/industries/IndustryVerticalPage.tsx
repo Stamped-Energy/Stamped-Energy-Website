@@ -1,3 +1,4 @@
+import { BeforeYouBook } from "@/components/engagement/BeforeYouBook";
 import { IndustryFaq } from "@/components/industries/vertical/IndustryFaq";
 import { IndustryHero } from "@/components/industries/vertical/IndustryHero";
 import { IndustryImprovementAreas } from "@/components/industries/vertical/IndustryImprovementAreas";
@@ -31,6 +32,7 @@ export function IndustryVerticalPage({ slug }: IndustryVerticalPageProps) {
       <IndustryPlantZigZag slug={slug} />
       <IndustryPrescriptionExamples slug={slug} />
       <IndustryOutcomes slug={slug} />
+      <BeforeYouBook />
       <IndustryFaq slug={slug} />
     </>
   );

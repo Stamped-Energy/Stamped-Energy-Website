@@ -1,10 +1,10 @@
 export const BLOG_CATEGORIES = [
-  { id: "ai-manufacturing", label: "Machine learning and AI in manufacturing" },
-  { id: "cost-optimization", label: "Cost Optimization" },
-  { id: "energy-strategy", label: "Energy Strategy" },
-  { id: "industrial-transformation", label: "Industrial Transformation" },
-  { id: "performance-governance", label: "Performance Governance" },
-  { id: "plant-intelligence", label: "Plant Intelligence" },
+  { id: "ai-manufacturing", label: "Machine learning and AI in plants" },
+  { id: "cost-optimization", label: "Cost and margins" },
+  { id: "energy-strategy", label: "Energy" },
+  { id: "industrial-transformation", label: "Running the plant" },
+  { id: "performance-governance", label: "Measuring results" },
+  { id: "plant-intelligence", label: "Plant data" },
 ] as const;
 
 export type BlogCategoryId = (typeof BLOG_CATEGORIES)[number]["id"];

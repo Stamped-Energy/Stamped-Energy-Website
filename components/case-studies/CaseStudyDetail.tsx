@@ -158,7 +158,7 @@ export function CaseStudyDetailView({ study }: CaseStudyDetailViewProps) {
                   Want to see this on your plant?
                 </p>
                 <p className="mt-2 text-sm leading-6 text-on-surface-variant">
-                  Start with a site survey. If it makes sense, we agree a paid pilot on one line with success criteria in writing.
+                  Start with a site survey. If it makes sense, a paid pilot on one line follows, priced on its own, and the annual price is decided after you have seen its results.
                 </p>
                 <Button href="/contact" variant="primary" className="mt-4 w-full">
                   Book a site survey

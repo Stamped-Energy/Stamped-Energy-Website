@@ -96,11 +96,19 @@ Hub: [What we improve](https://stamped.work/solutions)
 - Q: We already have MES, ERP and SCADA.
   A: That's good, because that is where the data comes from. Stamped is not another MES or CMMS, and it works alongside what you already run.
 - Q: Where does our data go?
-  A: We sign an NDA before the site survey.
+  A: We sign an NDA before the site survey, and during the survey and the pilot we work only with the data your team agrees to share. You can ask us anything about where it is kept and who can see it before anything is connected.
 - Q: How do actions reach the floor?
   A: They go on WhatsApp or on screen to the supervisors, engineers and maintenance staff who can act on them, so they don't sit on a screen that only the plant head opens once a month.
 - Q: How do we start?
-  A: We start with a site survey, which means a few days on your floor and a written read-out. If it makes sense, that is followed by a paid pilot on one line for eight to twelve weeks, with the success criteria and the annual price agreed in writing first.
+  A: We start with a site survey, which means a few days on your floor and a written read-out of where efficiency is being lost and what we would change first. If it makes sense, that is followed by a paid pilot on one line for eight to twelve weeks, and the first finding usually comes within about two weeks.
+- Q: What does it cost?
+  A: We don't publish prices, because they depend on the plant. During the site survey we agree only the price of the pilot, once we know which line and which problem it will cover. The pilot is a paid engagement of 8 to 12 weeks, priced on its own and not tied to an annual contract value, and the annual contract price is decided afterwards, based on the results of the pilot.
+- Q: Some of our records are still on paper or in Excel. Can we start?
+  A: Yes. Most plants keep some registers on paper or in Excel, and the site survey tells you plainly whether what you already record is enough to start on one line, and what would be worth recording if it is not.
+- Q: How much time does this take from my team?
+  A: During the survey we need some hours with your plant head and your quality and maintenance leads, planned around production. In the pilot, each action goes on WhatsApp or on screen to the person who already owns that work, so nobody has to learn a new system before they can act on one.
+- Q: My senior supervisors already know the plant. What does Stamped add?
+  A: They usually do, and Stamped is built to back them up. It looks at every line on every shift, including the shifts your most experienced people are not on, and writes down what it finds with the reasoning, so the night shift gets the same advice the day shift gets from your best hands.
 
 ## Common questions Stamped answers
 
@@ -108,8 +116,9 @@ Hub: [What we improve](https://stamped.work/solutions)
 - How is Stamped different from MES, ERP, SCADA or a dashboard? → It works alongside them. It reads the data they already hold, uses machine learning and AI to find where efficiency is lost, and sends ranked actions to the person who can act, then checks the result with the plant team.
 - Who is it for? → Mid-market manufacturers in India, from a few hundred crore rupees of revenue upward; automotive components first.
 - Does it need new hardware? → No. Stamped connects to the systems the plant already runs, so there is nothing new to install before work starts.
-- How are results measured? → Against the plant's own baseline, in the units the team already tracks. Pilot success criteria are agreed in writing before the pilot starts.
+- How are results measured? → Against the plant's own baseline, in the units the team already tracks. What the pilot should achieve is agreed in writing during the site survey, together with the price of the pilot.
 - How does an engagement start? → A site survey of a few days on the floor, then a written read-out, then, if it makes sense, a paid pilot on one line for 8 to 12 weeks.
+- How is it priced? → We don't publish prices, because they depend on the plant. During the site survey we agree only the price of the pilot, once we know which line and which problem it will cover. The pilot is a paid engagement of 8 to 12 weeks, priced on its own and not tied to an annual contract value, and the annual contract price is decided afterwards, based on the results of the pilot.
 
 ## Industry FAQs (summary)
 
@@ -122,8 +131,10 @@ Hub: [What we improve](https://stamped.work/solutions)
   A: No hardware retrofit is needed to get started, because Stamped is software that works with the systems you already run.
 - Q: Who decides what changes?
   A: Stamped recommends and your team decides.
+- Q: My senior supervisors already know the plant. What does Stamped add?
+  A: They usually do, and Stamped is built to back them up. It looks at every line on every shift, including the shifts your most experienced people are not on, and writes down what it finds with the reasoning, so the night shift gets the same advice the day shift gets from your best hands.
 - Q: How do we start?
-  A: We start with a site survey, which means a few days on your floor and a written read-out. If it makes sense, that is followed by a paid pilot on one line for eight to twelve weeks, with the success criteria and the annual price agreed in writing first.
+  A: We start with a site survey, which means a few days on your floor and a written read-out of where efficiency is being lost and what we would change first. If it makes sense, that is followed by a paid pilot on one line for eight to twelve weeks, and the first finding usually comes within about two weeks.
 
 ### More good tonnes from every heat.
 - Q: Has Stamped worked with steel plants?
@@ -133,7 +144,7 @@ Hub: [What we improve](https://stamped.work/solutions)
 - Q: Do we need new hardware?
   A: No hardware retrofit is needed to get started, because Stamped is software that works with the systems you already run.
 - Q: How do we start?
-  A: We start with a site survey, which means a few days on your floor and a written read-out. If it makes sense, that is followed by a paid pilot on one line for eight to twelve weeks, with the success criteria and the annual price agreed in writing first.
+  A: We start with a site survey, which means a few days on your floor and a written read-out of where efficiency is being lost and what we would change first. If it makes sense, that is followed by a paid pilot on one line for eight to twelve weeks, and the first finding usually comes within about two weeks.
 
 ### More good clinker from the kiln you already run.
 - Q: Has Stamped worked with cement plants?
@@ -143,7 +154,7 @@ Hub: [What we improve](https://stamped.work/solutions)
 - Q: Do we need new hardware?
   A: No hardware retrofit is needed to get started, because Stamped is software that works with the systems you already run.
 - Q: How do we start?
-  A: We start with a site survey, which means a few days on your floor and a written read-out. If it makes sense, that is followed by a paid pilot on one line for eight to twelve weeks, with the success criteria and the annual price agreed in writing first.
+  A: We start with a site survey, which means a few days on your floor and a written read-out of where efficiency is being lost and what we would change first. If it makes sense, that is followed by a paid pilot on one line for eight to twelve weeks, and the first finding usually comes within about two weeks.
 
 ### More batches right the first time.
 - Q: Has Stamped worked with pharma plants?
@@ -153,7 +164,7 @@ Hub: [What we improve](https://stamped.work/solutions)
 - Q: Do we need new hardware?
   A: No hardware retrofit is needed to get started, because Stamped is software that works with the systems you already run.
 - Q: How do we start?
-  A: We start with a site survey, which means a few days on your floor and a written read-out. If it makes sense, that is followed by a paid pilot on one line for eight to twelve weeks, with the success criteria and the annual price agreed in writing first.
+  A: We start with a site survey, which means a few days on your floor and a written read-out of where efficiency is being lost and what we would change first. If it makes sense, that is followed by a paid pilot on one line for eight to twelve weeks, and the first finding usually comes within about two weeks.
 
 ### More on-spec batches from the reactors you already have.
 - Q: Has Stamped worked with chemical plants?
@@ -163,7 +174,7 @@ Hub: [What we improve](https://stamped.work/solutions)
 - Q: Do we need new hardware?
   A: No hardware retrofit is needed to get started, because Stamped is software that works with the systems you already run.
 - Q: How do we start?
-  A: We start with a site survey, which means a few days on your floor and a written read-out. If it makes sense, that is followed by a paid pilot on one line for eight to twelve weeks, with the success criteria and the annual price agreed in writing first.
+  A: We start with a site survey, which means a few days on your floor and a written read-out of where efficiency is being lost and what we would change first. If it makes sense, that is followed by a paid pilot on one line for eight to twelve weeks, and the first finding usually comes within about two weeks.
 
 ## Notes from the plant floor
 

@@ -12,10 +12,13 @@ import { easeOut, heroDelay, heroDuration, heroStagger } from "@/lib/motion/conf
 import { gsap, useGSAP } from "@/lib/motion/gsap";
 import { cn } from "@/lib/utils";
 
+const MOBILE_CARD_IDS = ["inspector", "shift-lead", "planner", "maintenance-lead", "ht-heatup"];
+
 export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
   const introPlayedRef = useRef(false);
   const { hero } = landingContent;
+  const mobileActionCards = hero.actionCards.filter((card) => MOBILE_CARD_IDS.includes(card.id));
   const { isReady, prefersReducedMotion } = useMotion();
 
   useGSAP(
@@ -91,8 +94,40 @@ export function Hero() {
           </div>
         </div>
 
-        <div data-hero-animate="visual" className="mt-6 border-t border-outline-variant/40 pt-5 md:mt-12 md:pt-8 lg:mt-14 lg:pt-10">
+        <ul data-hero-animate="copy" className="mt-5 grid gap-1.5 text-[0.8rem] leading-5 text-on-surface-variant sm:grid-cols-3 sm:gap-4 lg:mt-8 lg:justify-items-start">
+          {hero.features.map((feature) => (
+            <li key={feature.id} className="flex items-start gap-2">
+              <span aria-hidden className="mt-[0.4rem] h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+              <span>{feature.title}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div data-hero-animate="visual" className="mt-6 border-t border-outline-variant/40 pt-5 md:mt-8 md:pt-8 lg:mt-8 lg:pt-10">
           <HeroPlantFlow />
+          <div className="mt-5 lg:hidden">
+            <p className="font-mono text-[0.68rem] font-medium uppercase tracking-[0.12em] text-primary">
+              {hero.actionPanel.title} · {hero.actionPanel.badge}
+            </p>
+            <ul className="-mx-4 mt-3 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 [scrollbar-width:none] sm:-mx-6 sm:px-6">
+              {mobileActionCards.map((card) => (
+                <li
+                  key={card.id}
+                  className="w-[78%] shrink-0 snap-start rounded-lg border border-outline-variant/50 bg-surface-lowest p-4 sm:w-[46%]"
+                >
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="rounded-full bg-on-surface px-2.5 py-1 font-mono text-[0.62rem] font-medium uppercase tracking-[0.1em] text-surface">
+                      {card.role}
+                    </span>
+                    <span className="rounded-full border border-outline-variant/70 px-2.5 py-1 font-mono text-[0.62rem] uppercase tracking-[0.1em] text-on-surface-variant">
+                      {card.area}
+                    </span>
+                  </div>
+                  <p className="mt-3 text-sm leading-6 text-on-surface">{card.copy}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </Container>
     </section>
