@@ -1,3 +1,5 @@
+import type { BreadcrumbList, WithContext } from "schema-dts";
+
 import { SITE_URL } from "@/lib/seo/constants";
 
 export type BreadcrumbSegment = {
@@ -5,7 +7,7 @@ export type BreadcrumbSegment = {
   url: string;
 };
 
-export function generateBreadcrumbSchema(segments: BreadcrumbSegment[]) {
+export function generateBreadcrumbSchema(segments: BreadcrumbSegment[]): WithContext<BreadcrumbList> {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",

@@ -7,6 +7,8 @@
     "build": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint",
+    "seo:check": "tsx scripts/seo-check.ts",
+    "seo:audit": "uvx --from geo-optimizer-skill==4.18.3 python scripts/geo-audit.py",
     "db:generate": "prisma generate",
     "db:push": "prisma db push",
     "db:seed": "tsx prisma/seed.ts",
@@ -58,6 +60,7 @@
     "@types/react-dom": "^19.1.5",
     "eslint": "^9.28.0",
     "eslint-config-next": "^15.3.3",
+    "schema-dts": "^2.1.0",
     "tailwindcss": "^4.1.8",
     "tsx": "^4.22.4",
     "typescript": "^5.8.3"

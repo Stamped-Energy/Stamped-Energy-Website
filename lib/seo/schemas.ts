@@ -5,26 +5,44 @@ import { getVerticalPage, type VerticalSlug } from "@/lib/content/vertical-pages
 import type { IndustryFaqItem } from "@/lib/content/types";
 import { DEFAULT_OG_IMAGE, ORGANIZATION_ID, SITE_URL, WEBSITE_ID, COMPANY_LINKEDIN_URL } from "@/lib/seo/constants";
 import type { FaqItem } from "@/lib/seo/extract-faq";
+import type {
+  Article,
+  CollectionPage,
+  ImageObject,
+  SearchAction,
+  ContactPage,
+  FAQPage,
+  HowTo,
+  Organization,
+  Person,
+  Question,
+  SoftwareApplication,
+  WebPage,
+  WebSite,
+  WithContext,
+} from "schema-dts";
 
-export const organizationPublisher = {
+const organizationLogo: ImageObject = {
+  "@type": "ImageObject",
+  url: `${SITE_URL}/LogoOrange.png`,
+  width: "249",
+  height: "248",
+};
+
+export const organizationPublisher: Organization = {
   "@type": "Organization",
   "@id": ORGANIZATION_ID,
   name: "Stamped",
-  logo: {
-    "@type": "ImageObject",
-    url: `${SITE_URL}/LogoOrange.png`,
-    width: 512,
-    height: 512,
-  },
+  logo: organizationLogo,
 };
 
-export const organizationSchema = {
+export const organizationSchema: WithContext<Organization> = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "@id": ORGANIZATION_ID,
   name: "Stamped",
   url: SITE_URL,
-  logo: organizationPublisher.logo,
+  logo: organizationLogo,
   description: icp.seo.entityDefinition,
   email: "stamped.energy@gmail.com",
   foundingDate: "2025",
@@ -71,7 +89,17 @@ export const organizationSchema = {
   ],
 };
 
-export const websiteSchema = {
+/** Google still reads `query-input` for sitelinks search; schema.org types omit it. */
+const searchAction: SearchAction & { "query-input": string } = {
+  "@type": "SearchAction",
+  target: {
+    "@type": "EntryPoint",
+    urlTemplate: `${SITE_URL}/case-studies?search={search_term_string}`,
+  },
+  "query-input": "required name=search_term_string",
+};
+
+export const websiteSchema: WithContext<WebSite> = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "@id": WEBSITE_ID,
@@ -81,17 +109,10 @@ export const websiteSchema = {
   publisher: {
     "@id": ORGANIZATION_ID,
   },
-  potentialAction: {
-    "@type": "SearchAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: `${SITE_URL}/case-studies?search={search_term_string}`,
-    },
-    "query-input": "required name=search_term_string",
-  },
+  potentialAction: searchAction,
 };
 
-export const homepageFaqSchema = {
+export const homepageFaqSchema: WithContext<FAQPage> = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: landingContent.faq.items.map((item) => ({
@@ -104,7 +125,7 @@ export const homepageFaqSchema = {
   })),
 };
 
-export const homepageSpeakableSchema = {
+export const homepageSpeakableSchema: WithContext<WebPage> = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   name: "Stamped | AI for plant operations",
@@ -115,7 +136,7 @@ export const homepageSpeakableSchema = {
   url: SITE_URL,
 };
 
-export const howToSchema = {
+export const howToSchema: WithContext<HowTo> = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How Stamped turns plant data into operator actions",
@@ -153,7 +174,7 @@ export const howToSchema = {
   ],
 };
 
-export const engagementHowToSchema = {
+export const engagementHowToSchema: WithContext<HowTo> = {
   "@context": "https://schema.org",
   "@type": "HowTo",
   name: "How to start with Stamped",
@@ -167,7 +188,7 @@ export const engagementHowToSchema = {
   })),
 };
 
-export const vinayakPersonSchema = {
+export const vinayakPersonSchema: WithContext<Person> = {
   "@context": "https://schema.org",
   "@type": "Person",
   "@id": `${SITE_URL}/about#vinayak-raizada`,
@@ -191,7 +212,7 @@ export const vinayakPersonSchema = {
   ],
 };
 
-export const utsoPersonSchema = {
+export const utsoPersonSchema: WithContext<Person> = {
   "@context": "https://schema.org",
   "@type": "Person",
   "@id": `${SITE_URL}/about#utso-sarkar`,
@@ -222,7 +243,7 @@ type ArticleSchemaInput = {
   authorUrl?: string;
 };
 
-export function buildArticleSchema(post: ArticleSchemaInput) {
+export function buildArticleSchema(post: ArticleSchemaInput): WithContext<Article> {
   const imageUrl = post.image
     ? post.image.startsWith("http")
       ? post.image
@@ -258,7 +279,7 @@ export function buildArticleSchema(post: ArticleSchemaInput) {
   };
 }
 
-export function buildBlogSpeakableSchema(slug: string, title: string) {
+export function buildBlogSpeakableSchema(slug: string, title: string): WithContext<WebPage> {
   return {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -271,7 +292,7 @@ export function buildBlogSpeakableSchema(slug: string, title: string) {
   };
 }
 
-export function buildFaqSchema(faqs: FaqItem[]) {
+export function buildFaqSchema(faqs: FaqItem[]): WithContext<FAQPage> | null {
   if (faqs.length === 0) {
     return null;
   }
@@ -290,7 +311,7 @@ export function buildFaqSchema(faqs: FaqItem[]) {
   };
 }
 
-export const softwareApplicationSchema = {
+export const softwareApplicationSchema: WithContext<SoftwareApplication> = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: "Stamped",
@@ -301,14 +322,13 @@ export const softwareApplicationSchema = {
   provider: {
     "@id": ORGANIZATION_ID,
   },
-  areaServed: {
-    "@type": "Country",
-    name: "India",
-  },
   offers: {
     "@type": "Offer",
-    description:
-      ENGAGEMENT_SUMMARY,
+    description: ENGAGEMENT_SUMMARY,
+    areaServed: {
+      "@type": "Country",
+      name: "India",
+    },
   },
   featureList: [
     "Models trained on each plant's own history",
@@ -320,7 +340,7 @@ export const softwareApplicationSchema = {
   ],
 };
 
-export const contactPageSchema = {
+export const contactPageSchema: WithContext<ContactPage> = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
   name: "Book a site survey | Stamped",
@@ -364,7 +384,7 @@ type CaseStudySchemaInput = {
   authorUrl?: string;
 };
 
-export function buildCaseStudySchema(study: CaseStudySchemaInput) {
+export function buildCaseStudySchema(study: CaseStudySchemaInput): WithContext<Article> {
   const imageUrl = study.image
     ? study.image.startsWith("http")
       ? study.image
@@ -400,7 +420,7 @@ export function buildCaseStudySchema(study: CaseStudySchemaInput) {
   };
 }
 
-function faqItemsToSchema(items: IndustryFaqItem[]) {
+function faqItemsToSchema(items: IndustryFaqItem[]): Question[] {
   return items.map((item) => ({
     "@type": "Question" as const,
     name: item.question,
@@ -411,7 +431,7 @@ function faqItemsToSchema(items: IndustryFaqItem[]) {
   }));
 }
 
-export function verticalFaqSchema(slug: VerticalSlug) {
+export function verticalFaqSchema(slug: VerticalSlug): WithContext<FAQPage> | null {
   const page = getVerticalPage(slug);
   if (!page) {
     return null;
