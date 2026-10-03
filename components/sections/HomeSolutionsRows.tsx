@@ -1,6 +1,8 @@
 import Link from "next/link";
 
+import { SolutionAreaVisual } from "@/components/motion-slots/SolutionsAreaVisuals";
 import { Container } from "@/components/ui/Container";
+import { MotionSlot } from "@/components/ui/MotionSlot";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionBadge } from "@/components/ui/SectionBadge";
 import { landingContent, solutionsContent } from "@/lib/content";
@@ -23,6 +25,9 @@ export function HomeSolutionsRows() {
           {areas.map((area, index) => (
             <li key={area.slug} className="border-t border-outline-variant/40 pt-8">
               <Reveal delay={index * 0.04}>
+                <MotionSlot label={`${area.title} visual`} aspectClassName="aspect-[16/7]" className="mb-8">
+                  <SolutionAreaVisual slug={area.slug} />
+                </MotionSlot>
                 <h3 className="font-display text-2xl font-bold tracking-tight md:text-3xl">{area.title}</h3>
                 <p className="mt-4 max-w-xl text-base leading-8 text-on-surface/80">{area.homeSummary}</p>
                 <Link

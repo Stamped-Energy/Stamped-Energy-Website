@@ -10,11 +10,11 @@ const easeOut = (t: number) => 1 - Math.pow(1 - t, 4);
 
 const noop = () => {};
 
-function poly(xs: number[], ys: number[]) {
+export function poly(xs: number[], ys: number[]) {
   return xs.map((x, i) => `${i === 0 ? "M" : "L"}${x.toFixed(1)} ${ys[i].toFixed(1)}`).join(" ");
 }
 
-function wait(ms: number, live: () => boolean) {
+export function wait(ms: number, live: () => boolean) {
   return new Promise<void>((resolve) => {
     window.setTimeout(() => resolve(), ms);
   }).then(() => {
@@ -473,7 +473,7 @@ function startDecisions(root: HTMLElement, { reduce }: SlotLoopOptions) {
   };
 }
 
-function StageShell({
+export function StageShell({
   className,
   label,
   children,
