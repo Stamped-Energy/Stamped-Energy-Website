@@ -17,7 +17,7 @@ export const ORGANIZATION_ID = `${SITE_URL}/#organization`;
 export const WEBSITE_ID = `${SITE_URL}/#website`;
 
 /** Last substantive edit to the static marketing pages. Bump with copy changes; feeds sitemap lastmod and WebPage dateModified. */
-export const CONTENT_UPDATED = "2026-10-03";
+export const CONTENT_UPDATED = "2026-10-04";
 
 export const GEO_METADATA = {
   "geo.region": "IN",

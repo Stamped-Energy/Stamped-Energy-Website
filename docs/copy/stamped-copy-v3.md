@@ -101,6 +101,8 @@ Use it on the About page, the How it works page (/platform) and in longer writte
 > - **Maintenance:** "Prescriptive maintenance, planned around production." It ranks stops by cost, watches specific energy consumption for drift, and prescribes the fix and the best window given production constraints.
 >
 > **Page FAQs (3 Oct 2026, ADR-040).** Each area page and /platform now ends with four or five answer-first questions, kept in `faq` in `lib/content/solutions.ts` and `lib/content/platform.ts`. The answers paraphrase the approved text above, contain no ₹ or % figures, and were reviewed by Vinayak before shipping. Edit them there; the FAQ JSON-LD, `/ai/faq.json` and `llms.txt` follow.
+>
+> **How-we-do-it sections (4 Oct 2026, ADR-041).** Each area page now has a two-sentence hero intro, four example actions and a section after them kept in `method` in `lib/content/solutions.ts`: a general heading ("How Stamped improves control", "How Stamped catches it early", "How Stamped re-plans", "How Stamped plans the fix"), one paragraph and three short steps, reviewed by Vinayak. Headings never name a method. The paragraph may mention one lightly (a working model of the line, learning-based control, models trained on past rejections), which loosens the placement table above for these four sections only.
 
 Each area has a short statement heading, a paragraph and a few example action cards. The cards follow the current site's instruction style, written as complete sentences. Their numbers are placeholders, and they should be labelled "Example" on the site.
 

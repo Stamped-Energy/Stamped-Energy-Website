@@ -766,3 +766,21 @@ Architecture and workflow decisions for this project.
 **Rationale:** Audits give a before and after number instead of a checklist, and avoiding runtime SEO packages keeps the bundle and the architecture unchanged. Generating the AI files from `lib/content` keeps them in step with the copy.
 
 **Impact:** GEO average 69.9 to 86.5. Lighthouse averages: accessibility 0.92 to 0.96, SEO 0.978 to 0.985 (the remaining misses are local robots.txt fetch timeouts). Files: `lib/seo/*`, `app/{feed.xml,ai,.well-known}/`, `lib/content/{solutions,platform}.ts`, `components/ui/{FaqSection,Button}.tsx`, `scripts/{seo-check.ts,geo-audit.py}`, `SEO_GEO_AEO.md`, `public/llms.txt`.
+
+## ADR-041: Animation resume, mobile overflow fix and a "how we do it" section on solution pages
+
+**Date:** 2026-10-04
+
+**Context:** Vinayak raised three things. The homepage What Stamped does animation replayed its intro whenever it scrolled back into view. Parts of How it works and `/platform` ran past the screen on phones, and the What we do section was dense there. The solution pages opened with long paragraphs, and he wanted a section explaining how each area works, with some technology but generalised headings.
+
+**Alternatives:** (1) Keep animations running offscreen so they never restart. (2) Pause offscreen and pass a resume flag so engines skip their intro. For the solution pages: (a) longer hero copy naming methods, (b) a separate section after Example actions with a general heading, light method wording and a new animation per area.
+
+**Selected:** Option 2 and option (b).
+- `useSlotLoop` passes `resume: true` on every start after the first. `WhatIsProductVisual` then jumps straight to its docked, live state. The other loops have no intro, so they are unchanged.
+- The overflow came from `aspect-ratio` combined with a mobile `min-height` on the visual slots, which forced their width past the screen. Mobile min-heights were removed, grid columns get `min-w-0`, and `.hiw-slot` clips its content. What we do gets smaller type and padding below `md`.
+- Each solution area has a `method` block in `lib/content/solutions.ts` (heading, paragraph, three steps), shown by `SolutionMethodSection` right after Example actions, with text on the left and a `SolutionMethodVisual` animation on the right (text first on phones). Hero intros are two sentences, and each area has four example actions.
+- Headings stay general ("How Stamped improves control", "catches it early", "re-plans", "plans the fix"). The paragraphs may mention a method lightly, such as a working model of the line, learning-based control, or models trained on past rejections. This loosens ADR-038's naming rule for the solution pages only.
+
+**Rationale:** Pausing offscreen saves work on long pages, and a resume flag keeps that without a visible replay. Fixing the sizing cause is safer than clipping every animation. A separate section keeps the hero short while still showing depth to technical readers.
+
+**Impact:** `components/motion-slots/{useSlotLoop,WhatIsProductVisual,SolutionMethodVisuals}.tsx`, `components/motion-slots/{hiw-chromes,method-visuals}.css`, `components/solutions/{SolutionMediaSlot,SolutionMethodSection,SolutionAreaPage}.tsx`, `components/how-it-works/*`, `components/ui/FaqSection.tsx`, `lib/content/solutions.ts`, `public/llms.txt`.

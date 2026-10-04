@@ -2,6 +2,8 @@
 
 ## Current Phase
 
+**Motion, mobile and solution pages (ADR-041):** the What Stamped does animation resumes instead of replaying after scrolling away; How it works and `/platform` no longer run past a phone screen; solution pages have two-sentence intros, four example actions each and a new "How Stamped ..." section with an animation per area.
+
 **SEO, GEO and AEO pass (ADR-040):** audit-driven fixes with GEO Optimizer and Unlighthouse, typed JSON-LD, FAQs on solution pages and How it works, RSS and AI discovery files. GEO average 69.9 to 86.5. Off-site work (Search Console, Bing, Wikidata, Crunchbase, Google Business Profile) is listed in `SEO_GEO_AEO.md`.
 
 **Solution area framing v3.1 (ADR-038):** Process now improves control policies, Quality adds real-time alerts, Planning re-plans with the whole plant in view, and Maintenance is prescriptive. Applied sitewide, with method wording chosen by placement instead of a stock "machine learning and AI".
