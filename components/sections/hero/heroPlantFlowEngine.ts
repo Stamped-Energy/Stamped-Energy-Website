@@ -543,17 +543,16 @@ export function startHeroPlantFlow(root: HTMLElement, options: EngineOptions): (
     ];
     const logo = qs<HTMLElement>(root, "hpf-logoWrap");
     const panel = qs<HTMLElement>(root, "hpf-rxPanel");
-    const live = qs<HTMLElement>(root, "hpf-rxLive");
     const wExt = qs<SVGPathElement>(root, "hpf-wExt");
     const wTel = qs<SVGPathElement>(root, "hpf-wTel");
     const wApp = qs<SVGPathElement>(root, "hpf-wApp");
     const wOut = qs<SVGPathElement>(root, "hpf-wOut");
 
-    if (!plant || !logo || !panel || !live || !wExt || !wTel || !wApp || !wOut) return;
+    if (!plant || !logo || !panel || !wExt || !wTel || !wApp || !wOut) return;
     if (srcs.some((el) => !el) || docks.some((el) => !el)) return;
 
     if (reduce) {
-      [plant, logo, panel, live, ...srcs, ...docks].forEach((el) => {
+      [plant, logo, panel, ...srcs, ...docks].forEach((el) => {
         if (el) el.style.opacity = "1";
       });
       logo.style.transform = "translateX(-50%)";
@@ -591,8 +590,6 @@ export function startHeroPlantFlow(root: HTMLElement, options: EngineOptions): (
     if (cancelled) return;
     layoutPaths();
     await drawWire(wOut, 420, 0);
-    if (cancelled) return;
-    await tween(live, { opacity: 1 }, 280, 40);
     if (cancelled) return;
 
     startCarousel();

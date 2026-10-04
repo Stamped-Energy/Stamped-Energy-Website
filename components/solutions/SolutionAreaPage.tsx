@@ -36,7 +36,7 @@ export function SolutionAreaPage({ area }: { area: SolutionArea }) {
               What the people who own the problem receive
             </h2>
           </Reveal>
-          <SolutionExampleCards label="Example" items={area.examples} className="mt-8 md:mt-10" />
+          <SolutionExampleCards items={area.examples} className="mt-8 md:mt-10" />
           {area.note ? (
             <p className="mt-6 max-w-3xl text-sm leading-7 text-on-surface-variant md:text-base">{area.note}</p>
           ) : null}

@@ -799,3 +799,9 @@ Architecture and workflow decisions for this project.
 **Rationale:** Self-improvement and retraining are the strongest differences in the stack and were absent from the site. Every mention keeps "your team approves", matching the master document's speech rules.
 
 **Impact:** `lib/content/{platform,landing}.ts`, `components/ui/StepsVisualSection.tsx`, `components/solutions/SolutionMethodSection.tsx`, `components/motion-slots/{PlatformLearningVisuals,SolutionMethodVisuals}.tsx`, `components/how-it-works/PlatformZigZagVisual.tsx`, `app/platform/page.tsx`, `public/llms.txt`.
+
+## ADR-043: Example action cards, one label and fewer placeholders (4 Oct 2026)
+
+**Context:** Example action sections said "Example actions" in the heading and again as an "Example" pill on every card, and many cards carried three to five [bracketed] placeholders.
+**Decision:** The per-card "Example" pill is dropped wherever the section is already headed "Example actions" (homepage hero panel and mobile strip, solution pages, industry pages); the energy cards on `/solutions` keep it because that section has no such heading. Every example action now has at most one [bracketed] placeholder, and most have none: machine names are written plainly (Furnace 2, Press 3, bin 14) and secondary numbers are described in words.
+**Impact:** Supersedes the per-card "Example" label in ADR-033's card rule. The "Numbers in [brackets] are placeholders" notes stay.

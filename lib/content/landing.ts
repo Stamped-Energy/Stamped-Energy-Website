@@ -34,7 +34,6 @@ export const landingContent = {
     actionPanel: {
       title: "Example actions",
       subtitle: "Every action says who should act, by when, and why.",
-      badge: "Example",
     },
     /** Ticker cards, labelled "Example actions". Bracketed values are placeholders by design (copy v3). */
     actionCards: [
@@ -42,7 +41,7 @@ export const landingContent = {
         id: "inspector",
         area: "Quality",
         role: "For the inspector",
-        copy: "Bin [14] was made after a [9]-minute stop with the die running cold, so check it before heat treatment.",
+        copy: "Bin 14 was made after a long stop with the die running cold, so check it before heat treatment.",
       },
       {
         id: "shift-lead",
@@ -54,25 +53,25 @@ export const landingContent = {
         id: "planner",
         area: "Planning",
         role: "For the planner",
-        copy: "Press [3] is down for about [N] hours, and a re-plan is ready for review by [time].",
+        copy: "Press 3 is down for about [N] hours, and a re-plan is ready for your review.",
       },
       {
         id: "maintenance-lead",
         area: "Maintenance",
         role: "For the maintenance lead",
-        copy: "Gas per kilo on Furnace [1] is creeping up on the same recipe, so check the burners and door seals.",
+        copy: "Gas per kilo on Furnace 1 is creeping up on the same recipe, so check the burners and door seals.",
       },
       {
         id: "ht-heatup",
         area: "Energy",
         role: "For the heat-treatment lead",
-        copy: "Furnace [2] is hot with no charge ready until [time], so heat-up can start later.",
+        copy: "Furnace 2 is hot, but the next charge is not ready for another [N] hours, so heat-up can start later.",
       },
       {
         id: "ht-load",
         area: "Planning",
         role: "For the heat-treatment lead",
-        copy: "The next basket is well below a normal load, and a lot on the same recipe is ready by [time].",
+        copy: "The next basket is well below a normal load, and a lot on the same recipe is ready to join it.",
       },
       {
         id: "process-engineer",

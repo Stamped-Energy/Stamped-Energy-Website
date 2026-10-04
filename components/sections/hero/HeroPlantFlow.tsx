@@ -151,9 +151,6 @@ export function HeroPlantFlow() {
                   <div className="hpf-rx-title">{actionPanel.title}</div>
                   <p className="hpf-rx-sub">{actionPanel.subtitle}</p>
                 </div>
-                <div className="hpf-rx-live" id="hpf-rxLive">
-                  {actionPanel.badge}
-                </div>
               </div>
               <div className="hpf-rx-viewport" id="hpf-rxViewport">
                 <div className="hpf-rx-track" id="hpf-rxTrack">

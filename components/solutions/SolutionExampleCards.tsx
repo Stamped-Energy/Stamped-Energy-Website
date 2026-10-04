@@ -6,7 +6,7 @@ export function SolutionExampleCards({
   items,
   className,
 }: {
-  label: string;
+  label?: string;
   items: readonly SolutionExampleCard[];
   className?: string;
 }) {
@@ -18,9 +18,11 @@ export function SolutionExampleCards({
           className="flex flex-col rounded-xl border border-outline-variant/50 bg-surface-lowest p-5 md:p-6"
         >
           <div className="flex flex-wrap items-center gap-2">
-            <span className="rounded-full bg-primary/10 px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-primary">
-              {label}
-            </span>
+            {label ? (
+              <span className="rounded-full bg-primary/10 px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-primary">
+                {label}
+              </span>
+            ) : null}
             <span className="text-xs font-semibold uppercase tracking-[0.1em] text-on-surface-variant">
               {item.role}
             </span>

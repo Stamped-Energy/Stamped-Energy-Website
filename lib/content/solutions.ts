@@ -78,22 +78,22 @@ const areas: SolutionArea[] = [
       {
         id: "restart",
         role: "Restart, for the shift lead",
-        copy: "Keep the heater warm through stops shorter than [N] minutes from A shift today, because last month's cold restarts sent [N] parts out of window.",
+        copy: "Keep the heater warm through short stops from A shift today, because last month's cold restarts sent [N] parts out of window.",
       },
       {
         id: "control",
         role: "Control, for the process engineer",
-        copy: "The heater aim has drifted by about [N]°C over [N] weeks, so a corrected aim is ready for your review before the next step test.",
+        copy: "The heater aim on Line 2 has drifted by about [N]°C over the past few weeks, so a corrected aim is ready for your review before the next step test.",
       },
       {
         id: "control-policy",
         role: "Control rule, for the process engineer",
-        copy: "A revised heater rule, tested on the line's model, holds the aim within [N]°C through stops where today's rule overshoots, so it is ready for a step test on Line [2].",
+        copy: "A revised heater rule, tested on the line's model, holds the aim steady through stops where today's rule overshoots, so it is ready for a step test on Line 2.",
       },
       {
         id: "warm-up",
         role: "Die change, for the cell lead",
-        copy: "Run [N] warm-up shots on cell [4] before releasing parts after the next die change, because the first shots after a change failed leak test more often last month.",
+        copy: "Run a few warm-up shots on cell 4 before releasing parts after the next die change, because the first shots after a change failed leak test more often last month.",
       },
     ],
     energyNote:
@@ -158,22 +158,22 @@ const areas: SolutionArea[] = [
       {
         id: "ageing-alert",
         role: "Live alert, for the heat-treatment lead",
-        copy: "Basket [B-07] is [N] minutes past its written ageing limit, so pull it now to keep the lot within spec.",
+        copy: "Basket B-07 is [N] minutes past its written ageing limit, so pull it now to keep the lot within spec.",
       },
       {
         id: "quench-alert",
         role: "Live alert, for the shift lead",
-        copy: "Quench water on Line [2] is [N]°C above its band, so hold the next charge until it is back in range.",
+        copy: "Quench water on Line 2 has drifted above its band, so hold the next charge until it is back in range.",
       },
       {
         id: "inspector",
         role: "For the inspector",
-        copy: "Check bin [14] before it moves on: it was made after a [9]-minute stop with the die below temperature, and bins made that way were rejected more often last quarter.",
+        copy: "Check bin 14 before it moves on: it was made after a long stop with the die below temperature, and bins made that way were rejected more often last quarter.",
       },
       {
         id: "quality-head",
         role: "For the quality head",
-        copy: "Every process record for lot [N] is gathered in one place for this morning's customer complaint, ready for the 8D and the audit file.",
+        copy: "Every process record for the lot in this morning's customer complaint is gathered in one place, ready for the 8D and the audit file.",
       },
     ],
     energyNote:
@@ -230,22 +230,22 @@ const areas: SolutionArea[] = [
       {
         id: "planner",
         role: "For the planner",
-        copy: "Press [3] will be down for about [N] hours. Confirm the proposed re-plan by [time] and [N] of today's [N] dispatches stay on time.",
+        copy: "Press 3 will be down for about [N] hours. Confirm the proposed re-plan before the shift change and today's dispatches stay on time.",
       },
       {
         id: "ht-lead",
         role: "For the heat-treatment lead",
-        copy: "Run these [N] lots back to back by temperature this shift, so the furnace does not heat up and cool down between them.",
+        copy: "Run these four lots back to back by temperature this shift, so the furnace does not heat up and cool down between them.",
       },
       {
         id: "consolidate",
         role: "Loading, for the heat-treatment lead",
-        copy: "Hold the next basket on Furnace [2] until [time]: it is well below a normal load, and a lot on the same recipe can join it without mixing grades.",
+        copy: "Hold the next basket on Furnace 2 for a short while: it is well below a normal load, and a lot on the same recipe can join it without mixing grades.",
       },
       {
         id: "handoff",
         role: "Handoff, for the production lead",
-        copy: "Forged parts for lot [N] waited about [N] minutes for the furnace on most days last week, so a furnace start matched to the forge schedule is ready for your review.",
+        copy: "Forged parts waited about [N] minutes for the furnace on most days last week, so a furnace start matched to the forge schedule is ready for your review.",
       },
     ],
     energyNote:
@@ -303,22 +303,22 @@ const areas: SolutionArea[] = [
       {
         id: "biggest-loss",
         role: "For the maintenance lead",
-        copy: "Press [2] lost [N] hours last month to [stop reason], the biggest single loss on the line, so it is first on this week's list.",
+        copy: "Press 2 lost [N] hours last month to die changes running long, the biggest single loss on the line, so it is first on this week's list.",
       },
       {
         id: "gas-drift",
         role: "For the maintenance lead",
-        copy: "Check the burners and door seals on Furnace [1]: gas per kilo has crept up on the same recipe over [N] weeks.",
+        copy: "Check the burners and door seals on Furnace 1: gas per kilo has crept up on the same recipe for several weeks.",
       },
       {
         id: "window",
         role: "Planned window, for the maintenance lead",
-        copy: "Do the burner check on Furnace [1] in the [N]-hour gap before [day]'s grade change, so no charge has to move.",
+        copy: "Do the burner check on Furnace 1 in the gap before Thursday's grade change, so no charge has to move.",
       },
       {
         id: "tool-life",
         role: "For the tool room",
-        copy: "Check the insert and coolant on [machine] before the next batch: tool [T12] is lasting about [N] parts fewer than its last [N] tools on the same part.",
+        copy: "Check the insert and coolant on VMC 3 before the next batch: the current tool is lasting about [N] parts fewer than the last few on the same part.",
       },
     ],
     energyNote:
@@ -378,12 +378,12 @@ export const solutionsContent = {
       {
         id: "idle-furnace",
         role: "For the shift lead",
-        copy: "Furnace [2] has been idle and hot for [N] hours with the next load due at [time], so it can be set back now.",
+        copy: "Furnace 2 has been idle and hot for [N] hours with no load due before the shift change, so it can be set back now.",
       },
       {
         id: "stagger",
         role: "For the electrical lead",
-        copy: "Three furnaces and the compressors are due to start together at [time], so starting Furnace [3] [N] minutes later keeps the demand peak down without moving any charge.",
+        copy: "Three furnaces and the compressors are due to start together, so starting Furnace 3 a little later keeps the demand peak down without moving any charge.",
       },
       {
         id: "air-leak",
