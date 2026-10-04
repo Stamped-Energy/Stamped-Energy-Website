@@ -84,7 +84,7 @@ Hub: [What we improve](https://stamped.work/solutions)
 ## Homepage snapshot
 
 - Badge: AI for industrial plants
-- H1: From monitoring your plant to improving it.
+- H1: Turn plant data into action.
 - Supporting: Stamped builds models of your plant from the data it already records, finds where efficiency is lost across process, quality, planning and maintenance, and improves it with actions your team can take.
 - FAQ section: visible on homepage with FAQPage JSON-LD
 

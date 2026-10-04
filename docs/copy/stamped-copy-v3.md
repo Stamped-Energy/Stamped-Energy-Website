@@ -44,7 +44,7 @@ Avoid "machine learning and AI" as a stock phrase, and avoid "AI-powered", "cutt
 
 | Line | Where it goes |
 |---|---|
-| **From monitoring your plant to improving it.** | Homepage H1 |
+| **From monitoring your plant to improving it.** | Homepage H1 until 4 Oct 2026; the H1 is now "Turn plant data into action." (ADR-044) |
 | **AI for industrial plants** | Homepage hero eyebrow above the H1 (3 Oct 2026: broad on purpose, no sector or country) |
 | **AI for plant operations.** | Title tag, LinkedIn tagline, email signature, footer |
 | **Turn plant data into action.** | Heading of the "What Stamped does" section and the final call-to-action band |
@@ -179,7 +179,7 @@ Optional line for the About page, for people searching the old name: "Stamped wa
 
 - **Title tag:** Stamped | AI for plant operations
 - **Meta description (also the share text):** Stamped is AI for industrial plants. It models your plant from the data it already records and improves process, quality, planning and maintenance.
-- **Share image (`public/og-default.png`):** logo, eyebrow "AI for industrial plants", the hero headline, the four areas and two example actions, with "Stamped recommends and your team decides."
+- **Share image (`public/og-default.png`):** logo, eyebrow "AI for industrial plants", the hero headline (re-rendered 4 Oct 2026 with "Turn plant data into action."), the four areas and two example actions, with "Stamped recommends and your team decides."
 - **LinkedIn tagline:** AI for plant operations. From monitoring your plant to improving it.
 - **Email signature:** Stamped, AI for plant operations, stamped.work
 - **Primary call to action:** Book a site survey

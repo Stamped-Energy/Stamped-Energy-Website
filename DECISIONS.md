@@ -805,3 +805,9 @@ Architecture and workflow decisions for this project.
 **Context:** Example action sections said "Example actions" in the heading and again as an "Example" pill on every card, and many cards carried three to five [bracketed] placeholders.
 **Decision:** The per-card "Example" pill is dropped wherever the section is already headed "Example actions" (homepage hero panel and mobile strip, solution pages, industry pages); the energy cards on `/solutions` keep it because that section has no such heading. Every example action now has at most one [bracketed] placeholder, and most have none: machine names are written plainly (Furnace 2, Press 3, bin 14) and secondary numbers are described in words.
 **Impact:** Supersedes the per-card "Example" label in ADR-033's card rule. The "Numbers in [brackets] are placeholders" notes stay.
+
+## ADR-044: Homepage H1 back to "Turn plant data into action." (4 Oct 2026)
+
+**Context:** The copy v3 H1 "From monitoring your plant to improving it." replaced the original line in ADR-033. Vinayak asked for the original back.
+**Decision:** The homepage H1 is "Turn plant data into action." again (two lines: "Turn plant data" / "into action."). The share image, its alt text and its cache version, and `llms.txt` follow. The supporting line, badge and the rest of the page are unchanged.
+**Impact:** The same line is also the "What Stamped does" heading, the closing call to action and the footer tagline, so it now appears four times on the homepage.

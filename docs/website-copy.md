@@ -26,7 +26,7 @@ CTA is "Book a site survey" → `/contact`; no em dashes.
 
 Copy v3 section 9, top to bottom. Source: `lib/content/landing.ts`.
 
-- **Hero:** "From monitoring your plant to improving it." + approved short subhead. Example action ticker
+- **Hero:** "Turn plant data into action." (restored 4 Oct 2026, ADR-044) + approved short subhead. Example action ticker
   (`hero.actionCards`, rendered by `components/sections/hero/HeroPlantFlow.tsx`).
 - **Problem:** "Every plant has data. Very few turn it into action." (`homeProblem`).
 - **What Stamped does:** approved short outcomes text, word for word (`whatIs.paragraphs`).

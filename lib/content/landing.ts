@@ -24,9 +24,9 @@ export type HomeActionCard = {
 export const landingContent = {
   hero: {
     badge: "AI for industrial plants",
-    headline: "From monitoring your plant to improving it.",
-    headlineLine1: "From monitoring your plant",
-    headlineLine2: "to improving it.",
+    headline: "Turn plant data into action.",
+    headlineLine1: "Turn plant data",
+    headlineLine2: "into action.",
     supportingLine:
       "Stamped builds models of your plant from the data it already records, finds where efficiency is lost across process, quality, planning and maintenance, and improves it with actions your team can take.",
     primaryCta: { label: "Book a site survey", href: "/contact" } satisfies CtaLink,
