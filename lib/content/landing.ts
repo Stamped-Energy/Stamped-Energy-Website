@@ -125,7 +125,7 @@ export const landingContent = {
     title: "Turn plant data into action.",
     /** Homepage cut of the approved outcomes-and-how text (ADR-036). Full version: platform.ts. The last item renders as the kicker. */
     paragraphs: [
-      "Stamped helps plants cut rejections, get more output from the lines they already have, and use less energy in every good part. It brings data from separate systems into one view, builds a model of how your plant actually runs and turns hidden losses into specific actions for the person who can fix them.",
+      "Stamped helps plants cut rejections, get more output from the lines they already have, and use less energy in every good part. It brings data from separate systems into one view, builds a model of how your plant actually runs and turns hidden losses into specific actions for the person who can fix them. It is a self-improving agentic system, so it gets better with every result.",
       "Stamped recommends and your team decides, and every change is checked against your own baseline.",
     ],
     motionSlotLabel: "Product visual",
@@ -169,7 +169,7 @@ export const landingContent = {
         label: "Results",
         title: "Checks what actually worked.",
         description:
-          "Your team decides. Every change is measured against your own baseline, and each result improves the next recommendation.",
+          "Your team decides. Every change is measured against your own baseline, and the models retrain on what it shows, so Stamped keeps getting better.",
         bullets: ["Accept, adjust or decline every action", "Catch it early if a gain starts to slip"],
       },
     ],
@@ -282,6 +282,12 @@ export const landingContent = {
         question: "Who decides what changes, and what does Stamped add if my supervisors already know the plant?",
         answer:
           "Stamped recommends and your team decides. Your senior supervisors usually know the plant well, and Stamped is built to back them up: it looks at every line on every shift, including the shifts they are not on, and writes down what it finds with the reasoning, so the night shift gets the same advice the day shift gets from your best hands.",
+      },
+      {
+        id: "gets-better",
+        question: "Does Stamped get better over time?",
+        answer:
+          "Yes. Stamped is a self-improving agentic system. It learns from every action your team accepts, adjusts or turns down, and from the ones it chose to hold back, and its models are retrained on your plant's data as it runs. Each improvement is tested on past shifts before your team approves it, so the advice gets sharper every week.",
       },
       {
         id: "data",

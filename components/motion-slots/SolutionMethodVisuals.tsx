@@ -13,7 +13,7 @@ import "./method-visuals.css";
 const PILL = { fontFamily: "Space Grotesk, sans-serif", fontWeight: 700, fontSize: 14 } as const;
 const TITLE = { fontFamily: "Space Grotesk, sans-serif", fontWeight: 700, fontSize: 20 } as const;
 
-const toggle = (root: HTMLElement, sel: string, name: string, on: boolean) =>
+export const toggle = (root: HTMLElement, sel: string, name: string, on: boolean) =>
   root.querySelectorAll(sel).forEach((el) => el.classList.toggle(name, on));
 
 const moveTo = (root: HTMLElement, sel: string, x: number, y: number) =>

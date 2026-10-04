@@ -784,3 +784,18 @@ Architecture and workflow decisions for this project.
 **Rationale:** Pausing offscreen saves work on long pages, and a resume flag keeps that without a visible replay. Fixing the sizing cause is safer than clipping every animation. A separate section keeps the hero short while still showing depth to technical readers.
 
 **Impact:** `components/motion-slots/{useSlotLoop,WhatIsProductVisual,SolutionMethodVisuals}.tsx`, `components/motion-slots/{hiw-chromes,method-visuals}.css`, `components/solutions/{SolutionMediaSlot,SolutionMethodSection,SolutionAreaPage}.tsx`, `components/how-it-works/*`, `components/ui/FaqSection.tsx`, `lib/content/solutions.ts`, `public/llms.txt`.
+
+## ADR-042: Self-improving system, Ask and quiet-shift discovery on the site
+
+**Date:** 2026-10-04
+
+**Context:** Vinayak asked that the site show more of what the technology does, aligned with the expanded master document (`stamped-external` section 5): the self-improving agentic system, continuous retraining of plant models, asking the plant questions, and finding losses even when nothing has broken. He asked for confident present-tense copy, and declined two proposed trust lines (two model families agreeing, constraints checked by code).
+
+**Selected:**
+- `/platform`: a new "A system that gets better every week." section after Models (badge "Self-improving"), with four steps (learns from every decision, retrained on your data, tested before it changes, a record you can read) and an `ImproveLoopVisual` animation. "Ask your plant" added as a fourth item in "Your working view" with an `AskPlantVisual` animation; that section's title now mentions a place to ask. "Model the plant and rank the losses" adds the once-a-shift sweep.
+- Homepage: What Stamped does adds "It is a self-improving agentic system, so it gets better with every result."; How it works step 4 says the models retrain on each result; a new FAQ "Does Stamped get better over time?" (also in FAQ JSON-LD, `/ai/faq.json` and `llms.txt`).
+- The text-left, animation-right layout of the solution "How Stamped ..." sections is now the shared `StepsVisualSection`.
+
+**Rationale:** Self-improvement and retraining are the strongest differences in the stack and were absent from the site. Every mention keeps "your team approves", matching the master document's speech rules.
+
+**Impact:** `lib/content/{platform,landing}.ts`, `components/ui/StepsVisualSection.tsx`, `components/solutions/SolutionMethodSection.tsx`, `components/motion-slots/{PlatformLearningVisuals,SolutionMethodVisuals}.tsx`, `components/how-it-works/PlatformZigZagVisual.tsx`, `app/platform/page.tsx`, `public/llms.txt`.

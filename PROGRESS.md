@@ -2,6 +2,8 @@
 
 ## Current Phase
 
+**Self-improving system on the site (ADR-042):** `/platform` has a new section, "A system that gets better every week.", with its own animation, and an "Ask your plant" item; How it works mentions the once-a-shift sweep; the homepage calls Stamped a self-improving agentic system, says the models retrain on each result, and adds the FAQ "Does Stamped get better over time?".
+
 **Motion, mobile and solution pages (ADR-041):** the What Stamped does animation resumes instead of replaying after scrolling away; How it works and `/platform` no longer run past a phone screen; solution pages have two-sentence intros, four example actions each and a new "How Stamped ..." section with an animation per area.
 
 **SEO, GEO and AEO pass (ADR-040):** audit-driven fixes with GEO Optimizer and Unlighthouse, typed JSON-LD, FAQs on solution pages and How it works, RSS and AI discovery files. GEO average 69.9 to 86.5. Off-site work (Search Console, Bing, Wikidata, Crunchbase, Google Business Profile) is listed in `SEO_GEO_AEO.md`.
