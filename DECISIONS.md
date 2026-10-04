@@ -810,4 +810,4 @@ Architecture and workflow decisions for this project.
 
 **Context:** The copy v3 H1 "From monitoring your plant to improving it." replaced the original line in ADR-033. Vinayak asked for the original back.
 **Decision:** The homepage H1 is "Turn plant data into action." again (two lines: "Turn plant data" / "into action."). The share image, its alt text and its cache version, and `llms.txt` follow. The supporting line, badge and the rest of the page are unchanged.
-**Impact:** The same line is also the "What Stamped does" heading, the closing call to action and the footer tagline, so it now appears four times on the homepage.
+**Impact:** To avoid repeating the H1 right below it, the "What Stamped does" heading is now "From monitoring your plant to improving it." The line still closes the page as the call to action and the footer tagline, and the problem heading "Every plant has data. Very few turn it into action." is kept as a deliberate echo.
