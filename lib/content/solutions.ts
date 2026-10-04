@@ -25,8 +25,14 @@ export type SolutionArea = {
   heading: string;
   /** One-sentence summary for the homepage rows (copy v3 section 9). */
   homeSummary: string;
-  /** Intro paragraph (copy v3 section 5). */
+  /** Two-sentence hero intro: the problem, then what Stamped does. */
   intro: string;
+  /** "How we do it" section: general heading, technology named lightly in the body. */
+  method: {
+    heading: string;
+    paragraph: string;
+    steps: { title: string; text: string }[];
+  };
   /** Optional note under the example cards. */
   note?: string;
   /** How energy is counted inside this area (energy is never a separate pillar). */
@@ -51,27 +57,43 @@ const areas: SolutionArea[] = [
     homeSummary:
       "Improve your control policies instead of only repeating your best runs, with better settings, control rules and restart routines recommended to your engineers.",
     intro:
-      "Most process losses come from a setting that has slowly drifted, a restart that night shift handles differently from day shift, or a line running faster than the next station can absorb, far more often than from a broken machine. Matching your best run is only the starting point. Stamped builds a digital twin of each line from its own history and uses mathematical models of the process, reinforcement learning and machine learning to test better control policies before anything changes on the floor, then recommends the improved setting, control rule or restart routine to your process engineer, who can accept it, adjust it or turn it down.",
+      "Most process losses come from a setting that has slowly drifted, a restart night shift handles differently, or a line running faster than the next station can absorb. Stamped finds better settings, control rules and restart routines for each line and recommends them to your process engineer.",
+    method: {
+      heading: "How Stamped improves control",
+      paragraph:
+        "Stamped learns how each line behaves from its own history and builds a working model of it, a digital twin, so a new control rule is tried on the model before it is tried on parts. Learning-based control then searches for rules that hold the aim better than today's, and each result your team confirms makes the next recommendation better.",
+      steps: [
+        { title: "Learn the line", text: "Settings, restarts and outcomes, from the line's own history." },
+        {
+          title: "Try it on the model first",
+          text: "Candidate settings and control rules are tested before anything changes on the floor.",
+        },
+        {
+          title: "Recommend, then check",
+          text: "Your engineer accepts, adjusts or turns it down, and the result is checked against your baseline.",
+        },
+      ],
+    },
     examples: [
       {
         id: "restart",
         role: "Restart, for the shift lead",
-        copy: "Keep the heater warm during stops shorter than [N] minutes, starting from A shift, because last month's restarts sent [N] parts out of window.",
+        copy: "Keep the heater warm through stops shorter than [N] minutes from A shift today, because last month's cold restarts sent [N] parts out of window.",
       },
       {
         id: "control",
         role: "Control, for the process engineer",
-        copy: "The heater aim has drifted by about [N]°C over [N] weeks, so a new aim with a small drift correction is ready for review before a step test.",
+        copy: "The heater aim has drifted by about [N]°C over [N] weeks, so a corrected aim is ready for your review before the next step test.",
       },
       {
         id: "control-policy",
-        role: "Control policy, for the process engineer",
-        copy: "A revised heater control rule, tested on the line's digital twin, holds the aim within [N]°C through stops where today's rule overshoots, so it is ready for a step test on Line [2].",
+        role: "Control rule, for the process engineer",
+        copy: "A revised heater rule, tested on the line's model, holds the aim within [N]°C through stops where today's rule overshoots, so it is ready for a step test on Line [2].",
       },
       {
         id: "warm-up",
-        role: "Die casting, for the cell lead",
-        copy: "Castings from the first [N] shots after a die change on cell [4] failed leak test more often last month, so a longer warm-up before releasing parts is ready for your review.",
+        role: "Die change, for the cell lead",
+        copy: "Run [N] warm-up shots on cell [4] before releasing parts after the next die change, because the first shots after a change failed leak test more often last month.",
       },
     ],
     energyNote:
@@ -114,13 +136,29 @@ const areas: SolutionArea[] = [
     homeSummary:
       "Link process data to every lot, get an alert while a lot can still be saved, and have each lot's record ready when the auditor or the customer asks.",
     intro:
-      "By the time a part fails inspection, the cause is usually hours or days old: a part that went in cold, a transfer that took too long, or a quench that started late. Stamped links process data to each lot and batch and learns which conditions came before past rejections. Where live data is connected, it watches each lot as it moves and alerts the right person while there is still time to act, for example when a basket has stayed in ageing too long or the quench water has drifted out of its temperature band, so the lot is saved instead of sorted afterwards. Batches already made under risky conditions are flagged while they are still in the plant, so the inspector can decide what to do with them.",
+      "By the time a part fails inspection, the cause is usually hours or days old: a part that went in cold, a transfer that took too long, or a quench that started late. Stamped links process data to every lot and alerts the right person while the lot can still be saved.",
+    method: {
+      heading: "How Stamped catches it early",
+      paragraph:
+        "Every lot carries its own process record, gathered from the machines, furnaces and registers it passed through. Models trained on your past rejections score each lot as it moves, and where there is a written limit, the check is a plain yes or no.",
+      steps: [
+        { title: "Link", text: "Process data is joined to each lot and batch as it moves through the plant." },
+        {
+          title: "Watch",
+          text: "Live where data is connected, such as ageing time, quench temperature and die temperature.",
+        },
+        {
+          title: "Act",
+          text: "An alert goes to the person who can save the lot, risky batches are flagged for the inspector, and the record is ready for the audit.",
+        },
+      ],
+    },
     note: "Where a check is against a written limit, the card gives a clear yes or no, and where it is a prediction, the card shows how confident the model is.",
     examples: [
       {
         id: "ageing-alert",
         role: "Live alert, for the heat-treatment lead",
-        copy: "Basket [B-07] has been in ageing [N] minutes past its written limit, so pull it now to keep the lot within spec.",
+        copy: "Basket [B-07] is [N] minutes past its written ageing limit, so pull it now to keep the lot within spec.",
       },
       {
         id: "quench-alert",
@@ -130,17 +168,12 @@ const areas: SolutionArea[] = [
       {
         id: "inspector",
         role: "For the inspector",
-        copy: "Bin [14] was made after a [9]-minute stop with the die below temperature, and bins made that way were rejected more often last quarter, so it is worth checking before it moves on.",
-      },
-      {
-        id: "ht-lead",
-        role: "For the heat-treatment lead",
-        copy: "Basket [B-11] reached ageing [N] minutes after quench against a written limit of [N], and its full record is attached for the audit file.",
+        copy: "Check bin [14] before it moves on: it was made after a [9]-minute stop with the die below temperature, and bins made that way were rejected more often last quarter.",
       },
       {
         id: "quality-head",
         role: "For the quality head",
-        copy: "Here is every process record for lot [N], gathered in one place for the 8D on the customer complaint that came in this morning.",
+        copy: "Every process record for lot [N] is gathered in one place for this morning's customer complaint, ready for the 8D and the audit file.",
       },
     ],
     energyNote:
@@ -182,27 +215,37 @@ const areas: SolutionArea[] = [
     homeSummary:
       "When the plan breaks, get a re-plan that accounts for the whole plant, along with what each option would do to output and delivery.",
     intro:
-      "Plans break in almost every shift, whether because a die change ran long, a furnace tripped or material arrived late, and the knock-on effects reach well beyond the machine that stopped. Stamped keeps track of what is happening across the plant, including which machines are running, down or waiting, what each furnace is holding, what material is on hand, which dispatches are due and when maintenance is booked. When something changes, it proposes the sequence that works best for the plant as a whole and shows what each option would do to output, energy and delivery, so the planner can choose with the trade-offs in front of them.",
+      "Plans break in almost every shift, because a die change ran long, a furnace tripped or material arrived late. Stamped proposes the re-plan that works best for the whole plant and shows what each option does to output, energy and delivery.",
+    method: {
+      heading: "How Stamped re-plans",
+      paragraph:
+        "Stamped keeps a live picture of the plant: which machines are running, down or waiting, what each furnace is holding, what material is on hand, which dispatches are due and when maintenance is booked. When something changes, it compares possible sequences against those constraints and ranks them. Stamped recommends and your team decides.",
+      steps: [
+        { title: "Track", text: "The live state of machines, furnaces, material and dispatch." },
+        { title: "Compare", text: "Possible sequences are scored for output, energy and delivery." },
+        { title: "Choose", text: "The planner picks, with the trade-offs of each option in front of them." },
+      ],
+    },
     examples: [
       {
         id: "planner",
         role: "For the planner",
-        copy: "Press [3] will be down for about [N] hours, and the proposed re-plan keeps [N] of today's [N] dispatches on time if it is confirmed by [time].",
+        copy: "Press [3] will be down for about [N] hours. Confirm the proposed re-plan by [time] and [N] of today's [N] dispatches stay on time.",
       },
       {
         id: "ht-lead",
         role: "For the heat-treatment lead",
-        copy: "Running these [N] lots back to back by temperature would save the furnace from heating up and cooling down between them.",
+        copy: "Run these [N] lots back to back by temperature this shift, so the furnace does not heat up and cool down between them.",
       },
       {
         id: "consolidate",
         role: "Loading, for the heat-treatment lead",
-        copy: "The next basket on Furnace [2] is well below a normal load, and a lot on the same recipe is ready by [time], so the two can run together without mixing grades.",
+        copy: "Hold the next basket on Furnace [2] until [time]: it is well below a normal load, and a lot on the same recipe can join it without mixing grades.",
       },
       {
         id: "handoff",
         role: "Handoff, for the production lead",
-        copy: "Forged parts for lot [N] waited about [N] minutes for the furnace on most days last week, so moving the furnace start to match the forge schedule is ready for your review.",
+        copy: "Forged parts for lot [N] waited about [N] minutes for the furnace on most days last week, so a furnace start matched to the forge schedule is ready for your review.",
       },
     ],
     energyNote:
@@ -245,32 +288,37 @@ const areas: SolutionArea[] = [
     homeSummary:
       "Prescriptive maintenance that says what to fix and when, ranked by what each stop costs and planned around your production.",
     intro:
-      "The stop log already shows where the hours go, but it rarely says which stops matter most or when to fix them. Stamped ranks stops by the output and time they cost, and it watches specific energy consumption and other slow drift that usually comes before a failure, such as a furnace burning more gas per kilo on the same recipe or a compressor running a little longer every week. Because it knows the production plan, dispatch commitments and other constraints, it prescribes the fix and the best window to make it instead of only raising an alarm. It tells maintenance what it is seeing and how sure it is, and is equally open about what it cannot see, for example bearing wear on a machine that has no vibration sensor.",
+      "The stop log shows where the hours go, but rarely which stops matter most or when to fix them. Stamped ranks stops by what they cost and prescribes the fix and the best window to make it, planned around production.",
+    method: {
+      heading: "How Stamped plans the fix",
+      paragraph:
+        "Stamped watches specific energy consumption and machine signals for the slow drift that usually comes before a failure, such as a furnace burning more gas per kilo on the same recipe. It says what it is seeing and how sure it is, and is equally open about what it cannot see, such as bearing wear on a machine with no vibration sensor.",
+      steps: [
+        { title: "Rank", text: "Stops are ranked by the output and time they cost." },
+        { title: "Watch the drift", text: "Energy per unit and machine signals, against each machine's own normal." },
+        { title: "Plan the window", text: "The fix is slotted where it moves no charge or dispatch." },
+      ],
+    },
     examples: [
       {
         id: "biggest-loss",
         role: "For the maintenance lead",
-        copy: "Press [2] lost [N] hours last month to [stop reason], which makes it the biggest single loss on the line.",
+        copy: "Press [2] lost [N] hours last month to [stop reason], the biggest single loss on the line, so it is first on this week's list.",
       },
       {
         id: "gas-drift",
         role: "For the maintenance lead",
-        copy: "Gas per kilo on Furnace [1] has crept up by [N]% on the same recipe over [N] weeks, so the burners and door seals are worth checking.",
+        copy: "Check the burners and door seals on Furnace [1]: gas per kilo has crept up on the same recipe over [N] weeks.",
       },
       {
         id: "window",
         role: "Planned window, for the maintenance lead",
-        copy: "The burner check on Furnace [1] fits in the [N]-hour gap before [day]'s grade change, so no charge has to move.",
-      },
-      {
-        id: "micro-stop",
-        role: "For the setter",
-        copy: "The repeating micro-stop on [machine] looks like a clamping issue, and the card can be closed once the machine runs cleanly.",
+        copy: "Do the burner check on Furnace [1] in the [N]-hour gap before [day]'s grade change, so no charge has to move.",
       },
       {
         id: "tool-life",
         role: "For the tool room",
-        copy: "Tool [T12] on [machine] is lasting about [N] parts fewer than its last [N] tools on the same part, so the insert and the coolant are worth checking before it shows up as first-off rejections.",
+        copy: "Check the insert and coolant on [machine] before the next batch: tool [T12] is lasting about [N] parts fewer than its last [N] tools on the same part.",
       },
     ],
     energyNote:
