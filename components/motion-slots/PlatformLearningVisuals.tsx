@@ -27,13 +27,16 @@ function startImprove(root: HTMLElement, { reduce }: SlotLoopOptions) {
   const score = (better: boolean) => {
     if (candidate) candidate.style.transform = better ? "scaleX(1.3)" : "scaleX(0.7)";
   };
+  const fadeOut = () => toggle(root, "[data-decision], [data-replay], [data-card], [data-count]", "is-on", false);
   const reset = () => {
-    toggle(root, "[data-decision], [data-replay], [data-card]", "is-on", false);
     counts("before");
     score(false);
   };
   const decide = (i: number) => () => root.querySelector(`[data-decision="${DECISIONS[i].id}"]`)?.classList.add("is-on");
-  const learn = () => counts("after");
+  const learn = () => {
+    counts("after");
+    toggle(root, "[data-count]", "is-on", true);
+  };
   const replay = () => {
     toggle(root, "[data-replay]", "is-on", true);
     score(true);
@@ -47,14 +50,17 @@ function startImprove(root: HTMLElement, { reduce }: SlotLoopOptions) {
     approve();
     return () => undefined;
   }
+  fadeOut();
+  reset();
   return cycle([
-    [reset, 1000],
-    [decide(0), 650],
-    [decide(1), 650],
-    [decide(2), 900],
-    [learn, 1200],
-    [replay, 1500],
-    [approve, 2600],
+    [decide(0), 400],
+    [decide(1), 400],
+    [decide(2), 600],
+    [learn, 800],
+    [replay, 1000],
+    [approve, 2200],
+    [fadeOut, 500],
+    [reset, 450],
   ]);
 }
 
@@ -113,7 +119,7 @@ export function ImproveLoopVisual() {
             <text className="val" x="436" y={92 + i * 62} {...BOLD} fontSize="12">
               {p.text}
             </text>
-            <text data-count={p.id} className="mute-txt" x="436" y={114 + i * 62} fontSize="12">
+            <text data-count={p.id} className="mute-txt sm-dim" x="436" y={114 + i * 62} fontSize="12">
               {p.before}
             </text>
           </g>
@@ -136,27 +142,25 @@ export function ImproveLoopVisual() {
 const SOURCES = ["Heater log", "Rejections", "Shift roster"];
 
 function startAsk(root: HTMLElement, { reduce }: SlotLoopOptions) {
-  const reset = () => toggle(root, "[data-q], [data-src], [data-answer], [data-card]", "is-on", false);
-  const ask = () => toggle(root, "[data-q]", "is-on", true);
+  const reset = () => toggle(root, "[data-src], [data-answer], [data-card]", "is-on", false);
   const read = (i: number) => () => root.querySelector(`[data-src="${i}"]`)?.classList.add("is-on");
   const answer = () => toggle(root, "[data-answer]", "is-on", true);
   const act = () => toggle(root, "[data-card]", "is-on", true);
 
   if (reduce) {
-    ask();
     SOURCES.forEach((_, i) => read(i)());
     answer();
     act();
     return () => undefined;
   }
+  reset();
   return cycle([
-    [reset, 900],
-    [ask, 1100],
-    [read(0), 550],
-    [read(1), 550],
-    [read(2), 800],
-    [answer, 1400],
-    [act, 2600],
+    [read(0), 350],
+    [read(1), 350],
+    [read(2), 500],
+    [answer, 1000],
+    [act, 2200],
+    [reset, 650],
   ]);
 }
 
@@ -169,7 +173,7 @@ export function AskPlantVisual() {
     >
       <svg viewBox="0 0 720 450" xmlns="http://www.w3.org/2000/svg">
         <rect width="720" height="450" fill="#EEF981" />
-        <g data-q className="sm-reveal">
+        <g>
           <rect className="rx" x="228" y="28" width="464" height="56" rx="8" />
           <text className="val" x="248" y="62" {...BOLD} fontSize="18">
             Where are we losing good parts this week?
