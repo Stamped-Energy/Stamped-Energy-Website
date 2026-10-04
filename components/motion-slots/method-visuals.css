@@ -1,0 +1,96 @@
+/* Solution page "how we do it" visuals. State is driven by class toggles from SolutionMethodVisuals.tsx. */
+
+.sm-slot .sm-reveal {
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+.sm-slot .sm-reveal.is-on {
+  opacity: 1;
+}
+
+.sm-slot .sm-dim {
+  opacity: 0.42;
+  transition: opacity 0.35s ease;
+}
+
+.sm-slot .sm-dim.is-on {
+  opacity: 1;
+}
+
+.sm-slot .sm-band {
+  fill: currentColor;
+  opacity: 0.12;
+}
+
+.sm-slot .sm-trial {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-dasharray: 5 4;
+  stroke-linecap: round;
+  transition: opacity 0.45s ease;
+}
+
+.sm-slot .sm-trial.is-fail {
+  opacity: 0.28;
+}
+
+.sm-slot .sm-trial.is-best {
+  stroke-dasharray: none;
+  stroke-width: 2.2;
+}
+
+.sm-slot .sm-fillbox {
+  fill: currentColor;
+  fill-opacity: 0;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  transition: fill-opacity 0.35s ease;
+}
+
+.sm-slot .is-flag .sm-fillbox {
+  fill-opacity: 0.18;
+}
+
+.sm-slot .sm-job {
+  fill: currentColor;
+  fill-opacity: 0.22;
+  stroke: currentColor;
+  stroke-width: 1.2;
+}
+
+.sm-slot .sm-move {
+  transition: transform 0.75s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.45s ease;
+}
+
+.sm-slot .sm-stretch {
+  transform-box: fill-box;
+  transform-origin: 0 50%;
+  transition: transform 0.9s cubic-bezier(0.25, 1, 0.5, 1), fill-opacity 0.35s ease;
+}
+
+.sm-slot .sm-stretch.is-late {
+  fill-opacity: 0.55;
+}
+
+.sm-slot .sm-gap {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.2;
+  stroke-dasharray: 4 4;
+  opacity: 0.6;
+}
+
+.hiw-acid .pill-ink {
+  fill: #eef981;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sm-slot .sm-reveal,
+  .sm-slot .sm-dim,
+  .sm-slot .sm-move,
+  .sm-slot .sm-stretch {
+    transition: none;
+  }
+}
