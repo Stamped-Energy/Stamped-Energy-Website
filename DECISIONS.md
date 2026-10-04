@@ -766,3 +766,42 @@ Architecture and workflow decisions for this project.
 **Rationale:** Audits give a before and after number instead of a checklist, and avoiding runtime SEO packages keeps the bundle and the architecture unchanged. Generating the AI files from `lib/content` keeps them in step with the copy.
 
 **Impact:** GEO average 69.9 to 86.5. Lighthouse averages: accessibility 0.92 to 0.96, SEO 0.978 to 0.985 (the remaining misses are local robots.txt fetch timeouts). Files: `lib/seo/*`, `app/{feed.xml,ai,.well-known}/`, `lib/content/{solutions,platform}.ts`, `components/ui/{FaqSection,Button}.tsx`, `scripts/{seo-check.ts,geo-audit.py}`, `SEO_GEO_AEO.md`, `public/llms.txt`.
+
+## ADR-041: Animation resume, mobile overflow fix and a "how we do it" section on solution pages
+
+**Date:** 2026-10-04
+
+**Context:** Vinayak raised three things. The homepage What Stamped does animation replayed its intro whenever it scrolled back into view. Parts of How it works and `/platform` ran past the screen on phones, and the What we do section was dense there. The solution pages opened with long paragraphs, and he wanted a section explaining how each area works, with some technology but generalised headings.
+
+**Alternatives:** (1) Keep animations running offscreen so they never restart. (2) Pause offscreen and pass a resume flag so engines skip their intro. For the solution pages: (a) longer hero copy naming methods, (b) a separate section after Example actions with a general heading, light method wording and a new animation per area.
+
+**Selected:** Option 2 and option (b).
+- `useSlotLoop` passes `resume: true` on every start after the first. `WhatIsProductVisual` then jumps straight to its docked, live state. The other loops have no intro, so they are unchanged.
+- The overflow came from `aspect-ratio` combined with a mobile `min-height` on the visual slots, which forced their width past the screen. Mobile min-heights were removed, grid columns get `min-w-0`, and `.hiw-slot` clips its content. What we do gets smaller type and padding below `md`.
+- Each solution area has a `method` block in `lib/content/solutions.ts` (heading, paragraph, three steps), shown by `SolutionMethodSection` right after Example actions, with text on the left and a `SolutionMethodVisual` animation on the right (text first on phones). Hero intros are two sentences, and each area has four example actions.
+- Headings stay general ("How Stamped improves control", "catches it early", "re-plans", "plans the fix"). The paragraphs may mention a method lightly, such as a working model of the line, learning-based control, or models trained on past rejections. This loosens ADR-038's naming rule for the solution pages only.
+
+**Rationale:** Pausing offscreen saves work on long pages, and a resume flag keeps that without a visible replay. Fixing the sizing cause is safer than clipping every animation. A separate section keeps the hero short while still showing depth to technical readers.
+
+**Impact:** `components/motion-slots/{useSlotLoop,WhatIsProductVisual,SolutionMethodVisuals}.tsx`, `components/motion-slots/{hiw-chromes,method-visuals}.css`, `components/solutions/{SolutionMediaSlot,SolutionMethodSection,SolutionAreaPage}.tsx`, `components/how-it-works/*`, `components/ui/FaqSection.tsx`, `lib/content/solutions.ts`, `public/llms.txt`.
+
+## ADR-042: Self-improving system, Ask and quiet-shift discovery on the site
+
+**Date:** 2026-10-04
+
+**Context:** Vinayak asked that the site show more of what the technology does, aligned with the expanded master document (`stamped-external` section 5): the self-improving agentic system, continuous retraining of plant models, asking the plant questions, and finding losses even when nothing has broken. He asked for confident present-tense copy, and declined two proposed trust lines (two model families agreeing, constraints checked by code).
+
+**Selected:**
+- `/platform`: a new "A system that gets better every week." section after Models (badge "Self-improving"), with four steps (learns from every decision, retrained on your data, tested before it changes, a record you can read) and an `ImproveLoopVisual` animation. "Ask your plant" added as a fourth item in "Your working view" with an `AskPlantVisual` animation; that section's title now mentions a place to ask. "Model the plant and rank the losses" adds the once-a-shift sweep.
+- Homepage: What Stamped does adds "It is a self-improving agentic system, so it gets better with every result."; How it works step 4 says the models retrain on each result; a new FAQ "Does Stamped get better over time?" (also in FAQ JSON-LD, `/ai/faq.json` and `llms.txt`).
+- The text-left, animation-right layout of the solution "How Stamped ..." sections is now the shared `StepsVisualSection`.
+
+**Rationale:** Self-improvement and retraining are the strongest differences in the stack and were absent from the site. Every mention keeps "your team approves", matching the master document's speech rules.
+
+**Impact:** `lib/content/{platform,landing}.ts`, `components/ui/StepsVisualSection.tsx`, `components/solutions/SolutionMethodSection.tsx`, `components/motion-slots/{PlatformLearningVisuals,SolutionMethodVisuals}.tsx`, `components/how-it-works/PlatformZigZagVisual.tsx`, `app/platform/page.tsx`, `public/llms.txt`.
+
+## ADR-043: Example action cards, one label and fewer placeholders (4 Oct 2026)
+
+**Context:** Example action sections said "Example actions" in the heading and again as an "Example" pill on every card, and many cards carried three to five [bracketed] placeholders.
+**Decision:** The per-card "Example" pill is dropped wherever the section is already headed "Example actions" (homepage hero panel and mobile strip, solution pages, industry pages); the energy cards on `/solutions` keep it because that section has no such heading. Every example action now has at most one [bracketed] placeholder, and most have none: machine names are written plainly (Furnace 2, Press 3, bin 14) and secondary numbers are described in words.
+**Impact:** Supersedes the per-card "Example" label in ADR-033's card rule. The "Numbers in [brackets] are placeholders" notes stay.

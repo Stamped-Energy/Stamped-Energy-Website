@@ -5,6 +5,7 @@ import {
   DecisionsStageVisual,
   PrescriptionsStageVisual,
 } from "@/components/motion-slots/HiwStageVisuals";
+import { AskPlantVisual } from "@/components/motion-slots/PlatformLearningVisuals";
 
 export function PlatformZigZagVisual({ itemId }: { itemId: string }) {
   switch (itemId) {
@@ -14,6 +15,8 @@ export function PlatformZigZagVisual({ itemId }: { itemId: string }) {
       return <PrescriptionsStageVisual />;
     case "agents":
       return <DecisionsStageVisual />;
+    case "ask":
+      return <AskPlantVisual />;
     default:
       return null;
   }

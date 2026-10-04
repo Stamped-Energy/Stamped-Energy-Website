@@ -117,7 +117,7 @@ export const automotivePage: VerticalPageContent = {
         area: "Quality",
         title: "Forging, for the inspector",
         description:
-          "Bin [14] was made after a [9]-minute stop with the die below temperature, and bins made that way were rejected more often last quarter, so it is worth checking before it moves on.",
+          "Bin 14 was made after a long stop with the die below temperature, and bins made that way were rejected more often last quarter, so it is worth checking before it moves on.",
         impactRange: "Example",
       },
       {
@@ -125,7 +125,7 @@ export const automotivePage: VerticalPageContent = {
         area: "Process",
         title: "Forging, for the shift lead",
         description:
-          "Keep the heater warm during stops shorter than [N] minutes, starting from A shift, because last month's restarts sent [N] parts out of window.",
+          "Keep the heater warm during short stops, starting from A shift, because last month's restarts sent [N] parts out of window.",
         impactRange: "Example",
       },
       {
@@ -133,7 +133,7 @@ export const automotivePage: VerticalPageContent = {
         area: "Quality",
         title: "Heat treatment, for the heat-treatment lead",
         description:
-          "Basket [B-07] reached ageing [N] minutes after quench against a written limit of [N], and its full record is attached for the audit file.",
+          "Basket B-07 reached ageing [N] minutes after quench, past its written limit, and its full record is attached for the audit file.",
         impactRange: "Example",
       },
       {
@@ -141,7 +141,7 @@ export const automotivePage: VerticalPageContent = {
         area: "Planning",
         title: "Heat treatment, for the heat-treatment lead",
         description:
-          "The next basket on Furnace [2] is well below a normal load, and a lot on the same recipe is ready by [time], so the two can run together without mixing grades.",
+          "The next basket on Furnace 2 is well below a normal load, and a lot on the same recipe is nearly ready, so the two can run together without mixing grades.",
         impactRange: "Example",
       },
       {
@@ -149,7 +149,7 @@ export const automotivePage: VerticalPageContent = {
         area: "Energy",
         title: "Heat treatment, for the shift lead",
         description:
-          "Furnace [3] reached temperature about [N] minutes before the next charge was ready on most days last week, so heat-up can start later without moving the load time.",
+          "Furnace 3 reached temperature about [N] minutes before the next charge was ready on most days last week, so heat-up can start later without moving the load time.",
         impactRange: "Example",
       },
       {
@@ -157,7 +157,7 @@ export const automotivePage: VerticalPageContent = {
         area: "Maintenance",
         title: "Machining, for the tool room",
         description:
-          "Tool [T12] on [machine] is lasting about [N] parts fewer than its last [N] tools on the same part, so the insert and the coolant are worth checking before it shows up as first-off rejections.",
+          "The current tool on VMC 3 is lasting about [N] parts fewer than the last few on the same part, so the insert and the coolant are worth checking before it shows up as first-off rejections.",
         impactRange: "Example",
       },
       {
@@ -165,7 +165,7 @@ export const automotivePage: VerticalPageContent = {
         area: "Process",
         title: "Die casting, for the cell lead",
         description:
-          "Castings from the first [N] shots after a die change on cell [4] failed leak test more often last month, so a longer warm-up before releasing parts is ready for your review.",
+          "Castings from the first few shots after a die change on cell 4 failed leak test more often last month, so a longer warm-up before releasing parts is ready for your review.",
         impactRange: "Example",
       },
       {
@@ -173,7 +173,7 @@ export const automotivePage: VerticalPageContent = {
         area: "Process",
         title: "Rubber moulding, for the process engineer",
         description:
-          "Compound batch [N] is curing faster than the last [N] on the rheometer, so a shorter cure on presses [2] and [5] is ready for review before the next shift.",
+          "The latest compound batch is curing faster than recent ones on the rheometer, so a shorter cure on presses 2 and 5 is ready for review before the next shift.",
         impactRange: "Example",
       },
       {
@@ -181,7 +181,7 @@ export const automotivePage: VerticalPageContent = {
         area: "Planning",
         title: "Planning, for the planner",
         description:
-          "Press [3] will be down for about [N] hours, and the proposed re-plan keeps [N] of today's [N] dispatches on time if it is confirmed by [time].",
+          "Press 3 will be down for about [N] hours, and the proposed re-plan keeps today's dispatches on time if it is confirmed before the shift change.",
         impactRange: "Example",
       },
     ],

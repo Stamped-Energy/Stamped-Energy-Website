@@ -110,7 +110,7 @@ export const pharmaPage: VerticalPageContent = {
         area: "Process",
         title: "Drying, for the production manager",
         description:
-          "Drying on FBD [2] has run about [N] minutes longer than the best batches of this product, with inlet air humidity the main difference, so the moisture end point is worth checking before the next batch.",
+          "Drying on FBD 2 has run about [N] minutes longer than the best batches of this product, with inlet air humidity the main difference, so the moisture end point is worth checking before the next batch.",
         impactRange: "Example",
       },
       {
@@ -118,7 +118,7 @@ export const pharmaPage: VerticalPageContent = {
         area: "Quality",
         title: "Compression, for QA",
         description:
-          "Batch [N] was compressed while hardness drifted toward the upper limit for [N] minutes, similar to the batches behind last quarter's dissolution deviations, so it is worth an extra review before release.",
+          "This batch was compressed while hardness drifted toward the upper limit for [N] minutes, similar to the batches behind last quarter's dissolution deviations, so it is worth an extra review before release.",
         impactRange: "Example",
       },
       {
@@ -126,7 +126,7 @@ export const pharmaPage: VerticalPageContent = {
         area: "Quality",
         title: "Investigation, for the QA lead",
         description:
-          "Here is every equipment, environmental and process record for batch [N], gathered in one place for the deviation opened this morning.",
+          "Here is every equipment, environmental and process record for the batch, gathered in one place for the deviation opened this morning.",
         impactRange: "Example",
       },
       {
@@ -134,7 +134,7 @@ export const pharmaPage: VerticalPageContent = {
         area: "Planning",
         title: "Planning, for the planner",
         description:
-          "Granulator [1] will be down for about [N] hours, and the proposed sequence moves [product] forward so [N] of this week's [N] batches still finish on time.",
+          "Granulator 1 will be down for about [N] hours, and the proposed sequence brings the next product forward so this week's batches still finish on time.",
         impactRange: "Example",
       },
       {
@@ -142,7 +142,7 @@ export const pharmaPage: VerticalPageContent = {
         area: "Maintenance",
         title: "HVAC, for engineering",
         description:
-          "Room [N]'s pressure differential has come close to its alarm limit on [N] days this month, each time after the air handler filter passed [N] hours, so a filter change before the next campaign is worth scheduling.",
+          "Room 4's pressure differential has come close to its alarm limit on [N] days this month, each time late in the air handler filter's life, so a filter change before the next campaign is worth scheduling.",
         impactRange: "Example",
       },
       {
@@ -150,7 +150,7 @@ export const pharmaPage: VerticalPageContent = {
         area: "Energy",
         title: "Utilities, for the utilities head",
         description:
-          "Air handlers serving rooms [N] to [N] ran at full flow through [N] idle hours last week, so an idle mode within what your validation allows is worth raising with QA.",
+          "Air handlers serving the granulation suite ran at full flow through [N] idle hours last week, so an idle mode within what your validation allows is worth raising with QA.",
         impactRange: "Example",
       },
     ],

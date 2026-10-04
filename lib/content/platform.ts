@@ -67,7 +67,7 @@ export const platformContent = {
 
   surfaces: {
     eyebrow: "Your working view",
-    title: "You get one picture of the plant and a ranked list of next actions, and your team decides what to act on.",
+    title: "One picture of the plant, a ranked list of next actions, and a place to ask.",
     description:
       "What changed, what matters and who should act sit side by side, so the right action reaches the floor.",
     items: [
@@ -89,8 +89,39 @@ export const platformContent = {
         description:
           "Your team can accept a recommendation, adjust it or turn it down, and Stamped learns from each answer.",
       },
+      {
+        id: "ask",
+        title: "Ask your plant",
+        description:
+          "Ask what is drifting, where good parts are being lost or who owns an action, and Stamped answers from your plant's own data, checking every number against the records before it replies.",
+      },
     ],
   } satisfies PlatformProseSection,
+
+  improve: {
+    badge: "Self-improving",
+    heading: "A system that gets better every week.",
+    paragraph:
+      "Stamped is a self-improving agentic system. It learns from every decision it sends and every one it holds back, retrains its models on your plant's data as it runs, and tests each improvement before your team approves it.",
+    steps: [
+      {
+        title: "Learns from every decision",
+        text: "What your team accepted, what worked, what held, and the actions it chose to hold back.",
+      },
+      {
+        title: "Retrained on your data",
+        text: "Line models are refitted as the plant runs, new parts learn before they recommend, and a die, coil or recipe change triggers a fresh check.",
+      },
+      {
+        title: "Tested before it changes",
+        text: "Each improvement is replayed on past shifts and run alongside the live version, then your team approves it, and it can be rolled back in one step.",
+      },
+      {
+        title: "A record you can read",
+        text: "Every lesson it keeps shows how often it helped and how often it hurt.",
+      },
+    ],
+  },
 
   models: {
     eyebrow: "Models",
@@ -151,7 +182,7 @@ export const platformContent = {
         id: "intelligence",
         title: "Model the plant and rank the losses",
         description:
-          "Stamped builds models of each line from its own history, including digital twins where the process allows, to learn what normal looks like and spot where efficiency is lost. Each possible fix is checked against the day's plan and production constraints, and what is left is ranked by what it is costing you.",
+          "Stamped builds models of each line from its own history, including digital twins where the process allows, to learn what normal looks like and spot where efficiency is lost. It also sweeps the whole plant once a shift, so it finds losses even when nothing has broken. Each possible fix is checked against the day's plan and production constraints, and what is left is ranked by what it is costing you.",
         mediaSrc: null,
         mediaAlt: "Losses checked against the plan and ranked by cost",
       },

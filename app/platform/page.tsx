@@ -8,6 +8,8 @@ import { HiwModelsGrid } from "@/components/how-it-works/HiwModelsGrid";
 import { HiwProseStack } from "@/components/how-it-works/HiwProseStack";
 import { HiwWhatWeDo } from "@/components/how-it-works/HiwWhatWeDo";
 import { BeforeYouBook } from "@/components/engagement/BeforeYouBook";
+import { ImproveLoopVisual } from "@/components/motion-slots/PlatformLearningVisuals";
+import { StepsVisualSection } from "@/components/ui/StepsVisualSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { platformContent } from "@/lib/content";
 import { breadcrumbHome, generateBreadcrumbSchema } from "@/lib/seo/breadcrumbs";
@@ -38,6 +40,14 @@ export default function PlatformPage() {
       <HiwWhatWeDo />
       <HiwProseStack content={platformContent.surfaces} sectionId="surfaces" />
       <HiwModelsGrid />
+      <StepsVisualSection
+        id="self-improving"
+        badge={platformContent.improve.badge}
+        heading={platformContent.improve.heading}
+        paragraph={platformContent.improve.paragraph}
+        steps={platformContent.improve.steps}
+        visual={<ImproveLoopVisual />}
+      />
       <HiwCapabilities />
       <HiwOutcomesBand />
       <HiwDeployment />

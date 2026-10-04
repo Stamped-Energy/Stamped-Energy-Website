@@ -110,7 +110,7 @@ export const chemicalPage: VerticalPageContent = {
         area: "Process",
         title: "Reactor, for the process engineer",
         description:
-          "Heat-up on Reactor [R-3] has taken [N] minutes longer than the best batches of this product for the last [N] batches, so a jacket temperature ramp closer to those batches is ready for review.",
+          "Heat-up on Reactor R-3 has taken [N] minutes longer than the best batches of this product for the past week, so a jacket temperature ramp closer to those batches is ready for review.",
         impactRange: "Example",
       },
       {
@@ -118,7 +118,7 @@ export const chemicalPage: VerticalPageContent = {
         area: "Quality",
         title: "Reactor, for the shift chemist",
         description:
-          "Batch [N] is following the temperature and dosing path of the last [N] off-spec batches during the addition phase, so an in-process sample now would show whether the dosing rate needs correcting.",
+          "The current batch is following the temperature and dosing path of recent off-spec batches during the addition phase, so an in-process sample now would show whether the dosing rate needs correcting.",
         impactRange: "Example",
       },
       {
@@ -126,7 +126,7 @@ export const chemicalPage: VerticalPageContent = {
         area: "Planning",
         title: "Planning, for the planner",
         description:
-          "Reactor [R-2] is waiting on QC release for about [N] hours, and moving the next [product] batch to Reactor [R-4] keeps [N] of this week's [N] dispatches on time.",
+          "Reactor R-2 is waiting on QC release for about [N] hours, and moving the next batch to Reactor R-4 keeps this week's dispatches on time.",
         impactRange: "Example",
       },
       {
@@ -134,7 +134,7 @@ export const chemicalPage: VerticalPageContent = {
         area: "Energy",
         title: "Utilities, for the utilities in-charge",
         description:
-          "Steam demand is due to peak at [time] when [N] reactors start heating together, so staggering the starts by [N] minutes would keep the boiler in its efficient range without delaying any batch.",
+          "Steam demand is due to peak when three reactors start heating together, so staggering the starts would keep the boiler in its efficient range without delaying any batch.",
         impactRange: "Example",
       },
       {
@@ -142,7 +142,7 @@ export const chemicalPage: VerticalPageContent = {
         area: "Maintenance",
         title: "Reactor, for the maintenance lead",
         description:
-          "Cooling on Reactor [R-1] has crept up by about [N] minutes per batch over [N] weeks on the same recipe, which often points to jacket fouling, so it is worth inspecting at the next cleaning.",
+          "Cooling on Reactor R-1 has crept up by about [N] minutes per batch over several weeks on the same recipe, which often points to jacket fouling, so it is worth inspecting at the next cleaning.",
         impactRange: "Example",
       },
       {

@@ -28,7 +28,7 @@ export function FaqSection({ items, title = "Common questions", className = "bg-
               className="group border border-outline-variant/50 bg-surface-lowest px-5 py-4 text-left md:px-6 md:py-5 [&_summary::-webkit-details-marker]:hidden"
             >
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-bold text-on-surface outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 md:text-lg">
-                {item.question}
+                <span className="min-w-0 flex-1">{item.question}</span>
                 <span
                   aria-hidden="true"
                   className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-outline-variant/60 text-primary transition-transform duration-300 group-open:rotate-45"

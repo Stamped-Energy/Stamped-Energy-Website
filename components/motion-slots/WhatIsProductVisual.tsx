@@ -72,7 +72,7 @@ function tweenVal(from: number, to: number, duration: number, apply: (v: number)
   });
 }
 
-function startWhatIs(root: HTMLElement, { reduce }: SlotLoopOptions) {
+function startWhatIs(root: HTMLElement, { reduce, resume }: SlotLoopOptions) {
   let live = true;
   const isLive = () => live;
   const q = <T extends Element>(sel: string) => root.querySelector<T>(sel);
@@ -238,6 +238,16 @@ function startWhatIs(root: HTMLElement, { reduce }: SlotLoopOptions) {
       clockRaf = requestAnimationFrame(tick);
     }
   };
+
+  if (resume) {
+    showDocked();
+    startLiveIcons();
+    startPackets();
+    return () => {
+      live = false;
+      cancelAnimationFrame(clockRaf);
+    };
+  }
 
   void (async () => {
     try {

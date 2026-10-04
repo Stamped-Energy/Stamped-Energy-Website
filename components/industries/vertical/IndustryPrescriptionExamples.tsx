@@ -63,16 +63,11 @@ export function IndustryPrescriptionExamples({ slug }: IndustryPrescriptionExamp
               data-prescription-card
               className="flex flex-col rounded-xl border border-outline-variant/50 bg-surface-lowest p-5 md:p-6"
             >
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="rounded-full bg-primary/10 px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-primary">
-                  {item.impactRange}
+              {item.area ? (
+                <span className="self-start rounded-full border border-outline-variant/60 px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-on-surface-variant">
+                  {item.area}
                 </span>
-                {item.area ? (
-                  <span className="rounded-full border border-outline-variant/60 px-2.5 py-1 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-on-surface-variant">
-                    {item.area}
-                  </span>
-                ) : null}
-              </div>
+              ) : null}
               <h3 className="mt-4 text-xs font-semibold uppercase tracking-[0.1em] text-on-surface-variant">
                 {item.title}
               </h3>

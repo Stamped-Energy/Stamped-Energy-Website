@@ -110,7 +110,7 @@ export const steelPage: VerticalPageContent = {
         area: "Process",
         title: "Melt shop, for the melt-shop in-charge",
         description:
-          "Heats on Furnace [1] this week tapped about [N]°C hotter than the grade needs, compared with the best crew's practice, so a lower tap-temperature aim is ready for your review.",
+          "Heats on Furnace 1 this week tapped about [N]°C hotter than the grade needs, compared with the best crew's practice, so a lower tap-temperature aim is ready for your review.",
         impactRange: "Example",
       },
       {
@@ -126,7 +126,7 @@ export const steelPage: VerticalPageContent = {
         area: "Planning",
         title: "Rolling, for the mill planner",
         description:
-          "The mill is expected to stop for about [N] minutes, so holding the next [N] billets at the caster and rolling the [section] order first keeps hot charging going for most of the shift.",
+          "The mill is expected to stop for about [N] minutes, so holding the next billets at the caster and rolling the angle order first keeps hot charging going for most of the shift.",
         impactRange: "Example",
       },
       {
@@ -134,7 +134,7 @@ export const steelPage: VerticalPageContent = {
         area: "Energy",
         title: "Reheating, for the furnace operator",
         description:
-          "Billets sat in the furnace about [N] minutes longer than the mill needed during last week's delays, so lowering zone setpoints during delays longer than [N] minutes is ready for review.",
+          "Billets sat in the furnace about [N] minutes longer than the mill needed during last week's delays, so lowering zone setpoints during long delays is ready for review.",
         impactRange: "Example",
       },
       {
@@ -142,7 +142,7 @@ export const steelPage: VerticalPageContent = {
         area: "Maintenance",
         title: "Rolling, for the mill maintenance lead",
         description:
-          "Stand [N] has had [N] cobbles this month on the same section, mostly within [N] minutes of a guide change, so the guide setup is the first thing to check.",
+          "Stand 6 has had [N] cobbles this month on the same section, mostly soon after a guide change, so the guide setup is the first thing to check.",
         impactRange: "Example",
       },
       {
@@ -150,7 +150,7 @@ export const steelPage: VerticalPageContent = {
         area: "Maintenance",
         title: "Melt shop, for the electrical lead",
         description:
-          "Power per tonne on Furnace [2] has crept up on the same charge mix over [N] weeks, so the lining and the power connections are worth checking at the next relining window.",
+          "Power per tonne on Furnace 2 has crept up on the same charge mix for several weeks, so the lining and the power connections are worth checking at the next relining window.",
         impactRange: "Example",
       },
     ],

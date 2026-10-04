@@ -126,7 +126,7 @@ export const cementPage: VerticalPageContent = {
         area: "Energy",
         title: "Cement mill, for the mill in-charge",
         description:
-          "Mill [2] is using more power per tonne than in its best week on the same grade and fineness, and separator speed is the main difference, so a new setting is ready for your review.",
+          "Mill 2 is using more power per tonne than in its best week on the same grade and fineness, and separator speed is the main difference, so a new setting is ready for your review.",
         impactRange: "Example",
       },
       {
@@ -134,7 +134,7 @@ export const cementPage: VerticalPageContent = {
         area: "Planning",
         title: "Planning, for the planner",
         description:
-          "Kiln [1] is expected to be down for about [N] hours, and the proposed mill and dispatch plan keeps [N] of today's [N] trucks on time using clinker already in the silo.",
+          "Kiln 1 is expected to be down for about [N] hours, and the proposed mill and dispatch plan keeps today's trucks on time using clinker already in the silo.",
         impactRange: "Example",
       },
       {
@@ -142,7 +142,7 @@ export const cementPage: VerticalPageContent = {
         area: "Maintenance",
         title: "Kiln, for the maintenance lead",
         description:
-          "Shell temperature in zone [N] has crept up by about [N]°C over [N] days, which is worth checking against the last refractory survey before it becomes a hot spot.",
+          "Shell temperature in zone 3 has crept up by about [N]°C over the past few days, which is worth checking against the last refractory survey before it becomes a hot spot.",
         impactRange: "Example",
       },
       {
@@ -150,7 +150,7 @@ export const cementPage: VerticalPageContent = {
         area: "Maintenance",
         title: "Fans, for the electrical lead",
         description:
-          "Fan [N] is drawing more power for the same flow than it did [N] weeks ago, so the impeller and dampers are worth inspecting at the next stop.",
+          "The ID fan is drawing more power for the same flow than it did a month ago, so the impeller and dampers are worth inspecting at the next stop.",
         impactRange: "Example",
       },
     ],

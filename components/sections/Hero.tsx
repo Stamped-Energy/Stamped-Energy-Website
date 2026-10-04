@@ -107,7 +107,7 @@ export function Hero() {
           <HeroPlantFlow />
           <div className="mt-5 lg:hidden">
             <p className="font-mono text-[0.68rem] font-medium uppercase tracking-[0.12em] text-primary">
-              {hero.actionPanel.title} · {hero.actionPanel.badge}
+              {hero.actionPanel.title}
             </p>
             <ul className="-mx-4 mt-3 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 [scrollbar-width:none] sm:-mx-6 sm:px-6">
               {mobileActionCards.map((card) => (

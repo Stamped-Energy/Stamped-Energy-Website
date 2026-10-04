@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { BeforeYouBook } from "@/components/engagement/BeforeYouBook";
 import { SolutionExampleCards } from "@/components/solutions/SolutionExampleCards";
+import { SolutionMethodSection } from "@/components/solutions/SolutionMethodSection";
 import { SolutionsHero } from "@/components/solutions/SolutionsHero";
 import { Container } from "@/components/ui/Container";
 import { FaqSection } from "@/components/ui/FaqSection";
@@ -35,7 +36,7 @@ export function SolutionAreaPage({ area }: { area: SolutionArea }) {
               What the people who own the problem receive
             </h2>
           </Reveal>
-          <SolutionExampleCards label="Example" items={area.examples} className="mt-8 md:mt-10" />
+          <SolutionExampleCards items={area.examples} className="mt-8 md:mt-10" />
           {area.note ? (
             <p className="mt-6 max-w-3xl text-sm leading-7 text-on-surface-variant md:text-base">{area.note}</p>
           ) : null}
@@ -43,7 +44,9 @@ export function SolutionAreaPage({ area }: { area: SolutionArea }) {
         </Container>
       </section>
 
-      <section className="border-b border-outline-variant/30 bg-surface-low section-y">
+      <SolutionMethodSection area={area} />
+
+      <section className="border-b border-outline-variant/30 bg-surface section-y">
         <Container>
           <Reveal>
             <SectionBadge label={energy.eyebrow} />
@@ -61,7 +64,7 @@ export function SolutionAreaPage({ area }: { area: SolutionArea }) {
         </Container>
       </section>
 
-      <section className="border-b border-outline-variant/30 bg-surface section-y">
+      <section className="border-b border-outline-variant/30 bg-surface-low section-y">
         <Container>
           <Reveal>
             <SectionBadge label="By industry" />
