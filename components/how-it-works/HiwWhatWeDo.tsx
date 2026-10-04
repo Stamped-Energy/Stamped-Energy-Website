@@ -21,9 +21,12 @@ export function HiwWhatWeDo() {
               </h2>
             </Reveal>
             <Reveal delay={0.05}>
-              <div className="space-y-5">
+              <div className="space-y-4 md:space-y-5">
                 {whatWeDo.paragraphs.map((paragraph) => (
-                  <p key={paragraph.slice(0, 32)} className="text-base leading-8 text-on-surface/80 md:text-lg">
+                  <p
+                    key={paragraph.slice(0, 32)}
+                    className="text-[15px] leading-7 text-on-surface/80 md:text-lg md:leading-8"
+                  >
                     {paragraph}
                   </p>
                 ))}
@@ -51,7 +54,7 @@ export function HiwWhatWeDo() {
 
           <Reveal delay={0.05}>
             <figure
-              className="mx-auto mt-10 max-w-6xl md:mt-14"
+              className="mx-auto mt-8 max-w-6xl md:mt-14"
               aria-label="Diagram: plant data feeds models, models produce actions, actions lead to results, and what each result shows goes back into the models."
             >
               <ol className="grid gap-3 md:grid-cols-4 md:gap-5">
@@ -59,7 +62,7 @@ export function HiwWhatWeDo() {
                   <li
                     key={step.id}
                     className={cn(
-                      "relative flex flex-col rounded-xl border p-5 md:p-6",
+                      "relative flex min-w-0 flex-col rounded-xl border p-4 md:p-6",
                       step.id === "actions"
                         ? "border-primary/50 bg-primary/5"
                         : "border-outline-variant/60 bg-surface-lowest",

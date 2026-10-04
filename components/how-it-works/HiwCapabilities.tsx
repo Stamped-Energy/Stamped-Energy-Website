@@ -83,7 +83,7 @@ export function HiwCapabilities() {
               <article
                 key={item.id}
                 data-capability-card
-                className="group flex flex-col overflow-hidden rounded-2xl border border-outline-variant/50 bg-surface-lowest shadow-sm transition-shadow duration-300 hover:shadow-[0_20px_48px_-28px_color-mix(in_srgb,var(--brand-primary)_45%,transparent)]"
+                className="group flex min-w-0 flex-col overflow-hidden rounded-2xl border border-outline-variant/50 bg-surface-lowest shadow-sm transition-shadow duration-300 hover:shadow-[0_20px_48px_-28px_color-mix(in_srgb,var(--brand-primary)_45%,transparent)]"
               >
                 <div className="relative min-h-[15rem] overflow-hidden border-b border-outline-variant/40 bg-surface-lowest sm:min-h-[12.5rem] sm:aspect-[16/10] md:min-h-0">
                   <CapabilityVisual capability={item} />

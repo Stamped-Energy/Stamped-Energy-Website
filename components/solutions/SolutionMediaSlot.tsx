@@ -8,7 +8,10 @@ type SolutionMediaSlotProps = {
   children?: ReactNode;
 };
 
-/** Solution How-it-works visual plane. Empty → reserved placeholder. */
+/**
+ * Solution How-it-works visual plane. Empty → reserved placeholder.
+ * No min-height below md: with the 16/10 aspect ratio it would force the width past a phone screen.
+ */
 export function SolutionMediaSlot({
   label,
   className,
@@ -18,7 +21,7 @@ export function SolutionMediaSlot({
   return (
     <div
       className={cn(
-        "relative flex w-full min-h-[14rem] items-center justify-center overflow-hidden rounded-md border md:min-h-[18rem]",
+        "relative flex w-full min-w-0 items-center justify-center overflow-hidden rounded-md border md:min-h-[18rem]",
         "aspect-[16/10]",
         dark
           ? children

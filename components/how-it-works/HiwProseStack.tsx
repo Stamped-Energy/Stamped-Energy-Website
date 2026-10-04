@@ -34,15 +34,15 @@ export function HiwProseStack({ content, sectionId, className }: HiwProseStackPr
             return (
               <li key={item.id} id={item.id} className="py-8 md:py-10">
                 <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-10">
-                  <div className={cn(!mediaFirst && "lg:order-2")}>
+                  <div className={cn("min-w-0", !mediaFirst && "lg:order-2")}>
                     <SolutionMediaSlot
                       label={item.title}
-                      className="min-h-[16rem] md:min-h-[20rem]"
+                      className="md:min-h-[20rem]"
                     >
                       <PlatformZigZagVisual itemId={item.id} />
                     </SolutionMediaSlot>
                   </div>
-                  <div className={cn(!mediaFirst && "lg:order-1")}>
+                  <div className={cn("min-w-0", !mediaFirst && "lg:order-1")}>
                     <h3 className="font-display text-xl font-bold tracking-tight text-on-surface md:text-2xl">
                       {item.title}
                     </h3>

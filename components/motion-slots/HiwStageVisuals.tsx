@@ -882,7 +882,7 @@ export function DecisionsStageVisual() {
             fontSize="15"
             letterSpacing="0.4"
           >
-            Why · cycle time creeping up, same die
+            Why · cycle time creeping up
           </text>
           <text className="lbl" x="52" y="392">Example action · review on the floor</text>
         </g>
