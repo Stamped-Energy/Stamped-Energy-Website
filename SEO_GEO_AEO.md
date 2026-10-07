@@ -130,5 +130,6 @@ When a new profile exists, add its URL to `sameAs` in `organizationSchema` (`lib
 - ADR-032: `/resources` folded into `/case-studies`.
 - ADR-033 to ADR-039: copy v3, rebrand to Stamped, four improvement areas.
 - ADR-040 (2026-10-03): audit-driven pass described here.
+- ADR-045 (2026-10-08): target terms (planning and scheduling, utilisation, throughput and bottlenecks, predictive maintenance, industrial intelligence, AI agents, energy and load, power quality, MES/ERP/SCADA convergence, decarbonisation, plant-floor decisions) placed in visible copy, browser titles and two new FAQs. Check Search Console impressions for them from mid-November.
 
 Related: `PROGRESS.md`, `DECISIONS.md`, `docs/copy/stamped-copy-v3.md`.

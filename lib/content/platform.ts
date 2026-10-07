@@ -201,7 +201,7 @@ export const platformContent = {
     eyebrow: "What changes",
     title: "Keep what runs the plant, and add what turns its data into action.",
     description:
-      "Stamped works alongside the data, systems and operating knowledge already in your plant.",
+      "Stamped works alongside the automation, factory systems and operating knowledge already in your plant, and brings MES, ERP and SCADA data onto one timeline.",
     before: {
       title: "What you already have",
       items: [

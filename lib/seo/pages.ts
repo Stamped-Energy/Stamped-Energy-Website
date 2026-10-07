@@ -10,12 +10,15 @@ export type PageSeoConfig = {
 const HOW_IT_WORKS_SEO = {
   absoluteTitle: "How it works | Stamped",
   description:
-    "How Stamped models your plant from the data it already records, sends ranked actions to the people who own them, and checks each result against your baseline.",
+    "Stamped turns plant data into industrial intelligence: AI agents model your plant, send ranked actions to the floor and check each result against your baseline.",
   path: "/platform",
   keywords: [
     "AI for plant operations",
-    "manufacturing operational efficiency India",
-    "plant data to operator actions",
+    "plant data and industrial intelligence",
+    "AI agents for manufacturing",
+    "plant-floor decision-making",
+    "MES ERP SCADA convergence",
+    "automation and factory systems",
     "machine learning for manufacturing",
     "digital twin manufacturing",
   ],
@@ -33,6 +36,9 @@ export const PAGE_SEO = {
       "reduce rejection manufacturing",
       "predictive quality manufacturing India",
       "process optimisation manufacturing",
+      "throughput and bottleneck reduction",
+      "AI agents for manufacturing",
+      "plant-floor decision-making",
       "auto component manufacturing software",
     ],
   },
@@ -49,10 +55,13 @@ export const PAGE_SEO = {
       "predictive quality manufacturing India",
       "production re-planning software",
       "maintenance stop ranking",
+      "energy and load optimisation",
+      "utilities energy manufacturing",
+      "decarbonisation manufacturing",
     ],
   },
   solutionsProcess: {
-    absoluteTitle: "Process and control optimisation | Stamped",
+    absoluteTitle: "Process optimisation and control | Stamped",
     description:
       "Run better than your best shift. Stamped tests better control policies on a digital twin of your line and recommends them to your process engineers.",
     path: "/solutions/process",
@@ -65,12 +74,13 @@ export const PAGE_SEO = {
     ],
   },
   solutionsQuality: {
-    absoluteTitle: "Quality and lot checks before rejection | Stamped",
+    absoluteTitle: "Quality and rejection reduction | Stamped",
     description:
       "Catch the problem while the lot can still be saved. Stamped links process data to each lot and alerts your team in real time, before parts are rejected.",
     path: "/solutions/quality",
     keywords: [
       "predictive quality manufacturing",
+      "quality and rejection reduction",
       "real-time quality alarms",
       "rejection reduction auto component",
       "reduce rejection in forging",
@@ -79,11 +89,14 @@ export const PAGE_SEO = {
     ],
   },
   solutionsPlanning: {
-    absoluteTitle: "Planning and scheduling | Stamped",
+    absoluteTitle: "Production planning and scheduling | Stamped",
     description:
       "Re-plan with the whole plant in view. Stamped proposes the sequence that works best for the plant, with its effect on output, energy and delivery.",
     path: "/solutions/planning",
     keywords: [
+      "production planning and scheduling",
+      "machine utilisation idle time",
+      "throughput bottleneck reduction",
       "production re-planning manufacturing",
       "dynamic production planning",
       "furnace loading sequence",
@@ -91,12 +104,15 @@ export const PAGE_SEO = {
     ],
   },
   solutionsMaintenance: {
-    absoluteTitle: "Maintenance | Stamped",
+    absoluteTitle: "Predictive and prescriptive maintenance | Stamped",
     description:
       "Prescriptive maintenance, planned around production. Stamped ranks stops by what they cost and prescribes the fix and the best window to make it.",
     path: "/solutions/maintenance",
     keywords: [
+      "predictive maintenance manufacturing",
       "prescriptive maintenance manufacturing",
+      "operational continuity",
+      "power quality monitoring",
       "reduce downtime CNC machining",
       "maintenance stop ranking",
       "specific energy consumption monitoring",

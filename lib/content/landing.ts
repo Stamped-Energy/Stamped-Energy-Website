@@ -186,7 +186,7 @@ export const landingContent = {
       {
         id: "output",
         title: "More output from the same lines,",
-        detail: "with control, restarts and pacing improved beyond your best runs.",
+        detail: "with bottlenecks, idle time and restarts found and fixed, and control improved beyond your best runs.",
       },
       {
         id: "breakdowns",
@@ -274,7 +274,13 @@ export const landingContent = {
         id: "hardware",
         question: "Do we need new hardware, or another system next to MES, ERP and SCADA?",
         answer:
-          "No hardware retrofit is needed to get started, because Stamped is software that works with the systems you already run. It is not another MES or CMMS: your MES, ERP and SCADA are where the data comes from, and Stamped works alongside them.",
+          "No hardware retrofit is needed to get started, because Stamped is software that works with the systems you already run. It is not another MES or CMMS: your MES, ERP and SCADA are where the data comes from, and Stamped works alongside them. Stamped brings their data onto one timeline, so they finally work as one picture of the plant.",
+      },
+      {
+        id: "ai-agent",
+        question: "Is Stamped an AI agent for manufacturing?",
+        answer:
+          "Yes. Stamped runs AI agents for manufacturing that watch every line on every shift, turn plant data into industrial intelligence your team can use, and support decision-making at the plant-floor level. Stamped recommends and your team decides.",
       },
       {
         id: "supervisors",

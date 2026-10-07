@@ -57,7 +57,7 @@ const areas: SolutionArea[] = [
     homeSummary:
       "Improve your control policies instead of only repeating your best runs, with better settings, control rules and restart routines recommended to your engineers.",
     intro:
-      "Most process losses come from a setting that has slowly drifted, a restart night shift handles differently, or a line running faster than the next station can absorb. Stamped finds better settings, control rules and restart routines for each line and recommends them to your process engineer.",
+      "Most process losses come from a setting that has slowly drifted, a restart night shift handles differently, or a line running faster than the next station can absorb. Stamped's process optimisation finds better settings, control rules and restart routines for each line and recommends them to your process engineer.",
     method: {
       heading: "How Stamped improves control",
       paragraph:
@@ -215,11 +215,11 @@ const areas: SolutionArea[] = [
     homeSummary:
       "When the plan breaks, get a re-plan that accounts for the whole plant, along with what each option would do to output and delivery.",
     intro:
-      "Plans break in almost every shift, because a die change ran long, a furnace tripped or material arrived late. Stamped proposes the re-plan that works best for the whole plant and shows what each option does to output, energy and delivery.",
+      "Plans break in almost every shift, because a die change ran long, a furnace tripped or material arrived late. Stamped proposes the re-plan that works best for the whole plant, keeps machine utilisation up and idle time down, and shows what each option does to output, energy and delivery.",
     method: {
       heading: "How Stamped re-plans",
       paragraph:
-        "Stamped keeps a live picture of the plant: which machines are running, down or waiting, what each furnace is holding, what material is on hand, which dispatches are due and when maintenance is booked. When something changes, it compares possible sequences against those constraints and ranks them. Stamped recommends and your team decides.",
+        "Stamped keeps a live picture of the plant: which machines are running, down or waiting, what each furnace is holding, what material is on hand, which dispatches are due and when maintenance is booked. When something changes, it finds the bottleneck that limits throughput, compares possible sequences against those constraints and ranks them. Stamped recommends and your team decides.",
       steps: [
         { title: "Track", text: "The live state of machines, furnaces, material and dispatch." },
         { title: "Compare", text: "Possible sequences are scored for output, energy and delivery." },
@@ -334,7 +334,13 @@ const areas: SolutionArea[] = [
         id: "signs",
         question: "What early warning signs does Stamped watch?",
         answer:
-          "Specific energy consumption and other slow drift, such as a furnace burning more gas per kilo on the same recipe or a compressor running a little longer every week.",
+          "Specific energy consumption and other slow drift, such as a furnace burning more gas per kilo on the same recipe or a compressor running a little longer every week. Where the meters record it, power quality is watched too, such as voltage dips or a falling power factor on a motor or furnace supply.",
+      },
+      {
+        id: "predictive",
+        question: "Is this predictive maintenance?",
+        answer:
+          "Yes, and it goes a step further: Stamped predicts which machines are drifting toward a failure, then prescribes the fix and the best window for it, so maintenance protects operational continuity instead of interrupting production.",
       },
       {
         id: "rank",
@@ -370,10 +376,10 @@ export const solutionsContent = {
   areas,
 
   energy: {
-    eyebrow: "Energy",
+    eyebrow: "Energy and load",
     heading: "Energy follows every operating decision.",
     intro:
-      "A reheat or an hour of a furnace sitting hot and empty uses energy that never ends up in a good part. Because most of the saving comes from running the plant better, Stamped counts energy inside every action described above and measures it against your own baseline, with tariff windows and demand peaks treated as one input among many.",
+      "A reheat or an hour of a furnace sitting hot and empty uses energy that never ends up in a good part. Because most of the saving comes from running the plant better, Stamped counts energy inside every action described above and measures it against your own baseline, with tariff windows and demand peaks treated as one input among many. On the utilities side it looks at compressors, air, steam and cooling, and moves load away from demand peaks where the plan allows. Less energy in every good part is also the most practical step toward decarbonisation, and for plants electrifying process heat, Stamped counts electricity per good part the same way.",
     examples: [
       {
         id: "idle-furnace",

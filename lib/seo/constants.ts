@@ -17,7 +17,7 @@ export const ORGANIZATION_ID = `${SITE_URL}/#organization`;
 export const WEBSITE_ID = `${SITE_URL}/#website`;
 
 /** Last substantive edit to the static marketing pages. Bump with copy changes; feeds sitemap lastmod and WebPage dateModified. */
-export const CONTENT_UPDATED = "2026-10-04";
+export const CONTENT_UPDATED = "2026-10-08";
 
 export const GEO_METADATA = {
   "geo.region": "IN",
@@ -43,6 +43,16 @@ export const SEO_KEYWORDS = [
   "induction billet heater temperature control",
   "reduce downtime CNC machining",
   "8D root cause data",
+  "production planning and scheduling",
+  "machine utilisation and idle time",
+  "throughput and bottleneck reduction",
+  "predictive maintenance manufacturing",
+  "plant data and industrial intelligence",
+  "AI agents for manufacturing",
+  "energy and load optimisation",
+  "power quality and utilities",
+  "MES ERP SCADA convergence",
+  "plant-floor decision-making",
 ] as const;
 
 /** LinkedIn Company Page URL for Organization sameAs / GEO (per the website update plan, section 5). */
