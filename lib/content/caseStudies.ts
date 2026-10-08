@@ -42,7 +42,7 @@ export const caseStudiesContent = {
     eyebrow: "Resources",
     title: "Notes from the plant floor",
     description:
-      "Field notes, write-ups and case studies from Indian plant floors, on process, quality, planning, maintenance and energy.",
+      "Field notes and write-ups from Indian plant floors, on process, quality, planning, maintenance and energy.",
     primaryCta: { label: "Book a site survey", href: "/contact" },
     secondaryCta: { label: "See how it works", href: "/platform" },
     heroImageSrc: CASE_IMAGES.forging,

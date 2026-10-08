@@ -47,13 +47,13 @@ export const landingContent = {
         id: "shift-lead",
         area: "Process",
         role: "For the shift lead",
-        copy: "Keep the heater warm during stops shorter than [N] minutes, starting from A shift.",
+        copy: "Keep the heater warm during stops shorter than 10 minutes, starting from A shift.",
       },
       {
         id: "planner",
         area: "Planning",
         role: "For the planner",
-        copy: "Press 3 is down for about [N] hours, and a re-plan is ready for your review.",
+        copy: "Press 3 is down for about 3 hours, and a re-plan is ready for your review.",
       },
       {
         id: "maintenance-lead",
@@ -65,7 +65,7 @@ export const landingContent = {
         id: "ht-heatup",
         area: "Energy",
         role: "For the heat-treatment lead",
-        copy: "Furnace 2 is hot, but the next charge is not ready for another [N] hours, so heat-up can start later.",
+        copy: "Furnace 2 is hot, but the next charge is not ready for another 2 hours, so heat-up can start later.",
       },
       {
         id: "ht-load",
@@ -141,7 +141,7 @@ export const landingContent = {
         label: "Data",
         title: "Connects to what you already run.",
         description:
-          "Stamped works with the systems your plant already runs, so there is nothing new to install before we start.",
+          "Stamped works with the systems your plant already runs.",
         bullets: ["Machines, control systems and meters", "ERP plans and quality records"],
       },
       {
@@ -280,7 +280,7 @@ export const landingContent = {
         id: "ai-agent",
         question: "Is Stamped an AI agent for manufacturing?",
         answer:
-          "Yes. Stamped runs AI agents for manufacturing that watch every line on every shift, turn plant data into industrial intelligence your team can use, and support decision-making at the plant-floor level. Stamped recommends and your team decides.",
+          "In plain terms, yes. Stamped's AI agents for manufacturing read your plant's data on every shift, spot what is costing you output or quality, and send the right person a specific next step. That is industrial intelligence put to work in decision-making at the plant-floor level.",
       },
       {
         id: "supervisors",
@@ -298,7 +298,7 @@ export const landingContent = {
         id: "data",
         question: "Where does our data go?",
         answer:
-          "We sign an NDA before the site survey, and during the survey and the pilot we work only with the data your team agrees to share. You can ask us anything about where it is kept and who can see it before anything is connected.",
+          "We sign an NDA before the site survey. Stamped runs on a zero-trust architecture with encryption, your data is stored on cloud servers in India, and during the survey and the pilot we work only with the data your team agrees to share.",
       },
       {
         id: "reach-the-floor",
@@ -330,7 +330,7 @@ export const landingContent = {
     title: "Turn plant data into action.",
     description:
       "Spend a few days with us on your floor, and we'll give you a written read-out of where efficiency is being lost and what we would do first.",
-    smallLine: "There is nothing new to install to start, and Stamped recommends and your team decides.",
+    smallLine: "First finding usually within about two weeks.",
     primaryCta: { label: "Book a site survey", href: "/contact" } satisfies CtaLink,
     whatsappLabel: "WhatsApp us",
     /** Shown when no WhatsApp link is configured. */

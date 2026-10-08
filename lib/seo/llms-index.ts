@@ -189,7 +189,7 @@ export function buildLlmsTxtBody(): string {
 
   lines.push("## Notes from the plant floor");
   pushBlank(lines);
-  lines.push(`- [Index](${SITE_URL}/case-studies): articles and case studies from Indian plant floors`);
+  lines.push(`- [Index](${SITE_URL}/case-studies): field notes and write-ups from Indian plant floors`);
   lines.push(`- Individual articles at \`${SITE_URL}/blog/{slug}\` - Article JSON-LD on each post`);
   lines.push(`- Individual case studies at \`${SITE_URL}/case-studies/{slug}\` when published in CMS`);
   lines.push(`- Auto-updated index: ${SITE_URL}/llms-full.txt`);

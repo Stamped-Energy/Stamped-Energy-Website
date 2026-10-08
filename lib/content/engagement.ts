@@ -77,7 +77,7 @@ export const BEFORE_YOU_BOOK: { eyebrow: string; title: string; items: Objection
       id: "data",
       question: "Is our data safe?",
       answer:
-        "We sign an NDA before the survey and work only with the data your team agrees to share. Ask us anything about where it is kept before anything is connected.",
+        "We sign an NDA before the survey. Stamped runs on a zero-trust architecture with encryption, your data is stored on cloud servers in India, and we work only with the data your team agrees to share.",
     },
   ],
 };

@@ -95,13 +95,13 @@ Hub: [What we improve](https://stamped.work/solutions)
 - Q: Do we need new hardware, or another system next to MES, ERP and SCADA?
   A: No hardware retrofit is needed to get started, because Stamped is software that works with the systems you already run. It is not another MES or CMMS: your MES, ERP and SCADA are where the data comes from, and Stamped works alongside them. Stamped brings their data onto one timeline, so they finally work as one picture of the plant.
 - Q: Is Stamped an AI agent for manufacturing?
-  A: Yes. Stamped runs AI agents for manufacturing that watch every line on every shift, turn plant data into industrial intelligence your team can use, and support decision-making at the plant-floor level. Stamped recommends and your team decides.
+  A: In plain terms, yes. Stamped's AI agents for manufacturing read your plant's data on every shift, spot what is costing you output or quality, and send the right person a specific next step. That is industrial intelligence put to work in decision-making at the plant-floor level.
 - Q: Who decides what changes, and what does Stamped add if my supervisors already know the plant?
   A: Stamped recommends and your team decides. Your senior supervisors usually know the plant well, and Stamped is built to back them up: it looks at every line on every shift, including the shifts they are not on, and writes down what it finds with the reasoning, so the night shift gets the same advice the day shift gets from your best hands.
 - Q: Does Stamped get better over time?
   A: Yes. Stamped is a self-improving agentic system. It learns from every action your team accepts, adjusts or turns down, and from the ones it chose to hold back, and its models are retrained on your plant's data as it runs. Each improvement is tested on past shifts before your team approves it, so the advice gets sharper every week.
 - Q: Where does our data go?
-  A: We sign an NDA before the site survey, and during the survey and the pilot we work only with the data your team agrees to share. You can ask us anything about where it is kept and who can see it before anything is connected.
+  A: We sign an NDA before the site survey. Stamped runs on a zero-trust architecture with encryption, your data is stored on cloud servers in India, and during the survey and the pilot we work only with the data your team agrees to share.
 - Q: How do actions reach the floor, and how much of my team's time does this take?
   A: Each action goes on WhatsApp or on screen to the supervisor, engineer or maintenance lead who already owns that work, so nobody has to learn a new system before they can act on one, and nothing sits on a screen that only the plant head opens once a month. During the site survey we need some hours with your plant head and your quality and maintenance leads, planned around production.
 - Q: How do we start?
@@ -234,7 +234,7 @@ Hub: [What we improve](https://stamped.work/solutions)
 
 ## Notes from the plant floor
 
-- [Index](https://stamped.work/case-studies): articles and case studies from Indian plant floors
+- [Index](https://stamped.work/case-studies): field notes and write-ups from Indian plant floors
 - Individual articles at `https://stamped.work/blog/{slug}` - Article JSON-LD on each post
 - Individual case studies at `https://stamped.work/case-studies/{slug}` when published in CMS
 - Auto-updated index: https://stamped.work/llms-full.txt
