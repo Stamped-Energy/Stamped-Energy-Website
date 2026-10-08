@@ -16,8 +16,8 @@ export const aboutContent = {
     title: "Plants have the data to run better, and we build the way to act on it.",
     description:
       "Stamped is built by engineers from IIT Roorkee for the people who run Indian plants: plant heads, process and quality engineers, and maintenance teams.",
-    heroImageSrc: "/industries/die-casting.jpeg",
-    heroImageAlt: "Molten metal pour on a casting line",
+    heroImageSrc: "/images/stock/india-factory-workers.jpg",
+    heroImageAlt: "Operators at work on a plant floor in India",
   },
 
   story: {
