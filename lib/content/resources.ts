@@ -18,7 +18,7 @@ export const resourcesContent = {
       title: "Why shift-start kills die casting margins",
       description:
         "Furnace pre-heat overlap, holding loads, and the demand peak your incomer meter sees every morning.",
-      href: "/blog/why-shift-start-kills-die-casting-margins",
+      href: "/blog/shift-start-die-casting-margins",
       tag: "Blog",
       imageSrc: RESOURCE_IMAGES.dieCasting,
       imageAlt: "Die casting cell at shift start",
@@ -30,7 +30,7 @@ export const resourcesContent = {
       title: "Weekend furnace holding: the silent cost",
       description:
         "How batch heat treatment furnaces stay hot through the weekend with no parts scheduled, and what to do about it.",
-      href: "/blog/weekend-furnace-holding-silent-cost",
+      href: "/blog/weekend-furnace-holding-heat-treatment-cost",
       tag: "Blog",
       imageSrc: RESOURCE_IMAGES.heatTreatment,
       imageAlt: "Batch heat treatment furnace",
