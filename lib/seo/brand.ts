@@ -2,6 +2,17 @@
 
 export const STAMPED_SUITE_NAME = "Stamped Industrial Intelligence Suite";
 
+/** Product-line labels for solution-area `<title>` tags (metadata only). */
+export const SOLUTION_AREA_PRODUCT_LINE_TITLE: Record<
+  "process" | "quality" | "planning" | "maintenance",
+  string
+> = {
+  process: "Stamped Process & Control",
+  quality: "Stamped Quality",
+  planning: "Stamped Production",
+  maintenance: "Stamped Maintenance",
+};
+
 export const STAMPED_PRODUCT_LINES = [
   "Stamped Energy",
   "Stamped Process",

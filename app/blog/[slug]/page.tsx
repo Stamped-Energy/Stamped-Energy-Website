@@ -6,13 +6,8 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { getPublishedPostBySlug, getRelatedPosts } from "@/lib/blog/posts";
 import { prisma } from "@/lib/blog/db";
 import { breadcrumbHome, generateBreadcrumbSchema } from "@/lib/seo/breadcrumbs";
-import { extractFaqFromContent } from "@/lib/seo/extract-faq";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo/metadata";
-import {
-  buildArticleSchema,
-  buildBlogSpeakableSchema,
-  buildFaqSchema,
-} from "@/lib/seo/schemas";
+import { buildBlogPostingSchema, buildBlogSpeakableSchema } from "@/lib/seo/schemas";
 
 type BlogArticlePageProps = {
   params: Promise<{ slug: string }>;
@@ -69,7 +64,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
   const related = await getRelatedPosts(post.slug, post.category, 3);
   const publishedDate = post.publishedAt ?? post.createdAt;
 
-  const articleSchema = buildArticleSchema({
+  const articleSchema = buildBlogPostingSchema({
     title: post.title,
     description: post.excerpt,
     slug: post.slug,
@@ -80,6 +75,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
     category: post.categoryLabel,
     authorName: post.author.name,
     authorUrl: post.author.linkedIn,
+    authorProfileId: "utsavsar",
   });
 
   const breadcrumbSchema = generateBreadcrumbSchema([
@@ -89,17 +85,8 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
   ]);
 
   const speakableSchema = buildBlogSpeakableSchema(post.slug, post.title);
-  const faqSchema = buildFaqSchema(
-    extractFaqFromContent({
-      contentFormat: post.contentFormat,
-      bodyJson: post.bodyJson,
-      content: post.content,
-    }),
-  );
 
-  const jsonLd = [articleSchema, breadcrumbSchema, speakableSchema, faqSchema].filter(
-    (item): item is NonNullable<typeof item> => item !== null,
-  );
+  const jsonLd = [articleSchema, breadcrumbSchema, speakableSchema];
 
   return (
     <>

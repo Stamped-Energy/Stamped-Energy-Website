@@ -15,8 +15,10 @@ import {
 } from "@/lib/seo/constants";
 import type { FaqItem } from "@/lib/seo/extract-faq";
 import type { PageSeoConfig } from "@/lib/seo/pages";
+import type { AuthorProfileId } from "@/lib/content/author-profiles";
 import type {
   Article,
+  BlogPosting,
   ImageObject,
   SearchAction,
   Service,
@@ -297,6 +299,62 @@ type ArticleSchemaInput = {
   authorName?: string;
   authorUrl?: string;
 };
+
+function blogAuthorEntity(authorProfileId?: AuthorProfileId, authorName?: string, authorUrl?: string) {
+  if (authorProfileId === "utsavsar" || authorName === "Utso Sarkar") {
+    return {
+      "@type": "Person" as const,
+      "@id": UTSO_ID,
+      name: "Utso Sarkar",
+      url: `${SITE_URL}/about`,
+      sameAs: [
+        "https://www.linkedin.com/in/utso",
+        "https://x.com/utsosarkar",
+        "https://utso.stamped.work",
+      ],
+    };
+  }
+
+  return {
+    "@type": "Person" as const,
+    "@id": VINAYAK_ID,
+    name: authorName ?? "Vinayak Raizada",
+    url: authorUrl ?? "https://www.linkedin.com/in/vinayak-rz/",
+  };
+}
+
+export function buildBlogPostingSchema(
+  post: ArticleSchemaInput & { authorProfileId?: AuthorProfileId },
+): WithContext<BlogPosting> {
+  const imageUrl = post.image
+    ? post.image.startsWith("http")
+      ? post.image
+      : `${SITE_URL}${post.image}`
+    : DEFAULT_OG_IMAGE;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.description,
+    image: imageUrl,
+    datePublished: post.publishedDate,
+    dateModified: post.modifiedDate ?? post.publishedDate,
+    author: blogAuthorEntity(post.authorProfileId, post.authorName, post.authorUrl),
+    publisher: organizationPublisher,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/blog/${post.slug}`,
+    },
+    keywords: post.tags.join(", "),
+    articleSection: post.category,
+    inLanguage: "en-IN",
+    about: {
+      "@type": "Thing",
+      name: "Plant operations in Indian manufacturing",
+    },
+  };
+}
 
 export function buildArticleSchema(post: ArticleSchemaInput): WithContext<Article> {
   const imageUrl = post.image

@@ -25,7 +25,7 @@ export const AUTHOR_PROFILES: Record<AuthorProfileId, AuthorProfile> = {
     role: "Co-Founder",
     shortBio:
       "IIT Roorkee. Leads sales, outreach, and software engineering-building the platform and running pilots with manufacturing teams.",
-    linkedIn: "https://www.linkedin.com/in/utso/",
+    linkedIn: "https://www.linkedin.com/in/utso",
   },
 };
 
