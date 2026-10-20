@@ -7,6 +7,7 @@ import { MotionProvider } from "@/components/motion/MotionProvider";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/lib/content";
 import { siteMetadataBase } from "@/lib/seo/metadata";
+import { PAGE_SEO } from "@/lib/seo/pages";
 import { organizationSchema, websiteSchema } from "@/lib/seo/schemas";
 import { cn } from "@/lib/utils";
 
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
     default: siteConfig.name,
     template: `%s | ${siteConfig.name}`,
   },
-  description: siteConfig.description,
+  description: PAGE_SEO.home.description,
 };
 
 export default function RootLayout({

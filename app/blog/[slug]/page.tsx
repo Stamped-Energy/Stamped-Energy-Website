@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 
 import { BlogArticleView } from "@/components/blog/BlogArticleView";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { caseStudiesContent } from "@/lib/content/caseStudies";
+import { icp } from "@/lib/content/icp";
 import { getPublishedPostBySlug, getRelatedPosts } from "@/lib/blog/posts";
 import { prisma } from "@/lib/blog/db";
 import { breadcrumbHome, generateBreadcrumbSchema } from "@/lib/seo/breadcrumbs";
@@ -50,6 +52,10 @@ export async function generateMetadata({ params }: BlogArticlePageProps): Promis
     authors: [post.author.name],
     tags: post.tags,
     keywords: post.tags,
+    descriptionSupplements: [
+      caseStudiesContent.hero.description,
+      `Written for ${icp.buyerTitlesShort}.`,
+    ],
   });
 }
 

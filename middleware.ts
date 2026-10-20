@@ -40,9 +40,20 @@ async function isAuthenticated(request: NextRequest): Promise<boolean> {
   }
 }
 
+const WWW_STAMPED_HOST = "www.stamped.work";
+const CANONICAL_STAMPED_HOST = "stamped.work";
+
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const host = request.headers.get("host") ?? "";
+  const hostname = host.split(":")[0].toLowerCase();
+
+  if (hostname === WWW_STAMPED_HOST) {
+    const destination = request.nextUrl.clone();
+    destination.hostname = CANONICAL_STAMPED_HOST;
+    destination.protocol = "https:";
+    return NextResponse.redirect(destination, 308);
+  }
   const isAdminRoute = pathname.startsWith("/blog/admin");
   const isLoginRoute = pathname === "/blog/admin/login";
   const isAdminApiRoute = pathname.startsWith("/api/blog/admin") || pathname.startsWith("/api/blog/auth");

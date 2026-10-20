@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { CaseStudyDetailView } from "@/components/case-studies/CaseStudyDetail";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { prisma } from "@/lib/blog/db";
+import { caseStudiesContent } from "@/lib/content/caseStudies";
 import { getPublishedCaseStudyBySlug } from "@/lib/case-studies/studies";
 import { breadcrumbHome, generateBreadcrumbSchema } from "@/lib/seo/breadcrumbs";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo/metadata";
@@ -49,6 +50,10 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
     modifiedTime: study.updatedAt,
     authors: [study.author.name],
     keywords: [study.industry, study.categoryLabel, "plant operations", "manufacturing India"],
+    descriptionSupplements: [
+      caseStudiesContent.hero.description,
+      study.clientContext ? `Context: ${study.clientContext}` : study.industry,
+    ],
   });
 }
 

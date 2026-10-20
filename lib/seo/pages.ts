@@ -144,7 +144,7 @@ export const PAGE_SEO = {
   contact: {
     absoluteTitle: "Book a site survey | Stamped",
     description:
-      "A few days on your floor and a written read-out of where your plant loses efficiency and what we'd do first.",
+      "We spend a few days on your floor with your plant head and quality and maintenance teams, then send a written read-out of where efficiency is lost and what we would change first.",
     path: "/contact",
     keywords: ["book a site survey", "manufacturing efficiency survey India", "AI for plant operations"],
   },

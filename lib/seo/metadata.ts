@@ -9,6 +9,7 @@ import {
   GEO_METADATA,
   SEO_KEYWORDS,
 } from "@/lib/seo/constants";
+import { normalizeMetaDescription } from "@/lib/seo/meta-description";
 import type { PageSeoConfig } from "@/lib/seo/pages";
 
 export function absoluteUrl(path: string): string {
@@ -35,6 +36,8 @@ type BuildPageMetadataOptions = {
   authors?: string[];
   tags?: string[];
   keywords?: string[];
+  /** Extra phrases from on-page copy when `description` is under 120 characters (metadata only). */
+  descriptionSupplements?: string[];
 };
 
 function resolveOgImage(image?: string | null): string {
@@ -68,20 +71,22 @@ export function buildPageMetadata({
   authors,
   tags,
   keywords,
+  descriptionSupplements,
 }: BuildPageMetadataOptions): Metadata {
   const url = absoluteUrl(path);
   const displayTitle = absoluteTitle ?? `${title} | ${siteConfig.name}`;
   const ogImages = buildOpenGraphImages(image);
+  const metaDescription = normalizeMetaDescription(description, descriptionSupplements);
 
   return {
     title: absoluteTitle ? { absolute: absoluteTitle } : title,
-    description,
+    description: metaDescription,
     alternates: { canonical: url, types: FEED_ALTERNATE },
     other: { ...GEO_METADATA },
     ...(keywords?.length ? { keywords } : {}),
     openGraph: {
       title: displayTitle,
-      description,
+      description: metaDescription,
       url,
       type,
       siteName: siteConfig.name,
@@ -99,7 +104,7 @@ export function buildPageMetadata({
     twitter: {
       card: "summary_large_image",
       title: displayTitle,
-      description,
+      description: metaDescription,
       images: [ogImages[0].url],
     },
   };
