@@ -88,6 +88,8 @@ Proposed order: Hero, Problem, Journey (new), What we improve, Illustrative find
 
 ### 3.1 Hero (`components/sections/Hero.tsx`, `landingContent.hero`, `components/sections/hero/HeroPlantFlow.tsx`)
 
+> **SUPERSEDED (20 Oct, 14:30 IST).** The hero copy below is replaced by the options in section 12. Layout notes in this subsection still apply.
+
 - Eyebrow: Self-improving AI for plant operations.
 - H1: AI agents that work on your plant's data, every batch.
 - Subhead: They monitor every process, tune each machine toward its best settings, and catch a batch at risk of rejection before it ships, inside limits set beforehand.
@@ -118,6 +120,8 @@ Layout:
 Build note: the placeholders must not ship as literal brackets. Either fill them from a permitted plant read-out or render the example as a formula without figures (D14 covers the calculator later).
 
 ### 3.3 Journey: three steps (new `components/sections/HomeJourney.tsx`, `landingContent.journey`)
+
+> **SUPERSEDED (20 Oct, 14:30 IST).** Step copy is replaced by the capability ladder variants in section 12.3. Component and layout notes still apply.
 
 - H2: Three steps, each earned on your own line.
 - Step 1, "See every batch.": Stamped connects to the data you already log, watches every process on every shift, and shows where good parts are lost, while the batch can still be saved.
@@ -397,6 +401,8 @@ Other industry pages keep their current titles with "energy" framing removed.
 | D14 | Loss calculator | Add an interactive re-treat cost calculator later | Later, after the first survey read-out |
 | D15 | Candour line on About | Use or skip | Use |
 | D16 | Release order | One release, or hero, authority line and broken links first | Ship the fixes and the hero first, then the rest |
+| D17 | Autonomy wording | Amend CG 7 and 9 (and possibly ADR-035) so public copy can describe step 3, or keep "Autonomous execution" as a small step label only, with copy "on its own, inside limits signed beforehand", never "silent" | Added 20 Oct from Positioning & Marketing; see 12.5 |
+| D18 | Hero choice | Options in section 12 (Website bot S1 to S6, Positioning & Marketing P1 to P5) | Added 20 Oct; see 12.4 |
 
 Context for D8 from this plan: on 3 Oct Vinayak asked for every industry page to stay so no buyer is turned away. This plan is drafted on that basis; D8 decides it.
 
@@ -424,3 +430,133 @@ Context for D9 from this plan: on 3 Oct Vinayak set the rule that the survey onl
 7. **Code facts the brief missed:** `app/blog/page.tsx` redirects in code too; `Footer.tsx` hardcodes the authority line; `public/llms.txt` is a committed file and the `app/ai/*` and `.well-known/ai.txt` routes also carry positioning; `/case-studies/[slug]` and the CMS stay for future real case studies.
 8. **FAQ 6 draft (b)** flagged: "on site where needed" is an on-site promise CG 9 holds.
 9. **Placeholders in the problem example** must not ship as literal brackets.
+
+---
+
+## 12. Hero and three-step copy options (for Vinayak to choose)
+
+Added 20 October 2026 (IST) after Vinayak's feedback: the hero must sound technically strong and credible, and the three steps must map to a capability ladder (Monitoring, Decision making, Autonomous execution inside limits set beforehand). Supersedes the hero in 3.1 and the step copy in 3.3.
+
+Sources read for this section: `docs/copy/STAMPED_COPY_GUIDE.md`, `docs/copy/stamped-copy-2026-10-19.md` (approved lines), `research/quality-plus-process/STAMPED_TECH_INNOVATION.md` (plain copy lines and the control staging in its section 4), `competitor-ai-marketing-2026-10-13.md`, `positioning-playbook-notes-2026-10-15.md`, `research/domain-systems-2026-10/README.md` and `FOUNDER-VISION.md`.
+
+### 12.1 What credible industrial AI heroes do (research, 20 Oct)
+
+Patterns from live vendor sites (vendors are named here only as research; never in Stamped copy):
+
+- Imubit (imubit.com): names its category ("Closed-Loop Physical AI"), then shows the loop in three verbs (Map, Model, Control), and its control step reads "Key decisions executed autonomously ... within constraints", backed by "deterministic controller your engineers can certify" and "under operator supervision". Credibility comes from naming the model type ("nonlinear, dynamic AI process models ... guided by first principles") and the safety frame, not from adjectives. It also leads with headline percentages, which Stamped does not copy (CG 6).
+- Basetwo (basetwo.ai): "Your agentic platform for ..." then a before/after table ("Process deviations are only identified when sampling occurs" against "Anticipate process drift ... to prevent out-of-spec batches"). The concrete before/after is strong; "platform" as the pitch is banned for us.
+- Phaidra (phaidra.ai): outcome H1, then a subhead that names what the agents ingest ("telemetry across compute, power, cooling") and that it is "a continuous learning model". Named agents per job.
+- From the internal competitor scan: Sight Machine "Control quality continuously before it becomes a defect."; Arch "Most software shows you what happened. Arch tells you what to do about it." (an "it's not X, it's Y" shape banned by CG 9); Haber uses a predict, prescribe, then "controlled autonomy" ladder.
+
+What we take: (1) name the physical thing being modelled (furnace, heater, press, quench) and the predicted quantity (hardness, case depth), because that is what reads as technically real to an engineer; (2) put the safety frame in the same sentence as the capability (CG 7); (3) a three-rung ladder from watch to act is a recognised pattern in this category; (4) no headline numbers.
+
+Three-line H1 check: the current H1 was sized for three lines at 1280px. As a working rule, an H1 of up to about 50 characters keeps three lines at the current size token; 50 to 60 characters needs a one-step size reduction; above 60 risks four lines. Each option states its length. This has to be confirmed in a local render when built (this PR changes no code).
+
+### 12.2 Website bot hero options
+
+**S1 (recommended).**
+- Eyebrow: Self-improving AI for plant operations.
+- H1: Predict every batch while it can still be saved.
+- Subhead: Stamped's AI agents model each furnace, heater and press from your own runs, predict hardness and case depth on every batch as it runs, and tune each machine toward its best settings, inside limits set beforehand.
+- Proof line: Every finding shows its evidence, and every gain is measured in your own numbers.
+- Rationale: "Predict" plus a named physical model and named quality quantities reads as engineering, and "while it can still be saved" is a CG repeated phrase. Passes the swap test better than "AI agents" alone (CG 11).
+- Check: no em dashes; no numbers; authority line present in the subhead; no approval or autonomy claim; H1 48 characters, three lines at the current size. New copy: H1 and subhead must be added to CG Appendix A before going live (CG 11 "approved lines used as written"). The subhead adapts the approved subhead, so it also needs Appendix A.
+
+**S2 (approved lines as written).**
+- Eyebrow: Self-improving AI for plant operations.
+- H1: AI agents that work on your plant's data, every batch.
+- Subhead: They monitor every process, tune each machine toward its best settings, and catch a batch at risk of rejection before it ships, inside limits set beforehand.
+- Proof line: Every finding shows its evidence, and every gain is measured in your own numbers.
+- Rationale: fully approved today, ships without a guide change. Vinayak found it not technical enough; "AI agents" alone is the swap-test risk the guide itself names (CG 12).
+- Check: compliant as is; H1 55 characters, needs one size step down for three lines.
+
+**S3 (control-led).**
+- Eyebrow: Self-improving AI for plant operations.
+- H1: Control that learns from your best runs, every batch.
+- Subhead: Stamped models each machine from the data your plant already records, tests every new setting in simulation before the line sees it, and catches a batch at risk of rejection before it ships, inside limits set beforehand.
+- Proof line: Every finding shows its evidence, and every gain is measured in your own numbers.
+- Rationale: built from TI plain copy lines ("A control policy that learns from your best runs", "tests a move before the line sees it"); leads with smarter control, the pillar that drove the largest estimated value.
+- Check: compliant; H1 54 characters, one size step down. New copy, Appendix A.
+
+**S4 (the model that sees what sensors miss).**
+- Eyebrow: AI for plant operations.
+- H1: A model of each machine that sees what sensors miss.
+- Subhead: Stamped's AI agents build it from your own furnace, press and lab records, watch every batch on every shift, and flag the one heading for rejection while it can still be saved, inside limits set beforehand.
+- Proof line: Every finding shows its evidence, and every gain is measured in your own numbers.
+- Rationale: TI plain line for the process models; most "technically great" of the options without naming a method.
+- Check: compliant; borderline CG 4 ("no method names in a headline": "a model of each machine" is the guide's own plain wording, not a method name); H1 52 characters. New copy, Appendix A.
+
+**S5 (point of view, CG 12 fallback).**
+- Eyebrow: Self-improving AI for plant operations.
+- H1: Every batch should make the next one better.
+- Subhead: Stamped's agents are always on. They watch every process and every batch, on every shift, and flag a problem while the batch can still be saved.
+- Proof line: Every finding shows its evidence, and every gain is measured in your own numbers.
+- Rationale: approved lines only; strongest belief, weakest on technical credibility.
+- Check: compliant; H1 44 characters; subhead has no authority line, so the proof line or a nearby line must carry "Stamped works inside limits set beforehand." (CG 11).
+
+**S6 (outcome for the quality head).**
+- Eyebrow: AI for plant operations.
+- H1: Catch the bad load before the hardness test does.
+- Subhead: Stamped's AI agents predict case depth and hardness from the furnace record on every load, flag drift as it starts, and point to the setting that brings the load back, inside limits set beforehand.
+- Proof line: Every finding shows its evidence, and every gain is measured in your own numbers.
+- Rationale: visceral and floor-level; overlaps Positioning & Marketing P3.
+- Check: compliant; H1 49 characters. New copy, Appendix A.
+
+### 12.3 Three-step capability ladder (Website bot variants)
+
+Each step carries a small rung label (1 Monitoring, 2 Decision making, 3 Autonomous execution) above a technical title and one or two lines. Component: `HomeJourney.tsx` as in 3.3.
+
+**Variant A (technical titles).** Section heading: From live monitoring to control inside your limits.
+- 1 Monitoring. Title: A live model of every batch. Lines: Stamped joins each batch to its furnace, quench and lab records and runs a model of each machine alongside it, so drift in temperature, carbon potential or timing shows up while the batch can still be saved.
+- 2 Decision making. Title: Every setting tested in simulation first. Lines: Stamped searches for a better setting on the machine model, then brings your engineer the change, the predicted result and the records behind it. The result is measured against matched batches from your own line.
+- 3 Autonomous execution. Title: Closed-loop control inside a signed window. Lines: Once a kind of change has proven itself on your line, Stamped applies it through your plant's controller, inside limits a named engineer signed, with the safety filter checking every move and every change logged. Anything new goes back to your engineers.
+
+**Variant B (plainer titles, same ladder).** Section heading: Watch, decide, then run on its own.
+- 1 Monitoring. Title: Drift caught as it starts. Lines: Always-on agents watch every process and every batch, on every shift, against a model of each machine built from your own runs.
+- 2 Decision making. Title: The better setting, with its evidence. Lines: Stamped proposes the setting that brings the batch back, shows what the model predicts and why, and measures the outcome in your own numbers.
+- 3 Autonomous execution. Title: Proven changes, run on their own. Lines: A kind of change that has held on your line can run on its own, always inside limits set beforehand, checked by a safety filter and visible to your team.
+
+Both variants avoid "your team approves every change" (CG 7) and never say "silent". Both describe step 3, which conflicts with the guide (12.5).
+
+### 12.4 Positioning & Marketing options
+
+Received 20 Oct from Stamped Positioning & Marketing, reproduced verbatim.
+
+HERO OPTIONS (eyebrow / H1 / subhead)
+1. RECOMMENDED. Eyebrow: AI for plant operations. H1: "Know how every batch will turn out while you can still change it." Sub: "Stamped builds models of your furnaces, induction heaters and presses from the data you already log. Its agents use them to predict hardness, case depth and rejection risk on every batch as it runs, and recommend the control change that keeps it in spec, inside limits your engineers set beforehand." Why: outcome-led H1 that passes the swap test; sub carries technical credibility.
+2. Eyebrow: Self-improving AI for plant operations. H1: "Every batch should make the next one better." Sub: "Stamped's agents run live models of your heat-treat and forging equipment, catch a batch drifting out of spec while it can still be saved, and turn each proven fix into how the line runs, inside limits set beforehand." Why: guide POV line; less concrete.
+3. Eyebrow: AI for plant operations. H1: "Catch the bad batch before it reaches the lab." Sub: "Models of your core equipment predict each batch's outcome from live process data, and always-on agents recommend the correction, test it on the model first, and apply it within limits your engineers signed." Why: most visceral for a quality head; new copy, needs adding to guide.
+4. Eyebrow: AI for plant operations. H1: "Your best shift's results, on every shift, and then better." Sub: as option 1. Why: owner-facing; weaker swap test.
+5. (Breaks no-method-in-headline rule) H1: "Predictive control for forging and heat treatment, always on."
+
+THREE STEPS. Section heading: "From watching your line to running it better"
+Step 1, Monitoring: "Watch every batch." Live models of each furnace, heater and press compare what the batch is doing with what it should be doing, and flag drift in temperature, carbon potential or timing while the batch can still be saved.
+Step 2, Decision making: "Recommend with evidence." Stamped searches for a better setting on the equipment model first, then brings your engineer the proposed change, the predicted result and the records behind it. The outcome is measured in your own numbers.
+Step 3, Autonomous execution: "Run it inside your limits." Once a kind of change has proven itself on your line, Stamped applies it through your plant's controller on its own, every time within limits signed beforehand, with the checks running first and every result logged. Anything new goes back to your engineers.
+
+GUIDE CONFLICTS: 'Autonomous' is banned by the guide and ADR-035 rules out heat-treat setpoint writes; Vinayak explicitly asked for autonomous execution and his 15-19 Oct vision (authority ladder per class of change) supports it, so it needs a guide amendment (and possibly ADR-035), or keep 'Autonomous execution' as a small step label only with copy 'on its own, inside limits signed beforehand', never 'silent'. Step 2 avoids 'your team approves every change'. Options 1 and 3 are new hero copy and must be added to the guide before going live. Add these as open decisions D17 (autonomy wording / guide + ADR-035 amendment) and D18 (hero choice).
+
+### 12.5 Reconciliation and recommendation
+
+**Overlaps.** Both sets converge on the same idea: predict the batch outcome from a model of named equipment, while there is still time to act, with the limits in the same sentence. S1 and P1 are near twins; S6 and P3 are near twins; S5 and P2 share the approved H1. Both three-step sets use the same rung labels, the same step 2 shape (search on the model, bring the engineer change plus prediction plus records, measure in own numbers) and the same step 3 shape (proven class of change, through the plant's controller, inside signed limits, anything new goes back).
+
+**Differences.**
+- H1 length: P1 is 64 characters and would likely break to four lines at 1280px at the current size; S1 (48) says the same thing in three lines. P4 is 59 and has the weaker swap test both teams note.
+- P1's subhead is the most technically specific of all options (induction heaters, rejection risk, "recommend the control change that keeps it in spec") and is two sentences, which helps readability. It uses "limits your engineers set beforehand", a small variation on the approved authority line; CG wants the authority line as written, so either restore "inside limits set beforehand" or log the variant in Appendix A.
+- P3's subhead says agents "apply it within limits your engineers signed" in the hero. That is the autonomy claim on the first screen; it needs D17 resolved first.
+- P2's "turn each proven fix into how the line runs" also implies step 3 on the first screen.
+- P5 breaks CG 4 (method in a headline); listed for completeness only.
+- Step titles: P&M ("Watch every batch", "Recommend with evidence", "Run it inside your limits") are plainer and closer to Variant B; Variant A is the more technical reading Vinayak asked for.
+
+**Recommended pick (D18).** H1 from S1, "Predict every batch while it can still be saved.", with P1's subhead, with "inside limits your engineers set beforehand" changed back to "inside limits set beforehand", and the eyebrow "Self-improving AI for plant operations." The proof line stays as approved. Fallback if the shorter H1 tests worse than P1's in prospect conversations: P1 H1 with the size token reduced one step. Either way the new lines go into CG Appendix A first.
+
+**Recommended three steps.** Variant A titles with P&M's step 1 and step 3 body wording where it is more concrete (furnace, heater and press; "Anything new goes back to your engineers"), subject to D17.
+
+**Guide conflicts to resolve (D17).**
+- CG 9 banned claims: "Do not claim autonomous action, silent control". The rung label "Autonomous execution" and any step 3 body copy conflict.
+- CG 7: "Do not say Stamped or its agents control the furnace or change settings on their own." Step 3 in every variant says exactly that.
+- CG 3a and TI section 4: earned optimisation (stage 3) is described only in decks and meetings, not on the website.
+- ADR-035 and the master document exclude heat-treatment setpoint writes for now; a new ADR is needed before stage 2 or 3 is real.
+- FOUNDER-VISION (standing approval per class of change, signed window, writer as the only path) supports the ladder.
+- Options: amend CG 7, 9 and 3a, and agree an ADR, before step 3 ships; or ship steps 1 and 2 now with the step 3 fallback from 3.3 ("Grow what it handles ...") until then.
+- The new hero H1s (S1, S3, S4, S6, P1, P3, P4) all need CG Appendix A entries before release (CG 11).
