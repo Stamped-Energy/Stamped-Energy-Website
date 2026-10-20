@@ -29,7 +29,7 @@ export const ENGAGEMENT_STEPS: EngagementStep[] = [
     label: "8 to 12 weeks",
     title: "Paid pilot on one line",
     description:
-      "The pilot runs on one line for 8 to 12 weeks, with your own team acting on the recommendations. It is a paid engagement, priced on its own and not tied to any annual contract value. The first finding usually comes within about two weeks.",
+      "The pilot runs on one line for 8 to 12 weeks, with your own team acting on the recommendations. It is a paid engagement, priced on its own and not tied to any annual contract value.",
   },
   {
     id: "annual",
@@ -77,7 +77,7 @@ export const BEFORE_YOU_BOOK: { eyebrow: string; title: string; items: Objection
       id: "data",
       question: "Is our data safe?",
       answer:
-        "We sign an NDA before the survey. Stamped runs on a zero-trust architecture with encryption, your data is stored on cloud servers in India, and we work only with the data your team agrees to share.",
+        "We sign an NDA before the survey, and we work only with the data your team agrees to share.",
     },
   ],
 };

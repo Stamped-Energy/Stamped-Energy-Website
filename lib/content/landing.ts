@@ -154,7 +154,7 @@ export const landingContent = {
         label: "Autonomous execution",
         title: "Proven changes, run on their own.",
         description:
-          "Once a kind of change has already worked on your line, Stamped can run it on its own, always inside limits set beforehand.",
+          "Once a change to a process setting has already worked on your line, Stamped can apply it on its own, always inside limits set beforehand.",
       },
     ],
     /** Labels inside the pipeline visual. No numbers by design. */
@@ -177,45 +177,11 @@ export const landingContent = {
     },
   },
 
-  /**
-   * Optional agents strip (plan PR #16, section 15.5, Layout B). Set `enabled: false` to drop it from the homepage.
-   * Status is "First pilot scope" only: nothing is live or in pilot yet.
-   */
+  /** Homepage agents picker. Copy lives in lib/content/agents.ts. Set `enabled: false` to drop it. */
   agents: {
     enabled: true,
-    badge: "Agents",
-    title: "Agents that keep working when your team goes home.",
-    statusLabel: "First pilot scope",
-    cards: [
-      {
-        id: "records",
-        name: "Reads your scattered records",
-        text: "Brings controller data, historian tags, ERP lots and handwritten cards into one record for every batch.",
-      },
-      {
-        id: "worst-lot",
-        name: "Replays your worst lot",
-        text: "Links a recent bad lot end to end from your own records, so your team sees what the signals showed before it went wrong.",
-      },
-      {
-        id: "warnings",
-        name: "Warns while there is time",
-        text: "Watches one line and warns your team when a batch drifts toward a known problem.",
-      },
-      {
-        id: "sensors",
-        name: "Checks your sensors first",
-        text: "Flags a sensor that has gone dead or stuck before its readings mislead anyone.",
-      },
-      {
-        id: "reject-cost",
-        name: "Counts what a reject really cost",
-        text: "Shows the energy and material lost in parts that never ship, next to your rejections.",
-      },
-    ],
-    moreLine:
-      "And more on the way: answers with sources, shift handovers, overnight work, quality before the lab, better standards and proof in your own numbers.",
   },
+
 
   homeHowItWorks: {
     badge: "How it works",

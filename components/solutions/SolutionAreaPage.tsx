@@ -1,6 +1,8 @@
 import Link from "next/link";
 
 import { BeforeYouBook } from "@/components/engagement/BeforeYouBook";
+import { AgentJobGroups } from "@/components/agents/AgentJobGroups";
+import { SolutionAgentsBlock } from "@/components/solutions/SolutionAgentsBlock";
 import { SolutionExampleCards } from "@/components/solutions/SolutionExampleCards";
 import { SolutionMethodSection } from "@/components/solutions/SolutionMethodSection";
 import { SolutionsHero } from "@/components/solutions/SolutionsHero";
@@ -8,17 +10,19 @@ import { Container } from "@/components/ui/Container";
 import { FaqSection } from "@/components/ui/FaqSection";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionBadge } from "@/components/ui/SectionBadge";
+import { getAgentArea } from "@/lib/content/agents";
 import { industriesContent } from "@/lib/content/industries";
 import { solutionsContent, type SolutionArea } from "@/lib/content/solutions";
 
 export function SolutionAreaPage({ area }: { area: SolutionArea }) {
   const { energy, examplesLabel, examplesNote, primaryCta, secondaryCta, areas } = solutionsContent;
   const otherAreas = areas.filter((item) => item.slug !== area.slug);
+  const agentArea = getAgentArea(area.slug);
+  const comingSoon = area.status === "coming-soon";
 
-  return (
-    <>
+  const hero = (
       <SolutionsHero
-        eyebrow={area.title}
+        eyebrow={comingSoon ? `${area.title} · ${solutionsContent.comingSoonLabel}` : area.title}
         title={area.heading}
         description={area.intro}
         heroImageSrc={area.heroImageSrc}
@@ -27,6 +31,45 @@ export function SolutionAreaPage({ area }: { area: SolutionArea }) {
         primaryCta={primaryCta}
         secondaryCta={secondaryCta}
       />
+  );
+
+  if (comingSoon) {
+    return (
+      <>
+        {hero}
+        <section className="border-b border-outline-variant/30 bg-surface section-y">
+          <Container>
+            <Reveal>
+              <SectionBadge label={area.method.heading} />
+              <p className="mt-5 max-w-3xl text-base leading-8 text-on-surface md:text-lg">{area.method.paragraph}</p>
+            </Reveal>
+            {agentArea ? (
+              <Reveal>
+                <AgentJobGroups area={agentArea} className="mt-10 max-w-4xl" />
+              </Reveal>
+            ) : null}
+            <Reveal>
+              <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-3">
+                {otherAreas.map((item) => (
+                  <li key={item.slug}>
+                    <Link href={item.href} className="font-display text-lg font-semibold text-primary hover:underline">
+                      {item.title} »
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          </Container>
+        </section>
+        <BeforeYouBook />
+      </>
+    );
+  }
+
+  return (
+    <>
+      {hero}
+      {agentArea ? <SolutionAgentsBlock area={agentArea} /> : null}
 
       <section className="border-b border-outline-variant/30 bg-surface section-y">
         <Container>

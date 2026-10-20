@@ -1,6 +1,5 @@
 /** Canonical title tags, meta descriptions, and per-page keywords. Copy canon: Stamped copy v3 (3 Oct 2026). */
 
-import { SOLUTION_AREA_PRODUCT_LINE_TITLE } from "@/lib/seo/brand";
 
 export type PageSeoConfig = {
   absoluteTitle: string;
@@ -48,9 +47,9 @@ export const PAGE_SEO = {
   /** @deprecated Use PAGE_SEO.platform. Kept for transitional imports. */
   howItWorks: HOW_IT_WORKS_SEO,
   solutions: {
-    absoluteTitle: "Stamped Energy & operations | What we improve | Stamped",
+    absoluteTitle: "What we improve | Industrial AI | Stamped",
     description:
-      "Stamped improves process and control, quality and lot checks, planning and maintenance in manufacturing plants, with Stamped Energy counted in all four.",
+      "Agents for every part of the plant. Stamped improves process, quality and planning inside limits set beforehand, with energy counted in each. Maintenance is coming next.",
     path: "/solutions",
     keywords: [
       "process optimisation manufacturing",
@@ -63,9 +62,9 @@ export const PAGE_SEO = {
     ],
   },
   solutionsProcess: {
-    absoluteTitle: `${SOLUTION_AREA_PRODUCT_LINE_TITLE.process} | Optimisation | Stamped`,
+    absoluteTitle: "Process | Industrial AI | Stamped",
     description:
-      "Run better than your best shift. Stamped tests better control policies on a digital twin of your line and recommends them to your process engineers.",
+      "Run every process closer to its best. Stamped tries the next setting on a model of your line, and once a change has proved itself it applies it inside limits set beforehand.",
     path: "/solutions/process",
     keywords: [
       "process optimisation manufacturing",
@@ -76,9 +75,9 @@ export const PAGE_SEO = {
     ],
   },
   solutionsQuality: {
-    absoluteTitle: `${SOLUTION_AREA_PRODUCT_LINE_TITLE.quality} | Quality and rejection | Stamped`,
+    absoluteTitle: "Quality | Industrial AI | Stamped",
     description:
-      "Catch the problem while the lot can still be saved. Stamped links process data to each lot and alerts your team in real time, before parts are rejected.",
+      "Catch the bad batch while it can still be saved. Stamped watches every run against your good parts, warns your team in time and traces each reject to its cause.",
     path: "/solutions/quality",
     keywords: [
       "predictive quality manufacturing",
@@ -91,9 +90,9 @@ export const PAGE_SEO = {
     ],
   },
   solutionsPlanning: {
-    absoluteTitle: `${SOLUTION_AREA_PRODUCT_LINE_TITLE.planning} | Production planning | Stamped`,
+    absoluteTitle: "Planning | Industrial AI | Stamped",
     description:
-      "Re-plan with the whole plant in view. Stamped proposes the sequence that works best for the plant, with its effect on output, energy and delivery.",
+      "Plan around how your plant really runs. Stamped warns when the plan is about to slip and suggests a better order of work, with its effect on output and delivery.",
     path: "/solutions/planning",
     keywords: [
       "production planning and scheduling",
@@ -106,9 +105,9 @@ export const PAGE_SEO = {
     ],
   },
   solutionsMaintenance: {
-    absoluteTitle: `${SOLUTION_AREA_PRODUCT_LINE_TITLE.maintenance} | Prescriptive maintenance | Stamped`,
+    absoluteTitle: "Maintenance, coming soon | Industrial AI | Stamped",
     description:
-      "Prescriptive maintenance, planned around production. Stamped ranks stops by what they cost and prescribes the fix and the best window to make it.",
+      "Coming soon. Stamped will spot which machine is starting to wear and suggest the best window to fix it, planned around production.",
     path: "/solutions/maintenance",
     keywords: [
       "predictive maintenance manufacturing",

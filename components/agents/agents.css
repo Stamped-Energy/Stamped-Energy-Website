@@ -1,0 +1,27 @@
+/* Agents picker and solution-page agents block. Palette follows the What we improve rows. */
+.agent-card-process { color: #fbfcf9; background: #4a634d; }
+.agent-card-quality { color: #2f3218; background: #eef981; }
+.agent-card-planning { color: #fbfcf9; background: #e5603f; }
+.agent-card-maintenance { color: #fbfcf9; background: #761438; }
+
+.agent-card-inner {
+  border: 1px solid currentColor;
+  border-color: color-mix(in srgb, currentColor 55%, transparent);
+  background: color-mix(in srgb, currentColor 6%, transparent);
+}
+
+.agent-card-rule { border-color: color-mix(in srgb, currentColor 28%, transparent); }
+.agent-card-muted { color: color-mix(in srgb, currentColor 72%, transparent); }
+
+.agent-card-btn {
+  border: 1px solid color-mix(in srgb, currentColor 55%, transparent);
+}
+.agent-card-btn-primary {
+  background: color-mix(in srgb, currentColor 18%, transparent);
+  border-color: currentColor;
+}
+
+.agent-tab-progress {
+  transform-origin: left center;
+  transform: scaleX(0);
+}
