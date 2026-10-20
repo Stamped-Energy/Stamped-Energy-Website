@@ -114,7 +114,7 @@ export const websiteSchema: WithContext<WebSite> = {
   "@type": "WebSite",
   "@id": WEBSITE_ID,
   name: "Stamped",
-  alternateName: ["Stamped Energy", "stamped.work"],
+  alternateName: ["stamped.work"],
   url: SITE_URL,
   description: icp.seo.metaDescription,
   publisher: {
