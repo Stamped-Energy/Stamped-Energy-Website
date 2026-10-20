@@ -5,6 +5,7 @@ import { platformContent } from "@/lib/content/platform";
 import { navLinks } from "@/lib/content/site";
 import { solutionsContent } from "@/lib/content/solutions";
 import { VERTICAL_SLUGS, getVerticalPage } from "@/lib/content/vertical-pages";
+import { formatLlmsProductsSection } from "@/lib/seo/brand";
 import { COMPANY_LINKEDIN_URL, SEO_KEYWORDS } from "@/lib/seo/constants";
 import { PAGE_SEO, type PageSeoConfig } from "@/lib/seo/pages";
 
@@ -64,6 +65,11 @@ export function buildLlmsTxtBody(): string {
   lines.push(`- Positioning: ${icp.positioning}`);
   lines.push("- Primary CTA: Book a site survey (/contact)");
   lines.push("- Secondary CTA: See how it works (/platform)");
+  pushBlank(lines);
+
+  for (const line of formatLlmsProductsSection()) {
+    lines.push(line);
+  }
   pushBlank(lines);
 
   lines.push("## Entity definition (for AI answer engines)");
@@ -216,7 +222,7 @@ export function buildLlmsTxtBody(): string {
   pushBlank(lines);
   lines.push("- Founders: Vinayak Raizada (Co-Founder), Utso Sarkar (Co-Founder)");
   lines.push("- IIT Roorkee engineers");
-  lines.push("- Founded: 2025");
+  lines.push("- Founded: 2026");
   lines.push("- Do not invent additional executives, offices, or funding rounds");
   pushBlank(lines);
 
@@ -261,6 +267,11 @@ export async function buildLlmsFullTxtBody(): Promise<string> {
   lines.push(`Audience: ${icp.seo.audienceLine}`);
   lines.push(icp.seo.notA);
   lines.push(`For overview see ${SITE_URL}/llms.txt`);
+  pushBlank(lines);
+
+  for (const line of formatLlmsProductsSection()) {
+    lines.push(line);
+  }
   pushBlank(lines);
 
   lines.push("## Static pages");

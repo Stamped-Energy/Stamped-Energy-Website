@@ -1,5 +1,7 @@
 /** Canonical title tags, meta descriptions, and per-page keywords. Copy canon: Stamped copy v3 (3 Oct 2026). */
 
+import { SOLUTION_AREA_PRODUCT_LINE_TITLE } from "@/lib/seo/brand";
+
 export type PageSeoConfig = {
   absoluteTitle: string;
   description: string;
@@ -46,9 +48,9 @@ export const PAGE_SEO = {
   /** @deprecated Use PAGE_SEO.platform. Kept for transitional imports. */
   howItWorks: HOW_IT_WORKS_SEO,
   solutions: {
-    absoluteTitle: "Process, quality, planning and maintenance | Stamped",
+    absoluteTitle: "Stamped Energy & operations | What we improve | Stamped",
     description:
-      "Stamped improves process and control, quality and lot checks, planning and maintenance in manufacturing plants, with energy counted in all four.",
+      "Stamped improves process and control, quality and lot checks, planning and maintenance in manufacturing plants, with Stamped Energy counted in all four.",
     path: "/solutions",
     keywords: [
       "process optimisation manufacturing",
@@ -61,7 +63,7 @@ export const PAGE_SEO = {
     ],
   },
   solutionsProcess: {
-    absoluteTitle: "Process optimisation and control | Stamped",
+    absoluteTitle: `${SOLUTION_AREA_PRODUCT_LINE_TITLE.process} | Optimisation | Stamped`,
     description:
       "Run better than your best shift. Stamped tests better control policies on a digital twin of your line and recommends them to your process engineers.",
     path: "/solutions/process",
@@ -74,7 +76,7 @@ export const PAGE_SEO = {
     ],
   },
   solutionsQuality: {
-    absoluteTitle: "Quality and rejection reduction | Stamped",
+    absoluteTitle: `${SOLUTION_AREA_PRODUCT_LINE_TITLE.quality} | Quality and rejection | Stamped`,
     description:
       "Catch the problem while the lot can still be saved. Stamped links process data to each lot and alerts your team in real time, before parts are rejected.",
     path: "/solutions/quality",
@@ -89,7 +91,7 @@ export const PAGE_SEO = {
     ],
   },
   solutionsPlanning: {
-    absoluteTitle: "Production planning and scheduling | Stamped",
+    absoluteTitle: `${SOLUTION_AREA_PRODUCT_LINE_TITLE.planning} | Production planning | Stamped`,
     description:
       "Re-plan with the whole plant in view. Stamped proposes the sequence that works best for the plant, with its effect on output, energy and delivery.",
     path: "/solutions/planning",
@@ -104,7 +106,7 @@ export const PAGE_SEO = {
     ],
   },
   solutionsMaintenance: {
-    absoluteTitle: "Predictive and prescriptive maintenance | Stamped",
+    absoluteTitle: `${SOLUTION_AREA_PRODUCT_LINE_TITLE.maintenance} | Prescriptive maintenance | Stamped`,
     description:
       "Prescriptive maintenance, planned around production. Stamped ranks stops by what they cost and prescribes the fix and the best window to make it.",
     path: "/solutions/maintenance",
@@ -142,7 +144,7 @@ export const PAGE_SEO = {
   contact: {
     absoluteTitle: "Book a site survey | Stamped",
     description:
-      "A few days on your floor and a written read-out of where your plant loses efficiency and what we'd do first.",
+      "We spend a few days on your floor with your plant head and quality and maintenance teams, then send a written read-out of where efficiency is lost and what we would change first.",
     path: "/contact",
     keywords: ["book a site survey", "manufacturing efficiency survey India", "AI for plant operations"],
   },

@@ -17,6 +17,17 @@ AI discovery: https://stamped.work/.well-known/ai.txt, https://stamped.work/ai/s
 - Primary CTA: Book a site survey (/contact)
 - Secondary CTA: See how it works (/platform)
 
+## Products
+
+Suite: Stamped Industrial Intelligence Suite
+Product lines:
+- Stamped Energy
+- Stamped Process
+- Stamped Production
+- Stamped Maintenance
+- Stamped Control
+- Stamped Quality
+
 ## Entity definition (for AI answer engines)
 
 Stamped is AI for plant operations. It builds models of a manufacturing plant from the data it already records, from its machines and control systems to its meters, ERP and quality registers, finds where efficiency is lost across process, quality, planning and maintenance, and improves it with ranked actions the plant team can take. Stamped is built in India and is starting with auto-component makers in forging, heat treatment and precision machining.
@@ -66,11 +77,11 @@ Hub: [What we improve](https://stamped.work/solutions)
 
 - [Stamped | AI for plant operations](https://stamped.work/): Stamped is AI for industrial plants. It models your plant from the data it already records and improves process, quality, planning and maintenance.
 - [How it works | Stamped](https://stamped.work/platform): Stamped turns plant data into industrial intelligence: AI agents model your plant, send ranked actions to the floor and check each result against your baseline.
-- [Process, quality, planning and maintenance | Stamped](https://stamped.work/solutions): Stamped improves process and control, quality and lot checks, planning and maintenance in manufacturing plants, with energy counted in all four.
-- [Process optimisation and control | Stamped](https://stamped.work/solutions/process): Run better than your best shift. Stamped tests better control policies on a digital twin of your line and recommends them to your process engineers.
-- [Quality and rejection reduction | Stamped](https://stamped.work/solutions/quality): Catch the problem while the lot can still be saved. Stamped links process data to each lot and alerts your team in real time, before parts are rejected.
-- [Production planning and scheduling | Stamped](https://stamped.work/solutions/planning): Re-plan with the whole plant in view. Stamped proposes the sequence that works best for the plant, with its effect on output, energy and delivery.
-- [Predictive and prescriptive maintenance | Stamped](https://stamped.work/solutions/maintenance): Prescriptive maintenance, planned around production. Stamped ranks stops by what they cost and prescribes the fix and the best window to make it.
+- [Stamped Energy & operations | What we improve | Stamped](https://stamped.work/solutions): Stamped improves process and control, quality and lot checks, planning and maintenance in manufacturing plants, with Stamped Energy counted in all four.
+- [Stamped Process & Control | Optimisation | Stamped](https://stamped.work/solutions/process): Run better than your best shift. Stamped tests better control policies on a digital twin of your line and recommends them to your process engineers.
+- [Stamped Quality | Quality and rejection | Stamped](https://stamped.work/solutions/quality): Catch the problem while the lot can still be saved. Stamped links process data to each lot and alerts your team in real time, before parts are rejected.
+- [Stamped Production | Production planning | Stamped](https://stamped.work/solutions/planning): Re-plan with the whole plant in view. Stamped proposes the sequence that works best for the plant, with its effect on output, energy and delivery.
+- [Stamped Maintenance | Prescriptive maintenance | Stamped](https://stamped.work/solutions/maintenance): Prescriptive maintenance, planned around production. Stamped ranks stops by what they cost and prescribes the fix and the best window to make it.
 - [Industries | Stamped](https://stamped.work/industries): Stamped improves process, quality, planning and maintenance in auto-component, steel, cement, pharma and chemical plants.
 - [Auto component manufacturing | Stamped](https://stamped.work/industries/automotive): For forging, heat treatment, machining, die casting and rubber moulding plants: fewer rejections, more output and fewer breakdowns, from data you already have.
 - [Steel plant operations | Stamped](https://stamped.work/industries/steel): For induction and arc furnace melt shops and rolling mills: power per tonne, heat chemistry, yield and cobbles, improved from the data your plant records.
@@ -79,7 +90,7 @@ Hub: [What we improve](https://stamped.work/solutions)
 - [Chemical plant operations | Stamped](https://stamped.work/industries/chemical): For batch and specialty chemical plants: reactor yield, cycle time, off-spec batches, steam and cooling, improved from the data your plant already records.
 - [Notes from the plant floor | Stamped](https://stamped.work/case-studies): Notes from the plant floor on rejections, restarts, heat treatment, machining and maintenance, written for plant heads and the engineers who run the lines.
 - [About Stamped | Built by IIT Roorkee engineers](https://stamped.work/about): Stamped is built by IIT Roorkee engineers Vinayak Raizada and Utso Sarkar. We turn plant data into actions across process, quality, planning and maintenance.
-- [Book a site survey | Stamped](https://stamped.work/contact): A few days on your floor and a written read-out of where your plant loses efficiency and what we'd do first.
+- [Book a site survey | Stamped](https://stamped.work/contact): We spend a few days on your floor with your plant head and quality and maintenance teams, then send a written read-out of where efficiency is lost and what we would change first.
 
 ## Homepage snapshot
 
@@ -257,15 +268,16 @@ Mid-market manufacturers in India, from a few hundred crore rupees of revenue up
 
 - Founders: Vinayak Raizada (Co-Founder), Utso Sarkar (Co-Founder)
 - IIT Roorkee engineers
-- Founded: 2025
+- Founded: 2026
 - Do not invent additional executives, offices, or funding rounds
 
 ## Off-site GEO status
 
 - Google Search Console: registered by team
-- LinkedIn Company Page sameAs: https://www.linkedin.com/company/stampedwork
+- LinkedIn Company Page sameAs: https://www.linkedin.com/company/stamped-energy
 - Google Business Profile, Wikidata, Crunchbase, Bing Webmaster Tools: not done
 
 ## Crawling
 
 All public pages are open to search and AI crawlers. Admin CMS (`/blog/admin`), API routes (`/api/`), and build assets (`/_next/`) are disallowed in robots.txt.
+

@@ -46,6 +46,22 @@ const nextConfig: NextConfig = {
         destination: "/solutions/maintenance",
         permanent: true,
       },
+      // Legacy blog slugs (GSC / old links) → current published posts
+      {
+        source: "/blog/prescriptive-energy-forging-heat-treatment-plants",
+        destination: "/blog/weekend-furnace-holding-silent-cost",
+        permanent: true,
+      },
+      {
+        source: "/blog/shift-start-die-casting-margins",
+        destination: "/blog/why-shift-start-kills-die-casting-margins",
+        permanent: true,
+      },
+      {
+        source: "/blog/weekend-furnace-holding-heat-treatment-cost",
+        destination: "/blog/weekend-furnace-holding-silent-cost",
+        permanent: true,
+      },
     ];
   },
 };

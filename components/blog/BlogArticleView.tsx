@@ -93,7 +93,7 @@ export function BlogArticleView({ post, related }: BlogArticleViewProps) {
           <div className="absolute inset-0" aria-hidden="true">
             <ContentImage
               src={post.coverImage!}
-              alt=""
+              alt={post.title}
               fill
               priority
               className="object-cover object-[center_35%] md:object-[center_40%]"

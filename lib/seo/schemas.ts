@@ -4,6 +4,7 @@ import { icp } from "@/lib/content/icp";
 import { getVerticalPage, type VerticalSlug } from "@/lib/content/vertical-pages";
 import type { IndustryFaqItem } from "@/lib/content/types";
 import { siteConfig } from "@/lib/content/site";
+import { buildStampedSuiteOfferCatalog, STAMPED_SUITE_NAME } from "@/lib/seo/brand";
 import {
   COMPANY_LINKEDIN_URL,
   CONTENT_UPDATED,
@@ -14,8 +15,14 @@ import {
 } from "@/lib/seo/constants";
 import type { FaqItem } from "@/lib/seo/extract-faq";
 import type { PageSeoConfig } from "@/lib/seo/pages";
+import {
+  AUTHOR_PROFILES,
+  type AuthorProfileId,
+  isAuthorProfileId,
+} from "@/lib/content/author-profiles";
 import type {
   Article,
+  BlogPosting,
   ImageObject,
   SearchAction,
   Service,
@@ -52,14 +59,14 @@ export const organizationSchema: WithContext<Organization> = {
   "@type": "Organization",
   "@id": ORGANIZATION_ID,
   name: "Stamped",
-  alternateName: ["Stamped Energy", "stamped.work"],
+  alternateName: ["Stamped Energy", "stamped.work", STAMPED_SUITE_NAME],
   url: SITE_URL,
   logo: organizationLogo,
   slogan: siteConfig.tagline,
   description: icp.seo.entityDefinition,
   founder: [{ "@id": VINAYAK_ID }, { "@id": UTSO_ID }],
   email: "stamped.energy@gmail.com",
-  foundingDate: "2025",
+  foundingDate: "2026",
   foundingLocation: {
     "@type": "Place",
     name: "IIT Roorkee, Uttarakhand, India",
@@ -97,6 +104,7 @@ export const organizationSchema: WithContext<Organization> = {
     "Chemical manufacturing",
   ],
   sameAs: COMPANY_LINKEDIN_URL ? [COMPANY_LINKEDIN_URL] : [],
+  hasOfferCatalog: buildStampedSuiteOfferCatalog(),
 };
 
 /** Google still reads `query-input` for sitelinks search; schema.org types omit it. */
@@ -114,6 +122,7 @@ export const websiteSchema: WithContext<WebSite> = {
   "@type": "WebSite",
   "@id": WEBSITE_ID,
   name: "Stamped",
+  alternateName: ["stamped.work"],
   url: SITE_URL,
   description: icp.seo.metaDescription,
   publisher: {
@@ -269,13 +278,17 @@ export const utsoPersonSchema: WithContext<Person> = {
   worksFor: {
     "@id": ORGANIZATION_ID,
   },
-  alumniOf: {
+  affiliation: {
     "@type": "CollegeOrUniversity",
     name: "Indian Institute of Technology Roorkee",
     sameAs: "https://www.iitr.ac.in",
   },
   url: `${SITE_URL}/about`,
-  sameAs: "https://www.linkedin.com/in/utso/",
+  sameAs: [
+    "https://www.linkedin.com/in/utso",
+    "https://x.com/utsosarkar",
+    "https://utso.stamped.work",
+  ],
 };
 
 type ArticleSchemaInput = {
@@ -290,6 +303,90 @@ type ArticleSchemaInput = {
   authorName?: string;
   authorUrl?: string;
 };
+
+const UTSO_BLOG_SAME_AS = ["https://www.linkedin.com/in/utso/", "https://x.com/utsosarkar"] as const;
+const VINAYAK_BLOG_SAME_AS = ["https://www.linkedin.com/in/vinayak-rz/"] as const;
+
+function blogPostingAuthorEntity(options: {
+  authorProfileId?: AuthorProfileId | string | null;
+  authorName?: string | null;
+}): Person | Organization {
+  const profileId =
+    options.authorProfileId && isAuthorProfileId(options.authorProfileId)
+      ? options.authorProfileId
+      : null;
+  const profile = profileId ? AUTHOR_PROFILES[profileId] : null;
+  const name = (options.authorName?.trim() || profile?.name || "").trim();
+
+  if (!name) {
+    return {
+      "@type": "Organization",
+      "@id": ORGANIZATION_ID,
+      name: "Stamped",
+    };
+  }
+
+  if (profileId === "utsavsar" || name === "Utso Sarkar") {
+    return {
+      "@type": "Person",
+      "@id": UTSO_ID,
+      name: "Utso Sarkar",
+      url: `${SITE_URL}/about`,
+      sameAs: [...UTSO_BLOG_SAME_AS],
+    };
+  }
+
+  if (profileId === "vinayak" || name === "Vinayak Raizada") {
+    return {
+      "@type": "Person",
+      "@id": VINAYAK_ID,
+      name: "Vinayak Raizada",
+      url: `${SITE_URL}/about`,
+      sameAs: [...VINAYAK_BLOG_SAME_AS],
+    };
+  }
+
+  return {
+    "@type": "Person",
+    name,
+  };
+}
+
+export function buildBlogPostingSchema(
+  post: ArticleSchemaInput & { authorProfileId?: AuthorProfileId | string | null },
+): WithContext<BlogPosting> {
+  const imageUrl = post.image
+    ? post.image.startsWith("http")
+      ? post.image
+      : `${SITE_URL}${post.image}`
+    : DEFAULT_OG_IMAGE;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.description,
+    image: imageUrl,
+    datePublished: post.publishedDate,
+    dateModified: post.modifiedDate ?? post.publishedDate,
+    author: blogPostingAuthorEntity({
+      authorProfileId: post.authorProfileId,
+      authorName: post.authorName,
+    }),
+    publisher: organizationPublisher,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/blog/${post.slug}`,
+    },
+    keywords: post.tags.join(", "),
+    articleSection: post.category,
+    inLanguage: "en-IN",
+    about: {
+      "@type": "Thing",
+      name: "Plant operations in Indian manufacturing",
+    },
+  };
+}
 
 export function buildArticleSchema(post: ArticleSchemaInput): WithContext<Article> {
   const imageUrl = post.image
@@ -363,6 +460,7 @@ export const softwareApplicationSchema: WithContext<SoftwareApplication> = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: "Stamped",
+  alternateName: STAMPED_SUITE_NAME,
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web browser",
   url: SITE_URL,
