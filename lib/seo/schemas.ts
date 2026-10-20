@@ -15,7 +15,11 @@ import {
 } from "@/lib/seo/constants";
 import type { FaqItem } from "@/lib/seo/extract-faq";
 import type { PageSeoConfig } from "@/lib/seo/pages";
-import type { AuthorProfileId } from "@/lib/content/author-profiles";
+import {
+  AUTHOR_PROFILES,
+  type AuthorProfileId,
+  isAuthorProfileId,
+} from "@/lib/content/author-profiles";
 import type {
   Article,
   BlogPosting,
@@ -300,31 +304,56 @@ type ArticleSchemaInput = {
   authorUrl?: string;
 };
 
-function blogAuthorEntity(authorProfileId?: AuthorProfileId, authorName?: string, authorUrl?: string) {
-  if (authorProfileId === "utsavsar" || authorName === "Utso Sarkar") {
+const UTSO_BLOG_SAME_AS = ["https://www.linkedin.com/in/utso/", "https://x.com/utsosarkar"] as const;
+const VINAYAK_BLOG_SAME_AS = ["https://www.linkedin.com/in/vinayak-rz/"] as const;
+
+function blogPostingAuthorEntity(options: {
+  authorProfileId?: AuthorProfileId | string | null;
+  authorName?: string | null;
+}): Person | Organization {
+  const profileId =
+    options.authorProfileId && isAuthorProfileId(options.authorProfileId)
+      ? options.authorProfileId
+      : null;
+  const profile = profileId ? AUTHOR_PROFILES[profileId] : null;
+  const name = (options.authorName?.trim() || profile?.name || "").trim();
+
+  if (!name) {
     return {
-      "@type": "Person" as const,
+      "@type": "Organization",
+      "@id": ORGANIZATION_ID,
+      name: "Stamped",
+    };
+  }
+
+  if (profileId === "utsavsar" || name === "Utso Sarkar") {
+    return {
+      "@type": "Person",
       "@id": UTSO_ID,
       name: "Utso Sarkar",
       url: `${SITE_URL}/about`,
-      sameAs: [
-        "https://www.linkedin.com/in/utso",
-        "https://x.com/utsosarkar",
-        "https://utso.stamped.work",
-      ],
+      sameAs: [...UTSO_BLOG_SAME_AS],
+    };
+  }
+
+  if (profileId === "vinayak" || name === "Vinayak Raizada") {
+    return {
+      "@type": "Person",
+      "@id": VINAYAK_ID,
+      name: "Vinayak Raizada",
+      url: `${SITE_URL}/about`,
+      sameAs: [...VINAYAK_BLOG_SAME_AS],
     };
   }
 
   return {
-    "@type": "Person" as const,
-    "@id": VINAYAK_ID,
-    name: authorName ?? "Vinayak Raizada",
-    url: authorUrl ?? "https://www.linkedin.com/in/vinayak-rz/",
+    "@type": "Person",
+    name,
   };
 }
 
 export function buildBlogPostingSchema(
-  post: ArticleSchemaInput & { authorProfileId?: AuthorProfileId },
+  post: ArticleSchemaInput & { authorProfileId?: AuthorProfileId | string | null },
 ): WithContext<BlogPosting> {
   const imageUrl = post.image
     ? post.image.startsWith("http")
@@ -340,7 +369,10 @@ export function buildBlogPostingSchema(
     image: imageUrl,
     datePublished: post.publishedDate,
     dateModified: post.modifiedDate ?? post.publishedDate,
-    author: blogAuthorEntity(post.authorProfileId, post.authorName, post.authorUrl),
+    author: blogPostingAuthorEntity({
+      authorProfileId: post.authorProfileId,
+      authorName: post.authorName,
+    }),
     publisher: organizationPublisher,
     mainEntityOfPage: {
       "@type": "WebPage",

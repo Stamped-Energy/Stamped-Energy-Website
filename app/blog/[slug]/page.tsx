@@ -80,8 +80,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
     tags: post.tags,
     category: post.categoryLabel,
     authorName: post.author.name,
-    authorUrl: post.author.linkedIn,
-    authorProfileId: "utsavsar",
+    authorProfileId: post.authorProfile,
   });
 
   const breadcrumbSchema = generateBreadcrumbSchema([
