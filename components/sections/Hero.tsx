@@ -94,7 +94,7 @@ export function Hero() {
           </div>
         </div>
 
-        <ul data-hero-animate="copy" className="mt-5 grid gap-1.5 text-[0.8rem] leading-5 text-on-surface-variant sm:grid-cols-3 sm:gap-4 lg:mt-8 lg:justify-items-start">
+        <ul data-hero-animate="copy" className="mt-5 grid gap-1.5 text-[0.8rem] leading-5 text-on-surface-variant sm:flex sm:flex-wrap sm:gap-x-10 sm:gap-y-2 lg:mt-8">
           {hero.features.map((feature) => (
             <li key={feature.id} className="flex items-start gap-2">
               <span aria-hidden className="mt-[0.4rem] h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />

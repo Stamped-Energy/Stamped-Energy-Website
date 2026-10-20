@@ -48,7 +48,9 @@ export function LandingClosingCta() {
                 </Link>
               )}
             </div>
-            <p className="mt-6 text-sm text-on-secondary/60">{closingCta.smallLine}</p>
+            {"smallLine" in closingCta && closingCta.smallLine ? (
+              <p className="mt-6 text-sm text-on-secondary/60">{String(closingCta.smallLine)}</p>
+            ) : null}
           </div>
         </Reveal>
       </Container>

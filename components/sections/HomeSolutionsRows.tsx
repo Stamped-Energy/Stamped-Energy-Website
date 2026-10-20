@@ -28,8 +28,16 @@ export function HomeSolutionsRows() {
                 <MotionSlot label={`${area.title} visual`} aspectClassName="aspect-[16/7]" className="mb-8">
                   <SolutionAreaVisual slug={area.slug} />
                 </MotionSlot>
-                <h3 className="font-display text-2xl font-bold tracking-tight md:text-3xl">{area.title}</h3>
+                <div className="flex flex-wrap items-center gap-3">
+                  <h3 className="font-display text-2xl font-bold tracking-tight md:text-3xl">{area.title}</h3>
+                  {area.status === "coming-soon" ? (
+                    <span className="rounded-full border border-outline-variant/70 px-2.5 py-1 font-mono text-[0.62rem] font-medium uppercase tracking-[0.12em] text-on-surface-variant">
+                      {solutionsSection.comingSoonLabel}
+                    </span>
+                  ) : null}
+                </div>
                 <p className="mt-4 max-w-xl text-base leading-8 text-on-surface/80">{area.homeSummary}</p>
+                {area.status === "coming-soon" ? null : (
                 <Link
                   href={area.href}
                   className="mt-6 inline-flex h-11 items-center gap-2 rounded-md border border-on-surface/20 px-5 text-sm font-semibold text-on-surface transition-colors hover:border-primary hover:text-primary"
@@ -37,6 +45,7 @@ export function HomeSolutionsRows() {
                   {solutionsSection.ctaLabel}
                   <span aria-hidden>»</span>
                 </Link>
+                )}
               </Reveal>
             </li>
           ))}
