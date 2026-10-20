@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 
 import { Hero } from "@/components/sections/Hero";
+import { HomeAgents } from "@/components/sections/HomeAgents";
 import { HomeHowItWorks } from "@/components/sections/HomeHowItWorks";
 import { HomeImpact } from "@/components/sections/HomeImpact";
 import { HomeIndustries } from "@/components/sections/HomeIndustries";
+import { HomeLadder } from "@/components/sections/HomeLadder";
 import { HomeProblem } from "@/components/sections/HomeProblem";
 import { HomeResources } from "@/components/sections/HomeResources";
 import { HomeSolutionsRows } from "@/components/sections/HomeSolutionsRows";
@@ -34,9 +36,11 @@ export default function HomePage() {
       <Hero />
       <HomeProblem />
       <HomeWhatIs />
+      <HomeLadder />
       <HomeHowItWorks />
       <HomeImpact />
       <HomeSolutionsRows />
+      <HomeAgents />
       <HomeIndustries />
       <HomeResources />
       <HomeTerminalBand />

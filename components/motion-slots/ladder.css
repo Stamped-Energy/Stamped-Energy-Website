@@ -1,0 +1,59 @@
+/* HomeLadder pipeline stages. Palette follows the HIW chromes (forest, acid, wine). */
+.ladder-stage {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 1.1rem 1.15rem 1rem;
+}
+
+.ladder-stage svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.ladder-forest {
+  color: #fbfcf9;
+  background: #4a634d;
+}
+
+.ladder-acid {
+  color: #2f3218;
+  background: #eef981;
+}
+
+.ladder-wine {
+  color: #fbfcf9;
+  background: #761438;
+}
+
+.ladder-kicker {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.78;
+}
+
+.ladder-svg-lbl {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  fill: currentColor;
+}
+
+.ladder-line {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ladder-card-row + .ladder-card-row {
+  border-top: 1px solid color-mix(in srgb, currentColor 22%, transparent);
+}

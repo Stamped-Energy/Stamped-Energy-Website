@@ -23,12 +23,10 @@ export type HomeActionCard = {
 
 export const landingContent = {
   hero: {
-    badge: "AI for industrial plants",
-    headline: "Turn plant data into action.",
-    headlineLine1: "Turn plant data",
-    headlineLine2: "into action.",
+    badge: "Industrial AI",
+    headline: "From monitoring your plant to improving it.",
     supportingLine:
-      "Stamped builds models of your plant from the data it already records, finds where efficiency is lost across process, quality, planning and maintenance, and improves it with actions your team can take.",
+      "Stamped models your processes and equipment from the data you already log, then its AI agents learn from that model to watch every run, find where output, quality and energy are being lost, and recommend the change that fixes it, inside limits set beforehand.",
     primaryCta: { label: "Book a site survey", href: "/contact" } satisfies CtaLink,
     secondaryCta: { label: "See how it works", href: "#hiw" } satisfies CtaLink,
     actionPanel: {
@@ -90,7 +88,6 @@ export const landingContent = {
     features: [
       { id: "systems", title: "Nothing new to install to start" },
       { id: "actions", title: "Actions reach your team on WhatsApp or on screen" },
-      { id: "first-finding", title: "First finding usually within about two weeks" },
     ],
   },
 
@@ -121,13 +118,103 @@ export const landingContent = {
 
   whatIs: {
     badge: "What Stamped does",
-    title: "From monitoring your plant to improving it.",
+    title: "Fewer rejections, more output, less energy in every good part.",
     /** Homepage cut of the approved outcomes-and-how text (ADR-036). Full version: platform.ts. The last item renders as the kicker. */
     paragraphs: [
       "Stamped helps plants cut rejections, get more output from the lines they already have, and use less energy in every good part. It brings data from separate systems into one view, builds a model of how your plant actually runs and turns hidden losses into specific actions for the person who can fix them. It is a self-improving agentic system, so it gets better with every result.",
-      "Stamped recommends and your team decides, and every change is checked against your own baseline.",
+      "Stamped works inside limits set beforehand, and every change is checked against your own baseline.",
     ],
     motionSlotLabel: "Product visual",
+  },
+
+  /** Three-step capability ladder (plan PR #16, section 15.3, item 4). Rendered by HomeLadder after HomeWhatIs. */
+  ladder: {
+    badge: "Three steps",
+    title: "From watching your plant to running it better.",
+    authorityLine: "Stamped works inside limits set beforehand.",
+    steps: [
+      {
+        id: "monitoring",
+        step: 1,
+        label: "Monitoring",
+        title: "See every process as it runs.",
+        description: "A live model of your plant spots drift while there is still time to act.",
+      },
+      {
+        id: "decision",
+        step: 2,
+        label: "Decision making",
+        title: "The next best move, with its evidence.",
+        description:
+          "Every recommendation is tested on the model first, and the result is measured in your own numbers.",
+      },
+      {
+        id: "execution",
+        step: 3,
+        label: "Autonomous execution",
+        title: "Proven changes, run on their own.",
+        description:
+          "Once a kind of change has already worked on your line, Stamped can run it on its own, always inside limits set beforehand.",
+      },
+    ],
+    /** Labels inside the pipeline visual. No numbers by design. */
+    visual: {
+      sources: ["Machine logs", "Quality records", "Production plan"],
+      modelLabel: "Plant model",
+      driftLabel: "Drift spotted",
+      card: {
+        title: "Recommendation",
+        rows: [
+          { label: "What changed", text: "This run is drifting away from your best runs." },
+          { label: "Suggested move", text: "Bring the setting back to where the best runs held it." },
+          { label: "Evidence", text: "Matched past runs from this line." },
+        ],
+        check: "Tested on the model",
+      },
+      bandLabel: "Limits set beforehand",
+      appliedLabel: "Change applied",
+      logLine: "Inside limits · logged",
+    },
+  },
+
+  /**
+   * Optional agents strip (plan PR #16, section 15.5, Layout B). Set `enabled: false` to drop it from the homepage.
+   * Status is "First pilot scope" only: nothing is live or in pilot yet.
+   */
+  agents: {
+    enabled: true,
+    badge: "Agents",
+    title: "Agents that keep working when your team goes home.",
+    statusLabel: "First pilot scope",
+    cards: [
+      {
+        id: "records",
+        name: "Reads your scattered records",
+        text: "Brings controller data, historian tags, ERP lots and handwritten cards into one record for every batch.",
+      },
+      {
+        id: "worst-lot",
+        name: "Replays your worst lot",
+        text: "Links a recent bad lot end to end from your own records, so your team sees what the signals showed before it went wrong.",
+      },
+      {
+        id: "warnings",
+        name: "Warns while there is time",
+        text: "Watches one line and warns your team when a batch drifts toward a known problem.",
+      },
+      {
+        id: "sensors",
+        name: "Checks your sensors first",
+        text: "Flags a sensor that has gone dead or stuck before its readings mislead anyone.",
+      },
+      {
+        id: "reject-cost",
+        name: "Counts what a reject really cost",
+        text: "Shows the energy and material lost in parts that never ship, next to your rejections.",
+      },
+    ],
+    moreLine:
+      "And more on the way: answers with sources, shift handovers, overnight work, quality before the lab, better standards and proof in your own numbers.",
   },
 
   homeHowItWorks: {
@@ -168,8 +255,8 @@ export const landingContent = {
         label: "Results",
         title: "Checks what actually worked.",
         description:
-          "Your team decides. Every change is measured against your own baseline, and the models retrain on what it shows, so Stamped keeps getting better.",
-        bullets: ["Accept, adjust or decline every action", "Catch it early if a gain starts to slip"],
+          "Every change is measured against your own baseline, and the models retrain on what it shows, so Stamped keeps getting better.",
+        bullets: ["Every change visible to your team", "Catch it early if a gain starts to slip"],
       },
     ],
   },
@@ -200,7 +287,7 @@ export const landingContent = {
       },
     ] satisfies HomeImpactItem[],
     footnote:
-      "The first finding usually comes within about two weeks. Results are measured against your own baseline and published only with your permission.",
+      "Results are measured against your own baseline and published only with your permission.",
   },
 
   solutionsSection: {
@@ -208,6 +295,7 @@ export const landingContent = {
     title: "Across the plant, not one machine.",
     footnote: "Energy is counted in all four.",
     ctaLabel: "Learn more",
+    comingSoonLabel: "Coming soon",
   },
 
   resourcesSection: {
@@ -286,7 +374,7 @@ export const landingContent = {
         id: "supervisors",
         question: "Who decides what changes, and what does Stamped add if my supervisors already know the plant?",
         answer:
-          "Stamped recommends and your team decides. Your senior supervisors usually know the plant well, and Stamped is built to back them up: it looks at every line on every shift, including the shifts they are not on, and writes down what it finds with the reasoning, so the night shift gets the same advice the day shift gets from your best hands.",
+          "Stamped works inside limits set beforehand. Your senior supervisors usually know the plant well, and Stamped is built to back them up: it looks at every line on every shift, including the shifts they are not on, and writes down what it finds with the reasoning, so the night shift gets the same advice the day shift gets from your best hands.",
       },
       {
         id: "gets-better",
@@ -298,7 +386,7 @@ export const landingContent = {
         id: "data",
         question: "Where does our data go?",
         answer:
-          "We sign an NDA before the site survey. Stamped runs on a zero-trust architecture with encryption, your data is stored on cloud servers in India, and during the survey and the pilot we work only with the data your team agrees to share.",
+          "We sign an NDA before the site survey, and during the survey and the pilot we work only with the data your team agrees to share.",
       },
       {
         id: "reach-the-floor",
@@ -310,7 +398,7 @@ export const landingContent = {
         id: "start",
         question: "How do we start?",
         answer:
-          "We start with a site survey, which means a few days on your floor and a written read-out of where efficiency is being lost and what we would change first. If it makes sense, that is followed by a paid pilot on one line for eight to twelve weeks, and the first finding usually comes within about two weeks.",
+          "We start with a site survey, which means a few days on your floor and a written read-out of where efficiency is being lost and what we would change first. If it makes sense, that is followed by a paid pilot on one line for eight to twelve weeks.",
       },
       {
         id: "cost",
@@ -327,10 +415,9 @@ export const landingContent = {
   },
 
   closingCta: {
-    title: "Turn plant data into action.",
+    title: "Every batch should make the next one better.",
     description:
       "Spend a few days with us on your floor, and we'll give you a written read-out of where efficiency is being lost and what we would do first.",
-    smallLine: "First finding usually within about two weeks.",
     primaryCta: { label: "Book a site survey", href: "/contact" } satisfies CtaLink,
     whatsappLabel: "WhatsApp us",
     /** Shown when no WhatsApp link is configured. */

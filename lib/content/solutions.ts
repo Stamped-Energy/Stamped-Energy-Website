@@ -18,6 +18,8 @@ export type SolutionExampleCard = {
 
 export type SolutionArea = {
   slug: SolutionAreaSlug;
+  /** "coming-soon" shows a badge and hides the homepage CTA. Defaults to live. */
+  status?: "live" | "coming-soon";
   href: string;
   /** Area name, e.g. "Process and control". */
   title: string;
@@ -282,11 +284,12 @@ const areas: SolutionArea[] = [
   },
   {
     slug: "maintenance",
+    status: "coming-soon",
     href: "/solutions/maintenance",
     title: "Maintenance",
     heading: "Prescriptive maintenance, planned around production.",
     homeSummary:
-      "Prescriptive maintenance that says what to fix and when, ranked by what each stop costs and planned around your production.",
+      "We are building this next: maintenance that says what to fix and when, ranked by what each stop costs and planned around your production.",
     intro:
       "The stop log shows where the hours go, but rarely which stops matter most or when to fix them. Stamped ranks stops by what they cost and prescribes the fix and the best window to make it, planned around production.",
     method: {

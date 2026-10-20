@@ -46,20 +46,20 @@ const nextConfig: NextConfig = {
         destination: "/solutions/maintenance",
         permanent: true,
       },
-      // Legacy blog slugs (GSC / old links) → current published posts
+      // Legacy blog slugs → the published posts (one hop, no chains).
       {
         source: "/blog/prescriptive-energy-forging-heat-treatment-plants",
-        destination: "/blog/weekend-furnace-holding-silent-cost",
+        destination: "/blog/weekend-furnace-holding-heat-treatment-cost",
         permanent: true,
       },
       {
-        source: "/blog/shift-start-die-casting-margins",
-        destination: "/blog/why-shift-start-kills-die-casting-margins",
+        source: "/blog/weekend-furnace-holding-silent-cost",
+        destination: "/blog/weekend-furnace-holding-heat-treatment-cost",
         permanent: true,
       },
       {
-        source: "/blog/weekend-furnace-holding-heat-treatment-cost",
-        destination: "/blog/weekend-furnace-holding-silent-cost",
+        source: "/blog/why-shift-start-kills-die-casting-margins",
+        destination: "/blog/shift-start-die-casting-margins",
         permanent: true,
       },
     ];
