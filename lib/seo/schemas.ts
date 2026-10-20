@@ -4,6 +4,7 @@ import { icp } from "@/lib/content/icp";
 import { getVerticalPage, type VerticalSlug } from "@/lib/content/vertical-pages";
 import type { IndustryFaqItem } from "@/lib/content/types";
 import { siteConfig } from "@/lib/content/site";
+import { buildStampedSuiteOfferCatalog, STAMPED_SUITE_NAME } from "@/lib/seo/brand";
 import {
   COMPANY_LINKEDIN_URL,
   CONTENT_UPDATED,
@@ -52,14 +53,14 @@ export const organizationSchema: WithContext<Organization> = {
   "@type": "Organization",
   "@id": ORGANIZATION_ID,
   name: "Stamped",
-  alternateName: ["Stamped Energy", "stamped.work"],
+  alternateName: ["Stamped Energy", "stamped.work", STAMPED_SUITE_NAME],
   url: SITE_URL,
   logo: organizationLogo,
   slogan: siteConfig.tagline,
   description: icp.seo.entityDefinition,
   founder: [{ "@id": VINAYAK_ID }, { "@id": UTSO_ID }],
   email: "stamped.energy@gmail.com",
-  foundingDate: "2025",
+  foundingDate: "2026",
   foundingLocation: {
     "@type": "Place",
     name: "IIT Roorkee, Uttarakhand, India",
@@ -97,6 +98,7 @@ export const organizationSchema: WithContext<Organization> = {
     "Chemical manufacturing",
   ],
   sameAs: COMPANY_LINKEDIN_URL ? [COMPANY_LINKEDIN_URL] : [],
+  hasOfferCatalog: buildStampedSuiteOfferCatalog(),
 };
 
 /** Google still reads `query-input` for sitelinks search; schema.org types omit it. */
@@ -276,7 +278,11 @@ export const utsoPersonSchema: WithContext<Person> = {
     sameAs: "https://www.iitr.ac.in",
   },
   url: `${SITE_URL}/about`,
-  sameAs: ["https://www.linkedin.com/in/utso/", "https://utso.stamped.work"],
+  sameAs: [
+    "https://www.linkedin.com/in/utso",
+    "https://x.com/utsosarkar",
+    "https://utso.stamped.work",
+  ],
 };
 
 type ArticleSchemaInput = {
@@ -364,6 +370,7 @@ export const softwareApplicationSchema: WithContext<SoftwareApplication> = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: "Stamped",
+  alternateName: STAMPED_SUITE_NAME,
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web browser",
   url: SITE_URL,
