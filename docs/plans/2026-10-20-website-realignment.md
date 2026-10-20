@@ -468,7 +468,7 @@ Three-line H1 check: the current H1 was sized for three lines at 1280px. As a wo
 - Subhead: They monitor every process, tune each machine toward its best settings, and catch a batch at risk of rejection before it ships, inside limits set beforehand.
 - Proof line: Every finding shows its evidence, and every gain is measured in your own numbers.
 - Rationale: fully approved today, ships without a guide change. Vinayak found it not technical enough; "AI agents" alone is the swap-test risk the guide itself names (CG 12).
-- Check: compliant as is; H1 55 characters, needs one size step down for three lines.
+- Check: compliant as is; H1 54 characters, needs one size step down for three lines.
 
 **S3 (control-led).**
 - Eyebrow: Self-improving AI for plant operations.
@@ -476,7 +476,7 @@ Three-line H1 check: the current H1 was sized for three lines at 1280px. As a wo
 - Subhead: Stamped models each machine from the data your plant already records, tests every new setting in simulation before the line sees it, and catches a batch at risk of rejection before it ships, inside limits set beforehand.
 - Proof line: Every finding shows its evidence, and every gain is measured in your own numbers.
 - Rationale: built from TI plain copy lines ("A control policy that learns from your best runs", "tests a move before the line sees it"); leads with smarter control, the pillar that drove the largest estimated value.
-- Check: compliant; H1 54 characters, one size step down. New copy, Appendix A.
+- Check: compliant; H1 53 characters, one size step down. New copy, Appendix A.
 
 **S4 (the model that sees what sensors miss).**
 - Eyebrow: AI for plant operations.
@@ -541,7 +541,7 @@ GUIDE CONFLICTS: 'Autonomous' is banned by the guide and ADR-035 rules out heat-
 **Overlaps.** Both sets converge on the same idea: predict the batch outcome from a model of named equipment, while there is still time to act, with the limits in the same sentence. S1 and P1 are near twins; S6 and P3 are near twins; S5 and P2 share the approved H1. Both three-step sets use the same rung labels, the same step 2 shape (search on the model, bring the engineer change plus prediction plus records, measure in own numbers) and the same step 3 shape (proven class of change, through the plant's controller, inside signed limits, anything new goes back).
 
 **Differences.**
-- H1 length: P1 is 64 characters and would likely break to four lines at 1280px at the current size; S1 (48) says the same thing in three lines. P4 is 59 and has the weaker swap test both teams note.
+- H1 length: P1 is 65 characters and would likely break to four lines at 1280px at the current size; S1 (48) says the same thing in three lines. P4 is 59 and has the weaker swap test both teams note.
 - P1's subhead is the most technically specific of all options (induction heaters, rejection risk, "recommend the control change that keeps it in spec") and is two sentences, which helps readability. It uses "limits your engineers set beforehand", a small variation on the approved authority line; CG wants the authority line as written, so either restore "inside limits set beforehand" or log the variant in Appendix A.
 - P3's subhead says agents "apply it within limits your engineers signed" in the hero. That is the autonomy claim on the first screen; it needs D17 resolved first.
 - P2's "turn each proven fix into how the line runs" also implies step 3 on the first screen.
