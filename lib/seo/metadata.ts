@@ -13,6 +13,9 @@ import type { PageSeoConfig } from "@/lib/seo/pages";
 
 export function absoluteUrl(path: string): string {
   const base = SITE_ORIGIN.replace(/\/$/, "");
+  if (path === "/") {
+    return `${base}/`;
+  }
   return path.startsWith("/") ? `${base}${path}` : `${base}/${path}`;
 }
 

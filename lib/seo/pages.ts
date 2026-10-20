@@ -26,9 +26,9 @@ const HOW_IT_WORKS_SEO = {
 
 export const PAGE_SEO = {
   home: {
-    absoluteTitle: "Stamped | AI for plant operations",
+    absoluteTitle: "Stamped Energy | AI for plant operations",
     description:
-      "Stamped is AI for industrial plants. It models your plant from the data it already records and improves process, quality, planning and maintenance.",
+      "Stamped Energy. Stamped is AI for industrial plants. It models your plant from data it already records and improves process, quality, planning and maintenance.",
     path: "/",
     keywords: [
       "AI for plant operations",

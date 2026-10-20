@@ -114,6 +114,7 @@ export const websiteSchema: WithContext<WebSite> = {
   "@type": "WebSite",
   "@id": WEBSITE_ID,
   name: "Stamped",
+  alternateName: ["Stamped Energy", "stamped.work"],
   url: SITE_URL,
   description: icp.seo.metaDescription,
   publisher: {
@@ -269,13 +270,13 @@ export const utsoPersonSchema: WithContext<Person> = {
   worksFor: {
     "@id": ORGANIZATION_ID,
   },
-  alumniOf: {
+  affiliation: {
     "@type": "CollegeOrUniversity",
     name: "Indian Institute of Technology Roorkee",
     sameAs: "https://www.iitr.ac.in",
   },
   url: `${SITE_URL}/about`,
-  sameAs: "https://www.linkedin.com/in/utso/",
+  sameAs: ["https://www.linkedin.com/in/utso/", "https://utso.stamped.work"],
 };
 
 type ArticleSchemaInput = {

@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "seo:check": "tsx scripts/seo-check.ts",
+    "indexnow:submit": "tsx scripts/indexnow-submit.ts",
     "seo:audit": "uvx --from geo-optimizer-skill==4.18.3 python scripts/geo-audit.py",
     "db:generate": "prisma generate",
     "db:push": "prisma db push",
