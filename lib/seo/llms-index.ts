@@ -214,8 +214,8 @@ export function buildLlmsTxtBody(): string {
   lines.push("## Proof phrases");
   pushBlank(lines);
   lines.push("- Measured against your own plant's baseline, in the units your team already tracks");
-  lines.push("- Stamped recommends and your team decides");
-  lines.push("- Example actions use placeholders in [brackets]; pilots write these from plant data");
+  lines.push("- Stamped works inside limits set beforehand");
+  lines.push("- Example actions and sample findings are illustrative and carry no real figures");
   pushBlank(lines);
 
   lines.push("## About (safe facts)");

@@ -50,9 +50,9 @@ export type IndustryMatrixRow = {
 };
 
 export const IMPROVEMENT_AREA_LABELS: Record<ImprovementAreaKey, { label: string; href: string }> = {
-  process: { label: "Process and control", href: "/solutions/process" },
-  quality: { label: "Quality and lot checks", href: "/solutions/quality" },
-  planning: { label: "Planning and scheduling", href: "/solutions/planning" },
+  process: { label: "Process", href: "/solutions/process" },
+  quality: { label: "Quality", href: "/solutions/quality" },
+  planning: { label: "Planning", href: "/solutions/planning" },
   maintenance: { label: "Maintenance", href: "/solutions/maintenance" },
 };
 

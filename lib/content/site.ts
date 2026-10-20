@@ -31,9 +31,9 @@ export const navLinks: NavLink[] = [
 
 export const footerLinks = {
   solutions: [
-    { label: "Process and control", href: "/solutions/process" },
-    { label: "Quality and lot checks", href: "/solutions/quality" },
-    { label: "Planning and scheduling", href: "/solutions/planning" },
+    { label: "Process", href: "/solutions/process" },
+    { label: "Quality", href: "/solutions/quality" },
+    { label: "Planning", href: "/solutions/planning" },
     { label: "Maintenance", href: "/solutions/maintenance" },
     { label: "How it works", href: "/platform" },
   ],
