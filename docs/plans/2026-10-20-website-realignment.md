@@ -402,7 +402,7 @@ Other industry pages keep their current titles with "energy" framing removed.
 | D15 | Candour line on About | Use or skip | Use |
 | D16 | Release order | One release, or hero, authority line and broken links first | Ship the fixes and the hero first, then the rest |
 | D17 | Autonomy wording | Amend CG 7 and 9 (and possibly ADR-035) so public copy can describe step 3, or keep "Autonomous execution" as a small step label only, with copy "on its own, inside limits signed beforehand", never "silent" | Added 20 Oct from Positioning & Marketing; see 12.5 |
-| D18 | Hero choice | Options in section 12 (Website bot S1 to S6, Positioning & Marketing P1 to P5) | Added 20 Oct; see 12.4 |
+| D18 | Hero choice | Updated 20 Oct, 15:07 IST: Vinayak's general direction (section 13) supersedes section 12. Eyebrow "Industrial AI"; H1 G1 "From monitoring your plant to improving it." (recommended), G2 "Turn plant data into better operations.", G3 "AI that runs your plant better, every shift.", G4 "Your plant already has the data. Stamped puts it to work."; opening line in 13.2. Section 12 options stay on file as alternates | G1 with the 13.2 opening line; see 13.3 for checks |
 
 Context for D8 from this plan: on 3 Oct Vinayak asked for every industry page to stay so no buyer is turned away. This plan is drafted on that basis; D8 decides it.
 
@@ -434,6 +434,8 @@ Context for D9 from this plan: on 3 Oct Vinayak set the rule that the survey onl
 ---
 
 ## 12. Hero and three-step copy options (for Vinayak to choose)
+
+> **SUPERSEDED IN PART (20 Oct, 15:07 IST).** Vinayak chose a general direction (section 13). The hero options and the forge-specific step copy below are kept as alternates and research only.
 
 Added 20 October 2026 (IST) after Vinayak's feedback: the hero must sound technically strong and credible, and the three steps must map to a capability ladder (Monitoring, Decision making, Autonomous execution inside limits set beforehand). Supersedes the hero in 3.1 and the step copy in 3.3.
 
@@ -560,3 +562,125 @@ GUIDE CONFLICTS: 'Autonomous' is banned by the guide and ADR-035 rules out heat-
 - FOUNDER-VISION (standing approval per class of change, signed window, writer as the only path) supports the ladder.
 - Options: amend CG 7, 9 and 3a, and agree an ADR, before step 3 ships; or ship steps 1 and 2 now with the step 3 fallback from 3.3 ("Grow what it handles ...") until then.
 - The new hero H1s (S1, S3, S4, S6, P1, P3, P4) all need CG Appendix A entries before release (CG 11).
+
+---
+
+## 13. General positioning direction (20 Oct, Vinayak)
+
+### 13.1 Direction
+
+Vinayak's direction, 20 Oct, supersedes the hero recommendation in 12.5:
+
+- The eyebrow is short. Proposed: "Industrial AI".
+- The headline is general. It is not tied to one pain point or one industry. Vinayak prefers "From monitoring your plant to improving it." to the specific options in section 12.
+- The opening line does not explain exact mechanics: no hardness, case depth or furnaces on the first screen.
+- The whole site is positioned as industrial AI, AI for industries in general. It is not forging or heat-treat specific.
+
+Knock-on effects on earlier sections of this plan (to be applied when built, after the guide is updated):
+
+- 1 (item 6), 2.2, 3.8, 4.5 and 7.2: forging and heat treatment is no longer the lead industry. `/industries/forging-heat-treatment` becomes one industry page among equals (or is folded into `/industries/automotive`, see D8), and the Industries menu lists industries without a "first" one.
+- 3.2 (Problem), 3.5 (Illustrative findings), 3.7 (Survey offer) and the solution card bodies in 3.4: keep the structure, but rewrite examples across industries (one forge or heat-treat example may stay among several). Body copy below the fold may still be concrete; only the first screen stays general.
+- 7.2 titles and meta descriptions: drop "forge" and "heat treatment" from home, solutions and blog titles. Proposed home title: "Stamped | Industrial AI for plant operations" (44 characters).
+- Copy guide conflict: CG section 1 and 5a say Stamped "starts with forge and heat-treat lines", and the approved eyebrow is "Self-improving AI for plant operations." The new eyebrow and general framing need a CG update (section 1, message bank, Appendix A) before release. This sits under D18.
+
+### 13.2 Hero options
+
+Eyebrow (all options): Industrial AI
+
+| # | H1 | Characters | Three lines at 1280px |
+|---|---|---|---|
+| G1 (recommended) | From monitoring your plant to improving it. | 43 | Yes. This line was the live H1 that the current size token was tuned to |
+| G2 | Turn plant data into better operations. | 39 | Yes, likely two lines; can take a larger size |
+| G3 | AI that runs your plant better, every shift. | 44 | Yes |
+| G4 | Your plant already has the data. Stamped puts it to work. | 57 | Needs one size step down; two sentences make the break harder to control |
+
+Opening line (all options): Stamped's AI agents learn how your plant runs from the data it already records. They watch every line, find where output, quality and energy are being lost, and recommend the change that fixes it, inside limits set beforehand.
+
+Primary CTA: Book a site survey. Secondary text link: See how it works. Proof line: Every finding shows its evidence, and every gain is measured in your own numbers.
+
+### 13.3 Checks
+
+- No em dashes, no numbers, no named industry or method on the first screen.
+- Authority line present in the opening line.
+- G1: general, owner-friendly, and it states the ladder (monitor, then improve). Swap test: weak on its own (any monitoring vendor could say it). The opening line carries the Stamped-specific part (AI agents, the plant's own records, inside limits set beforehand). Accept that trade-off or pair G1 with the CG point-of-view line lower on the page.
+- G2: close to the retired "Turn plant data into action."; swap test weak.
+- G3: "runs your plant" implies autonomous control on the first screen, which CG 7 and 9 bar unless D17 amends them.
+- G4: strongest swap test of the four and most concrete. Two short sentences is allowed (CG 9 bans runs of very short sentences, which this is not).
+- Opening line: "recommend the change that fixes it" is a recommendation, so it is compliant without D17. "Energy" is listed with output and quality, so it does not read energy-only (CG 9).
+- "Industrial AI" eyebrow: not in the CG message bank; needs an Appendix A entry. It also helps search, since it is a category people search for.
+
+### 13.4 General three steps
+
+Section heading (proposed): From watching your plant to running it better.
+
+- 1 Monitoring. Title: See every process as it runs. Line: A live model of your plant spots drift while there is still time to act.
+- 2 Decision making. Title: The next best move, with its evidence. Line: Every change is tested on the model first, and the result is measured in your own numbers.
+- 3 Autonomous execution. Title: Proven changes, run on their own. Line: Only changes that have already worked on your line, always inside limits set beforehand.
+
+Checks: step 2 does not say a person approves every change (CG 7). Step 3 and its label still conflict with CG 7 and 9 and with ADR-035 for heat-treat setpoints (D17). Fallback for step 3 until D17 is settled: "Grow what it handles. As each kind of change proves itself, your engineers decide how much more Stamped takes on, always inside limits they signed beforehand." Step 3's line is a fragment; when built, write it as a sentence: "Once a change has already worked on your line, Stamped can run it on its own, always inside limits set beforehand."
+
+---
+
+## 14. Inspiration from Faclon and Munshi OS
+
+Reviewed 20 Oct 2026 (IST): faclon.com home and `/industry/automobile-autoparts`, munshios.com home and `/industries/forging/`, plus both sites' navigation link lists. Patterns only. None of their wording is used, and neither company is named on stamped.work (CG 1a, CG 9).
+
+### 14.1 Faclon (faclon.com)
+
+Structure seen: product-suite hero ("One platform ..." style H1 with a list of benefits), a band of headline metrics, an interactive digital-maturity self-assessment with three levels (foundation, intelligent, autonomous), a platform section with named modules, testimonials with names and titles, a per-industry grid (focus, benefits, solutions), "impact across the org chart" by role, named solution experts, case studies titled with percentages and dollar savings, Mumbai and US addresses and phone numbers in the footer. Nav: products, solutions (long list), industries (11), case studies, comparison, book a demo.
+
+Worth taking:
+- The three-level maturity ladder (descriptive and diagnostic, then predictive and prescriptive, then closed-loop autonomous) is the same shape as our three steps, which confirms the ladder reads as credible in this category.
+- A role-based "who gets what" section (CXO, plant head, maintenance engineer) makes value concrete for each buyer in the room.
+- Per-industry pages organised as pain, benefit and what is monitored, with a long list of named equipment, show breadth without a separate pitch per industry.
+- A connectivity section naming protocols and sources (PLC, SCADA, OPC, Modbus, ERP) answers "will it work with my plant" before anyone asks.
+- A real Indian address and phone number in the footer is a trust signal for Indian buyers (our open note N3).
+- A self-assessment as a lead magnet (later; it sits next to D14).
+
+Avoid:
+- Headline metric bands and percentage or dollar case-study titles (CG 6 and 9; we have no verified results).
+- Testimonial and logo walls (we have none and must not invent them).
+- "One platform" and named module sprawl (CG 9 bans "platform" as the pitch; too many product names dilutes two products).
+- Buzzword H1s that list four benefits at once.
+
+### 14.2 Munshi OS (munshios.com)
+
+Structure seen: H1 about hidden losses, a row of capability tags, a pain-led opening paragraph that lists losses in floor language, an illustrative alert card (reading, threshold, action, escalation path supervisor to ops head to plant head), four function cards, a comparison of what the ERP records against where the causes live, "two streams" (machine data plus operator reports), loss attribution to machine, shift and batch, per-function deep sections with bullet lists, an illustrative KPI dashboard labelled "Illustrative data", an energy and carbon section, an "audit-ready" section, illustrative "kind of losses surfaced in the first weeks" cards, and a CTA asking the visitor to name one line or machine. Industry pages follow the material stage by stage (billet heating, press, heat treatment, shot blasting, inspection) with the loss hidden in each stage. Nav: features, modules, industries with sub-stages, blog, "the ERP gap".
+
+Worth taking:
+- Industry pages that follow the material stage by stage, with the loss hidden in each stage, are the clearest way to show we understand an industry without a long pitch. This fits all our industry pages, not just forging.
+- An illustrative product card that shows the reading, the suggested action and who it escalates to makes the product tangible. Our `HeroPlantFlow` cards can carry the "who gets it" line.
+- Clearly labelled illustrative findings ("the kind of losses teams find") confirm the 3.5 approach; the label must be visible.
+- A "where your existing systems stop" comparison (ERP and MES record what happened; the cause sits between systems) explains the gap Stamped fills in one screen.
+- Machine data plus people's records in one record matches CG ("records the plant already keeps", load cards and lab sheets) and is worth a short section.
+- An audit-ready angle (every batch's record ready when the auditor or customer asks) is already a CG proof point; give it a home on the Quality page.
+- The CTA that asks for one line or machine where you suspect losses, with a stated reply time, is concrete and low effort.
+
+Avoid:
+- Heavy use of em dashes and the "X tells you the numbers, Y tells you the causes" shape (CG 9 bans the shape and em dashes).
+- Illustrative dashboards full of specific-looking percentages; even labelled, they read as results. Ours use placeholders or no figures.
+- "All four systems in one" replacement framing (CG 1: Stamped is not a replacement for MES, quality or maintenance systems).
+- Monitoring-and-dashboard framing as the core (CG: Stamped is not a dashboard).
+- Carbon and ISO certification claims we cannot back.
+
+### 14.3 Proposed changes for stamped.work
+
+| # | Change | Page and component | Draft copy (ours) |
+|---|---|---|---|
+| C1 | "Where your current systems stop" section, replacing the removed `HomeWhatIs` | Home, `components/sections/HomeWhatIs.tsx` repurposed as `HomeSystemsGap.tsx`, `landingContent.systemsGap` | H2: Your plant already records most of what it needs. Body: Your ERP, your machine controllers and your quality sheets each hold part of the story, and the cause of a loss usually sits between them. Stamped joins them into one record for every batch and works on that record, on every shift. |
+| C2 | Role section: what each person gets | Home, new `components/sections/HomeRoles.tsx`, `landingContent.roles` | Owner: losses counted in your own numbers. Plant head: where output, quality and energy are slipping this week. Process and quality engineers: the evidence behind every suggestion. Operators and shift leads: the right setting for the job, and why. (Write as sentences when built, CG 9.) |
+| C3 | "Who gets it" line on the illustrative cards | Home hero panel, `components/sections/hero/HeroPlantFlow.tsx` and its card data | Each card ends with a routing line such as "Goes to: shift lead, then plant head if not closed". Cards stay labelled "Illustrative examples". |
+| C4 | Stage-by-stage industry pages | Every industry page, `components/industries/vertical/IndustryPlantZigZag.tsx`, `lib/content/vertical-pages/*.ts` (new `stages` array) | For each industry, the process stages in order with one plain line on what leaks at that stage. Example for cement (ours): raw mill, kiln, cooler, cement mill, packing. |
+| C5 | Industries hub grid by industry: what goes wrong, what Stamped watches | `/industries`, `components/industries/IndustriesHubMatrix.tsx` | One row per industry, no metrics. Keeps all industries equal under section 13. |
+| C6 | "Works with what you have" connectivity strip | `/how-it-works`, `components/how-it-works/HiwDeployment.tsx` | Sources Stamped reads: PLC and SCADA exports, historians, ERP extracts, Excel, and photographed paper cards and lab sheets. `[CONFIRM: exact connectors and protocols built]` |
+| C7 | Audit-ready lot record | `/solutions/quality`, `SolutionAreaPage` section | CG pillar proof line used as written: "Every finding opens to the record behind it, so each lot's quality record is ready when the auditor or the customer asks." |
+| C8 | Ladder visual for the three steps | Home `HomeJourney.tsx` (13.4) | Three rungs with the labels Monitoring, Decision making, Autonomous execution; no maturity score or quiz for now. |
+| C9 | Concrete CTA ask and reply time | `/contact`, `lib/content/contact.ts`; home survey band | "Tell us one line where you think you are losing output, quality or energy. We reply within `[PLACEHOLDER]` working days." |
+| C10 | Indian address and phone in the footer | `components/layout/Footer.tsx`, `lib/content/site.ts` | `[CONFIRM: address, phone, company email]` (note N3). |
+| C11 | Self-assessment (later) | New page, after the first survey read-out | Grouped with D14. |
+
+Hero and eyebrow refinements suggested by the review:
+
+- "Industrial AI" as the eyebrow fits the category language both sites use for search and navigation. Keep it as the eyebrow, and keep "AI for plant operations" in titles and the Organization description.
+- Both sites lead with losses; G1 leads with the journey. Keep G1, and let the opening line name the losses (output, quality, energy), as 13.2 already does.
+- Optional opening-line variant that adds the "cause sits between systems" idea: "Stamped's AI agents learn how your plant runs from the data it already records, across machines, quality sheets and production logs. They find where output, quality and energy are being lost, and recommend the change that fixes it, inside limits set beforehand."
