@@ -403,8 +403,8 @@ Other industry pages keep their current titles with "energy" framing removed.
 | D16 | Release order | One release, or hero, authority line and broken links first | Ship the fixes and the hero first, then the rest |
 | D17 | Autonomy wording | Amend CG 7 and 9 (and possibly ADR-035) so public copy can describe step 3, or keep "Autonomous execution" as a small step label only, with copy "on its own, inside limits signed beforehand", never "silent" | Added 20 Oct from Positioning & Marketing; see 12.5 |
 | D18 | Hero choice | Updated 20 Oct, 15:07 IST: Vinayak's general direction (section 13) supersedes section 12. Eyebrow "Industrial AI"; H1 G1 "From monitoring your plant to improving it." (recommended), G2 "Turn plant data into better operations.", G3 "AI that runs your plant better, every shift.", G4 "Your plant already has the data. Stamped puts it to work."; opening line in 13.2. Section 12 options stay on file as alternates | G1 with the 13.2 opening line; see 13.3 for checks |
-| D19 | Agent showcase prominence and planned items | Layout A (full card grid, First pilot scope and Planned groups) or Layout B (compact strip of First pilot scope cards plus one line on what is planned); and whether Planned items appear at all | Added 20 Oct; see 15.5. Sales rule is outcomes first and CG 3a keeps detailed agent stories off the site |
-| D20 | Guide amendments | Allow "Industrial AI" eyebrow; sector-neutral homepage hero; "Autonomous execution" only as a step label paired with "inside limits set beforehand"; status tags required on capability cards; authority line under steps 1 and 2; G1 hero and new card names into Appendix A | Added 20 Oct; needed before release of section 15 |
+| D19 | Agent showcase (optional insert) | Vinayak is unsure; optional insert. If used: Layout B, a compact strip of five First pilot scope cards plus one line on what is planned, placed right after "What we improve". Layout A (full grid) is not proposed for the homepage | See 15.5 |
+| D20 | Guide amendments | Allow "Industrial AI" eyebrow; sector-neutral homepage hero; the step 3 "Autonomous execution" shown untagged (Vinayak's decision, 20 Oct), paired with "inside limits set beforehand"; status tags on any capability cards; G1 hero, the opening line and card names into Appendix A | Needed before release of section 15; see also D17 |
 
 Context for D8 from this plan: on 3 Oct Vinayak asked for every industry page to stay so no buyer is turned away. This plan is drafted on that basis; D8 decides it.
 
@@ -689,149 +689,107 @@ Hero and eyebrow refinements suggested by the review:
 
 ---
 
-## 15. Homepage: proposed final structure (20 Oct)
+## 15. Homepage: proposed changes to the current page (20 Oct, revised 15:25 IST)
 
-This section is the single source for the homepage. Where it differs from sections 3, 12 and 13, it wins. Inputs: Vinayak's general direction (section 13), Stamped Research's capability list (`stamped-research/reports/2026-10-20-agentic-capabilities-for-website.md`), the Positioning & Marketing homepage proposal, and the Faclon and Munshi OS ideas in 14.3.
+Vinayak's direction (20 Oct, 15:25 IST): **do not revamp the homepage.** Keep the current live structure and sections in their current order, including the problem sections and how they present problems. Only insert new things or make small copy edits. This section replaces the earlier version of section 15 and wins over sections 3, 12 and 13 for the homepage. Section 3's reordering, its removal of `HomeWhatIs` and `HomeImpact`, the systems-gap section and the "who gets what" section are all dropped.
 
-### 15.1 Status rules for every claim on the homepage
+### 15.1 Current homepage on main
 
-- No plant runs Stamped today and the first paid pilot is a proposal. Nothing is labelled "live", "deployed", "in pilot" or "available in pilots".
-- Two status tags only: **First pilot scope** (inside the first pilot as proposed: site survey with worst-lot replay, a live week of warnings on one line, then a paid pilot) and **Planned** (direction, never dated).
-- Never claimed: autonomous setting changes today, furnace control, anything touching safety signals, interlocks or alarms, savings figures, customers, logos, quotes, pricing, "ML" or "AI agents" as a bare claim, "unlock", "empower", "platform", "transform", "superpower", hosting in India, an offline mode, "read-only" as a promise, energy as a separate product, or dates for planned items.
-- Authority line as approved: "Stamped works inside limits set beforehand." (P&M's "inside limits your team sets" is replaced by it.)
+`app/page.tsx` renders, in order: `Hero`, `HomeProblem`, `HomeWhatIs`, `HomeHowItWorks`, `HomeImpact`, `HomeSolutionsRows`, `HomeIndustries`, `HomeResources`, `HomeTerminalBand` (which renders `HomeFaq` and the closing CTA). Copy is in `lib/content/landing.ts` (`landingContent`).
 
-### 15.2 Order at a glance
+### 15.2 Final order with status
 
-| # | Section | State | Component |
+| # | Section | Status | What changes |
 |---|---|---|---|
-| 1 | Hero | Changed | `components/sections/Hero.tsx`, `hero/HeroPlantFlow.tsx`, `landingContent.hero` |
-| 2 | Problem: losses the report never shows | Changed | `HomeProblem.tsx`, `landingContent.problem` |
-| 3 | Where your current systems stop | New (replaces `HomeWhatIs`) | `HomeSystemsGap.tsx`, `landingContent.systemsGap` |
-| 4 | Three steps: the capability ladder | New | `HomeJourney.tsx` (uses `components/ui/StepsVisualSection.tsx`), `landingContent.journey` |
-| 5 | Agents that keep working when your team goes home | New (D19) | `HomeAgents.tsx`, `landingContent.agents` |
-| 6 | What we improve (four cards) | Changed | `HomeSolutionsRows.tsx`, `lib/content/solutions.ts` |
-| 7 | What a finding looks like (illustrative) | New (replaces `HomeImpact`) | `HomeFindings.tsx` |
-| 8 | Who gets what | New | `HomeRoles.tsx`, `landingContent.roles` |
-| 9 | How it works, with a works-with strip | Changed | `HomeHowItWorks.tsx`, `landingContent.howItWorks` |
-| 10 | Site survey offer | New (replaces `BeforeYouBook` on home) | `HomeSurveyOffer.tsx` |
-| 11 | Industries strip | Slimmed | `HomeIndustries.tsx` |
-| 12 | Notes from the plant floor | Kept, renamed, hidden until linked posts load | `HomeResources.tsx` |
-| 13 | FAQ | Rewritten | `HomeFaq.tsx`, FAQ JSON-LD in `lib/seo/schemas.ts` |
-| 14 | Closing CTA | Changed | `HomeTerminalBand.tsx`, `LandingClosingCta.tsx` |
+| 1 | `Hero` | Small edit | Eyebrow, H1, opening line; drop the "two weeks" chip |
+| 2 | `HomeProblem` | Keep | No change. Current title "Every plant has data. Very few turn it into action." and its three problem cards stay |
+| 3 | `HomeWhatIs` | Small edit | New title (its current title moves to the hero); replace the retired authority line |
+| 4 | `HomeLadder` (three steps) | **New insert** | Monitoring, Decision making, Autonomous execution, with a scroll animation |
+| 5 | `HomeHowItWorks` | Small edit | Two lines that say a person decides every action; optional works-with line in step 1 |
+| 6 | `HomeImpact` | Small edit | Drop the "about two weeks" footnote claim |
+| 7 | `HomeSolutionsRows` | Small edit | Maintenance shown "Coming soon" with no CTA |
+| 8 | `HomeAgents` | **New insert, optional (D19)** | Compact strip, Layout B |
+| 9 | `HomeIndustries` | Keep | No change |
+| 10 | `HomeResources` | Keep | Copy unchanged; fix the two broken post links (section 2) |
+| 11 | `HomeTerminalBand` (`HomeFaq` and closing CTA) | Small edit | FAQ: replace the authority line and hold the data-hosting answer; closing CTA title and small line |
 
-Removed from home: hero chips, `HomeWhatIs` (repurposed as 3), `HomeImpact` (replaced by 7), `BeforeYouBook` (moves to the contact and solution pages). `app/page.tsx` imports change to match. If the page feels long once built, sections 8 and 11 are the first to merge or drop.
+`app/page.tsx` gets two new imports (`HomeLadder`, and `HomeAgents` if D19 is yes). Nothing is removed.
 
-### 15.3 Sections, top to bottom
+### 15.3 Section by section
 
-**1. Hero.**
-- Old: eyebrow "AI for industrial plants", H1 "Turn plant data into action.", body "Stamped builds models of your plant from the data it already records, finds where efficiency is lost across process, quality, planning and maintenance, and improves it with actions your team can take.", three chips.
-- New eyebrow: Industrial AI
-- New H1: From monitoring your plant to improving it.
-- New opening line (Vinayak's, 13.2): Stamped's AI agents learn how your plant runs from the data it already records. They watch every line, find where output, quality and energy are being lost, and recommend the change that fixes it, inside limits set beforehand.
-- Alternate opening line (P&M, with the approved authority line): Stamped learns how your equipment behaves from the data you already log, then its agents watch every run, explain what went wrong and find better ways to operate, inside limits set beforehand.
-- CTAs: Book a site survey (primary), See how it works (text link). Proof line: Every finding shows its evidence, and every gain is measured in your own numbers.
-- Animated panel: keep the logo animation (data in, cards out), titled "Illustrative examples". Cards span several kinds of plant and areas (process, quality, planning, energy per good part), and each ends with a routing line, for example "Goes to: shift lead, then plant head if not closed." No figures on cards.
-- Status: recommendations only; compliant without D17. H1 is three lines at 1280px with the current size token.
+**1. Hero (small edit).** `components/sections/Hero.tsx`, `landingContent.hero`, `hero/HeroPlantFlow.tsx`.
+- Eyebrow (`badge`): old "AI for industrial plants"; new "Industrial AI".
+- H1: old "Turn plant data into action."; new "From monitoring your plant to improving it." The content has `headlineLine1` and `headlineLine2` for a two-line split; replace them with a three-line split (for example "From monitoring" / "your plant" / "to improving it.") and check at 1280 and 1440 px.
+- Opening line (`supportingLine`): old "Stamped builds models of your plant from the data it already records, finds where efficiency is lost across process, quality, planning and maintenance, and improves it with actions your team can take." New, one of:
+  - **O1 (recommended):** Stamped models your processes and equipment from the data you already log, then its AI agents learn from that model to watch every run, find where output, quality and energy are being lost, and recommend the change that fixes it, inside limits set beforehand.
+  - **O2:** Stamped models your processes and equipment from the data you already log. Its AI agents then learn from that model to spot problems while there is still time to act, find better ways to run, and put proven changes to work, inside limits set beforehand.
+  - **O3:** Stamped models your processes and equipment from the data you already log, then its AI agents learn from that model to keep every line running closer to its best, shift after shift, inside limits set beforehand.
+  - Checks: all three keep the modelling and the agents in separate clauses, name no industry or mechanism, and end on the authority line. O1 recommends; O2 "put proven changes to work" implies step 3 on the first screen (D17); O3 is the shortest and the least concrete.
+- Chips: drop "First finding usually within about two weeks" (unsupported). The other two chips stay.
+- Action panel: keep as is, including its title "Example actions". Optional small edit: add the routing line ("Goes to: shift lead, then plant head if not closed") to each card.
 
-**2. Problem: losses the report never shows.**
-- Old: efficiency lost "across process, quality, planning and maintenance".
-- New H2: Every plant pays for losses its daily report never shows.
-- New body: A rejected part has already used the material, energy and machine hours you paid for. A slow run, a stop nobody logged or a setting that drifted across a shift costs output that the day's total hides. The signals are usually already there, in your machine logs, production records and quality sheets.
-- No figures. Placeholders from 3.2 are not used on home.
+**2. HomeProblem (keep).** No copy change.
 
-**3. Where your current systems stop (new, from 14.3 C1).**
-- H2: Your plant already records most of what it needs.
-- Body: Your ERP, your machine controllers, your historian and your quality sheets each hold part of the story, and the cause of a loss usually sits between them. Stamped joins them into one record for every batch and works on that record, on every shift.
-- Status: describes intake, which is First pilot scope.
+**3. HomeWhatIs (small edit).** `landingContent.whatIs`.
+- Title: the current title "From monitoring your plant to improving it." becomes the hero H1, so this section needs a new one. Proposed: "Fewer rejections, more output, less energy in every good part." (outcome line made from the section's own first paragraph).
+- Paragraph 1 stays.
+- Paragraph 2: old "Stamped recommends and your team decides, and every change is checked against your own baseline."; new "Stamped works inside limits set beforehand, and every change is checked against your own baseline."
 
-**4. Three steps: the capability ladder.**
-- Old: none.
+**4. HomeLadder, three steps (new insert, after HomeWhatIs).**
 - H2: From watching your plant to running it better.
 - 1 Monitoring. Title: See every process as it runs. Line: A live model of your plant spots drift while there is still time to act.
 - 2 Decision making. Title: The next best move, with its evidence. Line: Every recommendation is tested on the model first, and the result is measured in your own numbers.
-- Under steps 1 and 2: Stamped works inside limits set beforehand.
-- 3 Autonomous execution, tagged **Planned**. Title: Proven changes, run on their own. Line: Once a kind of change has already worked on your line, Stamped can run it on its own, always inside limits set beforehand.
-- Step 3 fallback until D17 and D20 are settled: label "Grow what it handles", line "As each kind of change proves itself, your engineers decide how much more Stamped takes on, always inside limits they signed beforehand."
-- Differs from P&M: their titles ("Watch every run", "Recommend with evidence", "Run proven changes inside your limits") are close; this plan keeps Vinayak's titles from 13.4 because he set them. Either set works.
+- 3 Autonomous execution. Title: Proven changes, run on their own. Line: Once a kind of change has already worked on your line, Stamped can run it on its own, always inside limits set beforehand.
+- All three are shown equally, with no "Planned" tag (Vinayak's decision, 20 Oct).
+- Guide note (D17, D20): CG 7 and 9 currently ban saying Stamped changes settings on its own or claiming autonomous action, and ADR-035 keeps heat-treat setpoint writes as direction only. The guide must be amended before this ships, or step 3 falls back to "Grow what it handles. As each kind of change proves itself, your engineers decide how much more Stamped takes on, always inside limits they signed beforehand."
 
-**5. Agents that keep working when your team goes home (new, D19).**
+Visual (proposal):
+- A horizontal three-stage pipeline on desktop. As the visitor scrolls, the section pins and a connector line fills from left to right, lighting each stage in turn.
+- Stage 1, the data model: thin data streams flow into a simple outline model of a line (machine blocks joined by flow lines). One trace drifts and is highlighted with a small marker.
+- Stage 2, the recommendation: a card slides out of the model with three short rows (what changed, the suggested move, the evidence), and a small "tested on the model" check appears.
+- Stage 3, the executed change: a process trace runs inside a shaded limits band. A step change is applied, the trace settles back toward the centre of the band without crossing its edges, and a log line appears ("Change applied, inside limits, logged").
+- Mobile: stacked vertically, no pinning, each stage animates as it enters the viewport. `prefers-reduced-motion`: static end state of all three stages.
+- Files: `components/sections/HomeLadder.tsx` (section and copy), `components/motion-slots/LadderVisuals.tsx` (three stage visuals), `components/motion-slots/ladder.css`, `landingContent.ladder` in `lib/content/landing.ts`. Animation with `gsap` and `ScrollTrigger` through `useGSAP` from `@gsap/react` (both already in `package.json`). Follow the pinned-steps pattern and visual language already used by `HomeHowItWorks` and `components/motion-slots/HiwStageVisuals.tsx` so it looks native to the site. No numbers on any axis or card.
+
+**5. HomeHowItWorks (small edit).** `landingContent.homeHowItWorks`.
+- Step 4 description: old "Your team decides. Every change is measured against your own baseline, ..."; new "Every change is measured against your own baseline, and the models retrain on what it shows, so Stamped keeps getting better."
+- Step 4 bullet: old "Accept, adjust or decline every action"; new "Every change visible to your team". (CG 7: do not imply a person approves every change.)
+- Optional works-with line in step 1 bullets: "PLC and SCADA data, historians, ERP and handwritten cards" `[CONFIRM: connectors]`.
+- Flag only: the step 3 bullet "Rupee-ranked, so the biggest loss comes first" describes ranking, not a savings figure, so it can stay.
+
+**6. HomeImpact (small edit).** `landingContent.impact`.
+- Items stay.
+- Footnote: old "The first finding usually comes within about two weeks. Results are measured against your own baseline and published only with your permission."; new "Results are measured against your own baseline and published only with your permission."
+
+**7. HomeSolutionsRows (small edit).** `lib/content/solutions.ts`, `HomeSolutionsRows.tsx`. Add `status` to `SolutionArea`; Maintenance shows a "Coming soon" badge and no "Learn more". Title "Across the plant, not one machine." and footnote stay.
+
+**8. HomeAgents (new insert, optional, right after What we improve; D19).** See 15.5.
+
+**9. HomeIndustries (keep).** No change.
+
+**10. HomeResources (keep).** No copy change. Fix the two broken post links (section 2.2) or hide the cards that point at them.
+
+**11. HomeTerminalBand: FAQ and closing CTA (small edit).** `landingContent.faq`, `landingContent.closingCta`.
+- FAQ: in the answer at `landing.ts:289`, replace "Stamped recommends and your team decides." with "Stamped works inside limits set beforehand."; hold the data-hosting answer at `landing.ts:301` for D2 (remove the zero-trust and India-hosting sentence); keep the other answers.
+- Closing CTA title: old "Turn plant data into action." (the retired H1); new "Every batch should make the next one better."
+- Small line: old "First finding usually within about two weeks."; remove.
+- Description and buttons stay.
+
+### 15.4 Claims status
+
+Nothing on the homepage is labelled live or in pilot. The only status tags are on the optional agent strip (First pilot scope). No numbers, customers, logos or prices are added.
+
+### 15.5 Optional agent strip (Layout B)
+
+Vinayak is unsure; optional insert (D19). If used, it sits right after `HomeSolutionsRows`, as a single compact row.
+
 - H2: Agents that keep working when your team goes home.
-- Intro (P&M, kept): Stamped's agents notice, investigate, test and report on their own, so your engineers start each day with answers instead of questions.
-- Cards: see 15.4. Two groups, "First pilot scope" and "Planned", each card with its tag.
-- Footer line (reworded from P&M so it does not state planned things as present fact): Before any change reaches your line, it is tested in simulation, held inside limits set beforehand and compared with how you run today.
-- Note: "investigate, test and report on their own" describes analysis, not setting changes, so it does not need D17. Planned items need D19.
-
-**6. What we improve.** Four cards as in 3.4 with status: Process and control, Quality and lot checks, Planning and scheduling live as areas of work, Maintenance "Coming soon" with no CTA. Card bodies rewritten sector-neutral, for example Process: "Stamped learns from your best runs how each machine behaves and recommends the setting that holds the result inside your limits." Quality: "Stamped watches every batch as it runs and flags the one heading for rejection while it can still be saved." Planning: "When a machine stops, Stamped works out what that does to the day's orders and puts a revised plan in front of your planner." Maintenance: "We are building this next."
-
-**7. What a finding looks like (illustrative).** Replaces `HomeImpact`. Intro: These are illustrative. They show the kind of thing Stamped looks for. Your survey read-out uses your own records. Four cards across plant types, each tagged "Illustrative", no figures:
-- Heat treatment: loads that came out light all had a shorter soak after a door-open delay; Stamped flags the next load with the same pattern.
-- Forging: after a press stop, billets that sat too long made more rejects; Stamped spots the gap and suggests setting them aside.
-- Machining: scrap on one machine creeps up between tool changes; Stamped links it to tool life and suggests an earlier change point.
-- Energy per good part: energy per tonne rises at the same output on one line, an early sign of a fault or a drifting setting; Stamped raises it with the records behind it.
-
-**8. Who gets what (new, from 14.3 C2).**
-- H2: Each person gets what they need to act.
-- Owner: you see what losses cost in your own numbers and what each change was worth. Plant head: you see where output, quality and energy are slipping this week. Process and quality engineers: you get the evidence behind every suggestion. Operators and shift leads: you get the right setting for the job in front of you, and the reason for it.
-
-**9. How it works, with a works-with strip.**
-- H2: A model of each machine, and agents that never switch off.
-- Body: the four short paragraphs from 3.6, kept sector-neutral (models from your records, prediction while a run is still going, a recommended setting with its evidence, always-on agents that notice, investigate, test and measure), ending with the authority line.
-- Works-with strip (14.3 C6): Stamped reads PLC and SCADA data, historian tags, ERP lots, spreadsheets, and scanned or handwritten cards. `[CONFIRM: exact connectors]`
-- Removed: present-tense "digital twin", "reinforcement learning", "one-step rollback".
-
-**10. Site survey offer.**
-- H2: Bring us your worst lot.
-- Body: In a site survey, we take the records from one bad lot your team still remembers and replay it. You get a written read-out of what the signals showed before it went wrong, when Stamped would have flagged it, and what it would have suggested. During the survey we agree only the price of the pilot. The annual price comes later, once you have seen what the pilot did in your plant.
-- Ask (14.3 C9): Tell us one line where you think you are losing output, quality or energy. We reply within `[PLACEHOLDER]` working days.
-- Status: First pilot scope. No price shown.
-
-**11. Industries strip.** H2: Built for plants that already keep records. Links to every industry page with no lead industry (section 13).
-
-**12. Notes from the plant floor.** As 3.9; hidden until the two linked posts load.
-
-**13. FAQ.** As 3.10 with sector-neutral wording in answers 1 and 9, and the D2 hold on data hosting.
-
-**14. Closing CTA.** H2: Every batch should make the next one better. Body: Start with one survey and your worst lot. CTA: Book a site survey.
-
-### 15.4 Agent cards (final list)
-
-| # | Card name | One line (our words) | Status | Research item |
-|---|---|---|---|---|
-| 1 | Reads your scattered records | Brings controller data, historian tags, ERP lots and handwritten cards into one record for every batch. | First pilot scope | 2 |
-| 2 | Replays your worst lot | Links a recent bad lot end to end from your own records, so your team sees what the signals showed before it went wrong. | First pilot scope | 1 |
-| 3 | Warns while there is time | Watches one line and warns your team when a batch drifts toward a known problem. | First pilot scope | 3 |
-| 4 | Checks your sensors first | Flags a sensor that has gone dead or stuck before its readings mislead anyone. | First pilot scope | 4 |
-| 5 | Counts what a reject really cost | Shows the energy and material lost in parts that never ship, next to your rejections. | First pilot scope | 6 |
-| 6 | Answers with its sources | Answers questions about your plant from your own data, shows the evidence, and says so when it does not know. | Planned | 5 |
-| 7 | Writes the shift handover | Prepares the handover for each shift and a weekly note on what changed in your plant. | Planned | 7 |
-| 8 | Keeps working overnight | Stays on through the night, picks up where it left off, and remembers past cases with the evidence behind them. | Planned | 8 |
-| 9 | Predicts quality before the lab | Estimates the risk on a batch before the lab result comes back. | Planned | 10 |
-| 10 | Finds a better standard | Searches for better settings away from the line and proposes them as your new standard. | Planned | 11 |
-| 11 | Proves each change | Measures every change against matched runs from your own line. | Planned | 9 |
-| 12 | Runs proven changes inside your limits | Applies a kind of change that has already worked on your line, inside limits set beforehand. | Planned (needs D17) | 12 |
-
-Changes from the P&M list of 11:
-- "Finds the cause" folded into card 2, because Research rules out "root cause in minutes" and the lot join is a prototype.
-- "The night-shift save" dropped: it reads as a story of a result at a plant, and no plant runs Stamped.
-- "Makes the better way the standard" merged into card 10 with "overnight tuning".
-- "Catches drift" became card 3 with "warnings only" wording.
-- Added from Research: "Checks your sensors first" and "Counts what a reject really cost" (energy shown only inside rejections, not as its own product).
-- Card 9 says "quality" rather than hardness or case depth, to keep the homepage sector-neutral.
-
-### 15.5 Open question for Vinayak (D19)
-
-Research flagged that Vinayak's sales rule is outcomes first, and CG 3a keeps detailed agent stories in decks and meetings, not on the website. A "they can do this, and that too" section pushes against both. Two layouts:
-
-- **Layout A, full grid.** All 12 cards in two labelled groups (First pilot scope, Planned), placed after the three steps. Strongest "impressive" effect, longest page, and seven of the twelve are planned.
-- **Layout B, compact strip.** Only the five First pilot scope cards in one row, then one line: "And more on the way: answers with sources, shift handovers, overnight work, quality before the lab, better standards and proof in your own numbers." Keeps outcomes first and the page short; planned items appear only as a list, with no claims of detail.
-
-Recommendation: Layout B on the homepage, with Layout A on `/how-it-works`, until the first pilot gives a result to show. Vinayak decides (D19). If planned items should not appear at all, Layout B drops its last line.
-
-### 15.6 Guide amendments needed (D20)
-
-1. Allow "Industrial AI" as the eyebrow (CG 2 message bank, Appendix A).
-2. Allow a sector-neutral homepage hero (CG 1 and 5a say Stamped starts with forge and heat-treat lines).
-3. Allow "Autonomous execution" only as the step 3 label, always paired with "inside limits set beforehand" (CG 7 and 9; ADR-035 direction for setpoints).
-4. Require a status tag (First pilot scope or Planned) on every capability card.
-5. Require the authority line under steps 1 and 2.
-6. Add the G1 hero, the opening line and the card names to Appendix A.
+- Five cards, each tagged "First pilot scope":
+  - Reads your scattered records: brings controller data, historian tags, ERP lots and handwritten cards into one record for every batch.
+  - Replays your worst lot: links a recent bad lot end to end from your own records, so your team sees what the signals showed before it went wrong.
+  - Warns while there is time: watches one line and warns your team when a batch drifts toward a known problem.
+  - Checks your sensors first: flags a sensor that has gone dead or stuck before its readings mislead anyone.
+  - Counts what a reject really cost: shows the energy and material lost in parts that never ship, next to your rejections.
+- One line under the row: And more on the way: answers with sources, shift handovers, overnight work, quality before the lab, better standards and proof in your own numbers.
+- Files: `components/sections/HomeAgents.tsx`, `landingContent.agents`.
+- Layout A (the full 12-card grid) is not proposed for the homepage; it can live on `/how-it-works` later.
