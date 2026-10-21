@@ -16,6 +16,11 @@ import { gsap, ScrollTrigger, useGSAP } from "@/lib/motion/gsap";
  * Mobile: stages stack and each plays once as it enters the viewport.
  * Reduced motion or no JS: the markup already shows the end state of every stage.
  */
+const STAGE_HOLD = 0.35;
+const END_HOLD = 0.08;
+/** Scroll length for the whole pinned timeline (was 170%). */
+const PIN_SCROLL_PERCENT = 150;
+
 export function HomeLadder() {
   const sectionRef = useRef<HTMLElement>(null);
   const pinRef = useRef<HTMLDivElement>(null);
@@ -56,13 +61,18 @@ export function HomeLadder() {
           }
           master.add(ladderStages[i].build(root), label);
           if (rail) master.to(rail, { scaleX: (i + 1) / stageRoots.length, duration: 0.5, ease: "none" }, label);
-          master.to({}, { duration: 0.35 });
+          // Hold between stages; only a short settle after the last one so the pin releases soon after it finishes.
+          master.to({}, { duration: i < stageRoots.length - 1 ? STAGE_HOLD : END_HOLD });
         });
+
+        // Pin length scaled to the animation , minus the long final hold after the last stage.
+        const oldDuration = master.duration() - END_HOLD + STAGE_HOLD;
+        const endPercent = Math.round((PIN_SCROLL_PERCENT * master.duration()) / oldDuration);
 
         const trigger = ScrollTrigger.create({
           trigger: pinRef.current,
           start: "top top+=72",
-          end: "+=170%",
+          end: `+=${endPercent}%`,
           pin: true,
           scrub: 0.6,
           animation: master,

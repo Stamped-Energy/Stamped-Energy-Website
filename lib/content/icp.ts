@@ -12,16 +12,16 @@ export const icp = {
   buyerTitlesShort: "plant heads, quality heads and the engineers who run the lines",
   geography: "manufacturing plants in India",
   positioning:
-    "Stamped builds models of your plant from the data it already records, finds where efficiency is lost across process, quality, planning and maintenance, and improves it with actions your team can take.",
+    "Stamped takes you from monitoring your plant to improving it. It models your processes and equipment from the data you already log, and its AI agents find where output, quality and energy are lost and recommend the change that fixes it.",
   seo: {
     /** Category line: tagline, title tags, schema. */
-    categoryLabel: "AI for plant operations",
+    categoryLabel: "Industrial AI",
     /** Entity sentence for AEO / GEO (cite verbatim in llms.txt and Organization schema). */
     entityDefinition:
-      "Stamped is AI for plant operations. It builds models of a manufacturing plant from the data it already records, from its machines and control systems to its meters, ERP and quality registers, finds where efficiency is lost across process, quality, planning and maintenance, and improves it with ranked actions the plant team can take. Stamped is built in India and is starting with auto-component makers in forging, heat treatment and precision machining.",
+      "Stamped is industrial AI, from monitoring your plant to improving it. It models a manufacturing plant's processes and equipment from the data it already records, from its machines and control systems to its meters, ERP and quality registers. Its AI agents then find where output, quality and energy are being lost and recommend the change that fixes it, within limits the plant team sets. Stamped is built in India and is starting with auto-component makers in forging, heat treatment and precision machining.",
     /** Short meta description pattern. */
     metaDescription:
-      "Stamped is AI for plant operations. It builds models of your plant from the data it already records, finds where efficiency is lost across process, quality, planning and maintenance, and improves it.",
+      "Stamped is industrial AI, from monitoring your plant to improving it. It models your plant from the data it already records and its agents improve process, quality and planning.",
     /** Audience line for llms.txt and docs. */
     audienceLine:
       "Mid-market manufacturers in India, from a few hundred crore rupees of revenue upward; automotive components first.",

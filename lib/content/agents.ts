@@ -2,7 +2,7 @@ import type { SolutionAreaSlug } from "./solutions";
 
 /**
  * Agent jobs by area, grouped by the three steps (plan PR #18, revised 20 Oct 10:33 PM).
- * Public copy carries no build-status tags by decision. Autonomous execution appears on process and quality only.
+ * Public copy carries no build-status tags by decision. Acting on its own appears on process and quality only.
  */
 
 export type AgentStep = "monitoring" | "decision" | "autonomous";
@@ -37,14 +37,14 @@ export type AgentArea = {
 export const agentStepLabels: Record<AgentStep, string> = {
   monitoring: "Monitoring",
   decision: "Decision making",
-  autonomous: "Autonomous execution",
+  autonomous: "Acts on its own",
 };
 
 export const agentsSection = {
   badge: "Agents",
   title: "Agents for every part of the plant.",
   intro:
-    "Each agent does one job, from the records your plant already keeps. In process and quality, a change that has proved itself is applied on its own, inside limits set beforehand.",
+    "Each agent does one job, from the records your plant already keeps. In process and quality, a change that has proved itself is applied on its own, within the limits your plant head has set.",
   sampleLabel: "Sample finding",
   sampleCaption: "Illustrative. Written from the kind of records a plant already keeps.",
   findLabels: { found: "What we found", opportunity: "The opportunity", capture: "How we capture it" },
@@ -102,7 +102,7 @@ export const agentAreas: AgentArea[] = [
           {
             id: "apply",
             name: "Applies proven changes on its own",
-            line: "Once a change has proved itself, Stamped applies it to the process settings by itself, inside limits set beforehand.",
+            line: "Once a change has proved itself, Stamped applies it to the process settings by itself, and never outside the range you allowed.",
           },
           {
             id: "product-settings",
@@ -119,7 +119,7 @@ export const agentAreas: AgentArea[] = [
       found: "The settings on this run have moved away from where your best runs held them.",
       opportunity: "Brought back now, the rest of the run stays in spec and uses less energy per good part.",
       capture:
-        "You approve once. After that, Stamped applies this change on its own whenever the run drifts this way, inside limits set beforehand.",
+        "You approve once. After that, Stamped applies this change on its own whenever the run drifts this way, within the range you signed off.",
       actions: ["Evidence", "Approve", "Comment"],
     },
     pageSample: {
@@ -128,7 +128,7 @@ export const agentAreas: AgentArea[] = [
       found: "The settings from this product's last good run differ from what the line is running now.",
       opportunity: "Started on the right settings, the first parts of the run are good parts.",
       capture:
-        "You approve once. After that, Stamped loads the right settings on its own each time this product comes up, inside limits set beforehand.",
+        "You approve once. After that, Stamped loads the right settings on its own each time this product comes up, within the range you signed off.",
       actions: ["Evidence", "Approve", "Comment"],
     },
   },
@@ -183,7 +183,7 @@ export const agentAreas: AgentArea[] = [
           {
             id: "correct",
             name: "Corrects the run that is drifting",
-            line: "Where a process setting is the cause, Stamped brings it back on its own, inside limits set beforehand.",
+            line: "Where a process setting is the cause, Stamped brings it back on its own, within the range your team has set.",
           },
         ],
       },
@@ -195,7 +195,7 @@ export const agentAreas: AgentArea[] = [
       found: "The signals on this batch are following the pattern seen before past rejections.",
       opportunity: "Fixed now, the material and energy already in it go into parts you can ship.",
       capture:
-        "The shift lead gets the warning with the evidence. Where a process setting is the cause, Stamped corrects it inside limits set beforehand.",
+        "The shift lead gets the warning with the evidence. Where a process setting is the cause, Stamped corrects it within the range your team has set.",
       actions: ["Evidence", "Approve", "Comment"],
     },
     pageSample: {

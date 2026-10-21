@@ -121,8 +121,8 @@ export const landingContent = {
     title: "Fewer rejections, more output, less energy in every good part.",
     /** Homepage cut of the approved outcomes-and-how text (ADR-036). Full version: platform.ts. The last item renders as the kicker. */
     paragraphs: [
-      "Stamped helps plants cut rejections, get more output from the lines they already have, and use less energy in every good part. It brings data from separate systems into one view, builds a model of how your plant actually runs and turns hidden losses into specific actions for the person who can fix them. It is a self-improving agentic system, so it gets better with every result.",
-      "Stamped works inside limits set beforehand, and every change is checked against your own baseline.",
+      "Stamped helps plants cut rejections, get more output from the lines they already have, and use less energy in every good part. It brings data from separate systems into one view, builds a model of how your plant actually runs and turns hidden losses into specific actions for the person who can fix them. It learns from every result, so its advice gets sharper the longer it runs.",
+      "Your plant head sets the limits Stamped works within, and every change is checked against your own baseline.",
     ],
     motionSlotLabel: "Product visual",
   },
@@ -334,19 +334,19 @@ export const landingContent = {
         id: "ai-agent",
         question: "Is Stamped an AI agent for manufacturing?",
         answer:
-          "In plain terms, yes. Stamped's AI agents for manufacturing read your plant's data on every shift, spot what is costing you output or quality, and send the right person a specific next step. That is industrial intelligence put to work in decision-making at the plant-floor level.",
+          "In plain terms, yes. Stamped's AI agents for manufacturing read your plant's data on every shift, spot what is costing you output or quality, and send the right person a specific next step. It does the checking your best engineer would do if they could watch every line on every shift.",
       },
       {
         id: "supervisors",
         question: "Who decides what changes, and what does Stamped add if my supervisors already know the plant?",
         answer:
-          "Stamped works inside limits set beforehand. Your senior supervisors usually know the plant well, and Stamped is built to back them up: it looks at every line on every shift, including the shifts they are not on, and writes down what it finds with the reasoning, so the night shift gets the same advice the day shift gets from your best hands.",
+          "Your team decides. Your plant head sets the limits, Stamped acts only inside them, and every change is logged. Your senior supervisors usually know the plant well, and Stamped is built to back them up: it looks at every line on every shift, including the shifts they are not on, and writes down what it finds with the reasoning, so the night shift gets the same advice the day shift gets from your best hands.",
       },
       {
         id: "gets-better",
         question: "Does Stamped get better over time?",
         answer:
-          "Yes. Stamped is a self-improving agentic system. It learns from every action your team accepts, adjusts or turns down, and from the ones it chose to hold back, and its models are retrained on your plant's data as it runs. Each improvement is tested on past shifts before your team approves it, so the advice gets sharper every week.",
+          "Yes. It learns from every action your team accepts, adjusts or turns down, and from the ones it chose to hold back, and its models are retrained on your plant's data as it runs. Each improvement is tested on past shifts before your team approves it, so the advice gets sharper every week.",
       },
       {
         id: "data",
