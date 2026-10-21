@@ -27,8 +27,18 @@ export function HomeAgents() {
   const [active, setActive] = useState(0);
   const [autoplay, setAutoplay] = useState(true);
   const [inView, setInView] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
   const { isReady, prefersReducedMotion } = useMotion();
-  const canAutoplay = autoplay && isReady && !prefersReducedMotion;
+  // Autoplay only on desktop: on phones a tab switch mid-read swaps a tall panel and jumps the page.
+  const canAutoplay = autoplay && isReady && !prefersReducedMotion && isDesktop;
+
+  useEffect(() => {
+    const query = window.matchMedia("(min-width: 1024px)");
+    const update = () => setIsDesktop(query.matches);
+    update();
+    query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
+  }, []);
 
   const stopAutoplay = useCallback(() => setAutoplay(false), []);
 
@@ -122,7 +132,7 @@ export function HomeAgents() {
           role="tablist"
           aria-label={agentsSection.title}
           onKeyDown={onKeyDown}
-          className="-mx-5 mt-10 flex gap-2 overflow-x-auto px-5 pb-1 sm:mx-0 sm:px-0 lg:mt-12 lg:grid lg:grid-cols-4 lg:gap-0 lg:overflow-visible lg:border-b lg:border-outline-variant/50"
+          className="mt-8 grid grid-cols-2 gap-2 sm:grid-cols-4 lg:mt-12 lg:pb-1 lg:grid lg:grid-cols-4 lg:gap-0 lg:overflow-visible lg:border-b lg:border-outline-variant/50"
         >
           {agentAreas.map((item, index) => {
             const selected = index === active;
@@ -140,7 +150,7 @@ export function HomeAgents() {
                 tabIndex={selected ? 0 : -1}
                 onClick={() => select(index)}
                 className={cn(
-                  "relative flex shrink-0 items-center gap-2 rounded-full border px-4 py-2 text-left transition-colors lg:rounded-none lg:border-0 lg:px-1 lg:pb-4 lg:pt-1",
+                  "relative flex min-h-12 min-w-0 flex-wrap items-center justify-center gap-x-2 gap-y-1 rounded-xl border px-3 py-2 text-center transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary lg:min-h-0 lg:flex-nowrap lg:justify-start lg:rounded-none lg:border-0 lg:px-1 lg:pb-4 lg:pt-1 lg:text-left",
                   selected
                     ? "border-on-surface bg-on-surface text-surface lg:bg-transparent lg:text-on-surface"
                     : "border-outline-variant/60 text-on-surface-variant hover:text-on-surface",
@@ -150,7 +160,7 @@ export function HomeAgents() {
                 {item.comingSoon ? (
                   <span
                     className={cn(
-                      "rounded-full border px-2 py-0.5 font-mono text-[0.55rem] font-medium uppercase tracking-[0.12em]",
+                      "whitespace-nowrap rounded-full border px-1.5 py-0.5 lg:px-2 font-mono text-[0.55rem] font-medium uppercase tracking-[0.12em]",
                       selected ? "border-current lg:border-outline-variant" : "border-outline-variant",
                     )}
                   >
@@ -176,7 +186,7 @@ export function HomeAgents() {
           role="tabpanel"
           id={`agents-panel-${area.slug}`}
           aria-labelledby={`agents-tab-${area.slug}`}
-          className="mt-8 grid gap-8 lg:mt-10 lg:grid-cols-12 lg:gap-12"
+          className="mt-6 grid gap-8 lg:mt-10 lg:grid-cols-12 lg:gap-12"
         >
           <SampleFindingCard
             sample={area.homeSample}

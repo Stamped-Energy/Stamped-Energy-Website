@@ -8,7 +8,7 @@ export function AgentJobGroups({ area, className }: { area: AgentArea; className
       <div className="space-y-7">
         {area.groups.map((group) => (
           <div key={group.step} data-agent-group>
-            <p className="flex items-center gap-3 font-mono text-[0.66rem] font-medium uppercase tracking-[0.14em] text-on-surface">
+            <p className="flex items-center gap-3 font-mono text-[0.7rem] sm:text-[0.66rem] font-medium uppercase tracking-[0.14em] text-on-surface">
               <span className="h-px w-6 bg-primary" aria-hidden />
               {agentStepLabels[group.step]}
             </p>

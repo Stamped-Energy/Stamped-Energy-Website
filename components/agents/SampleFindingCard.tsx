@@ -22,9 +22,9 @@ export function SampleFindingCard({
   ];
 
   return (
-    <figure className={cn(`agent-card-${palette} rounded-lg p-4 sm:p-5`, className)}>
+    <figure className={cn(`agent-card-${palette} min-w-0 rounded-lg p-3 sm:p-5`, className)}>
       <div className="agent-card-inner rounded-md p-4 sm:p-5" data-agent-card>
-        <p data-agent-card-row className="font-mono text-[0.62rem] font-medium uppercase tracking-[0.14em] agent-card-muted">
+        <p data-agent-card-row className="font-mono text-[0.68rem] font-medium uppercase tracking-[0.12em] agent-card-muted sm:text-[0.62rem] sm:tracking-[0.14em]">
           {sampleLabel} · {sample.tag}
         </p>
         <p data-agent-card-row className="mt-3 font-display text-lg font-bold leading-snug tracking-tight sm:text-xl">
@@ -33,7 +33,7 @@ export function SampleFindingCard({
         <dl className="mt-4">
           {rows.map((row) => (
             <div key={row.label} data-agent-card-row className="agent-card-rule border-t py-2.5">
-              <dt className="font-mono text-[0.6rem] font-medium uppercase tracking-[0.14em] agent-card-muted">{row.label}</dt>
+              <dt className="font-mono text-[0.66rem] font-medium uppercase tracking-[0.12em] agent-card-muted sm:text-[0.6rem] sm:tracking-[0.14em]">{row.label}</dt>
               <dd className="mt-1 text-sm leading-6">{row.text}</dd>
             </div>
           ))}
