@@ -1,5 +1,6 @@
 /** Canonical title tags, meta descriptions, and per-page keywords. Copy canon: Stamped copy v3 (3 Oct 2026). */
 
+import { SOLUTION_AREA_PRODUCT_LINE_TITLE } from "@/lib/seo/brand";
 
 export type PageSeoConfig = {
   absoluteTitle: string;
@@ -62,7 +63,7 @@ export const PAGE_SEO = {
     ],
   },
   solutionsProcess: {
-    absoluteTitle: "Process | Industrial AI | Stamped",
+    absoluteTitle: `${SOLUTION_AREA_PRODUCT_LINE_TITLE.process} | Process optimisation for plants`,
     description:
       "Run every process closer to its best. Stamped tries the next setting on a model of your line, and once a change has proved itself it applies it inside limits set beforehand.",
     path: "/solutions/process",
@@ -75,7 +76,7 @@ export const PAGE_SEO = {
     ],
   },
   solutionsQuality: {
-    absoluteTitle: "Quality | Industrial AI | Stamped",
+    absoluteTitle: `${SOLUTION_AREA_PRODUCT_LINE_TITLE.quality} | Predictive quality AI for plants`,
     description:
       "Catch the bad batch while it can still be saved. Stamped watches every run against your good parts, warns your team in time and traces each reject to its cause.",
     path: "/solutions/quality",
@@ -90,7 +91,7 @@ export const PAGE_SEO = {
     ],
   },
   solutionsPlanning: {
-    absoluteTitle: "Planning | Industrial AI | Stamped",
+    absoluteTitle: `${SOLUTION_AREA_PRODUCT_LINE_TITLE.planning} | Production planning AI for plants`,
     description:
       "Plan around how your plant really runs. Stamped warns when the plan is about to slip and suggests a better order of work, with its effect on output and delivery.",
     path: "/solutions/planning",
@@ -105,7 +106,7 @@ export const PAGE_SEO = {
     ],
   },
   solutionsMaintenance: {
-    absoluteTitle: "Maintenance, coming soon | Industrial AI | Stamped",
+    absoluteTitle: `${SOLUTION_AREA_PRODUCT_LINE_TITLE.maintenance} | Predictive maintenance, coming soon`,
     description:
       "Coming soon. Stamped will spot which machine is starting to wear and suggest the best window to fix it, planned around production.",
     path: "/solutions/maintenance",

@@ -8,6 +8,7 @@ import { icp } from "@/lib/content/icp";
 import { getPublishedPostBySlug, getRelatedPosts } from "@/lib/blog/posts";
 import { prisma } from "@/lib/blog/db";
 import { breadcrumbHome, generateBreadcrumbSchema } from "@/lib/seo/breadcrumbs";
+import { buildBlogPostAbsoluteTitle } from "@/lib/seo/blog-post-titles";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo/metadata";
 import { buildBlogPostingSchema, buildBlogSpeakableSchema } from "@/lib/seo/schemas";
 
@@ -42,7 +43,7 @@ export async function generateMetadata({ params }: BlogArticlePageProps): Promis
 
   return buildPageMetadata({
     title: post.title,
-    absoluteTitle: `${post.title} | Stamped`,
+    absoluteTitle: buildBlogPostAbsoluteTitle(post.slug, post.title),
     description: post.excerpt,
     path: `/blog/${post.slug}`,
     image: post.coverImage,

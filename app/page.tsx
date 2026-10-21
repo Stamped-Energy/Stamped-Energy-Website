@@ -12,6 +12,7 @@ import { HomeSolutionsRows } from "@/components/sections/HomeSolutionsRows";
 import { HomeTerminalBand } from "@/components/sections/HomeTerminalBand";
 import { HomeWhatIs } from "@/components/sections/HomeWhatIs";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbHome, generateBreadcrumbSchema } from "@/lib/seo/breadcrumbs";
 import { buildPageMetadataFromConfig } from "@/lib/seo/metadata";
 import { PAGE_SEO } from "@/lib/seo/pages";
 import {
@@ -23,6 +24,8 @@ import {
 
 export const metadata: Metadata = buildPageMetadataFromConfig(PAGE_SEO.home);
 
+const homeBreadcrumbSchema = generateBreadcrumbSchema([breadcrumbHome()]);
+
 export default function HomePage() {
   return (
     <>
@@ -31,6 +34,7 @@ export default function HomePage() {
           buildWebPageSchema(PAGE_SEO.home, homepageSpeakable),
           softwareApplicationSchema,
           homepageFaqSchema,
+          homeBreadcrumbSchema,
         ]}
       />
       <Hero />

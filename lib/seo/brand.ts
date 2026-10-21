@@ -1,5 +1,7 @@
 /** Product suite and lines (brand architecture). Used in JSON-LD and llms indexes only. */
 
+import { ORGANIZATION_ID } from "@/lib/seo/constants";
+
 export const STAMPED_SUITE_NAME = "Stamped Industrial Intelligence Suite";
 
 /** Product-line labels for solution-area `<title>` tags (metadata only). */
@@ -22,11 +24,6 @@ export const STAMPED_PRODUCT_LINES = [
   "Stamped Quality",
 ] as const;
 
-const STAMPED_BRAND = {
-  "@type": "Brand" as const,
-  name: "Stamped",
-};
-
 /** Organization `hasOfferCatalog` — suite name plus product lines (names only). */
 export function buildStampedSuiteOfferCatalog() {
   return {
@@ -35,9 +32,9 @@ export function buildStampedSuiteOfferCatalog() {
     itemListElement: STAMPED_PRODUCT_LINES.map((name) => ({
       "@type": "Offer" as const,
       itemOffered: {
-        "@type": "Product" as const,
+        "@type": "Service" as const,
         name,
-        brand: STAMPED_BRAND,
+        provider: { "@id": ORGANIZATION_ID },
       },
     })),
   };

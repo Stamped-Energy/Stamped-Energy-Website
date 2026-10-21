@@ -1,6 +1,7 @@
 import type { BreadcrumbList, WithContext } from "schema-dts";
 
 import { SITE_URL } from "@/lib/seo/constants";
+import { absoluteUrl } from "@/lib/seo/metadata";
 
 export type BreadcrumbSegment = {
   name: string;
@@ -21,5 +22,5 @@ export function generateBreadcrumbSchema(segments: BreadcrumbSegment[]): WithCon
 }
 
 export function breadcrumbHome(): BreadcrumbSegment {
-  return { name: "Home", url: SITE_URL };
+  return { name: "Home", url: absoluteUrl("/") };
 }
