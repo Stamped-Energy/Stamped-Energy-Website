@@ -3,8 +3,8 @@ import type { MetadataRoute } from "next";
 import { listPublishedPostsForSitemap } from "@/lib/blog/posts";
 import { listPublishedCaseStudiesForSitemap } from "@/lib/case-studies/studies";
 import { safeDbQuery } from "@/lib/db/safe-query";
-import { CONTENT_UPDATED } from "@/lib/seo/constants";
 import { absoluteUrl } from "@/lib/seo/metadata";
+import { getStaticPageLastModified } from "@/lib/seo/sitemap-lastmod";
 
 export const revalidate = 3600;
 
@@ -69,7 +69,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: absoluteUrl(path),
     changeFrequency: "weekly",
     priority: STATIC_PRIORITIES[path] ?? 0.7,
-    lastModified: CONTENT_UPDATED,
+    lastModified: getStaticPageLastModified(path),
   }));
 
   const blogEntries: MetadataRoute.Sitemap = postsResult.data.map((post) => ({

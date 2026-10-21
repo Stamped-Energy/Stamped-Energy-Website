@@ -4,7 +4,11 @@ import { icp } from "@/lib/content/icp";
 import { getVerticalPage, type VerticalSlug } from "@/lib/content/vertical-pages";
 import type { IndustryFaqItem } from "@/lib/content/types";
 import { siteConfig } from "@/lib/content/site";
-import { buildStampedSuiteOfferCatalog, STAMPED_SUITE_NAME } from "@/lib/seo/brand";
+import {
+  buildStampedSuiteOfferCatalog,
+  SOLUTION_AREA_PRODUCT_LINE_TITLE,
+  STAMPED_SUITE_NAME,
+} from "@/lib/seo/brand";
 import {
   COMPANY_LINKEDIN_URL,
   CONTENT_UPDATED,
@@ -13,6 +17,8 @@ import {
   SITE_URL,
   WEBSITE_ID,
 } from "@/lib/seo/constants";
+import type { SolutionAreaSlug } from "@/lib/content/solutions";
+import { absoluteUrl } from "@/lib/seo/metadata";
 import type { FaqItem } from "@/lib/seo/extract-faq";
 import type { PageSeoConfig } from "@/lib/seo/pages";
 import {
@@ -60,7 +66,7 @@ export const organizationSchema: WithContext<Organization> = {
   "@id": ORGANIZATION_ID,
   name: "Stamped",
   alternateName: ["Stamped Energy", "stamped.work", STAMPED_SUITE_NAME],
-  url: SITE_URL,
+  url: absoluteUrl("/"),
   logo: organizationLogo,
   slogan: siteConfig.tagline,
   description: icp.seo.entityDefinition,
@@ -123,7 +129,7 @@ export const websiteSchema: WithContext<WebSite> = {
   "@id": WEBSITE_ID,
   name: "Stamped",
   alternateName: ["stamped.work"],
-  url: SITE_URL,
+  url: absoluteUrl("/"),
   description: icp.seo.metaDescription,
   publisher: {
     "@id": ORGANIZATION_ID,
@@ -149,7 +155,7 @@ export function buildWebPageSchema(
   page: PageSeoConfig,
   extra: Partial<WebPage> = {},
 ): WithContext<WebPage> {
-  const url = page.path === "/" ? SITE_URL : `${SITE_URL}${page.path}`;
+  const url = absoluteUrl(page.path);
   return {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -169,13 +175,16 @@ export function buildWebPageSchema(
 export function buildServiceSchema(
   area: { title: string; heading: string; homeSummary: string },
   page: PageSeoConfig,
+  slug: SolutionAreaSlug,
 ): WithContext<Service> {
-  const url = `${SITE_URL}${page.path}`;
+  const url = absoluteUrl(page.path);
+  const productLineName = SOLUTION_AREA_PRODUCT_LINE_TITLE[slug];
   return {
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": `${url}#service`,
-    name: `${area.title}: ${area.heading.replace(/\.$/, "")}`,
+    name: productLineName,
+    alternateName: [productLineName],
     serviceType: area.title,
     description: area.homeSummary,
     url,
@@ -463,18 +472,10 @@ export const softwareApplicationSchema: WithContext<SoftwareApplication> = {
   alternateName: STAMPED_SUITE_NAME,
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web browser",
-  url: SITE_URL,
+  url: absoluteUrl("/"),
   description: icp.seo.entityDefinition,
   provider: {
     "@id": ORGANIZATION_ID,
-  },
-  offers: {
-    "@type": "Offer",
-    description: ENGAGEMENT_SUMMARY,
-    areaServed: {
-      "@type": "Country",
-      name: "India",
-    },
   },
   featureList: [
     "Models trained on each plant's own history",

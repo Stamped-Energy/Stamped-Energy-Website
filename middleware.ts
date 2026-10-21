@@ -9,6 +9,10 @@ import {
   marketingPath,
 } from "@/lib/config/admin-host";
 import { SESSION_COOKIE } from "@/lib/blog/constants";
+import { INDEXNOW_KEY, INDEXNOW_KEY_FILE_PATH } from "@/lib/seo/indexnow";
+
+/** Legacy alias some IndexNow dashboards expect; keyLocation uses `INDEXNOW_KEY_FILE_PATH`. */
+const INDEXNOW_KEY_ALIAS_PATH = "/indexnow-key.txt";
 
 function getSessionSecret(): Uint8Array {
   const secret = process.env.SESSION_SECRET;
@@ -53,6 +57,16 @@ export async function middleware(request: NextRequest) {
     destination.hostname = CANONICAL_STAMPED_HOST;
     destination.protocol = "https:";
     return NextResponse.redirect(destination, 308);
+  }
+
+  if (pathname === INDEXNOW_KEY_FILE_PATH || pathname === INDEXNOW_KEY_ALIAS_PATH) {
+    return new NextResponse(INDEXNOW_KEY, {
+      status: 200,
+      headers: {
+        "Content-Type": "text/plain; charset=utf-8",
+        "Cache-Control": "public, max-age=86400, immutable",
+      },
+    });
   }
   const isAdminRoute = pathname.startsWith("/blog/admin");
   const isLoginRoute = pathname === "/blog/admin/login";

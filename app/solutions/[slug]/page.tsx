@@ -47,7 +47,12 @@ export default async function SolutionAreaRoutePage({ params }: PageProps) {
   return (
     <>
       <JsonLd
-        data={[buildWebPageSchema(seo), buildServiceSchema(area, seo), buildFaqSchema(area.faq), breadcrumbSchema]}
+        data={[
+          buildWebPageSchema(seo),
+          buildServiceSchema(area, seo, area.slug),
+          buildFaqSchema(area.faq),
+          breadcrumbSchema,
+        ]}
       />
       <SolutionAreaPage area={area} />
     </>

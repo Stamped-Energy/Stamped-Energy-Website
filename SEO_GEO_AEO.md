@@ -33,7 +33,10 @@ All search and answer copy comes from `lib/content/`, mainly `icp.ts`, `landing.
 | `lib/seo/crawlers.ts` | Search and AI crawler list for `robots.txt` |
 | `lib/seo/llms-index.ts` | Builders for `public/llms.txt` and `/llms-full.txt` |
 | `lib/seo/ai-discovery.ts` | Builders for `/.well-known/ai.txt` and `/ai/*.json` |
-| `app/sitemap.ts`, `app/robots.ts` | Sitemap (static `lastModified` = `CONTENT_UPDATED`) and robots |
+| `lib/seo/sitemap-lastmod.ts` | Per-route `lastModified` for static sitemap entries (git history + `CONTENT_UPDATED` fallback) |
+| `lib/seo/blog-post-titles.ts` | Metadata-only blog `<title>` overrides (H1 unchanged) |
+| `lib/seo/indexnow.ts` | IndexNow key; served at `/{key}.txt` and `/indexnow-key.txt` (middleware) |
+| `app/sitemap.ts`, `app/robots.ts` | Sitemap and robots |
 | `app/feed.xml/route.ts` | RSS 2.0 feed of posts and case studies |
 
 **Environment:** set `NEXT_PUBLIC_SITE_URL=https://stamped.work` in production.
