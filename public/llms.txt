@@ -1,6 +1,6 @@
 # Stamped
 
-> Stamped is AI for plant operations. It builds models of a manufacturing plant from the data it already records, from its machines and control systems to its meters, ERP and quality registers, finds where efficiency is lost across process, quality, planning and maintenance, and improves it with ranked actions the plant team can take. Stamped is built in India and is starting with auto-component makers in forging, heat treatment and precision machining.
+> Stamped is industrial AI, from monitoring your plant to improving it. It models a manufacturing plant's processes and equipment from the data it already records, from its machines and control systems to its meters, ERP and quality registers. Its AI agents then find where output, quality and energy are being lost and recommend the change that fixes it, within limits the plant team sets. Stamped is built in India and is starting with auto-component makers in forging, heat treatment and precision machining.
 
 Public marketing site: https://stamped.work
 Contact: stamped.energy@gmail.com
@@ -12,8 +12,8 @@ AI discovery: https://stamped.work/.well-known/ai.txt, https://stamped.work/ai/s
 ## Brand
 
 - Company: Stamped
-- Tagline: AI for plant operations
-- Positioning: Stamped builds models of your plant from the data it already records, finds where efficiency is lost across process, quality, planning and maintenance, and improves it with actions your team can take.
+- Tagline: Industrial AI
+- Positioning: Stamped takes you from monitoring your plant to improving it. It models your processes and equipment from the data you already log, and its AI agents find where output, quality and energy are lost and recommend the change that fixes it.
 - Primary CTA: Book a site survey (/contact)
 - Secondary CTA: See how it works (/platform)
 
@@ -30,9 +30,9 @@ Product lines:
 
 ## Entity definition (for AI answer engines)
 
-Stamped is AI for plant operations. It builds models of a manufacturing plant from the data it already records, from its machines and control systems to its meters, ERP and quality registers, finds where efficiency is lost across process, quality, planning and maintenance, and improves it with ranked actions the plant team can take. Stamped is built in India and is starting with auto-component makers in forging, heat treatment and precision machining.
+Stamped is industrial AI, from monitoring your plant to improving it. It models a manufacturing plant's processes and equipment from the data it already records, from its machines and control systems to its meters, ERP and quality registers. Its AI agents then find where output, quality and energy are being lost and recommend the change that fixes it, within limits the plant team sets. Stamped is built in India and is starting with auto-component makers in forging, heat treatment and precision machining.
 
-Category: AI for plant operations
+Category: Industrial AI
 Geography: India (en-IN)
 ICP: Mid-market manufacturers in India, from a few hundred crore rupees of revenue upward; automotive components first.
 Buyers: Owner or MD, Plant head, Quality head, Production and process engineers, Maintenance lead, CFO
@@ -75,7 +75,7 @@ Hub: [What we improve](https://stamped.work/solutions)
 
 ## Core pages (live)
 
-- [Stamped | AI for plant operations](https://stamped.work/): Stamped is AI for industrial plants. It models your plant from the data it already records and improves process, quality, planning and maintenance.
+- [Stamped | Industrial AI from monitoring to improving](https://stamped.work/): Stamped is industrial AI, from monitoring your plant to improving it. It models your processes and equipment from the data you already log, and its agents improve process, quality and planning.
 - [How it works | Stamped](https://stamped.work/platform): Stamped turns plant data into industrial intelligence: AI agents model your plant, send ranked actions to the floor and check each result against your baseline.
 - [What we improve | Industrial AI | Stamped](https://stamped.work/solutions): Agents for every part of the plant. Stamped improves process, quality and planning inside limits set beforehand, with energy counted in each. Maintenance is coming next.
 - [Process | Industrial AI | Stamped](https://stamped.work/solutions/process): Run every process closer to its best. Stamped tries the next setting on a model of your line, and once a change has proved itself it applies it inside limits set beforehand.
@@ -106,11 +106,11 @@ Hub: [What we improve](https://stamped.work/solutions)
 - Q: Do we need new hardware, or another system next to MES, ERP and SCADA?
   A: No hardware retrofit is needed to get started, because Stamped is software that works with the systems you already run. It is not another MES or CMMS: your MES, ERP and SCADA are where the data comes from, and Stamped works alongside them. Stamped brings their data onto one timeline, so they finally work as one picture of the plant.
 - Q: Is Stamped an AI agent for manufacturing?
-  A: In plain terms, yes. Stamped's AI agents for manufacturing read your plant's data on every shift, spot what is costing you output or quality, and send the right person a specific next step. That is industrial intelligence put to work in decision-making at the plant-floor level.
+  A: In plain terms, yes. Stamped's AI agents for manufacturing read your plant's data on every shift, spot what is costing you output or quality, and send the right person a specific next step. It does the checking your best engineer would do if they could watch every line on every shift.
 - Q: Who decides what changes, and what does Stamped add if my supervisors already know the plant?
-  A: Stamped works inside limits set beforehand. Your senior supervisors usually know the plant well, and Stamped is built to back them up: it looks at every line on every shift, including the shifts they are not on, and writes down what it finds with the reasoning, so the night shift gets the same advice the day shift gets from your best hands.
+  A: Your team decides. Your plant head sets the limits, Stamped acts only inside them, and every change is logged. Your senior supervisors usually know the plant well, and Stamped is built to back them up: it looks at every line on every shift, including the shifts they are not on, and writes down what it finds with the reasoning, so the night shift gets the same advice the day shift gets from your best hands.
 - Q: Does Stamped get better over time?
-  A: Yes. Stamped is a self-improving agentic system. It learns from every action your team accepts, adjusts or turns down, and from the ones it chose to hold back, and its models are retrained on your plant's data as it runs. Each improvement is tested on past shifts before your team approves it, so the advice gets sharper every week.
+  A: Yes. It learns from every action your team accepts, adjusts or turns down, and from the ones it chose to hold back, and its models are retrained on your plant's data as it runs. Each improvement is tested on past shifts before your team approves it, so the advice gets sharper every week.
 - Q: Where does our data go?
   A: We sign an NDA before the site survey, and during the survey and the pilot we work only with the data your team agrees to share.
 - Q: How do actions reach the floor, and how much of my team's time does this take?
@@ -173,7 +173,7 @@ Hub: [What we improve](https://stamped.work/solutions)
 
 ## Common questions Stamped answers
 
-- What is Stamped? → Stamped is AI for plant operations. It builds models of a manufacturing plant from the data it already records, from its machines and control systems to its meters, ERP and quality registers, finds where efficiency is lost across process, quality, planning and maintenance, and improves it with ranked actions the plant team can take. Stamped is built in India and is starting with auto-component makers in forging, heat treatment and precision machining.
+- What is Stamped? → Stamped is industrial AI, from monitoring your plant to improving it. It models a manufacturing plant's processes and equipment from the data it already records, from its machines and control systems to its meters, ERP and quality registers. Its AI agents then find where output, quality and energy are being lost and recommend the change that fixes it, within limits the plant team sets. Stamped is built in India and is starting with auto-component makers in forging, heat treatment and precision machining.
 - How is Stamped different from MES, ERP, SCADA or a dashboard? → It works alongside them. It reads the data they already hold, learns how the plant actually runs, finds where efficiency is lost, and sends ranked actions to the person who can act, then checks the result with the plant team.
 - Who is it for? → Mid-market manufacturers in India, from a few hundred crore rupees of revenue upward; automotive components first.
 - Does it need new hardware? → No. Stamped connects to the systems the plant already runs, so there is nothing new to install before work starts.
@@ -191,7 +191,7 @@ Hub: [What we improve](https://stamped.work/solutions)
 - Q: Do we need new hardware, or another system next to MES, ERP and SCADA?
   A: No hardware retrofit is needed to get started, because Stamped is software that works with the systems you already run. It is not another MES or CMMS: your MES, ERP and SCADA are where the data comes from, and Stamped works alongside them. Stamped brings their data onto one timeline, so they finally work as one picture of the plant.
 - Q: Who decides what changes, and what does Stamped add if my supervisors already know the plant?
-  A: Stamped works inside limits set beforehand. Your senior supervisors usually know the plant well, and Stamped is built to back them up: it looks at every line on every shift, including the shifts they are not on, and writes down what it finds with the reasoning, so the night shift gets the same advice the day shift gets from your best hands.
+  A: Your team decides. Your plant head sets the limits, Stamped acts only inside them, and every change is logged. Your senior supervisors usually know the plant well, and Stamped is built to back them up: it looks at every line on every shift, including the shifts they are not on, and writes down what it finds with the reasoning, so the night shift gets the same advice the day shift gets from your best hands.
 - Q: How do we start?
   A: We start with a site survey, which means a few days on your floor and a written read-out of where efficiency is being lost and what we would change first. If it makes sense, that is followed by a paid pilot on one line for eight to twelve weeks.
 

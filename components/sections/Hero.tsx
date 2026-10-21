@@ -104,8 +104,11 @@ export function Hero() {
         </ul>
 
         <div data-hero-animate="visual" className="mt-6 border-t border-outline-variant/40 pt-5 md:mt-8 md:pt-8 lg:mt-8 lg:pt-10">
-          <HeroPlantFlow />
-          <div className="mt-5 lg:hidden">
+          {/* On phones the illustration shrinks to an unreadable thumbnail, so only the action cards below show. */}
+          <div className="hidden lg:block">
+            <HeroPlantFlow />
+          </div>
+          <div className="lg:hidden">
             <p className="font-mono text-[0.68rem] font-medium uppercase tracking-[0.12em] text-primary">
               {hero.actionPanel.title}
             </p>

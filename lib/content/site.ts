@@ -6,7 +6,7 @@ const whatsappUrl = process.env.NEXT_PUBLIC_WHATSAPP_URL?.trim() ?? "";
 
 export const siteConfig = {
   name: "Stamped",
-  tagline: "AI for plant operations",
+  tagline: "Industrial AI",
   description: icp.seo.entityDefinition,
   /** Public Case Studies & Blogs listing */
   blogUrl: "/case-studies",
