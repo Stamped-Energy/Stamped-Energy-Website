@@ -2,7 +2,7 @@ import { landingContent } from "@/lib/content/landing";
 import { platformContent } from "@/lib/content/platform";
 import { siteConfig } from "@/lib/content/site";
 import { solutionsContent } from "@/lib/content/solutions";
-import { COMPANY_LINKEDIN_URL, CONTENT_UPDATED, SITE_URL } from "@/lib/seo/constants";
+import { COMPANY_LINKEDIN_URL, CONTENT_UPDATED, SHOWCASE_URL, SITE_URL } from "@/lib/seo/constants";
 import { PAGE_SEO } from "@/lib/seo/pages";
 
 /** geo-checklist.dev discovery files (/.well-known/ai.txt, /ai/*.json), generated from lib/content. */
@@ -33,7 +33,7 @@ export function buildAiSummary() {
     url: SITE_URL,
     category: "AI for industrial plants",
     areaServed: "India",
-    sameAs: [COMPANY_LINKEDIN_URL],
+    sameAs: [COMPANY_LINKEDIN_URL, SHOWCASE_URL],
     pages: [PAGE_SEO.platform, PAGE_SEO.solutions, PAGE_SEO.about, PAGE_SEO.contact].map((page) => ({
       description: page.description,
       url: `${SITE_URL}${page.path}`,

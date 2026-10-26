@@ -46,6 +46,8 @@ async function isAuthenticated(request: NextRequest): Promise<boolean> {
 
 const WWW_STAMPED_HOST = "www.stamped.work";
 const CANONICAL_STAMPED_HOST = "stamped.work";
+const LEGACY_DEMO_HOST = "demo.stamped.work";
+const SHOWCASE_STAMPED_HOST = "showcase.stamped.work";
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -55,6 +57,13 @@ export async function middleware(request: NextRequest) {
   if (hostname === WWW_STAMPED_HOST) {
     const destination = request.nextUrl.clone();
     destination.hostname = CANONICAL_STAMPED_HOST;
+    destination.protocol = "https:";
+    return NextResponse.redirect(destination, 308);
+  }
+
+  if (hostname === LEGACY_DEMO_HOST) {
+    const destination = request.nextUrl.clone();
+    destination.hostname = SHOWCASE_STAMPED_HOST;
     destination.protocol = "https:";
     return NextResponse.redirect(destination, 308);
   }

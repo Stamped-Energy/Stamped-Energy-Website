@@ -58,6 +58,9 @@ export const SEO_KEYWORDS = [
 /** LinkedIn Company Page URL for Organization sameAs / GEO (per the website update plan, section 5). */
 export const COMPANY_LINKEDIN_URL = "https://www.linkedin.com/company/stamped-energy";
 
+/** Public product showcase / live dashboard (formerly demo.stamped.work). */
+export const SHOWCASE_URL = "https://showcase.stamped.work";
+
 /** Re-export for llms.txt generation and docs - single positioning source */
 export const SEO_ENTITY_DEFINITION = icp.seo.entityDefinition;
 export const SEO_CATEGORY_LABEL = icp.seo.categoryLabel;

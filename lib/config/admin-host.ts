@@ -4,6 +4,7 @@
  * Production split:
  * - NEXT_PUBLIC_SITE_URL=https://stamped.work
  * - ADMIN_APP_ORIGIN=https://admin.stamped.work
+ * - Product showcase (separate deployment): https://showcase.stamped.work
  *
  * When ADMIN_APP_ORIGIN is set, /blog/admin on the marketing host redirects to the admin subdomain.
  * Leave ADMIN_APP_ORIGIN empty for local development on localhost.

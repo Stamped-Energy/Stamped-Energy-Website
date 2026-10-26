@@ -15,6 +15,7 @@ import {
   CONTENT_UPDATED,
   DEFAULT_OG_IMAGE,
   ORGANIZATION_ID,
+  SHOWCASE_URL,
   SITE_URL,
   WEBSITE_ID,
 } from "@/lib/seo/constants";
@@ -111,7 +112,10 @@ export const organizationSchema: WithContext<Organization> = {
     "Pharmaceutical manufacturing",
     "Chemical manufacturing",
   ],
-  sameAs: COMPANY_LINKEDIN_URL ? [COMPANY_LINKEDIN_URL] : [],
+  sameAs: [
+    ...(COMPANY_LINKEDIN_URL ? [COMPANY_LINKEDIN_URL] : []),
+    SHOWCASE_URL,
+  ],
   hasOfferCatalog: buildStampedSuiteOfferCatalog(),
 };
 

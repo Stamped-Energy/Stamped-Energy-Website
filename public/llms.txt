@@ -11,6 +11,7 @@
 - Legacy URL /solutions/load-energy now redirects (308) to /solutions/process.
 
 Public marketing site: https://stamped.work
+Product showcase: https://showcase.stamped.work
 Contact: stamped.energy@gmail.com
 Sitemap: https://stamped.work/sitemap.xml
 Extended index: https://stamped.work/llms-full.txt
@@ -275,6 +276,7 @@ Mid-market manufacturers in India, from a few hundred crore rupees of revenue up
 
 - Google Search Console: registered by team
 - LinkedIn Company Page sameAs: https://www.linkedin.com/company/stamped-energy
+- Product showcase sameAs: https://showcase.stamped.work
 - Google Business Profile, Wikidata, Crunchbase, Bing Webmaster Tools: not done
 
 ## Crawling
