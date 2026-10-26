@@ -11,7 +11,7 @@ Main marketing website for Stamped Energy - prescriptive energy intelligence for
 - **Contact pipeline** - Form submissions stored in PostgreSQL; optional email notifications via Resend
 - **Analytics** - Vercel Analytics on all public routes
 
-Production: [stamped.work](https://stamped.work) (marketing) with optional admin split via `ADMIN_APP_ORIGIN`.
+Production: [stamped.work](https://stamped.work) (marketing) with optional admin split via `ADMIN_APP_ORIGIN`. Live product showcase: [showcase.stamped.work](https://showcase.stamped.work).
 
 ## High-Level Architecture
 

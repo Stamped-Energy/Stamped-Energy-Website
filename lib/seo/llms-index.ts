@@ -6,7 +6,7 @@ import { navLinks } from "@/lib/content/site";
 import { solutionsContent } from "@/lib/content/solutions";
 import { VERTICAL_SLUGS, getVerticalPage } from "@/lib/content/vertical-pages";
 import { formatLlmsProductsSection } from "@/lib/seo/brand";
-import { COMPANY_LINKEDIN_URL, SEO_KEYWORDS } from "@/lib/seo/constants";
+import { COMPANY_LINKEDIN_URL, SEO_KEYWORDS, SHOWCASE_URL } from "@/lib/seo/constants";
 import { PAGE_SEO, type PageSeoConfig } from "@/lib/seo/pages";
 
 /** Prefer production origin for static public/llms.txt (committed file). */
@@ -51,6 +51,7 @@ export function buildLlmsTxtBody(): string {
   lines.push(`> ${icp.seo.entityDefinition}`);
   pushBlank(lines);
   lines.push(`Public marketing site: ${SITE_URL}`);
+  lines.push(`Product showcase: ${SHOWCASE_URL}`);
   lines.push(`Contact: stamped.energy@gmail.com`);
   lines.push(`Sitemap: ${SITE_URL}/sitemap.xml`);
   lines.push(`Extended index: ${SITE_URL}/llms-full.txt`);
@@ -232,6 +233,7 @@ export function buildLlmsTxtBody(): string {
   lines.push(
     `- LinkedIn Company Page sameAs: ${COMPANY_LINKEDIN_URL || "pending (set COMPANY_LINKEDIN_URL in lib/seo/constants.ts)"}`,
   );
+  lines.push(`- Product showcase sameAs: ${SHOWCASE_URL}`);
   lines.push("- Google Business Profile, Wikidata, Crunchbase, Bing Webmaster Tools: not done");
   pushBlank(lines);
 
@@ -250,7 +252,7 @@ export async function buildLlmsFullTxtBody(): Promise<string> {
   const { listPublishedPostsForSitemap } = await import("@/lib/blog/posts");
   const { listPublishedCaseStudiesForSitemap } = await import("@/lib/case-studies/studies");
   const { safeDbQuery } = await import("@/lib/db/safe-query");
-  const { SITE_URL } = await import("@/lib/seo/constants");
+  const { SHOWCASE_URL, SITE_URL } = await import("@/lib/seo/constants");
 
   const lines: string[] = [];
 
@@ -263,6 +265,7 @@ export async function buildLlmsFullTxtBody(): Promise<string> {
   lines.push(icp.seo.entityDefinition);
   pushBlank(lines);
   lines.push(`Site: ${SITE_URL}`);
+  lines.push(`Product showcase: ${SHOWCASE_URL}`);
   lines.push(`Category: ${icp.seo.categoryLabel}`);
   lines.push(`Audience: ${icp.seo.audienceLine}`);
   lines.push(icp.seo.notA);

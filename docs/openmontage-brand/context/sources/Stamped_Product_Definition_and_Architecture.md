@@ -21,7 +21,7 @@ timestamp: "2026-08-04T18:00:00+05:30"
 
 **Client narrative canon:** [Client Positioning & Narrative v1](/core-product/Stamped_Client_Positioning_and_Narrative_v1.md).
 
-This document defines **what the product provides** and **how it is architected at a high level** — where time-series models, custom per-plant models, rules/physics engines, knowledge graphs, RAG, and bounded agentic systems each belong. It synthesizes Stamped's own product thesis, the [stamped.work](https://stamped.work/) positioning, the [demo dashboard](https://stamped-energy.vercel.app/), and competitor technical patterns (Greenovative, Zerowatt, PredCo, Infinite Uptime, OEM incumbents).
+This document defines **what the product provides** and **how it is architected at a high level** — where time-series models, custom per-plant models, rules/physics engines, knowledge graphs, RAG, and bounded agentic systems each belong. It synthesizes Stamped's own product thesis, the [stamped.work](https://stamped.work/) positioning, the [product showcase](https://showcase.stamped.work/), and competitor technical patterns (Greenovative, Zerowatt, PredCo, Infinite Uptime, OEM incumbents).
 
 **Core architectural bet:** Stamped wins on the **decision and closure layer**, not on being the best monitoring dashboard or a hardware company. Intelligence must produce **prescriptions a supervisor can execute**, not charts a plant head opens once a month.
 
@@ -79,7 +79,7 @@ The **primary UX is not a kWh chart**. Reference surfaces:
 Structured action the maintenance supervisor receives — matches stamped.work sample and demo dashboard "Action Intelligence" panel:
 - What · Why · Impact (₹ + optional tCO₂e) · Owner · Due · Priority
 
-**B. Plant head / energy manager dashboard** `[demo: stamped-energy.vercel.app]`  
+**B. Plant head / energy manager dashboard** `[showcase: showcase.stamped.work]`  
 - Savings ledger (verified M&V)  
 - 30-day trend vs Stamped baseline  
 - Equipment health map (load %, status by asset)  
@@ -438,7 +438,7 @@ Validate in first 3 pilots:
 | Greenovative architecture learning | `external-learning/greenovative/02-platform-capabilities-and-architecture.md` |
 | Competitor technical reports | `competitor-research/*_Technical_Research_Report.md` |
 | Industrial AI synthesis | `industry-market-research/Industrial_AI_Synthesis.md` |
-| Demo dashboard | https://stamped-energy.vercel.app/ |
+| Product showcase | https://showcase.stamped.work/ |
 | Marketing site | https://stamped.work/ |
 | Shivam technical storytelling | `prospective-clients/shivam-autotech/05-technical-storytelling.md` |
 

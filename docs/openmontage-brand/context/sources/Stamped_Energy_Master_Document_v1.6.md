@@ -42,7 +42,7 @@ A **read-only operational decision layer** for **energy-intensive Indian manufac
 
 **External properties:**
 - Marketing site: [stamped.work](https://stamped.work/)
-- Demo dashboard: [stamped-energy.vercel.app](https://stamped-energy.vercel.app/) `[!]`
+- Product showcase: [showcase.stamped.work](https://showcase.stamped.work/) `[!]`
 - Research knowledge base: this repository (`Research+DOcs/`)
 
 **What Stamped Energy is:**

@@ -106,6 +106,7 @@ What still costs GEO points:
 | Item | Status |
 |------|--------|
 | LinkedIn Company Page (`linkedin.com/company/stampedwork`) | Done, in Organization `sameAs` |
+| Product showcase (`https://showcase.stamped.work`, replaces `demo.stamped.work`) | Done, in Organization `sameAs` and `llms.txt` |
 | Google Search Console: submit `sitemap.xml`, inspect key URLs after deploy | Registered; resubmit after deploy |
 | Bing Webmaster Tools (also feeds ChatGPT search and Copilot): import from Search Console | Not done |
 | Wikidata item for Stamped (then add its URL to `sameAs`) | Not done |
@@ -113,7 +114,7 @@ What still costs GEO points:
 | Google Business Profile | Not done |
 | Rich Results Test on `/`, one solution page, one blog post | After deploy |
 
-When a new profile exists, add its URL to `sameAs` in `organizationSchema` (`lib/seo/schemas.ts`) and to `buildAiSummary` (`lib/seo/ai-discovery.ts`).
+When a new profile exists, add its URL to `sameAs` in `organizationSchema` (`lib/seo/schemas.ts`) and to `buildAiSummary` (`lib/seo/ai-discovery.ts`). The live product showcase is already listed as `SHOWCASE_URL` in `lib/seo/constants.ts`.
 
 ---
 

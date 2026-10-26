@@ -49,6 +49,7 @@ Copy `.env.example` to `.env`. Required for full functionality:
 | `CONTACT_FROM_EMAIL` / `CONTACT_NOTIFY_EMAILS` | Outbound & inbox addresses |
 | `NEXT_PUBLIC_SITE_URL` | Canonical site URL |
 | `ADMIN_APP_ORIGIN` | Optional admin subdomain (e.g. `https://admin.stamped.work`) |
+| Showcase | Live product dashboard at [showcase.stamped.work](https://showcase.stamped.work) (canonical URL in `lib/seo/constants.ts`) |
 
 ## Scripts
 
