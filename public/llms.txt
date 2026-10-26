@@ -2,6 +2,14 @@
 
 > Stamped is industrial AI, from monitoring your plant to improving it. It models a manufacturing plant's processes and equipment from the data it already records, from its machines and control systems to its meters, ERP and quality registers. Its AI agents then find where output, quality and energy are being lost and recommend the change that fixes it, within limits the plant team sets. Stamped is built in India and is starting with auto-component makers in forging, heat treatment and precision machining.
 
+## About the name
+
+- Company: Stamped (https://stamped.work/)
+- Stamped Energy is a product line name and the LinkedIn company page name, not the company's only focus.
+- LinkedIn company page: https://www.linkedin.com/company/stamped-energy
+- Suite: Stamped Industrial Intelligence Suite — product lines cover process, quality, production and planning, maintenance, control and energy.
+- Legacy URL /solutions/load-energy now redirects (308) to /solutions/process.
+
 Public marketing site: https://stamped.work
 Contact: stamped.energy@gmail.com
 Sitemap: https://stamped.work/sitemap.xml
@@ -47,7 +55,7 @@ Stamped helps manufacturing plants run more efficiently: fewer rejections, more 
 
 Most plants already record far more than they use. The machines, control systems, meters, ERP and quality registers each hold a piece of the picture, but they sit in separate places and rarely get looked at together. Stamped brings that data into one view and models it to understand how your plant actually runs and where efficiency is quietly being lost.
 
-Stamped then turns that understanding into specific actions and sends each one to the person who can act on it, whether it is a setting that has drifted over a few weeks, a batch that looks like last month's rejections, or a plan that needs to change because a machine went down mid-shift. Stamped works inside limits set beforehand. Once a change is made, we check whether it worked, and if a gain starts slipping later, it goes back to the person who owns it.
+Stamped then turns that understanding into specific actions and sends each one to the person who can act on it, whether it is a setting that has drifted over a few weeks, a batch that looks like last month's rejections, or a plan that needs to change because a machine went down mid-shift. Stamped recommends and your team decides. Once a change is made, we check whether it worked, and if a gain starts slipping later, it goes back to the person who owns it.
 
 ## Navigation
 
@@ -62,14 +70,14 @@ Models: Trained on your plant's own history, they learn what normal looks like a
 Actions: Each goes to the person best placed to act, ranked by what it is costing you and explained well enough to judge for themselves.
 Results: Once your team makes a change, Stamped checks the result against your own baseline.
 What each result shows goes back into the models, so the next recommendation is better.
-Stamped works inside limits set beforehand.
+Stamped recommends and your team decides.
 
 ## What Stamped improves
 
 - [Process](https://stamped.work/solutions/process): Better settings, control rules and restart routines for each line, tried on a model first and applied inside limits set beforehand.
 - [Quality](https://stamped.work/solutions/quality): Link process data to every lot, get a warning while a batch can still be saved, and have each lot's record ready when the auditor or the customer asks.
 - [Planning](https://stamped.work/solutions/planning): When the plan breaks, get a re-plan that accounts for the whole plant, along with what each option would do to output and delivery.
-- [Maintenance (coming soon)](https://stamped.work/solutions/maintenance): We are building this next: maintenance that says what to fix and when, ranked by what each stop costs and planned around your production.
+- [Maintenance](https://stamped.work/solutions/maintenance): We are building this next: maintenance that says what to fix and when, ranked by what each stop costs and planned around your production.
 - Energy: Energy follows every operating decision. Counted inside every action in all four areas.
 Hub: [What we improve](https://stamped.work/solutions)
 
@@ -78,10 +86,10 @@ Hub: [What we improve](https://stamped.work/solutions)
 - [Stamped | Industrial AI from monitoring to improving](https://stamped.work/): Stamped is industrial AI, from monitoring your plant to improving it. It models your processes and equipment from the data you already log, and its agents improve process, quality and planning.
 - [How it works | Stamped](https://stamped.work/platform): Stamped turns plant data into industrial intelligence: AI agents model your plant, send ranked actions to the floor and check each result against your baseline.
 - [What we improve | Industrial AI | Stamped](https://stamped.work/solutions): Agents for every part of the plant. Stamped improves process, quality and planning inside limits set beforehand, with energy counted in each. Maintenance is coming next.
-- [Process | Industrial AI | Stamped](https://stamped.work/solutions/process): Run every process closer to its best. Stamped tries the next setting on a model of your line, and once a change has proved itself it applies it inside limits set beforehand.
-- [Quality | Industrial AI | Stamped](https://stamped.work/solutions/quality): Catch the bad batch while it can still be saved. Stamped watches every run against your good parts, warns your team in time and traces each reject to its cause.
-- [Planning | Industrial AI | Stamped](https://stamped.work/solutions/planning): Plan around how your plant really runs. Stamped warns when the plan is about to slip and suggests a better order of work, with its effect on output and delivery.
-- [Maintenance, coming soon | Industrial AI | Stamped](https://stamped.work/solutions/maintenance): Coming soon. Stamped will spot which machine is starting to wear and suggest the best window to fix it, planned around production.
+- [Stamped Process & Control | Process optimisation for plants](https://stamped.work/solutions/process): Run every process closer to its best. Stamped tries the next setting on a model of your line, and once a change has proved itself it applies it inside limits set beforehand.
+- [Stamped Quality | Predictive quality AI for plants](https://stamped.work/solutions/quality): Catch the bad batch while it can still be saved. Stamped watches every run against your good parts, warns your team in time and traces each reject to its cause.
+- [Stamped Production | Production planning AI for plants](https://stamped.work/solutions/planning): Plan around how your plant really runs. Stamped warns when the plan is about to slip and suggests a better order of work, with its effect on output and delivery.
+- [Stamped Maintenance | Predictive maintenance, coming soon](https://stamped.work/solutions/maintenance): Coming soon. Stamped will spot which machine is starting to wear and suggest the best window to fix it, planned around production.
 - [Industries | Stamped](https://stamped.work/industries): Stamped improves process, quality, planning and maintenance in auto-component, steel, cement, pharma and chemical plants.
 - [Auto component manufacturing | Stamped](https://stamped.work/industries/automotive): For forging, heat treatment, machining, die casting and rubber moulding plants: fewer rejections, more output and fewer breakdowns, from data you already have.
 - [Steel plant operations | Stamped](https://stamped.work/industries/steel): For induction and arc furnace melt shops and rolling mills: power per tonne, heat chemistry, yield and cobbles, improved from the data your plant records.
@@ -94,9 +102,9 @@ Hub: [What we improve](https://stamped.work/solutions)
 
 ## Homepage snapshot
 
-- Badge: AI for industrial plants
-- H1: Turn plant data into action.
-- Supporting: Stamped builds models of your plant from the data it already records, finds where efficiency is lost across process, quality, planning and maintenance, and improves it with actions your team can take.
+- Badge: Industrial AI
+- H1: From monitoring your plant to improving it.
+- Supporting: Stamped models your processes and equipment from the data you already log, then its AI agents learn from that model to watch every run, find where output, quality and energy are being lost, and recommend the change that fixes it, inside limits set beforehand.
 - FAQ section: visible on homepage with FAQPage JSON-LD
 
 ## Homepage FAQ
@@ -131,7 +139,7 @@ Hub: [What we improve](https://stamped.work/solutions)
 - Q: How does Stamped decide which actions come first?
   A: Stamped builds models of each line from its own history to learn what normal looks like and spot where efficiency is lost. Each possible fix is checked against the day's plan and production constraints, and what is left is ranked by what it is costing you.
 - Q: How do actions reach the team?
-  A: Each action goes to its owner on WhatsApp or on screen, with what to do, by when and why. It stays open until it is closed, and every decision and result is kept on record.
+  A: Each action goes to its owner on WhatsApp or on screen, with what to do, by when and why, and your team decides. It stays open until it is closed, and every decision and result is kept on record.
 - Q: How do we know a change worked?
   A: Once your team makes a change, Stamped checks the result against your own baseline. What each result shows goes back into the models, so the next recommendation is better.
 
@@ -209,7 +217,7 @@ Hub: [What we improve](https://stamped.work/solutions)
 - Q: Has Stamped worked with cement plants?
   A: Our first deployments are with auto-component makers. In cement we start the same way, with a site survey on your floor and a written read-out of where we would begin, and we publish results only with a plant's written permission.
 - Q: Does Stamped replace our kiln control or expert system?
-  A: No. Stamped works alongside the control systems you already run and sends its recommendations to your team. Stamped works inside limits set beforehand.
+  A: No. Stamped works alongside the control systems you already run and sends its recommendations to your team. Stamped recommends and your team decides.
 - Q: Do we need new hardware, or another system next to MES, ERP and SCADA?
   A: No hardware retrofit is needed to get started, because Stamped is software that works with the systems you already run. It is not another MES or CMMS: your MES, ERP and SCADA are where the data comes from, and Stamped works alongside them. Stamped brings their data onto one timeline, so they finally work as one picture of the plant.
 - Q: How do we start?
@@ -219,7 +227,7 @@ Hub: [What we improve](https://stamped.work/solutions)
 - Q: Has Stamped worked with pharma plants?
   A: Our first deployments are with auto-component makers. In pharma we start the same way, with a site survey on your floor and a written read-out of where we would begin, and we work within your quality system and change control.
 - Q: Does Stamped make release or GMP decisions?
-  A: No. Release and disposition stay with your QA team, and Stamped gathers the records and flags what looks unusual so they can decide faster. Stamped works inside limits set beforehand.
+  A: No. Release and disposition stay with your QA team, and Stamped gathers the records and flags what looks unusual so they can decide faster. Stamped recommends and your team decides.
 - Q: Do we need new hardware, or another system next to MES, ERP and SCADA?
   A: No hardware retrofit is needed to get started, because Stamped is software that works with the systems you already run. It is not another MES or CMMS: your MES, ERP and SCADA are where the data comes from, and Stamped works alongside them. Stamped brings their data onto one timeline, so they finally work as one picture of the plant.
 - Q: How do we start?
@@ -229,7 +237,7 @@ Hub: [What we improve](https://stamped.work/solutions)
 - Q: Has Stamped worked with chemical plants?
   A: Our first deployments are with auto-component makers. In chemicals we start the same way, with a site survey on your floor and a written read-out of where we would begin, and we publish results only with a plant's written permission.
 - Q: Does Stamped change our recipes or control system?
-  A: No. Stamped works alongside the control system you already run and sends its recommendations to your team. Stamped works inside limits set beforehand.
+  A: No. Stamped works alongside the control system you already run and sends its recommendations to your team. Stamped recommends and your team decides.
 - Q: Do we need new hardware, or another system next to MES, ERP and SCADA?
   A: No hardware retrofit is needed to get started, because Stamped is software that works with the systems you already run. It is not another MES or CMMS: your MES, ERP and SCADA are where the data comes from, and Stamped works alongside them. Stamped brings their data onto one timeline, so they finally work as one picture of the plant.
 - Q: How do we start?
@@ -272,4 +280,3 @@ Mid-market manufacturers in India, from a few hundred crore rupees of revenue up
 ## Crawling
 
 All public pages are open to search and AI crawlers. Admin CMS (`/blog/admin`), API routes (`/api/`), and build assets (`/_next/`) are disallowed in robots.txt.
-

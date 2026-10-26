@@ -7,6 +7,7 @@ import { siteConfig } from "@/lib/content/site";
 import {
   buildStampedSuiteOfferCatalog,
   SOLUTION_AREA_PRODUCT_LINE_TITLE,
+  stampedEntityDisambiguatingDescription,
   STAMPED_SUITE_NAME,
 } from "@/lib/seo/brand";
 import {
@@ -70,6 +71,7 @@ export const organizationSchema: WithContext<Organization> = {
   logo: organizationLogo,
   slogan: siteConfig.tagline,
   description: icp.seo.entityDefinition,
+  disambiguatingDescription: stampedEntityDisambiguatingDescription(),
   founder: [{ "@id": VINAYAK_ID }, { "@id": UTSO_ID }],
   email: "stamped.energy@gmail.com",
   foundingDate: "2026",
