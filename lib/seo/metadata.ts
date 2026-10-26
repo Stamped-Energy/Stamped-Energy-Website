@@ -20,6 +20,9 @@ export function absoluteUrl(path: string): string {
   return path.startsWith("/") ? `${base}${path}` : `${base}/${path}`;
 }
 
+/** Home canonical / og:url — must keep trailing slash (Next metadata API strips it on `/`). */
+export const HOME_CANONICAL_URL = absoluteUrl("/");
+
 /** Page-level `alternates` replaces the root one, so every builder repeats the feed link. */
 const FEED_ALTERNATE = { "application/rss+xml": "/feed.xml" };
 
@@ -74,6 +77,7 @@ export function buildPageMetadata({
   descriptionSupplements,
 }: BuildPageMetadataOptions): Metadata {
   const url = absoluteUrl(path);
+  const isHome = path === "/";
   const displayTitle = absoluteTitle ?? `${title} | ${siteConfig.name}`;
   const ogImages = buildOpenGraphImages(image);
   const metaDescription = normalizeMetaDescription(description, descriptionSupplements);
@@ -81,13 +85,13 @@ export function buildPageMetadata({
   return {
     title: absoluteTitle ? { absolute: absoluteTitle } : title,
     description: metaDescription,
-    alternates: { canonical: url, types: FEED_ALTERNATE },
+    alternates: isHome ? { types: FEED_ALTERNATE } : { canonical: url, types: FEED_ALTERNATE },
     other: { ...GEO_METADATA },
     ...(keywords?.length ? { keywords } : {}),
     openGraph: {
       title: displayTitle,
       description: metaDescription,
-      url,
+      ...(isHome ? {} : { url }),
       type,
       siteName: siteConfig.name,
       locale: "en_IN",

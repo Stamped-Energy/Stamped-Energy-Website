@@ -5,7 +5,7 @@ import { platformContent } from "@/lib/content/platform";
 import { navLinks } from "@/lib/content/site";
 import { solutionsContent } from "@/lib/content/solutions";
 import { VERTICAL_SLUGS, getVerticalPage } from "@/lib/content/vertical-pages";
-import { formatLlmsProductsSection } from "@/lib/seo/brand";
+import { formatLlmsProductsSection, STAMPED_SUITE_NAME } from "@/lib/seo/brand";
 import { COMPANY_LINKEDIN_URL, SEO_KEYWORDS } from "@/lib/seo/constants";
 import { PAGE_SEO, type PageSeoConfig } from "@/lib/seo/pages";
 
@@ -41,6 +41,23 @@ function pushBlank(lines: string[]) {
   lines.push("");
 }
 
+function pushAboutTheNameSection(lines: string[], siteUrl: string): void {
+  lines.push("## About the name");
+  pushBlank(lines);
+  lines.push(`- Company: Stamped (${siteUrl}/)`);
+  lines.push(
+    "- Stamped Energy is a product line name and the LinkedIn company page name, not the company's only focus.",
+  );
+  if (COMPANY_LINKEDIN_URL) {
+    lines.push(`- LinkedIn company page: ${COMPANY_LINKEDIN_URL}`);
+  }
+  lines.push(
+    `- Suite: ${STAMPED_SUITE_NAME} — product lines cover process, quality, production and planning, maintenance, control and energy.`,
+  );
+  lines.push("- Legacy URL /solutions/load-energy now redirects (308) to /solutions/process.");
+  pushBlank(lines);
+}
+
 /** Static site guide for AI crawlers (llms.txt body). Copy canon: Stamped copy v3 (3 Oct 2026). */
 export function buildLlmsTxtBody(): string {
   const SITE_URL = llmsSiteUrl();
@@ -50,6 +67,7 @@ export function buildLlmsTxtBody(): string {
   pushBlank(lines);
   lines.push(`> ${icp.seo.entityDefinition}`);
   pushBlank(lines);
+  pushAboutTheNameSection(lines, SITE_URL);
   lines.push(`Public marketing site: ${SITE_URL}`);
   lines.push(`Contact: stamped.energy@gmail.com`);
   lines.push(`Sitemap: ${SITE_URL}/sitemap.xml`);
@@ -262,6 +280,7 @@ export async function buildLlmsFullTxtBody(): Promise<string> {
   pushBlank(lines);
   lines.push(icp.seo.entityDefinition);
   pushBlank(lines);
+  pushAboutTheNameSection(lines, SITE_URL);
   lines.push(`Site: ${SITE_URL}`);
   lines.push(`Category: ${icp.seo.categoryLabel}`);
   lines.push(`Audience: ${icp.seo.audienceLine}`);
