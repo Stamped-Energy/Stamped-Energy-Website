@@ -2,6 +2,14 @@
 
 > Stamped is industrial AI, from monitoring your plant to improving it. It models a manufacturing plant's processes and equipment from the data it already records, from its machines and control systems to its meters, ERP and quality registers. Its AI agents then find where output, quality and energy are being lost and recommend the change that fixes it, within limits the plant team sets. Stamped is built in India and is starting with auto-component makers in forging, heat treatment and precision machining.
 
+## About the name
+
+- Company: Stamped (https://stamped.work/)
+- Stamped Energy is a product line name and the LinkedIn company page name, not the company's only focus.
+- LinkedIn company page: https://www.linkedin.com/company/stamped-energy
+- Suite: Stamped Industrial Intelligence Suite — product lines cover process, quality, production and planning, maintenance, control and energy.
+- Legacy URL /solutions/load-energy now redirects (308) to /solutions/process.
+
 Public marketing site: https://stamped.work
 Product showcase: https://showcase.stamped.work
 Contact: stamped.energy@gmail.com

@@ -27,7 +27,8 @@ All search and answer copy comes from `lib/content/`, mainly `icp.ts`, `landing.
 | File | Responsibility |
 |------|----------------|
 | `lib/seo/pages.ts` | Title, description, path and keywords per page (`PAGE_SEO`) |
-| `lib/seo/metadata.ts` | `buildPageMetadata()`, canonical, OG, Twitter, RSS alternate |
+| `lib/seo/metadata.ts` | `buildPageMetadata()`, canonical, OG, Twitter, RSS alternate; `HOME_CANONICAL_URL`; home route uses `app/(home)/layout.tsx` for trailing-slash canonical / `og:url` |
+| `lib/seo/brand.ts` | Suite product lines, `stampedEntityDisambiguatingDescription()` for Organization JSON-LD |
 | `lib/seo/constants.ts` | `SITE_URL`, OG image, `CONTENT_UPDATED`, `SEO_KEYWORDS`, `COMPANY_LINKEDIN_URL` |
 | `lib/seo/schemas.ts` | JSON-LD builders, typed with `schema-dts` |
 | `lib/seo/crawlers.ts` | Search and AI crawler list for `robots.txt` |
@@ -124,6 +125,7 @@ When a new profile exists, add its URL to `sameAs` in `organizationSchema` (`lib
 2. Update `lib/seo/pages.ts` if titles or descriptions change, then run `npm run seo:check`.
 3. Bump `CONTENT_UPDATED` in `lib/seo/constants.ts`.
 4. Regenerate `public/llms.txt`: `npx tsx -e "import { buildLlmsTxtBody } from './lib/seo/llms-index'; import { writeFileSync } from 'fs'; writeFileSync('public/llms.txt', buildLlmsTxtBody());"`
+5. After `next build` with `NEXT_PUBLIC_SITE_URL=https://stamped.work`, run `npm run seo:metadata-verify` (home canonical slash, sample lastmods, llms entity section).
 5. Re-run the audits and update the scores above.
 
 ---
