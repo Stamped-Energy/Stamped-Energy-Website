@@ -16,10 +16,12 @@ import { gsap, ScrollTrigger, useGSAP } from "@/lib/motion/gsap";
  * Mobile: stages stack and each plays once as it enters the viewport.
  * Reduced motion or no JS: the markup already shows the end state of every stage.
  */
-const STAGE_HOLD = 0.35;
-const END_HOLD = 0.08;
-/** Scroll length for the whole pinned timeline (was 170%). */
-const PIN_SCROLL_PERCENT = 150;
+const STAGE_HOLD = 0.28;
+const END_HOLD = 0.06;
+/** Scroll length for the whole pinned timeline (was 170%, then 150%). */
+const PIN_SCROLL_PERCENT = 140;
+/** Keep a small, consistent gap under the step copy while pinned. */
+const TARGET_BOTTOM_GAP = 28;
 
 export function HomeLadder() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -44,6 +46,7 @@ export function HomeLadder() {
       mm.add("(min-width: 1024px)", () => {
         const rail = section.querySelector<HTMLElement>("[data-ladder-rail]");
         const nums = gsap.utils.toArray<HTMLElement>("[data-ladder-num]", section);
+        const slots = gsap.utils.toArray<HTMLElement>("[data-motion-slot]", section);
         const master = gsap.timeline({ defaults: { ease: "power2.out" } });
 
         if (rail) master.set(rail, { scaleX: 0 }, 0);
@@ -67,7 +70,7 @@ export function HomeLadder() {
           master.to({}, { duration: i < stageRoots.length - 1 ? STAGE_HOLD : END_HOLD });
         });
 
-        // Pin length scaled to the animation , minus the long final hold after the last stage.
+        // Pin length scaled to the animation, minus the long final hold after the last stage.
         const oldDuration = master.duration() - END_HOLD + STAGE_HOLD;
         const endPercent = Math.round((PIN_SCROLL_PERCENT * master.duration()) / oldDuration);
 
@@ -89,17 +92,94 @@ export function HomeLadder() {
           return (fitsWithHeading ? headingTop : stagesRect.top) - pinRect.top;
         };
 
+        /** Grow the stage cards so the pinned block leaves only a small bottom gap. */
+        const sizeStageCards = () => {
+          const heading = headingRef.current;
+          const stages = stagesRef.current;
+          const col = columns[0];
+          if (!heading || !stages || !col || !slots.length) return;
+
+          slots.forEach((slot) => {
+            slot.style.height = "0px";
+          });
+
+          const headerRow = heading.closest("div.flex");
+          const headerEl = headerRow ?? heading;
+          // From the H2 down (eyebrow sits above the pin and must not shrink the cards).
+          const headerH = Math.max(
+            heading.getBoundingClientRect().height,
+            headerEl.getBoundingClientRect().bottom - heading.getBoundingClientRect().top,
+          );
+          const headerBottom = headerEl.getBoundingClientRect().bottom;
+          const label = col.querySelector<HTMLElement>(":scope > div.relative");
+          const labelH = label?.getBoundingClientRect().height ?? 32;
+          // Use the tallest step copy (step 3 is longer) so the bottom gap stays clear.
+          let below = 0;
+          columns.forEach((column) => {
+            const title = column.querySelector("h3");
+            const body = title?.nextElementSibling as HTMLElement | null;
+            const titleStyles = title ? getComputedStyle(title) : null;
+            const bodyStyles = body ? getComputedStyle(body) : null;
+            const colBelow =
+              (title ? title.getBoundingClientRect().height + parseFloat(titleStyles?.marginTop || "0") : 40) +
+              (body ? body.getBoundingClientRect().height + parseFloat(bodyStyles?.marginTop || "0") : 72);
+            below = Math.max(below, colBelow);
+          });
+          const stagesMt = Math.max(0, stages.getBoundingClientRect().top - headerBottom);
+          const slotMt = 16;
+          // Space left under the nav once the heading is pinned: fill it with the cards.
+          const chrome = pinTop() + headerH + stagesMt + labelH + slotMt + below + TARGET_BOTTOM_GAP;
+          let next = Math.round(Math.max(160, window.innerHeight - chrome));
+          slots.forEach((slot) => {
+            slot.style.height = `${next}px`;
+          });
+
+          // Corrective pass against the lowest step description.
+          let lowestBottom = 0;
+          columns.forEach((column) => {
+            const title = column.querySelector("h3");
+            const desc = (title?.nextElementSibling as HTMLElement | null) ?? column.querySelector("p");
+            if (desc) lowestBottom = Math.max(lowestBottom, desc.getBoundingClientRect().bottom);
+          });
+          if (lowestBottom > 0) {
+            const span = lowestBottom - heading.getBoundingClientRect().top;
+            const desired = window.innerHeight - pinTop() - TARGET_BOTTOM_GAP;
+            const delta = Math.round(desired - span);
+            if (Math.abs(delta) > 2) {
+              next = Math.max(160, next + delta);
+              slots.forEach((slot) => {
+                slot.style.height = `${next}px`;
+              });
+            }
+          }
+        };
+
+        sizeStageCards();
+
         const trigger = ScrollTrigger.create({
           trigger: pinRef.current,
           start: () => `top+=${Math.round(anchorOffset())} top+=${Math.round(pinTop())}`,
           invalidateOnRefresh: true,
           end: `+=${endPercent}%`,
           pin: true,
-          scrub: 0.6,
+          // Tight scrub so the green card starts moving as soon as the section pins.
+          scrub: 0.2,
           animation: master,
+          onRefreshInit: sizeStageCards,
+          onRefresh: sizeStageCards,
         });
 
+        const onResize = () => {
+          sizeStageCards();
+          ScrollTrigger.refresh();
+        };
+        window.addEventListener("resize", onResize);
+
         return () => {
+          window.removeEventListener("resize", onResize);
+          slots.forEach((slot) => {
+            slot.style.height = "";
+          });
           trigger.kill();
           master.kill();
         };
@@ -126,7 +206,7 @@ export function HomeLadder() {
   return (
     <section ref={sectionRef} id="ladder" className="overflow-x-clip bg-surface">
       <div ref={pinRef}>
-        <Container className="w-full py-16 md:py-20 lg:py-10">
+        <Container className="w-full py-16 md:py-20 lg:py-6">
           <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
             <div>
               <SectionBadge label={ladder.badge} />
@@ -139,7 +219,7 @@ export function HomeLadder() {
             </p>
           </div>
 
-          <div ref={stagesRef} className="relative mt-10 md:mt-12 lg:mt-[clamp(1.5rem,4vh,3rem)]">
+          <div ref={stagesRef} className="relative mt-10 md:mt-12 lg:mt-[clamp(1.25rem,3vh,2.25rem)]">
             <div className="absolute inset-x-0 top-4 hidden h-px bg-outline-variant/50 lg:block" aria-hidden />
             <div
               data-ladder-rail
@@ -162,7 +242,11 @@ export function HomeLadder() {
                         {step.label}
                       </span>
                     </div>
-                    <MotionSlot label={`${step.label} visual`} aspectClassName="aspect-[5/4] w-full lg:aspect-auto lg:h-[clamp(9rem,calc(100vh-24rem),20rem)]" className="mt-5 lg:mt-4">
+                    <MotionSlot
+                      label={`${step.label} visual`}
+                      aspectClassName="aspect-[5/4] w-full lg:aspect-auto lg:h-[clamp(10rem,calc(100svh-26rem),32rem)]"
+                      className="mt-5 lg:mt-4"
+                    >
                       <Visual />
                     </MotionSlot>
                     <h3 className="mt-6 lg:mt-4 font-display text-xl font-bold tracking-tight md:text-2xl">{step.title}</h3>
