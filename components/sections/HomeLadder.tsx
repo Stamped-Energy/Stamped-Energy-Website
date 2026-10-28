@@ -20,8 +20,16 @@ const STAGE_HOLD = 0.28;
 const END_HOLD = 0.06;
 /** Scroll length for the whole pinned timeline (was 170%, then 150%). */
 const PIN_SCROLL_PERCENT = 140;
-/** Keep a small, consistent gap under the step copy while pinned. */
-const TARGET_BOTTOM_GAP = 28;
+/** Card height as a fraction of card width (~16:10 to 4:3). */
+const CARD_HEIGHT_RATIO = 0.7;
+/** Soft rem ceiling so tall monitors do not stretch the visuals. */
+const CARD_MAX_REM = 22;
+const CARD_MIN_PX = 160;
+/** Share of leftover viewport space placed above the block (rest goes below). */
+const TOP_SPACE_SHARE = 0.4;
+/** Cap on how far the heading may drift below the nav. */
+const MAX_TOP_PAD_VH = 0.08;
+const MAX_TOP_PAD_PX = 72;
 
 export function HomeLadder() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -74,12 +82,15 @@ export function HomeLadder() {
         const oldDuration = master.duration() - END_HOLD + STAGE_HOLD;
         const endPercent = Math.round((PIN_SCROLL_PERCENT * master.duration()) / oldDuration);
 
-        // Pin so the heading sits just under the nav and the eyebrow has scrolled away. If heading plus
-        // cards plus step text cannot fit on a short screen, pin at the stage row instead.
+        // Nav clearance for the pinned heading. Extra top breathing room is applied by
+        // shifting this target down (pinHeadingLift) so padding is not eaten by the pin.
         const pinTop = () => {
           const header = document.querySelector<HTMLElement>("header");
           return (header?.getBoundingClientRect().bottom ?? 72) + 12;
         };
+        // How far below pinTop the heading should sit while pinned (leftover * 40%, capped).
+        let pinHeadingLift = 0;
+
         const anchorOffset = () => {
           const pin = pinRef.current;
           const heading = headingRef.current;
@@ -88,24 +99,35 @@ export function HomeLadder() {
           const pinRect = pin.getBoundingClientRect();
           const headingTop = heading.getBoundingClientRect().top;
           const stagesRect = stages.getBoundingClientRect();
-          const fitsWithHeading = stagesRect.bottom - headingTop <= window.innerHeight - pinTop() - 8;
+          const available = window.innerHeight - pinTop() - pinHeadingLift;
+          const fitsWithHeading = stagesRect.bottom - headingTop <= available - 8;
           return (fitsWithHeading ? headingTop : stagesRect.top) - pinRect.top;
         };
 
-        /** Grow the stage cards so the pinned block leaves only a small bottom gap. */
-        const sizeStageCards = () => {
+        /**
+         * Moderate card growth (aspect + rem cap), then share leftover viewport
+         * ~40% above / ~60% below by lifting the pin target — heading stays near
+         * the nav on short screens (lift capped) and tall screens get breathing room
+         * without over-stretching the cards.
+         */
+        const layoutPinnedBlock = () => {
           const heading = headingRef.current;
           const stages = stagesRef.current;
           const col = columns[0];
           if (!heading || !stages || !col || !slots.length) return;
 
+          const rem = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+          const cardMaxPx = CARD_MAX_REM * rem;
+          const colWidth = col.getBoundingClientRect().width || slots[0].getBoundingClientRect().width;
+          const cardH = Math.round(
+            Math.max(CARD_MIN_PX, Math.min(cardMaxPx, colWidth * CARD_HEIGHT_RATIO)),
+          );
           slots.forEach((slot) => {
-            slot.style.height = "0px";
+            slot.style.height = `${cardH}px`;
           });
 
           const headerRow = heading.closest("div.flex");
           const headerEl = headerRow ?? heading;
-          // From the H2 down (eyebrow sits above the pin and must not shrink the cards).
           const headerH = Math.max(
             heading.getBoundingClientRect().height,
             headerEl.getBoundingClientRect().bottom - heading.getBoundingClientRect().top,
@@ -113,7 +135,7 @@ export function HomeLadder() {
           const headerBottom = headerEl.getBoundingClientRect().bottom;
           const label = col.querySelector<HTMLElement>(":scope > div.relative");
           const labelH = label?.getBoundingClientRect().height ?? 32;
-          // Use the tallest step copy (step 3 is longer) so the bottom gap stays clear.
+
           let below = 0;
           columns.forEach((column) => {
             const title = column.querySelector("h3");
@@ -125,52 +147,35 @@ export function HomeLadder() {
               (body ? body.getBoundingClientRect().height + parseFloat(bodyStyles?.marginTop || "0") : 72);
             below = Math.max(below, colBelow);
           });
+
           const stagesMt = Math.max(0, stages.getBoundingClientRect().top - headerBottom);
           const slotMt = 16;
-          // Space left under the nav once the heading is pinned: fill it with the cards.
-          const chrome = pinTop() + headerH + stagesMt + labelH + slotMt + below + TARGET_BOTTOM_GAP;
-          let next = Math.round(Math.max(160, window.innerHeight - chrome));
-          slots.forEach((slot) => {
-            slot.style.height = `${next}px`;
-          });
-
-          // Corrective pass against the lowest step description.
-          let lowestBottom = 0;
-          columns.forEach((column) => {
-            const title = column.querySelector("h3");
-            const desc = (title?.nextElementSibling as HTMLElement | null) ?? column.querySelector("p");
-            if (desc) lowestBottom = Math.max(lowestBottom, desc.getBoundingClientRect().bottom);
-          });
-          if (lowestBottom > 0) {
-            const span = lowestBottom - heading.getBoundingClientRect().top;
-            const desired = window.innerHeight - pinTop() - TARGET_BOTTOM_GAP;
-            const delta = Math.round(desired - span);
-            if (Math.abs(delta) > 2) {
-              next = Math.max(160, next + delta);
-              slots.forEach((slot) => {
-                slot.style.height = `${next}px`;
-              });
-            }
-          }
+          const contentH = headerH + stagesMt + labelH + slotMt + cardH + below;
+          const available = window.innerHeight - pinTop();
+          const leftover = Math.max(0, available - contentH);
+          const maxTopPad = Math.min(MAX_TOP_PAD_PX, window.innerHeight * MAX_TOP_PAD_VH);
+          pinHeadingLift = Math.round(Math.min(leftover * TOP_SPACE_SHARE, maxTopPad));
         };
 
-        sizeStageCards();
+        layoutPinnedBlock();
 
         const trigger = ScrollTrigger.create({
           trigger: pinRef.current,
-          start: () => `top+=${Math.round(anchorOffset())} top+=${Math.round(pinTop())}`,
+          // Pin when the heading (or stage row) reaches pinTop + lift.
+          start: () =>
+            `top+=${Math.round(anchorOffset())} top+=${Math.round(pinTop() + pinHeadingLift)}`,
           invalidateOnRefresh: true,
           end: `+=${endPercent}%`,
           pin: true,
           // Tight scrub so the green card starts moving as soon as the section pins.
           scrub: 0.2,
           animation: master,
-          onRefreshInit: sizeStageCards,
-          onRefresh: sizeStageCards,
+          onRefreshInit: layoutPinnedBlock,
+          onRefresh: layoutPinnedBlock,
         });
 
         const onResize = () => {
-          sizeStageCards();
+          layoutPinnedBlock();
           ScrollTrigger.refresh();
         };
         window.addEventListener("resize", onResize);
@@ -206,11 +211,14 @@ export function HomeLadder() {
   return (
     <section ref={sectionRef} id="ladder" className="overflow-x-clip bg-surface">
       <div ref={pinRef}>
-        <Container className="w-full py-16 md:py-20 lg:py-6">
+        <Container className="w-full py-16 md:py-20 lg:py-4">
           <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
             <div>
               <SectionBadge label={ladder.badge} />
-              <h2 ref={headingRef} className="mt-6 max-w-2xl font-display text-3xl font-bold tracking-tight text-balance md:text-5xl lg:text-[clamp(2.25rem,6.5vh,3rem)]">
+              <h2
+                ref={headingRef}
+                className="mt-6 max-w-2xl font-display text-3xl font-bold tracking-tight text-balance md:text-5xl lg:text-[clamp(2.15rem,5.5vh,2.85rem)]"
+              >
                 {ladder.title}
               </h2>
             </div>
@@ -219,7 +227,7 @@ export function HomeLadder() {
             </p>
           </div>
 
-          <div ref={stagesRef} className="relative mt-10 md:mt-12 lg:mt-[clamp(1.25rem,3vh,2.25rem)]">
+          <div ref={stagesRef} className="relative mt-10 md:mt-12 lg:mt-[clamp(1rem,2.8vh,2rem)]">
             <div className="absolute inset-x-0 top-4 hidden h-px bg-outline-variant/50 lg:block" aria-hidden />
             <div
               data-ladder-rail
@@ -244,7 +252,7 @@ export function HomeLadder() {
                     </div>
                     <MotionSlot
                       label={`${step.label} visual`}
-                      aspectClassName="aspect-[5/4] w-full lg:aspect-auto lg:h-[clamp(10rem,calc(100svh-26rem),32rem)]"
+                      aspectClassName="aspect-[5/4] w-full lg:aspect-auto lg:h-[clamp(10rem,22vw,22rem)]"
                       className="mt-5 lg:mt-4"
                     >
                       <Visual />
