@@ -78,7 +78,7 @@
 - Retired with ADR-033: energy-pillar chromes (`SolutionsVisuals`, `LoadEnergyHiwVisuals`, `AssetHealthHiwVisuals`)
 - [ ] First OpenMontage production using `stamped-industrial` playbook (outside this repo)
 - See **`SEO_GEO_AEO.md` → Remaining** for SEO list. Highlights:
-- [x] LinkedIn Company URL set to `linkedin.com/company/stampedwork` (rename page to "Stamped"; fix industry field)
+- [x] LinkedIn Company URL set to `linkedin.com/company/stamped-ai` (Organization `sameAs`, `llms.txt`, social surfaces via `COMPANY_LINKEDIN_URL`)
 - [ ] **GSC:** resubmit sitemap + URL Inspection after deploy
 - [ ] **Google Business Profile**
 - [ ] **Wikidata entry** for Stamped
