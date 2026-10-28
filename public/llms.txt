@@ -6,7 +6,7 @@
 
 - Company: Stamped (https://stamped.work/)
 - Stamped Energy is a product line name and the LinkedIn company page name, not the company's only focus.
-- LinkedIn company page: https://www.linkedin.com/company/stamped-energy
+- LinkedIn company page: https://www.linkedin.com/company/stamped-ai
 - Suite: Stamped Industrial Intelligence Suite — product lines cover process, quality, production and planning, maintenance, control and energy.
 - Legacy URL /solutions/load-energy now redirects (308) to /solutions/process.
 
@@ -275,7 +275,7 @@ Mid-market manufacturers in India, from a few hundred crore rupees of revenue up
 ## Off-site GEO status
 
 - Google Search Console: registered by team
-- LinkedIn Company Page sameAs: https://www.linkedin.com/company/stamped-energy
+- LinkedIn Company Page sameAs: https://www.linkedin.com/company/stamped-ai
 - Product showcase sameAs: https://showcase.stamped.work
 - Google Business Profile, Wikidata, Crunchbase, Bing Webmaster Tools: not done
 

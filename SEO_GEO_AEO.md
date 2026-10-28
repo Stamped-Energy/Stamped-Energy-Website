@@ -106,7 +106,7 @@ What still costs GEO points:
 
 | Item | Status |
 |------|--------|
-| LinkedIn Company Page (`linkedin.com/company/stampedwork`) | Done, in Organization `sameAs` |
+| LinkedIn Company Page (`linkedin.com/company/stamped-ai`) | Done, in Organization `sameAs` |
 | Product showcase (`https://showcase.stamped.work`, replaces `demo.stamped.work`) | Done, in Organization `sameAs` and `llms.txt` |
 | Google Search Console: submit `sitemap.xml`, inspect key URLs after deploy | Registered; resubmit after deploy |
 | Bing Webmaster Tools (also feeds ChatGPT search and Copilot): import from Search Console | Not done |

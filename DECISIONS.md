@@ -829,3 +829,9 @@ Architecture and workflow decisions for this project.
 **Context:** Five photos (die casting, forging, heat treatment, rubber moulding, steel) carried most of the site, and two blog covers repeated each other.
 **Decision:** Solution heroes, the solutions hub and the About hero use new photos in `public/images/stock/`, all marked free to use under the Unsplash or Pexels licence (no Unsplash+ images, no visible third-party logos or watermarks). Sources: Unsplash vwWFHoMUj_0 (hot-metal-worker), esuJmhwbPls (caliper-inspection), GRyleMGhb0Y (control-panel-gauges), zCbBf-BZK3A (electrical-panel-displays); Pexels 34718922 (factory-floor-crates), 37602851 (factory-hall), 18475528 (kw-volt-amp-meters), 25537595 (substation-wide). The industry photos stay on industry cards and pages. The About hero uses the previously unused `industries/plant/steel/welding.jpg`, chosen by Vinayak over a textile-floor photo.
 **Impact:** Blog covers live in the database; after deploy on 8 Oct the September energy post, the metering post and the 2025 energy post were switched to kw-volt-amp-meters, electrical-panel-displays and substation-wide.
+
+## ADR-048: LinkedIn company page URL → stamped-ai (28 Oct 2026)
+
+**Context:** Stamped’s LinkedIn company page moved from `linkedin.com/company/stamped-energy` to `linkedin.com/company/stamped-ai`.
+**Decision:** Set `COMPANY_LINKEDIN_URL` in `lib/seo/constants.ts` to `https://www.linkedin.com/company/stamped-ai` and regenerate committed `public/llms.txt`. Founder profile URLs (`/in/utso`, `/in/vinayak-rz`) unchanged.
+**Impact:** Organization JSON-LD `sameAs`, `/ai/summary.json` (`buildAiSummary`), and all surfaces that import `COMPANY_LINKEDIN_URL`. SEO docs updated.

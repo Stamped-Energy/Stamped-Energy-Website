@@ -56,7 +56,7 @@ export const SEO_KEYWORDS = [
 ] as const;
 
 /** LinkedIn Company Page URL for Organization sameAs / GEO (per the website update plan, section 5). */
-export const COMPANY_LINKEDIN_URL = "https://www.linkedin.com/company/stamped-energy";
+export const COMPANY_LINKEDIN_URL = "https://www.linkedin.com/company/stamped-ai";
 
 /** Public product showcase / live dashboard (formerly demo.stamped.work). */
 export const SHOWCASE_URL = "https://showcase.stamped.work";

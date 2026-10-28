@@ -76,5 +76,5 @@ Source: `lib/content/caseStudies.ts` hero ("Notes from the plant floor"); posts 
 ## 9. SEO, schema and llms
 
 `lib/seo/pages.ts` (titles and descriptions), `lib/seo/schemas.ts` (Organization "Stamped", HowTo loop,
-FAQ), `lib/seo/constants.ts` (keywords, OG alt, LinkedIn `stampedwork`), `lib/seo/llms-index.ts`
+FAQ), `lib/seo/constants.ts` (keywords, OG alt, LinkedIn `stamped-ai`), `lib/seo/llms-index.ts`
 → `public/llms.txt` and `/llms-full.txt`. Entity sentence: `lib/content/icp.ts`.
