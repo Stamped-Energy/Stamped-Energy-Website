@@ -103,28 +103,25 @@ export function LadderModelVisual() {
 export function buildModelTimeline(root: HTMLElement) {
   const q = gsap.utils.selector(root);
   const tl = gsap.timeline();
-  tl.fromTo(q("[data-l1-chip]"), { autoAlpha: 0, x: -14 }, { autoAlpha: 1, x: 0, stagger: 0.08, duration: 0.35 })
-    .fromTo(q("[data-l1-stream]"), { autoAlpha: 0 }, { autoAlpha: 0.75, stagger: 0.08, duration: 0.3 }, "-=0.1")
-    .fromTo(
-      q("[data-l1-block]"),
-      { autoAlpha: 0, scale: 0.7, transformOrigin: "50% 50%" },
-      { autoAlpha: 1, scale: 1, stagger: 0.06, duration: 0.3, ease: "back.out(1.6)" },
-      "-=0.15",
-    )
-    .fromTo(q("[data-l1-flow]"), { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.2 }, "-=0.1")
-    .add(drawPath(root.querySelector<SVGPathElement>("[data-l1-spark]"), 0.6), "-=0.05")
+  // Start fuller: plant sources, blocks and cross-links are already in place so the
+  // green card does not open empty. Streams, spark and drift still scrub in.
+  tl.set(q("[data-l1-chip]"), { autoAlpha: 1, x: 0 })
+    .set(q("[data-l1-block]"), { autoAlpha: 1, scale: 1, transformOrigin: "50% 50%" })
+    .set(q("[data-l1-flow]"), { autoAlpha: 1 })
+    .fromTo(q("[data-l1-stream]"), { autoAlpha: 0 }, { autoAlpha: 0.75, stagger: 0.06, duration: 0.28 })
+    .add(drawPath(root.querySelector<SVGPathElement>("[data-l1-spark]"), 0.5), "-=0.05")
     .fromTo(
       q("[data-l1-dot]"),
       { scale: 0, transformOrigin: "50% 50%" },
-      { scale: 1, duration: 0.2, ease: "back.out(2)" },
+      { scale: 1, duration: 0.18, ease: "back.out(2)" },
     )
     .fromTo(
       q("[data-l1-pulse]"),
       { autoAlpha: 0, scale: 0.4, transformOrigin: "50% 50%" },
-      { autoAlpha: 1, scale: 1, duration: 0.3 },
+      { autoAlpha: 1, scale: 1, duration: 0.25 },
       "<",
     )
-    .fromTo(q("[data-l1-drift]"), { autoAlpha: 0, y: 6 }, { autoAlpha: 1, y: 0, duration: 0.25 }, "-=0.1");
+    .fromTo(q("[data-l1-drift]"), { autoAlpha: 0, y: 6 }, { autoAlpha: 1, y: 0, duration: 0.22 }, "-=0.08");
   return tl;
 }
 
