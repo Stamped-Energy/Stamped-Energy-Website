@@ -20,16 +20,17 @@ const STAGE_HOLD = 0.28;
 const END_HOLD = 0.06;
 /** Scroll length for the whole pinned timeline (was 170%, then 150%). */
 const PIN_SCROLL_PERCENT = 140;
-/** Card height as a fraction of card width (~16:10 to 4:3). */
-const CARD_HEIGHT_RATIO = 0.7;
-/** Soft rem ceiling so tall monitors do not stretch the visuals. */
-const CARD_MAX_REM = 22;
-const CARD_MIN_PX = 160;
-/** Share of leftover viewport space placed above the block (rest goes below). */
-const TOP_SPACE_SHARE = 0.4;
-/** Cap on how far the heading may drift below the nav. */
-const MAX_TOP_PAD_VH = 0.08;
-const MAX_TOP_PAD_PX = 72;
+/** Soft floor / ceiling for card height (rem). */
+const CARD_MIN_REM = 14;
+const CARD_MAX_REM = 34;
+/** Base card height as a fraction of width before spending leftover on growth. */
+const CARD_BASE_RATIO = 0.55;
+/** Keep cards from going taller than ~4:3 relative to their width. */
+const CARD_MAX_ASPECT = 0.75;
+/** Of leftover viewport after the base layout, share that grows the cards. */
+const CARD_GROW_SHARE = 0.5;
+/** Of the space left after card growth, share placed above the block. */
+const TOP_SPACE_SHARE = 0.5;
 
 export function HomeLadder() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -55,6 +56,8 @@ export function HomeLadder() {
         const rail = section.querySelector<HTMLElement>("[data-ladder-rail]");
         const nums = gsap.utils.toArray<HTMLElement>("[data-ladder-num]", section);
         const slots = gsap.utils.toArray<HTMLElement>("[data-motion-slot]", section);
+        const container = pinRef.current?.querySelector<HTMLElement>(".container-page");
+        const pinEl = pinRef.current;
         const master = gsap.timeline({ defaults: { ease: "power2.out" } });
 
         if (rail) master.set(rail, { scaleX: 0 }, 0);
@@ -82,59 +85,29 @@ export function HomeLadder() {
         const oldDuration = master.duration() - END_HOLD + STAGE_HOLD;
         const endPercent = Math.round((PIN_SCROLL_PERCENT * master.duration()) / oldDuration);
 
-        // Nav clearance for the pinned heading. Extra top breathing room is applied by
-        // shifting this target down (pinHeadingLift) so padding is not eaten by the pin.
+        // Pin flush under the nav; breathing room comes from equal top/bottom padding.
         const pinTop = () => {
           const header = document.querySelector<HTMLElement>("header");
-          return (header?.getBoundingClientRect().bottom ?? 72) + 12;
-        };
-        // How far below pinTop the heading should sit while pinned (leftover * 40%, capped).
-        let pinHeadingLift = 0;
-
-        const anchorOffset = () => {
-          const pin = pinRef.current;
-          const heading = headingRef.current;
-          const stages = stagesRef.current;
-          if (!pin || !heading || !stages) return 0;
-          const pinRect = pin.getBoundingClientRect();
-          const headingTop = heading.getBoundingClientRect().top;
-          const stagesRect = stages.getBoundingClientRect();
-          const available = window.innerHeight - pinTop() - pinHeadingLift;
-          const fitsWithHeading = stagesRect.bottom - headingTop <= available - 8;
-          return (fitsWithHeading ? headingTop : stagesRect.top) - pinRect.top;
+          return header?.getBoundingClientRect().bottom ?? 72;
         };
 
-        /**
-         * Moderate card growth (aspect + rem cap), then share leftover viewport
-         * ~40% above / ~60% below by lifting the pin target — heading stays near
-         * the nav on short screens (lift capped) and tall screens get breathing room
-         * without over-stretching the cards.
-         */
-        const layoutPinnedBlock = () => {
+        const measureChrome = () => {
           const heading = headingRef.current;
           const stages = stagesRef.current;
           const col = columns[0];
-          if (!heading || !stages || !col || !slots.length) return;
-
-          const rem = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
-          const cardMaxPx = CARD_MAX_REM * rem;
-          const colWidth = col.getBoundingClientRect().width || slots[0].getBoundingClientRect().width;
-          const cardH = Math.round(
-            Math.max(CARD_MIN_PX, Math.min(cardMaxPx, colWidth * CARD_HEIGHT_RATIO)),
-          );
-          slots.forEach((slot) => {
-            slot.style.height = `${cardH}px`;
-          });
+          if (!heading || !stages || !col) return null;
 
           const headerRow = heading.closest("div.flex");
           const headerEl = headerRow ?? heading;
-          const headerH = Math.max(
-            heading.getBoundingClientRect().height,
-            headerEl.getBoundingClientRect().bottom - heading.getBoundingClientRect().top,
-          );
-          const headerBottom = headerEl.getBoundingClientRect().bottom;
+          const headerRect = headerEl.getBoundingClientRect();
+          const headerH = headerRect.height;
+          const headerBottom = headerRect.bottom;
           const label = col.querySelector<HTMLElement>(":scope > div.relative");
           const labelH = label?.getBoundingClientRect().height ?? 32;
+          const slot = slots[0];
+          const slotMt = slot
+            ? parseFloat(getComputedStyle(slot).marginTop || "0")
+            : 16;
 
           let below = 0;
           columns.forEach((column) => {
@@ -143,27 +116,79 @@ export function HomeLadder() {
             const titleStyles = title ? getComputedStyle(title) : null;
             const bodyStyles = body ? getComputedStyle(body) : null;
             const colBelow =
-              (title ? title.getBoundingClientRect().height + parseFloat(titleStyles?.marginTop || "0") : 40) +
-              (body ? body.getBoundingClientRect().height + parseFloat(bodyStyles?.marginTop || "0") : 72);
+              (title
+                ? title.getBoundingClientRect().height +
+                  parseFloat(titleStyles?.marginTop || "0") +
+                  parseFloat(titleStyles?.marginBottom || "0")
+                : 40) +
+              (body
+                ? body.getBoundingClientRect().height +
+                  parseFloat(bodyStyles?.marginTop || "0") +
+                  parseFloat(bodyStyles?.marginBottom || "0")
+                : 72);
             below = Math.max(below, colBelow);
           });
 
           const stagesMt = Math.max(0, stages.getBoundingClientRect().top - headerBottom);
-          const slotMt = 16;
-          const contentH = headerH + stagesMt + labelH + slotMt + cardH + below;
-          const available = window.innerHeight - pinTop();
-          const leftover = Math.max(0, available - contentH);
-          const maxTopPad = Math.min(MAX_TOP_PAD_PX, window.innerHeight * MAX_TOP_PAD_VH);
-          pinHeadingLift = Math.round(Math.min(leftover * TOP_SPACE_SHARE, maxTopPad));
+          return {
+            chromeH: headerH + stagesMt + labelH + slotMt + below,
+            colWidth: col.getBoundingClientRect().width || slots[0]?.getBoundingClientRect().width || 320,
+          };
+        };
+
+        /**
+         * Grow cards with about half of the free viewport height (aspect + rem caps),
+         * then centre the block under the nav so top/bottom space stay within ~1.3×.
+         */
+        const layoutPinnedBlock = () => {
+          if (!container || !pinEl || !slots.length) return;
+
+          container.style.paddingTop = "0px";
+          container.style.paddingBottom = "0px";
+          pinEl.style.minHeight = "";
+
+          const rem = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+          const available = Math.max(0, window.innerHeight - pinTop());
+          const measured = measureChrome();
+          if (!measured) return;
+
+          const { chromeH, colWidth } = measured;
+          const minCard = CARD_MIN_REM * rem;
+          const maxCard = Math.min(CARD_MAX_REM * rem, colWidth * CARD_MAX_ASPECT);
+          let cardH = Math.round(Math.min(maxCard, Math.max(minCard, colWidth * CARD_BASE_RATIO)));
+
+          // Half of whatever is left after the base layout goes into the cards.
+          let leftover = available - chromeH - cardH;
+          if (leftover > 0) {
+            const grow = Math.min(leftover * CARD_GROW_SHARE, Math.max(0, maxCard - cardH));
+            cardH = Math.round(cardH + grow);
+            leftover = available - chromeH - cardH;
+          }
+
+          // Short screens: shrink cards before we allow overflow.
+          if (leftover < 0) {
+            cardH = Math.round(Math.max(minCard * 0.85, cardH + leftover));
+            leftover = available - chromeH - cardH;
+          }
+
+          slots.forEach((slot) => {
+            slot.style.height = `${Math.max(0, cardH)}px`;
+          });
+
+          leftover = Math.max(0, available - chromeH - cardH);
+          const topPad = Math.round(leftover * TOP_SPACE_SHARE);
+          const bottomPad = Math.round(leftover - topPad);
+
+          container.style.paddingTop = `${topPad}px`;
+          container.style.paddingBottom = `${bottomPad}px`;
+          pinEl.style.minHeight = `${available}px`;
         };
 
         layoutPinnedBlock();
 
         const trigger = ScrollTrigger.create({
-          trigger: pinRef.current,
-          // Pin when the heading (or stage row) reaches pinTop + lift.
-          start: () =>
-            `top+=${Math.round(anchorOffset())} top+=${Math.round(pinTop() + pinHeadingLift)}`,
+          trigger: pinEl,
+          start: () => `top top+=${Math.round(pinTop())}px`,
           invalidateOnRefresh: true,
           end: `+=${endPercent}%`,
           pin: true,
@@ -185,6 +210,13 @@ export function HomeLadder() {
           slots.forEach((slot) => {
             slot.style.height = "";
           });
+          if (container) {
+            container.style.paddingTop = "";
+            container.style.paddingBottom = "";
+          }
+          if (pinEl) {
+            pinEl.style.minHeight = "";
+          }
           trigger.kill();
           master.kill();
         };
@@ -211,13 +243,13 @@ export function HomeLadder() {
   return (
     <section ref={sectionRef} id="ladder" className="overflow-x-clip bg-surface">
       <div ref={pinRef}>
-        <Container className="w-full py-16 md:py-20 lg:py-4">
+        <Container className="w-full py-16 md:py-20 lg:py-0">
           <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
             <div>
               <SectionBadge label={ladder.badge} />
               <h2
                 ref={headingRef}
-                className="mt-6 max-w-2xl font-display text-3xl font-bold tracking-tight text-balance md:text-5xl lg:text-[clamp(2.15rem,5.5vh,2.85rem)]"
+                className="mt-6 max-w-2xl font-display text-3xl font-bold tracking-tight text-balance md:text-5xl lg:text-[clamp(2.25rem,6vh,3.25rem)]"
               >
                 {ladder.title}
               </h2>
@@ -227,7 +259,7 @@ export function HomeLadder() {
             </p>
           </div>
 
-          <div ref={stagesRef} className="relative mt-10 md:mt-12 lg:mt-[clamp(1rem,2.8vh,2rem)]">
+          <div ref={stagesRef} className="relative mt-10 md:mt-12 lg:mt-[clamp(1.25rem,3.2vh,2.5rem)]">
             <div className="absolute inset-x-0 top-4 hidden h-px bg-outline-variant/50 lg:block" aria-hidden />
             <div
               data-ladder-rail
@@ -252,13 +284,17 @@ export function HomeLadder() {
                     </div>
                     <MotionSlot
                       label={`${step.label} visual`}
-                      aspectClassName="aspect-[5/4] w-full lg:aspect-auto lg:h-[clamp(10rem,22vw,22rem)]"
+                      aspectClassName="aspect-[5/4] w-full lg:aspect-auto lg:h-[clamp(14rem,42vh,34rem)]"
                       className="mt-5 lg:mt-4"
                     >
                       <Visual />
                     </MotionSlot>
-                    <h3 className="mt-6 lg:mt-4 font-display text-xl font-bold tracking-tight md:text-2xl">{step.title}</h3>
-                    <p className="mt-3 max-w-md text-base leading-7 lg:mt-2 lg:leading-6 text-on-surface/80">{step.description}</p>
+                    <h3 className="mt-6 lg:mt-[clamp(0.75rem,1.6vh,1.25rem)] font-display text-xl font-bold tracking-tight md:text-2xl">
+                      {step.title}
+                    </h3>
+                    <p className="mt-3 max-w-md text-base leading-7 lg:mt-2 lg:leading-6 text-on-surface/80">
+                      {step.description}
+                    </p>
                   </li>
                 );
               })}
