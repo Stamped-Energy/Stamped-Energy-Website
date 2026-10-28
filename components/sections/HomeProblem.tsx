@@ -45,7 +45,7 @@ export function HomeProblem() {
                     >
                       {Visual ? <Visual /> : null}
                     </MotionSlot>
-                    <h3 className="font-display text-xl font-semibold tracking-tight md:text-2xl">
+                    <h3 className="font-display text-xl font-bold tracking-tight md:text-2xl">
                       {item.title}
                     </h3>
                     <p className="mt-4 text-sm leading-7 text-on-secondary/75 md:text-base">

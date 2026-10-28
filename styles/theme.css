@@ -23,15 +23,15 @@
 
   /* --- Foreground / text --- */
   --brand-on-surface: #191c1a;
-  --brand-on-surface-variant: #5a403c;
+  --brand-on-surface-variant: #5c5f5b;
 
   /* --- Inverse --- */
   --brand-inverse-surface: #252926;
   --brand-inverse-on-surface: #e9ece7;
 
   /* --- Outlines / borders --- */
-  --brand-outline: #8f706b;
-  --brand-outline-variant: #e3beb8;
+  --brand-outline: #8a8d88;
+  --brand-outline-variant: #d5d8d3;
 
   /* --- Primary (coral-orange) --- */
   --brand-primary: #F75440;

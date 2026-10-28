@@ -25,7 +25,7 @@ export function HomeSolutionsRows() {
           {areas.map((area, index) => (
             <li key={area.slug} className="border-t border-outline-variant/40 pt-8">
               <Reveal delay={index * 0.04}>
-                <MotionSlot label={`${area.title} visual`} aspectClassName="aspect-[16/7]" className="mb-8">
+                <MotionSlot label={`${area.title} visual`} aspectClassName="aspect-[16/7] max-h-44 sm:max-h-none" className="mb-8">
                   <SolutionAreaVisual slug={area.slug} />
                 </MotionSlot>
                 <div className="flex flex-wrap items-center gap-3">

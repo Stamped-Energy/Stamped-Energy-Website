@@ -4,15 +4,15 @@
   --hpf-bg: #f7faf5;
   --hpf-surface-low: #f1f4f0;
   --hpf-ink: #191c1a;
-  --hpf-mute: #5a403c;
+  --hpf-mute: #5c5f5b;
   --hpf-line: #191c1a;
-  --hpf-outline: #e3beb8;
+  --hpf-outline: #d5d8d3;
   --hpf-coral: #f75440;
   --hpf-coral-soft: #ffdad4;
   --hpf-tag-pos: #191c1a;
   --hpf-tag-pos-ink: #fbfcf9;
   --hpf-tag-neg: #ffdad4;
-  --hpf-tag-neg-ink: #5a403c;
+  --hpf-tag-neg-ink: #5c5f5b;
   --hpf-rx-h: 148px;
   --hpf-rx-visible: 2;
   --hpf-font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
@@ -20,7 +20,7 @@
   --hpf-font-label: var(--font-plex-mono), ui-monospace, monospace;
   --hpf-radius: 8px;
   --hpf-cream: #fbfcf9;
-  --hpf-halo: color-mix(in srgb, var(--hpf-coral) 22%, transparent);
+  --hpf-halo: transparent;
   --hpf-design-w: 1200;
   width: 100%;
 }
@@ -153,8 +153,8 @@
   border: 1px solid color-mix(in srgb, var(--hpf-outline) 55%, var(--hpf-coral));
   border-radius: 999px;
   box-shadow:
-    0 6px 18px color-mix(in srgb, var(--hpf-ink) 7%, transparent),
-    0 0 0 3px var(--hpf-halo);
+    0 1px 0 color-mix(in srgb, var(--hpf-ink) 8%, transparent),
+    0 4px 12px color-mix(in srgb, var(--hpf-ink) 6%, transparent);
   white-space: nowrap;
   opacity: 0;
   transform: translate(-50%, calc(-100% - 12px));
@@ -170,8 +170,7 @@
   border-radius: 50%;
   background: var(--hpf-coral);
   box-shadow:
-    0 0 0 2px var(--hpf-cream),
-    0 0 0 5px var(--hpf-halo);
+    0 0 0 2px var(--hpf-cream);
   opacity: 0;
   pointer-events: none;
 }
@@ -206,8 +205,7 @@
   background: var(--hpf-coral);
   opacity: 0;
   box-shadow:
-    0 0 0 2px var(--hpf-cream),
-    0 0 0 5px var(--hpf-halo);
+    0 0 0 2px var(--hpf-cream);
   animation: hpf-nodePulse 2.4s cubic-bezier(0.16, 1, 0.3, 1) infinite;
 }
 
@@ -215,13 +213,12 @@
   0%,
   100% {
     box-shadow:
-      0 0 0 2px var(--hpf-cream),
-      0 0 0 5px var(--hpf-halo);
+      0 0 0 2px var(--hpf-cream);
   }
   50% {
     box-shadow:
       0 0 0 2px var(--hpf-cream),
-      0 0 0 8px color-mix(in srgb, var(--hpf-coral) 14%, transparent);
+      0 0 0 4px color-mix(in srgb, var(--hpf-coral) 18%, transparent);
   }
 }
 
@@ -240,8 +237,8 @@
   border: 1px solid color-mix(in srgb, var(--hpf-outline) 40%, var(--hpf-coral));
   border-radius: 999px;
   box-shadow:
-    0 8px 22px color-mix(in srgb, var(--hpf-ink) 8%, transparent),
-    0 0 0 3px var(--hpf-halo);
+    0 1px 0 color-mix(in srgb, var(--hpf-ink) 8%, transparent),
+    0 4px 12px color-mix(in srgb, var(--hpf-ink) 6%, transparent);
 }
 
 .hpf-chip-stem {
@@ -287,8 +284,7 @@
   background: var(--hpf-coral);
   animation: hpf-nodePulse 2.4s cubic-bezier(0.16, 1, 0.3, 1) infinite;
   box-shadow:
-    0 0 0 2px var(--hpf-cream),
-    0 0 0 5px var(--hpf-halo);
+    0 0 0 2px var(--hpf-cream);
 }
 
 .hpf-chip.is-bare .hpf-chip-label {
@@ -342,12 +338,11 @@
   transform: translateY(calc(-50% + 10px));
   background: var(--hpf-cream);
   border: 1.5px solid color-mix(in srgb, var(--hpf-coral) 55%, var(--hpf-outline));
-  border-radius: 12px;
+  border-radius: 6px;
   padding: 16px 18px 14px;
   box-shadow:
-    0 18px 40px color-mix(in srgb, var(--hpf-ink) 10%, transparent),
-    0 0 0 4px var(--hpf-halo),
-    0 1px 0 color-mix(in srgb, var(--hpf-cream) 80%, transparent);
+    0 1px 0 color-mix(in srgb, var(--hpf-ink) 8%, transparent),
+    0 8px 20px color-mix(in srgb, var(--hpf-ink) 8%, transparent);
 }
 
 .hpf-rx-head {

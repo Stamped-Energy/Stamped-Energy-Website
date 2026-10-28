@@ -15,7 +15,7 @@ export function SolutionExampleCards({
       {items.map((item) => (
         <li
           key={item.id}
-          className="flex flex-col rounded-xl border border-outline-variant/50 bg-surface-lowest p-5 md:p-6"
+          className="flex flex-col rounded-md border border-outline-variant/50 bg-surface-lowest p-5 md:p-6"
         >
           <div className="flex flex-wrap items-center gap-2">
             {label ? (

@@ -212,9 +212,8 @@
   }
 
   .accent-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-2px);
     border-color: color-mix(in srgb, var(--brand-primary) 35%, transparent);
-    box-shadow: 0 16px 40px -24px color-mix(in srgb, var(--brand-primary) 45%, transparent);
   }
 
   .nav-link::after {

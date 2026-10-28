@@ -38,7 +38,7 @@ export function NavLinkItem({
         (link.activePrefixes?.some(matchesPrefix) ?? false));
 
   const className = cn(
-    "relative font-display text-[0.8rem] font-semibold uppercase tracking-[0.04em] transition-colors duration-200 ease-out",
+    "relative font-display text-[0.8rem] font-semibold uppercase tracking-[0.03em] transition-colors duration-200 ease-out",
     mobile
       ? cn(
           "block min-h-12 border-b border-outline-variant/20 py-3.5 text-[0.85rem] text-on-surface",

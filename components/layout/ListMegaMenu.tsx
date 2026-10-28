@@ -113,8 +113,8 @@ export function ListMegaMenu({
       >
         <div
           className={cn(
-            "overflow-hidden rounded-xl border border-outline-variant/45 bg-surface-lowest",
-            "shadow-[0_28px_64px_-28px_color-mix(in_srgb,var(--brand-on-surface)_28%,transparent)]",
+            "overflow-hidden rounded-md border border-outline-variant/45 bg-surface-lowest",
+            "shadow-[0_8px_24px_-12px_color-mix(in_srgb,var(--brand-on-surface)_18%,transparent)]",
           )}
         >
           <div className="flex items-end justify-between gap-4 border-b border-outline-variant/35 px-5 py-4 sm:px-6">
@@ -144,7 +144,7 @@ export function ListMegaMenu({
                   <Link
                     href={item.href}
                     className={cn(
-                      "group flex h-full gap-3.5 rounded-lg px-3.5 py-3.5 transition-colors duration-150",
+                      "group flex h-full gap-3.5 rounded-md px-3.5 py-3.5 transition-colors duration-150",
                       "hover:bg-primary/8 focus-visible:bg-primary/8 focus-visible:outline-none",
                     )}
                     onClick={() => setIsOpen(false)}
@@ -273,7 +273,7 @@ export function ListMegaMobileNav({
               <li key={item.id}>
                 <Link
                   href={item.href}
-                  className="flex gap-3 rounded-lg border border-outline-variant/40 bg-surface-lowest px-3 py-3 transition-colors hover:border-primary/35 hover:bg-primary/6"
+                  className="flex gap-3 rounded-md border border-outline-variant/40 bg-surface-lowest px-3 py-3 transition-colors hover:border-primary/35 hover:bg-primary/6"
                   onClick={onNavigate}
                 >
                   <span
