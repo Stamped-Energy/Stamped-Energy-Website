@@ -21,17 +21,17 @@ export function FaqSection({ items, title = "Common questions", className = "bg-
           <SectionHeading eyebrow="FAQ" title={title} align="center" className="mx-auto" />
         </Reveal>
 
-        <div className="mx-auto mt-8 max-w-3xl space-y-3 md:mt-12">
+        <div className="mx-auto mt-8 max-w-3xl divide-y divide-outline-variant/40 border-y border-outline-variant/40 md:mt-12">
           {items.map((item) => (
             <details
               key={item.id}
-              className="group border border-outline-variant/50 bg-surface-lowest px-5 py-4 text-left md:px-6 md:py-5 [&_summary::-webkit-details-marker]:hidden"
+              className="group px-1 py-4 text-left md:px-2 md:py-5 [&_summary::-webkit-details-marker]:hidden"
             >
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-bold text-on-surface outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 md:text-lg">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-base font-semibold text-on-surface outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 md:text-lg">
                 <span className="min-w-0 flex-1">{item.question}</span>
                 <span
                   aria-hidden="true"
-                  className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-outline-variant/60 text-primary transition-transform duration-300 group-open:rotate-45"
+                  className="flex h-6 w-6 shrink-0 items-center justify-center text-lg leading-none text-primary transition-transform duration-300 group-open:rotate-45"
                 >
                   +
                 </span>

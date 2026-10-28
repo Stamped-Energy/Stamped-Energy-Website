@@ -1,6 +1,6 @@
 ---
-name: Stamped Energy
-description: AI-powered energy intelligence for industrial plants. rupee-scored prescriptions. Verified with evidence.
+name: Stamped
+description: Industrial AI from monitoring to improving. Verified with evidence.
 colors:
   primary: "#F75440"
   on-primary: "#ffffff"
@@ -18,9 +18,9 @@ colors:
   surface-highest: "#e0e3df"
   surface-dim: "#d8dbd6"
   on-surface: "#191c1a"
-  on-surface-variant: "#5a403c"
-  outline: "#8f706b"
-  outline-variant: "#e3beb8"
+  on-surface-variant: "#5c5f5b"
+  outline: "#8a8d88"
+  outline-variant: "#d5d8d3"
   inverse-surface: "#252926"
   inverse-on-surface: "#e9ece7"
   error: "#ba1a1a"
@@ -36,7 +36,7 @@ motion:
   acid-ink: "#2f3218"
   forest: "#4a634d"
   forest-ink: "#fbfcf9"
-  ember: "#e35f3f"
+  ember: "#F75440"
   ember-ink: "#fbfcf9"
   wine: "#761438"
   wine-ink: "#fbfcf9"
@@ -200,10 +200,10 @@ Chrome tokens live in `styles/theme.css`. Do not introduce a second coral or a s
 ### Neutral
 - **Demo-deck Surface** (#f7faf5): Default page background (`surface` / `background`). Hero plant-flow canvas.
 - **Surface Low** (#f1f4f0): Soft bands (Industries, HIW stage, What-is visual).
-- **Surface ladder** (#ecefea → #e6e9e4 → #e0e3df → #d8dbd6): Subtle tonal steps, borders via outline-variant (#e3beb8).
+- **Surface ladder** (#ecefea → #e6e9e4 → #e0e3df → #d8dbd6): Subtle tonal steps, borders via outline-variant (#d5d8d3).
 - **On-surface** (#191c1a): Primary text, diagram wires, meter bars.
 - **On-surface-variant** (#5a403c): Secondary text / mute.
-- **Outline** (#8f706b) / **outline-variant** (#e3beb8): Hairline rules and card/slot borders.
+- **Outline** (#8a8d88) / **outline-variant** (#d5d8d3): Hairline rules and card/slot borders.
 - **Inverse surface** (#252926): Rare dark UI chrome when secondary is too absolute.
 - **Motion cream** (#fbfcf9): Ink on coral/forest/ember/wine fills; icon-box fill in What-is; hero tag-positive ink. Not a page background.
 

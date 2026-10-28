@@ -22,7 +22,7 @@ export function SampleFindingCard({
   ];
 
   return (
-    <figure className={cn(`agent-card-${palette} min-w-0 rounded-lg p-3 sm:p-5`, className)}>
+    <figure className={cn(`agent-card-${palette} min-w-0 rounded-md p-3 sm:p-5`, className)}>
       <div className="agent-card-inner rounded-md p-4 sm:p-5" data-agent-card>
         <p data-agent-card-row className="font-mono text-[0.68rem] font-medium uppercase tracking-[0.12em] agent-card-muted sm:text-[0.62rem] sm:tracking-[0.14em]">
           {sampleLabel} · {sample.tag}

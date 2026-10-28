@@ -116,7 +116,7 @@ export function Hero() {
               {mobileActionCards.map((card) => (
                 <li
                   key={card.id}
-                  className="w-[78%] shrink-0 snap-start rounded-lg border border-outline-variant/50 bg-surface-lowest p-4 sm:w-[46%]"
+                  className="w-[78%] shrink-0 snap-start rounded-md border border-outline-variant/50 bg-surface-lowest p-4 sm:w-[46%]"
                 >
                   <div className="flex flex-wrap items-center gap-2">
                     <span className="rounded-full bg-on-surface px-2.5 py-1 font-mono text-[0.62rem] font-medium uppercase tracking-[0.1em] text-surface">

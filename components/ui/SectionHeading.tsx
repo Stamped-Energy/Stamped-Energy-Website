@@ -33,7 +33,7 @@ export function SectionHeading({
       ) : null}
       <h2
         className={cn(
-          "font-display text-[1.65rem] font-bold leading-[1.15] tracking-tight sm:text-3xl md:text-4xl",
+          "font-display text-[1.85rem] font-bold leading-[1.15] tracking-[-0.03em] sm:text-3xl md:text-4xl",
           eyebrow ? "mt-5" : null,
           dark ? "text-on-secondary" : "text-on-surface",
         )}

@@ -150,9 +150,9 @@ export function HomeAgents() {
                 tabIndex={selected ? 0 : -1}
                 onClick={() => select(index)}
                 className={cn(
-                  "relative flex min-h-12 min-w-0 flex-wrap items-center justify-center gap-x-2 gap-y-1 rounded-xl border px-3 py-2 text-center transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary lg:min-h-0 lg:flex-nowrap lg:justify-start lg:rounded-none lg:border-0 lg:px-1 lg:pb-4 lg:pt-1 lg:text-left",
+                  "relative flex min-h-12 min-w-0 flex-wrap items-center justify-center gap-x-2 gap-y-1 rounded-md border px-3 py-2 text-center transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary lg:min-h-0 lg:flex-nowrap lg:justify-start lg:rounded-none lg:border-0 lg:px-1 lg:pb-4 lg:pt-1 lg:text-left",
                   selected
-                    ? "border-on-surface bg-on-surface text-surface lg:bg-transparent lg:text-on-surface"
+                    ? "border-primary bg-secondary text-on-secondary lg:border-0 lg:bg-transparent lg:text-on-surface"
                     : "border-outline-variant/60 text-on-surface-variant hover:text-on-surface",
                 )}
               >

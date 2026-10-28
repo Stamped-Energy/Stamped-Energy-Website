@@ -80,7 +80,7 @@ export function Navbar() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
         showSolidHeader
-          ? "border-b border-outline-variant/25 bg-surface/95 backdrop-blur-md"
+          ? "border-b border-outline-variant/40 bg-surface"
           : "bg-transparent",
       )}
     >
@@ -147,7 +147,7 @@ export function Navbar() {
       </Container>
 
       {isMenuOpen ? (
-        <div className="max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain border-t border-outline-variant/30 bg-surface/98 backdrop-blur-md lg:hidden">
+        <div className="max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain border-t border-outline-variant/30 bg-surface lg:hidden">
           <Container className="flex flex-col py-2 pb-[max(1rem,env(safe-area-inset-bottom))]">
             {navLinks.map((link) => (
               <MobileNavLink

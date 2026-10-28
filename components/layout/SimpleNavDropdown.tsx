@@ -89,12 +89,12 @@ export function SimpleNavDropdown({
         aria-haspopup="menu"
         aria-controls={menuId}
         className={cn(
-          "inline-flex items-center rounded-md px-2.5 py-1.5 font-display text-[0.8rem] font-semibold uppercase tracking-[0.04em] transition-colors duration-200",
+          "inline-flex items-center rounded-md px-2.5 py-1.5 font-display text-[0.8rem] font-semibold uppercase tracking-[0.03em] transition-colors duration-200",
           isOpen
-            ? "bg-primary text-on-primary"
+            ? "bg-primary/10 text-primary"
             : lightNav
-              ? "text-on-secondary/80 hover:bg-primary hover:text-on-primary"
-              : "text-on-surface/75 hover:bg-primary hover:text-on-primary",
+              ? "text-on-secondary/80 hover:bg-on-secondary/10 hover:text-on-secondary"
+              : "text-on-surface/75 hover:bg-surface-low hover:text-on-surface",
         )}
         onClick={() => {
           clearCloseTimer();
@@ -115,7 +115,7 @@ export function SimpleNavDropdown({
         <div
           id={menuId}
           role="menu"
-          className="absolute left-0 top-full z-50 mt-2 min-w-[16rem] rounded-md border border-outline-variant/50 bg-surface py-2 shadow-sm"
+          className="absolute left-0 top-full z-50 mt-2 min-w-[16rem] rounded-md border border-outline-variant/50 bg-surface py-2 shadow-[0_8px_24px_-12px_color-mix(in_srgb,var(--brand-on-surface)_18%,transparent)]"
         >
           <div className="border-l border-primary pl-1">
             {items.map((item) => (
@@ -123,7 +123,7 @@ export function SimpleNavDropdown({
                 key={item.href}
                 href={item.href}
                 role="menuitem"
-                className="block px-4 py-2.5 font-display text-[0.78rem] font-semibold uppercase tracking-[0.04em] text-on-surface/80 transition-colors hover:bg-primary/8 hover:text-primary"
+                className="block px-4 py-2.5 font-display text-[0.78rem] font-semibold uppercase tracking-[0.03em] text-on-surface/80 transition-colors hover:bg-primary/8 hover:text-primary"
                 onClick={closeMenuNow}
               >
                 {item.label}
@@ -155,7 +155,7 @@ export function SimpleNavMobileAccordion({
       <button
         type="button"
         aria-expanded={isOpen}
-        className="flex min-h-12 w-full items-center justify-between py-3.5 text-left font-display text-[0.85rem] font-semibold uppercase tracking-[0.04em] text-on-surface"
+        className="flex min-h-12 w-full items-center justify-between py-3.5 text-left font-display text-[0.85rem] font-semibold uppercase tracking-[0.03em] text-on-surface"
         onClick={() => setIsOpen((open) => !open)}
       >
         <span>{label}</span>
@@ -169,7 +169,7 @@ export function SimpleNavMobileAccordion({
             <li key={item.href}>
               <Link
                 href={item.href}
-                className="block py-2.5 font-display text-[0.78rem] font-semibold uppercase tracking-[0.04em] text-on-surface/75 transition-colors hover:text-primary"
+                className="block py-2.5 font-display text-[0.78rem] font-semibold uppercase tracking-[0.03em] text-on-surface/75 transition-colors hover:text-primary"
                 onClick={onNavigate}
               >
                 {item.label}

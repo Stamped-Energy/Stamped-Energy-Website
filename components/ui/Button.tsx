@@ -30,11 +30,10 @@ const variantClasses: Record<ButtonVariant, string> = {
   primary: cn(
     "relative isolate overflow-hidden",
     "border border-primary bg-primary text-on-primary",
-    "shadow-[0_2px_10px_-4px_color-mix(in_srgb,var(--brand-primary)_45%,transparent)]",
-    "transition-[transform,box-shadow,filter] duration-200 ease-out",
-    "hover:-translate-y-0.5 hover:shadow-[0_14px_32px_-12px_color-mix(in_srgb,var(--brand-primary)_58%,transparent)] hover:brightness-[1.04]",
-    "active:translate-y-0 active:shadow-[0_4px_14px_-6px_color-mix(in_srgb,var(--brand-primary)_42%,transparent)] active:brightness-100",
-    "disabled:hover:translate-y-0 disabled:hover:shadow-[0_2px_10px_-4px_color-mix(in_srgb,var(--brand-primary)_45%,transparent)] disabled:hover:brightness-100",
+    "transition-[transform,filter] duration-200 ease-out",
+    "hover:-translate-y-0.5 hover:brightness-[1.04]",
+    "active:translate-y-0 active:brightness-100",
+    "disabled:hover:translate-y-0 disabled:hover:brightness-100",
   ),
   secondary: cn(
     "bg-secondary text-on-secondary border border-secondary transition-colors duration-200",
