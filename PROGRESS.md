@@ -82,7 +82,7 @@
 - [ ] **GSC:** resubmit sitemap + URL Inspection after deploy
 - [ ] **Google Business Profile**
 - [ ] **Wikidata entry** for Stamped
-- [ ] **Copy v3 follow-ups (ADR-033):** set `NEXT_PUBLIC_WHATSAPP_URL`; set up a domain mailbox and replace `stamped.energy@gmail.com`; real precision-machining photo (homepage industries uses a CNC energy infographic); fill [N] placeholders and the first permitted plant result once a pilot allows; confirm the hosting answer for "Where does our data go?"
+- [ ] **Copy v3 follow-ups (ADR-033):** set `NEXT_PUBLIC_WHATSAPP_URL`; ~~set up a domain mailbox and replace `stamped.energy@gmail.com`~~ (done 30 Oct 2026: public address is `contact@stamped.work` via Cloudflare Email Routing; form sender stays on gmail until stamped.work is verified in Resend); real precision-machining photo (homepage industries uses a CNC energy infographic); fill [N] placeholders and the first permitted plant result once a pilot allows; confirm the hosting answer for "Where does our data go?"
 - [ ] **CMS posts (DB, not code):** retitle the precision machining post and remove the town name; unpublish the cement and chemical posts; review post bodies for % / ₹ / "Stamped Energy"
 - [ ] Bump `external/` submodule brand files to copy v3 (submodule not checked out on this box)
 - [ ] Contact form email/CRM forwarding

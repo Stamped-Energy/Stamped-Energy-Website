@@ -13,7 +13,7 @@ Canonical marketing strings from Main_Website `lib/content/` and footer config. 
 | Tagline (site) | AI-powered energy intelligence for industrial plants. rupee-scored prescriptions. Verified with evidence. |
 | Primary CTA | Book a Discovery Call (href `/contact`) |
 | Alt CTA patterns | Start with your plant; See how it works (`/platform`) |
-| Contact email | stamped.energy@gmail.com |
+| Contact email | contact@stamped.work |
 | Production URL | https://stamped.work |
 
 ---

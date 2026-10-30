@@ -12,7 +12,7 @@
 
 Public marketing site: https://stamped.work
 Product showcase: https://showcase.stamped.work
-Contact: stamped.energy@gmail.com
+Contact: contact@stamped.work
 Sitemap: https://stamped.work/sitemap.xml
 Extended index: https://stamped.work/llms-full.txt
 RSS: https://stamped.work/feed.xml

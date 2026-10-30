@@ -11,7 +11,7 @@ export const siteConfig = {
   /** Public Case Studies & Blogs listing */
   blogUrl: "/case-studies",
   /** Legacy inbox kept until the stamped.work domain mailbox is live. */
-  contactEmail: "stamped.energy@gmail.com",
+  contactEmail: "contact@stamped.work",
   whatsappUrl,
   primaryCta: { label: "Book a site survey", href: "/contact" },
 } as const;
