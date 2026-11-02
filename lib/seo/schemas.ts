@@ -55,6 +55,22 @@ const organizationLogo: ImageObject = {
 const VINAYAK_ID = `${SITE_URL}/about#vinayak-raizada`;
 const UTSO_ID = `${SITE_URL}/about#utso-sarkar`;
 
+const IIT_ROORKEE_AFFILIATION = {
+  "@type": "CollegeOrUniversity" as const,
+  name: "Indian Institute of Technology Roorkee",
+  sameAs: "https://www.iitr.ac.in",
+};
+
+const FOUNDER_JOB_TITLE = "Co-founder";
+const FOUNDER_DESCRIPTION = "Co-founder, Stamped. Undergrad, IIT Roorkee.";
+
+const VINAYAK_SAME_AS = ["https://www.linkedin.com/in/vinayak-rz/"] as const;
+const UTSO_SAME_AS = [
+  "https://www.linkedin.com/in/utso/",
+  "https://x.com/utsosarkar",
+  "https://utso.stamped.work",
+] as const;
+
 export const organizationPublisher: Organization = {
   "@type": "Organization",
   "@id": ORGANIZATION_ID,
@@ -260,28 +276,27 @@ export const engagementHowToSchema: WithContext<HowTo> = {
   })),
 };
 
+const VINAYAK_KNOWS_ABOUT = [
+  "Electrical engineering",
+  "Process modelling and machine learning for manufacturing",
+  "Manufacturing operational efficiency",
+  "Plant energy use",
+] as const;
+
 export const vinayakPersonSchema: WithContext<Person> = {
   "@context": "https://schema.org",
   "@type": "Person",
   "@id": VINAYAK_ID,
   name: "Vinayak Raizada",
-  jobTitle: "Co-Founder",
+  jobTitle: FOUNDER_JOB_TITLE,
+  description: FOUNDER_DESCRIPTION,
   worksFor: {
     "@id": ORGANIZATION_ID,
   },
-  alumniOf: {
-    "@type": "CollegeOrUniversity",
-    name: "Indian Institute of Technology Roorkee",
-    sameAs: "https://www.iitr.ac.in",
-  },
+  affiliation: IIT_ROORKEE_AFFILIATION,
   url: `${SITE_URL}/about`,
-  sameAs: "https://www.linkedin.com/in/vinayak-rz/",
-  knowsAbout: [
-    "Electrical engineering",
-    "Process modelling and machine learning for manufacturing",
-    "Manufacturing operational efficiency",
-    "Plant energy use",
-  ],
+  sameAs: [...VINAYAK_SAME_AS],
+  knowsAbout: [...VINAYAK_KNOWS_ABOUT],
 };
 
 export const utsoPersonSchema: WithContext<Person> = {
@@ -289,21 +304,14 @@ export const utsoPersonSchema: WithContext<Person> = {
   "@type": "Person",
   "@id": UTSO_ID,
   name: "Utso Sarkar",
-  jobTitle: "Co-Founder",
+  jobTitle: FOUNDER_JOB_TITLE,
+  description: FOUNDER_DESCRIPTION,
   worksFor: {
     "@id": ORGANIZATION_ID,
   },
-  affiliation: {
-    "@type": "CollegeOrUniversity",
-    name: "Indian Institute of Technology Roorkee",
-    sameAs: "https://www.iitr.ac.in",
-  },
+  affiliation: IIT_ROORKEE_AFFILIATION,
   url: `${SITE_URL}/about`,
-  sameAs: [
-    "https://www.linkedin.com/in/utso",
-    "https://x.com/utsosarkar",
-    "https://utso.stamped.work",
-  ],
+  sameAs: [...UTSO_SAME_AS],
 };
 
 type ArticleSchemaInput = {
@@ -319,8 +327,33 @@ type ArticleSchemaInput = {
   authorUrl?: string;
 };
 
-const UTSO_BLOG_SAME_AS = ["https://www.linkedin.com/in/utso/", "https://x.com/utsosarkar"] as const;
-const VINAYAK_BLOG_SAME_AS = ["https://www.linkedin.com/in/vinayak-rz/"] as const;
+function founderPersonNode(profileId: "vinayak" | "utsavsar"): Person {
+  if (profileId === "utsavsar") {
+    return {
+      "@type": "Person",
+      "@id": UTSO_ID,
+      name: "Utso Sarkar",
+      jobTitle: FOUNDER_JOB_TITLE,
+      description: FOUNDER_DESCRIPTION,
+      worksFor: { "@id": ORGANIZATION_ID },
+      affiliation: IIT_ROORKEE_AFFILIATION,
+      url: `${SITE_URL}/about`,
+      sameAs: [...UTSO_SAME_AS],
+    };
+  }
+  return {
+    "@type": "Person",
+    "@id": VINAYAK_ID,
+    name: "Vinayak Raizada",
+    jobTitle: FOUNDER_JOB_TITLE,
+    description: FOUNDER_DESCRIPTION,
+    worksFor: { "@id": ORGANIZATION_ID },
+    affiliation: IIT_ROORKEE_AFFILIATION,
+    url: `${SITE_URL}/about`,
+    sameAs: [...VINAYAK_SAME_AS],
+    knowsAbout: [...VINAYAK_KNOWS_ABOUT],
+  };
+}
 
 function blogPostingAuthorEntity(options: {
   authorProfileId?: AuthorProfileId | string | null;
@@ -342,23 +375,11 @@ function blogPostingAuthorEntity(options: {
   }
 
   if (profileId === "utsavsar" || name === "Utso Sarkar") {
-    return {
-      "@type": "Person",
-      "@id": UTSO_ID,
-      name: "Utso Sarkar",
-      url: `${SITE_URL}/about`,
-      sameAs: [...UTSO_BLOG_SAME_AS],
-    };
+    return founderPersonNode("utsavsar");
   }
 
   if (profileId === "vinayak" || name === "Vinayak Raizada") {
-    return {
-      "@type": "Person",
-      "@id": VINAYAK_ID,
-      name: "Vinayak Raizada",
-      url: `${SITE_URL}/about`,
-      sameAs: [...VINAYAK_BLOG_SAME_AS],
-    };
+    return founderPersonNode("vinayak");
   }
 
   return {

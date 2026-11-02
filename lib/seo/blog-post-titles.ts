@@ -13,6 +13,16 @@ export const BLOG_POST_SEO_ABSOLUTE_TITLE: Record<string, string> = {
     "2025 energy reality for Indian manufacturers | Stamped",
 };
 
+/** Metadata-only meta descriptions (visible excerpt / card copy unchanged). */
+export const BLOG_POST_SEO_META_DESCRIPTION: Record<string, string> = {
+  "shift-start-die-casting-margins":
+    "Billed maximum demand (MD) charges from shift-start overlap: furnace pre-heat, holding loads and the incomer spike before the first pour, in rupees.",
+};
+
+export function buildBlogPostMetaDescription(slug: string, excerpt: string): string {
+  return BLOG_POST_SEO_META_DESCRIPTION[slug] ?? excerpt;
+}
+
 export function buildBlogPostAbsoluteTitle(slug: string, postTitle: string): string {
   const override = BLOG_POST_SEO_ABSOLUTE_TITLE[slug];
   if (override) {

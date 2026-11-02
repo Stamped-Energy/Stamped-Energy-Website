@@ -41,6 +41,9 @@ const nextConfig: NextConfig = {
       },
       // Copy v3 (ADR-033): old solution pillars map to the new improvement areas.
       { source: "/solutions/load-energy", destination: "/solutions/process", permanent: true },
+      { source: "/solutions/energy", destination: "/solutions/process", permanent: true },
+      { source: "/solutions/control", destination: "/solutions/process", permanent: true },
+      { source: "/solutions/production", destination: "/solutions/planning", permanent: true },
       {
         source: "/solutions/equipment-intelligence",
         destination: "/solutions/maintenance",
