@@ -65,12 +65,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     console.error("[sitemap] database error loading case studies; returning static + empty studies");
   }
 
-  const staticEntries: MetadataRoute.Sitemap = STATIC_PATHS.map((path) => ({
-    url: absoluteUrl(path),
-    changeFrequency: "weekly",
-    priority: STATIC_PRIORITIES[path] ?? 0.7,
-    lastModified: getStaticPageLastModified(path),
-  }));
+  const staticEntries: MetadataRoute.Sitemap = STATIC_PATHS.map((path) => {
+    const lastModified = getStaticPageLastModified(path);
+    return {
+      url: absoluteUrl(path),
+      changeFrequency: "weekly",
+      priority: STATIC_PRIORITIES[path] ?? 0.7,
+      ...(lastModified ? { lastModified } : {}),
+    };
+  });
 
   const blogEntries: MetadataRoute.Sitemap = postsResult.data.map((post) => ({
     url: absoluteUrl(`/blog/${post.slug}`),

@@ -3,7 +3,7 @@ import { join } from "node:path";
 
 import { getStaticPageLastModified } from "../lib/seo/sitemap-lastmod";
 import { HOME_CANONICAL_URL, absoluteUrl } from "../lib/seo/metadata";
-import { organizationSchema } from "../lib/seo/schemas";
+import { organizationSchema, vinayakPersonSchema } from "../lib/seo/schemas";
 
 const root = join(import.meta.dirname, "..");
 
@@ -40,10 +40,10 @@ if (aboutCanonical !== "https://stamped.work/about") {
 
 const lastmods = ["/", "/about", "/solutions/process"].map((path) => ({
   path,
-  date: getStaticPageLastModified(path).toISOString(),
+  date: getStaticPageLastModified(path)?.toISOString() ?? "missing",
 }));
-const uniqueLastmods = new Set(lastmods.map((entry) => entry.date));
-if (uniqueLastmods.size < 2) {
+const uniqueLastmods = new Set(lastmods.map((entry) => entry.date).filter((d) => d !== "missing"));
+if (uniqueLastmods.size < 2 || lastmods.some((entry) => entry.date === "missing")) {
   failures.push(`Expected varied sitemap lastmod; got ${JSON.stringify(lastmods)}`);
 }
 
@@ -55,6 +55,15 @@ if (!llms.includes("## About the name")) {
 const orgJson = JSON.stringify(organizationSchema);
 if (!orgJson.includes("disambiguatingDescription")) {
   failures.push("Organization schema missing disambiguatingDescription");
+}
+if (!orgJson.includes("industrial AI for manufacturing plants in India")) {
+  failures.push('Organization disambiguatingDescription should use "industrial AI" casing');
+}
+if (orgJson.includes("alumniOf")) {
+  failures.push("Organization or embedded Person schema should not use alumniOf for founders");
+}
+if (JSON.stringify(vinayakPersonSchema).includes("alumniOf")) {
+  failures.push("Vinayak Person schema should not use alumniOf");
 }
 if (orgJson.includes('"@type":"Product"') || orgJson.includes('"@type": "Product"')) {
   failures.push("Organization schema should not contain Product items");

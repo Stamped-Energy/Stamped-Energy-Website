@@ -10,9 +10,9 @@ export type PageSeoConfig = {
 };
 
 const HOW_IT_WORKS_SEO = {
-  absoluteTitle: "How it works | Stamped",
+  absoluteTitle: "How it works on ERP, SCADA and quality data | Stamped",
   description:
-    "Stamped turns plant data into industrial intelligence: AI agents model your plant, send ranked actions to the floor and check each result against your baseline.",
+    "Stamped connects to ERP, SCADA/MES and quality records your plant already runs, alongside machines, control systems and meters. No hardware retrofit is needed to get started.",
   path: "/platform",
   keywords: [
     "AI for plant operations",
@@ -65,7 +65,7 @@ export const PAGE_SEO = {
   solutionsProcess: {
     absoluteTitle: `${SOLUTION_AREA_PRODUCT_LINE_TITLE.process} | Process optimisation for plants`,
     description:
-      "Run every process closer to its best. Stamped tries the next setting on a model of your line, and once a change has proved itself it applies it inside limits set beforehand.",
+      "Stamped flags drift against your plant's best runs on a model of each line, tries the next setting before parts see it, and applies proven changes inside limits set beforehand.",
     path: "/solutions/process",
     keywords: [
       "process optimisation manufacturing",
@@ -76,9 +76,9 @@ export const PAGE_SEO = {
     ],
   },
   solutionsQuality: {
-    absoluteTitle: `${SOLUTION_AREA_PRODUCT_LINE_TITLE.quality} | Predictive quality AI for plants`,
+    absoluteTitle: `${SOLUTION_AREA_PRODUCT_LINE_TITLE.quality} | Catch drift before a batch is rejected`,
     description:
-      "Catch the bad batch while it can still be saved. Stamped watches every run against your good parts, warns your team in time and traces each reject to its cause.",
+      "Cut rejections by catching process drift early: Stamped warns while the lot or batch can still be saved when conditions match past rejection patterns.",
     path: "/solutions/quality",
     keywords: [
       "predictive quality manufacturing",
@@ -161,9 +161,9 @@ export const PAGE_SEO = {
     ],
   },
   industriesAutomotive: {
-    absoluteTitle: "Auto component manufacturing | Stamped",
+    absoluteTitle: "Forging, heat treatment, machining | OEM rejects | Stamped",
     description:
-      "For forging, heat treatment, machining, die casting and rubber moulding plants: fewer rejections, more output and fewer breakdowns, from data you already have.",
+      "For forging, heat treatment and machining plants that supply OEMs: fewer rejections reach your customer, from the process and quality data you already record.",
     path: "/industries/automotive",
     keywords: [
       "auto component manufacturing software",
