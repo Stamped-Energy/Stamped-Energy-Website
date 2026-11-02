@@ -90,7 +90,7 @@ export const organizationSchema: WithContext<Organization> = {
   description: icp.seo.entityDefinition,
   disambiguatingDescription: stampedEntityDisambiguatingDescription(),
   founder: [{ "@id": VINAYAK_ID }, { "@id": UTSO_ID }],
-  email: "stamped.energy@gmail.com",
+  email: "contact@stamped.work",
   foundingDate: "2026",
   foundingLocation: {
     "@type": "Place",
@@ -102,7 +102,7 @@ export const organizationSchema: WithContext<Organization> = {
   },
   contactPoint: {
     "@type": "ContactPoint",
-    email: "stamped.energy@gmail.com",
+    email: "contact@stamped.work",
     contactType: "sales",
     areaServed: "IN",
     availableLanguage: ["English", "Hindi"],

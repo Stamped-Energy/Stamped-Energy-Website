@@ -70,7 +70,7 @@ export function buildLlmsTxtBody(): string {
   pushAboutTheNameSection(lines, SITE_URL);
   lines.push(`Public marketing site: ${SITE_URL}`);
   lines.push(`Product showcase: ${SHOWCASE_URL}`);
-  lines.push(`Contact: stamped.energy@gmail.com`);
+  lines.push(`Contact: contact@stamped.work`);
   lines.push(`Sitemap: ${SITE_URL}/sitemap.xml`);
   lines.push(`Extended index: ${SITE_URL}/llms-full.txt`);
   lines.push(`RSS: ${SITE_URL}/feed.xml`);

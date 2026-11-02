@@ -14,7 +14,7 @@
 | Company | **Stamped Energy** |
 | Product | **Stamped Intelligence** (one product, not three SKUs) |
 | Site | https://stamped.work |
-| Contact | stamped.energy@gmail.com |
+| Contact | contact@stamped.work |
 | Founders | Vinayak Raizada, Utso Sarkar (IIT Roorkee) |
 
 **One-line position:** A **read-only operational decision layer** for energy-intensive Indian manufacturers — managing **load and equipment in real time** via ML baselines and an **agentic prescription layer**, turning plant data into **assigned actions with ₹ impact**, **verified with evidence** (DISCOM bill confirmation optional). Does not replace EMS, MES, CMMS, or PLC control.
