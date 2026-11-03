@@ -125,6 +125,15 @@
       transform: none;
     }
 
+    .value-proposition,
+    [data-hero-lcp="headline"],
+    [data-hero-lcp="copy"],
+    [data-hero-lcp="copy"] .value-proposition {
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+    }
+
     @media (max-width: 1023px) {
       html[data-motion-pending] [data-hero-animate] {
         opacity: 1;
@@ -141,6 +150,14 @@
     html[data-motion-pending] [data-stagger-item] {
       opacity: 0;
       visibility: hidden;
+    }
+
+    @media (max-width: 1023px) {
+      html[data-motion-pending] [data-reveal],
+      html[data-motion-pending] [data-stagger-item] {
+        opacity: 1;
+        visibility: visible;
+      }
     }
   }
 

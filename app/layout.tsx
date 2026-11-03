@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
 import { IBM_Plex_Mono, Inter, Space_Grotesk } from "next/font/google";
 
 import { DeferredAnalytics } from "@/components/analytics/DeferredAnalytics";
@@ -36,7 +35,7 @@ const ibmPlexMono = IBM_Plex_Mono({
   subsets: ["latin"],
   variable: "--font-plex-mono",
   weight: ["400", "600", "700"],
-  display: "swap",
+  display: "optional",
   preload: false,
 });
 
@@ -69,13 +68,17 @@ export default function RootLayout({
       className={cn(spaceGrotesk.variable, inter.variable, ibmPlexMono.variable)}
       suppressHydrationWarning
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(window.matchMedia("(max-width: 1023px)").matches){document.documentElement.removeAttribute("data-motion-pending");}}catch(e){}`,
+          }}
+        />
+      </head>
       <body
         className="min-h-screen bg-surface font-sans text-on-surface antialiased"
         suppressHydrationWarning
       >
-        <Script id="motion-pending-mobile" strategy="beforeInteractive">
-          {`try{if(window.matchMedia("(max-width: 1023px)").matches){document.documentElement.removeAttribute("data-motion-pending");}}catch(e){}`}
-        </Script>
         <JsonLd data={[organizationSchema, websiteSchema]} />
         <MotionProvider>
           <SiteChrome>{children}</SiteChrome>

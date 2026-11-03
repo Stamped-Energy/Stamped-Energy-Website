@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 
 import { Hero } from "@/components/sections/Hero";
+import { HomeMobileHeroMount } from "@/components/sections/hero/HomeMobileHeroMount";
 import { HomeIndustries } from "@/components/sections/HomeIndustries";
 import { HomeProblem } from "@/components/sections/HomeProblem";
 import { HomeResources } from "@/components/sections/HomeResources";
@@ -52,6 +53,7 @@ export default function HomePage() {
         ]}
       />
       <Hero />
+      <HomeMobileHeroMount />
       <HomeProblem />
       <HomeWhatIs />
       <HomeLadder />

@@ -8,6 +8,7 @@ const withBundleAnalyzer =
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   experimental: {
+    inlineCss: true,
     optimizePackageImports: ["gsap", "@gsap/react", "lenis"],
   },
   images: {
