@@ -81,34 +81,29 @@ export function MotionProvider({ children }: MotionProviderProps) {
 
   useEffect(() => {
     let cancelled = false;
-    let booted = false;
+    let lenisBooted = false;
     let readyFrame = 0;
     let teardownLenis: (() => void) | undefined;
     let idleHandle: number | undefined;
 
-    const boot = () => {
-      if (cancelled || booted) {
+    registerGsap();
+    ScrollTrigger.config({ ignoreMobileResize: true });
+
+    const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const isReducedMotion = reducedMotionQuery.matches;
+    setPrefersReducedMotion(isReducedMotion);
+
+    ScrollTrigger.defaults({ scroller: window });
+    readyFrame = requestAnimationFrame(() => {
+      ScrollTrigger.refresh();
+      setIsReady(true);
+    });
+
+    const bootLenis = () => {
+      if (cancelled || lenisBooted || isReducedMotion || !shouldUseLenis()) {
         return;
       }
-      booted = true;
-
-      registerGsap();
-      ScrollTrigger.config({ ignoreMobileResize: true });
-
-      const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-      const isReducedMotion = reducedMotionQuery.matches;
-      setPrefersReducedMotion(isReducedMotion);
-
-      const enableLenis = !isReducedMotion && shouldUseLenis();
-
-      if (!enableLenis) {
-        ScrollTrigger.defaults({ scroller: window });
-        readyFrame = requestAnimationFrame(() => {
-          ScrollTrigger.refresh();
-          setIsReady(true);
-        });
-        return;
-      }
+      lenisBooted = true;
 
       const lenis = new Lenis({
         duration: 1.1,
@@ -159,11 +154,7 @@ export function MotionProvider({ children }: MotionProviderProps) {
       };
 
       window.addEventListener("resize", onResize);
-
-      readyFrame = requestAnimationFrame(() => {
-        ScrollTrigger.refresh();
-        setIsReady(true);
-      });
+      ScrollTrigger.refresh();
 
       teardownLenis = () => {
         window.removeEventListener("resize", onResize);
@@ -189,27 +180,27 @@ export function MotionProvider({ children }: MotionProviderProps) {
       idleHandle = undefined;
     };
 
-    const bootFromInteraction = () => {
+    const bootLenisFromInteraction = () => {
       cancelIdle();
-      boot();
+      bootLenis();
     };
 
     idleHandle =
       typeof window.requestIdleCallback === "function"
-        ? window.requestIdleCallback(boot, { timeout: 2200 })
-        : window.setTimeout(boot, 1);
+        ? window.requestIdleCallback(bootLenis, { timeout: 2200 })
+        : window.setTimeout(bootLenis, 1);
 
-    window.addEventListener("pointerdown", bootFromInteraction, { once: true, passive: true });
-    window.addEventListener("keydown", bootFromInteraction, { once: true });
-    window.addEventListener("scroll", bootFromInteraction, { once: true, passive: true });
+    window.addEventListener("pointerdown", bootLenisFromInteraction, { once: true, passive: true });
+    window.addEventListener("keydown", bootLenisFromInteraction, { once: true });
+    window.addEventListener("scroll", bootLenisFromInteraction, { once: true, passive: true });
 
     return () => {
       cancelled = true;
       cancelAnimationFrame(readyFrame);
       cancelIdle();
-      window.removeEventListener("pointerdown", bootFromInteraction);
-      window.removeEventListener("keydown", bootFromInteraction);
-      window.removeEventListener("scroll", bootFromInteraction);
+      window.removeEventListener("pointerdown", bootLenisFromInteraction);
+      window.removeEventListener("keydown", bootLenisFromInteraction);
+      window.removeEventListener("scroll", bootLenisFromInteraction);
       teardownLenis?.();
     };
   }, []);

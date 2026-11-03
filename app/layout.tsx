@@ -44,11 +44,13 @@ export const metadata: Metadata = {
   description: PAGE_SEO.home.description,
 };
 
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-  viewportFit: "cover",
-};
+export function generateViewport(): Viewport {
+  return {
+    width: "device-width",
+    initialScale: 1,
+    viewportFit: "cover",
+  };
+}
 
 export default function RootLayout({
   children,

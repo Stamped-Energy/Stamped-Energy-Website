@@ -1,38 +1,17 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useRef } from "react";
 
 import { useMotion } from "@/components/motion/MotionProvider";
+import { HeroPlantFlow } from "@/components/sections/hero/HeroPlantFlow";
+import { HeroPlantFlowDesktopGate } from "@/components/sections/hero/HeroPlantFlowDesktopGate";
 import { Container } from "@/components/ui/Container";
 import { SectionBadge } from "@/components/ui/SectionBadge";
 import { landingContent } from "@/lib/content";
 import { easeOut, heroDelay, heroDuration, heroStagger } from "@/lib/motion/config";
 import { gsap, useGSAP } from "@/lib/motion/gsap";
 import { cn } from "@/lib/utils";
-
-const HeroPlantFlowDesktop = dynamic(
-  () =>
-    import("@/components/sections/hero/HeroPlantFlow").then((mod) => {
-      function DesktopFlow() {
-        return <mod.HeroPlantFlow variant="full" />;
-      }
-      return DesktopFlow;
-    }),
-  { ssr: false },
-);
-
-const HeroPlantFlowMobile = dynamic(
-  () =>
-    import("@/components/sections/hero/HeroPlantFlow").then((mod) => {
-      function MobileFlow() {
-        return <mod.HeroPlantFlow variant="mobileLight" />;
-      }
-      return MobileFlow;
-    }),
-  { ssr: false },
-);
 
 const MOBILE_CARD_IDS = ["inspector", "shift-lead", "planner", "maintenance-lead", "ht-heatup"];
 
@@ -46,6 +25,10 @@ export function Hero() {
   useGSAP(
     () => {
       if (!isReady || prefersReducedMotion || introPlayedRef.current) {
+        return;
+      }
+
+      if (window.matchMedia("(max-width: 1023px)").matches) {
         return;
       }
 
@@ -127,10 +110,10 @@ export function Hero() {
 
         <div data-hero-animate="visual" className="mt-6 border-t border-outline-variant/40 pt-5 md:mt-8 md:pt-8 lg:mt-8 lg:pt-10">
           <div className="hidden lg:block">
-            <HeroPlantFlowDesktop />
+            <HeroPlantFlowDesktopGate />
           </div>
           <div className="lg:hidden">
-            <HeroPlantFlowMobile />
+            <HeroPlantFlow variant="mobileLight" />
             <p className="mt-4 font-mono text-xs font-medium uppercase tracking-[0.12em] text-primary sm:text-[0.68rem]">
               {hero.actionPanel.title}
             </p>
@@ -139,28 +122,26 @@ export function Hero() {
                 className="pointer-events-none absolute inset-y-0 right-0 z-[1] w-10 bg-gradient-to-l from-surface via-surface/80 to-transparent sm:w-12"
                 aria-hidden
               />
-              <ul
-                role="region"
-                aria-label={hero.actionPanel.title}
-                className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-px-4 px-4 pb-2 [scrollbar-width:none] sm:-mx-6 sm:scroll-px-6 sm:px-6"
-              >
-                {mobileActionCards.map((card) => (
-                  <li
-                    key={card.id}
-                    className="w-[78%] shrink-0 snap-start rounded-md border border-outline-variant/50 bg-surface-lowest p-4 sm:w-[46%]"
-                  >
-                    <div className="flex flex-wrap items-center gap-2">
-                      <span className="rounded-full bg-on-surface px-2.5 py-1 font-mono text-xs font-medium uppercase tracking-[0.1em] text-surface sm:text-[0.62rem]">
-                        {card.role}
-                      </span>
-                      <span className="rounded-full border border-outline-variant/70 px-2.5 py-1 font-mono text-xs uppercase tracking-[0.1em] text-on-surface-variant sm:text-[0.62rem]">
-                        {card.area}
-                      </span>
-                    </div>
-                    <p className="mt-3 text-sm leading-6 text-on-surface">{card.copy}</p>
-                  </li>
-                ))}
-              </ul>
+              <div role="region" aria-label={hero.actionPanel.title}>
+                <ul className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-px-4 px-4 pb-2 [scrollbar-width:none] sm:-mx-6 sm:scroll-px-6 sm:px-6">
+                  {mobileActionCards.map((card) => (
+                    <li
+                      key={card.id}
+                      className="w-[78%] shrink-0 snap-start rounded-md border border-outline-variant/50 bg-surface-lowest p-4 sm:w-[46%]"
+                    >
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="rounded-full bg-on-surface px-2.5 py-1 font-mono text-xs font-medium uppercase tracking-[0.1em] text-surface sm:text-[0.62rem]">
+                          {card.role}
+                        </span>
+                        <span className="rounded-full border border-outline-variant/70 px-2.5 py-1 font-mono text-xs uppercase tracking-[0.1em] text-on-surface-variant sm:text-[0.62rem]">
+                          {card.area}
+                        </span>
+                      </div>
+                      <p className="mt-3 text-sm leading-6 text-on-surface">{card.copy}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
               <p className="mt-2 font-mono text-xs text-on-surface-variant/80" aria-hidden>
                 Swipe
               </p>

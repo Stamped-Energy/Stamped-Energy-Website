@@ -105,6 +105,7 @@ export function HeroPlantFlow({ variant = "full" }: HeroPlantFlowProps) {
                   alt=""
                   fill
                   priority={imagePriority}
+                  fetchPriority={imagePriority ? "high" : "low"}
                   sizes="(max-width: 768px) 90vw, 40vw"
                   className="object-contain object-left"
                   onError={() => setPlantFailed(true)}

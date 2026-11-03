@@ -183,8 +183,6 @@ export function HomeAgents() {
                 </button>
                 <div
                   id={`agents-accordion-${item.slug}`}
-                  role="region"
-                  aria-labelledby={`agents-accordion-trigger-${item.slug}`}
                   hidden={!expanded}
                   className={cn(
                     "grid transition-[grid-template-rows] duration-300 ease-out",
