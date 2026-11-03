@@ -24,7 +24,7 @@ export function SampleFindingCard({
   return (
     <figure className={cn(`agent-card-${palette} min-w-0 rounded-md p-3 sm:p-5`, className)}>
       <div className="agent-card-inner rounded-md p-4 sm:p-5" data-agent-card>
-        <p data-agent-card-row className="font-mono text-[0.68rem] font-medium uppercase tracking-[0.12em] agent-card-muted sm:text-[0.62rem] sm:tracking-[0.14em]">
+        <p data-agent-card-row className="font-mono text-xs font-medium uppercase tracking-[0.12em] agent-card-muted lg:text-[0.62rem] lg:tracking-[0.14em]">
           {sampleLabel} · {sample.tag}
         </p>
         <p data-agent-card-row className="mt-3 font-display text-lg font-bold leading-snug tracking-tight sm:text-xl">
@@ -33,7 +33,7 @@ export function SampleFindingCard({
         <dl className="mt-4">
           {rows.map((row) => (
             <div key={row.label} data-agent-card-row className="agent-card-rule border-t py-2.5">
-              <dt className="font-mono text-[0.66rem] font-medium uppercase tracking-[0.12em] agent-card-muted sm:text-[0.6rem] sm:tracking-[0.14em]">{row.label}</dt>
+              <dt className="font-mono text-xs font-medium uppercase tracking-[0.12em] agent-card-muted lg:text-[0.6rem] lg:tracking-[0.14em]">{row.label}</dt>
               <dd className="mt-1 text-sm leading-6">{row.text}</dd>
             </div>
           ))}
@@ -43,7 +43,7 @@ export function SampleFindingCard({
             <span
               key={action}
               className={cn(
-                "agent-card-btn rounded-full px-3 py-1 font-mono text-[0.62rem] font-medium uppercase tracking-[0.12em]",
+                "agent-card-btn rounded-full px-3 py-1 font-mono text-xs font-medium uppercase tracking-[0.12em] lg:text-[0.62rem]",
                 i === 1 && sample.actions.length > 2 ? "agent-card-btn-primary" : "",
               )}
             >

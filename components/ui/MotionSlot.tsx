@@ -43,7 +43,7 @@ export function MotionSlot({
         <div className="px-4 text-center">
           <p
             className={cn(
-              "font-mono text-[0.68rem] font-medium uppercase tracking-[0.14em]",
+              "font-mono text-xs font-medium uppercase tracking-[0.14em] lg:text-[0.68rem]",
               dark ? "text-on-secondary/45" : "text-on-surface-variant/70",
             )}
           >

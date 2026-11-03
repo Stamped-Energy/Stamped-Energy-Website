@@ -80,92 +80,137 @@ export function MotionProvider({ children }: MotionProviderProps) {
   }, []);
 
   useEffect(() => {
-    registerGsap();
-    ScrollTrigger.config({ ignoreMobileResize: true });
+    let cancelled = false;
+    let booted = false;
+    let readyFrame = 0;
+    let teardownLenis: (() => void) | undefined;
+    let idleHandle: number | undefined;
 
-    const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const isReducedMotion = reducedMotionQuery.matches;
-    setPrefersReducedMotion(isReducedMotion);
+    const boot = () => {
+      if (cancelled || booted) {
+        return;
+      }
+      booted = true;
 
-    const enableLenis = !isReducedMotion && shouldUseLenis();
+      registerGsap();
+      ScrollTrigger.config({ ignoreMobileResize: true });
 
-    if (!enableLenis) {
-      ScrollTrigger.defaults({ scroller: window });
-      const readyFrame = requestAnimationFrame(() => {
+      const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+      const isReducedMotion = reducedMotionQuery.matches;
+      setPrefersReducedMotion(isReducedMotion);
+
+      const enableLenis = !isReducedMotion && shouldUseLenis();
+
+      if (!enableLenis) {
+        ScrollTrigger.defaults({ scroller: window });
+        readyFrame = requestAnimationFrame(() => {
+          ScrollTrigger.refresh();
+          setIsReady(true);
+        });
+        return;
+      }
+
+      const lenis = new Lenis({
+        duration: 1.1,
+        smoothWheel: true,
+        syncTouch: false,
+      });
+
+      lenisRef.current = lenis;
+      document.documentElement.classList.add("lenis");
+
+      lenis.on("scroll", ScrollTrigger.update);
+
+      const onTicker = (time: number) => {
+        lenis.raf(time * 1000);
+      };
+
+      gsap.ticker.add(onTicker);
+      gsap.ticker.lagSmoothing(0);
+
+      ScrollTrigger.scrollerProxy(document.documentElement, {
+        scrollTop(value) {
+          if (typeof value === "number") {
+            lenis.scrollTo(value, { immediate: true });
+          }
+
+          return lenis.scroll;
+        },
+        getBoundingClientRect() {
+          return {
+            top: 0,
+            left: 0,
+            width: window.innerWidth,
+            height: window.innerHeight,
+          };
+        },
+      });
+
+      ScrollTrigger.defaults({ scroller: document.documentElement });
+
+      const onRefresh = () => {
+        lenis.resize();
+      };
+
+      ScrollTrigger.addEventListener("refresh", onRefresh);
+
+      const onResize = () => {
+        ScrollTrigger.refresh();
+      };
+
+      window.addEventListener("resize", onResize);
+
+      readyFrame = requestAnimationFrame(() => {
         ScrollTrigger.refresh();
         setIsReady(true);
       });
 
-      return () => {
-        cancelAnimationFrame(readyFrame);
+      teardownLenis = () => {
+        window.removeEventListener("resize", onResize);
+        ScrollTrigger.removeEventListener("refresh", onRefresh);
+        gsap.ticker.remove(onTicker);
+        lenis.destroy();
+        lenisRef.current = null;
+        document.documentElement.classList.remove("lenis");
+        ScrollTrigger.defaults({ scroller: window });
+        ScrollTrigger.clearScrollMemory();
       };
-    }
-
-    const lenis = new Lenis({
-      duration: 1.1,
-      smoothWheel: true,
-      syncTouch: false,
-    });
-
-    lenisRef.current = lenis;
-    document.documentElement.classList.add("lenis");
-
-    lenis.on("scroll", ScrollTrigger.update);
-
-    const onTicker = (time: number) => {
-      lenis.raf(time * 1000);
     };
 
-    gsap.ticker.add(onTicker);
-    gsap.ticker.lagSmoothing(0);
-
-    ScrollTrigger.scrollerProxy(document.documentElement, {
-      scrollTop(value) {
-        if (typeof value === "number") {
-          lenis.scrollTo(value, { immediate: true });
-        }
-
-        return lenis.scroll;
-      },
-      getBoundingClientRect() {
-        return {
-          top: 0,
-          left: 0,
-          width: window.innerWidth,
-          height: window.innerHeight,
-        };
-      },
-    });
-
-    ScrollTrigger.defaults({ scroller: document.documentElement });
-
-    const onRefresh = () => {
-      lenis.resize();
+    const cancelIdle = () => {
+      if (idleHandle === undefined) {
+        return;
+      }
+      if (typeof window.cancelIdleCallback === "function") {
+        window.cancelIdleCallback(idleHandle);
+      } else {
+        window.clearTimeout(idleHandle);
+      }
+      idleHandle = undefined;
     };
 
-    ScrollTrigger.addEventListener("refresh", onRefresh);
-
-    const onResize = () => {
-      ScrollTrigger.refresh();
+    const bootFromInteraction = () => {
+      cancelIdle();
+      boot();
     };
 
-    window.addEventListener("resize", onResize);
+    idleHandle =
+      typeof window.requestIdleCallback === "function"
+        ? window.requestIdleCallback(boot, { timeout: 2200 })
+        : window.setTimeout(boot, 1);
 
-    const readyFrame = requestAnimationFrame(() => {
-      ScrollTrigger.refresh();
-      setIsReady(true);
-    });
+    window.addEventListener("pointerdown", bootFromInteraction, { once: true, passive: true });
+    window.addEventListener("keydown", bootFromInteraction, { once: true });
+    window.addEventListener("scroll", bootFromInteraction, { once: true, passive: true });
 
     return () => {
+      cancelled = true;
       cancelAnimationFrame(readyFrame);
-      window.removeEventListener("resize", onResize);
-      ScrollTrigger.removeEventListener("refresh", onRefresh);
-      gsap.ticker.remove(onTicker);
-      lenis.destroy();
-      lenisRef.current = null;
-      document.documentElement.classList.remove("lenis");
-      ScrollTrigger.defaults({ scroller: window });
-      ScrollTrigger.clearScrollMemory();
+      cancelIdle();
+      window.removeEventListener("pointerdown", bootFromInteraction);
+      window.removeEventListener("keydown", bootFromInteraction);
+      window.removeEventListener("scroll", bootFromInteraction);
+      teardownLenis?.();
     };
   }, []);
 

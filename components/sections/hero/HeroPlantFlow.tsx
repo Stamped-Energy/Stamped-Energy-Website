@@ -16,10 +16,17 @@ const STAGE_ASPECT = 1274 / 2529;
 const MOBILE_MQ = "(max-width: 1023px)";
 const { actionPanel } = landingContent.hero;
 
-export function HeroPlantFlow() {
+type HeroPlantFlowProps = {
+  /** Static, lighter illustration for phones — action cards stay in the hero scroller below. */
+  variant?: "full" | "mobileLight";
+};
+
+export function HeroPlantFlow({ variant = "full" }: HeroPlantFlowProps) {
   const rootRef = useRef<HTMLDivElement>(null);
   const { isReady, prefersReducedMotion } = useMotion();
   const [plantFailed, setPlantFailed] = useState(false);
+  const isMobileLight = variant === "mobileLight";
+  const imagePriority = !isMobileLight;
 
   useEffect(() => {
     const root = rootRef.current;
@@ -65,15 +72,17 @@ export function HeroPlantFlow() {
     }
 
     const reduce =
-      prefersReducedMotion || window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      isMobileLight ||
+      prefersReducedMotion ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     return startHeroPlantFlow(rootRef.current, { reduce });
-  }, [isReady, prefersReducedMotion]);
+  }, [isReady, prefersReducedMotion, isMobileLight]);
 
   return (
     <div
       ref={rootRef}
-      className="hpf-root"
+      className={isMobileLight ? "hpf-root hpf-root--mobile-light" : "hpf-root"}
       role="img"
       aria-label="Stamped reads quality records, machine and meter data, and plans from ERP, then sends example actions to the people who can act on them."
     >
@@ -95,7 +104,7 @@ export function HeroPlantFlow() {
                   src="/hero-plant-flow/plant.png"
                   alt=""
                   fill
-                  priority
+                  priority={imagePriority}
                   sizes="(max-width: 768px) 90vw, 40vw"
                   className="object-contain object-left"
                   onError={() => setPlantFailed(true)}
@@ -138,7 +147,7 @@ export function HeroPlantFlow() {
                 width={128}
                 height={128}
                 alt=""
-                priority
+                priority={imagePriority}
               />
               <div className="hpf-logo-caption">
                 Stamped

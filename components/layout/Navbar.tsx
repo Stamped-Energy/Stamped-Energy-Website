@@ -89,7 +89,8 @@ export function Navbar() {
           href="/"
           aria-label="Stamped home"
           className={cn(
-            "flex shrink-0 items-center gap-2.5 font-display text-[1.05rem] font-bold tracking-tight transition-colors",
+            "flex shrink-0 items-center gap-2.5 rounded-md font-display text-[1.05rem] font-bold tracking-tight transition-colors",
+            "min-h-11 min-w-11 justify-center p-2 -m-2 sm:min-h-0 sm:min-w-0 sm:justify-start sm:p-0 sm:m-0",
             isLightNav ? "text-on-secondary hover:text-on-secondary/90" : "text-on-surface hover:text-on-surface/90",
           )}
         >

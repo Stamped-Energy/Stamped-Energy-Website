@@ -9,10 +9,26 @@ import { useMotion } from "@/components/motion/MotionProvider";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionBadge } from "@/components/ui/SectionBadge";
-import { agentAreas, agentsSection } from "@/lib/content/agents";
+import { agentAreas, agentsSection, type AgentArea } from "@/lib/content/agents";
 import { landingContent } from "@/lib/content";
 import { gsap, useGSAP } from "@/lib/motion/gsap";
 import { cn } from "@/lib/utils";
+
+function AgentAreaPanel({ area }: { area: AgentArea }) {
+  return (
+    <>
+      <SampleFindingCard sample={area.homeSample} palette={area.slug} className="lg:order-2 lg:col-span-5 lg:self-start" />
+      <div className="lg:order-1 lg:col-span-7">
+        <AgentJobGroups area={area} />
+        {area.href && !area.comingSoon ? (
+          <Link href={area.href} className="mt-6 inline-flex text-sm font-semibold text-primary hover:underline">
+            {agentsSection.areaLinkLabel} {area.label.toLowerCase()} »
+          </Link>
+        ) : null}
+      </div>
+    </>
+  );
+}
 
 /**
  * Homepage agents picker: one tab per area, jobs grouped by the three steps, and a sample finding card.
@@ -71,10 +87,10 @@ export function HomeAgents() {
     };
   }, [active, canAutoplay, inView]);
 
-  // Panel content builds in on each change.
+  // Panel content builds in on each change (desktop tab panel only).
   useGSAP(
     () => {
-      if (!isReady || prefersReducedMotion) return;
+      if (!isReady || prefersReducedMotion || !isDesktop) return;
       const tl = gsap.timeline();
       tl.fromTo("[data-agent-job]", { autoAlpha: 0, y: 10 }, { autoAlpha: 1, y: 0, duration: 0.4, stagger: 0.04, ease: "power2.out" });
       tl.fromTo(
@@ -84,7 +100,7 @@ export function HomeAgents() {
         0.1,
       );
     },
-    { scope: panelRef, dependencies: [active, isReady, prefersReducedMotion] },
+    { scope: panelRef, dependencies: [active, isReady, prefersReducedMotion, isDesktop] },
   );
 
   const select = (index: number) => {
@@ -108,6 +124,22 @@ export function HomeAgents() {
   if (!enabled) return null;
   const area = agentAreas[active];
 
+  const tabLabel = (item: (typeof agentAreas)[number], selected: boolean) => (
+    <>
+      <span className="font-display text-base font-bold tracking-tight lg:text-xl">{item.label}</span>
+      {item.comingSoon ? (
+        <span
+          className={cn(
+            "whitespace-nowrap rounded-full border px-1.5 py-0.5 font-mono text-xs font-medium uppercase tracking-[0.12em] lg:px-2 lg:text-[0.55rem]",
+            selected ? "border-current lg:border-outline-variant" : "border-outline-variant",
+          )}
+        >
+          {agentsSection.comingSoonLabel}
+        </span>
+      ) : null}
+    </>
+  );
+
   return (
     <section
       ref={sectionRef}
@@ -128,11 +160,53 @@ export function HomeAgents() {
           </div>
         </Reveal>
 
+        {/* Mobile: one accordion row per area — expands in place without swapping a shared tall panel. */}
+        <div className="mt-8 space-y-2 lg:hidden">
+          {agentAreas.map((item, index) => {
+            const expanded = index === active;
+            return (
+              <div key={item.slug} className="overflow-hidden rounded-md border border-outline-variant/60">
+                <button
+                  type="button"
+                  aria-expanded={expanded}
+                  aria-controls={`agents-accordion-${item.slug}`}
+                  id={`agents-accordion-trigger-${item.slug}`}
+                  onClick={() => select(index)}
+                  className={cn(
+                    "flex min-h-12 w-full flex-wrap items-center justify-center gap-x-2 gap-y-1 px-3 py-2 text-center transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
+                    expanded
+                      ? "border-b border-outline-variant/40 bg-secondary text-on-secondary"
+                      : "text-on-surface-variant hover:text-on-surface",
+                  )}
+                >
+                  {tabLabel(item, expanded)}
+                </button>
+                <div
+                  id={`agents-accordion-${item.slug}`}
+                  role="region"
+                  aria-labelledby={`agents-accordion-trigger-${item.slug}`}
+                  hidden={!expanded}
+                  className={cn(
+                    "grid transition-[grid-template-rows] duration-300 ease-out",
+                    expanded ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
+                  )}
+                >
+                  <div className="min-h-0 overflow-hidden">
+                    <div className="grid gap-8 border-t border-outline-variant/40 p-4">
+                      <AgentAreaPanel area={item} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
         <div
           role="tablist"
           aria-label={agentsSection.title}
           onKeyDown={onKeyDown}
-          className="mt-8 grid grid-cols-2 gap-2 sm:grid-cols-4 lg:mt-12 lg:pb-1 lg:grid lg:grid-cols-4 lg:gap-0 lg:overflow-visible lg:border-b lg:border-outline-variant/50"
+          className="mt-8 hidden grid-cols-2 gap-2 sm:grid-cols-4 lg:mt-12 lg:grid lg:grid-cols-4 lg:gap-0 lg:overflow-visible lg:border-b lg:border-outline-variant/50 lg:pb-1"
         >
           {agentAreas.map((item, index) => {
             const selected = index === active;
@@ -156,17 +230,7 @@ export function HomeAgents() {
                     : "border-outline-variant/60 text-on-surface-variant hover:text-on-surface",
                 )}
               >
-                <span className="font-display text-base font-bold tracking-tight lg:text-xl">{item.label}</span>
-                {item.comingSoon ? (
-                  <span
-                    className={cn(
-                      "whitespace-nowrap rounded-full border px-1.5 py-0.5 lg:px-2 font-mono text-[0.55rem] font-medium uppercase tracking-[0.12em]",
-                      selected ? "border-current lg:border-outline-variant" : "border-outline-variant",
-                    )}
-                  >
-                    {agentsSection.comingSoonLabel}
-                  </span>
-                ) : null}
+                {tabLabel(item, selected)}
                 <span className={cn("absolute inset-x-0 -bottom-px hidden h-0.5 lg:block", selected ? "bg-on-surface/15" : "")} aria-hidden>
                   <span
                     ref={(node) => {
@@ -186,24 +250,9 @@ export function HomeAgents() {
           role="tabpanel"
           id={`agents-panel-${area.slug}`}
           aria-labelledby={`agents-tab-${area.slug}`}
-          className="mt-6 grid gap-8 lg:mt-10 lg:grid-cols-12 lg:gap-12"
+          className="mt-6 hidden gap-8 lg:mt-10 lg:grid lg:grid-cols-12 lg:gap-12"
         >
-          <SampleFindingCard
-            sample={area.homeSample}
-            palette={area.slug}
-            className="lg:order-2 lg:col-span-5 lg:self-start"
-          />
-          <div className="lg:order-1 lg:col-span-7">
-            <AgentJobGroups area={area} />
-            {area.href && !area.comingSoon ? (
-              <Link
-                href={area.href}
-                className="mt-6 inline-flex text-sm font-semibold text-primary hover:underline"
-              >
-                {agentsSection.areaLinkLabel} {area.label.toLowerCase()} »
-              </Link>
-            ) : null}
-          </div>
+          <AgentAreaPanel area={area} />
         </div>
 
         {/* Every area stays in the markup for crawlers and no-JS readers. */}

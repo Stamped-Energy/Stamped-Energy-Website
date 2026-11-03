@@ -12,6 +12,7 @@ import { ContactForm } from "@/components/ui/ContactForm";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionBadge } from "@/components/ui/SectionBadge";
 import { contactContent } from "@/lib/content/contact";
+import { siteConfig } from "@/lib/content";
 import { gsap, useGSAP } from "@/lib/motion/gsap";
 
 export function ContactPageView() {
@@ -86,7 +87,7 @@ export function ContactPageView() {
               ) : null}
               <a
                 href={`mailto:${quickContact.email}`}
-                className="text-sm font-semibold text-inverse-primary underline-offset-4 hover:underline"
+                className="inline-flex min-h-11 items-center py-2 text-sm font-semibold text-inverse-primary underline-offset-4 hover:underline"
               >
                 {quickContact.email}
               </a>
@@ -95,7 +96,19 @@ export function ContactPageView() {
         </Container>
       </section>
 
-      <section className="border-b border-outline-variant/30 bg-surface section-y">
+      <div
+        className="pointer-events-none fixed inset-x-0 bottom-0 z-40 border-t border-outline-variant/40 bg-surface/95 px-4 py-3 backdrop-blur-sm pb-[max(0.75rem,env(safe-area-inset-bottom))] lg:hidden"
+      >
+        <Button
+          href={siteConfig.primaryCta.href}
+          variant="primary"
+          className="pointer-events-auto w-full uppercase tracking-[0.06em]"
+        >
+          {siteConfig.primaryCta.label}
+        </Button>
+      </div>
+
+      <section className="border-b border-outline-variant/30 bg-surface section-y pb-24 lg:pb-0">
         <Container>
           <Reveal>
             <SectionBadge label={steps.eyebrow} />
@@ -144,7 +157,7 @@ export function ContactPageView() {
 
             <aside className="lg:sticky lg:top-28">
               <Reveal>
-                <p className="font-mono text-[0.68rem] font-medium uppercase tracking-[0.12em] text-primary">
+                <p className="font-mono text-xs font-medium uppercase tracking-[0.12em] text-primary lg:text-[0.68rem]">
                   {quickContact.eyebrow}
                 </p>
                 <ul className="mt-5 divide-y divide-outline-variant/40 border-y border-outline-variant/40">
@@ -164,6 +177,7 @@ export function ContactPageView() {
         </Container>
       </section>
       <BeforeYouBook showCta={false} />
+      <div className="h-20 lg:hidden" aria-hidden />
     </div>
   );
 }

@@ -1,6 +1,7 @@
-import type { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/next";
+import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Mono, Inter, Space_Grotesk } from "next/font/google";
+
+import { DeferredAnalytics } from "@/components/analytics/DeferredAnalytics";
 
 import { SiteChrome } from "@/components/layout/SiteChrome";
 import { MotionProvider } from "@/components/motion/MotionProvider";
@@ -16,21 +17,21 @@ import "./globals.css";
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-space-grotesk",
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "600", "700"],
   display: "swap",
 });
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "600", "700"],
   display: "swap",
 });
 
 const ibmPlexMono = IBM_Plex_Mono({
   subsets: ["latin"],
   variable: "--font-plex-mono",
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "600", "700"],
   display: "swap",
 });
 
@@ -41,6 +42,12 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: PAGE_SEO.home.description,
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
@@ -62,7 +69,7 @@ export default function RootLayout({
         <MotionProvider>
           <SiteChrome>{children}</SiteChrome>
         </MotionProvider>
-        <Analytics />
+        <DeferredAnalytics />
       </body>
     </html>
   );
