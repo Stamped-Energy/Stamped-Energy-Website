@@ -51,6 +51,7 @@ export default function RootLayout({
   return (
     <html
       lang="en-IN"
+      data-motion-pending=""
       className={cn(spaceGrotesk.variable, inter.variable, ibmPlexMono.variable)}
       suppressHydrationWarning
     >
