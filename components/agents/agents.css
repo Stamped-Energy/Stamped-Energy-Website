@@ -13,6 +13,12 @@
 .agent-card-rule { border-color: color-mix(in srgb, currentColor 28%, transparent); }
 .agent-card-muted { color: color-mix(in srgb, currentColor 72%, transparent); }
 
+@media (max-width: 1023px) {
+  .agent-card-muted {
+    color: color-mix(in srgb, currentColor 88%, transparent);
+  }
+}
+
 .agent-card-btn {
   border: 1px solid color-mix(in srgb, currentColor 55%, transparent);
 }

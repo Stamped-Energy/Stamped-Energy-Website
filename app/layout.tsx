@@ -17,8 +17,10 @@ import "./globals.css";
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-space-grotesk",
-  weight: ["400", "600", "700"],
+  weight: ["700"],
   display: "swap",
+  preload: true,
+  adjustFontFallback: true,
 });
 
 const inter = Inter({
@@ -26,6 +28,7 @@ const inter = Inter({
   variable: "--font-inter",
   weight: ["400", "600", "700"],
   display: "swap",
+  preload: false,
 });
 
 const ibmPlexMono = IBM_Plex_Mono({
@@ -33,6 +36,7 @@ const ibmPlexMono = IBM_Plex_Mono({
   variable: "--font-plex-mono",
   weight: ["400", "600", "700"],
   display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -60,6 +64,7 @@ export default function RootLayout({
   return (
     <html
       lang="en-IN"
+      data-motion-pending=""
       className={cn(spaceGrotesk.variable, inter.variable, ibmPlexMono.variable)}
       suppressHydrationWarning
     >

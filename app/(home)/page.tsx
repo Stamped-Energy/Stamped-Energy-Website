@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 
 import { Hero } from "@/components/sections/Hero";
-import { HomeAgents } from "@/components/sections/HomeAgents";
-import { HomeHowItWorks } from "@/components/sections/HomeHowItWorks";
-import { HomeImpact } from "@/components/sections/HomeImpact";
 import { HomeIndustries } from "@/components/sections/HomeIndustries";
-import { HomeLadder } from "@/components/sections/HomeLadder";
 import { HomeProblem } from "@/components/sections/HomeProblem";
 import { HomeResources } from "@/components/sections/HomeResources";
 import { HomeSolutionsRows } from "@/components/sections/HomeSolutionsRows";
@@ -21,6 +18,23 @@ import {
   homepageSpeakable,
   softwareApplicationSchema,
 } from "@/lib/seo/schemas";
+
+const HomeLadder = dynamic(
+  () => import("@/components/sections/HomeLadder").then((mod) => mod.HomeLadder),
+  { loading: () => null },
+);
+const HomeHowItWorks = dynamic(
+  () => import("@/components/sections/HomeHowItWorks").then((mod) => mod.HomeHowItWorks),
+  { loading: () => null },
+);
+const HomeImpact = dynamic(
+  () => import("@/components/sections/HomeImpact").then((mod) => mod.HomeImpact),
+  { loading: () => null },
+);
+const HomeAgents = dynamic(
+  () => import("@/components/sections/HomeAgents").then((mod) => mod.HomeAgents),
+  { loading: () => null },
+);
 
 export const metadata: Metadata = buildPageMetadataFromConfig(PAGE_SEO.home);
 

@@ -6,6 +6,7 @@ import {
   useCallback,
   useContext,
   useEffect,
+  useLayoutEffect,
   useMemo,
   useRef,
   useState,
@@ -92,6 +93,10 @@ export function MotionProvider({ children }: MotionProviderProps) {
     const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     const isReducedMotion = reducedMotionQuery.matches;
     setPrefersReducedMotion(isReducedMotion);
+
+    if (isReducedMotion) {
+      document.documentElement.removeAttribute("data-motion-pending");
+    }
 
     ScrollTrigger.defaults({ scroller: window });
     readyFrame = requestAnimationFrame(() => {
@@ -204,6 +209,14 @@ export function MotionProvider({ children }: MotionProviderProps) {
       teardownLenis?.();
     };
   }, []);
+
+  useLayoutEffect(() => {
+    if (!isReady || prefersReducedMotion) {
+      return;
+    }
+
+    document.documentElement.removeAttribute("data-motion-pending");
+  }, [isReady, prefersReducedMotion]);
 
   const value = useMemo(
     () => ({
