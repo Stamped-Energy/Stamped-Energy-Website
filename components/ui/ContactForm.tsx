@@ -92,6 +92,22 @@ export function ContactForm() {
     });
   };
 
+  const normalizeWhatsappField = () => {
+    setFormState((current) => {
+      const digits = current.whatsapp.replace(/\D/g, "");
+      if (digits.length === 12 && digits.startsWith("91")) {
+        return { ...current, whatsapp: digits.slice(2) };
+      }
+      if (digits.length === 11 && digits.startsWith("0")) {
+        return { ...current, whatsapp: digits.slice(1) };
+      }
+      if (digits.length === 10) {
+        return { ...current, whatsapp: digits };
+      }
+      return current;
+    });
+  };
+
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setStatus("loading");
@@ -249,9 +265,10 @@ export function ContactForm() {
               type="tel"
               autoComplete="tel"
               inputMode="tel"
-              placeholder="e.g. 9876543210"
+              placeholder="10-digit mobile (India)"
               value={formState.whatsapp}
               onChange={(event) => updateField("whatsapp", event.target.value)}
+              onBlur={normalizeWhatsappField}
               className={cn(
                 inputClassName,
                 fieldErrors.whatsapp && "border-error focus:border-error focus:ring-error/25",

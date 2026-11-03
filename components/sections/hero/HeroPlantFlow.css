@@ -600,3 +600,11 @@
     animation: none !important;
   }
 }
+
+.hpf-root--mobile-light .hpf-rx-panel {
+  display: none !important;
+}
+
+.hpf-root--mobile-light .hpf-scene::after {
+  width: min(4rem, 12%);
+}

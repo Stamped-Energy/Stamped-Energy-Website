@@ -278,7 +278,7 @@ export function HomeLadder() {
                       >
                         {step.step}
                       </span>
-                      <span className="font-mono text-[0.68rem] font-medium uppercase tracking-[0.12em] text-on-surface">
+                      <span className="font-mono text-xs font-medium uppercase tracking-[0.12em] text-on-surface lg:text-[0.68rem]">
                         {step.label}
                       </span>
                     </div>

@@ -18,7 +18,7 @@ export function EngagementSteps({ className }: EngagementStepsProps) {
             <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-bold text-on-primary">
               {step.step}
             </span>
-            <span className="font-mono text-[0.68rem] font-medium uppercase tracking-[0.12em] text-primary">
+            <span className="font-mono text-xs font-medium uppercase tracking-[0.12em] text-primary lg:text-[0.68rem]">
               {step.label}
             </span>
           </div>

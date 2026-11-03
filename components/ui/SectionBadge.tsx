@@ -24,7 +24,7 @@ export function SectionBadge({ label, alternate = false, className }: SectionBad
       </span>
       <span
         className={cn(
-          "rounded-sm border px-2.5 py-1 font-mono text-[0.68rem] font-medium uppercase tracking-[0.12em]",
+          "rounded-sm border px-2.5 py-1 font-mono text-xs font-medium uppercase tracking-[0.12em] lg:text-[0.68rem]",
           alternate
             ? "border-on-secondary/35 text-on-secondary/90"
             : "border-primary/70 text-on-surface",

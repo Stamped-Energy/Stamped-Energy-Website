@@ -9,9 +9,11 @@ type BlogPostCardProps = {
   post: BlogPostListItem;
   className?: string;
   dataAttr?: string;
+  /** When false, image loads eagerly (featured above-the-fold). Catalog cards default to lazy. */
+  lazyImage?: boolean;
 };
 
-export function BlogPostCard({ post, className, dataAttr }: BlogPostCardProps) {
+export function BlogPostCard({ post, className, dataAttr, lazyImage = true }: BlogPostCardProps) {
   return (
     <Link
       href={`/blog/${post.slug}`}
@@ -27,6 +29,7 @@ export function BlogPostCard({ post, className, dataAttr }: BlogPostCardProps) {
             src={post.coverImage}
             alt={post.title}
             fill
+            priority={!lazyImage}
             className="object-cover transition-transform duration-300 group-hover:scale-105"
             sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
           />

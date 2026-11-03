@@ -31,7 +31,7 @@ export function HomeSolutionsRows() {
                 <div className="flex flex-wrap items-center gap-3">
                   <h3 className="font-display text-2xl font-bold tracking-tight md:text-3xl">{area.title}</h3>
                   {area.status === "coming-soon" ? (
-                    <span className="rounded-full border border-outline-variant/70 px-2.5 py-1 font-mono text-[0.62rem] font-medium uppercase tracking-[0.12em] text-on-surface-variant">
+                    <span className="rounded-full border border-outline-variant/70 px-2.5 py-1 font-mono text-xs font-medium uppercase tracking-[0.12em] text-on-surface-variant lg:text-[0.62rem]">
                       {solutionsSection.comingSoonLabel}
                     </span>
                   ) : null}
