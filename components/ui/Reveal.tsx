@@ -3,6 +3,7 @@
 import { useRef, type ReactNode } from "react";
 
 import { useMotion } from "@/components/motion/MotionProvider";
+import { isMobileMotionLite } from "@/lib/motion/wait-for-lcp";
 import {
   easeOut,
   getRevealFromVars,
@@ -27,7 +28,7 @@ export function Reveal({ children, className, from = "up", delay = 0 }: RevealPr
 
   useGSAP(
     () => {
-      if (!isReady || prefersReducedMotion) {
+      if (!isReady || prefersReducedMotion || isMobileMotionLite()) {
         return;
       }
 

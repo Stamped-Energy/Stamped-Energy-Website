@@ -1,6 +1,6 @@
 "use client";
 
-import Lenis from "lenis";
+import type Lenis from "lenis";
 import {
   createContext,
   useCallback,
@@ -13,10 +13,7 @@ import {
   type ReactNode,
 } from "react";
 
-import { gsap, registerGsap, ScrollTrigger } from "@/lib/motion/gsap";
-import { resetRouteMotion as applyRouteMotionReset, shouldUseLenis } from "@/lib/motion/routeMotion";
-
-import "lenis/dist/lenis.css";
+import { isMobileMotionLite } from "@/lib/motion/wait-for-lcp";
 
 type MotionContextValue = {
   isReady: boolean;
@@ -47,9 +44,12 @@ export function MotionProvider({ children }: MotionProviderProps) {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const lenisRef = useRef<Lenis | null>(null);
   const pageScrollLockDepth = useRef(0);
+  const runtimeRef = useRef<{
+    resetRouteMotion: (lenis: Lenis | null) => void;
+  } | null>(null);
 
   const resetRouteMotion = useCallback(() => {
-    applyRouteMotionReset(lenisRef.current);
+    runtimeRef.current?.resetRouteMotion(lenisRef.current);
   }, []);
 
   const lockPageScroll = useCallback(() => {
@@ -81,145 +81,99 @@ export function MotionProvider({ children }: MotionProviderProps) {
   }, []);
 
   useLayoutEffect(() => {
-    registerGsap();
-    ScrollTrigger.config({ ignoreMobileResize: true });
-
     const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     const isReducedMotion = reducedMotionQuery.matches;
     setPrefersReducedMotion(isReducedMotion);
 
     if (isReducedMotion) {
       document.documentElement.removeAttribute("data-motion-pending");
-    }
-
-    ScrollTrigger.defaults({ scroller: window });
-
-    const readyFrame = requestAnimationFrame(() => {
-      ScrollTrigger.refresh();
       setIsReady(true);
-    });
-
-    return () => {
-      cancelAnimationFrame(readyFrame);
-    };
+    }
   }, []);
 
   useEffect(() => {
-    let cancelled = false;
-    let lenisBooted = false;
-    let teardownLenis: (() => void) | undefined;
-    let idleHandle: number | undefined;
-
     const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const isReducedMotion = reducedMotionQuery.matches;
+    if (reducedMotionQuery.matches) {
+      return;
+    }
 
-    const bootLenis = () => {
-      if (cancelled || lenisBooted || isReducedMotion || !shouldUseLenis()) {
+    let cancelled = false;
+    let cancelScrollBoot: (() => void) | undefined;
+    let cancelScrollMotion: (() => void) | undefined;
+
+    const startRuntime = async () => {
+      const runtime = await import("@/lib/motion/motion-runtime");
+      if (cancelled) {
         return;
       }
-      lenisBooted = true;
 
-      const lenis = new Lenis({
-        duration: 1.1,
-        smoothWheel: true,
-        syncTouch: false,
+      runtimeRef.current = runtime;
+
+      cancelScrollMotion = runtime.bootScrollMotion(() => {
+        if (!cancelled) {
+          setIsReady(true);
+        }
       });
 
-      lenisRef.current = lenis;
-      document.documentElement.classList.add("lenis");
-
-      lenis.on("scroll", ScrollTrigger.update);
-
-      const onTicker = (time: number) => {
-        lenis.raf(time * 1000);
-      };
-
-      gsap.ticker.add(onTicker);
-      gsap.ticker.lagSmoothing(0);
-
-      ScrollTrigger.scrollerProxy(document.documentElement, {
-        scrollTop(value) {
-          if (typeof value === "number") {
-            lenis.scrollTo(value, { immediate: true });
-          }
-
-          return lenis.scroll;
-        },
-        getBoundingClientRect() {
-          return {
-            top: 0,
-            left: 0,
-            width: window.innerWidth,
-            height: window.innerHeight,
-          };
-        },
+      cancelScrollBoot = runtime.scheduleLenisBoot((lenis) => {
+        lenisRef.current = lenis;
       });
-
-      ScrollTrigger.defaults({ scroller: document.documentElement });
-
-      const onRefresh = () => {
-        lenis.resize();
-      };
-
-      ScrollTrigger.addEventListener("refresh", onRefresh);
-
-      const onResize = () => {
-        ScrollTrigger.refresh();
-      };
-
-      window.addEventListener("resize", onResize);
-      ScrollTrigger.refresh();
-
-      teardownLenis = () => {
-        window.removeEventListener("resize", onResize);
-        ScrollTrigger.removeEventListener("refresh", onRefresh);
-        gsap.ticker.remove(onTicker);
-        lenis.destroy();
-        lenisRef.current = null;
-        document.documentElement.classList.remove("lenis");
-        ScrollTrigger.defaults({ scroller: window });
-        ScrollTrigger.clearScrollMemory();
-      };
     };
 
-    const cancelIdle = () => {
-      if (idleHandle === undefined) {
-        return;
-      }
-      if (typeof window.cancelIdleCallback === "function") {
-        window.cancelIdleCallback(idleHandle);
+    const scheduleMobileRuntime = () => {
+      const run = () => {
+        if (!cancelled) {
+          void startRuntime();
+        }
+      };
+
+      let started = false;
+      const kick = () => {
+        if (started || cancelled) {
+          return;
+        }
+        started = true;
+        window.removeEventListener("scroll", kick);
+        window.removeEventListener("pointerdown", kick);
+        window.removeEventListener("keydown", kick);
+        if (typeof window.requestIdleCallback === "function") {
+          window.requestIdleCallback(run, { timeout: 3000 });
+        } else {
+          window.setTimeout(run, 500);
+        }
+      };
+
+      window.addEventListener("scroll", kick, { once: true, passive: true });
+      window.addEventListener("pointerdown", kick, { once: true, passive: true });
+      window.addEventListener("keydown", kick, { once: true });
+      window.setTimeout(kick, 9000);
+    };
+
+    if (isMobileMotionLite()) {
+      if (document.readyState === "complete") {
+        scheduleMobileRuntime();
       } else {
-        window.clearTimeout(idleHandle);
+        window.addEventListener("load", scheduleMobileRuntime, { once: true });
       }
-      idleHandle = undefined;
-    };
-
-    const bootLenisFromInteraction = () => {
-      cancelIdle();
-      bootLenis();
-    };
-
-    idleHandle =
-      typeof window.requestIdleCallback === "function"
-        ? window.requestIdleCallback(bootLenis, { timeout: 2200 })
-        : window.setTimeout(bootLenis, 1);
-
-    window.addEventListener("pointerdown", bootLenisFromInteraction, { once: true, passive: true });
-    window.addEventListener("keydown", bootLenisFromInteraction, { once: true });
-    window.addEventListener("scroll", bootLenisFromInteraction, { once: true, passive: true });
+    } else {
+      void startRuntime();
+    }
 
     return () => {
       cancelled = true;
-      cancelIdle();
-      window.removeEventListener("pointerdown", bootLenisFromInteraction);
-      window.removeEventListener("keydown", bootLenisFromInteraction);
-      window.removeEventListener("scroll", bootLenisFromInteraction);
-      teardownLenis?.();
+      cancelScrollMotion?.();
+      cancelScrollBoot?.();
+      runtimeRef.current = null;
+      lenisRef.current = null;
     };
   }, []);
 
   useLayoutEffect(() => {
     if (!isReady || prefersReducedMotion) {
+      return;
+    }
+
+    if (isMobileMotionLite()) {
       return;
     }
 

@@ -19,8 +19,8 @@ const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-space-grotesk",
   weight: ["700"],
-  display: "swap",
-  preload: true,
+  display: "optional",
+  preload: false,
   adjustFontFallback: true,
 });
 

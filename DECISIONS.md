@@ -842,4 +842,10 @@ Architecture and workflow decisions for this project.
 **Decision:** Mark `<html data-motion-pending>` in the root layout and hide `[data-hero-animate]`, `[data-reveal]`, and `[data-stagger-item]` with CSS that mirrors GSAP initial states until motion boot completes. Initialize Lenis / ScrollTrigger in `useLayoutEffect` (no `requestAnimationFrame` deferral) and remove `data-motion-pending` after `isReady` in a follow-up layout effect so child `useGSAP` hooks apply inline styles first. Reduced motion clears pending immediately.
 **Impact:** One paint path for animated chrome; no change to copy, SEO metadata, or animation timing tokens.
 
+## ADR-050: Lazy motion runtime + mobile LCP path (3 Nov 2026)
+
+**Context:** Mobile Lighthouse showed ~4s LCP on `.value-proposition` with ~89% render delay and ~220ms+ TBT from eager GSAP/Lenis in the root layout client bundle.
+**Decision:** Dynamically import `@/lib/motion/motion-runtime` from `MotionProvider` after `load` on mobile (then idle or first scroll/keydown). Split hero motion so mobile never downloads the desktop GSAP intro chunk; skip scroll-reveal GSAP on viewports `<1024px`. Defer Vercel Analytics until `load` + `requestIdleCallback`. Use `display: optional` / no preload for display fonts; mobile hero headline uses the same system stack as `.value-proposition`.
+**Impact:** PR #31 rules preserved (`data-hero-lcp` never hidden; one intro on desktop). SEO/GEO SSR text and JSON-LD unchanged (verified via `scripts/ssr-seo-parity.mjs`). Home LCP on lab mobile remains render-delay bound; TBT drops sharply.
+
 - 30 Oct 2026: Public contact address switched from `stamped.energy@gmail.com` to `contact@stamped.work`, routed via Cloudflare Email Routing. Contact-form notify recipients and the `CONTACT_FROM_EMAIL` sender stay on gmail until stamped.work is verified in Resend.
