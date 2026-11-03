@@ -17,6 +17,10 @@
   .agent-card-muted {
     color: color-mix(in srgb, currentColor 88%, transparent);
   }
+
+  .agent-card-btn {
+    color: currentColor;
+  }
 }
 
 .agent-card-btn {

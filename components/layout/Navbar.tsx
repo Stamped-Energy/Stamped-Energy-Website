@@ -100,7 +100,8 @@ export function Navbar() {
             width={32}
             height={32}
             className="h-8 w-8 shrink-0"
-            priority
+            priority={pathname !== "/"}
+            fetchPriority={pathname === "/" ? "low" : undefined}
           />
           <span className="hidden sm:inline">{siteConfig.name}</span>
         </Link>
