@@ -143,7 +143,7 @@
       visibility: hidden;
     }
   }
-  /* Mobile hero: one preloaded display face for headline + supporting line (faster LCP). */
+
   @media (max-width: 1023px) {
     .hero-headline {
       font-family: var(--font-family-display);

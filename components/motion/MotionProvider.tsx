@@ -80,13 +80,7 @@ export function MotionProvider({ children }: MotionProviderProps) {
     lenisRef.current?.start();
   }, []);
 
-  useEffect(() => {
-    let cancelled = false;
-    let lenisBooted = false;
-    let readyFrame = 0;
-    let teardownLenis: (() => void) | undefined;
-    let idleHandle: number | undefined;
-
+  useLayoutEffect(() => {
     registerGsap();
     ScrollTrigger.config({ ignoreMobileResize: true });
 
@@ -99,10 +93,25 @@ export function MotionProvider({ children }: MotionProviderProps) {
     }
 
     ScrollTrigger.defaults({ scroller: window });
-    readyFrame = requestAnimationFrame(() => {
+
+    const readyFrame = requestAnimationFrame(() => {
       ScrollTrigger.refresh();
       setIsReady(true);
     });
+
+    return () => {
+      cancelAnimationFrame(readyFrame);
+    };
+  }, []);
+
+  useEffect(() => {
+    let cancelled = false;
+    let lenisBooted = false;
+    let teardownLenis: (() => void) | undefined;
+    let idleHandle: number | undefined;
+
+    const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const isReducedMotion = reducedMotionQuery.matches;
 
     const bootLenis = () => {
       if (cancelled || lenisBooted || isReducedMotion || !shouldUseLenis()) {
@@ -201,7 +210,6 @@ export function MotionProvider({ children }: MotionProviderProps) {
 
     return () => {
       cancelled = true;
-      cancelAnimationFrame(readyFrame);
       cancelIdle();
       window.removeEventListener("pointerdown", bootLenisFromInteraction);
       window.removeEventListener("keydown", bootLenisFromInteraction);
