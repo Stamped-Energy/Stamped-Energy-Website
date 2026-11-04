@@ -10,7 +10,7 @@ const HeroVisualMobile = dynamic(
   { ssr: false },
 );
 
-/** Mounts mobile hero visuals after load into #hero-mobile-mount (SSR placeholder only). */
+/** Mounts mobile hero visuals after LCP into #hero-mobile-mount (SSR placeholder only). */
 export function HomeMobileHeroMount() {
   const [mountNode, setMountNode] = useState<HTMLElement | null>(null);
   const [ready, setReady] = useState(false);
@@ -18,12 +18,18 @@ export function HomeMobileHeroMount() {
   useEffect(() => {
     setMountNode(document.getElementById("hero-mobile-mount"));
 
-    const reveal = () => setReady(true);
-    if (document.readyState === "complete") {
-      reveal();
-      return;
-    }
-    window.addEventListener("load", reveal, { once: true });
+    let cancelled = false;
+    void import("@/lib/motion/wait-for-lcp").then(({ waitForLcp }) => {
+      void waitForLcp().then(() => {
+        if (!cancelled) {
+          setReady(true);
+        }
+      });
+    });
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   if (!mountNode || !ready) {

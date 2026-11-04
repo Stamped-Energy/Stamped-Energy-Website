@@ -1,18 +1,10 @@
 "use client";
 
-import { useRef, type ReactNode } from "react";
+import dynamic from "next/dynamic";
+import { useSyncExternalStore, type ReactNode } from "react";
 
-import { useMotion } from "@/components/motion/MotionProvider";
+import { type RevealDirection } from "@/lib/motion/config";
 import { isMobileMotionLite } from "@/lib/motion/wait-for-lcp";
-import {
-  easeOut,
-  getRevealFromVars,
-  getRevealToVars,
-  revealDuration,
-  scrollTriggerDefaults,
-  type RevealDirection,
-} from "@/lib/motion/config";
-import { gsap, useGSAP } from "@/lib/motion/gsap";
 import { cn } from "@/lib/utils";
 
 type RevealProps = {
@@ -22,47 +14,44 @@ type RevealProps = {
   delay?: number;
 };
 
+function subscribeMobileLite(onStoreChange: () => void) {
+  const query = window.matchMedia("(max-width: 1023px)");
+  query.addEventListener("change", onStoreChange);
+  return () => query.removeEventListener("change", onStoreChange);
+}
+
+function getMobileLiteSnapshot() {
+  return isMobileMotionLite();
+}
+
+/** SSR assumes mobile-lite (no GSAP) so simulated mobile LCP is not blocked by reveal bundles. */
+function getMobileLiteServerSnapshot() {
+  return true;
+}
+
+const RevealAnimated = dynamic(
+  () => import("@/components/ui/RevealAnimated").then((mod) => mod.RevealAnimated),
+  { ssr: false },
+);
+
 export function Reveal({ children, className, from = "up", delay = 0 }: RevealProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { isReady, prefersReducedMotion } = useMotion();
-
-  useGSAP(
-    () => {
-      if (!isReady || prefersReducedMotion || isMobileMotionLite()) {
-        return;
-      }
-
-      const element = containerRef.current;
-      if (!element) {
-        return;
-      }
-
-      gsap.set(element, getRevealFromVars(from));
-      const tween = gsap.to(element, {
-        ...getRevealToVars(from),
-        duration: revealDuration,
-        ease: easeOut,
-        delay,
-        scrollTrigger: {
-          trigger: element,
-          ...scrollTriggerDefaults,
-        },
-      });
-
-      return () => {
-        tween.scrollTrigger?.kill();
-        tween.kill();
-      };
-    },
-    {
-      scope: containerRef,
-      dependencies: [isReady, prefersReducedMotion, from, delay],
-    },
+  const mobileLite = useSyncExternalStore(
+    subscribeMobileLite,
+    getMobileLiteSnapshot,
+    getMobileLiteServerSnapshot,
   );
 
+  if (mobileLite) {
+    return (
+      <div data-reveal className={cn(className)}>
+        {children}
+      </div>
+    );
+  }
+
   return (
-    <div ref={containerRef} data-reveal className={cn(className)}>
+    <RevealAnimated className={className} from={from} delay={delay}>
       {children}
-    </div>
+    </RevealAnimated>
   );
 }

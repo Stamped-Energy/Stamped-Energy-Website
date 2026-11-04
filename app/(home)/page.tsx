@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 
+import { HomeMotionIsland } from "@/components/home/HomeMotionIsland";
 import { Hero } from "@/components/sections/Hero";
 import { HomeMobileHeroMount } from "@/components/sections/hero/HomeMobileHeroMount";
 import { HomeIndustries } from "@/components/sections/HomeIndustries";
@@ -54,13 +55,15 @@ export default function HomePage() {
       />
       <Hero />
       <HomeMobileHeroMount />
-      <HomeProblem />
-      <HomeWhatIs />
-      <HomeLadder />
-      <HomeHowItWorks />
-      <HomeImpact />
+      <HomeMotionIsland>
+        <HomeProblem />
+        <HomeWhatIs />
+        <HomeLadder />
+        <HomeHowItWorks />
+        <HomeImpact />
+        <HomeAgents />
+      </HomeMotionIsland>
       <HomeSolutionsRows />
-      <HomeAgents />
       <HomeIndustries />
       <HomeResources />
       <HomeTerminalBand />

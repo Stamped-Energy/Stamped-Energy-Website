@@ -3,8 +3,6 @@ import { IBM_Plex_Mono, Inter, Space_Grotesk } from "next/font/google";
 
 import { DeferredAnalytics } from "@/components/analytics/DeferredAnalytics";
 
-import { SiteChrome } from "@/components/layout/SiteChrome";
-import { MotionProvider } from "@/components/motion/MotionProvider";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/lib/content";
 import { siteMetadataBase } from "@/lib/seo/metadata";
@@ -80,9 +78,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <JsonLd data={[organizationSchema, websiteSchema]} />
-        <MotionProvider>
-          <SiteChrome>{children}</SiteChrome>
-        </MotionProvider>
+        {children}
         <DeferredAnalytics />
       </body>
     </html>
