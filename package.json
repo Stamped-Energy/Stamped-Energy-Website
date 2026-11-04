@@ -55,6 +55,7 @@
     "resend": "^6.12.4"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^15.3.3",
     "@tailwindcss/postcss": "^4.1.8",
     "@types/bcryptjs": "^2.4.6",
     "@types/node": "^22.15.30",
@@ -62,6 +63,7 @@
     "@types/react-dom": "^19.1.5",
     "eslint": "^9.28.0",
     "eslint-config-next": "^15.3.3",
+    "puppeteer-core": "^24.6.0",
     "schema-dts": "^2.1.0",
     "tailwindcss": "^4.1.8",
     "tsx": "^4.22.4",

@@ -1,7 +1,3 @@
-"use client";
-
-import { usePathname } from "next/navigation";
-
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { RouteMotionSync } from "@/components/motion/RouteMotionSync";
@@ -10,14 +6,8 @@ type SiteChromeProps = {
   children: React.ReactNode;
 };
 
+/** Server shell: footer + main are static; nav/motion sync are client islands. */
 export function SiteChrome({ children }: SiteChromeProps) {
-  const pathname = usePathname();
-  const isBlogAdmin = pathname.startsWith("/blog/admin");
-
-  if (isBlogAdmin) {
-    return <>{children}</>;
-  }
-
   return (
     <>
       <RouteMotionSync />

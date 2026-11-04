@@ -1,31 +1,64 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { IndustriesMegaMenu, IndustriesMobileNav } from "@/components/layout/IndustriesMegaMenu";
 import { NavLinkItem } from "@/components/layout/NavLinkItem";
-import { SolutionsMegaMenu, SolutionsMobileNav } from "@/components/layout/SolutionsMegaMenu";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { navLinks, siteConfig } from "@/lib/content";
 import { useLightNavText } from "@/lib/layout/use-light-nav";
 import { cn } from "@/lib/utils";
 
+const SolutionsMegaMenu = dynamic(
+  () =>
+    import("@/components/layout/SolutionsMegaMenu").then((mod) => ({
+      default: mod.SolutionsMegaMenu,
+    })),
+  { ssr: false, loading: () => null },
+);
+
+const IndustriesMegaMenu = dynamic(
+  () =>
+    import("@/components/layout/IndustriesMegaMenu").then((mod) => ({
+      default: mod.IndustriesMegaMenu,
+    })),
+  { ssr: false, loading: () => null },
+);
+
+const SolutionsMobileNav = dynamic(
+  () =>
+    import("@/components/layout/SolutionsMegaMenu").then((mod) => ({
+      default: mod.SolutionsMobileNav,
+    })),
+  { ssr: false, loading: () => null },
+);
+
+const IndustriesMobileNav = dynamic(
+  () =>
+    import("@/components/layout/IndustriesMegaMenu").then((mod) => ({
+      default: mod.IndustriesMobileNav,
+    })),
+  { ssr: false, loading: () => null },
+);
+
 function DesktopNavLink({
   link,
   lightNav,
+  megaMenusReady,
 }: {
   link: (typeof navLinks)[number];
   lightNav: boolean;
+  megaMenusReady: boolean;
 }) {
   if (link.megaMenu === "solutions") {
-    return <SolutionsMegaMenu lightNav={lightNav} />;
+    return megaMenusReady ? <SolutionsMegaMenu lightNav={lightNav} /> : <NavLinkItem link={link} lightNav={lightNav} />;
   }
   if (link.megaMenu === "industries") {
-    return <IndustriesMegaMenu lightNav={lightNav} />;
+    return megaMenusReady ? <IndustriesMegaMenu lightNav={lightNav} /> : <NavLinkItem link={link} lightNav={lightNav} />;
   }
   return <NavLinkItem link={link} lightNav={lightNav} />;
 }
@@ -33,26 +66,56 @@ function DesktopNavLink({
 function MobileNavLink({
   link,
   onNavigate,
+  megaMenusReady,
 }: {
   link: (typeof navLinks)[number];
   onNavigate: () => void;
+  megaMenusReady: boolean;
 }) {
   if (link.megaMenu === "solutions") {
-    return <SolutionsMobileNav onNavigate={onNavigate} />;
+    return megaMenusReady ? (
+      <SolutionsMobileNav onNavigate={onNavigate} />
+    ) : (
+      <NavLinkItem link={link} mobile onNavigate={onNavigate} />
+    );
   }
   if (link.megaMenu === "industries") {
-    return <IndustriesMobileNav onNavigate={onNavigate} />;
+    return megaMenusReady ? (
+      <IndustriesMobileNav onNavigate={onNavigate} />
+    ) : (
+      <NavLinkItem link={link} mobile onNavigate={onNavigate} />
+    );
   }
   return <NavLinkItem link={link} mobile onNavigate={onNavigate} />;
 }
 
 export function Navbar() {
   const pathname = usePathname();
+  const isBlogAdmin = pathname.startsWith("/blog/admin");
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [megaMenusReady, setMegaMenusReady] = useState(false);
   const lightNavText = useLightNavText();
   const isLightNav = !isScrolled && !isMenuOpen && lightNavText;
   const showSolidHeader = isScrolled || isMenuOpen;
+
+  useEffect(() => {
+    if (isBlogAdmin) {
+      return;
+    }
+    const enable = () => setMegaMenusReady(true);
+    if (typeof window.requestIdleCallback === "function") {
+      window.requestIdleCallback(enable, { timeout: 4000 });
+    } else {
+      window.setTimeout(enable, 1500);
+    }
+  }, [isBlogAdmin]);
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      setMegaMenusReady(true);
+    }
+  }, [isMenuOpen]);
 
   useEffect(() => {
     setIsMenuOpen(false);
@@ -74,6 +137,10 @@ export function Navbar() {
       document.body.style.overflow = "";
     };
   }, [isMenuOpen]);
+
+  if (isBlogAdmin) {
+    return null;
+  }
 
   return (
     <header
@@ -111,7 +178,7 @@ export function Navbar() {
           aria-label="Primary"
         >
           {navLinks.map((link) => (
-            <DesktopNavLink key={link.label} link={link} lightNav={isLightNav} />
+            <DesktopNavLink key={link.label} link={link} lightNav={isLightNav} megaMenusReady={megaMenusReady} />
           ))}
         </nav>
 
@@ -156,6 +223,7 @@ export function Navbar() {
                 key={link.label}
                 link={link}
                 onNavigate={() => setIsMenuOpen(false)}
+                megaMenusReady={megaMenusReady || isMenuOpen}
               />
             ))}
             <Button href={siteConfig.primaryCta.href} variant="primary" className="mt-4 w-full uppercase tracking-[0.06em]">
