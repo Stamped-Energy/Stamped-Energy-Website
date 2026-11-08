@@ -3,6 +3,7 @@
 import { useRef, type ReactNode } from "react";
 
 import { useMotion } from "@/components/motion/MotionProvider";
+import { isMobileMotionLite } from "@/lib/motion/wait-for-lcp";
 import {
   easeOut,
   revealDuration,
@@ -29,7 +30,7 @@ export function StaggerReveal({ children, className }: StaggerRevealProps) {
 
   useGSAP(
     () => {
-      if (!isReady || prefersReducedMotion) {
+      if (!isReady || prefersReducedMotion || isMobileMotionLite()) {
         return;
       }
 

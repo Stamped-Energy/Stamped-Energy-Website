@@ -15,6 +15,8 @@ const base = `http://127.0.0.1:${port}`;
 const urls = [
   { key: "home", path: "/" },
   { key: "solutions-planning", path: "/solutions/planning" },
+  { key: "contact", path: "/contact" },
+  { key: "case-studies", path: "/case-studies" },
 ];
 
 const runs = 3;

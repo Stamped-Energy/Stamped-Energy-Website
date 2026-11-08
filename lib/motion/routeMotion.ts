@@ -1,5 +1,3 @@
-import { ScrollTrigger } from "@/lib/motion/gsap";
-
 import type Lenis from "lenis";
 
 /** True when smooth Lenis scrolling should run (desktop pointer devices). */
@@ -26,10 +24,12 @@ export function resetRouteMotion(lenis: Lenis | null): void {
     lenis.scrollTo(0, { immediate: true });
   }
 
-  ScrollTrigger.clearScrollMemory();
+  void import("@/lib/motion/gsap").then(({ ScrollTrigger }) => {
+    ScrollTrigger.clearScrollMemory();
 
-  requestAnimationFrame(() => {
-    ScrollTrigger.refresh(true);
-    lenis?.resize();
+    requestAnimationFrame(() => {
+      ScrollTrigger.refresh(true);
+      lenis?.resize();
+    });
   });
 }
