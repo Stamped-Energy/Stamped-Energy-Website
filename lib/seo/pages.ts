@@ -12,7 +12,7 @@ export type PageSeoConfig = {
 const HOW_IT_WORKS_SEO = {
   absoluteTitle: "How it works on ERP, SCADA and quality data | Stamped",
   description:
-    "Stamped connects to ERP, SCADA/MES and quality records your plant already runs, alongside machines, control systems and meters. No hardware retrofit is needed to get started.",
+    "Stamped connects to the ERP, SCADA/MES and quality records your plant already runs. No hardware retrofit. Stamped recommends and your team decides.",
   path: "/platform",
   keywords: [
     "AI for plant operations",
@@ -30,7 +30,7 @@ export const PAGE_SEO = {
   home: {
     absoluteTitle: "Stamped | Industrial AI from monitoring to improving",
     description:
-      "Stamped is industrial AI, from monitoring your plant to improving it. It models your processes and equipment from the data you already log, and its agents improve process, quality and planning.",
+      "Stamped models your processes and equipment from the data you already log, finds where output, quality and energy are lost, and recommends the fix.",
     path: "/",
     keywords: [
       "AI for plant operations",
@@ -50,7 +50,7 @@ export const PAGE_SEO = {
   solutions: {
     absoluteTitle: "What we improve | Industrial AI | Stamped",
     description:
-      "Agents for every part of the plant. Stamped improves process, quality and planning inside limits set beforehand, with energy counted in each. Maintenance is coming next.",
+      "Stamped improves process, quality and planning from the data you already log, inside limits set beforehand, with energy counted in each.",
     path: "/solutions",
     keywords: [
       "process optimisation manufacturing",
@@ -65,7 +65,7 @@ export const PAGE_SEO = {
   solutionsProcess: {
     absoluteTitle: `${SOLUTION_AREA_PRODUCT_LINE_TITLE.process} | Process optimisation for plants`,
     description:
-      "Stamped flags drift against your plant's best runs on a model of each line, tries the next setting before parts see it, and applies proven changes inside limits set beforehand.",
+      "Stamped flags drift against your plant's best runs, tries the next setting on a model of the line first, and works only inside limits set beforehand.",
     path: "/solutions/process",
     keywords: [
       "process optimisation manufacturing",
@@ -93,7 +93,7 @@ export const PAGE_SEO = {
   solutionsPlanning: {
     absoluteTitle: `${SOLUTION_AREA_PRODUCT_LINE_TITLE.planning} | Production planning AI for plants`,
     description:
-      "Plan around how your plant really runs. Stamped warns when the plan is about to slip and suggests a better order of work, with its effect on output and delivery.",
+      "Plan around how your plant really runs. Stamped warns when the plan is about to slip and suggests a better order of work for your planner.",
     path: "/solutions/planning",
     keywords: [
       "production planning and scheduling",
@@ -161,9 +161,9 @@ export const PAGE_SEO = {
     ],
   },
   industriesAutomotive: {
-    absoluteTitle: "Forging, heat treatment, machining | OEM rejects | Stamped",
+    absoluteTitle: "Forging & auto-component plants: fewer OEM rejects | Stamped",
     description:
-      "For forging, heat treatment and machining plants that supply OEMs: fewer rejections reach your customer, from the process and quality data you already record.",
+      "For auto-component plants in forging, heat treatment and machining that supply OEMs: fewer rejections reach your customer, from data you already record.",
     path: "/industries/automotive",
     keywords: [
       "auto component manufacturing software",

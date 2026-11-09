@@ -93,7 +93,7 @@ export function HeroPlantFlow() {
               {!plantFailed ? (
                 <Image
                   src="/hero-plant-flow/plant.png"
-                  alt=""
+                  alt={landingContent.hero.headline}
                   fill
                   priority
                   sizes="(max-width: 768px) 90vw, 40vw"
