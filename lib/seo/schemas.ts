@@ -36,6 +36,7 @@ import type {
   Service,
   FAQPage,
   HowTo,
+  ItemList,
   Organization,
   Person,
   Question,
@@ -487,6 +488,35 @@ export function buildFaqSchema(faqs: FaqItem[]): WithContext<FAQPage> | null {
       acceptedAnswer: {
         "@type": "Answer",
         text: faq.answer,
+      },
+    })),
+  };
+}
+
+type BlogPostListItemInput = {
+  title: string;
+  slug: string;
+};
+
+export function buildBlogPostItemListSchema(
+  posts: BlogPostListItemInput[],
+  pagePath: string,
+): WithContext<ItemList> | null {
+  if (posts.length === 0) {
+    return null;
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    url: absoluteUrl(pagePath),
+    itemListElement: posts.map((post, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "BlogPosting",
+        name: post.title,
+        url: absoluteUrl(`/blog/${post.slug}`),
       },
     })),
   };

@@ -102,7 +102,7 @@ export function HeroPlantFlow({ variant = "full" }: HeroPlantFlowProps) {
               {!plantFailed ? (
                 <Image
                   src="/hero-plant-flow/plant.png"
-                  alt=""
+                  alt={landingContent.hero.headline}
                   fill
                   priority={imagePriority}
                   fetchPriority={imagePriority ? "high" : "low"}

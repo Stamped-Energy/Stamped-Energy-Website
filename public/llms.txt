@@ -1,6 +1,6 @@
 # Stamped
 
-> Stamped is industrial AI, from monitoring your plant to improving it. It models a manufacturing plant's processes and equipment from the data it already records, from its machines and control systems to its meters, ERP and quality registers. Its AI agents then find where output, quality and energy are being lost and recommend the change that fixes it, within limits the plant team sets. Stamped is built in India and is starting with auto-component makers in forging, heat treatment and precision machining.
+> Stamped helps Indian auto-component plants in forging, heat treatment and precision machining cut rejections, get more output from the lines they already have, and use less energy in every good part. It models each plant's processes and equipment from the data it already records (machines, control systems, meters, ERP and quality registers), finds where output, quality and energy are lost, and sends the change that fixes it to the person who owns it. Stamped recommends and your team decides; any change runs only inside limits set beforehand.
 
 ## About the name
 
@@ -84,15 +84,15 @@ Hub: [What we improve](https://stamped.work/solutions)
 
 ## Core pages (live)
 
-- [Stamped | Industrial AI from monitoring to improving](https://stamped.work/): Stamped is industrial AI, from monitoring your plant to improving it. It models your processes and equipment from the data you already log, and its agents improve process, quality and planning.
-- [How it works on ERP, SCADA and quality data | Stamped](https://stamped.work/platform): Stamped connects to ERP, SCADA/MES and quality records your plant already runs, alongside machines, control systems and meters. No hardware retrofit is needed to get started.
-- [What we improve | Industrial AI | Stamped](https://stamped.work/solutions): Agents for every part of the plant. Stamped improves process, quality and planning inside limits set beforehand, with energy counted in each. Maintenance is coming next.
-- [Stamped Process & Control | Process optimisation for plants](https://stamped.work/solutions/process): Stamped flags drift against your plant's best runs on a model of each line, tries the next setting before parts see it, and applies proven changes inside limits set beforehand.
+- [Stamped | Industrial AI from monitoring to improving](https://stamped.work/): Stamped models your processes and equipment from the data you already log, finds where output, quality and energy are lost, and recommends the fix.
+- [How it works on ERP, SCADA and quality data | Stamped](https://stamped.work/platform): Stamped connects to the ERP, SCADA/MES and quality records your plant already runs. No hardware retrofit. Stamped recommends and your team decides.
+- [What we improve | Industrial AI | Stamped](https://stamped.work/solutions): Stamped improves process, quality and planning from the data you already log, inside limits set beforehand, with energy counted in each.
+- [Stamped Process & Control | Process optimisation for plants](https://stamped.work/solutions/process): Stamped flags drift against your plant's best runs, tries the next setting on a model of the line first, and works only inside limits set beforehand.
 - [Stamped Quality | Catch drift before a batch is rejected](https://stamped.work/solutions/quality): Cut rejections by catching process drift early: Stamped warns while the lot or batch can still be saved when conditions match past rejection patterns.
-- [Stamped Production | Production planning AI for plants](https://stamped.work/solutions/planning): Plan around how your plant really runs. Stamped warns when the plan is about to slip and suggests a better order of work, with its effect on output and delivery.
+- [Stamped Production | Production planning AI for plants](https://stamped.work/solutions/planning): Plan around how your plant really runs. Stamped warns when the plan is about to slip and suggests a better order of work for your planner.
 - [Stamped Maintenance | Predictive maintenance, coming soon](https://stamped.work/solutions/maintenance): Coming soon. Stamped will spot which machine is starting to wear and suggest the best window to fix it, planned around production.
 - [Industries | Stamped](https://stamped.work/industries): Stamped improves process, quality, planning and maintenance in auto-component, steel, cement, pharma and chemical plants.
-- [Forging, heat treatment, machining | OEM rejects | Stamped](https://stamped.work/industries/automotive): For forging, heat treatment and machining plants that supply OEMs: fewer rejections reach your customer, from the process and quality data you already record.
+- [Forging & auto-component plants: fewer OEM rejects | Stamped](https://stamped.work/industries/automotive): For auto-component plants in forging, heat treatment and machining that supply OEMs: fewer rejections reach your customer, from data you already record.
 - [Steel plant operations | Stamped](https://stamped.work/industries/steel): For induction and arc furnace melt shops and rolling mills: power per tonne, heat chemistry, yield and cobbles, improved from the data your plant records.
 - [Cement plant operations | Stamped](https://stamped.work/industries/cement): For cement plants: kiln stability, free lime, heat and power per tonne, mill throughput and kiln stops, improved from the data your plant already records.
 - [Pharmaceutical manufacturing operations | Stamped](https://stamped.work/industries/pharma): For pharma plants: batches right the first time, deviations and batch records, campaign planning and HVAC and utilities, with QA keeping every release decision.

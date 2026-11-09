@@ -1,5 +1,6 @@
 "use client";
 
+import { useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import { BlogPostCard } from "@/components/blog/BlogPostCard";
@@ -16,8 +17,6 @@ type BlogCatalogProps = {
   initialPosts: BlogPostListItem[];
   initialHasMore: boolean;
   initialPage: number;
-  /** From URL ?search= so WebSite SearchAction lands on a working catalog. */
-  initialSearch?: string;
 };
 
 function SearchIcon({ className }: { className?: string }) {
@@ -42,12 +41,13 @@ export function BlogCatalog({
   initialPosts,
   initialHasMore,
   initialPage,
-  initialSearch = "",
 }: BlogCatalogProps) {
+  const searchParams = useSearchParams();
+  const urlSearch = searchParams.get("search")?.trim() ?? "";
   const sectionRef = useRef<HTMLElement>(null);
   const [posts, setPosts] = useState(initialPosts);
   const [activeCategory, setActiveCategory] = useState("all");
-  const [search, setSearch] = useState(initialSearch);
+  const [search, setSearch] = useState(urlSearch);
   const [page, setPage] = useState(initialPage);
   const [hasMore, setHasMore] = useState(initialHasMore);
   const [isLoading, setIsLoading] = useState(false);
@@ -96,17 +96,21 @@ export function BlogCatalog({
   );
 
   useEffect(() => {
-    if (hydratedSearchRef.current || !initialSearch.trim()) {
+    setSearch(urlSearch);
+  }, [urlSearch]);
+
+  useEffect(() => {
+    if (hydratedSearchRef.current || !urlSearch) {
       return;
     }
     hydratedSearchRef.current = true;
     void fetchPosts({
       page: 1,
       category: "all",
-      search: initialSearch,
+      search: urlSearch,
       append: false,
     });
-  }, [fetchPosts, initialSearch]);
+  }, [fetchPosts, urlSearch]);
 
   const handleCategoryChange = async (categoryId: string) => {
     setActiveCategory(categoryId);
