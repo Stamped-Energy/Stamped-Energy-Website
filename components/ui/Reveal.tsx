@@ -60,7 +60,7 @@ export function Reveal({ children, className, from = "up", delay = 0 }: RevealPr
   );
 
   return (
-    <div ref={containerRef} className={cn(className)}>
+    <div ref={containerRef} data-reveal className={cn(className)}>
       {children}
     </div>
   );

@@ -5,7 +5,7 @@ import {
   createContext,
   useCallback,
   useContext,
-  useEffect,
+  useLayoutEffect,
   useMemo,
   useRef,
   useState,
@@ -79,7 +79,7 @@ export function MotionProvider({ children }: MotionProviderProps) {
     lenisRef.current?.start();
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     registerGsap();
     ScrollTrigger.config({ ignoreMobileResize: true });
 
@@ -87,18 +87,18 @@ export function MotionProvider({ children }: MotionProviderProps) {
     const isReducedMotion = reducedMotionQuery.matches;
     setPrefersReducedMotion(isReducedMotion);
 
+    if (isReducedMotion) {
+      document.documentElement.removeAttribute("data-motion-pending");
+    }
+
     const enableLenis = !isReducedMotion && shouldUseLenis();
 
     if (!enableLenis) {
       ScrollTrigger.defaults({ scroller: window });
-      const readyFrame = requestAnimationFrame(() => {
-        ScrollTrigger.refresh();
-        setIsReady(true);
-      });
+      ScrollTrigger.refresh();
+      setIsReady(true);
 
-      return () => {
-        cancelAnimationFrame(readyFrame);
-      };
+      return;
     }
 
     const lenis = new Lenis({
@@ -151,13 +151,10 @@ export function MotionProvider({ children }: MotionProviderProps) {
 
     window.addEventListener("resize", onResize);
 
-    const readyFrame = requestAnimationFrame(() => {
-      ScrollTrigger.refresh();
-      setIsReady(true);
-    });
+    ScrollTrigger.refresh();
+    setIsReady(true);
 
     return () => {
-      cancelAnimationFrame(readyFrame);
       window.removeEventListener("resize", onResize);
       ScrollTrigger.removeEventListener("refresh", onRefresh);
       gsap.ticker.remove(onTicker);
@@ -168,6 +165,14 @@ export function MotionProvider({ children }: MotionProviderProps) {
       ScrollTrigger.clearScrollMemory();
     };
   }, []);
+
+  useLayoutEffect(() => {
+    if (!isReady || prefersReducedMotion) {
+      return;
+    }
+
+    document.documentElement.removeAttribute("data-motion-pending");
+  }, [isReady, prefersReducedMotion]);
 
   const value = useMemo(
     () => ({

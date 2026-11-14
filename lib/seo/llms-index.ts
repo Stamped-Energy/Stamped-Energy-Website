@@ -9,6 +9,10 @@ import { formatLlmsProductsSection, STAMPED_SUITE_NAME } from "@/lib/seo/brand";
 import { COMPANY_LINKEDIN_URL, SEO_KEYWORDS, SHOWCASE_URL } from "@/lib/seo/constants";
 import { PAGE_SEO, type PageSeoConfig } from "@/lib/seo/pages";
 
+/** Opening summary for llms.txt and llms-full.txt (metadata / AEO; not on-page body copy). */
+export const LLMS_OPENING_SUMMARY =
+  "Stamped helps Indian auto-component plants in forging, heat treatment and precision machining cut rejections, get more output from the lines they already have, and use less energy in every good part. It models each plant's processes and equipment from the data it already records (machines, control systems, meters, ERP and quality registers), finds where output, quality and energy are lost, and sends the change that fixes it to the person who owns it. Stamped recommends and your team decides; any change runs only inside limits set beforehand.";
+
 /** Prefer production origin for static public/llms.txt (committed file). */
 function llmsSiteUrl(): string {
   const fromEnv = process.env.NEXT_PUBLIC_SITE_URL?.trim();
@@ -65,7 +69,7 @@ export function buildLlmsTxtBody(): string {
 
   lines.push("# Stamped");
   pushBlank(lines);
-  lines.push(`> ${icp.seo.entityDefinition}`);
+  lines.push(`> ${LLMS_OPENING_SUMMARY}`);
   pushBlank(lines);
   pushAboutTheNameSection(lines, SITE_URL);
   lines.push(`Public marketing site: ${SITE_URL}`);
@@ -280,7 +284,7 @@ export async function buildLlmsFullTxtBody(): Promise<string> {
     "> Auto-generated index of published case studies, blogs, FAQs, and static pages for AI crawlers and answer engines.",
   );
   pushBlank(lines);
-  lines.push(icp.seo.entityDefinition);
+  lines.push(LLMS_OPENING_SUMMARY);
   pushBlank(lines);
   pushAboutTheNameSection(lines, SITE_URL);
   lines.push(`Site: ${SITE_URL}`);

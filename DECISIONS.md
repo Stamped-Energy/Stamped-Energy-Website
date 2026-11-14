@@ -836,4 +836,10 @@ Architecture and workflow decisions for this project.
 **Decision:** Set `COMPANY_LINKEDIN_URL` in `lib/seo/constants.ts` to `https://www.linkedin.com/company/stamped-ai` and regenerate committed `public/llms.txt`. Founder profile URLs (`/in/utso`, `/in/vinayak-rz`) unchanged.
 **Impact:** Organization JSON-LD `sameAs`, `/ai/summary.json` (`buildAiSummary`), and all surfaces that import `COMPANY_LINKEDIN_URL`. SEO docs updated.
 
+## ADR-049: SSR motion pending guard (3 Nov 2026)
+
+**Context:** On first load, the homepage painted fully from SSR, then GSAP (after `MotionProvider` `isReady` on a later frame) set hero and scroll-reveal targets to `autoAlpha: 0` and replayed intro animations — a visible “loads twice” flash.
+**Decision:** Mark `<html data-motion-pending>` in the root layout and hide `[data-hero-animate]`, `[data-reveal]`, and `[data-stagger-item]` with CSS that mirrors GSAP initial states until motion boot completes. Initialize Lenis / ScrollTrigger in `useLayoutEffect` (no `requestAnimationFrame` deferral) and remove `data-motion-pending` after `isReady` in a follow-up layout effect so child `useGSAP` hooks apply inline styles first. Reduced motion clears pending immediately.
+**Impact:** One paint path for animated chrome; no change to copy, SEO metadata, or animation timing tokens.
+
 - 30 Oct 2026: Public contact address switched from `stamped.energy@gmail.com` to `contact@stamped.work`, routed via Cloudflare Email Routing. Contact-form notify recipients and the `CONTACT_FROM_EMAIL` sender stay on gmail until stamped.work is verified in Resend.
