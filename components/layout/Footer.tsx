@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { Container } from "@/components/ui/Container";
 import { footerLinks, siteConfig } from "@/lib/content";
+import { productsContent } from "@/lib/content/products";
 
 function FooterColumn({
   title,
@@ -54,7 +55,7 @@ export function Footer() {
               {siteConfig.tagline}
             </p>
             <h2 className="mt-6 font-display text-2xl font-bold tracking-tight text-balance md:text-3xl">
-              Turn plant data into action.
+              {productsContent.mission}
             </h2>
             <p className="mt-4 text-sm leading-7 text-on-secondary/75 md:text-base">
               There is nothing new to install to start, and Stamped recommends and your team decides.
@@ -81,7 +82,7 @@ export function Footer() {
           </div>
 
           <div className="hidden grid-cols-2 gap-10 sm:grid-cols-4 sm:gap-8 md:grid">
-            <FooterColumn title="What we improve" links={footerLinks.solutions} />
+            <FooterColumn title="Products" links={footerLinks.products} />
             <FooterColumn title="Industries" links={footerLinks.industries} />
             <FooterColumn title="Resources" links={footerLinks.resources} />
             <FooterColumn title="Company" links={footerLinks.company} />

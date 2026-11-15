@@ -1,77 +1,128 @@
 /*
- * Stamped - Brand Theme (SINGLE SOURCE OF TRUTH FOR COLOR)
+ * Stamped design system v4 (ADR-051)
  * -----------------------------------------------------------------
- * Every color in the site resolves to one of the CSS variables below.
- * To re-theme the entire website, change values HERE only.
- *
- * Design doc: docs/design/brand-tokens.md
- * Surface ladder aligned to stamped-external demo-decks (--surface #f7faf5).
- * Secondary is near-black green (#000a07).
+ * Warm off-white canvas, near-black ink, coral accent (10%).
+ * Coral fill + white text is NOT used for buttons (fails AA).
+ * Neutrals carry a slight coral-hue tint.
  */
 
 :root {
-  /* --- Surfaces (demo-deck beige / warm green-greys) --- */
-  --brand-surface: #f7faf5;
-  --brand-surface-dim: #d8dbd6;
-  --brand-surface-bright: #f7faf5;
-  --brand-surface-container-lowest: #ffffff;
-  --brand-surface-container-low: #f1f4f0;
-  --brand-surface-container: #ecefea;
-  --brand-surface-container-high: #e6e9e4;
-  --brand-surface-container-highest: #e0e3df;
-  --brand-surface-variant: #e0e3df;
+  /* --- Neutral ramp (warm) --- */
+  --brand-neutral-0: #ffffff;
+  --brand-neutral-25: #fcfcfb;
+  --brand-neutral-50: #f7f7f5;
+  --brand-neutral-100: #efeeeb;
+  --brand-neutral-200: #e4e3df;
+  --brand-neutral-300: #cfcdc8;
+  --brand-neutral-400: #a8a6a0;
+  --brand-neutral-500: #7d7b75;
+  --brand-neutral-600: #5e5c57;
+  --brand-neutral-700: #44423e;
+  --brand-neutral-800: #2a2927;
+  --brand-neutral-900: #1a1918;
+  --brand-neutral-950: #0d0c0b;
 
-  /* --- Foreground / text --- */
-  --brand-on-surface: #191c1a;
-  --brand-on-surface-variant: #5c5f5b;
+  /* --- Coral ramp --- */
+  --brand-coral-50: #fff3f0;
+  --brand-coral-100: #ffe3dc;
+  --brand-coral-200: #ffc5b8;
+  --brand-coral-300: #ff9f8a;
+  --brand-coral-400: #fb7a61;
+  --brand-coral-500: #f75440;
+  --brand-coral-600: #d33c28;
+  --brand-coral-700: #ae2f1f;
+  --brand-coral-800: #8a2719;
+  --brand-coral-900: #6b2116;
 
-  /* --- Inverse --- */
-  --brand-inverse-surface: #252926;
-  --brand-inverse-on-surface: #e9ece7;
+  /* --- Semantic (product frames / status) --- */
+  --brand-verified: #1f8a70;
+  --brand-watch: #b7791f;
+  --brand-alarm: #c2362b;
+  --brand-info: #3b6fb6;
 
-  /* --- Outlines / borders --- */
-  --brand-outline: #8a8d88;
-  --brand-outline-variant: #d5d8d3;
+  /* --- Surfaces (aliases for existing utilities) --- */
+  --brand-surface: var(--brand-neutral-25);
+  --brand-surface-dim: var(--brand-neutral-200);
+  --brand-surface-bright: var(--brand-neutral-25);
+  --brand-surface-container-lowest: var(--brand-neutral-0);
+  --brand-surface-container-low: var(--brand-neutral-50);
+  --brand-surface-container: var(--brand-neutral-100);
+  --brand-surface-container-high: var(--brand-neutral-200);
+  --brand-surface-container-highest: var(--brand-neutral-300);
+  --brand-surface-variant: var(--brand-neutral-100);
 
-  /* --- Primary (coral-orange) --- */
-  --brand-primary: #F75440;
+  --brand-on-surface: var(--brand-neutral-950);
+  --brand-on-surface-variant: var(--brand-neutral-600);
+
+  --brand-inverse-surface: #0b0b0a;
+  --brand-inverse-on-surface: #f5f5f3;
+  --brand-inverse-surface-elevated: #141413;
+
+  --brand-outline: var(--brand-neutral-400);
+  --brand-outline-variant: var(--brand-neutral-200);
+
+  /* Primary = coral (accent). Buttons use secondary/ink instead. */
+  --brand-primary: var(--brand-coral-500);
   --brand-on-primary: #ffffff;
-  --brand-primary-container: #F75440;
-  --brand-on-primary-container: #fffbff;
-  --brand-inverse-primary: #ffb4a8;
-  --brand-surface-tint: #F75440;
-  --brand-primary-fixed: #ffdad4;
-  --brand-primary-fixed-dim: #ffb4a8;
-  --brand-on-primary-fixed: #410000;
-  --brand-on-primary-fixed-variant: #920401;
+  --brand-primary-container: var(--brand-coral-100);
+  --brand-on-primary-container: var(--brand-coral-800);
+  --brand-inverse-primary: var(--brand-coral-400);
+  --brand-surface-tint: var(--brand-coral-500);
+  --brand-primary-fixed: var(--brand-coral-100);
+  --brand-primary-fixed-dim: var(--brand-coral-300);
+  --brand-on-primary-fixed: var(--brand-coral-900);
+  --brand-on-primary-fixed-variant: var(--brand-coral-700);
 
-  /* --- Secondary (near-black green) --- */
-  --brand-secondary: #000a07;
+  /* Secondary = ink (primary buttons) */
+  --brand-secondary: var(--brand-neutral-950);
   --brand-on-secondary: #ffffff;
-  --brand-secondary-container: #bdd9c8;
-  --brand-on-secondary-container: #2a4034;
-  --brand-secondary-fixed: #000a07;
-  --brand-secondary-fixed-dim: #a3c0ad;
+  --brand-secondary-container: var(--brand-neutral-200);
+  --brand-on-secondary-container: var(--brand-neutral-900);
+  --brand-secondary-fixed: var(--brand-neutral-950);
+  --brand-secondary-fixed-dim: var(--brand-neutral-700);
   --brand-on-secondary-fixed: #ffffff;
-  --brand-on-secondary-fixed-variant: #2a4034;
+  --brand-on-secondary-fixed-variant: var(--brand-neutral-300);
 
-  /* --- Tertiary (teal) --- */
-  --brand-tertiary: #00666b;
+  --brand-tertiary: var(--brand-verified);
   --brand-on-tertiary: #ffffff;
-  --brand-tertiary-container: #008287;
-  --brand-on-tertiary-container: #f4ffff;
-  --brand-tertiary-fixed: #81f4fb;
-  --brand-tertiary-fixed-dim: #63d7de;
-  --brand-on-tertiary-fixed: #002022;
-  --brand-on-tertiary-fixed-variant: #004f53;
+  --brand-tertiary-container: #d8f3eb;
+  --brand-on-tertiary-container: #0a3d32;
+  --brand-tertiary-fixed: #d8f3eb;
+  --brand-tertiary-fixed-dim: #8fd4c0;
+  --brand-on-tertiary-fixed: #0a3d32;
+  --brand-on-tertiary-fixed-variant: #146b56;
 
-  /* --- Error / status --- */
-  --brand-error: #ba1a1a;
+  --brand-error: var(--brand-alarm);
   --brand-on-error: #ffffff;
-  --brand-error-container: #ffdad6;
-  --brand-on-error-container: #93000a;
+  --brand-error-container: #ffe2df;
+  --brand-on-error-container: #5c100c;
 
-  /* --- Background --- */
-  --brand-background: #f7faf5;
-  --brand-on-background: #191c1a;
+  --brand-background: var(--brand-neutral-25);
+  --brand-on-background: var(--brand-neutral-950);
+
+  /* Link colour on light (AA) */
+  --brand-link: var(--brand-coral-600);
+
+  /* Glow for hero product frame */
+  --brand-hero-glow: color-mix(in srgb, var(--brand-coral-500) 6%, transparent);
+
+  /* Type scale */
+  --type-display-xl: clamp(2.75rem, 6vw, 5rem);
+  --type-display-l: clamp(2.25rem, 4.5vw, 3.5rem);
+  --type-h2: clamp(1.875rem, 3.4vw, 2.75rem);
+  --type-h3: 1.5rem;
+  --type-h4: 1.125rem;
+  --type-body-l: 1.1875rem;
+  --type-body: 1.0625rem;
+  --type-small: 0.875rem;
+  --type-eyebrow: 0.75rem;
+  --type-stat: clamp(3.5rem, 8vw, 7rem);
+
+  /* Layout */
+  --container-max: 75rem;
+  --section-y: 8rem;
+  --section-y-md: 6rem;
+  --section-y-sm: 5rem;
+  --radius-card: 0.75rem;
+  --radius-control: 0.5rem;
 }

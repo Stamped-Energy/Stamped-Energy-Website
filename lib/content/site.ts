@@ -17,7 +17,7 @@ export const siteConfig = {
 } as const;
 
 export const navLinks: NavLink[] = [
-  { label: "What we improve", href: "/solutions", megaMenu: "solutions" },
+  { label: "Products", href: "/products", megaMenu: "products" },
   { label: "How it works", href: "/platform" },
   { label: "Industries", href: "/industries", megaMenu: "industries" },
   {
@@ -30,11 +30,10 @@ export const navLinks: NavLink[] = [
 ];
 
 export const footerLinks = {
-  solutions: [
-    { label: "Process", href: "/solutions/process" },
-    { label: "Quality", href: "/solutions/quality" },
-    { label: "Planning", href: "/solutions/planning" },
-    { label: "Maintenance", href: "/solutions/maintenance" },
+  products: [
+    { label: "Quelta", href: "/products/process-quality" },
+    { label: "Orrery", href: "/products/ask" },
+    { label: "Scheduling", href: "/products/scheduling" },
     { label: "How it works", href: "/platform" },
   ],
   industries: [

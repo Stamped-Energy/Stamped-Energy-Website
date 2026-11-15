@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 export type SimpleNavDropdownItem = {
   label: string;
   href: string;
+  badge?: string;
 };
 
 type SimpleNavDropdownProps = {
@@ -123,10 +124,15 @@ export function SimpleNavDropdown({
                 key={item.href}
                 href={item.href}
                 role="menuitem"
-                className="block px-4 py-2.5 font-display text-[0.78rem] font-semibold uppercase tracking-[0.03em] text-on-surface/80 transition-colors hover:bg-primary/8 hover:text-primary"
+                className="flex items-center justify-between gap-3 px-4 py-2.5 font-display text-[0.78rem] font-semibold uppercase tracking-[0.03em] text-on-surface/80 transition-colors hover:bg-primary/8 hover:text-primary"
                 onClick={closeMenuNow}
               >
-                {item.label}
+                <span>{item.label}</span>
+                {item.badge ? (
+                  <span className="shrink-0 text-[0.65rem] font-medium normal-case tracking-normal text-on-surface-variant">
+                    {item.badge}
+                  </span>
+                ) : null}
               </Link>
             ))}
           </div>
@@ -169,10 +175,15 @@ export function SimpleNavMobileAccordion({
             <li key={item.href}>
               <Link
                 href={item.href}
-                className="block py-2.5 font-display text-[0.78rem] font-semibold uppercase tracking-[0.03em] text-on-surface/75 transition-colors hover:text-primary"
+                className="flex items-center justify-between gap-3 py-2.5 font-display text-[0.78rem] font-semibold uppercase tracking-[0.03em] text-on-surface/75 transition-colors hover:text-primary"
                 onClick={onNavigate}
               >
-                {item.label}
+                <span>{item.label}</span>
+                {item.badge ? (
+                  <span className="shrink-0 text-[0.65rem] font-medium normal-case tracking-normal text-on-surface-variant">
+                    {item.badge}
+                  </span>
+                ) : null}
               </Link>
             </li>
           ))}

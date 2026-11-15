@@ -60,13 +60,18 @@
   --color-background: var(--brand-background);
   --color-on-background: var(--brand-on-background);
 
-  /* Typography: Space Grotesk (display) + Inter (body) + IBM Plex Mono (labels) */
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+  /* Typography v4: Geist Sans (display + body) + Geist Mono (eyebrows / data) */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
   --font-family-sans: var(--font-sans);
   --font-family-display: var(--font-display);
   --font-family-mono: var(--font-mono);
+
+  --color-link: var(--brand-link);
+  --color-ink: var(--brand-inverse-surface);
+  --color-ink-elevated: var(--brand-inverse-surface-elevated);
+  --color-verified: var(--brand-verified);
 }
 
 @layer base {
@@ -84,7 +89,7 @@
     background-color: var(--color-surface);
     color: var(--color-on-surface);
     font-family: var(--font-family-sans);
-    font-size: 1rem;
+    font-size: var(--type-body);
     line-height: 1.65;
     letter-spacing: 0;
     -webkit-font-smoothing: antialiased;
@@ -100,6 +105,15 @@
     letter-spacing: -0.025em;
     line-height: 1.12;
     font-weight: 600;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  .container-page {
+    max-width: var(--container-max);
   }
 
   ::selection {

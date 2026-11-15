@@ -24,6 +24,20 @@ export {
   type SolutionArea,
   type SolutionAreaSlug,
 } from "./solutions";
+export {
+  productsContent,
+  allProducts,
+  getProduct,
+  getLiveProducts,
+  getProductByName,
+  isProductSlug,
+  PRODUCT_SLUGS,
+  type Product,
+  type ProductSlug,
+  type ProductStatus,
+  type ProductNavItem,
+  type ProductsContent,
+} from "./products";
 export { footerLinks, navLinks, siteConfig } from "./site";
 export type * from "./types";
 export type { CaseStudyCategory, CaseStudyDetail } from "./caseStudies";

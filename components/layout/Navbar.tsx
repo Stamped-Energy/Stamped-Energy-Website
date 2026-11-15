@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 import { IndustriesMegaMenu, IndustriesMobileNav } from "@/components/layout/IndustriesMegaMenu";
 import { NavLinkItem } from "@/components/layout/NavLinkItem";
+import { ProductsMegaMenu, ProductsMobileNav } from "@/components/layout/ProductsMegaMenu";
 import { SolutionsMegaMenu, SolutionsMobileNav } from "@/components/layout/SolutionsMegaMenu";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -21,6 +22,9 @@ function DesktopNavLink({
   link: (typeof navLinks)[number];
   lightNav: boolean;
 }) {
+  if (link.megaMenu === "products") {
+    return <ProductsMegaMenu lightNav={lightNav} />;
+  }
   if (link.megaMenu === "solutions") {
     return <SolutionsMegaMenu lightNav={lightNav} />;
   }
@@ -37,6 +41,9 @@ function MobileNavLink({
   link: (typeof navLinks)[number];
   onNavigate: () => void;
 }) {
+  if (link.megaMenu === "products") {
+    return <ProductsMobileNav onNavigate={onNavigate} />;
+  }
   if (link.megaMenu === "solutions") {
     return <SolutionsMobileNav onNavigate={onNavigate} />;
   }

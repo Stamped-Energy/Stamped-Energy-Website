@@ -39,14 +39,19 @@ const nextConfig: NextConfig = {
         destination: "/case-studies",
         permanent: true,
       },
-      // Copy v3 (ADR-033): old solution pillars map to the new improvement areas.
-      { source: "/solutions/load-energy", destination: "/solutions/process", permanent: true },
-      { source: "/solutions/energy", destination: "/solutions/process", permanent: true },
-      { source: "/solutions/control", destination: "/solutions/process", permanent: true },
-      { source: "/solutions/production", destination: "/solutions/planning", permanent: true },
+      // v4 (ADR-050): /solutions → /products in one hop (legacy energy pillars included).
+      { source: "/solutions", destination: "/products", permanent: true },
+      { source: "/solutions/process", destination: "/products/process-quality", permanent: true },
+      { source: "/solutions/quality", destination: "/products/process-quality", permanent: true },
+      { source: "/solutions/maintenance", destination: "/products/process-quality", permanent: true },
+      { source: "/solutions/planning", destination: "/products/scheduling", permanent: true },
+      { source: "/solutions/load-energy", destination: "/products/process-quality", permanent: true },
+      { source: "/solutions/energy", destination: "/products/process-quality", permanent: true },
+      { source: "/solutions/control", destination: "/products/process-quality", permanent: true },
+      { source: "/solutions/production", destination: "/products/scheduling", permanent: true },
       {
         source: "/solutions/equipment-intelligence",
-        destination: "/solutions/maintenance",
+        destination: "/products/process-quality",
         permanent: true,
       },
       // Legacy blog slugs → the published posts (one hop, no chains).

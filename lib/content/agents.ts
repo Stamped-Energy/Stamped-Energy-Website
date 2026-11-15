@@ -241,19 +241,10 @@ export const agentAreas: AgentArea[] = [
             name: "Groups similar work",
             line: "Jobs that share a setting or a clean-down are put back to back, so less time goes to set-ups.",
           },
-          {
-            id: "handover",
-            name: "Writes the shift handover",
-            line: "What changed this shift is written up for the next one.",
-          },
-          {
-            id: "orders",
-            name: "Answers where an order is",
-            line: "Ask where an order is and when it will ship, and the answer comes from your plant's own records.",
-          },
         ],
       },
     ],
+    // Shift handover + order lookup: productsContent.orrery.writesAndWatches (v4).
     ownership: "Promise dates, customer priority and dispatch order stay with your planner.",
     homeSample: {
       tag: "Planning · Time lost to set-ups",

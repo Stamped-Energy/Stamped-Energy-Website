@@ -2,7 +2,7 @@ export type NavLink = {
   label: string;
   href: string;
   external?: boolean;
-  megaMenu?: "industries" | "solutions";
+  megaMenu?: "industries" | "products" | "solutions";
   /** Extra path prefixes that mark this nav item active (e.g. blog articles under Resources). */
   activePrefixes?: string[];
 };
