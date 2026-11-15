@@ -1,40 +1,24 @@
-# Phase 1 Completion — CMS rich-text H1
+# PHASE_1_COMPLETION — Design research
 
-## Completed work
+**Date:** 2026-11-15  
+**Branch:** `redesign/v4-products`
 
-- TipTap rich extensions allow heading levels 1–3
-- Admin editor toolbar includes an H1 control
-- Published/editor CSS styles `h1` larger than `h2` (including mobile reading view)
-- Markdown import accepts `#` headings
-- FAQ extractors accept H1 question headings
-- Blog and case-study AI writer prompts allow `#` sparingly
+## Completed
+
+- Wrote `docs/design/v4-direction.md` with reference table (Linear, Vercel, Resend, Mintlify, Cal, Retool/Hex, Anduril, Haber, current stamped.work), anti-patterns, colour/type rationale, per-band pattern map, demo capture list, checkpoint gate.
+- Live-fetched Linear and stamped.work to ground “keep vs replace” notes.
+- Confirmed demo screenshot inventory path for Phase 2 captures.
 
 ## Files modified
 
-- `lib/rich-content/document.ts`
-- `components/rich-content/RichArticleEditor.tsx`
-- `styles/rich-article.css`
-- `components/blog/BlogMarkdown.tsx`
-- `lib/seo/extract-faq.ts`
-- `lib/blog/ai-workflow.ts`
-- `lib/case-studies/ai-workflow.ts`
-- `DECISIONS.md`, `PROGRESS.md`, `PROJECT_OVERVIEW.md`
+- `docs/design/v4-direction.md` (new)
+- `PHASE_1_COMPLETION.md` (this file)
 
-## Architectural changes
+## Validation
 
-None. Shared rich-content stack only; no new dependencies.
+- Direction aligns with ADR-051 and plan §4–§6
+- Browser-use Task subagent unavailable in this environment; research via WebFetch + plan references + prior Haber fetch
 
-## Validation performed
+## Next
 
-- Markdown→rich parse smoke test: levels `[1, 2, 3]`
-- `npm run lint` — pass (pre-existing warnings only)
-- `npm run build` — pass (expected `DATABASE_URL` soft failures in this environment)
-
-## Known issues
-
-- Body H1s can coexist with the page title H1 (accepted per request)
-- Local build lacks `DATABASE_URL`; CI should supply it
-
-## Next phase objectives
-
-- Push branch, open PR, confirm GitHub CI green
+Phase 2: tokens, Geist, contrast script, primitives, `/design-system`, demo captures, hero/products checkpoint.
