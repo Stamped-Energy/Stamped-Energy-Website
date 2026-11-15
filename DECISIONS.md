@@ -843,3 +843,61 @@ Architecture and workflow decisions for this project.
 **Impact:** One paint path for animated chrome; no change to copy, SEO metadata, or animation timing tokens.
 
 - 30 Oct 2026: Public contact address switched from `stamped.energy@gmail.com` to `contact@stamped.work`, routed via Cloudflare Email Routing. Contact-form notify recipients and the `CONTACT_FROM_EMAIL` sender stay on gmail until stamped.work is verified in Resend.
+
+## ADR-050: Two-product structure (Quelta and Orrery) and URL slugs
+
+**Date:** 2026-11-15
+
+**Context:** The long-term product doc (15 Nov 2026) defines two products sold separately: Process and Quality (with maintenance flags inside) as the main pitch, and Ask as a specialised chat agent. Scheduling is coming soon on the site; Machining stays off. The live site still shows four "What we improve" areas with Planning live and no Ask.
+
+**Alternatives:** (1) Keep four areas. (2) Two products with coined names and descriptive URL slugs. (3) Two products named only with descriptors.
+
+**Selected:** Option 2. Product names **Quelta** (descriptor: Process and Quality) and **Orrery** (descriptor: Ask). URL slugs stay descriptive: `/products`, `/products/process-quality`, `/products/ask`, `/products/scheduling` (noindex). Names live in `lib/content/products.ts` so a rename is one change. `/solutions` and area routes 308 to the new URLs in one hop. Maintenance merges into Quelta; Planning becomes Scheduling coming soon.
+
+**Rationale:** Matches the 15 Nov product lineup, keeps URLs stable if names change after trademark clearance, and stops selling four areas as if they were products.
+
+**Impact:** Nav, footer, mega menus, homepage Products band, SEO, redirects, agents content.
+
+## ADR-051: Design system v4 (clean modern YC-style)
+
+**Date:** 2026-11-15
+
+**Context:** The site needed a polished, recently-funded look. Existing tokens (ADR-010 flat theme, ADR-014 Helvetica, ADR-016 CVector chrome, ADR-017 Space Grotesk) conflicted with the product UI (Geist) and with accessibility (coral `#F75440` on white fails AA for body text).
+
+**Alternatives:** (1) Evolve current tokens only. (2) Full redesign keeping coral and logo only. (3) Dark-only Linear clone.
+
+**Selected:** Option 2. Warm off-white canvas, near-black ink bands, coral as 10% accent only. OKLCH neutral ramp tinted toward coral. Coral-600 for links on light; ink primary buttons (never coral fill with white text). Geist Sans + Geist Mono site-wide. Hairline borders, bento grids, product frames with real UI. Supersedes ADR-010, 014, 016, 017 for visual system. New `DESIGN.md` written from the finished site in Phase 9.
+
+**Rationale:** Colour theory (60-30-10, near-complement teal for verified), WCAG AA, and brand alignment with the demo console.
+
+**Impact:** `styles/theme.css`, `app/layout.tsx`, `docs/design/*`, all section components.
+
+## ADR-052: Homepage nine bands and retired motion slots
+
+**Date:** 2026-11-15
+
+**Context:** Homepage repeated "data to action" across Problem, What Stamped does, Ladder, How it works and Impact, with abstract MotionSlots and no product cards.
+
+**Selected:** Nine bands: Hero (dark) · Outcomes · Products · How it works (pinned, product screens) · For every role · Vision ladder · Industries · Resources · FAQ + closing. Retire HomeProblem, HomeWhatIs, HomeLadder, HomeImpact, HomeSolutionsRows, HomeAgents and slots A01–A04, A09–A12. Keep HIW pin pattern with new frames. Animation backlog marked superseded.
+
+**Impact:** `app/(home)/page.tsx`, `components/sections/*`, `components/motion-slots/*`, motion backlog doc.
+
+## ADR-053: Trust strip and outcome claims
+
+**Date:** 2026-11-15
+
+**Context:** Site had no partner badges and no approved outcome figures. Long-term doc allows upwards of 30% fewer rejections and upwards of 10% lower energy costs with "Seen across plants using Stamped." Founders chose "Backed by" for NVIDIA Inception and AWS for Startups.
+
+**Selected:** Hero trust strip labelled "Backed by" with both badges. Outcomes band uses the approved "upwards of" figures and caption. Both trust lines ship: mechanism ("limits set beforehand") and promise ("recommends and your team decides"). Ban "prescriptive intelligence". Update VOICE_AND_CLAIMS to allow these fleet-framed claims with the caption.
+
+**Impact:** Hero, About, footer, VOICE_AND_CLAIMS, SEO Organization schema.
+
+## ADR-054: Agent research and review gates
+
+**Date:** 2026-11-15
+
+**Context:** A full redesign needs external visual research and independent finish review, not only implementer judgment.
+
+**Selected:** Phase 1 browser research into `docs/design/v4-direction.md`. Phase 5 homepage agent review (screenshots at four widths, Impeccable finish review, plant-head/quality-head persona). Phase 8 full-site review. Phase 9 Impeccable documenter writes DESIGN.md from the shipped artifact. Phase 2 visual checkpoint remains a human approval gate.
+
+**Impact:** Process only; review reports under `docs/design/reviews/`.

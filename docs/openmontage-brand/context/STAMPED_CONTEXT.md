@@ -2,12 +2,40 @@
 
 **Read this first.** Deep sources live in `sources/`. Prefer this file for scripting unless you need a quote, ICP table, or architecture detail.
 
-**Synced from:** Master Document v1.6 (Aug 2026), Client Narrative v1, Two-Pillar v1, PRODUCT.md, ICP v3.  
+**Synced from:** Long-term product and positioning (15 Nov 2026), website v4 plan (ADR-050..054), Master Document heritage.  
 **Honesty:** `[~]` = approximate / benchmark · `[!]` = evolving — verify before customer use.
 
 ---
 
-## Identity
+## Identity (v4 — current public)
+
+| Field | Value |
+|-------|--------|
+| Company | **Stamped** (legal: Stamped Energy) |
+| Products | **Quelta** (Process and Quality, with maintenance flags) · **Orrery** (Ask) · **Scheduling** coming soon |
+| Site | https://stamped.work |
+| Contact | contact@stamped.work |
+| Founders | Vinayak Raizada (Co-Founder & CTO), Utso Sarkar (Co-Founder & CEO) — IIT Roorkee |
+| Mission | Making industrial plants smarter. |
+| Category | Industrial AI / AI for plant operations |
+
+**One-line position:** AI for plant operations. Joins the records Indian manufacturing plants already keep, finds why parts fail, and recommends changes the plant’s team approves. Stamped recommends and your team decides. Quelta and Orrery are sold separately.
+
+**Public site hero (locked):** badge *Industrial AI* · H1 *From monitoring your plant to improving it.*
+
+**Copy SSOT:** `docs/copy/v4-copy-deck.md` → live `lib/content/` (`products.ts`, `landing.ts`, `site.ts`, `about.ts`, …). Claims firewall: `VOICE_AND_CLAIMS.md`.
+
+**Rupee compounds:** Write **rupee-scored**, **rupee-ranked**. Never `₹-scored` / `₹-ranked`. Keep `₹` on amounts.
+
+---
+
+## Heritage note (pre-v4)
+
+Sections below retain energy-era / two-pillar language for OpenMontage and older scripts. **Do not restore them on the public marketing site.** Prefer the Identity (v4) block and the v4 copy deck for stamped.work.
+
+---
+
+## Identity (legacy — do not use on site)
 
 | Field | Value |
 |-------|--------|
@@ -17,15 +45,15 @@
 | Contact | contact@stamped.work |
 | Founders | Vinayak Raizada, Utso Sarkar (IIT Roorkee) |
 
-**One-line position:** A **read-only operational decision layer** for energy-intensive Indian manufacturers — managing **load and equipment in real time** via ML baselines and an **agentic prescription layer**, turning plant data into **assigned actions with ₹ impact**, **verified with evidence** (DISCOM bill confirmation optional). Does not replace EMS, MES, CMMS, or PLC control.
+**One-line position (legacy):** A **read-only operational decision layer** for energy-intensive Indian manufacturers — managing **load and equipment in real time** via ML baselines and an **agentic prescription layer**, turning plant data into **assigned actions with ₹ impact**, **verified with evidence** (DISCOM bill confirmation optional). Does not replace EMS, MES, CMMS, or PLC control.
 
 **Public origin frame:** *an intelligence layer for the industrial world.* Use this for About, customer, and VC “why we were built.” Keep rupee-scored / verified-with-evidence / read-only in product copy.
 
-**Public site tagline:** *AI-powered energy intelligence for industrial plants. rupee-scored prescriptions. Verified with evidence.*
+**Public site tagline (legacy):** *AI-powered energy intelligence for industrial plants. rupee-scored prescriptions. Verified with evidence.*
 
-**GTM category:** Verified-with-evidence operational decision layer. Enemy: **insight without closure** (dashboards and audits that never become assigned actions with evidence-backed ₹).
+**GTM category (legacy):** Verified-with-evidence operational decision layer. Enemy: **insight without closure** (dashboards and audits that never become assigned actions with evidence-backed ₹).
 
-**Copy SSOT:** Live public pages → Main_Website `lib/content/` (`about.ts`, `landing.ts`, `solutions.ts`, `site.ts`). Portable twin for other repos → `external/brand/` (`COPY_CANON.md`, `WEBSITE_COPY.md`). Prefer live strings or close paraphrases. Do not invent a different origin.
+**Copy SSOT (legacy):** Live public pages → Main_Website `lib/content/` (`about.ts`, `landing.ts`, `solutions.ts`, `site.ts`). Portable twin for other repos → `external/brand/` (`COPY_CANON.md`, `WEBSITE_COPY.md`). Prefer live strings or close paraphrases. Do not invent a different origin.
 
 **Rupee compounds:** Write **rupee-scored**, **rupee-ranked**, **rupee-scores**, **rupee-ranks**. Never `₹-scored` / `₹-ranked`. Keep the symbol on amounts (`₹2-5L`) and on “₹ impact”.
 

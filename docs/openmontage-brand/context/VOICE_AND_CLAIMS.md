@@ -25,20 +25,28 @@ Agents **must** follow this before writing narration, on-screen text, or image p
 
 ## Allowed claims
 
-- Read-only overlay on meters, SCADA/PLC/EMS, bills, optional order context.
-- Two pillars: Industry Energy Management; Asset Health Intelligence.
-- Loop: Connect → Observe → Decide → Execute → Verify → Improve.
-- Outcomes **verified with evidence** from Stamped’s tracking stack.
-- DISCOM bill confirmation is **optional**.
+- Read-only overlay on meters, SCADA/PLC/EMS, bills, optional order context. Quelta / Orrery: join records the plant already keeps; Orrery changes nothing at launch.
+- **Products (v4, ADR-050):** Quelta (Process and Quality, with maintenance flags); Orrery (Ask). Scheduling coming soon. Sold separately.
+- Trust lines (both): “Stamped works inside limits set beforehand.” · “Stamped recommends and your team decides.”
+- Loop: Connect → Watch → Explain → Test and approve → Prove (public How it works). Improve / self-improving language stays on `/platform`.
+- Outcomes **verified with evidence** from the plant’s own matched batches.
+- **Approved fleet-framed figures (ADR-053):** “upwards of 30% fewer rejections” and “upwards of 10% lower energy costs”, always with the caption **“Seen across plants using Stamped.”** Do not drop the caption. Do not invent other % figures.
+- Mission: “Making industrial plants smarter.”
+- Trust strip: “Backed by” NVIDIA Inception and AWS for Startups (founder-accepted wording).
+- DISCOM bill confirmation is **optional** (energy heritage; not a Quelta hero claim).
 - Operators remain in control; agentic layer recommends.
-- Indicative savings ranges **only** with clear “benchmark / pilot replaces with plant figures” framing.
+- Indicative savings ranges **only** with clear “benchmark / pilot replaces with plant figures” framing, except the two approved “upwards of” lines above.
 - ICP Band A: plants with **≥ ₹30 lakh/month** electricity (Master/ICP authoritative for GTM video).
 
 ---
 
 ## Forbidden claims
 
-- Invented fleet metrics, fake customer logos, or named savings as if proven on Stamped customers without evidence language.
+- Invented fleet metrics beyond the two approved “upwards of” lines, fake customer logos, or named savings as if proven without the caption.
+- The **17%** figure, prices, client names.
+- “Prescriptive intelligence” (brochure ban). Prefer “maintenance flags with a suggested fix.” “Prescriptive maintenance” only in metadata, keywords, or one FAQ answer.
+- Hosting or model vendor names on the Orrery / Ask page.
+- Machining as a named product on the marketing site.
 - “Bill-verified” as the hero when only ops/calculated ledger exists.
 - EMS / SCADA / PLC **replacement**.
 - MES / CMMS / plant OS / OEE product.
@@ -46,7 +54,7 @@ Agents **must** follow this before writing narration, on-screen text, or image p
 - CVector (or any competitor) metrics, dollar figures, or brand as Stamped. **Exception:** the origin-story sentences in `STAMPED_CONTEXT.md` / `lib/content/about.ts` (conviction, plant-decision moves, “what was missing…”, “for years such a system was impossible”, intelligence layer for the industrial world) are approved Stamped copy. Do not paste other CVector pages, metrics, or “economic intelligence layer” as a category name.
 - “AI is learning about you” for the Improve step.
 - National conglomerate “already deployed at Tata/Mahindra group” style overclaim.
-- Guaranteed % without `[~]` / indicative framing.
+- Guaranteed % without “upwards of” + caption, or without `[~]` / indicative framing for other numbers.
 
 ---
 

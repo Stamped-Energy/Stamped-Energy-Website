@@ -2,6 +2,27 @@
 
 ## Current Phase
 
+**Website v4 products overhaul (ADR-050..054)** on branch `redesign/v4-products`.
+
+| Phase | Status |
+|-------|--------|
+| 0 Plan, ADRs, copy deck, canon | In progress → complete this commit |
+| 1 Agent design research | Next |
+| 2 Design system + visual checkpoint | Pending |
+| 3 IA, products content, redirects | Pending |
+| 4 Homepage nine bands | Pending |
+| 5 Agent review A | Pending |
+| 6 Product pages + mascot | Pending |
+| 7 Secondary pages | Pending |
+| 8 Agent review B + SEO | Pending |
+| 9 Final QA, DESIGN.md, PR | Pending |
+
+Copy SSOT: `docs/copy/v4-copy-deck.md`. Products: Quelta, Orrery; Scheduling coming soon.
+
+---
+
+## Previous focus (still shipped on main)
+
 **Self-improving system on the site (ADR-042):** `/platform` has a new section, "A system that gets better every week.", with its own animation, and an "Ask your plant" item; How it works mentions the once-a-shift sweep; the homepage calls Stamped a self-improving agentic system, says the models retrain on each result, and adds the FAQ "Does Stamped get better over time?".
 
 **Motion, mobile and solution pages (ADR-041):** the What Stamped does animation resumes instead of replaying after scrolling away; How it works and `/platform` no longer run past a phone screen; solution pages have two-sentence intros, four example actions each and a new "How Stamped ..." section with an animation per area.

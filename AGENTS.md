@@ -2,13 +2,20 @@
 
 ## Project
 
-Main website for Stamped Energy. Design tokens and brand direction live in `docs/design/brand-tokens.md`.
+Main website for Stamped. Design system v4 lives in `docs/design/` (`v4-direction.md` during redesign; `DESIGN.md` after Phase 9). Tokens: `styles/theme.css`.
+
+## Active redesign
+
+Branch `redesign/v4-products` (ADR-050..054). Products: **Quelta** (Process and Quality) and **Orrery** (Ask); Scheduling coming soon. Copy deck: `docs/copy/v4-copy-deck.md`. Do not restore four-area "What we improve" IA or retired MotionSlots A01–A04 / A09–A12.
 
 ## Copy SSOT
 
-Public homepage, solutions, and About copy live in `lib/content/` (`landing.ts`, `solutions.ts`, `about.ts`, `site.ts`). Transcript: `docs/website-copy.md`. Distilled canon: `docs/openmontage-brand/context/STAMPED_CONTEXT.md` + `VOICE_AND_CLAIMS.md`. Portable twin for other repos: `external/brand/`.
+1. `docs/copy/v4-copy-deck.md` (locked intent)
+2. Live `lib/content/` (`products.ts`, `landing.ts`, `site.ts`, `about.ts`, `platform.ts`, `contact.ts`, …)
+3. Claims: `docs/openmontage-brand/context/VOICE_AND_CLAIMS.md`
+4. Identity: `docs/openmontage-brand/context/STAMPED_CONTEXT.md` (use the **v4** Identity block)
 
-When writing customer-facing copy: use that voice (or close paraphrases). Do not restore superseded About hero *Your plant has the data. It lacks the decision layer.* Write **rupee-scored** / **rupee-ranked**, never `₹-scored` / `₹-ranked`. Keep `₹` on amounts.
+When writing customer-facing copy: use that voice (or close paraphrases). Do not restore superseded About hero *Your plant has the data. It lacks the decision layer.* Write **rupee-scored** / **rupee-ranked**, never `₹-scored` / `₹-ranked`. Keep `₹` on amounts. No em dashes. No "prescriptive intelligence". Outcome figures always with "Seen across plants using Stamped."
 
 ## Workflow Orchestration
 
@@ -31,16 +38,18 @@ Before completion:
 | File | Purpose |
 |------|---------|
 | `PROJECT_OVERVIEW.md` | Purpose, architecture, constraints |
-| `IMPLEMENTATION_PLAN.md` | Approved plan and phases |
-| `DECISIONS.md` | Architecture decision log |
+| `IMPLEMENTATION_PLAN.md` | Approved plan and phases (v4 at top) |
+| `DECISIONS.md` | Architecture decision log (ADR-050+) |
 | `PROGRESS.md` | Current status and blockers |
-| `SEO_GEO_AEO.md` | SEO, GEO, and AEO implementation log and remaining checklist |
-| `docs/openmontage-brand/references/homepage-animation-backlog.md` | **Homepage MotionSlots** — A00–A12 + B01 shipped. Twin: OpenMontage `brand/stamped/references/…` |
-| `external/brand/` | Portable public copy canon for agents in the platform pack |
+| `SEO_GEO_AEO.md` | SEO, GEO, and AEO implementation log |
+| `docs/copy/v4-copy-deck.md` | Locked v4 marketing copy |
+| `docs/design/v4-direction.md` | Moodboard and design direction (Phase 1) |
+| `DESIGN.md` | Design system from finished site (Phase 9) |
+| `docs/openmontage-brand/references/homepage-animation-backlog.md` | **Superseded by ADR-052** — historical MotionSlots inventory |
 
-## Open work — homepage animations
+## Open work — website v4
 
-Hero (A00), problem (A01–A03), product (A04), How it works pin with stage visuals (A05–A08), solutions area loops (A09–A12) and Impact rule draw (B01) are shipped (ADR-036). Optional P1 polish is inventoried in [`docs/openmontage-brand/references/homepage-animation-backlog.md`](docs/openmontage-brand/references/homepage-animation-backlog.md). Status checkbox: `PROGRESS.md`.
+See `PROGRESS.md` and `IMPLEMENTATION_PLAN.md` (v4 header). Phases 0–9 on `redesign/v4-products`.
 
 ## Rule Activation
 
