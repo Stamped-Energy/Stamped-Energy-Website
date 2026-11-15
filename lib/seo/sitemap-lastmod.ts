@@ -2,17 +2,15 @@ import { execSync } from "node:child_process";
 
 /** ISO date fallback when git file history is unavailable at build (e.g. shallow Vercel clone). */
 export const STATIC_PAGE_LAST_MODIFIED_FALLBACK: Record<string, string> = {
-  "/": "2026-10-26",
-  "/platform": "2026-11-04",
-  "/solutions": "2026-11-04",
-  "/solutions/process": "2026-11-04",
-  "/solutions/quality": "2026-11-04",
-  "/solutions/planning": "2026-11-02",
-  "/solutions/maintenance": "2026-10-21",
-  "/about": "2026-10-08",
+  "/": "2026-11-15",
+  "/platform": "2026-11-15",
+  "/products": "2026-11-15",
+  "/products/process-quality": "2026-11-15",
+  "/products/ask": "2026-11-15",
+  "/about": "2026-11-15",
   "/case-studies": "2026-10-08",
-  "/contact": "2026-10-03",
-  "/industries": "2026-10-03",
+  "/contact": "2026-11-15",
+  "/industries": "2026-11-15",
   "/industries/automotive": "2026-11-04",
   "/industries/steel": "2026-10-03",
   "/industries/cement": "2026-10-03",
@@ -21,16 +19,15 @@ export const STATIC_PAGE_LAST_MODIFIED_FALLBACK: Record<string, string> = {
 };
 
 const PAGE_SEO_SOURCE = "lib/seo/pages.ts";
+const PRODUCTS_CONTENT = "lib/content/products.ts";
 
 /** Source files used to derive git last-modified for static marketing routes. */
 const STATIC_PAGE_SOURCES: Record<string, string[]> = {
-  "/": ["app/page.tsx", "lib/content/landing.ts", PAGE_SEO_SOURCE],
+  "/": ["app/(home)/page.tsx", "lib/content/landing.ts", PRODUCTS_CONTENT, PAGE_SEO_SOURCE],
   "/platform": ["app/platform/page.tsx", "lib/content/platform.ts", PAGE_SEO_SOURCE],
-  "/solutions": ["app/solutions/page.tsx", "lib/content/solutions.ts", PAGE_SEO_SOURCE],
-  "/solutions/process": ["app/solutions/[slug]/page.tsx", "lib/content/solutions.ts", PAGE_SEO_SOURCE],
-  "/solutions/quality": ["app/solutions/[slug]/page.tsx", "lib/content/solutions.ts", PAGE_SEO_SOURCE],
-  "/solutions/planning": ["app/solutions/[slug]/page.tsx", "lib/content/solutions.ts", PAGE_SEO_SOURCE],
-  "/solutions/maintenance": ["app/solutions/[slug]/page.tsx", "lib/content/solutions.ts", PAGE_SEO_SOURCE],
+  "/products": ["app/products/page.tsx", PRODUCTS_CONTENT, PAGE_SEO_SOURCE],
+  "/products/process-quality": ["app/products/[slug]/page.tsx", PRODUCTS_CONTENT, PAGE_SEO_SOURCE],
+  "/products/ask": ["app/products/[slug]/page.tsx", PRODUCTS_CONTENT, PAGE_SEO_SOURCE],
   "/about": ["app/about/page.tsx", "lib/content/about.ts"],
   "/case-studies": ["app/case-studies/page.tsx", "lib/content/caseStudies.ts"],
   "/contact": ["app/contact/page.tsx"],

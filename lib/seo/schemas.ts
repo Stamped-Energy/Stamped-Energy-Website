@@ -112,11 +112,14 @@ export const organizationSchema: WithContext<Organization> = {
     icp.seo.categoryLabel,
     "Process modelling and machine learning for manufacturing",
     "Manufacturing operational efficiency",
+    "Quelta",
+    "Orrery",
     "Process optimisation",
     "Predictive quality",
-    "Rejection reduction",
+    "Quality rejection reduction",
+    "AI agents for manufacturing",
+    "Ask",
     "Production planning",
-    "Predictive maintenance",
     "Plant energy use",
     "Forging",
     "Heat treatment",
@@ -522,6 +525,7 @@ export function buildBlogPostItemListSchema(
   };
 }
 
+/** Suite-level SoftwareApplication on the homepage (Stamped as a whole). */
 export const softwareApplicationSchema: WithContext<SoftwareApplication> = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -535,12 +539,62 @@ export const softwareApplicationSchema: WithContext<SoftwareApplication> = {
     "@id": ORGANIZATION_ID,
   },
   featureList: [
+    "Quelta for process and quality, with maintenance flags when a machine drifts",
+    "Orrery Ask — AI agent for manufacturing grounded in plant records",
     "Models trained on each plant's own history",
-    "Real-time quality alerts and prescriptive maintenance",
     "Connects to machines, control systems, meters, ERP and quality registers",
-    "Ranked actions that say who should act, by when, and why",
-    "Actions sent on WhatsApp or on screen",
-    "Results checked with the plant team",
+    "Energy counted in every recommended action",
+    "Stamped recommends and your team decides",
+  ],
+};
+
+/** Quelta — Process and Quality (v4 product). */
+export const queltaSoftwareApplicationSchema: WithContext<SoftwareApplication> = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "@id": `${SITE_URL}/products/process-quality#software`,
+  name: "Quelta",
+  alternateName: ["Quelta Process and Quality", "Stamped Quelta"],
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Web browser",
+  url: absoluteUrl("/products/process-quality"),
+  description:
+    "Quelta joins every machine record to the result of each part, flags drift while a lot can still be saved, and proves each gain in your own numbers.",
+  provider: {
+    "@id": ORGANIZATION_ID,
+  },
+  featureList: [
+    "One record for every part from machine, lot and lab history",
+    "Early warning while a lot can still be saved",
+    "Likely causes ranked with the records behind them",
+    "Test on a model before the line",
+    "Proof against matched batches, energy per good part included",
+    "Maintenance flags with a suggested fix when a machine drifts",
+  ],
+};
+
+/** Orrery — Ask (v4 product). */
+export const orrerySoftwareApplicationSchema: WithContext<SoftwareApplication> = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "@id": `${SITE_URL}/products/ask#software`,
+  name: "Orrery",
+  alternateName: ["Orrery Ask", "Stamped Orrery", "Ask"],
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Web browser",
+  url: absoluteUrl("/products/ask"),
+  description:
+    "Orrery is Ask for manufacturing: chat with an AI agent grounded in your plant's own records. It reads only and names the evidence behind every answer.",
+  provider: {
+    "@id": ORGANIZATION_ID,
+  },
+  featureList: [
+    "Answers from your plant's own records with evidence",
+    "Ask about a batch, line, machine or shift",
+    "Says so when the records do not hold the answer",
+    "Writes shift handover and watches alert rules you define",
+    "Reads only — Orrery changes nothing on the line",
+    "With Quelta installed, draws on its models and likely causes",
   ],
 };
 

@@ -1,4 +1,4 @@
-/** Canonical title tags, meta descriptions, and per-page keywords. Copy canon: Stamped copy v3 (3 Oct 2026). */
+/** Canonical title tags, meta descriptions, and per-page keywords. Copy canon: website v4 (Quelta / Orrery). */
 
 import { SOLUTION_AREA_PRODUCT_LINE_TITLE } from "@/lib/seo/brand";
 
@@ -7,6 +7,11 @@ export type PageSeoConfig = {
   description: string;
   path: string;
   keywords?: readonly string[];
+  /** When set, applied by `buildPageMetadataFromConfig` (e.g. coming-soon Scheduling). */
+  robots?: {
+    index?: boolean;
+    follow?: boolean;
+  };
 };
 
 const HOW_IT_WORKS_SEO = {
@@ -30,23 +35,80 @@ export const PAGE_SEO = {
   home: {
     absoluteTitle: "Stamped | Industrial AI from monitoring to improving",
     description:
-      "Stamped models your processes and equipment from the data you already log, finds where output, quality and energy are lost, and recommends the fix.",
+      "Quelta improves process and quality from data you already log. Orrery answers Ask questions from the same record. Energy is counted in every action.",
     path: "/",
     keywords: [
       "AI for plant operations",
       "manufacturing operational efficiency India",
-      "reduce rejection manufacturing",
-      "predictive quality manufacturing India",
-      "process optimisation manufacturing",
-      "throughput and bottleneck reduction",
+      "process optimisation",
+      "quality rejection reduction",
       "AI agents for manufacturing",
-      "plant-floor decision-making",
+      "Ask",
+      "prescriptive maintenance",
+      "reduce rejection manufacturing",
       "auto component manufacturing software",
     ],
   },
   platform: HOW_IT_WORKS_SEO,
   /** @deprecated Use PAGE_SEO.platform. Kept for transitional imports. */
   howItWorks: HOW_IT_WORKS_SEO,
+  products: {
+    absoluteTitle: "Products | Quelta and Orrery | Stamped",
+    description:
+      "Quelta improves how every line runs. Orrery answers questions about it. Each is sold on its own, with energy counted in every recommended action.",
+    path: "/products",
+    keywords: [
+      "Quelta",
+      "Orrery",
+      "process optimisation",
+      "quality rejection reduction",
+      "AI agents for manufacturing",
+      "Ask",
+      "industrial AI products",
+    ],
+  },
+  productsProcessQuality: {
+    absoluteTitle: "Quelta | Process and Quality | Stamped",
+    description:
+      "Quelta joins every machine record to the result of each part, flags drift while a lot can still be saved, and proves each gain in your own numbers.",
+    path: "/products/process-quality",
+    keywords: [
+      "Quelta",
+      "process optimisation",
+      "quality rejection reduction",
+      "predictive quality manufacturing",
+      "AI agents for manufacturing",
+      "maintenance flags manufacturing",
+    ],
+  },
+  productsAsk: {
+    absoluteTitle: "Orrery | Ask | Stamped",
+    description:
+      "Orrery is Ask for manufacturing: chat with an AI agent grounded in your plant's own records. It reads only and names the evidence behind every answer.",
+    path: "/products/ask",
+    keywords: [
+      "Orrery",
+      "Ask",
+      "AI agents for manufacturing",
+      "plant data chat",
+      "manufacturing AI assistant",
+    ],
+  },
+  productsScheduling: {
+    absoluteTitle: "Scheduling | Coming soon | Stamped",
+    description:
+      "Scheduling is coming soon. It will re-sequence the shift after a stop or late delivery, with a named planner accepting each re-plan. Energy peaks stay in view.",
+    path: "/products/scheduling",
+    keywords: [
+      "production scheduling manufacturing",
+      "shop floor re-planning",
+      "throughput bottleneck reduction",
+    ],
+    robots: { index: false, follow: true },
+  },
+  /**
+   * @deprecated Prefer PAGE_SEO.products. Legacy /solutions hub; URL 308s to /products.
+   */
   solutions: {
     absoluteTitle: "What we improve | Industrial AI | Stamped",
     description:
@@ -62,6 +124,7 @@ export const PAGE_SEO = {
       "decarbonisation manufacturing",
     ],
   },
+  /** @deprecated Prefer PAGE_SEO.productsProcessQuality (Quelta). */
   solutionsProcess: {
     absoluteTitle: `${SOLUTION_AREA_PRODUCT_LINE_TITLE.process} | Process optimisation for plants`,
     description:
@@ -75,6 +138,7 @@ export const PAGE_SEO = {
       "set point drift manufacturing",
     ],
   },
+  /** @deprecated Prefer PAGE_SEO.productsProcessQuality (Quelta). */
   solutionsQuality: {
     absoluteTitle: `${SOLUTION_AREA_PRODUCT_LINE_TITLE.quality} | Catch drift before a batch is rejected`,
     description:
@@ -90,6 +154,7 @@ export const PAGE_SEO = {
       "8D root cause data",
     ],
   },
+  /** @deprecated Prefer PAGE_SEO.productsScheduling (coming soon, noindex). */
   solutionsPlanning: {
     absoluteTitle: `${SOLUTION_AREA_PRODUCT_LINE_TITLE.planning} | Production planning AI for plants`,
     description:
@@ -105,6 +170,7 @@ export const PAGE_SEO = {
       "shop floor scheduling India",
     ],
   },
+  /** @deprecated Prefer PAGE_SEO.productsProcessQuality (maintenance flags on Quelta). */
   solutionsMaintenance: {
     absoluteTitle: `${SOLUTION_AREA_PRODUCT_LINE_TITLE.maintenance} | Predictive maintenance, coming soon`,
     description:
@@ -237,6 +303,7 @@ export function getVerticalPageSeo(slug: string): PageSeoConfig | undefined {
   return VERTICAL_SEO_MAP[slug];
 }
 
+/** @deprecated Prefer getProductPageSeo. Kept for transitional /solutions imports. */
 const SOLUTION_AREA_SEO_MAP: Record<string, PageSeoConfig> = {
   process: PAGE_SEO.solutionsProcess,
   quality: PAGE_SEO.solutionsQuality,
@@ -244,6 +311,18 @@ const SOLUTION_AREA_SEO_MAP: Record<string, PageSeoConfig> = {
   maintenance: PAGE_SEO.solutionsMaintenance,
 };
 
+/** @deprecated Prefer getProductPageSeo. */
 export function getSolutionAreaSeo(slug: string): PageSeoConfig | undefined {
   return SOLUTION_AREA_SEO_MAP[slug];
+}
+
+const PRODUCT_SEO_MAP: Record<string, PageSeoConfig> = {
+  "process-quality": PAGE_SEO.productsProcessQuality,
+  ask: PAGE_SEO.productsAsk,
+  scheduling: PAGE_SEO.productsScheduling,
+};
+
+/** Preferred helper for /products/* routes (v4 two-product IA). */
+export function getProductPageSeo(slug: string): PageSeoConfig | undefined {
+  return PRODUCT_SEO_MAP[slug];
 }

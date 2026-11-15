@@ -4,7 +4,7 @@ import { getVerticalPage, VERTICAL_SLUGS, type VerticalSlug } from "./vertical-p
 
 /**
  * Industries copy. Canon: Stamped copy v3 (3 Oct 2026), revision 2.
- * Auto components lead. Steel, cement, pharma and chemicals are covered with the same four areas,
+ * Auto components lead. Steel, cement, pharma and chemicals use the same products (Quelta and Orrery).
  * written qualitatively and with an honest note that first deployments are in auto components.
  */
 
@@ -50,10 +50,10 @@ export type IndustryMatrixRow = {
 };
 
 export const IMPROVEMENT_AREA_LABELS: Record<ImprovementAreaKey, { label: string; href: string }> = {
-  process: { label: "Process", href: "/solutions/process" },
-  quality: { label: "Quality", href: "/solutions/quality" },
-  planning: { label: "Planning", href: "/solutions/planning" },
-  maintenance: { label: "Maintenance", href: "/solutions/maintenance" },
+  process: { label: "Process", href: "/products/process-quality" },
+  quality: { label: "Quality", href: "/products/process-quality" },
+  planning: { label: "Planning", href: "/products/scheduling" },
+  maintenance: { label: "Maintenance", href: "/products/process-quality" },
 };
 
 export const industriesContent = {
@@ -61,20 +61,20 @@ export const industriesContent = {
     eyebrow: "Industries",
     title: "Built for plants across industries.",
     description:
-      "Stamped is built for auto-component, steel and cement plants, and the same four areas apply in pharma and chemical plants. Each page below explains what Stamped looks at there.",
+      "Quelta watches the line in auto-component, steel and cement plants. Ask Orrery answers from the same record. Pharma and chemicals use the same products. Each page below explains what that looks like there.",
     heroImageSrc: INDUSTRY_IMAGES.forging,
     heroImageAlt: "Forging press line on an auto-component plant floor",
     primaryCta: { label: "Explore auto components", href: "/industries/automotive" } satisfies CtaLink,
     secondaryCta: { label: "Book a site survey", href: "/contact" } satisfies CtaLink,
     thesis: {
       eyebrow: "Across industries",
-      title: "Every plant loses efficiency in the same four places.",
-      body: "A forge, a kiln, a melt shop and a granulation suite look nothing alike, but the losses sit in the same places: a process setting that has drifted, a batch that goes wrong without anyone noticing in time, a plan that breaks mid-shift, and a stop or slow drift that maintenance hears about too late, with energy running through all four. What changes from one industry to the next is which signals matter, so Stamped's models learn your plant's own processes from its own history before recommending anything.",
+      title: "Quelta watches the line. Orrery answers from it.",
+      body: "A forge, a kiln, a melt shop and a granulation suite look nothing alike, but Quelta still joins the same kinds of records: process settings, lots and lab results, plans and stops, with energy counted in every gain. Ask Orrery when you need the answer from those records. What changes from one industry to the next is which signals matter, so the models learn your plant's own processes from its own history before recommending anything.",
     },
     matrix: {
-      eyebrow: "By industry and area",
-      title: "What the four areas mean in each industry.",
-      description: "Energy is counted in all four.",
+      eyebrow: "By industry",
+      title: "What Quelta looks at in each industry.",
+      description: "Energy is counted in every gain. Ask Orrery when you need the record behind a loss.",
       rows: [
         {
           id: "automotive",
@@ -137,7 +137,7 @@ export const industriesContent = {
       eyebrow: "By industry",
       title: "Where Stamped looks in each industry.",
       disclaimer:
-        "Stamped looks across process, quality, planning and maintenance in each of them, with energy counted in all four. Our first deployments are in auto components.",
+        "Quelta watches process, quality, planning and maintenance in each of them, with energy counted in every gain. Ask Orrery for the record behind a loss. Our first deployments are in auto components.",
       rows: [
         {
           id: "automotive",
@@ -258,7 +258,7 @@ export const industriesContent = {
           id: "same-approach",
           question: "Is it the same product in every industry?",
           answer:
-            "The approach is the same, because every plant loses efficiency in process, quality, planning and maintenance, but the models learn from your own plant's data, so what Stamped looks at in a kiln is different from what it looks at in a forge.",
+            "Quelta and Orrery are the same products in every industry. The models learn from your own plant's data, so what Quelta looks at in a kiln is different from what it looks at in a forge.",
         },
         ...landingContent.faq.items.filter((item) => item.id === "hardware" || item.id === "start"),
       ],

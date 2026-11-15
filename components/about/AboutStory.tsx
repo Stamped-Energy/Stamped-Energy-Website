@@ -3,9 +3,9 @@
 import { useRef } from "react";
 
 import { useMotion } from "@/components/motion/MotionProvider";
-import { Container } from "@/components/ui/Container";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Reveal } from "@/components/ui/Reveal";
-import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Section } from "@/components/ui/Section";
 import { aboutContent } from "@/lib/content/about";
 import { scrollTriggerDefaults } from "@/lib/motion/config";
 import { gsap, useGSAP } from "@/lib/motion/gsap";
@@ -29,7 +29,7 @@ function StoryParagraph({ text }: { text: string }) {
 }
 
 export function AboutStory() {
-  const sectionRef = useRef<HTMLElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
   const { story } = aboutContent;
   const { isReady, prefersReducedMotion } = useMotion();
 
@@ -52,19 +52,16 @@ export function AboutStory() {
   );
 
   return (
-    <section
-      ref={sectionRef}
-      className="border-b border-outline-variant/40 bg-surface section-y"
-    >
-      <Container>
+    <div ref={sectionRef}>
+      <Section tone="light">
         <div className="mx-auto max-w-3xl">
           <Reveal>
-            <SectionHeading
-              eyebrow={story.eyebrow}
-              title={story.title}
-              align="center"
-              className="max-w-none"
-            />
+            <div className="text-center">
+              <Eyebrow className="justify-center">{story.eyebrow}</Eyebrow>
+              <h2 className="mt-5 font-display text-[length:var(--type-h2)] font-semibold tracking-[-0.025em]">
+                {story.title}
+              </h2>
+            </div>
           </Reveal>
           <div className="mt-8 space-y-6 text-left md:mt-10">
             {story.paragraphs.map((paragraph) => (
@@ -79,7 +76,7 @@ export function AboutStory() {
           </div>
           <h2
             data-about-story
-            className="mt-12 font-display text-2xl font-bold tracking-tight text-on-surface md:text-3xl"
+            className="mt-12 font-display text-[length:var(--type-h2)] font-semibold tracking-[-0.025em] text-on-surface"
           >
             {story.whatWeDo.title}
           </h2>
@@ -95,7 +92,7 @@ export function AboutStory() {
             ))}
           </div>
         </div>
-      </Container>
-    </section>
+      </Section>
+    </div>
   );
 }

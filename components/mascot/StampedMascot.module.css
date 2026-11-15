@@ -1,0 +1,9 @@
+/* Minimal styles for the Stamped mascot (ported from demo ask.css). */
+.mascot {
+  display: inline-block;
+  overflow: visible;
+  line-height: 0;
+  --mascot-body: #f75440;
+  --mascot-notify: #2496e8;
+  --mascot-warn: #d98e04;
+}

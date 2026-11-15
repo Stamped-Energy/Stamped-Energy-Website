@@ -1,6 +1,6 @@
 import { siteConfig } from "./site";
 
-/** /contact copy. Canon: Stamped copy v3 (3 Oct 2026) and the website update plan, section 4 (/contact). */
+/** /contact copy. Canon: v4 copy deck focus options + Stamped copy v3 site-survey framing. */
 
 export const contactContent = {
   hero: {

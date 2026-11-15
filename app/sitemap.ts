@@ -8,14 +8,13 @@ import { getStaticPageLastModified } from "@/lib/seo/sitemap-lastmod";
 
 export const revalidate = 3600;
 
+/** Canonical public routes only. Excludes /products/scheduling (noindex) and /design-system. */
 const STATIC_PATHS = [
   "/",
   "/platform",
-  "/solutions",
-  "/solutions/process",
-  "/solutions/quality",
-  "/solutions/planning",
-  "/solutions/maintenance",
+  "/products",
+  "/products/process-quality",
+  "/products/ask",
   "/about",
   "/case-studies",
   "/contact",
@@ -30,11 +29,9 @@ const STATIC_PATHS = [
 const STATIC_PRIORITIES: Record<string, number> = {
   "/": 1.0,
   "/platform": 0.9,
-  "/solutions": 0.95,
-  "/solutions/process": 0.9,
-  "/solutions/quality": 0.9,
-  "/solutions/planning": 0.9,
-  "/solutions/maintenance": 0.9,
+  "/products": 0.95,
+  "/products/process-quality": 0.9,
+  "/products/ask": 0.9,
   "/industries/automotive": 0.9,
   "/industries/steel": 0.8,
   "/industries/cement": 0.8,

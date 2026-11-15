@@ -4,13 +4,13 @@ import Image from "next/image";
 import { useRef } from "react";
 
 import { useMotion } from "@/components/motion/MotionProvider";
-import { Container } from "@/components/ui/Container";
-import { SectionBadge } from "@/components/ui/SectionBadge";
+import { Eyebrow } from "@/components/ui/Eyebrow";
+import { Section } from "@/components/ui/Section";
 import { aboutContent } from "@/lib/content/about";
 import { gsap, useGSAP } from "@/lib/motion/gsap";
 
 export function AboutHero() {
-  const sectionRef = useRef<HTMLElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
   const { hero } = aboutContent;
   const { isReady, prefersReducedMotion } = useMotion();
 
@@ -32,21 +32,21 @@ export function AboutHero() {
   );
 
   return (
-    <section ref={sectionRef} className="page-hero relative overflow-hidden bg-surface">
-      <Container className="relative z-10">
+    <div ref={sectionRef}>
+      <Section tone="light" className="!pt-28 md:!pt-32">
         <div data-about-hero>
-          <SectionBadge label={hero.eyebrow} />
+          <Eyebrow>{hero.eyebrow}</Eyebrow>
         </div>
         <div className="mt-5 grid gap-5 md:mt-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-end lg:gap-16">
           <h1
             data-about-hero
-            className="font-display text-[1.9rem] font-extrabold leading-[1.12] tracking-tight text-on-surface sm:text-4xl lg:text-[3rem]"
+            className="font-display text-[length:var(--type-display-l)] font-semibold leading-[1.08] tracking-[-0.03em] text-balance"
           >
             {hero.title}
           </h1>
           <p
             data-about-hero
-            className="text-base leading-7 text-on-surface/75 md:text-lg md:leading-8"
+            className="text-base leading-7 text-on-surface-variant md:text-lg md:leading-8"
           >
             {hero.description}
           </p>
@@ -54,7 +54,7 @@ export function AboutHero() {
 
         <div
           data-about-hero
-          className="relative mt-10 aspect-[16/9] overflow-hidden rounded-2xl md:mt-14 md:aspect-[2/1]"
+          className="relative mt-10 aspect-[16/9] overflow-hidden rounded-[var(--radius-card)] border border-outline-variant md:mt-14 md:aspect-[2/1]"
         >
           <Image
             src={hero.heroImageSrc}
@@ -65,7 +65,7 @@ export function AboutHero() {
             sizes="(max-width: 1280px) 100vw, 1200px"
           />
         </div>
-      </Container>
-    </section>
+      </Section>
+    </div>
   );
 }

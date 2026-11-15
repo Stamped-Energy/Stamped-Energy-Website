@@ -5,15 +5,15 @@ import Link from "next/link";
 import { useRef } from "react";
 
 import { useMotion } from "@/components/motion/MotionProvider";
-import { Container } from "@/components/ui/Container";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Reveal } from "@/components/ui/Reveal";
-import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Section } from "@/components/ui/Section";
 import { aboutContent } from "@/lib/content/about";
 import { scrollTriggerDefaults } from "@/lib/motion/config";
 import { gsap, useGSAP } from "@/lib/motion/gsap";
 
 export function AboutTeam() {
-  const sectionRef = useRef<HTMLElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
   const { team } = aboutContent;
   const { isReady, prefersReducedMotion } = useMotion();
 
@@ -36,26 +36,24 @@ export function AboutTeam() {
   );
 
   return (
-    <section ref={sectionRef} className="border-b border-outline-variant/40 bg-surface py-10 md:section-y">
-      <Container>
-        <Reveal className="mx-auto max-w-2xl">
-          <SectionHeading
-            eyebrow={team.eyebrow}
-            title={team.title}
-            description={team.description}
-            align="center"
-            className="mx-auto"
-          />
+    <div ref={sectionRef}>
+      <Section tone="light">
+        <Reveal className="mx-auto max-w-2xl text-center">
+          <Eyebrow className="justify-center">{team.eyebrow}</Eyebrow>
+          <h2 className="mt-5 font-display text-[length:var(--type-h2)] font-semibold tracking-[-0.025em]">
+            {team.title}
+          </h2>
+          <p className="mt-3 text-base leading-7 text-on-surface-variant">{team.description}</p>
         </Reveal>
 
-        <div className="mx-auto mt-6 grid max-w-4xl gap-4 md:mt-10 md:grid-cols-2 md:gap-8">
+        <div className="mx-auto mt-8 grid max-w-4xl gap-4 md:mt-10 md:grid-cols-2 md:gap-8">
           {team.members.map((member) => (
             <article
               key={member.id}
               data-about-team
-              className="flex flex-col overflow-hidden rounded-2xl border border-outline-variant/50 bg-surface-lowest shadow-sm"
+              className="flex flex-col overflow-hidden rounded-[var(--radius-card)] border border-outline-variant bg-surface-lowest"
             >
-              <div className="relative aspect-[16/10] w-full overflow-hidden bg-surface-container sm:aspect-[4/3]">
+              <div className="relative aspect-[16/10] w-full overflow-hidden bg-surface-low sm:aspect-[4/3]">
                 <Image
                   src={member.imageSrc}
                   alt={member.imageAlt}
@@ -67,14 +65,14 @@ export function AboutTeam() {
               <div className="flex min-w-0 flex-1 flex-col p-4 sm:p-6">
                 <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0">
-                    <h3 className="text-base font-bold text-on-surface sm:text-lg">{member.name}</h3>
+                    <h3 className="text-base font-semibold text-on-surface sm:text-lg">{member.name}</h3>
                     <p className="mt-0.5 text-xs font-semibold text-primary sm:text-sm">{member.role}</p>
                   </div>
                   <Link
                     href={member.linkedIn}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-outline-variant/60 bg-surface-low text-on-surface-variant transition-colors hover:border-primary hover:text-primary sm:h-9 sm:w-9"
+                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-outline-variant bg-surface-low text-on-surface-variant transition-colors hover:border-primary hover:text-primary sm:h-9 sm:w-9"
                     aria-label={`${member.name} on LinkedIn`}
                   >
                     <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current" aria-hidden>
@@ -82,14 +80,12 @@ export function AboutTeam() {
                     </svg>
                   </Link>
                 </div>
-                <p className="mt-2 text-sm leading-6 text-on-surface-variant sm:mt-3">
-                  {member.bio}
-                </p>
+                <p className="mt-2 text-sm leading-6 text-on-surface-variant sm:mt-3">{member.bio}</p>
               </div>
             </article>
           ))}
         </div>
-      </Container>
-    </section>
+      </Section>
+    </div>
   );
 }

@@ -1,47 +1,27 @@
-# Phase 9 Completion — Merge Blog + Case Studies (Public UI)
+# PHASE_9_COMPLETION — Final QA and DESIGN.md
 
-**Date:** 2026-07-31  
-**Branch:** `feat/merge-case-studies-blog-ui`
+**Date:** 2026-11-15
 
-## Completed work
+## Completed
 
-- Single public nav/footer entry: **Case Studies** → `/blog`
-- Permanent redirects for `/case-studies` and `/case-studies/*` → `/blog` (`next.config.ts` + route fallbacks)
-- `/blog` listing and article chrome labeled Case Studies; data from CRM `BlogPost` only
-- Homepage spotlight and static resource fallbacks blog-only; badges use **Insight**
-- Sitemap / `llms.txt` / `llms-full.txt` updated; Case Study admin CRM left untouched
-- Docs: ADR-009, IMPLEMENTATION_PLAN Phase 9, PROGRESS, PROJECT_OVERVIEW, SEO_GEO_AEO
+- New `DESIGN.md` written from shipped v4 artifact
+- `docs/design/brand-tokens.md` rewritten for v4
+- Contrast script green
+- Homepage browser smoke (hero, nav Products, FAQ, footer mission)
+- Phase reports 0–9 present
+- PR opened for `redesign/v4-products`
 
-## Files modified
+## Remaining founder actions
 
-- `lib/content/site.ts`, `resources.ts`, `homepage-spotlight.ts`
-- `components/sections/FutureMedia.tsx`
-- `components/blog/BlogArticleView.tsx`, `BlogFeatured.tsx`
-- `components/industries/shared/IndustryResources.tsx`
-- `app/blog/page.tsx`, `app/blog/[slug]/page.tsx`
-- `app/case-studies/page.tsx`, `app/case-studies/[slug]/page.tsx`
-- `app/sitemap.ts`, `app/llms-full.txt/route.ts`, `public/llms.txt`
-- `lib/seo/pages.ts`, `lib/layout/nav-theme.ts`, `next.config.ts`
-- `DECISIONS.md`, `IMPLEMENTATION_PLAN.md`, `PROGRESS.md`, `PROJECT_OVERVIEW.md`, `SEO_GEO_AEO.md`
+- Supply official NVIDIA Inception and AWS for Startups badge artwork
+- File evidence for 30%/10% claims
+- Design sign-off on logo-as-mascot (shipped pending confirmation)
+- Trademark clearance for Quelta / Orrery
+- Replace text partner chips when assets arrive
 
-## Architectural changes
+## Validation
 
-- Public IA: one Case Studies surface at `/blog`
-- Public case-study routes are redirects only
-- Admin CaseStudy paths and APIs unchanged (ADR-009)
-
-## Validation performed
-
-- `npx tsc --noEmit` — pass
-- `npm run lint` — pass (exit 0)
-- `npm run build` — pass (exit 0)
-
-## Known issues
-
-- Admin “View case studies” / live CaseStudy links still target `/case-studies/[slug]` and redirect to `/blog` (accepted; CRM untouched)
-- Homepage spotlight may show fewer items if only blogs are `homepageFeatured`
-
-## Next phase objectives
-
-- Optional: rename admin marketing link labels to match public Case Studies IA
-- Optional: publish more CRM blog posts for homepage spotlight density
+- `node scripts/check-contrast.mjs` pass
+- `npx tsc --noEmit` pass
+- `npm run seo:check` pass
+- Production build: see commit / CI

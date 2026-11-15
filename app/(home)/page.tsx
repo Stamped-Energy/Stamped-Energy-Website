@@ -18,6 +18,8 @@ import { PAGE_SEO } from "@/lib/seo/pages";
 import {
   buildWebPageSchema,
   homepageSpeakable,
+  orrerySoftwareApplicationSchema,
+  queltaSoftwareApplicationSchema,
   softwareApplicationSchema,
 } from "@/lib/seo/schemas";
 
@@ -45,6 +47,8 @@ export default function HomePage() {
         data={[
           buildWebPageSchema(PAGE_SEO.home, homepageSpeakable),
           softwareApplicationSchema,
+          queltaSoftwareApplicationSchema,
+          orrerySoftwareApplicationSchema,
           homepageFaqSchema,
           homeBreadcrumbSchema,
         ]}

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { StampedMascot } from "@/components/mascot/StampedMascot";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
@@ -61,12 +62,7 @@ export function HomeProducts() {
         <Reveal className="lg:col-span-5">
           <article className="flex h-full flex-col overflow-hidden rounded-[var(--radius-card)] border border-outline-variant bg-surface-lowest">
             <div className="relative flex aspect-[16/10] items-center justify-center border-b border-outline-variant bg-[var(--brand-inverse-surface)]">
-              <div
-                className="flex size-24 items-center justify-center rounded-[28%] bg-primary text-white shadow-lg"
-                aria-hidden
-              >
-                <span className="text-4xl leading-none">◈</span>
-              </div>
+              <StampedMascot mode="listening" size={88} arrive label="Orrery" />
               <p className="absolute bottom-4 left-4 right-4 rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-left text-xs text-white/80">
                 &ldquo;Why are cold billets rising after stops?&rdquo;
               </p>

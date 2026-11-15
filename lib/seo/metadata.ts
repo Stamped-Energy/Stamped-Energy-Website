@@ -41,6 +41,10 @@ type BuildPageMetadataOptions = {
   keywords?: string[];
   /** Extra phrases from on-page copy when `description` is under 120 characters (metadata only). */
   descriptionSupplements?: string[];
+  robots?: {
+    index?: boolean;
+    follow?: boolean;
+  };
 };
 
 function resolveOgImage(image?: string | null): string {
@@ -75,6 +79,7 @@ export function buildPageMetadata({
   tags,
   keywords,
   descriptionSupplements,
+  robots,
 }: BuildPageMetadataOptions): Metadata {
   const url = absoluteUrl(path);
   const isHome = path === "/";
@@ -88,6 +93,7 @@ export function buildPageMetadata({
     alternates: isHome ? { types: FEED_ALTERNATE } : { canonical: url, types: FEED_ALTERNATE },
     other: { ...GEO_METADATA },
     ...(keywords?.length ? { keywords } : {}),
+    ...(robots ? { robots } : {}),
     openGraph: {
       title: displayTitle,
       description: metaDescription,
@@ -121,6 +127,7 @@ export function buildPageMetadataFromConfig(config: PageSeoConfig): Metadata {
     description: config.description,
     path: config.path,
     keywords: config.keywords ? [...config.keywords] : [...SEO_KEYWORDS],
+    robots: config.robots,
   });
 }
 

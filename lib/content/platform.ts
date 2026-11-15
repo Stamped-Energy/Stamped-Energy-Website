@@ -1,4 +1,5 @@
 import { ENGAGEMENT_STEPS } from "./engagement";
+import { productsContent } from "./products";
 import type {
   CtaLink,
   HiwCapability,
@@ -7,17 +8,20 @@ import type {
   PlatformProseSection,
 } from "./types";
 
-/** /platform ("How it works") copy. Canon: Stamped copy v3 (3 Oct 2026), sections 3 and 4. */
+/** /platform ("How it works") copy. Canon: v4 copy deck + Stamped copy v3 sections 3 and 4. */
 
 export const platformContent = {
   hero: {
     eyebrow: "How it works",
     title: "From plant data to operator actions.",
     description:
-      "Stamped builds models of your plant from the data it already records, finds where efficiency is lost across process, quality, planning and maintenance, and improves it with actions your team can take.",
+      "Quelta joins the records your plant already keeps, watches every run, and recommends better settings. Orrery answers questions from the same record. Stamped works inside limits set beforehand, and your team decides.",
     primaryCta: { label: "Book a site survey", href: "/contact" } satisfies CtaLink,
-    secondaryCta: { label: "What we improve", href: "/solutions" } satisfies CtaLink,
+    secondaryCta: { label: "See the products", href: "/products" } satisfies CtaLink,
   },
+
+  /** Both trust lines from products SSOT (v4). */
+  trustLines: [productsContent.trustMechanism, productsContent.trustPromise] as const,
 
   /** Approved long outcomes-and-how text (Vinayak, 3 Oct 2026). Word for word. */
   whatWeDo: {
@@ -91,9 +95,9 @@ export const platformContent = {
       },
       {
         id: "ask",
-        title: "Ask your plant",
+        title: "Ask Orrery",
         description:
-          "Ask what is drifting, where good parts are being lost or who owns an action, and Stamped answers from your plant's own data, checking every number against the records before it replies.",
+          "Ask what is drifting, where good parts are being lost or who owns an action, and Orrery answers from your plant's own data, checking every number against the records before it replies.",
       },
     ],
   } satisfies PlatformProseSection,

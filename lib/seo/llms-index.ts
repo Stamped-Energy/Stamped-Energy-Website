@@ -1,9 +1,8 @@
-import { landingContent } from "@/lib/content/landing";
 import { PRICING_ANSWER } from "@/lib/content/engagement";
 import { icp } from "@/lib/content/icp";
 import { platformContent } from "@/lib/content/platform";
+import { productsContent, getLiveProducts } from "@/lib/content/products";
 import { navLinks } from "@/lib/content/site";
-import { solutionsContent } from "@/lib/content/solutions";
 import { VERTICAL_SLUGS, getVerticalPage } from "@/lib/content/vertical-pages";
 import { formatLlmsProductsSection, STAMPED_SUITE_NAME } from "@/lib/seo/brand";
 import { COMPANY_LINKEDIN_URL, SEO_KEYWORDS, SHOWCASE_URL } from "@/lib/seo/constants";
@@ -11,7 +10,7 @@ import { PAGE_SEO, type PageSeoConfig } from "@/lib/seo/pages";
 
 /** Opening summary for llms.txt and llms-full.txt (metadata / AEO; not on-page body copy). */
 export const LLMS_OPENING_SUMMARY =
-  "Stamped helps Indian auto-component plants in forging, heat treatment and precision machining cut rejections, get more output from the lines they already have, and use less energy in every good part. It models each plant's processes and equipment from the data it already records (machines, control systems, meters, ERP and quality registers), finds where output, quality and energy are lost, and sends the change that fixes it to the person who owns it. Stamped recommends and your team decides; any change runs only inside limits set beforehand.";
+  "Stamped helps Indian auto-component plants in forging, heat treatment and precision machining cut rejections, get more output from the lines they already have, and use less energy in every good part. Quelta improves process and quality from the data the plant already records; Orrery answers Ask questions from the same record. Energy is counted in every action Quelta recommends. Stamped recommends and your team decides; any change runs only inside limits set beforehand.";
 
 /** Prefer production origin for static public/llms.txt (committed file). */
 function llmsSiteUrl(): string {
@@ -25,11 +24,9 @@ function llmsSiteUrl(): string {
 const STATIC_SEO_ENTRIES: PageSeoConfig[] = [
   PAGE_SEO.home,
   PAGE_SEO.platform,
-  PAGE_SEO.solutions,
-  PAGE_SEO.solutionsProcess,
-  PAGE_SEO.solutionsQuality,
-  PAGE_SEO.solutionsPlanning,
-  PAGE_SEO.solutionsMaintenance,
+  PAGE_SEO.products,
+  PAGE_SEO.productsProcessQuality,
+  PAGE_SEO.productsAsk,
   PAGE_SEO.industries,
   PAGE_SEO.industriesAutomotive,
   PAGE_SEO.industriesSteel,
@@ -56,13 +53,15 @@ function pushAboutTheNameSection(lines: string[], siteUrl: string): void {
     lines.push(`- LinkedIn company page: ${COMPANY_LINKEDIN_URL}`);
   }
   lines.push(
-    `- Suite: ${STAMPED_SUITE_NAME} — product lines cover process, quality, production and planning, maintenance, control and energy.`,
+    `- Suite: ${STAMPED_SUITE_NAME} — live products are Quelta (Process and Quality) and Orrery (Ask). Energy is counted in every action; Stamped Energy is that honesty, not a third SKU beside them.`,
   );
-  lines.push("- Legacy URL /solutions/load-energy now redirects (308) to /solutions/process.");
+  lines.push(
+    "- Legacy /solutions/* URLs permanently redirect (308) to /products, /products/process-quality, or /products/scheduling.",
+  );
   pushBlank(lines);
 }
 
-/** Static site guide for AI crawlers (llms.txt body). Copy canon: Stamped copy v3 (3 Oct 2026). */
+/** Static site guide for AI crawlers (llms.txt body). Copy canon: website v4 (Quelta / Orrery). */
 export function buildLlmsTxtBody(): string {
   const SITE_URL = llmsSiteUrl();
   const lines: string[] = [];
@@ -120,7 +119,7 @@ export function buildLlmsTxtBody(): string {
   lines.push("## Navigation");
   pushBlank(lines);
   lines.push(navLinks.map((item) => item.label).join(" · "));
-  lines.push("Hub routes: /solutions, /platform, /industries, /case-studies, /about, /contact");
+  lines.push("Hub routes: /products, /platform, /industries, /case-studies, /about, /contact");
   pushBlank(lines);
 
   lines.push("## How it works");
@@ -133,13 +132,16 @@ export function buildLlmsTxtBody(): string {
   lines.push(platformContent.flow.controlLine);
   pushBlank(lines);
 
-  lines.push("## What Stamped improves");
+  lines.push("## Products (live)");
   pushBlank(lines);
-  for (const area of solutionsContent.areas) {
-    lines.push(`- [${area.title}](${SITE_URL}${area.href}): ${area.homeSummary}`);
+  for (const product of getLiveProducts()) {
+    lines.push(`- [${product.name} — ${product.descriptor}](${SITE_URL}${product.href}): ${product.summary}`);
   }
-  lines.push(`- Energy: ${solutionsContent.energy.heading} Counted inside every action in all four areas.`);
-  lines.push(`Hub: [What we improve](${SITE_URL}/solutions)`);
+  lines.push(
+    `- Energy: counted inside every action Quelta recommends (energy-in-every-action honesty; not a separate product page).`,
+  );
+  lines.push(`- Scheduling: coming soon at ${SITE_URL}/products/scheduling (noindex; not in sitemap).`);
+  lines.push(`Hub: [Products](${SITE_URL}/products)`);
   pushBlank(lines);
 
   lines.push("## Core pages (live)");
@@ -151,15 +153,15 @@ export function buildLlmsTxtBody(): string {
 
   lines.push("## Homepage snapshot");
   pushBlank(lines);
-  lines.push(`- Badge: ${landingContent.hero.badge}`);
-  lines.push(`- H1: ${landingContent.hero.headline}`);
-  lines.push(`- Supporting: ${landingContent.hero.supportingLine}`);
+  lines.push(`- Badge: ${productsContent.homeHero.eyebrow}`);
+  lines.push(`- H1: ${productsContent.homeHero.title}`);
+  lines.push(`- Supporting: ${productsContent.homeHero.subhead}`);
   lines.push("- FAQ section: visible on homepage with FAQPage JSON-LD");
   pushBlank(lines);
 
   lines.push("## Homepage FAQ");
   pushBlank(lines);
-  for (const item of landingContent.faq.items) {
+  for (const item of productsContent.faq.items) {
     lines.push(`- Q: ${item.question}`);
     lines.push(`  A: ${item.answer}`);
   }
@@ -173,16 +175,14 @@ export function buildLlmsTxtBody(): string {
   }
   pushBlank(lines);
 
-  lines.push("## Solution area FAQs");
+  lines.push("## Product FAQs");
   pushBlank(lines);
-  for (const area of solutionsContent.areas) {
-    lines.push(`### ${area.title} (${SITE_URL}${area.href})`);
-    for (const item of area.faq) {
-      lines.push(`- Q: ${item.question}`);
-      lines.push(`  A: ${item.answer}`);
-    }
-    pushBlank(lines);
+  lines.push(`### Quelta (${SITE_URL}/products/process-quality)`);
+  for (const item of productsContent.quelta.faq) {
+    lines.push(`- Q: ${item.question}`);
+    lines.push(`  A: ${item.answer}`);
   }
+  pushBlank(lines);
 
   lines.push("## Common questions Stamped answers");
   pushBlank(lines);
@@ -193,6 +193,9 @@ export function buildLlmsTxtBody(): string {
   lines.push(`- Who is it for? → ${icp.seo.audienceLine}`);
   lines.push(
     "- Does it need new hardware? → No. Stamped connects to the systems the plant already runs, so there is nothing new to install before work starts.",
+  );
+  lines.push(
+    "- How are Quelta and Orrery different? → Quelta is Process and Quality (flags drift, ranks causes, proves gains, maintenance flags). Orrery is Ask (chat with an AI agent grounded in your plant). Each is sold on its own.",
   );
   lines.push(
     "- How are results measured? → Against the plant's own baseline, in the units the team already tracks. What the pilot should achieve is agreed in writing during the site survey, together with the price of the pilot.",
@@ -238,6 +241,7 @@ export function buildLlmsTxtBody(): string {
   pushBlank(lines);
   lines.push("- Measured against your own plant's baseline, in the units your team already tracks");
   lines.push("- Stamped works inside limits set beforehand");
+  lines.push("- Energy is counted in every action");
   lines.push("- Example actions and sample findings are illustrative and carry no real figures");
   pushBlank(lines);
 
@@ -262,7 +266,7 @@ export function buildLlmsTxtBody(): string {
   lines.push("## Crawling");
   pushBlank(lines);
   lines.push(
-    "All public pages are open to search and AI crawlers. Admin CMS (`/blog/admin`), API routes (`/api/`), and build assets (`/_next/`) are disallowed in robots.txt.",
+    "All public pages are open to search and AI crawlers except /products/scheduling and /design-system (noindex). Admin CMS (`/blog/admin`), API routes (`/api/`), and build assets (`/_next/`) are disallowed in robots.txt. Sitemap omits scheduling and the design system.",
   );
   pushBlank(lines);
 
@@ -309,7 +313,7 @@ export async function buildLlmsFullTxtBody(): Promise<string> {
 
   lines.push("## Homepage FAQ");
   pushBlank(lines);
-  for (const item of landingContent.faq.items) {
+  for (const item of productsContent.faq.items) {
     lines.push(`### ${item.question}`);
     lines.push(item.answer);
     pushBlank(lines);
@@ -323,14 +327,12 @@ export async function buildLlmsFullTxtBody(): Promise<string> {
     pushBlank(lines);
   }
 
-  lines.push("## Solution area FAQs");
+  lines.push("## Product FAQs");
   pushBlank(lines);
-  for (const area of solutionsContent.areas) {
-    for (const item of area.faq) {
-      lines.push(`### ${area.title}: ${item.question}`);
-      lines.push(item.answer);
-      pushBlank(lines);
-    }
+  for (const item of productsContent.quelta.faq) {
+    lines.push(`### Quelta: ${item.question}`);
+    lines.push(item.answer);
+    pushBlank(lines);
   }
 
   lines.push("## Industry FAQs");

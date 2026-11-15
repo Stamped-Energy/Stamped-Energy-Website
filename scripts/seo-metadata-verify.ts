@@ -38,7 +38,7 @@ if (aboutCanonical !== "https://stamped.work/about") {
   failures.push(`About canonical expected https://stamped.work/about, got ${aboutCanonical}`);
 }
 
-const lastmods = ["/", "/about", "/solutions/process"].map((path) => ({
+const lastmods = ["/", "/about", "/products/process-quality"].map((path) => ({
   path,
   date: getStaticPageLastModified(path)?.toISOString() ?? "missing",
 }));

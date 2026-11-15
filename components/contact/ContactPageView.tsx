@@ -4,13 +4,13 @@ import Image from "next/image";
 import { useRef } from "react";
 
 import { useMotion } from "@/components/motion/MotionProvider";
-import { Button } from "@/components/ui/Button";
-import { Container } from "@/components/ui/Container";
 import { BeforeYouBook } from "@/components/engagement/BeforeYouBook";
 import { EngagementSteps } from "@/components/engagement/EngagementSteps";
+import { Button } from "@/components/ui/Button";
 import { ContactForm } from "@/components/ui/ContactForm";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Reveal } from "@/components/ui/Reveal";
-import { SectionBadge } from "@/components/ui/SectionBadge";
+import { Section } from "@/components/ui/Section";
 import { contactContent } from "@/lib/content/contact";
 import { gsap, useGSAP } from "@/lib/motion/gsap";
 
@@ -38,7 +38,7 @@ export function ContactPageView() {
 
   return (
     <div ref={pageRef}>
-      <section className="page-hero relative overflow-hidden bg-secondary md:min-h-[58vh] md:flex md:items-end">
+      <section className="relative overflow-hidden bg-[var(--brand-inverse-surface)] text-inverse-on-surface md:min-h-[58vh] md:flex md:items-end">
         <div className="absolute inset-0">
           <Image
             src={hero.heroImageSrc}
@@ -48,121 +48,114 @@ export function ContactPageView() {
             className="object-cover object-center opacity-30"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-secondary/70" />
+          <div className="absolute inset-0 bg-[var(--brand-inverse-surface)]/70" />
         </div>
 
-        <Container className="relative z-10">
+        <div className="container-page relative z-10 section-y !pt-28 md:!pt-32">
           <div className="max-w-2xl">
             <div data-contact-reveal>
-              <SectionBadge label={hero.eyebrow} alternate />
+              <Eyebrow tone="dark">{hero.eyebrow}</Eyebrow>
             </div>
             <h1
               data-contact-reveal
-              className="mt-5 font-display text-3xl font-extrabold leading-tight tracking-tight text-on-secondary sm:text-4xl md:text-[2.65rem]"
+              className="mt-5 font-display text-[length:var(--type-display-l)] font-semibold leading-[1.08] tracking-[-0.03em] text-balance"
             >
               {hero.title}
             </h1>
             <p
               data-contact-reveal
-              className="mt-4 max-w-xl text-sm leading-7 text-on-secondary/85 md:text-base"
+              className="mt-4 max-w-xl text-base leading-7 text-white/70 md:text-lg md:leading-8"
             >
               {hero.description}
             </p>
             <div
               data-contact-reveal
-              className="mt-6 flex flex-col gap-3 sm:mt-7 sm:flex-row sm:items-center"
+              className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:items-center"
             >
-              <Button href="#contact-form" variant="primary" className="w-full sm:w-auto">
+              <Button href="#contact-form" variant="on-dark" size="lg" className="w-full sm:w-auto">
                 {contactContent.contactForm.title}
               </Button>
               {quickContact.whatsappUrl ? (
                 <Button
                   href={quickContact.whatsappUrl}
-                  variant="outline"
-                  className="w-full border-on-secondary/30 bg-on-secondary/5 text-on-secondary hover:bg-on-secondary/10 sm:w-auto"
+                  variant="ghost"
+                  size="lg"
+                  className="w-full text-white hover:bg-white/10 sm:w-auto"
+                  external
                 >
                   {quickContact.whatsappLabel}
                 </Button>
               ) : null}
               <a
                 href={`mailto:${quickContact.email}`}
-                className="text-sm font-semibold text-inverse-primary underline-offset-4 hover:underline"
+                className="text-sm font-semibold text-white/80 underline-offset-4 hover:text-white hover:underline"
               >
                 {quickContact.email}
               </a>
             </div>
           </div>
-        </Container>
+        </div>
       </section>
 
-      <section className="border-b border-outline-variant/30 bg-surface section-y">
-        <Container>
-          <Reveal>
-            <SectionBadge label={steps.eyebrow} />
-            <h2 className="mt-5 max-w-2xl font-display text-2xl font-bold tracking-tight text-balance text-on-surface md:text-3xl">
-              {steps.title}
-            </h2>
-            <p className="mt-3 max-w-2xl text-sm leading-7 text-on-surface-variant md:text-base">
-              {steps.description}
-            </p>
-          </Reveal>
-          <EngagementSteps className="mt-8 md:mt-10" />
-        </Container>
-      </section>
+      <Section tone="light">
+        <Reveal>
+          <Eyebrow>{steps.eyebrow}</Eyebrow>
+          <h2 className="mt-5 max-w-2xl font-display text-[length:var(--type-h2)] font-semibold tracking-[-0.025em] text-balance">
+            {steps.title}
+          </h2>
+          <p className="mt-3 max-w-2xl text-base leading-7 text-on-surface-variant">
+            {steps.description}
+          </p>
+        </Reveal>
+        <EngagementSteps className="mt-8 md:mt-10" />
+      </Section>
 
-      <section
-        id="contact-form"
-        className="scroll-mt-20 bg-surface section-y md:scroll-mt-28"
-      >
-        <Container>
-          <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(16rem,0.85fr)] lg:gap-14">
-            <div>
-              <Reveal>
-                <SectionBadge label={formSection.eyebrow} />
-                <h2 className="mt-5 font-display text-xl font-extrabold tracking-tight text-on-surface sm:text-2xl md:text-3xl">
-                  {formSection.title}
-                </h2>
-                <p className="mt-3 max-w-xl text-sm leading-7 text-on-surface-variant md:text-base">
-                  {formSection.description}
+      <Section id="contact-form" tone="muted" className="scroll-mt-20 md:scroll-mt-28">
+        <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(16rem,0.85fr)] lg:gap-14">
+          <div>
+            <Reveal>
+              <Eyebrow>{formSection.eyebrow}</Eyebrow>
+              <h2 className="mt-5 font-display text-[length:var(--type-h2)] font-semibold tracking-[-0.025em]">
+                {formSection.title}
+              </h2>
+              <p className="mt-3 max-w-xl text-base leading-7 text-on-surface-variant">
+                {formSection.description}
+              </p>
+            </Reveal>
+
+            <Reveal from="left" className="mt-6 sm:mt-8">
+              <div className="rounded-[var(--radius-card)] border border-outline-variant bg-surface-lowest p-4 sm:p-6 md:p-8">
+                <h3 className="text-base font-semibold text-on-surface sm:text-lg">
+                  {contactContent.contactForm.title}
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-on-surface-variant">
+                  {contactContent.contactForm.description}
                 </p>
-              </Reveal>
-
-              <Reveal from="left" className="mt-6 sm:mt-8">
-                <div className="border border-outline-variant/50 bg-surface-lowest p-4 sm:p-6 md:p-8">
-                  <h3 className="text-base font-bold text-on-surface sm:text-lg">
-                    {contactContent.contactForm.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-6 text-on-surface-variant">
-                    {contactContent.contactForm.description}
-                  </p>
-                  <div className="mt-5 sm:mt-6">
-                    <ContactForm />
-                  </div>
+                <div className="mt-5 sm:mt-6">
+                  <ContactForm />
                 </div>
-              </Reveal>
-            </div>
-
-            <aside className="lg:sticky lg:top-28">
-              <Reveal>
-                <p className="font-mono text-[0.68rem] font-medium uppercase tracking-[0.12em] text-primary">
-                  {quickContact.eyebrow}
-                </p>
-                <ul className="mt-5 divide-y divide-outline-variant/40 border-y border-outline-variant/40">
-                  {stats.map((item) => (
-                    <li key={item.id} className="py-4">
-                      <p className="font-display text-lg font-bold text-on-surface">{item.value}</p>
-                      <p className="mt-1 text-sm text-on-surface-variant">{item.label}</p>
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-5 text-sm leading-6 text-on-surface-variant">
-                  {contactContent.onSite.description}
-                </p>
-              </Reveal>
-            </aside>
+              </div>
+            </Reveal>
           </div>
-        </Container>
-      </section>
+
+          <aside className="lg:sticky lg:top-28">
+            <Reveal>
+              <Eyebrow>{quickContact.eyebrow}</Eyebrow>
+              <ul className="mt-5 divide-y divide-outline-variant/40 border-y border-outline-variant/40">
+                {stats.map((item) => (
+                  <li key={item.id} className="py-4">
+                    <p className="font-display text-lg font-semibold text-on-surface">{item.value}</p>
+                    <p className="mt-1 text-sm text-on-surface-variant">{item.label}</p>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-5 text-sm leading-6 text-on-surface-variant">
+                {contactContent.onSite.description}
+              </p>
+            </Reveal>
+          </aside>
+        </div>
+      </Section>
       <BeforeYouBook showCta={false} />
     </div>
   );

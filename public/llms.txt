@@ -1,14 +1,14 @@
 # Stamped
 
-> Stamped helps Indian auto-component plants in forging, heat treatment and precision machining cut rejections, get more output from the lines they already have, and use less energy in every good part. It models each plant's processes and equipment from the data it already records (machines, control systems, meters, ERP and quality registers), finds where output, quality and energy are lost, and sends the change that fixes it to the person who owns it. Stamped recommends and your team decides; any change runs only inside limits set beforehand.
+> Stamped helps Indian auto-component plants in forging, heat treatment and precision machining cut rejections, get more output from the lines they already have, and use less energy in every good part. Quelta improves process and quality from the data the plant already records; Orrery answers Ask questions from the same record. Energy is counted in every action Quelta recommends. Stamped recommends and your team decides; any change runs only inside limits set beforehand.
 
 ## About the name
 
 - Company: Stamped (https://stamped.work/)
 - Stamped Energy is a product line name and the LinkedIn company page name, not the company's only focus.
 - LinkedIn company page: https://www.linkedin.com/company/stamped-ai
-- Suite: Stamped Industrial Intelligence Suite — product lines cover process, quality, production and planning, maintenance, control and energy.
-- Legacy URL /solutions/load-energy now redirects (308) to /solutions/process.
+- Suite: Stamped Industrial Intelligence Suite — live products are Quelta (Process and Quality) and Orrery (Ask). Energy is counted in every action; Stamped Energy is that honesty, not a third SKU beside them.
+- Legacy /solutions/* URLs permanently redirect (308) to /products, /products/process-quality, or /products/scheduling.
 
 Public marketing site: https://stamped.work
 Product showcase: https://showcase.stamped.work
@@ -29,13 +29,11 @@ AI discovery: https://stamped.work/.well-known/ai.txt, https://stamped.work/ai/s
 ## Products
 
 Suite: Stamped Industrial Intelligence Suite
-Product lines:
-- Stamped Energy
-- Stamped Process
-- Stamped Production
-- Stamped Maintenance
-- Stamped Control
-- Stamped Quality
+Two products (each sold on its own):
+- Quelta — Process and Quality (maintenance flags when a machine drifts)
+- Orrery — Ask (AI agent for manufacturing, grounded in your plant)
+- Energy is counted in every action Quelta recommends; Stamped Energy is honesty about that, not a separate product you buy beside Quelta and Orrery.
+- Scheduling — coming soon (noindex); re-sequences the shift after a stop.
 
 ## Entity definition (for AI answer engines)
 
@@ -60,8 +58,8 @@ Stamped then turns that understanding into specific actions and sends each one t
 
 ## Navigation
 
-What we improve · How it works · Industries · Resources · About · Contact
-Hub routes: /solutions, /platform, /industries, /case-studies, /about, /contact
+Products · How it works · Industries · Resources · About · Contact
+Hub routes: /products, /platform, /industries, /case-studies, /about, /contact
 
 ## How it works
 
@@ -73,24 +71,21 @@ Results: Once your team makes a change, Stamped checks the result against your o
 What each result shows goes back into the models, so the next recommendation is better.
 Stamped recommends and your team decides.
 
-## What Stamped improves
+## Products (live)
 
-- [Process](https://stamped.work/solutions/process): Better settings, control rules and restart routines for each line, tried on a model first and applied inside limits set beforehand.
-- [Quality](https://stamped.work/solutions/quality): Link process data to every lot, get a warning while a batch can still be saved, and have each lot's record ready when the auditor or the customer asks.
-- [Planning](https://stamped.work/solutions/planning): When the plan breaks, get a re-plan that accounts for the whole plant, along with what each option would do to output and delivery.
-- [Maintenance](https://stamped.work/solutions/maintenance): We are building this next: maintenance that says what to fix and when, ranked by what each stop costs and planned around your production.
-- Energy: Energy follows every operating decision. Counted inside every action in all four areas.
-Hub: [What we improve](https://stamped.work/solutions)
+- [Quelta — Process and Quality](https://stamped.work/products/process-quality): Fewer rejections and less energy per good part, with maintenance flags when a machine drifts.
+- [Orrery — Ask](https://stamped.work/products/ask): A specialised AI agent for manufacturing that you chat with, grounded in your own plant.
+- Energy: counted inside every action Quelta recommends (energy-in-every-action honesty; not a separate product page).
+- Scheduling: coming soon at https://stamped.work/products/scheduling (noindex; not in sitemap).
+Hub: [Products](https://stamped.work/products)
 
 ## Core pages (live)
 
-- [Stamped | Industrial AI from monitoring to improving](https://stamped.work/): Stamped models your processes and equipment from the data you already log, finds where output, quality and energy are lost, and recommends the fix.
+- [Stamped | Industrial AI from monitoring to improving](https://stamped.work/): Quelta improves process and quality from data you already log. Orrery answers Ask questions from the same record. Energy is counted in every action.
 - [How it works on ERP, SCADA and quality data | Stamped](https://stamped.work/platform): Stamped connects to the ERP, SCADA/MES and quality records your plant already runs. No hardware retrofit. Stamped recommends and your team decides.
-- [What we improve | Industrial AI | Stamped](https://stamped.work/solutions): Stamped improves process, quality and planning from the data you already log, inside limits set beforehand, with energy counted in each.
-- [Stamped Process & Control | Process optimisation for plants](https://stamped.work/solutions/process): Stamped flags drift against your plant's best runs, tries the next setting on a model of the line first, and works only inside limits set beforehand.
-- [Stamped Quality | Catch drift before a batch is rejected](https://stamped.work/solutions/quality): Cut rejections by catching process drift early: Stamped warns while the lot or batch can still be saved when conditions match past rejection patterns.
-- [Stamped Production | Production planning AI for plants](https://stamped.work/solutions/planning): Plan around how your plant really runs. Stamped warns when the plan is about to slip and suggests a better order of work for your planner.
-- [Stamped Maintenance | Predictive maintenance, coming soon](https://stamped.work/solutions/maintenance): Coming soon. Stamped will spot which machine is starting to wear and suggest the best window to fix it, planned around production.
+- [Products | Quelta and Orrery | Stamped](https://stamped.work/products): Quelta improves how every line runs. Orrery answers questions about it. Each is sold on its own, with energy counted in every recommended action.
+- [Quelta | Process and Quality | Stamped](https://stamped.work/products/process-quality): Quelta joins every machine record to the result of each part, flags drift while a lot can still be saved, and proves each gain in your own numbers.
+- [Orrery | Ask | Stamped](https://stamped.work/products/ask): Orrery is Ask for manufacturing: chat with an AI agent grounded in your plant's own records. It reads only and names the evidence behind every answer.
 - [Industries | Stamped](https://stamped.work/industries): Stamped improves process, quality, planning and maintenance in auto-component, steel, cement, pharma and chemical plants.
 - [Forging & auto-component plants: fewer OEM rejects | Stamped](https://stamped.work/industries/automotive): For auto-component plants in forging, heat treatment and machining that supply OEMs: fewer rejections reach your customer, from data you already record.
 - [Steel plant operations | Stamped](https://stamped.work/industries/steel): For induction and arc furnace melt shops and rolling mills: power per tonne, heat chemistry, yield and cobbles, improved from the data your plant records.
@@ -105,31 +100,23 @@ Hub: [What we improve](https://stamped.work/solutions)
 
 - Badge: Industrial AI
 - H1: From monitoring your plant to improving it.
-- Supporting: Stamped models your processes and equipment from the data you already log, then its AI agents learn from that model to watch every run, find where output, quality and energy are being lost, and recommend the change that fixes it, inside limits set beforehand.
+- Supporting: Stamped joins the records your plant already keeps, catches lots at risk while they can still be saved, and recommends better settings. It works inside limits set beforehand, and your team decides.
 - FAQ section: visible on homepage with FAQPage JSON-LD
 
 ## Homepage FAQ
 
 - Q: What does Stamped do?
-  A: Stamped connects to the systems already in your plant and learns how it actually runs. It finds where efficiency is lost across process, quality, planning and maintenance, improves control, alerts your team in real time while a lot can still be saved, and sends ranked actions to the people who can act on them, then checks the results against your own baseline.
-- Q: Do we need new hardware, or another system next to MES, ERP and SCADA?
-  A: No hardware retrofit is needed to get started, because Stamped is software that works with the systems you already run. It is not another MES or CMMS: your MES, ERP and SCADA are where the data comes from, and Stamped works alongside them. Stamped brings their data onto one timeline, so they finally work as one picture of the plant.
-- Q: Is Stamped an AI agent for manufacturing?
-  A: In plain terms, yes. Stamped's AI agents for manufacturing read your plant's data on every shift, spot what is costing you output or quality, and send the right person a specific next step. It does the checking your best engineer would do if they could watch every line on every shift.
-- Q: Who decides what changes, and what does Stamped add if my supervisors already know the plant?
-  A: Your team decides. Your plant head sets the limits, Stamped acts only inside them, and every change is logged. Your senior supervisors usually know the plant well, and Stamped is built to back them up: it looks at every line on every shift, including the shifts they are not on, and writes down what it finds with the reasoning, so the night shift gets the same advice the day shift gets from your best hands.
-- Q: Does Stamped get better over time?
-  A: Yes. It learns from every action your team accepts, adjusts or turns down, and from the ones it chose to hold back, and its models are retrained on your plant's data as it runs. Each improvement is tested on past shifts before your team approves it, so the advice gets sharper every week.
-- Q: Where does our data go?
-  A: We sign an NDA before the site survey, and during the survey and the pilot we work only with the data your team agrees to share.
-- Q: How do actions reach the floor, and how much of my team's time does this take?
-  A: Each action goes on WhatsApp or on screen to the supervisor, engineer or maintenance lead who already owns that work, so nobody has to learn a new system before they can act on one, and nothing sits on a screen that only the plant head opens once a month. During the site survey we need some hours with your plant head and your quality and maintenance leads, planned around production.
-- Q: How do we start?
-  A: We start with a site survey, which means a few days on your floor and a written read-out of where efficiency is being lost and what we would change first. If it makes sense, that is followed by a paid pilot on one line for eight to twelve weeks.
-- Q: What does it cost?
-  A: We don't publish prices, because they depend on the plant. During the site survey we agree only the price of the pilot, once we know which line and which problem it will cover. The pilot is a paid engagement of 8 to 12 weeks, priced on its own and not tied to an annual contract value, and the annual contract price is decided afterwards, based on the results of the pilot.
-- Q: Some of our records are still on paper or in Excel. Can we start?
-  A: Yes. Most plants keep some registers on paper or in Excel, and the site survey tells you plainly whether what you already record is enough to start on one line, and what would be worth recording if it is not.
+  A: Stamped joins the records your plant already keeps, catches lots at risk while they can still be saved, and recommends better settings. Quelta improves how every line runs. Orrery answers questions about the plant. Stamped works inside limits set beforehand, and your team decides.
+- Q: Do we need new sensors or hardware?
+  A: Nothing new to install to start. Stamped joins the machine, lot and lab records you already keep. Where early wear needs a sensor to see, Quelta can tell you where one would pay. The site survey says plainly whether what you already record is enough.
+- Q: Does Stamped change settings on its own?
+  A: Only after your engineer has approved that kind of change, and only inside limits your plant head sets. Stamped can narrow those limits and never widen them. Every change is checked against the limits before it reaches the line, Stop returns the line to its previous settings, and every write is logged. Orrery reads only and changes nothing.
+- Q: How are Quelta and Orrery different, and are they sold separately?
+  A: Quelta is Process and Quality: it flags drift, ranks likely causes, proves gains, and raises maintenance flags with a suggested fix. Orrery is Ask: you chat with a specialised AI agent for manufacturing, grounded in your own plant. Each is sold on its own. With Quelta installed, Orrery can also draw on its models and likely causes.
+- Q: What data do you need?
+  A: The machine, lot and lab records you already keep, plus whatever your team agrees to share for the survey and pilot. We sign an NDA before the site survey. Most plants keep some registers on paper or in Excel, and the survey tells you if that is enough to start on one line.
+- Q: How does a pilot work?
+  A: We start with a site survey on your floor, then a replay of your worst lots. If it makes sense, a paid pilot runs for 8 to 12 weeks on one line. The annual subscription is priced from the loss measured in the pilot. You decide on anything longer only after you have seen the results.
 
 ## How it works FAQ
 
@@ -144,41 +131,19 @@ Hub: [What we improve](https://stamped.work/solutions)
 - Q: How do we know a change worked?
   A: Once your team makes a change, Stamped checks the result against your own baseline. What each result shows goes back into the models, so the next recommendation is better.
 
-## Solution area FAQs
+## Product FAQs
 
-### Process (https://stamped.work/solutions/process)
-- Q: How does Stamped improve a process?
-  A: Stamped builds a model of each line from its own history, combining the physics of the process with what past runs show. A better setting, control rule or restart routine is tried on that model first, then shown to your process engineer with the record behind it.
-- Q: Where do most process losses come from?
-  A: Most process losses come from a setting that has slowly drifted, a restart that night shift handles differently from day shift, or a line running faster than the next station can absorb, far more often than from a broken machine.
-- Q: Does Stamped change settings on the line by itself?
-  A: Yes, once your engineer has approved that kind of change, and only inside limits set beforehand. Your plant head sets the limits, every change is logged, and loads that must stay on stay with you.
-- Q: How is energy counted in process changes?
-  A: Restarts, reheats and settings that have drifted all use energy that never ends up in a good part, so every process change shows what it does to energy per good part as well as to output and quality.
-
-### Quality (https://stamped.work/solutions/quality)
-- Q: How does Stamped help reduce rejections?
-  A: Stamped links process data to each lot and batch and learns which conditions came before past rejections. Where live data is connected, it watches each batch as it moves and warns the right person while there is still time to act, so the batch is saved instead of sorted afterwards.
-- Q: What kind of warnings does the team get?
-  A: For example, a batch drifting toward the conditions seen before past rejections, or a sensor that has stopped moving. Where a check is against a written limit, the card gives a clear yes or no, and where it is a prediction, the card shows how confident the model is.
-- Q: Can Stamped correct a batch on its own?
-  A: Where a process setting is the cause, yes, inside limits set beforehand. Holding and releasing lots stays with your quality team.
-- Q: Does Stamped help with audits and customer complaints?
-  A: Yes. Process data is linked to every lot, so each lot's record is ready when the auditor or the customer asks, for example for an 8D on a customer complaint.
-
-### Planning (https://stamped.work/solutions/planning)
-- Q: What does Stamped do when the production plan breaks?
-  A: When something changes, such as a changeover running long, a machine tripping or material arriving late, Stamped proposes the order of work that suits the plant as a whole and shows what each option would do to output and delivery.
-- Q: What does Stamped keep track of to re-plan?
-  A: Which machines are running, down or waiting, what material is on hand, which dispatches are due and when maintenance is booked.
-- Q: Who makes the final scheduling decision?
-  A: The planner. Stamped ranks the options with the trade-offs of each in front of them, and promise dates, customer priority and dispatch order stay with the planner.
-- Q: How does planning affect energy use?
-  A: Grouping similar work, filling loads and timing heat-up to the moment the next job is ready keep machines from running hot and empty, and tariff windows are weighed as one input to the plan.
-
-### Maintenance (https://stamped.work/solutions/maintenance)
-- Q: Is maintenance available yet?
-  A: Not yet. We are building it next. It will rank stops by what they cost, flag machines starting to drift and suggest the best window for the fix, planned around production.
+### Quelta (https://stamped.work/products/process-quality)
+- Q: What does Quelta do?
+  A: Quelta joins every machine record to the result of each part, flags drift while a lot can still be saved, ranks likely causes with the records behind them, and proves each gain in your own numbers. It also raises maintenance flags with a suggested fix when a machine drifts from healthy running.
+- Q: Do we need new sensors?
+  A: Nothing new to install to start. Where early wear needs a sensor to see, Quelta tells you where one would pay. Your maintenance head decides.
+- Q: Does Quelta change settings on the line by itself?
+  A: Only after your engineer has approved that kind of change, and only inside limits set beforehand. Every change is logged, and Stop returns the line to its previous settings.
+- Q: Is this predictive or prescriptive maintenance?
+  A: It is built to go a step further than a plain prediction. When a machine drifts from how it runs when healthy, Quelta raises a flag with the likely cause and the action it recommends, ranked by what a stop costs the line. Your maintenance head decides.
+- Q: Is Quelta sold with Orrery?
+  A: Each is sold on its own. With Quelta installed, Orrery can also draw on its models and likely causes.
 
 ## Common questions Stamped answers
 
@@ -186,6 +151,7 @@ Hub: [What we improve](https://stamped.work/solutions)
 - How is Stamped different from MES, ERP, SCADA or a dashboard? → It works alongside them. It reads the data they already hold, learns how the plant actually runs, finds where efficiency is lost, and sends ranked actions to the person who can act, then checks the result with the plant team.
 - Who is it for? → Mid-market manufacturers in India, from a few hundred crore rupees of revenue upward; automotive components first.
 - Does it need new hardware? → No. Stamped connects to the systems the plant already runs, so there is nothing new to install before work starts.
+- How are Quelta and Orrery different? → Quelta is Process and Quality (flags drift, ranks causes, proves gains, maintenance flags). Orrery is Ask (chat with an AI agent grounded in your plant). Each is sold on its own.
 - How are results measured? → Against the plant's own baseline, in the units the team already tracks. What the pilot should achieve is agreed in writing during the site survey, together with the price of the pilot.
 - How does an engagement start? → A site survey of a few days on the floor, then a written read-out, then, if it makes sense, a paid pilot on one line for 8 to 12 weeks.
 - How is it priced? → We don't publish prices, because they depend on the plant. During the site survey we agree only the price of the pilot, once we know which line and which problem it will cover. The pilot is a paid engagement of 8 to 12 weeks, priced on its own and not tied to an annual contract value, and the annual contract price is decided afterwards, based on the results of the pilot.
@@ -263,6 +229,7 @@ Mid-market manufacturers in India, from a few hundred crore rupees of revenue up
 
 - Measured against your own plant's baseline, in the units your team already tracks
 - Stamped works inside limits set beforehand
+- Energy is counted in every action
 - Example actions and sample findings are illustrative and carry no real figures
 
 ## About (safe facts)
@@ -281,4 +248,5 @@ Mid-market manufacturers in India, from a few hundred crore rupees of revenue up
 
 ## Crawling
 
-All public pages are open to search and AI crawlers. Admin CMS (`/blog/admin`), API routes (`/api/`), and build assets (`/_next/`) are disallowed in robots.txt.
+All public pages are open to search and AI crawlers except /products/scheduling and /design-system (noindex). Admin CMS (`/blog/admin`), API routes (`/api/`), and build assets (`/_next/`) are disallowed in robots.txt. Sitemap omits scheduling and the design system.
+

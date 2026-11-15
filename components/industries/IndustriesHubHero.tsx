@@ -5,8 +5,7 @@ import { useRef } from "react";
 
 import { useMotion } from "@/components/motion/MotionProvider";
 import { Button } from "@/components/ui/Button";
-import { Container } from "@/components/ui/Container";
-import { SectionBadge } from "@/components/ui/SectionBadge";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 import { industriesContent } from "@/lib/content";
 import { gsap, useGSAP } from "@/lib/motion/gsap";
 
@@ -35,7 +34,7 @@ export function IndustriesHubHero() {
   return (
     <section
       ref={sectionRef}
-      className="page-hero relative overflow-hidden bg-secondary"
+      className="relative overflow-hidden bg-[var(--brand-inverse-surface)] text-inverse-on-surface"
     >
       <div className="absolute inset-0">
         <Image
@@ -46,40 +45,41 @@ export function IndustriesHubHero() {
           className="object-cover object-center"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-secondary/70" />
+        <div className="absolute inset-0 bg-[var(--brand-inverse-surface)]/70" />
       </div>
 
-      <Container className="relative z-10">
+      <div className="container-page relative z-10 section-y !pt-28 md:!pt-32">
         <div className="max-w-2xl">
           <div data-hub-hero>
-            <SectionBadge label={hub.eyebrow} alternate />
+            <Eyebrow tone="dark">{hub.eyebrow}</Eyebrow>
           </div>
           <h1
             data-hub-hero
-            className="mt-5 font-display text-3xl font-extrabold leading-tight tracking-tight text-on-secondary md:text-4xl lg:text-[2.75rem]"
+            className="mt-5 font-display text-[length:var(--type-display-l)] font-semibold leading-[1.08] tracking-[-0.03em] text-balance"
           >
             {hub.title}
           </h1>
           <p
             data-hub-hero
-            className="mt-4 max-w-xl text-sm leading-7 text-on-secondary/85 md:text-base"
+            className="mt-4 max-w-xl text-base leading-7 text-white/70 md:text-lg md:leading-8"
           >
             {hub.description}
           </p>
-          <div data-hub-hero className="mt-6 flex flex-col gap-3 sm:mt-7 sm:flex-row">
-            <Button href={hub.primaryCta.href} variant="primary" className="w-full sm:w-auto">
+          <div data-hub-hero className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row">
+            <Button href={hub.primaryCta.href} variant="on-dark" size="lg" className="w-full sm:w-auto">
               {hub.primaryCta.label}
             </Button>
             <Button
               href={hub.secondaryCta.href}
-              variant="outline"
-              className="w-full border-on-secondary/30 bg-on-secondary/5 text-on-secondary hover:bg-on-secondary/10 sm:w-auto"
+              variant="ghost"
+              size="lg"
+              className="w-full text-white hover:bg-white/10 sm:w-auto"
             >
               {hub.secondaryCta.label}
             </Button>
           </div>
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

@@ -6,16 +6,16 @@
 
 | Phase | Status |
 |-------|--------|
-| 0 Plan, ADRs, copy deck, canon | In progress → complete this commit |
-| 1 Agent design research | Next |
-| 2 Design system + visual checkpoint | Pending |
-| 3 IA, products content, redirects | Pending |
-| 4 Homepage nine bands | Pending |
-| 5 Agent review A | Pending |
-| 6 Product pages + mascot | Pending |
-| 7 Secondary pages | Pending |
-| 8 Agent review B + SEO | Pending |
-| 9 Final QA, DESIGN.md, PR | Pending |
+| 0 Plan, ADRs, copy deck, canon | Done |
+| 1 Agent design research | Done |
+| 2 Design system + visual checkpoint | Done |
+| 3 IA, products content, redirects | Done |
+| 4 Homepage nine bands | Done |
+| 5 Agent review A | Done |
+| 6 Product pages + mascot | Done |
+| 7 Secondary pages | Done |
+| 8 Agent review B + SEO | Done |
+| 9 Final QA, DESIGN.md, PR | Done |
 
 Copy SSOT: `docs/copy/v4-copy-deck.md`. Products: Quelta, Orrery; Scheduling coming soon.
 

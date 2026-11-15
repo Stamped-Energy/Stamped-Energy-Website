@@ -4,14 +4,15 @@ import { useRef } from "react";
 
 import { useMotion } from "@/components/motion/MotionProvider";
 import { Button } from "@/components/ui/Button";
-import { Container } from "@/components/ui/Container";
-import { SectionBadge } from "@/components/ui/SectionBadge";
+import { Eyebrow } from "@/components/ui/Eyebrow";
+import { ProductFrame } from "@/components/ui/ProductFrame";
+import { Section } from "@/components/ui/Section";
 import { howItWorksContent } from "@/lib/content";
 import { gsap, useGSAP } from "@/lib/motion/gsap";
 
 export function HiwOpening() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const { hero } = howItWorksContent;
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const { hero, trustLines } = howItWorksContent;
   const { isReady, prefersReducedMotion } = useMotion();
 
   useGSAP(
@@ -35,38 +36,48 @@ export function HiwOpening() {
   );
 
   return (
-    <section
-      ref={sectionRef}
-      className="page-hero relative overflow-hidden border-b border-outline-variant/40 bg-surface"
-    >
-      <Container className="relative z-10 w-full">
-        <div data-hiw-opening className="mb-5 md:mb-10">
-          <SectionBadge label={hero.eyebrow} />
+    <div ref={sectionRef}>
+      <Section tone="light" className="!pt-28 md:!pt-32">
+        <div data-hiw-opening>
+          <Eyebrow>{hero.eyebrow}</Eyebrow>
         </div>
 
-        <div className="grid gap-5 md:gap-8 lg:grid-cols-2 lg:items-end lg:gap-16 xl:gap-20">
+        <div className="mt-5 grid gap-8 lg:mt-8 lg:grid-cols-2 lg:items-end lg:gap-16 xl:gap-20">
           <h1
             data-hiw-opening
-            className="font-display text-[2.15rem] font-bold leading-[1.08] tracking-[-0.03em] text-on-surface sm:text-5xl md:text-6xl lg:text-[3.75rem]"
+            className="font-display text-[length:var(--type-display-l)] font-semibold leading-[1.08] tracking-[-0.03em] text-balance"
           >
             {hero.title}
           </h1>
 
           <div data-hiw-opening className="w-full min-w-0">
-            <p className="text-sm leading-7 text-on-surface/80 md:text-lg md:leading-8">
+            <p className="text-base leading-7 text-on-surface-variant md:text-lg md:leading-8">
               {hero.description}
             </p>
-            <div className="relative z-20 mt-4 flex w-full flex-col items-stretch gap-3 sm:mt-7 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center">
-              <Button href={hero.primaryCta.href} variant="primary" className="w-full sm:w-auto">
+            <div className="relative z-20 mt-6 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center">
+              <Button href={hero.primaryCta.href} variant="primary" size="lg" className="w-full sm:w-auto">
                 {hero.primaryCta.label}
               </Button>
-              <Button href={hero.secondaryCta.href} variant="outline" className="w-full sm:w-auto">
+              <Button href={hero.secondaryCta.href} variant="secondary" size="lg" className="w-full sm:w-auto">
                 {hero.secondaryCta.label}
               </Button>
             </div>
+            <ul className="mt-6 space-y-1.5 text-sm text-on-surface-variant">
+              {trustLines.map((line) => (
+                <li key={line}>{line}</li>
+              ))}
+            </ul>
           </div>
         </div>
-      </Container>
-    </section>
+
+        <div data-hiw-opening className="mx-auto mt-12 max-w-4xl md:mt-16">
+          <ProductFrame
+            src="/images/product/v4/data-health.png"
+            alt="Plant records joined on one timeline"
+            title="How it works · Connect"
+          />
+        </div>
+      </Section>
+    </div>
   );
 }
