@@ -5,6 +5,8 @@ alwaysApply: true
 
 # Planning Rules
 
+For design depth, briefs, and plan-then-build splits, use skills **`think-before-ship`** and **`briefing-and-planning`** (`docs/PLAN_THEN_BUILD.md`). This file remains the approval and phase contract.
+
 ## No Immediate Implementation
 
 - Never begin implementation immediately.

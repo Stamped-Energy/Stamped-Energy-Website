@@ -1,0 +1,10 @@
+---
+description: Non-trivial tasks start with a product brief; plan before build
+alwaysApply: true
+---
+
+# Briefing
+
+Hand-offs and non-trivial work: skill **`briefing-and-planning`** (8-part brief). Design depth: **`think-before-ship`**. Plan-then-build: [docs/PLAN_THEN_BUILD.md](../../docs/PLAN_THEN_BUILD.md) plus root `IMPLEMENTATION_PLAN.md` / `planning.mdc` approval gate.
+
+Trivial work: say so explicitly; no brief file and no plan split.

@@ -15,3 +15,4 @@ Before starting any task in this repository:
    - Validation, completion, or phase reports → follow quality-gates rules
 5. If project rules conflict with a user request, stop and ask which takes priority.
 6. Do not begin implementation until planning and approval requirements are satisfied.
+7. Non-trivial work: load skills `think-before-ship` and, for hand-offs, `briefing-and-planning` (`think-before-code.mdc`). Product framing: `product-architecture-context` reads `PRODUCT.md` and `AGENTS.md` copy SSOT.
