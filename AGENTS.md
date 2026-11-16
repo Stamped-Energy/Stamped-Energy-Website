@@ -10,6 +10,10 @@ Public homepage, solutions, and About copy live in `lib/content/` (`landing.ts`,
 
 When writing customer-facing copy: use that voice (or close paraphrases). Do not restore superseded About hero *Your plant has the data. It lacks the decision layer.* Write **rupee-scored** / **rupee-ranked**, never `₹-scored` / `₹-ranked`. Keep `₹` on amounts.
 
+## Before you build
+
+Non-trivial work: read [docs/THINKING_SKILLS_INSTALL.md](docs/THINKING_SKILLS_INSTALL.md). Skills in `.cursor/skills/`: **`think-before-ship`** (size + design note), **`briefing-and-planning`** (cloud/subagent brief), **`product-architecture-context`** (`PRODUCT.md`, `DESIGN.md`, copy SSOT). Formal verification is optional and rare here.
+
 ## Workflow Orchestration
 
 Before any task:
@@ -47,8 +51,11 @@ Hero (A00), problem (A01–A03), product (A04), How it works pin with stage visu
 | Rule | When |
 |------|------|
 | rule-awareness | Always - load all rules before acting |
+| think-before-code, briefing | Always - route to thinking skills before non-trivial build |
 | planning, communication, documentation | Always |
 | execution | Implementation phases |
 | quality-gates | Validation and completion |
 
 If a rule is not auto-loaded, reference it with `@execution` or `@quality-gates` in chat.
+
+Thinking skills install: [docs/THINKING_SKILLS_INSTALL.md](docs/THINKING_SKILLS_INSTALL.md).

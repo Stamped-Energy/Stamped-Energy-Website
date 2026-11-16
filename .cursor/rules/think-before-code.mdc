@@ -1,0 +1,21 @@
+---
+description: Non-trivial work starts with design and product context, not code
+alwaysApply: true
+---
+
+# Think before code
+
+Consequential work: **`briefing-and-planning`** (hand-off) and **`think-before-ship`** (design note, size skip/medium/large) before code. Formal methods: **`formal-verification-starter`** only if its checklist passes (unusual here).
+
+Install pointer: [docs/THINKING_SKILLS_INSTALL.md](../../docs/THINKING_SKILLS_INSTALL.md).
+
+Skills (not long rules):
+
+| Need | Skill |
+|------|--------|
+| Design note, adversarial pass, statechart | `think-before-ship` |
+| Product, brand, copy SSOT | `product-architecture-context` |
+| Cloud/subagent brief, plan-then-build | `briefing-and-planning` |
+| TLA+ / Lean when warranted | `formal-verification-starter` |
+
+Existing phase workflow (`planning.mdc`, `execution.mdc`, `quality-gates.mdc`) still applies. These skills add sizing, briefs, and design notes; they do not replace approval gates.
