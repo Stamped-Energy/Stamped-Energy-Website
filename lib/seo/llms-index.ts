@@ -11,7 +11,7 @@ import { PAGE_SEO, type PageSeoConfig } from "@/lib/seo/pages";
 
 /** Opening summary for llms.txt and llms-full.txt (metadata / AEO; not on-page body copy). */
 export const LLMS_OPENING_SUMMARY =
-  "Stamped helps Indian auto-component plants in forging, heat treatment and precision machining cut rejections, get more output from the lines they already have, and use less energy in every good part. It models each plant's processes and equipment from the data it already records (machines, control systems, meters, ERP and quality registers), finds where output, quality and energy are lost, and sends the change that fixes it to the person who owns it. Stamped recommends and your team decides; any change runs only inside limits set beforehand.";
+  "Stamped connects the data a plant already records, finds where output, quality and energy are lost, and recommends the change that fixes it. The plant team sets the limits and decides.";
 
 /** Prefer production origin for static public/llms.txt (committed file). */
 function llmsSiteUrl(): string {

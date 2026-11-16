@@ -63,9 +63,9 @@ export const PAGE_SEO = {
     ],
   },
   solutionsProcess: {
-    absoluteTitle: `${SOLUTION_AREA_PRODUCT_LINE_TITLE.process} | Process optimisation for plants`,
+    absoluteTitle: "Process drift detection for plants | Stamped Process",
     description:
-      "Stamped flags drift against your plant's best runs, tries the next setting on a model of the line first, and works only inside limits set beforehand.",
+      "Stamped detects process drift against your plant's best runs, tries the next setting on a model of the line first, and works only inside limits set beforehand.",
     path: "/solutions/process",
     keywords: [
       "process optimisation manufacturing",
@@ -130,14 +130,14 @@ export const PAGE_SEO = {
   blog: {
     absoluteTitle: "Notes from the plant floor | Stamped",
     description:
-      "Notes from the plant floor on rejections, restarts, heat treatment, machining and maintenance, written for plant heads and the engineers who run the lines.",
+      "Notes from the plant floor on rejections, restarts, heat treatment, maximum demand charges, machining and maintenance, for plant heads and line engineers.",
     path: "/case-studies",
     keywords: ["manufacturing operational efficiency India", "reduce rejection manufacturing", "plant floor notes"],
   },
   caseStudies: {
     absoluteTitle: "Notes from the plant floor | Stamped",
     description:
-      "Notes from the plant floor on rejections, restarts, heat treatment, machining and maintenance, written for plant heads and the engineers who run the lines.",
+      "Notes from the plant floor on rejections, restarts, heat treatment, maximum demand charges, machining and maintenance, for plant heads and line engineers.",
     path: "/case-studies",
     keywords: ["manufacturing operational efficiency India", "reduce rejection manufacturing", "plant floor notes"],
   },
