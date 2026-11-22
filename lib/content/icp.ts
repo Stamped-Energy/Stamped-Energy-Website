@@ -18,10 +18,10 @@ export const icp = {
     categoryLabel: "Industrial AI",
     /** Entity sentence for AEO / GEO (cite verbatim in llms.txt and Organization schema). */
     entityDefinition:
-      "Stamped is industrial AI, from monitoring your plant to improving it. It models a manufacturing plant's processes and equipment from the data it already records, from its machines and control systems to its meters, ERP and quality registers. Its AI agents then find where output, quality and energy are being lost and recommend the change that fixes it, within limits the plant team sets. Stamped is built in India and is starting with auto-component makers in forging, heat treatment and precision machining.",
-    /** Short meta description pattern. */
+      "Stamped connects the data a plant already records, finds where output, quality and energy are lost, and recommends the change that fixes it. The plant team sets the limits and decides. Stamped is built in India and is starting with auto-component makers in forging, heat treatment and precision machining.",
+    /** Short meta description pattern (WebSite JSON-LD and global metadata supplements). */
     metaDescription:
-      "Stamped is industrial AI, from monitoring your plant to improving it. It models your plant from the data it already records and its agents improve process, quality and planning.",
+      "Stamped connects the data a plant already records, finds where output, quality and energy are lost, and recommends the fix. Your team sets limits and decides.",
     /** Audience line for llms.txt and docs. */
     audienceLine:
       "Mid-market manufacturers in India, from a few hundred crore rupees of revenue upward; automotive components first.",
