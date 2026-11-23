@@ -6,6 +6,7 @@ import { SiteChrome } from "@/components/layout/SiteChrome";
 import { MotionProvider } from "@/components/motion/MotionProvider";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/lib/content";
+import { GEO_METADATA } from "@/lib/seo/constants";
 import { siteMetadataBase } from "@/lib/seo/metadata";
 import { PAGE_SEO } from "@/lib/seo/pages";
 import { organizationSchema, websiteSchema } from "@/lib/seo/schemas";
@@ -41,6 +42,10 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: PAGE_SEO.home.description,
+  other: {
+    ...GEO_METADATA,
+    "stamped-build": process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 7) ?? "local",
+  },
 };
 
 export default function RootLayout({

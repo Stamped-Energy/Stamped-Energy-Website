@@ -78,7 +78,7 @@ export const PAGE_SEO = {
   solutionsQuality: {
     absoluteTitle: `${SOLUTION_AREA_PRODUCT_LINE_TITLE.quality} | Catch drift before a batch is rejected`,
     description:
-      "Cut rejections by catching process drift early: Stamped warns while the lot or batch can still be saved when conditions match past rejection patterns.",
+      "Stamped Quality catches process drift before a forging or casting batch is rejected, then traces each reject to its root cause with the record behind it.",
     path: "/solutions/quality",
     keywords: [
       "predictive quality manufacturing",
@@ -86,6 +86,7 @@ export const PAGE_SEO = {
       "real-time quality alarms",
       "rejection reduction auto component",
       "reduce rejection in forging",
+      "forging defect root cause analysis",
       "CQI-9 heat treatment records",
       "8D root cause data",
     ],
