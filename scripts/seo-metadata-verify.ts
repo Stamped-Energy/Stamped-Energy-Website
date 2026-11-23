@@ -56,8 +56,11 @@ const orgJson = JSON.stringify(organizationSchema);
 if (!orgJson.includes("disambiguatingDescription")) {
   failures.push("Organization schema missing disambiguatingDescription");
 }
-if (!orgJson.includes("industrial AI for manufacturing plants in India")) {
-  failures.push('Organization disambiguatingDescription should use "industrial AI" casing');
+if (!orgJson.includes("stamped.work")) {
+  failures.push("Organization disambiguatingDescription should name stamped.work for entity disambiguation");
+}
+if (!orgJson.includes("Not affiliated with STAMP Energy")) {
+  failures.push("Organization disambiguatingDescription should disambiguate from STAMP Energy");
 }
 if (orgJson.includes("alumniOf")) {
   failures.push("Organization or embedded Person schema should not use alumniOf for founders");

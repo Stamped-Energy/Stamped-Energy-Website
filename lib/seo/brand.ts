@@ -1,6 +1,5 @@
 /** Product suite and lines (brand architecture). Used in JSON-LD and llms indexes only. */
 
-import { icp } from "@/lib/content/icp";
 import { ORGANIZATION_ID } from "@/lib/seo/constants";
 
 export const STAMPED_SUITE_NAME = "Stamped Industrial Intelligence Suite";
@@ -18,7 +17,7 @@ export const SOLUTION_AREA_PRODUCT_LINE_TITLE: Record<
 
 /** Short Organization disambiguatingDescription for search and AI engines (metadata only). */
 export function stampedEntityDisambiguatingDescription(): string {
-  return `Stamped is industrial AI for ${icp.geography}. Stamped Energy is one product line of the ${STAMPED_SUITE_NAME}.`;
+  return `Stamped (stamped.work) is plant software built in India that reads the press, furnace, machine and quality data a plant already records, flags drifting batches and sends each fix to the person who owns it. Stamped Energy is one product line of the ${STAMPED_SUITE_NAME}. Not affiliated with STAMP Energy (US solar fleet power), stamped.io (e-commerce reviews) or Stamped AI (Canadian accounting).`;
 }
 
 export const STAMPED_PRODUCT_LINES = [
